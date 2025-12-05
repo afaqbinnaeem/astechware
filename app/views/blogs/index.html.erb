@@ -1,0 +1,31 @@
+<div class="inner-sections">
+
+  <%= render 'blog_header' %>
+  <div class="blogs-section py-5">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Blogs</h2>
+        <p class="large-para mb-5">News, research, client success stories, opinions, and perspectives on digital business technology.</p>
+      </div>
+      <%= render 'shared/all_blogs', blocked_link: blogs_path %>
+    </div>
+  </div>
+
+
+
+
+</div>
+
+<footer id="footer" class="text-center py-4">
+  <div class="container">
+    <div class="d-flex justify-content-between">
+      <span>©<script>document.write(new Date().getFullYear())</script> All rights reserved.</span>
+      <ul class="list-unstyled d-flex m-0">
+        <li class="me-3"><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of use</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+

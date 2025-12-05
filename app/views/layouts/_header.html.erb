@@ -1,0 +1,81 @@
+<div class="nav-holder">
+  <div class="nav-holder-wrap but-hol">
+    <div class="nav-container fl-wrap">
+      <!-- nav -->
+      <nav class="nav-inner sliding-menu" id="menu"><div class="sliding-menu-wrapper">
+        <ul id="menu-panel-hv34y" class="menu-panel-root list-unstyled m-0 p-0">
+          <li id="menu-item-347" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-13 current_page_item"><a href="/" class="ajax">Home</a></li>
+          <li id="menu-item-58" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="#astechware_about" class="ajax">About</a></li>
+          <li id="menu-item-370" class="menu-item menu-item-type-post_type menu-item-object-page"><%= link_to "Articles", blogs_path, class: "ajax" %></li>
+          <li id="menu-item-369" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="#contact_us" class="ajax">Quotations</a></li>
+          <li id="menu-item-834" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children submen-dec"><a href="#contact_us" class="nav">Contacts</a>
+          </li>
+          <% if current_user.present? %>
+            <li id="menu-item-834" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children submen-dec">
+              <%= link_to "Dashboard", dashboard_index_path, class: "nav" %>
+            </li>
+            <li id="menu-item-834" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children submen-dec">
+              <%= link_to "Log Out", destroy_user_session_path, class: "nav" %>
+            </li>
+          <% end %>
+        </ul>
+        <ul class="sub-menu menu-panel d-none" id="menu-panel-30qpy" style="width: 400px;">
+          <a class="back" href="#menu-panel-back"></a>
+          <li id="menu-item-90" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="#" class="ajax">Contacts</a></li>
+          <li id="menu-item-831" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_blank" href="#" class="">Appointments</a></li>
+        </ul></div></nav>
+        <!-- nav end-->
+    </div>
+    <div class="nav-footer"><span>
+    © AsTechware / All rights reserved. </span></div>
+    <div class="nav-holder-wrap_line"></div>
+    <div class="nav-holder-wrap_dec"></div>
+  </div>
+</div>
+
+<header class="main-header">
+  <!-- logo  -->
+  <a href="/" class="ajax logo-holder">
+    <h1 class="ns-text-logo m-0"><%= image_tag 'logo.png', width: '100', class: 'img-fluid p-2 p-sm-0', alt: "A'sTechware Logo", loading: "lazy" %></h1>
+  </a>
+  <!-- logo end -->
+  <!-- nav-button-wrap-->
+  <div class="nav-button but-hol">
+    <span class="ncs"></span>
+    <span class="nos"></span>
+    <span class="nbs"></span>
+    <div class="menu-button-text">Menu</div>
+  </div>
+  <!-- nav-button-wrap end-->
+  <!-- header-contacts-->
+  <div class="header-contacts">
+    <span href="#" class="ajax contacts-btn text-uppercase d-none d-md-block">transforming future with technology</span>
+  </div>
+  <!-- header-contacts end-->
+</header>
+
+<div class="hc_dec_color">
+  <div class="page-subtitle">
+    <a href="#contact_us" style="opacity: 1; transform: translate3d(0px, 0px, 0px);">Contact Us</a>
+  </div>
+</div>
+
+<div class="share-btn d-lg-none">
+  <div class="d-flex align-items-center justify-content-center h-100">
+    <div class="text-center">
+      <i class="fa fa-share d-block"></i>
+      <span class="menu-button-text">Share</span>
+    </div>
+  </div>
+</div>
+
+<div class="right-header">
+  <div class="right-header_social">
+    <ul class="list-unstyled m-0">
+      <li><a target="_blank" href="https://www.facebook.com/astechware"><i class="fa fa-facebook-f"></i></a></li>
+      <li><a target="_blank" href="https://twitter.com/astechware"><i class="fa fa-twitter"></i></a></li>
+      <li><a target="_blank" href="https://linkedin.com/company/astechware"><i class="fa fa-linkedin"></i></a></li>
+      <li><a target="_blank" href="https://www.instagram.com/astechware/"><i class="fa fa-instagram"></i></a></li>
+    </ul>
+  </div>
+</div>

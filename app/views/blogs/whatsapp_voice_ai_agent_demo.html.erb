@@ -1,0 +1,127 @@
+<div class="inner-sections">
+  
+  <%= render 'blog_header' %>
+  <article class="post container pt-4">
+    
+    <small class="text-primary mb-1">AI DEMO</small>
+    <h1>WhatsApp & Voice AI Agent Demo: Healthcare Triage & Appointment Booking</h1>
+
+    <div class="post-meta mb-4">
+      <div class="post-description text-muted">
+        <p class="mb-0">
+          This demo showcases the capabilities of WhatsApp and Voice AI agents for healthcare triage and appointment booking. Users can upload documents to train the AI agent with custom knowledge, interact via voice to describe symptoms, and receive urgent care recommendations. The system can book appointments, request additional details, and escalate to a human agent when needed. All interactions are logged in a web dashboard, supporting both automated and human-assisted responses for seamless healthcare support.
+        </p>
+      </div>
+    </div>
+
+    <div class="post-thumbnail my-4">
+      <%= image_tag 'ahmad/whatsapp-agent.jpeg', class: 'img-fluid w-100 rounded', alt: 'WhatsApp & Voice AI Agent Demo' %>
+    </div>
+
+    <div class="post-content">
+      <div class="entry-content">
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-12">
+
+            <h2>Overview</h2>
+            <p class="paragraph">
+              This demo presents a real-time AI solution integrating WhatsApp and Voice agents for healthcare triage and appointment booking. The system allows users to upload documents to train the AI agent with custom knowledge, interact via voice or WhatsApp, and receive intelligent responses for symptom triage and appointment scheduling. The workflow also supports escalation to a human agent and logs all interactions in a web dashboard.
+            </p>
+
+            <h3>Demo Video</h3>
+            <div class="ratio ratio-16x9 my-4 rounded overflow-hidden">
+              <iframe
+                src="https://www.youtube.com/embed/IK8swdj1g6s"
+                title="Real-Time AI WhatsApp & Voice Agent (Agentic) Demo | Built with RAG, OpenAI, Twilio, LangChain"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
+
+            <h3>Key Features</h3>
+            <ul>
+              <li>Document upload for custom AI training (RAG)</li>
+              <li>Voice AI agent for healthcare triage and appointment booking</li>
+              <li>WhatsApp AI agent for chat-based support</li>
+              <li>Urgency detection and emergency recommendations</li>
+              <li>Appointment scheduling with user details</li>
+              <li>Escalation to human agent and chat log dashboard</li>
+            </ul>
+
+            <h3>Sample Workflow</h3>
+            <ol>
+              <li>User uploads a healthcare triage document to train the agent.</li>
+              <li>Voice agent interacts with user, detects symptoms, and provides recommendations.</li>
+              <li>Agent books appointments and requests additional details as needed.</li>
+              <li>WhatsApp agent responds to chat messages and can escalate to a human agent.</li>
+              <li>All interactions are logged and visible in the web dashboard.</li>
+            </ol>
+
+            <p>
+              This solution demonstrates seamless integration of AI and human support for healthcare scenarios, ensuring both automation and personal assistance when required.
+            </p>
+
+            <h3>Technical Implementation</h3>
+            <p>
+              Built by Astechware using advanced AI technologies including RAG (Retrieval-Augmented Generation), OpenAI GPT models, Twilio for WhatsApp and Voice integration, and LangChain for orchestration. The system demonstrates production-ready AI agent capabilities that can be customized for various healthcare and service industries.
+            </p>
+
+          </div>
+        </div>
+
+      </div><!-- .entry-content -->
+
+      <div class="entry-meta entry-meta-bottom">
+        <div class="date-author">
+          <span class="entry-date">
+            <a href="#" rel="bookmark">
+              <i class="far fa-clock"></i>
+              <time class="entry-date" datetime="2024-06-07T08:29:37+00:00">June 7, 2024</time>
+            </a>
+          </span>
+          <span class="author vcard d-inline-block ms-2">
+            <a class="url fn n" href="#" rel="author">
+              <i class="fa fa-user"></i>
+              <span> Astechware</span>
+            </a>
+          </span>
+        </div>
+      </div>
+
+      <div class="post-tags">
+        <h5>Tags</h5>
+        <span class="tags">
+          <a href="#" rel="tag">AI</a>
+          <a href="#" rel="tag">Voice</a>
+          <a href="#" rel="tag">WhatsApp</a>
+          <a href="#" rel="tag">Healthcare</a>
+          <a href="#" rel="tag">Astechware</a>
+        </span>
+      </div>
+    </div>
+
+  </article>
+
+    
+  <div class="blogs-section py-5">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Related blogs</h2>
+      </div>
+      <%= render 'shared/all_blogs', blocked_link: whatsapp_voice_ai_agent_demo_path %>
+    </div>
+  </div>
+</div>
+
+<footer id="footer" class="text-center py-4">
+  <div class="container">
+    <div class="d-flex justify-content-between">
+      <span>©<script>document.write(new Date().getFullYear())</script> All rights reserved.</span>
+      <ul class="list-unstyled d-flex m-0">
+        <li class="me-3"><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of use</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>

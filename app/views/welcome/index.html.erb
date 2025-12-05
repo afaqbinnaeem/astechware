@@ -1,0 +1,38 @@
+<style type="text/css">
+  body, html {
+  height: 100%
+}
+
+.bgimg {
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  color: black;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+}
+
+.middle {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.blink_me {
+  animation: blinker 3s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+</style>
+<div class="section bgimg">
+  <div class="row middle">
+    <%= image_tag("logo.png") %>
+    <h1 class="fw-bold blink_me" style="font-size: 3.2rem; color: #242A3B;">COMING SOON</h1>
+  </div>
+</div>

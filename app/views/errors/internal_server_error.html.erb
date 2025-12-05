@@ -1,0 +1,55 @@
+<div class="intro-section">
+  <div class="swiper-container main-slider">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <figure class="slide-bgimg">
+          <%= image_tag 'bannernew2.webp', class: 'img-fluid w-100 h-100', alt: "A'sTechware Banner Image 1" %>
+        </figure>
+        <div class="content text-center" style="height: 80% !important;">
+          <p class="title mb-3" style="font-size: 250px;">500</p>
+          <span class="h3">We are sorry, but the Page you were looking for, could not be found.</span>
+          <span class="py-4">
+          	<%= link_to "Back to Home Page", root_path, class: "btn btn-primary" %>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero slider-controls -->
+  <div class="slider-progress-bar">
+    <span>
+        <svg class="circ" width="50" height="50">
+          <circle class="circ2" cx="25" cy="25" r="23" stroke="rgba(255,255,255,0.4)" stroke-width="1" fill="none"></circle>
+          <circle class="circ1" cx="25" cy="25" r="23" stroke="#fff" stroke-width="2" fill="none"></circle>
+      </svg>
+    </span>
+  </div>
+</div>
+
+
+<%# Menu JS %>
+<script>
+  const bodyTag = document.querySelector("body");
+  const buttonTag = document.querySelector(".nav-button");
+  let count = 0;
+  let socialCount = 0;
+
+  buttonTag.addEventListener("click", function(event) { count = 0 })
+  bodyTag.addEventListener("click", function(event) {  
+    if (bodyTag.classList.contains('open-dropdown')  && count > 0) {
+      bodyTag.classList.remove("open-dropdown");
+      buttonTag.classList.remove("cmenu");
+      count = 0
+    }else {
+      count++;
+    }
+
+    if (bodyTag.classList.contains('social-active') && socialCount > 0) {
+      bodyTag.classList.remove("social-active");
+      socialCount = 0
+    }else {
+      socialCount++;
+    }
+  });
+</script>
