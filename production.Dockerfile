@@ -11,7 +11,7 @@ ENV LANG=C.UTF-8 \
   BUNDLE_RETRY=3 \
   RAILS_ENV=production
 
-RUN gem update --system && gem install bundler
+RUN gem install bundler
 
 WORKDIR /usr/src/app
 

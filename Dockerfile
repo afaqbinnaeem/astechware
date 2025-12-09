@@ -14,9 +14,15 @@ ENV LANG=C.UTF-8 \
   BUNDLE_JOBS=4 \
   BUNDLE_RETRY=3
   
-RUN gem update --system && gem install bundler
+RUN gem install bundler
 
 WORKDIR /usr/src/app
+
+# Copy Gemfile and Gemfile.lock for dependency installation
+COPY Gemfile Gemfile.lock ./
+
+# Install gems at build time (cached in image)
+RUN bundle install
 
 ENTRYPOINT ["./entrypoint.sh"]
 

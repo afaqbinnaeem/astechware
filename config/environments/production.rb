@@ -123,5 +123,4 @@ Rails.application.configure do
   # in a proc. See guides for an example.
   # config.active_record.shard_selector = { lock: true }
   # config.active_record.shard_resolver = ->(request) { Tenant.find_by!(host: request.host).shard }
-  config.hosts.clear
 end
