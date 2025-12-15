@@ -7,7 +7,7 @@
       <div class="swiper-wrapper">
          <div class="swiper-slide">
             <figure class="slide-bgimg">
-               <%= image_tag 'bannernew.webp', class: 'img-fluid w-100 h-100', alt: "A'sTechware Banner Image 1" %>
+                  <%= image_tag 'bannernew.webp', class: 'img-fluid w-100 h-100', alt: "A'sTechware Banner Image 1" %>
             </figure>
             <div class="content">
                <p class="title mb-3">We'll help you make a lasting impression online - from start to success!</p>
@@ -16,7 +16,7 @@
          </div>
          <div class="swiper-slide">
             <figure class="slide-bgimg">
-               <%= image_tag 'bannernew2.webp', class: 'img-fluid w-100 h-100', alt: "A'sTechware Banner Image 1"  %>
+                  <%= image_tag 'bannernew2.webp', class: 'img-fluid w-100 h-100', alt: "A'sTechware Banner Image 1"  %>
             </figure>
             <div class="content">
                <p class="title mb-3">Let us help you reach your online potential - take your presence to the next level!</p>
@@ -25,7 +25,7 @@
          </div>
          <div class="swiper-slide">
             <figure class="slide-bgimg">
-               <%= image_tag 'bannernew3.webp', class: 'img-fluid w-100 h-100', alt: "A'sTechware Banner Image 1"  %>
+                  <%= image_tag 'bannernew3.webp', class: 'img-fluid w-100 h-100', alt: "A'sTechware Banner Image 1"  %>
             </figure>
             <div class="content">
                <p class="title mb-3">Transforming your business with software solutions that drive success.</p>
@@ -265,7 +265,7 @@
             <div class="logos-track">
                <% (logos + logos).each do |logo| %>
                <div class="logo-item">
-                  <%= image_tag logo[:src], alt: logo[:alt], class: 'img-fluid' %>
+                  <%= image_tag logo[:src], alt: logo[:alt], class: 'img-fluid', loading: "lazy" %>
                </div>
                <% end %>
             </div>
@@ -277,7 +277,7 @@
          <div class="row g-4">
             <div class="col-12 col-md-7">
                <div class="d-flex mb-5 align-items-center">
-                  <%= image_tag 'logo-colored.png', class: 'img-fluid rounded-circle', style: "width: 80px; height: 80px;", alt: "A'sTechware Logo Colored"  %>
+                  <%= image_tag 'logo-colored.png', class: 'img-fluid rounded-circle', style: "width: 80px; height: 80px;", alt: "A'sTechware Logo Colored", loading: "lazy"  %>
                   <div class="ms-3 text-white">
                      <h2 class="m-0">Bringing your vision to life</h2>
                      <span><em class="h5 fw-light">with our innovative solutions and expert team</em></span>
@@ -294,7 +294,7 @@
                </p>
             </div>
             <div class="col-12 col-md-5">
-               <%= image_tag 'img2.png', class: 'img-fluid w-100', alt: "A'sTechware Vision Image"  %>
+               <%= image_tag 'img2.png', class: 'img-fluid w-100', alt: "A'sTechware Vision Image", loading: "lazy"  %>
             </div>
          </div>
       </div>
@@ -373,6 +373,7 @@
       </div>
    </div>
    <!-- Work Section (from ahmad-kamran Works) -->
+   <!-- 
    <div class="py-5 bg-light" id="ahmad_work">
       <div class="container">
          <div class="text-center mb-5">
@@ -382,7 +383,7 @@
          <div class="row g-4">
             <div class="col-12 col-lg-4">
                <div class="card h-100 border-0 shadow-sm">
-                  <%= image_tag 'ahmad/3agent.jpeg', class: 'card-img-top', alt: 'Vestra.app – Automating Property Management with AI-Powered Simplicity' %>
+                  <%= image_tag 'ahmad/3agent.jpeg', class: 'card-img-top', alt: 'Vestra.app – Automating Property Management with AI-Powered Simplicity', loading: "lazy" %>
                   <div class="card-body">
                      <span class="badge bg-primary mb-2">Case Study</span>
                      <h3 class="h5">Case Study: Vestra.app – Automating Property Management with AI-Powered Simplicity</h3>
@@ -396,7 +397,7 @@
             </div>
             <div class="col-12 col-lg-4">
                <div class="card h-100 border-0 shadow-sm">
-                  <%= image_tag 'ahmad/whatsapp-agent.jpeg', class: 'card-img-top', alt: 'WhatsApp & Voice AI Agent Demo' %>
+                  <%= image_tag 'ahmad/whatsapp-agent.jpeg', class: 'card-img-top', alt: 'WhatsApp & Voice AI Agent Demo', loading: "lazy" %>
                   <div class="card-body">
                      <span class="badge bg-secondary mb-2">AI Demo</span>
                      <h3 class="h5">WhatsApp &amp; Voice AI Agent Demo: Healthcare Triage &amp; Appointment Booking</h3>
@@ -410,7 +411,7 @@
             </div>
             <div class="col-12 col-lg-4">
                <div class="card h-100 border-0 shadow-sm">
-                  <%= image_tag 'ahmad/repi-work.jpeg', class: 'card-img-top', alt: 'Modular AI Agents Case Study' %>
+                  <%= image_tag 'ahmad/repi-work.jpeg', class: 'card-img-top', alt: 'Modular AI Agents Case Study', loading: "lazy" %>
                   <div class="card-body">
                      <span class="badge bg-primary mb-2">Case Study</span>
                      <h3 class="h5">Case Study: Modular AI Agents That Save Time, Scale Outreach, and Automate Support</h3>
@@ -425,6 +426,7 @@
          </div>
       </div>
    </div>
+   -->
    <div class="industries-section text-white" id="particles-js">
       <div class="container-fluid p-0">
          <div class="row gx-0 position-relative">
@@ -620,168 +622,6 @@
          <div class="circle-container">
             <div class="circle"></div>
          </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
-         <div class="circle-container">
-            <div class="circle"></div>
-         </div>
       </div>
    </div>
    <div class="blogs-section py-5" id= "astechware_blogs">
@@ -797,7 +637,7 @@
    <div class="py-5 bg-light" id="ahmad_writing">
       <div class="container">
          <div class="text-center mb-5">
-            <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Writing</h2>
+            <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Case Studies</h2>
             <p class="large-para mb-4">Deep dives into AI agents, SaaS case studies, and real product work.</p>
          </div>
          <div class="row g-5 align-items-center mb-5">
@@ -827,6 +667,7 @@
                   <iframe
                      src="https://www.youtube.com/embed/zMX4jDXJ8uI"
                      title="Custom Software Solutions with Client Reviews | Astechware - Full Stack Engineer"
+                     loading="lazy"
                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                      allowfullscreen
                      ></iframe>
@@ -860,6 +701,7 @@
                   <iframe
                      src="https://www.youtube.com/embed/IK8swdj1g6s"
                      title="Real-Time AI WhatsApp & Voice Agent (Agentic) Demo | Built with RAG, OpenAI, Twilio, LangChain"
+                     loading="lazy"
                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                      allowfullscreen
                      ></iframe>
@@ -893,6 +735,7 @@
                   <iframe
                      src="https://www.youtube.com/embed/d9ve3TxLFVI"
                      title="Agentic AI Marketing Agent For Weekly Performance Reports | Built with n8n, Stripe, OpenAI, Intercom"
+                     loading="lazy"
                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                      allowfullscreen
                      ></iframe>
@@ -915,7 +758,7 @@
                   <div class="card-body">
                      <div class="d-flex align-items-center justify-content-between mb-3">
                         <div class="d-flex align-items-center">
-                           <%= image_tag 'ahmad/clients/nathan.jpeg', class: 'rounded-circle me-3', alt: 'Nathan - Vestro Software', style: 'width:64px;height:64px;object-fit:cover;' %>
+                           <%= image_tag 'ahmad/clients/nathan.jpeg', class: 'rounded-circle me-3', alt: 'Nathan - Vestro Software', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
                            <div>
                               <h5 class="mb-0">Nathan</h5>
                               <small class="text-muted">Founder at Vestra Software</small>
@@ -936,7 +779,7 @@
                   <div class="card-body">
                      <div class="d-flex align-items-center justify-content-between mb-3">
                         <div class="d-flex align-items-center">
-                           <%= image_tag 'ahmad/clients/Screenshot_1.png', class: 'rounded-circle me-3', alt: 'FKA Novara', style: 'width:64px;height:64px;object-fit:cover;' %>
+                           <%= image_tag 'ahmad/clients/Screenshot_1.png', class: 'rounded-circle me-3', alt: 'FKA Novara', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
                            <div>
                               <h5 class="mb-0">FKA Novara</h5>
                               <small class="text-muted">Startup Founder</small>
@@ -958,7 +801,7 @@
                   <div class="card-body">
                      <div class="d-flex align-items-center justify-content-between mb-3">
                         <div class="d-flex align-items-center">
-                           <%= image_tag 'ahmad/clients/joseph.jpeg', class: 'rounded-circle me-3', alt: 'Joseph Chiavatti', style: 'width:64px;height:64px;object-fit:cover;' %>
+                           <%= image_tag 'ahmad/clients/joseph.jpeg', class: 'rounded-circle me-3', alt: 'Joseph Chiavatti', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
                            <div>
                               <h5 class="mb-0">Joseph Chiavatti</h5>
                               <small class="text-muted">Technology Founder &amp; REALTOR®</small>
@@ -979,7 +822,7 @@
                   <div class="card-body">
                      <div class="d-flex align-items-center justify-content-between mb-3">
                         <div class="d-flex align-items-center">
-                           <%= image_tag 'ahmad/clients/sven.jpeg', class: 'rounded-circle me-3', alt: 'Sven-Volker Nowarra', style: 'width:64px;height:64px;object-fit:cover;' %>
+                           <%= image_tag 'ahmad/clients/sven.jpeg', class: 'rounded-circle me-3', alt: 'Sven-Volker Nowarra', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
                            <div>
                               <h5 class="mb-0">Sven‑Volker Nowarra</h5>
                               <small class="text-muted">In‑A‑Gadda‑Da‑Vida</small>
@@ -1000,7 +843,7 @@
                   <div class="card-body">
                      <div class="d-flex align-items-center justify-content-between mb-3">
                         <div class="d-flex align-items-center">
-                           <%= image_tag 'ahmad/clients/william.jpeg', class: 'rounded-circle me-3', alt: 'William Schoeffler', style: 'width:64px;height:64px;object-fit:cover;' %>
+                           <%= image_tag 'ahmad/clients/william.jpeg', class: 'rounded-circle me-3', alt: 'William Schoeffler', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
                            <div>
                               <h5 class="mb-0">William Schoeffler</h5>
                               <small class="text-muted">Co‑Founder and Product @ Hitch</small>
@@ -1021,7 +864,7 @@
                   <div class="card-body">
                      <div class="d-flex align-items-center justify-content-between mb-3">
                         <div class="d-flex align-items-center">
-                           <%= image_tag 'ahmad/clients/IMG_9811.png', class: 'rounded-circle me-3', alt: 'Anthony Barry', style: 'width:64px;height:64px;object-fit:cover;' %>
+                           <%= image_tag 'ahmad/clients/IMG_9811.png', class: 'rounded-circle me-3', alt: 'Anthony Barry', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
                            <div>
                               <h5 class="mb-0">Anthony Barry</h5>
                               <small class="text-muted">
@@ -1044,7 +887,7 @@
                   <div class="card-body">
                      <div class="d-flex align-items-center justify-content-between mb-3">
                         <div class="d-flex align-items-center">
-                           <%= image_tag 'ahmad/clients/ben-selland.jpeg', class: 'rounded-circle me-3', alt: 'Ben Selland', style: 'width:64px;height:64px;object-fit:cover;' %>
+                           <%= image_tag 'ahmad/clients/ben-selland.jpeg', class: 'rounded-circle me-3', alt: 'Ben Selland', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
                            <div>
                               <h5 class="mb-0">Ben Selland</h5>
                               <small class="text-muted">Principal at Selland Technologies</small>
@@ -1065,7 +908,7 @@
                   <div class="card-body">
                      <div class="d-flex align-items-center justify-content-between mb-3">
                         <div class="d-flex align-items-center">
-                           <%= image_tag 'ahmad/clients/golf.jpeg', class: 'rounded-circle me-3', alt: 'Dale Merritt', style: 'width:64px;height:64px;object-fit:cover;' %>
+                           <%= image_tag 'ahmad/clients/golf.jpeg', class: 'rounded-circle me-3', alt: 'Dale Merritt', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
                            <div>
                               <h5 class="mb-0">Dale Merritt</h5>
                               <small class="text-muted">Golfpay CEO | The &apos;1 Golf&apos; Company</small>
@@ -1086,7 +929,7 @@
                   <div class="card-body">
                      <div class="d-flex align-items-center justify-content-between mb-3">
                         <div class="d-flex align-items-center">
-                           <%= image_tag 'ahmad/clients/ania.png', class: 'rounded-circle me-3', alt: 'Ania Dergachev', style: 'width:64px;height:64px;object-fit:cover;' %>
+                           <%= image_tag 'ahmad/clients/ania.png', class: 'rounded-circle me-3', alt: 'Ania Dergachev', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
                            <div>
                               <h5 class="mb-0">Ania Dergachev</h5>
                               <small class="text-muted">Product Designer</small>
@@ -1107,7 +950,7 @@
                   <div class="card-body">
                      <div class="d-flex align-items-center justify-content-between mb-3">
                         <div class="d-flex align-items-center">
-                           <%= image_tag 'ahmad/clients/zach.jpg', class: 'rounded-circle me-3', alt: 'Zach', style: 'width:64px;height:64px;object-fit:cover;' %>
+                           <%= image_tag 'ahmad/clients/zach.jpg', class: 'rounded-circle me-3', alt: 'Zach', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
                            <div>
                               <h5 class="mb-0">Zach Marion</h5>
                               <small class="text-muted">Founder at Shorline Waste Solution</small>
@@ -1124,14 +967,14 @@
             <div class="col-12 col-md-6 col-lg-4">
                <div class="card h-100 border-0 shadow-sm">
                   <div class="card-body text-center">
-                     <%= image_tag 'ahmad/clients/IMG_9815.jpg', class: 'img-fluid mb-3 rounded', alt: 'Upwork Client 4 message' %>
+                     <%= image_tag 'ahmad/clients/IMG_9815.jpg', class: 'img-fluid mb-3 rounded', alt: 'Upwork Client 4 message', loading: "lazy" %>
                   </div>
                </div>
             </div>
               <div class="col-12 col-md-6 col-lg-4">
                <div class="card h-100 border-0 shadow-sm">
                   <div class="card-body text-center">
-                     <%= image_tag 'ahmad/clients/IMG_9816.jpg', class: 'img-fluid mb-3 rounded', alt: 'Upwork Client 5 message' %>
+                     <%= image_tag 'ahmad/clients/IMG_9816.jpg', class: 'img-fluid mb-3 rounded', alt: 'Upwork Client 5 message', loading: "lazy" %>
                   </div>
                </div>
             </div>
@@ -1141,7 +984,7 @@
                   <div class="card-body">
                      <div class="d-flex align-items-center justify-content-between mb-3">
                         <div class="d-flex align-items-center">
-                           <%= image_tag 'ahmad/clients/Brianne.jpeg', class: 'rounded-circle me-3', alt: 'Brianne Harvey', style: 'width:64px;height:64px;object-fit:cover;' %>
+                           <%= image_tag 'ahmad/clients/Brianne.jpeg', class: 'rounded-circle me-3', alt: 'Brianne Harvey', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
                            <div>
                               <h5 class="mb-0">Brianne Harvey</h5>
                               <small class="text-muted">Founder at Restaurant Resource</small>
@@ -1149,7 +992,7 @@
                         </div>
                         <span class="badge bg-light text-dark border">United States</span>
                      </div>
-                     <%= image_tag 'ahmad/clients/IMG_0850.jpg', class: 'img-fluid mb-3 rounded', alt: 'Upwork Client 1 message' %>
+                     <%= image_tag 'ahmad/clients/IMG_0850.jpg', class: 'img-fluid mb-3 rounded', alt: 'Upwork Client 1 message', loading: "lazy" %>
                      </p>
                   </div>
                </div>
@@ -1158,14 +1001,14 @@
             <div class="col-12 col-md-6 col-lg-4">
                <div class="card h-100 border-0 shadow-sm">
                   <div class="card-body text-center">
-                     <%= image_tag 'ahmad/clients/IMG_9813.jpg', class: 'img-fluid mb-3 rounded', alt: 'Upwork Client 2 message' %>
+                     <%= image_tag 'ahmad/clients/IMG_9813.jpg', class: 'img-fluid mb-3 rounded', alt: 'Upwork Client 2 message', loading: "lazy" %>
                   </div>
                </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
                <div class="card h-100 border-0 shadow-sm">
                   <div class="card-body text-center">
-                     <%= image_tag 'ahmad/clients/IMG_9814.jpg', class: 'img-fluid mb-3 rounded', alt: 'Upwork Client 3 message' %>
+                     <%= image_tag 'ahmad/clients/IMG_9814.jpg', class: 'img-fluid mb-3 rounded', alt: 'Upwork Client 3 message', loading: "lazy" %>
                   </div>
                </div>
             </div>
@@ -1173,14 +1016,14 @@
             <div class="col-12 col-md-6 col-lg-4">
                <div class="card h-100 border-0 shadow-sm">
                   <div class="card-body text-center">
-                     <%= image_tag 'ahmad/clients/IMG_9812.jpg', class: 'img-fluid mb-3 rounded', alt: 'Upwork Client 1 message' %>
+                     <%= image_tag 'ahmad/clients/IMG_9812.jpg', class: 'img-fluid mb-3 rounded', alt: 'Upwork Client 1 message', loading: "lazy" %>
                   </div>
                </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
                <div class="card h-100 border-0 shadow-sm">
                   <div class="card-body text-center">
-                     <%= image_tag 'ahmad/clients/IMG_0850.jpg', class: 'img-fluid mb-3 rounded', alt: 'Upwork Client 1 message' %>
+                     <%= image_tag 'ahmad/clients/IMG_0850.jpg', class: 'img-fluid mb-3 rounded', alt: 'Upwork Client 1 message', loading: "lazy" %>
                   </div>
                </div>
             </div>
@@ -1195,9 +1038,6 @@
          <%= form_for :form,  url: submit_form_path, method: :post, class: 'contact-form', data: {turbo: false, remote: true} do |f| %>
          <div class="row g-4">
             <div class="col-md-7">
-               <div class="col-12 mb-4">
-                  <%= f.select :reason, [ 'Mobile App Development', 'Enterprise Software Development', 'Web Development', 'Fixed Price Projects', 'IT Consulting', 'FinTech', 'Other' ], {prompt: 'How can we help you?'},{class: "form-control"} %>
-               </div>
                <div class="row">
                   <div class="col-12 col-md-6 mb-4">
                      <%= f.text_field :name, class: "form-control", placeholder: "Name*", required: true %>
@@ -1211,11 +1051,11 @@
                      <%= f.text_field :phone, class: "form-control", placeholder: "Phone" %>
                   </div>
                   <div class="col-12 col-md-6 mb-4">
-                     <%= f.text_field :company_name, class: "form-control", placeholder: "Company Name*", required: true %>
+                     <%= f.text_field :company_name, class: "form-control", placeholder: "Company Name" %>
                   </div>
                </div>
                <div class="col-12 mb-4">
-                  <%= f.text_area :cover_letter, class: "form-control", placeholder: "Cover Letters*", required: true, rows: 5 %>
+                  <%= f.text_area :cover_letter, class: "form-control", placeholder: "Message*", required: true, rows: 5 %>
                </div>
                <div class="row">
                   <div class="col-9">
@@ -1234,12 +1074,12 @@
             </div>
             <div class="col-md-5">
                <div class="card mb-4">
-                  <div class="d-flex p-4">
+                  <div class="d-flex p-4 align-items-center">
                      <div class="icon">
                         <i class="fa fa-envelope fa-5x" aria-hidden="true"></i>
                      </div>
                      <div class="txt-holder ps-4">
-                        <h4 class="mb-3 heading-border">Email Us</h4>
+                        <h4 class="mb-2 heading-border">Email Us</h4>
                         <address class="m-0">
                            <p class="mb-0"><a href="mailto:ahmad@astechware.com">ahmad@astechware.com</a></p>
                         </address>
