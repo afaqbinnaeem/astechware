@@ -25,4 +25,7 @@ class HomeController < ApplicationController
   
   def blog
   end
+
+  def portfolio
+  end
 end

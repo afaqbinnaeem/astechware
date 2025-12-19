@@ -1,6 +1,4 @@
-# frozen_string_literal: true
-
 class ApplicationMailer < ActionMailer::Base
-  default from: 'ahmad@astechware.com'
+  default from: "ahmad@astechware.com" # verified sender
   layout 'mailer'
 end

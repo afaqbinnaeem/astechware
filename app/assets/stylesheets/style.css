@@ -1,6 +1,7 @@
 :root {
-    --site-color: #fdbf11;
+    --site-color: #f9c42e;
     --site-color-hover: #f9c42e;
+    --text-color: #242a3b;
     --font-family: "Mukta Vaani", sans-serif;
 }
 
@@ -16,7 +17,9 @@ body {
     line-height: 24px;
     color: #212529 !important;
 }
-
+.text-blue{
+    color: #242a3b !important;
+}
 .align-selft-end {
     align-self: flex-end;
 }
@@ -168,6 +171,7 @@ h5,
 h6 {
     font-family: var(--font-family);
     font-weight: 700;
+    color: var(--text-color);
 }
 
 h2 {
@@ -191,17 +195,21 @@ h3 {
     min-width: 150px;
     line-height: 40px;
     font-size: 18px;
+    color: var(--text-color) !important;
 }
 
 .btn-primary:hover {
-    background: var(--site-color-hover);
-    border-color: var(--site-color-hover);
+    background: var(--text-color);
+    border-color: white !important;
+    color: white !important;
 }
 .heading-border {
     position: relative;
-    color: var(--site-color);
+    color: var(--text-color);
 }
-
+.bg-light-grey{
+  background-color: #f0f2f4 !important;
+}
 .centered-div {
     display: flex; 
     justify-content: center;
@@ -832,28 +840,167 @@ nav.nav-inner {
 }
 
 .what-we-do .card:hover {
-    background: var(--site-color);
-    color: #fff;
+    background: var(--text-color);
+    color: #242a3b;
     box-shadow: -2px 2px 35px 0px rgb(0 0 0 / 25%);
 }
 
 .what-we-do .card:hover svg path,
-.what-we-do .card:hover h4 {
-    color: #fff;
-    fill: #fff;
+.what-we-do .card:hover h4, .what-we-do .card:hover p{
+    color: white;
+    fill: white;
 }
-
+.what-we-do .card:hover div {
+    color: white !important;
+}
+.what-we-do .card:hover i {
+    color: var(--site-color) !important;
+}
 .what-we-do .card svg {
     width: 64px;
 }
 
 .what-we-do .card h4 {
+    color: var(--text-color);
+}
+
+/* Hero Section Styles */
+.hero-section {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.6) 100%), url('3409297.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+}
+.hero-portfolio{
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.2) 100%), url('89781.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.hero-portfolio::before {
+  background: none !important;
+}
+.hero-blog{
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.2) 100%), url('blog_hero_bg.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.hero-blog::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5) !important;
+  z-index: 0;
+}
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(253, 191, 17, 0.1) 0%, rgba(253, 191, 17, 0.05) 100%);
+    z-index: 0;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-section h1 {
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-section .lead {
+    color: #f8f9fa;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.min-vh-50 {
+    min-height: 50vh;
+}
+
+.btn-outline-primary {
+    border: 2px solid var(--site-color);
     color: var(--site-color);
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+    background: var(--site-color);
+    color: var(--text-color);
+    border-color: var(--site-color);
+}
+
+.btn-outline-light {
+    border: 2px solid #fff;
+    color: #fff;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+    background: #fff;
+    color: #212529;
+    border-color: #fff;
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: auto;
+        padding: 60px 0 !important;
+        background-attachment: scroll;
+    }
+    
+    .hero-section .d-flex {
+        flex-direction: column;
+    }
+    
+    .hero-section .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+.how-we-work-section {
+    background: #f8f9fa;
+    position: relative;
+}
+
+.how-we-work-section h3 {
+    color: #212529;
+    font-weight: 600;
+}
+
+.how-we-work-section p {
+    color: #495057;
+    line-height: 1.7;
 }
 
 .ceo-section {
     position: relative;
     z-index: 1;
+    background: #fff;
+}
+
+.ceo-section h3,
+.ceo-section p {
+    color: var(--text-color);
 }
 
 .ceo-section:after {
@@ -865,6 +1012,23 @@ nav.nav-inner {
     background: var(--site-color);
     height: 145px;
     z-index: -1;
+}
+
+.workflow-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: -8px 0 0 0 var(--site-color), 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.workflow-card h3,
+.workflow-card p {
+    color: var(--text-color);
+}
+
+.workflow-card:hover {
+    box-shadow: -8px 0 0 0 var(--site-color), 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
 }
 
 .expertise-section {
@@ -945,11 +1109,11 @@ nav.nav-inner {
 }
 
 .expertise-section .icon-box-s2.s5:before {
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.73)), url("services/devops.webp");
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.73)), url("services/resource-img.webp");
 }
 
 .expertise-section .icon-box-s2.s6:before {
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.73)), url("services/resource-img.webp");
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.73)), url("services/devops.webp");
 }
 
 .expertise-section .icon-box-s2:hover:after {
@@ -7500,7 +7664,7 @@ nav.nav-inner {
     object-position: center;
 }
 .hero-section .card-img-overlay {
-    background: rgb(0 0 0 / 70%);
+    background: rgb(0 0 0 / 80%);
 }
 
 .post p {
@@ -8996,4 +9160,21 @@ nav.nav-inner {
     .intro-section .swiper-container .content {
         width: 75% !important;
     }
+}
+
+/* Portfolio Page Styles */
+.card-header[data-bs-toggle="collapse"] {
+    transition: background-color 0.3s ease;
+}
+
+.card-header[data-bs-toggle="collapse"]:hover {
+    background-color: #2d3548 !important;
+}
+
+.card-header[data-bs-toggle="collapse"] i {
+    transition: transform 0.3s ease;
+}
+
+.card-header[data-bs-toggle="collapse"][aria-expanded="true"] i {
+    transform: rotate(180deg);
 }
