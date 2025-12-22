@@ -35,7 +35,20 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <% javascript_importmap_tags %>
-    <%= display_meta_tags site: "A'sTechware" %>
+    <%# Default meta tags - can be overridden in controllers %>
+    <%= display_meta_tags(
+      site: "A'sTechware",
+      og: {
+        image: image_url('logo.png'),
+        url: request.url,
+        type: 'website',
+        site_name: "A'sTechware"
+      },
+      twitter: {
+        card: 'summary',
+        image: image_url('logo.png')
+      }
+    ) %>
     <%= yield :head %>
 
   </head>
