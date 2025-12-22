@@ -35,8 +35,23 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <% javascript_importmap_tags %>
-    <%= display_meta_tags site: "A'sTechware" %>
     <%= yield :head %>
+    <%# Set Open Graph meta tags for social sharing - using logo.png from navbar %>
+    <%# Using safe helpers to prevent 500 errors if assets fail %>
+    <% og_image = safe_og_image_url('logo.png') %>
+    <%= display_meta_tags(
+      site: "A'sTechware",
+      og: {
+        image: og_image,
+        url: safe_request_url,
+        type: 'website',
+        site_name: "A'sTechware"
+      },
+      twitter: {
+        card: 'summary',
+        image: og_image
+      }
+    ) %>
 
   </head>
 

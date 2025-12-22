@@ -1,3 +1,26 @@
+<% content_for :head do %>
+  <%# Using safe helpers to prevent 500 errors if assets fail %>
+  <% og_image = safe_og_image_url('logo.png') %>
+  <% set_meta_tags(
+    title: "AI Automations & Custom Software for SMBs | A'sTechware",
+    description: "We design and build production-grade AI automations and custom web/mobile platforms from internal ops systems to marketplaces and customer-facing products so businesses can run faster without adding headcount.",
+    og: {
+      title: "AI Automations & Custom Software for SMBs | A'sTechware",
+      description: "We design and build production-grade AI automations and custom web/mobile platforms from internal ops systems to marketplaces and customer-facing products so businesses can run faster without adding headcount.",
+      image: og_image,
+      url: safe_request_url,
+      type: 'website',
+      site_name: "A'sTechware"
+    },
+    twitter: {
+      card: 'summary',
+      title: "AI Automations & Custom Software for SMBs | A'sTechware",
+      description: "We design and build production-grade AI automations and custom web/mobile platforms from internal ops systems to marketplaces and customer-facing products so businesses can run faster without adding headcount.",
+      image: og_image
+    }
+  ) %>
+<% end %>
+
 <!-- Hero Section -->
 <div class="hero-section py-5">
    <div class="container">
