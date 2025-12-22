@@ -39,19 +39,35 @@
     <%# Set Open Graph meta tags for social sharing - using logo.png from navbar %>
     <%# Using safe helpers to prevent 500 errors if assets fail %>
     <% og_image = safe_og_image_url('logo.png') %>
-    <%= display_meta_tags(
-      site: "A'sTechware",
-      og: {
-        image: og_image,
-        url: safe_request_url,
-        type: 'website',
-        site_name: "A'sTechware"
-      },
-      twitter: {
-        card: 'summary',
-        image: og_image
-      }
-    ) %>
+    <% if og_image.present? %>
+      <%= display_meta_tags(
+        site: "A'sTechware",
+        og: {
+          image: og_image,
+          'image:secure_url' => og_image,
+          'image:type' => 'image/png',
+          url: safe_request_url,
+          type: 'website',
+          site_name: "A'sTechware"
+        },
+        twitter: {
+          card: 'summary_large_image',
+          image: og_image
+        }
+      ) %>
+    <% else %>
+      <%= display_meta_tags(
+        site: "A'sTechware",
+        og: {
+          url: safe_request_url,
+          type: 'website',
+          site_name: "A'sTechware"
+        },
+        twitter: {
+          card: 'summary'
+        }
+      ) %>
+    <% end %>
 
   </head>
 

@@ -1,24 +1,45 @@
 <% content_for :head do %>
   <%# Using safe helpers to prevent 500 errors if assets fail %>
   <% og_image = safe_og_image_url('logo.png') %>
-  <% set_meta_tags(
-    title: "AI Automations & Custom Software for SMBs | A'sTechware",
-    description: "We design and build production-grade AI automations and custom web/mobile platforms from internal ops systems to marketplaces and customer-facing products so businesses can run faster without adding headcount.",
-    og: {
+  <% if og_image.present? %>
+    <% set_meta_tags(
       title: "AI Automations & Custom Software for SMBs | A'sTechware",
       description: "We design and build production-grade AI automations and custom web/mobile platforms from internal ops systems to marketplaces and customer-facing products so businesses can run faster without adding headcount.",
-      image: og_image,
-      url: safe_request_url,
-      type: 'website',
-      site_name: "A'sTechware"
-    },
-    twitter: {
-      card: 'summary',
+      og: {
+        title: "AI Automations & Custom Software for SMBs | A'sTechware",
+        description: "We design and build production-grade AI automations and custom web/mobile platforms from internal ops systems to marketplaces and customer-facing products so businesses can run faster without adding headcount.",
+        image: og_image,
+        'image:secure_url' => og_image,
+        'image:type' => 'image/png',
+        url: safe_request_url,
+        type: 'website',
+        site_name: "A'sTechware"
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: "AI Automations & Custom Software for SMBs | A'sTechware",
+        description: "We design and build production-grade AI automations and custom web/mobile platforms from internal ops systems to marketplaces and customer-facing products so businesses can run faster without adding headcount.",
+        image: og_image
+      }
+    ) %>
+  <% else %>
+    <% set_meta_tags(
       title: "AI Automations & Custom Software for SMBs | A'sTechware",
       description: "We design and build production-grade AI automations and custom web/mobile platforms from internal ops systems to marketplaces and customer-facing products so businesses can run faster without adding headcount.",
-      image: og_image
-    }
-  ) %>
+      og: {
+        title: "AI Automations & Custom Software for SMBs | A'sTechware",
+        description: "We design and build production-grade AI automations and custom web/mobile platforms from internal ops systems to marketplaces and customer-facing products so businesses can run faster without adding headcount.",
+        url: safe_request_url,
+        type: 'website',
+        site_name: "A'sTechware"
+      },
+      twitter: {
+        card: 'summary',
+        title: "AI Automations & Custom Software for SMBs | A'sTechware",
+        description: "We design and build production-grade AI automations and custom web/mobile platforms from internal ops systems to marketplaces and customer-facing products so businesses can run faster without adding headcount."
+      }
+    ) %>
+  <% end %>
 <% end %>
 
 <!-- Hero Section -->
