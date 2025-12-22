@@ -3,7 +3,7 @@
 module ApplicationHelper
   # Safely get image URL for Open Graph meta tags
   # Returns absolute URL or nil if asset doesn't exist (prevents 500 errors)
-  def safe_og_image_url(image_name = 'logo.png')
+  def safe_og_image_url(image_name = 'logo-colored.png')
     url = image_url(image_name)
     # Ensure absolute URL for Open Graph (required by LinkedIn, Facebook, etc.)
     if url.present? && !url.start_with?('http')

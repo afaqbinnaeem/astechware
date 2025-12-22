@@ -1,6 +1,6 @@
 <% content_for :head do %>
   <%# Using safe helpers to prevent 500 errors if assets fail %>
-  <% og_image = safe_og_image_url('logo.png') %>
+  <% og_image = safe_og_image_url('logo-colored.png') %>
   <% if og_image.present? %>
     <% set_meta_tags(
       title: "AI Automations & Custom Software for SMBs | A'sTechware",
