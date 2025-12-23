@@ -894,6 +894,16 @@ nav.nav-inner {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+.hero-project {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.3) 100%), url('Project-hero.avif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.hero-project::before {
+  background: none !important;
+}
 .hero-blog::before {
   content: "";
   position: absolute;
@@ -7468,6 +7478,20 @@ nav.nav-inner {
 .blog-card {
     height: 400px;
     overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    background: #fff;
+    position: relative;
+}
+
+.blog-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
 .blog-card img {
@@ -7475,16 +7499,17 @@ nav.nav-inner {
     max-width: 100%;
     object-fit: cover;
     display: block;
-    object-position: 72% 72%;
+    object-position: center;
     height: 100%;
-    transition: all 0.2s linear;
-    -webkit-transition: all 0.2s linear;
-    -moz-transition: all 0.2s linear;
-    -o-transition: all 0.2s linear;
-    -ms-transition: all 0.2s linear;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    -moz-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    -o-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    -ms-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .blog-card:hover img {
-    transform: scale(1.1);
+    transform: scale(1.08);
 }
 
 .blog-card .caption {
@@ -7492,25 +7517,140 @@ nav.nav-inner {
     left: 0;
     color: #fff;
     z-index: 2;
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.6);
+    padding: 24px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);
     top: 0;
     bottom: 0;
     right: 0;
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+}
+
+.blog-card:hover .caption {
+    background: linear-gradient(to top, rgba(36, 42, 59, 0.95) 0%, rgba(36, 42, 59, 0.7) 50%, rgba(36, 42, 59, 0.3) 100%);
 }
 
 .blog-card .caption p {
     font-style: italic;
-    font-size: 14px;
-    margin: 0 0 8px;
+    font-size: 13px;
+    margin: 0 0 10px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.blog-card:hover .caption p {
+    color: var(--site-color);
 }
 
 .blog-card .caption h3 {
-    font-size: 18px;
-    line-height: 24px;
+    font-size: 20px;
+    line-height: 28px;
+    color: #fff !important;
+    font-weight: 600;
+    margin: 0;
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+}
+
+.blog-card:hover .caption h3 {
+    color: #fff !important;
+    transform: translateY(-2px);
+}
+
+/* Case Studies Card Styles */
+.case-studies-grid .blog-card {
+    height: auto;
+    min-height: 450px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: #fff;
+}
+
+.case-studies-grid .blog-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.28);
+}
+
+.case-studies-grid .blog-card img {
+    height: 280px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    flex-shrink: 0;
+}
+
+.case-studies-grid .blog-card:hover img {
+    transform: scale(1.05);
+}
+
+.case-studies-grid .blog-card .caption {
+    position: relative !important;
+    background: #fff;
+    padding: 28px 24px;
+    border-radius: 0 0 12px 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex: 1;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+}
+
+.case-studies-grid .blog-card:hover .caption {
+    background: #fff;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.12);
+    padding-bottom: 32px;
+}
+
+.case-studies-grid .blog-card .caption p {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--site-color);
+    margin: 0 0 14px;
+    font-style: normal;
+    transition: all 0.3s ease;
+    display: inline-block;
+    width: fit-content;
+}
+
+.case-studies-grid .blog-card:hover .caption p {
+    color: var(--site-color);
+    transform: translateX(4px);
+}
+
+.case-studies-grid .blog-card .caption h3 {
+    font-size: 22px;
+    line-height: 32px;
+    color: var(--text-color) !important;
+    font-weight: 700;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+.case-studies-grid .blog-card:hover .caption h3 {
+    color: var(--text-color) !important;
+    transform: translateY(-2px);
 }
 
 .happy-customer .testimonial-text {

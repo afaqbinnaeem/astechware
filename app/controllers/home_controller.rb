@@ -10,7 +10,8 @@ class HomeController < ApplicationController
   def submit_form
     @form = Form.new(form_params)
     ContactFormMailer.submit_contact_form(@form).deliver
-    redirect_to root_path, notice: "Successfully Submitted Response."
+    redirect_path = request.referer&.include?('/contact') ? contact_path : root_path
+    redirect_to redirect_path, notice: "Successfully Submitted Response."
   end
 
   private def form_params
@@ -27,5 +28,11 @@ class HomeController < ApplicationController
   end
 
   def portfolio
+  end
+
+  def projects
+  end
+
+  def contact
   end
 end

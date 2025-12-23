@@ -6,9 +6,10 @@
         <ul id="menu-panel-hv34y" class="menu-panel-root list-unstyled m-0 p-0">
           <li id="menu-item-347" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-13 current_page_item"><a href="/" class="ajax">Home</a></li>
           <li id="menu-item-58" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="#astechware_about" class="ajax">About</a></li>
+          <li id="menu-item-projects" class="menu-item menu-item-type-post_type menu-item-object-page"><%= link_to "Projects", projects_path, class: "ajax" %></li>
           <li id="menu-item-370" class="menu-item menu-item-type-post_type menu-item-object-page"><%= link_to "Blogs", blogs_path, class: "ajax" %></li>
           <li id="menu-item-369" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="#contact_us" class="ajax">Quotations</a></li>
-          <li id="menu-item-834" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children submen-dec"><a href="#contact_us" class="nav">Contacts</a>
+          <li id="menu-item-834" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children submen-dec"><%= link_to "Contact", contact_path, class: "nav" %>
           </li>
           <% if current_user.present? %>
             <li id="menu-item-834" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children submen-dec">
@@ -56,7 +57,7 @@
 
 <div class="hc_dec_color">
   <div class="page-subtitle">
-    <a href="#contact_us" style="opacity: 1; transform: translate3d(0px, 0px, 0px);">Contact Us</a>
+    <%= link_to "Contact Us", contact_path, style: "opacity: 1; transform: translate3d(0px, 0px, 0px);" %>
   </div>
 </div>
 

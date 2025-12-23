@@ -1,0 +1,100 @@
+<!-- Hero Section -->
+<div class="hero-section hero-portfolio py-5">
+  <div class="container">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-12 col-lg-8 mx-auto text-center">
+        <h1 class="display-4 fw-bold mb-4" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;">
+          Get in Touch
+        </h1>
+        <p class="lead mb-5" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto;">
+          Tell us about your project. We&apos;d love to discuss how we can help automate your workflows or build custom software for your business.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="inner-sections">
+  <div class="contact-us-section py-5" id="contact_us">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="heading-border heading-center mb-5 pb-3 d-inline-block">Tell us about your project</h2>
+      </div>
+      <%= form_for :form,  url: submit_form_path, method: :post, class: 'contact-form', data: {turbo: false, remote: true} do |f| %>
+      <div class="row g-4">
+        <div class="col-md-7">
+          <div class="row">
+            <div class="col-12 col-md-6 mb-4">
+              <%= f.text_field :name, class: "form-control", placeholder: "Name*", required: true %>
+            </div>
+            <div class="col-12 col-md-6 mb-4">
+              <%= f.email_field :email, class: "form-control", placeholder: "Email*", required: true %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-6 mb-4">
+              <%= f.text_field :phone, class: "form-control", placeholder: "Phone" %>
+            </div>
+            <div class="col-12 col-md-6 mb-4">
+              <%= f.text_field :company_name, class: "form-control", placeholder: "Company Name" %>
+            </div>
+          </div>
+          <div class="col-12 mb-4">
+            <%= f.text_area :cover_letter, class: "form-control", placeholder: "Message*", required: true, rows: 5 %>
+          </div>
+          <div class="row">
+            <div class="col-9">
+              <% if flash[:notice] %>
+              <div class="alert alert-warning" role="alert" id = "form-contact-alert">
+                We've recieved your query successfully, we will get back to you shortly.
+              </div>
+              <% end %>
+            </div>
+            <div class="col-3">
+              <div class="d-flex justify-content-end">
+                <%= f.submit "Send", class: "btn btn-primary rounded-pill"%>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="card mb-4">
+            <div class="d-flex p-4 align-items-center">
+              <div class="icon">
+                <i class="fa fa-envelope fa-5x" aria-hidden="true"></i>
+              </div>
+              <div class="txt-holder ps-4">
+                <h4 class="mb-2 heading-border text-start">Email Us</h4>
+                <address class="m-0">
+                  <p class="mb-0"><a href="mailto:ahmad@astechware.com">ahmad@astechware.com</a></p>
+                </address>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-4">
+            <div class="d-flex p-4 align-items-center">
+              <div class="icon">
+                <i class="fa fa-calendar fa-5x" aria-hidden="true"></i>
+              </div>
+              <div class="txt-holder ps-4">
+                <h4 class="mb-2 heading-border text-start">Book a Call</h4>
+                <p class="mb-0">
+                  <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="text-decoration-none">
+                    Schedule a Free Automation Audit
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="logos-holder d-flex justify-content-between align-items-start d-none">
+            <a href="#" onclick="return false;"><%= image_tag 'clutch.svg' %></a>
+            <a href="#" onclick="return false;"><%= image_tag 'good-firms.svg' %></a>
+            <a href="#" onclick="return false;"><%= image_tag 'top-developers.svg' %></a>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

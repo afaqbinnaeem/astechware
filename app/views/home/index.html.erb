@@ -1,47 +1,47 @@
 <% content_for :head do %>
-  <%# Using safe helpers to prevent 500 errors if assets fail %>
-  <% og_image = safe_og_image_url('logo-colored.png') %>
-  <% if og_image.present? %>
-    <% set_meta_tags(
-      title: "AI Automations & Custom Software for SMBs | A'sTechware",
-      description: "We design and build production-grade AI automations and custom web/mobile platforms from internal ops systems to marketplaces and customer-facing products so businesses can run faster without adding headcount.",
-      og: {
-        title: "AI Automations & Custom Software for SMBs | A'sTechware",
-        description: "We design and build production-grade AI automations and custom web/mobile platforms from internal ops systems to marketplaces and customer-facing products so businesses can run faster without adding headcount.",
-        image: og_image,
-        'image:secure_url' => og_image,
-        'image:type' => 'image/png',
-        url: safe_request_url,
-        type: 'website',
-        site_name: "A'sTechware"
-      },
-      twitter: {
-        card: 'summary_large_image',
-        title: "AI Automations & Custom Software for SMBs | A'sTechware",
-        description: "We design and build production-grade AI automations and custom web/mobile platforms from internal ops systems to marketplaces and customer-facing products so businesses can run faster without adding headcount.",
-        image: og_image
-      }
-    ) %>
-  <% else %>
-    <% set_meta_tags(
-      title: "AI Automations & Custom Software for SMBs | A'sTechware",
-      description: "We design and build production-grade AI automations and custom web/mobile platforms from internal ops systems to marketplaces and customer-facing products so businesses can run faster without adding headcount.",
-      og: {
-        title: "AI Automations & Custom Software for SMBs | A'sTechware",
-        description: "We design and build production-grade AI automations and custom web/mobile platforms from internal ops systems to marketplaces and customer-facing products so businesses can run faster without adding headcount.",
-        url: safe_request_url,
-        type: 'website',
-        site_name: "A'sTechware"
-      },
-      twitter: {
-        card: 'summary',
-        title: "AI Automations & Custom Software for SMBs | A'sTechware",
-        description: "We design and build production-grade AI automations and custom web/mobile platforms from internal ops systems to marketplaces and customer-facing products so businesses can run faster without adding headcount."
-      }
-    ) %>
-  <% end %>
-<% end %>
-
+   <%# Using safe helpers to prevent 500 errors if assets fail %>
+   <% og_image = safe_og_image_url('logo-colored.png') %>
+   <% if og_image.present? %>
+     <% set_meta_tags(
+       title: "AI Automations & Custom Software for SMBs | A'sTechware",
+       description: "We design and build production-grade AI automations and custom web/mobile platforms from internal ops systems to marketplaces and customer-facing products so businesses can run faster without adding headcount.",
+       og: {
+         title: "AI Automations & Custom Software for SMBs | A'sTechware",
+         description: "We design and build production-grade AI automations and custom web/mobile platforms from internal ops systems to marketplaces and customer-facing products so businesses can run faster without adding headcount.",
+         image: og_image,
+         'image:secure_url' => og_image,
+         'image:type' => 'image/png',
+         url: safe_request_url,
+         type: 'website',
+         site_name: "A'sTechware"
+       },
+       twitter: {
+         card: 'summary_large_image',
+         title: "AI Automations & Custom Software for SMBs | A'sTechware",
+         description: "We design and build production-grade AI automations and custom web/mobile platforms from internal ops systems to marketplaces and customer-facing products so businesses can run faster without adding headcount.",
+         image: og_image
+       }
+     ) %>
+   <% else %>
+     <% set_meta_tags(
+       title: "AI Automations & Custom Software for SMBs | A'sTechware",
+       description: "We design and build production-grade AI automations and custom web/mobile platforms from internal ops systems to marketplaces and customer-facing products so businesses can run faster without adding headcount.",
+       og: {
+         title: "AI Automations & Custom Software for SMBs | A'sTechware",
+         description: "We design and build production-grade AI automations and custom web/mobile platforms from internal ops systems to marketplaces and customer-facing products so businesses can run faster without adding headcount.",
+         url: safe_request_url,
+         type: 'website',
+         site_name: "A'sTechware"
+       },
+       twitter: {
+         card: 'summary',
+         title: "AI Automations & Custom Software for SMBs | A'sTechware",
+         description: "We design and build production-grade AI automations and custom web/mobile platforms from internal ops systems to marketplaces and customer-facing products so businesses can run faster without adding headcount."
+       }
+     ) %>
+   <% end %>
+ <% end %>
+ 
 <!-- Hero Section -->
 <div class="hero-section py-5">
    <div class="container">
@@ -352,117 +352,6 @@
    </div>
    -->
 
-   <!-- Writing Section (from ahmad-kamran BlogSection) -->
-   <div class="py-5 bg-light" id="ahmad_writing">
-      <div class="container">
-         <div class="text-center mb-5">
-            <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Case Studies</h2>
-            <p class="large-para mb-4">Deep dives into AI agents, SaaS case studies, and real product work.</p>
-         </div>
-         <div class="row g-5 align-items-center mb-5">
-            <div class="col-12 col-lg-6">
-               <div class="card border-0 shadow-sm h-100">
-                  <%= image_tag 'ahmad/3agent.jpeg', class: 'card-img-top', alt: 'Vestra.app – Automating Property Management with AI-Powered Simplicity' %>
-                  <div class="card-body">
-                     <div class="mb-2">
-                        <span class="badge bg-primary me-1">AI</span>
-                        <span class="badge bg-secondary me-1">Case Study</span>
-                        <span class="badge bg-light text-dark me-1">Property</span>
-                        <span class="badge bg-light text-dark">SaaS</span>
-                     </div>
-                     <h3 class="h5">
-                        Case Study: Vestra.app – Automating Property Management with AI‑Powered Simplicity
-                     </h3>
-                     <p class="mb-3">
-                        Vestra.app is a modern SaaS platform built for property managers, automating 80% of daily tasks with AI‑powered
-                        financial insights, flexible rent collection, real‑time chat, and secure document storage.
-                     </p>
-                     <a href="/vestra-app-case-study" class="btn btn-primary btn-sm rounded-pill">Read article</a>
-                  </div>
-               </div>
-            </div>
-            <div class="col-12 col-lg-6">
-               <div class="ratio ratio-16x9 rounded shadow-sm overflow-hidden">
-                  <iframe
-                     src="https://www.youtube.com/embed/zMX4jDXJ8uI"
-                     title="Custom Software Solutions with Client Reviews | Astechware - Full Stack Engineer"
-                     loading="lazy"
-                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                     allowfullscreen
-                     ></iframe>
-               </div>
-            </div>
-         </div>
-         <div class="row g-5 align-items-center mb-5">
-            <div class="col-12 col-lg-6 order-lg-2">
-               <div class="card border-0 shadow-sm h-100">
-                  <%= image_tag 'ahmad/whatsapp-agent.jpeg', class: 'card-img-top', alt: 'WhatsApp & Voice AI Agent Demo' %>
-                  <div class="card-body">
-                     <div class="mb-2">
-                        <span class="badge bg-primary me-1">AI</span>
-                        <span class="badge bg-light text-dark me-1">Voice</span>
-                        <span class="badge bg-light text-dark me-1">WhatsApp</span>
-                        <span class="badge bg-light text-dark">Healthcare</span>
-                     </div>
-                     <h3 class="h5">
-                        WhatsApp &amp; Voice AI Agent Demo: Healthcare Triage &amp; Appointment Booking
-                     </h3>
-                     <p class="mb-3">
-                        This demo showcases how WhatsApp and Voice AI agents can triage symptoms, book appointments, and escalate
-                        conversations to human operators, all backed by custom knowledge.
-                     </p>
-                     <a href="/whatsapp-voice-ai-agent-demo" class="btn btn-primary btn-sm rounded-pill">View demo</a>
-                  </div>
-               </div>
-            </div>
-            <div class="col-12 col-lg-6 order-lg-1">
-               <div class="ratio ratio-16x9 rounded shadow-sm overflow-hidden">
-                  <iframe
-                     src="https://www.youtube.com/embed/IK8swdj1g6s"
-                     title="Real-Time AI WhatsApp & Voice Agent (Agentic) Demo | Built with RAG, OpenAI, Twilio, LangChain"
-                     loading="lazy"
-                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                     allowfullscreen
-                     ></iframe>
-               </div>
-            </div>
-         </div>
-         <div class="row g-5 align-items-center">
-            <div class="col-12 col-lg-6">
-               <div class="card border-0 shadow-sm h-100">
-                  <%= image_tag 'ahmad/repi-work.jpeg', class: 'card-img-top', alt: 'Modular AI Agents Case Study' %>
-                  <div class="card-body">
-                     <div class="mb-2">
-                        <span class="badge bg-primary me-1">AI</span>
-                        <span class="badge bg-secondary me-1">Case Study</span>
-                        <span class="badge bg-light text-dark me-1">Automation</span>
-                        <span class="badge bg-light text-dark">Agents</span>
-                     </div>
-                     <h3 class="h5">
-                        Case Study: Modular AI Agents That Save Time, Scale Outreach, and Automate Support
-                     </h3>
-                     <p class="mb-3">
-                        Discover how modular, production‑ready AI agents are transforming SaaS teams by automating support, scaling
-                        outreach, and saving hours every week.
-                     </p>
-                     <a href="/modular-ai-agents-case-study" class="btn btn-primary btn-sm rounded-pill">Read article</a>
-                  </div>
-               </div>
-            </div>
-            <div class="col-12 col-lg-6">
-               <div class="ratio ratio-16x9 rounded shadow-sm overflow-hidden">
-                  <iframe
-                     src="https://www.youtube.com/embed/d9ve3TxLFVI"
-                     title="Agentic AI Marketing Agent For Weekly Performance Reports | Built with n8n, Stripe, OpenAI, Intercom"
-                     loading="lazy"
-                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                     allowfullscreen
-                     ></iframe>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
    <!-- Clients Section (from ahmad-kamran Testimonials) -->
    <div class="py-5 bg-light" id="ahmad_clients">
       <div class="container">
@@ -744,6 +633,43 @@
                   <div class="card-body text-center">
                      <%= image_tag 'ahmad/clients/IMG_0850.jpg', class: 'img-fluid mb-3 rounded', alt: 'Upwork Client 1 message', loading: "lazy" %>
                   </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="py-5 bg-white" id="about_us">
+      <div class="container">
+         <div class="row g-5 align-items-center">
+            <div class="col-12 col-lg-6">
+               <h2 class="heading-border heading-center heading-left mb-3 pb-3 d-inline-block">About Astechware</h2>
+               <p class="large-para mb-3">
+                  Astechware is a small, focused team that designs and builds AI automations and custom software for
+                  growing businesses. We combine deep technical expertise with a strong understanding of operations,
+                  helping teams replace manual work with reliable systems.
+               </p>
+               <p class="mb-3">
+                  From lead handling and customer communication to internal tools and complex platforms, we partner with
+                  founders and operators to ship production‑ready solutions that actually get used. Our work spans
+                  fintech, real estate, marketplaces, events, and local services.
+               </p>
+               <p class="mb-4">
+                  If you&apos;re looking for a long‑term technical partner who can think with you about the business,
+                  not just the code, we&apos;d love to talk.
+               </p>
+               <a href="/projects" class="btn btn-primary btn-lg rounded-pill">
+                  View Projects
+               </a>
+            </div>
+            <div class="col-12 col-lg-6">
+               <div class="ratio ratio-16x9 rounded shadow-sm overflow-hidden">
+                  <iframe
+                     src="https://www.youtube.com/embed/zMX4jDXJ8uI"
+                     title="Custom Software Solutions with Client Reviews | Astechware - Full Stack Engineer"
+                     loading="lazy"
+                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                     allowfullscreen
+                     ></iframe>
                </div>
             </div>
          </div>

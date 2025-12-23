@@ -1,6 +1,22 @@
 <div class="inner-sections">
 
   <%= render 'blog_header' %>
+  
+  <!-- Case Studies Section -->
+  <div class="py-5 bg-light" id="ahmad_writing">
+     <div class="container">
+        <div class="text-center mb-5">
+           <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Case Studies</h2>
+           <p class="large-para mb-4">Deep dives into AI agents, SaaS case studies, and real product work.</p>
+        </div>
+        <div class="row gx-3 case-studies-grid">
+           <%= render 'shared/blog_tile', img: "ahmad/3agent.jpeg", title: "Case Study: Vestra.app – Automating Property Management with AI‑Powered Simplicity", date: "Case Study", directed_link: vestra_app_case_study_path %>
+           <%= render 'shared/blog_tile', img: "ahmad/whatsapp-agent.jpeg", title: "WhatsApp & Voice AI Agent Demo: Healthcare Triage & Appointment Booking", date: "AI Demo", directed_link: whatsapp_voice_ai_agent_demo_path %>
+           <%= render 'shared/blog_tile', img: "ahmad/repi-work.jpeg", title: "Case Study: Modular AI Agents That Save Time, Scale Outreach, and Automate Support", date: "Case Study", directed_link: modular_ai_agents_case_study_path %>
+        </div>
+     </div>
+  </div>
+
   <div class="blogs-section py-5">
     <div class="container">
       <div class="text-center">
