@@ -22,11 +22,13 @@
       <div class="row mb-4">
         <div class="col-12 col-lg-10 mx-auto text-center">
           <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Projects Overview</h2>
-          <p class="large-para mb-0">
-            These projects come from a longer walkthrough video where Ahmad explains the context, technology, and client
-            outcomes. Use the tabs below to explore each project.
+          <p class="large-para mb-2">
+            These are some of the founder-led projects delivered by <span class="text-blue fw-bold">Ahmad</span>. The demo walkthrough videos covers the technical approach and real client outcomes.
           </p>
         </div>
+          <p class="large-para mb-0 text-start ">
+            <span class="browse-tabs-link text-blue">Browse each project using the tabs below.</span>
+          </p>
       </div>
 
       <div class="row">
@@ -421,11 +423,28 @@
     top: 20px;
   }
 
+  .browse-tabs-link {
+    color: var(--site-color);
+    # text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-block;
+    transition: all 0.3s ease;
+  }
+
+  .browse-tabs-link:hover {
+    color: var(--text-color);
+    text-decoration-color: var(--site-color);
+  }
+
   .project-tab-btn {
     background: #fff;
     border: none;
     border-radius: 8px;
     padding: 0.875rem 1rem;
+    padding-right: 2.5rem;
     color: var(--text-color, #212529);
     font-size: 0.95rem;
     line-height: 1.4;
@@ -433,10 +452,50 @@
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
     margin-bottom: 0.5rem;
     text-align: left;
+    cursor: pointer;
+    position: relative;
+    box-shadow: -8px 0 0 0 var(--site-color), 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: translateX(6px);
+    min-height: 70px;
+  }
+
+  .project-tab-btn::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 0;
+    background: var(--site-color);
+    border-radius: 0 2px 2px 0;
+    transition: height 0.3s ease;
+  }
+
+  .project-tab-btn::after {
+    content: '→';
+    position: absolute;
+    right: 1rem;
+    top: 0%;
+    transform: translateY(-50%);
+    opacity: 1;
+    font-size: 2.2rem;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    font-weight: normal;
+  }
+
+  .project-tab-btn:hover::before {
+    height: 100%;
+  }
+
+  .project-tab-btn:hover::after {
+    opacity: 1;
+    transform: translateX(4px);
   }
 
   .project-tab-btn:hover {
-    background: #f8f9fa;
+    background: #0c0d191a;
     box-shadow: -8px 0 0 0 var(--site-color), 0 2px 8px rgba(0, 0, 0, 0.1);
     transform: translateX(4px);
     color: var(--text-color, #212529);
@@ -448,7 +507,14 @@
     font-weight: 600;
     box-shadow: -8px 0 0 0 var(--site-color), 0 4px 12px rgba(0, 0, 0, 0.15);
     border-left: none;
-    transform: translateX(4px) translateY(-2px);
+    transform: translateX(6px) translateY(-2px);
+    border-radius: 0 !important;
+  }
+
+  .project-tab-btn.active::after {
+    opacity: 1;
+    color: #fff;
+    transform: none;
   }
 
   .project-tab-btn.active:hover {
@@ -456,6 +522,12 @@
     color: #fff;
     box-shadow: -8px 0 0 0 var(--site-color), 0 4px 12px rgba(0, 0, 0, 0.15);
     transform: translateX(4px) translateY(-2px);
+  }
+
+  .project-tab-btn.active:hover::after {
+    opacity: 1;
+    color: #fff;
+    transform: translateX(4px);
   }
 
   @media (max-width: 991.98px) {
