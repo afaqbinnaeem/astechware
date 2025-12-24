@@ -10722,8 +10722,8 @@ nav.nav-inner {
   .floating-booking-button .btn {
     padding: 3px 18px;
     font-size: 14px;
-    bottom: 15px;
-    right: 10px;
+    bottom: 10px;
+    right: 5px;
   }
 
   .floating-booking-button .btn i {
