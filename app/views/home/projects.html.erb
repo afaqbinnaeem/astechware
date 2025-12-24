@@ -31,74 +31,167 @@
           </p>
       </div>
 
-      <div class="row">
-        <div class="col-12 col-lg-3 mb-4 mb-lg-0">
-          <div class="projects-sidebar">
-            <ul class="nav nav-pills flex-lg-column flex-row overflow-hidden" id="projectsTab" role="tablist">
-              <li class="nav-item me-2 me-lg-0 mb-lg-2" role="presentation">
-                <button class="nav-link project-tab-btn active w-100 text-start" id="introduction-tab" data-bs-toggle="tab" data-bs-target="#introduction" type="button" role="tab" aria-controls="introduction" aria-selected="true">
+      <!-- Projects Sidebar Toggle Button (Mobile/Tablet) -->
+      <div class="projects-sidebar-toggle d-lg-none mb-3">
+        <button class="projects-nav-button" type="button" aria-label="Toggle Projects Menu">
+          <div class="projects-icon-wrapper">
+            <span class="projects-menu-icon">
+              <span class="menu-line"></span>
+              <span class="menu-line"></span>
+              <span class="menu-line"></span>
+            </span>
+            <span class="projects-close-icon">
+              <span class="close-line close-line-1"></span>
+              <span class="close-line close-line-2"></span>
+            </span>
+          </div>
+            <h2 class="menu-button-text ms-5">Projects</h2>
+          </button>
+      </div>
+
+      <!-- Projects Sidebar Overlay -->
+      <div class="projects-sidebar-overlay"></div>
+
+      <!-- Mobile/Tablet Sidebar (hidden by default, shown via toggle) -->
+      <div class="projects-sidebar-wrapper-mobile d-lg-none">
+        <div class="projects-sidebar">
+          <ul class="nav nav-pills flex-column" id="projectsTabMobile" role="tablist">
+              <li class="nav-item mb-2" role="presentation">
+                <button class="nav-link project-tab-btn active w-100 text-start" id="introduction-tab-mobile" data-bs-toggle="tab" data-bs-target="#introduction" type="button" role="tab" aria-controls="introduction" aria-selected="true">
                   Introduction
                 </button>
               </li>
-              <li class="nav-item me-2 me-lg-0 mb-lg-2" role="presentation">
-                <button class="nav-link project-tab-btn w-100 text-start" id="vestra-tab" data-bs-toggle="tab" data-bs-target="#vestra" type="button" role="tab" aria-controls="vestra" aria-selected="false">
+              <li class="nav-item mb-2" role="presentation">
+                <button class="nav-link project-tab-btn w-100 text-start" id="vestra-tab-mobile" data-bs-toggle="tab" data-bs-target="#vestra" type="button" role="tab" aria-controls="vestra" aria-selected="false">
                   Vestra – Property Management SaaS
                 </button>
               </li>
-              <li class="nav-item me-2 me-lg-0 mb-lg-2" role="presentation">
-                <button class="nav-link project-tab-btn w-100 text-start" id="wom-tab" data-bs-toggle="tab" data-bs-target="#wom" type="button" role="tab" aria-controls="wom" aria-selected="false">
+              <li class="nav-item mb-2" role="presentation">
+                <button class="nav-link project-tab-btn w-100 text-start" id="wom-tab-mobile" data-bs-toggle="tab" data-bs-target="#wom" type="button" role="tab" aria-controls="wom" aria-selected="false">
                   WOM – Reviews &amp; Recommendations Platform
                 </button>
               </li>
-              <li class="nav-item me-2 me-lg-0 mb-lg-2" role="presentation">
-                <button class="nav-link project-tab-btn w-100 text-start" id="golfpay-tab" data-bs-toggle="tab" data-bs-target="#golfpay" type="button" role="tab" aria-controls="golfpay" aria-selected="false">
+              <li class="nav-item mb-2" role="presentation">
+                <button class="nav-link project-tab-btn w-100 text-start" id="golfpay-tab-mobile" data-bs-toggle="tab" data-bs-target="#golfpay" type="button" role="tab" aria-controls="golfpay" aria-selected="false">
                   Golfpay – Golf Operations &amp; Payments
                 </button>
               </li>
-              <li class="nav-item me-2 me-lg-0 mb-lg-2" role="presentation">
-                <button class="nav-link project-tab-btn w-100 text-start" id="zidzid-tab" data-bs-toggle="tab" data-bs-target="#zidzid" type="button" role="tab" aria-controls="zidzid" aria-selected="false">
+              <li class="nav-item mb-2" role="presentation">
+                <button class="nav-link project-tab-btn w-100 text-start" id="zidzid-tab-mobile" data-bs-toggle="tab" data-bs-target="#zidzid" type="button" role="tab" aria-controls="zidzid" aria-selected="false">
                   Zid Zid – Education &amp; Growth Platform
                 </button>
               </li>
-              <li class="nav-item me-2 me-lg-0 mb-lg-2" role="presentation">
-                <button class="nav-link project-tab-btn w-100 text-start" id="sws-tab" data-bs-toggle="tab" data-bs-target="#sws" type="button" role="tab" aria-controls="sws" aria-selected="false">
+              <li class="nav-item mb-2" role="presentation">
+                <button class="nav-link project-tab-btn w-100 text-start" id="sws-tab-mobile" data-bs-toggle="tab" data-bs-target="#sws" type="button" role="tab" aria-controls="sws" aria-selected="false">
                   SWS – Waste Management Platform
                 </button>
               </li>
-              <li class="nav-item me-2 me-lg-0 mb-lg-2" role="presentation">
-                <button class="nav-link project-tab-btn w-100 text-start" id="zoficash-tab" data-bs-toggle="tab" data-bs-target="#zoficash" type="button" role="tab" aria-controls="zoficash" aria-selected="false">
+              <li class="nav-item mb-2" role="presentation">
+                <button class="nav-link project-tab-btn w-100 text-start" id="zoficash-tab-mobile" data-bs-toggle="tab" data-bs-target="#zoficash" type="button" role="tab" aria-controls="zoficash" aria-selected="false">
                   ZofiCash – Salary Advance Fintech
                 </button>
               </li>
-              <li class="nav-item me-2 me-lg-0 mb-lg-2" role="presentation">
-                <button class="nav-link project-tab-btn w-100 text-start" id="driftgolf-tab" data-bs-toggle="tab" data-bs-target="#driftgolf" type="button" role="tab" aria-controls="driftgolf" aria-selected="false">
+              <li class="nav-item mb-2" role="presentation">
+                <button class="nav-link project-tab-btn w-100 text-start" id="driftgolf-tab-mobile" data-bs-toggle="tab" data-bs-target="#driftgolf" type="button" role="tab" aria-controls="driftgolf" aria-selected="false">
                   Drift Golf – Golf Management
                 </button>
               </li>
-              <li class="nav-item me-2 me-lg-0 mb-lg-2" role="presentation">
-                <button class="nav-link project-tab-btn w-100 text-start" id="warco-tab" data-bs-toggle="tab" data-bs-target="#warco" type="button" role="tab" aria-controls="warco" aria-selected="false">
+              <li class="nav-item mb-2" role="presentation">
+                <button class="nav-link project-tab-btn w-100 text-start" id="warco-tab-mobile" data-bs-toggle="tab" data-bs-target="#warco" type="button" role="tab" aria-controls="warco" aria-selected="false">
                   Warco – Warehouse Operations
                 </button>
               </li>
-              <li class="nav-item me-2 me-lg-0 mb-lg-2" role="presentation">
-                <button class="nav-link project-tab-btn w-100 text-start" id="instashowing-tab" data-bs-toggle="tab" data-bs-target="#instashowing" type="button" role="tab" aria-controls="instashowing" aria-selected="false">
+              <li class="nav-item mb-2" role="presentation">
+                <button class="nav-link project-tab-btn w-100 text-start" id="instashowing-tab-mobile" data-bs-toggle="tab" data-bs-target="#instashowing" type="button" role="tab" aria-controls="instashowing" aria-selected="false">
                   Instashowing – Real Estate Scheduling
                 </button>
               </li>
-              <li class="nav-item me-2 me-lg-0 mb-lg-2" role="presentation">
-                <button class="nav-link project-tab-btn w-100 text-start" id="tgh-tab" data-bs-toggle="tab" data-bs-target="#tgh" type="button" role="tab" aria-controls="tgh" aria-selected="false">
+              <li class="nav-item mb-2" role="presentation">
+                <button class="nav-link project-tab-btn w-100 text-start" id="tgh-tab-mobile" data-bs-toggle="tab" data-bs-target="#tgh" type="button" role="tab" aria-controls="tgh" aria-selected="false">
                   The Grants Hub – Grants Management
                 </button>
               </li>
-              <li class="nav-item me-2 me-lg-0 mb-lg-2" role="presentation">
-                <button class="nav-link project-tab-btn w-100 text-start" id="chelo-tab" data-bs-toggle="tab" data-bs-target="#chelo" type="button" role="tab" aria-controls="chelo" aria-selected="false">
+              <li class="nav-item mb-2" role="presentation">
+                <button class="nav-link project-tab-btn w-100 text-start" id="chelo-tab-mobile" data-bs-toggle="tab" data-bs-target="#chelo" type="button" role="tab" aria-controls="chelo" aria-selected="false">
                   Chelo – Additional Project
                 </button>
               </li>
             </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Desktop Sidebar Column (hidden on mobile/tablet) -->
+        <div class="col-12 col-lg-3 mb-4 mb-lg-0 d-none d-lg-block">
+          <div class="projects-sidebar-wrapper">
+            <div class="projects-sidebar">
+              <ul class="nav nav-pills flex-lg-column flex-row overflow-hidden" id="projectsTab" role="tablist">
+                <li class="nav-item me-2 me-lg-0 mb-lg-2" role="presentation">
+                  <button class="nav-link project-tab-btn active w-100 text-start" id="introduction-tab" data-bs-toggle="tab" data-bs-target="#introduction" type="button" role="tab" aria-controls="introduction" aria-selected="true">
+                    Introduction
+                  </button>
+                </li>
+                <li class="nav-item me-2 me-lg-0 mb-lg-2" role="presentation">
+                  <button class="nav-link project-tab-btn w-100 text-start" id="vestra-tab" data-bs-toggle="tab" data-bs-target="#vestra" type="button" role="tab" aria-controls="vestra" aria-selected="false">
+                    Vestra – Property Management SaaS
+                  </button>
+                </li>
+                <li class="nav-item me-2 me-lg-0 mb-lg-2" role="presentation">
+                  <button class="nav-link project-tab-btn w-100 text-start" id="wom-tab" data-bs-toggle="tab" data-bs-target="#wom" type="button" role="tab" aria-controls="wom" aria-selected="false">
+                    WOM – Reviews &amp; Recommendations Platform
+                  </button>
+                </li>
+                <li class="nav-item me-2 me-lg-0 mb-lg-2" role="presentation">
+                  <button class="nav-link project-tab-btn w-100 text-start" id="golfpay-tab" data-bs-toggle="tab" data-bs-target="#golfpay" type="button" role="tab" aria-controls="golfpay" aria-selected="false">
+                    Golfpay – Golf Operations &amp; Payments
+                  </button>
+                </li>
+                <li class="nav-item me-2 me-lg-0 mb-lg-2" role="presentation">
+                  <button class="nav-link project-tab-btn w-100 text-start" id="zidzid-tab" data-bs-toggle="tab" data-bs-target="#zidzid" type="button" role="tab" aria-controls="zidzid" aria-selected="false">
+                    Zid Zid – Education &amp; Growth Platform
+                  </button>
+                </li>
+                <li class="nav-item me-2 me-lg-0 mb-lg-2" role="presentation">
+                  <button class="nav-link project-tab-btn w-100 text-start" id="sws-tab" data-bs-toggle="tab" data-bs-target="#sws" type="button" role="tab" aria-controls="sws" aria-selected="false">
+                    SWS – Waste Management Platform
+                  </button>
+                </li>
+                <li class="nav-item me-2 me-lg-0 mb-lg-2" role="presentation">
+                  <button class="nav-link project-tab-btn w-100 text-start" id="zoficash-tab" data-bs-toggle="tab" data-bs-target="#zoficash" type="button" role="tab" aria-controls="zoficash" aria-selected="false">
+                    ZofiCash – Salary Advance Fintech
+                  </button>
+                </li>
+                <li class="nav-item me-2 me-lg-0 mb-lg-2" role="presentation">
+                  <button class="nav-link project-tab-btn w-100 text-start" id="driftgolf-tab" data-bs-toggle="tab" data-bs-target="#driftgolf" type="button" role="tab" aria-controls="driftgolf" aria-selected="false">
+                    Drift Golf – Golf Management
+                  </button>
+                </li>
+                <li class="nav-item me-2 me-lg-0 mb-lg-2" role="presentation">
+                  <button class="nav-link project-tab-btn w-100 text-start" id="warco-tab" data-bs-toggle="tab" data-bs-target="#warco" type="button" role="tab" aria-controls="warco" aria-selected="false">
+                    Warco – Warehouse Operations
+                  </button>
+                </li>
+                <li class="nav-item me-2 me-lg-0 mb-lg-2" role="presentation">
+                  <button class="nav-link project-tab-btn w-100 text-start" id="instashowing-tab" data-bs-toggle="tab" data-bs-target="#instashowing" type="button" role="tab" aria-controls="instashowing" aria-selected="false">
+                    Instashowing – Real Estate Scheduling
+                  </button>
+                </li>
+                <li class="nav-item me-2 me-lg-0 mb-lg-2" role="presentation">
+                  <button class="nav-link project-tab-btn w-100 text-start" id="tgh-tab" data-bs-toggle="tab" data-bs-target="#tgh" type="button" role="tab" aria-controls="tgh" aria-selected="false">
+                    The Grants Hub – Grants Management
+                  </button>
+                </li>
+                <li class="nav-item me-2 me-lg-0 mb-lg-2" role="presentation">
+                  <button class="nav-link project-tab-btn w-100 text-start" id="chelo-tab" data-bs-toggle="tab" data-bs-target="#chelo" type="button" role="tab" aria-controls="chelo" aria-selected="false">
+                    Chelo – Additional Project
+                  </button>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
+        <!-- Content Column -->
         <div class="col-12 col-lg-9">
           <div class="tab-content h-100" id="projectsTabContent">
             <!-- Introduction -->
@@ -414,15 +507,6 @@
 </div>
 
 <style>
-  .projects-sidebar {
-    background: #fff;
-    border-radius: 8px;
-    padding: 1rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 20px;
-  }
-
   .browse-tabs-link {
     color: var(--site-color);
     # text-decoration: underline;
@@ -530,19 +614,309 @@
     transform: translateX(4px);
   }
 
+  /* Projects Sidebar Toggle Button */
+  .projects-sidebar-toggle {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .projects-nav-button {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    position: relative;
+    background: transparent;
+    border: none;
+    padding: 0;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .projects-icon-wrapper {
+    width: 40px;
+    height: 40px;
+    background-color: var(--site-color);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .projects-nav-button:hover .projects-icon-wrapper {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(249, 196, 46, 0.4);
+  }
+
+  /* Menu Icon (Three Horizontal Lines) */
+  .projects-menu-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    width: 20px;
+    height: 16px;
+    position: absolute;
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    transition: all 0.3s ease;
+  }
+
+  .menu-line {
+    width: 100%;
+    height: 2.5px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  /* Close Icon (X) */
+  .projects-close-icon {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    opacity: 0;
+    transform: scale(0) rotate(90deg);
+    transition: all 0.3s ease;
+  }
+
+  .close-line {
+    position: absolute;
+    width: 100%;
+    height: 2.5px;
+    background-color: #fff;
+    border-radius: 2px;
+    top: 50%;
+    left: 0;
+    transition: all 0.3s ease;
+  }
+
+  .close-line-1 {
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .close-line-2 {
+    transform: translateY(-50%) rotate(-45deg);
+  }
+
+  /* Active State - Hide Menu, Show Close */
+  .projects-nav-button.active .projects-menu-icon {
+    opacity: 0;
+    transform: scale(0) rotate(-90deg);
+  }
+
+  .projects-nav-button.active .projects-close-icon {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+
+  .projects-nav-button .menu-button-text {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: 6px;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-color);
+    font-weight: 500;
+    text-align: center;
+  }
+
+  /* Projects Sidebar Wrapper */
+  .projects-sidebar-wrapper {
+    position: relative;
+  }
+
+  /* Mobile/Tablet Sidebar Wrapper (separate from column) */
+  .projects-sidebar-wrapper-mobile {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 320px;
+    max-width: 85%;
+    height: 100vh;
+    z-index: 999999;
+    background: #fff;
+    overflow-y: auto;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  body.open-projects-sidebar .projects-sidebar-wrapper-mobile {
+    right: 0;
+  }
+
+  .projects-sidebar-wrapper-mobile .projects-sidebar {
+    position: relative;
+    top: 0;
+    margin-bottom: 0;
+    border-radius: 0;
+    padding: 2rem 1rem;
+    box-shadow: none;
+    height: 100%;
+  }
+
+  /* Projects Sidebar Overlay */
+  .projects-sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  body.open-projects-sidebar .projects-sidebar-overlay {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Projects Sidebar Styles */
+  .projects-sidebar {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 20px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
   @media (max-width: 991.98px) {
-    .projects-sidebar {
-      position: relative;
-      top: 0;
-      margin-bottom: 2rem;
+    .project-tab-btn {
+      margin-right: 0;
+      margin-bottom: 0.5rem;
+      white-space: normal;
+      min-width: auto;
+      width: 100%;
     }
 
-    .project-tab-btn {
-      margin-right: 0.5rem;
-      margin-bottom: 0;
-      white-space: nowrap;
-      min-width: 200px;
+    .projects-nav-button {
+      display: block;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .projects-sidebar-toggle {
+      display: none;
+    }
+
+    .projects-sidebar-overlay {
+      display: none;
     }
   }
 </style>
 
+<script>
+  // Projects Sidebar Toggle Functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const projectsNavButton = document.querySelector('.projects-nav-button');
+    const bodyTag = document.querySelector('body');
+    const projectsSidebarOverlay = document.querySelector('.projects-sidebar-overlay');
+    const projectTabButtons = document.querySelectorAll('.project-tab-btn');
+    let sidebarCount = 0;
+
+    if (projectsNavButton) {
+      projectsNavButton.addEventListener('click', function(event) {
+        event.stopPropagation();
+        bodyTag.classList.toggle('open-projects-sidebar');
+        projectsNavButton.classList.toggle('active');
+        sidebarCount = 0;
+      });
+    }
+
+    // Close sidebar when clicking overlay
+    if (projectsSidebarOverlay) {
+      projectsSidebarOverlay.addEventListener('click', function() {
+        if (bodyTag.classList.contains('open-projects-sidebar')) {
+          bodyTag.classList.remove('open-projects-sidebar');
+          if (projectsNavButton) {
+            projectsNavButton.classList.remove('active');
+          }
+          sidebarCount = 0;
+        }
+      });
+    }
+
+    // Close sidebar when clicking on a project tab (mobile)
+    // Handle both desktop and mobile tab buttons
+    const allTabButtons = document.querySelectorAll('.project-tab-btn');
+    allTabButtons.forEach(function(button) {
+      button.addEventListener('click', function() {
+        if (window.innerWidth < 992) {
+          if (bodyTag.classList.contains('open-projects-sidebar')) {
+            bodyTag.classList.remove('open-projects-sidebar');
+            if (projectsNavButton) {
+              projectsNavButton.classList.remove('active');
+            }
+            sidebarCount = 0;
+          }
+        }
+      });
+    });
+
+    // Sync mobile and desktop tab buttons
+    const syncTabs = function(clickedButton) {
+      const targetId = clickedButton.getAttribute('data-bs-target');
+      const isMobile = clickedButton.id.includes('-mobile');
+      
+      if (isMobile) {
+        // If mobile tab clicked, activate corresponding desktop tab
+        const desktopTab = document.querySelector(`#${clickedButton.id.replace('-mobile', '')}`);
+        if (desktopTab) {
+          desktopTab.click();
+        }
+      } else {
+        // If desktop tab clicked, activate corresponding mobile tab
+        const mobileTab = document.querySelector(`#${clickedButton.id}-mobile`);
+        if (mobileTab) {
+          mobileTab.click();
+        }
+      }
+    };
+
+    allTabButtons.forEach(function(button) {
+      button.addEventListener('click', function() {
+        syncTabs(button);
+      });
+    });
+
+    // Close sidebar when clicking outside (mobile)
+    bodyTag.addEventListener('click', function(event) {
+      if (bodyTag.classList.contains('open-projects-sidebar') && sidebarCount > 0) {
+        const sidebarWrapper = document.querySelector('.projects-sidebar-wrapper');
+        const isClickInsideSidebar = sidebarWrapper && sidebarWrapper.contains(event.target);
+        const isClickOnToggle = projectsNavButton && projectsNavButton.contains(event.target);
+        
+        if (!isClickInsideSidebar && !isClickOnToggle) {
+          bodyTag.classList.remove('open-projects-sidebar');
+          if (projectsNavButton) {
+            projectsNavButton.classList.remove('active');
+          }
+          sidebarCount = 0;
+        } else {
+          sidebarCount++;
+        }
+      } else {
+        sidebarCount++;
+      }
+    });
+
+    if (projectsNavButton) {
+      projectsNavButton.addEventListener('click', function(event) {
+        sidebarCount = 0;
+      });
+    }
+  });
+</script>

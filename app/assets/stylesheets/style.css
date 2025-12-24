@@ -10663,11 +10663,13 @@ nav.nav-inner {
   z-index: 9999;
   animation: popupAnimation 2s ease-in-out infinite;
 }
-.btn-primary:focus{
+
+.btn-primary:focus {
   background-color: var(--text-color) !important;
   border-color: var(--text-color) !important;
   color: white !important;
 }
+
 .floating-booking-button .btn {
   padding: 5px 30px;
   font-size: 16px;
@@ -10717,8 +10719,10 @@ nav.nav-inner {
   }
 
   .floating-booking-button .btn {
-    padding: 10px 18px;
+    padding: 3px 18px;
     font-size: 14px;
+    bottom: 30px;
+    right: 22px;
   }
 
   .floating-booking-button .btn i {
