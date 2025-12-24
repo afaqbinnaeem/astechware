@@ -1030,6 +1030,7 @@ nav.nav-inner {
   .hero-section .btn {
     width: 100%;
     max-width: 300px;
+    margin: auto;
   }
 }
 
@@ -10678,7 +10679,7 @@ nav.nav-inner {
   transition: all 0.3s ease;
   animation: pulseAnimation 2s ease-in-out infinite;
   position: fixed;
-  bottom: 100px;
+  bottom: 40px;
   right: 110px;
   z-index: 99999;
 }
@@ -10721,8 +10722,8 @@ nav.nav-inner {
   .floating-booking-button .btn {
     padding: 3px 18px;
     font-size: 14px;
-    bottom: 30px;
-    right: 22px;
+    bottom: 15px;
+    right: 10px;
   }
 
   .floating-booking-button .btn i {
