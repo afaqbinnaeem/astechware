@@ -1048,7 +1048,7 @@ nav.nav-inner {
   }
 
   .expertise-section .icon-box-s2 {
-    padding: 40px 16px;
+    padding: 40px 16px !important;
   }
 
   .built-btn {
