@@ -1030,7 +1030,9 @@ nav.nav-inner {
   .hero-section .btn {
     width: 100%;
     max-width: 300px;
+    font-size: 16px;
     margin: auto;
+    line-height: normal;
   }
 }
 
