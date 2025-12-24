@@ -1046,6 +1046,14 @@ nav.nav-inner {
   h2 {
     line-height: inherit !important;
   }
+
+  .expertise-section .icon-box-s2 {
+    padding: 40px 16px;
+  }
+
+  .built-btn {
+    line-height: 22px !important;
+  }
 }
 
 .how-we-work-section {
