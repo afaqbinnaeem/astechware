@@ -1034,6 +1034,10 @@ nav.nav-inner {
     margin: auto;
     line-height: normal !important;
   }
+
+  .hows-text {
+    line-height: inherit;
+  }
 }
 
 .how-we-work-section {
