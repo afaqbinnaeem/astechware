@@ -121,6 +121,11 @@
                   Vesta – Event Management Platform
                 </button>
               </li>
+              <li class="nav-item mb-2" role="presentation">
+                <button class="nav-link project-tab-btn w-100 text-start" id="restaurant-resource-tab-mobile" data-bs-toggle="tab" data-bs-target="#restaurant-resource" type="button" role="tab" aria-controls="restaurant-resource" aria-selected="false">
+                  Restaurant Resource – Directory &amp; Marketplace
+                </button>
+              </li>
             </ul>
         </div>
       </div>
@@ -194,6 +199,11 @@
                 <li class="nav-item me-2 me-lg-0 mb-lg-2" role="presentation">
                   <button class="nav-link project-tab-btn w-100 text-start" id="vesta-tab" data-bs-toggle="tab" data-bs-target="#vesta-event" type="button" role="tab" aria-controls="vesta-event" aria-selected="false">
                     Vesta – Event Management Platform
+                  </button>
+                </li>
+                <li class="nav-item me-2 me-lg-0 mb-lg-2" role="presentation">
+                  <button class="nav-link project-tab-btn w-100 text-start" id="restaurant-resource-tab" data-bs-toggle="tab" data-bs-target="#restaurant-resource" type="button" role="tab" aria-controls="restaurant-resource" aria-selected="false">
+                    Restaurant Resource – Directory &amp; Marketplace
                   </button>
                 </li>
               </ul>
@@ -522,6 +532,42 @@
                     event organizers.
                   </p>
                   <a href="https://youtu.be/jeRFBiBu_-g" target="_blank" rel="noopener noreferrer" class="btn btn-primary rounded-pill">
+                    See Demo
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Restaurant Resource -->
+            <div class="tab-pane fade h-100" id="restaurant-resource" role="tabpanel" aria-labelledby="restaurant-resource-tab">
+              <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-2 p-md-3">
+                  <div class="mb-4">
+                    <%= image_tag 'projects/RRF.avif', class: 'img-fluid rounded', alt: 'Restaurant Resource Platform', loading: "lazy" %>
+                  </div>
+                  <h3 class="h4 mb-3">Restaurant Resource – Directory &amp; Marketplace</h3>
+                  <p class="mb-3">
+                    An online directory and marketplace for restaurants that brings together suppliers, software, services,
+                    and events in one comprehensive platform. The platform was developed using React for the front-end and
+                    Ruby on Rails for the back-end, with a focus on performance, scalability, and real-world business needs.
+                  </p>
+                  <p class="mb-3">
+                    The platform features fast search and filtering powered by Elastic Search, enabling users to search by
+                    keywords, categories, and filters with results updating almost instantly. Advanced sorting prioritizes
+                    listings with higher-tier subscriptions and enabled add-ons, helping vendors maximize their visibility.
+                  </p>
+                  <p class="mb-3">
+                    Each vendor has a dedicated listing page with structured information. The platform pre-creates many
+                    vendor listings using AI and curated data, allowing vendors to later claim and manage their listings.
+                    A full subscription system enables vendors to upgrade or downgrade plans, add features, and manage
+                    renewals securely.
+                  </p>
+                  <p class="mb-4">
+                    <strong>Tech highlights:</strong> React front-end, Ruby on Rails back-end, Elastic Search for fast
+                    searching, background jobs for heavier tasks. The system is designed to scale with increasing users,
+                    listings, and data while maintaining performance.
+                  </p>
+                  <a href="https://youtu.be/volhF9mZS5k" target="_blank" rel="noopener noreferrer" class="btn btn-primary rounded-pill">
                     See Demo
                   </a>
                 </div>
