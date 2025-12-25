@@ -929,6 +929,18 @@ nav.nav-inner {
   background: none !important;
 }
 
+.contact-portfolio {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.2) 100%), url('contact.avif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.contact-portfolio::before {
+  background: none !important;
+}
+
 .hero-blog {
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.2) 100%), url('blog_hero_bg.webp');
   background-size: cover;
