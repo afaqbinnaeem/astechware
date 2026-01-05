@@ -961,6 +961,14 @@ nav.nav-inner {
   background: none !important;
 }
 
+.hero-derisk-projects {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.6) 100%), url('risk.avif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 .hero-blog::before {
   content: "";
   position: absolute;
@@ -10763,4 +10771,82 @@ nav.nav-inner {
   .floating-booking-button .btn i {
     display: none;
   }
+}
+
+
+/* FAQ Accordion Styles */
+.accordion-faq .accordion-item {
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.accordion-faq .accordion-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+.accordion-faq .accordion-button {
+  background-color: #fff;
+  border: none;
+  padding: 1.25rem 1.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+  box-shadow: none;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.accordion-faq .accordion-button:not(.collapsed) {
+  background-color: #242a3b;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-faq .accordion-button:not(.collapsed) .faq-question {
+  color: #fff;
+}
+
+.accordion-faq .accordion-button:not(.collapsed) .faq-icon {
+  color: #fff;
+  transform: rotate(180deg);
+}
+
+.accordion-faq .accordion-button:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 0.25rem rgba(249, 196, 46, 0.25);
+}
+
+.accordion-faq .accordion-button::after {
+  display: none;
+}
+
+.accordion-faq .faq-question {
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+  flex: 1;
+  text-align: left;
+}
+
+.accordion-faq .faq-icon {
+  color: var(--site-color);
+  font-size: 16px;
+  transition: transform 0.3s ease, color 0.3s ease;
+  margin-left: 1rem;
+  flex-shrink: 0;
+}
+
+.accordion-faq .accordion-button:not(.collapsed) .faq-icon {
+  transform: rotate(180deg);
+}
+
+.accordion-faq .accordion-body {
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-top: 1px solid #e9ecef;
+}
+
+.accordion-faq .accordion-collapse {
+  transition: all 0.3s ease;
 }

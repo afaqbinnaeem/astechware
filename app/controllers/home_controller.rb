@@ -35,4 +35,7 @@ class HomeController < ApplicationController
 
   def contact
   end
+
+  def derisk_projects
+  end
 end
