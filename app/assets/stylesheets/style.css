@@ -574,7 +574,7 @@ nav.nav-inner {
 
 .page-subtitle:before {
   content: "";
-  position: absolute;
+  /* position: absolute; */
   left: -80px;
   width: 50px;
   height: 1px;
@@ -10920,7 +10920,7 @@ nav.nav-inner {
   background: rgba(255, 255, 255, 0.15) !important;
   color: var(--text-color) !important;
   padding: 12px 28px !important;
-  border-radius: 35px !important;
+  /* border-radius: 35px !important; */
   font-weight: 700 !important;
   font-size: 12px !important;
   letter-spacing: 2px !important;
