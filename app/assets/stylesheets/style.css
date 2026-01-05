@@ -10850,3 +10850,180 @@ nav.nav-inner {
 .accordion-faq .accordion-collapse {
   transition: all 0.3s ease;
 }
+
+`
+
+/* Enhanced Booking Button Styles */
+/* Booking button in navigation menu */
+.booking-btn-menu {
+  background: var(--site-color) !important;
+  color: var(--text-color) !important;
+  padding: 12px 24px !important;
+  border-radius: 30px !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  letter-spacing: 1.5px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 8px 0 !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 4px 15px rgba(249, 196, 46, 0.3) !important;
+  border: 2px solid var(--site-color) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  text-transform: uppercase !important;
+  width: auto !important;
+  height: auto !important;
+  line-height: 1.4 !important;
+}
+
+.booking-btn-menu::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.booking-btn-menu:hover::before {
+  left: 100%;
+}
+
+.booking-btn-menu:hover {
+  background: var(--text-color) !important;
+  color: #fff !important;
+  border-color: var(--text-color) !important;
+  transform: translateY(-2px) scale(1.02) !important;
+  box-shadow: 0 8px 25px rgba(36, 42, 59, 0.4) !important;
+}
+
+.booking-btn-menu:active {
+  transform: translateY(0) scale(0.98) !important;
+}
+
+.booking-btn-menu i {
+  font-size: 14px !important;
+  margin-right: 8px !important;
+  transition: transform 0.3s ease !important;
+}
+
+.booking-btn-menu:hover i {
+  transform: rotate(15deg) scale(1.1) !important;
+}
+
+/* Booking button in header page-subtitle */
+.booking-btn-header {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: var(--text-color) !important;
+  padding: 12px 28px !important;
+  border-radius: 35px !important;
+  font-weight: 700 !important;
+  font-size: 12px !important;
+  letter-spacing: 2px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  text-transform: uppercase !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+.booking-btn-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.booking-btn-header:hover::before {
+  left: 100%;
+}
+
+/* .booking-btn-header:hover {
+  background: var(--site-color) !important;
+  color: var(--text-color) !important;
+  border-color: var(--site-color) !important;
+  transform: translateY(-1px) scale(1.01) !important;
+  box-shadow: 0 8px 30px rgba(249, 196, 46, 0.5) !important;
+} */
+
+.booking-btn-header:active {
+  transform: translateY(-1px) scale(1.02) !important;
+}
+
+.booking-btn-header i {
+  font-size: 13px !important;
+  margin-right: 10px !important;
+  transition: transform 0.3s ease !important;
+}
+
+.booking-btn-header:hover i {
+  transform: rotate(15deg) scale(1.15) !important;
+}
+
+/* Animation for booking buttons */
+@keyframes bookingPulse {
+
+  0%,
+  100% {
+    box-shadow: 0 4px 15px rgba(249, 196, 46, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 6px 20px rgba(249, 196, 46, 0.5);
+  }
+}
+
+.booking-btn-menu {
+  animation: bookingPulse 3s ease-in-out infinite;
+}
+
+/* Responsive styles for booking buttons */
+@media (max-width: 768px) {
+  .booking-btn-menu {
+    padding: 10px 20px !important;
+    font-size: 11px !important;
+    letter-spacing: 1px !important;
+  }
+
+  .booking-btn-menu i {
+    font-size: 12px !important;
+    margin-right: 6px !important;
+  }
+
+  .booking-btn-header {
+    padding: 10px 20px !important;
+    font-size: 10px !important;
+    letter-spacing: 1.5px !important;
+  }
+
+  .booking-btn-header i {
+    font-size: 11px !important;
+    margin-right: 8px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .booking-btn-menu {
+    padding: 8px 16px !important;
+    font-size: 10px !important;
+  }
+
+  .booking-btn-header {
+    padding: 8px 16px !important;
+    font-size: 9px !important;
+  }
+}

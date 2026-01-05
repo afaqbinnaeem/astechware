@@ -9,7 +9,11 @@
           <li id="menu-item-projects" class="menu-item menu-item-type-post_type menu-item-object-page"><%= link_to "Projects", projects_path, class: "ajax" %></li>
           <li id="menu-item-370" class="menu-item menu-item-type-post_type menu-item-object-page"><%= link_to "Blogs", blogs_path, class: "ajax" %></li>
           <li id="menu-item-369" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="#contact_us" class="ajax">Quotations</a></li>
-          <li id="menu-item-834" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children submen-dec"><%= link_to "Contact", contact_path, class: "nav" %>
+          <li id="menu-item-834" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children submen-dec">
+            <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="nav booking-btn-menu">
+              <i class="fa fa-calendar me-2" aria-hidden="true"></i>
+              Book a Free Discovery Call
+            </a>
           </li>
           <% if current_user.present? %>
             <li id="menu-item-834" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children submen-dec">
@@ -28,7 +32,7 @@
         <!-- nav end-->
     </div>
     <div class="nav-footer"><span>
-    © AsTechware / All rights reserved. </span></div>
+    © A'sTechware / All rights reserved. </span></div>
     <div class="nav-holder-wrap_line"></div>
     <div class="nav-holder-wrap_dec"></div>
   </div>
@@ -57,7 +61,10 @@
 
 <div class="hc_dec_color">
   <div class="page-subtitle">
-    <%= link_to "Contact Us", contact_path, style: "opacity: 1; transform: translate3d(0px, 0px, 0px);" %>
+    <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="booking-btn-header" style="opacity: 1; transform: translate3d(0px, 0px, 0px);">
+      <i class="fa fa-calendar me-2" aria-hidden="true"></i>
+      Book a Free Discovery Call
+    </a>
   </div>
 </div>
 
