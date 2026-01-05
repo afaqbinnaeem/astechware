@@ -490,3 +490,139 @@
     });
   });
 </script>
+
+<!-- Popup for Dev Experience -->
+<div id="devExperiencePopup" class="dev-experience-popup">
+   <div class="popup-content">
+      <button class="popup-close" id="closePopup" aria-label="Close popup">
+         <i class="fa fa-times"></i>
+      </button>
+      <div class="popup-body">
+         <p class="popup-text mb-2">
+            <strong>Worried about bad dev experiences?</strong>
+         </p>
+         <p class="popup-text mb-0">
+            See how we structure projects to protect clients → 
+            <a href="/how-we-derisk-projects" class="popup-link">How we de-risk projects</a>
+         </p>
+      </div>
+   </div>
+</div>
+
+<style>
+   .dev-experience-popup {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+      max-width: 380px;
+      opacity: 0;
+      transform: translateX(100%);
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      pointer-events: none;
+   }
+
+   .dev-experience-popup.show {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+   }
+
+   .popup-content {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05);
+      padding: 20px;
+      position: relative;
+      border-left: 4px solid var(--site-color);
+   }
+
+   .popup-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: transparent;
+      border: none;
+      color: #6c757d;
+      font-size: 18px;
+      cursor: pointer;
+      padding: 5px 8px;
+      line-height: 1;
+      transition: all 0.2s;
+      border-radius: 4px;
+   }
+
+   .popup-close:hover {
+      color: var(--text-color);
+      background: #f8f9fa;
+   }
+
+   .popup-body {
+      padding-right: 25px;
+   }
+
+   .popup-text {
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--text-color);
+      margin: 0;
+   }
+
+   .popup-text strong {
+      color: var(--text-color);
+      font-weight: 600;
+   }
+
+   .popup-link {
+      color: var(--site-color);
+      # text-decoration: underline;
+      font-weight: 600;
+      transition: all 0.2s;
+      border-bottom: 1px solid var(--text-color);
+   }
+
+   .popup-link:hover {
+      color: var(--site-color-hover);
+      border-bottom-color: var(--site-color);
+   }
+
+   @media (max-width: 768px) {
+      .dev-experience-popup {
+         max-width: calc(100% - 40px);
+         bottom: 15px;
+         right: 15px;
+         left: 15px;
+      }
+   }
+</style>
+
+<script>
+   document.addEventListener('DOMContentLoaded', function() {
+      const popup = document.getElementById('devExperiencePopup');
+      const closeBtn = document.getElementById('closePopup');
+      
+      // Show popup after 2 seconds
+      setTimeout(function() {
+         if (popup) {
+            popup.classList.add('show');
+         }
+      }, 2000);
+      
+      // Close popup on button click
+      if (closeBtn) {
+         closeBtn.addEventListener('click', function() {
+            if (popup) {
+               popup.classList.remove('show');
+            }
+         });
+      }
+      
+      // Close popup when clicking outside (optional)
+      document.addEventListener('click', function(e) {
+         if (popup && popup.classList.contains('show')) {
+            if (!popup.contains(e.target) && !e.target.closest('.dev-experience-popup')) {
+            }
+         }
+      });
+   });
+</script>
