@@ -10917,8 +10917,8 @@ nav.nav-inner {
 
 /* Booking button in header page-subtitle */
 .booking-btn-header {
-  background: rgba(255, 255, 255, 0.15) !important;
-  color: var(--text-color) !important;
+  background: var(--text-color) !important;
+  color: white !important;
   padding: 12px 28px !important;
   /* border-radius: 35px !important; */
   font-weight: 700 !important;
