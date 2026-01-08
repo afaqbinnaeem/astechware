@@ -11233,6 +11233,11 @@ nav.nav-inner {
   }
 }
 
-.linkedIn-tag:hover{
+.linkedIn-tag{
   color: var(--text-color) !important;
+  border-bottom: 1px solid var(--site-color) !important;
+}
+
+.linkedIn-tag:hover{
+  color: var(--site-color) !important;
 }
