@@ -11232,3 +11232,7 @@ nav.nav-inner {
     padding: 12px 24px !important;
   }
 }
+
+.linkedIn-tag:hover{
+  color: var(--text-color) !important;
+}
