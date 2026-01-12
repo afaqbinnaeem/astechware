@@ -38,4 +38,7 @@ class HomeController < ApplicationController
 
   def derisk_projects
   end
+
+  def privacy_policy
+  end
 end

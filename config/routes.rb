@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/projects', to: 'home#projects', as: 'projects'
   get '/contact', to: 'home#contact', as: 'contact'
   get '/how-we-derisk-projects', to: 'home#derisk_projects', as: 'derisk_projects'
+  get '/privacy-policy', to: 'home#privacy_policy', as: 'privacy_policy'
   get 'vestra-app-case-study', as: 'vestra_app_case_study', to: 'blogs#vestra_app_case_study'
   get 'whatsapp-voice-ai-agent-demo', as: 'whatsapp_voice_ai_agent_demo', to: 'blogs#whatsapp_voice_ai_agent_demo'
   get 'modular-ai-agents-case-study', as: 'modular_ai_agents_case_study', to: 'blogs#modular_ai_agents_case_study'
