@@ -75,6 +75,30 @@
       ) %>
     <% end %>
 
+    <%# JSON-LD Structured Data for Organization - Required for Google to display logo in search results %>
+    <% logo_url = safe_og_image_url('logo-colored.png') %>
+    <% if logo_url.present? %>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "A'sTechware",
+      "url": "<%= base_url %>",
+      "logo": "<%= logo_url %>",
+      "description": "We design and build production-grade AI automations and custom web/mobile platforms from internal ops systems to marketplaces and customer-facing products so businesses can run faster without adding headcount.",
+      "sameAs": [
+        "https://www.linkedin.com/company/astechware",
+        "https://www.instagram.com/astechware"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "ahmad@astechware.com",
+        "contactType": "Customer Service"
+      }
+    }
+    </script>
+    <% end %>
+
   </head>
 
   <body>

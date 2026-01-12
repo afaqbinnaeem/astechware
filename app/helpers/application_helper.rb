@@ -24,4 +24,15 @@ module ApplicationHelper
     Rails.logger.warn "Failed to get request URL: #{e.message}"
     root_url
   end
+
+  # Get base URL (protocol + host) for structured data
+  def base_url
+    begin
+      url = safe_request_url
+      url.split('/')[0..2].join('/')
+    rescue StandardError => e
+      Rails.logger.warn "Failed to get base URL: #{e.message}"
+      root_url
+    end
+  end
 end
