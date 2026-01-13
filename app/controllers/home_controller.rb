@@ -41,4 +41,7 @@ class HomeController < ApplicationController
 
   def privacy_policy
   end
+
+  def unsubscribe
+  end
 end
