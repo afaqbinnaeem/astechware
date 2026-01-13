@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  protect_from_forgery except: [:submit_form]
+  protect_from_forgery except: [:submit_form, :unsubscribe_me]
 
   def index
     @page_title = "A'sTechware Dashboard"
@@ -43,5 +43,15 @@ class HomeController < ApplicationController
   end
 
   def unsubscribe
+  end
+
+  def unsubscribe_me
+    email = params[:email]
+    if email.present?
+      UnsubscribedMailer.notify_unsubscribe(email).deliver
+      redirect_to root_path, notice: "Successfully unsubscribed."
+    else
+      redirect_to root_path, alert: "Failed to unsubscribe."
+    end
   end
 end

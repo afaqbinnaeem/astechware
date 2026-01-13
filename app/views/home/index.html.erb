@@ -807,6 +807,127 @@
       </div>
    </div>
 </div>
+
+<%# Flash Alert Popup %>
+<% if flash[:notice] || flash[:alert] %>
+<div id="flashAlertPopup" class="flash-alert-popup show">
+   <div class="flash-alert-content">
+      <button class="flash-alert-close" id="closeFlashAlert" aria-label="Close alert">
+         <i class="fa fa-times"></i>
+      </button>
+      <div class="flash-alert-body">
+         <p class="flash-alert-text mb-0">
+            <%= flash[:notice] || flash[:alert] %>
+         </p>
+      </div>
+   </div>
+</div>
+
+<style>
+   .flash-alert-popup {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+      max-width: 380px;
+      opacity: 0;
+      transform: translateX(100%);
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      pointer-events: none;
+   }
+
+   .flash-alert-popup.show {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+   }
+
+   .flash-alert-content {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05);
+      padding: 20px;
+      position: relative;
+      border-left: 4px solid var(--site-color);
+   }
+
+   .flash-alert-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: transparent;
+      border: none;
+      color: #6c757d;
+      font-size: 18px;
+      cursor: pointer;
+      padding: 5px 8px;
+      line-height: 1;
+      transition: all 0.2s;
+      border-radius: 4px;
+   }
+
+   .flash-alert-close:hover {
+      color: var(--text-color);
+      background: #f8f9fa;
+   }
+
+   .flash-alert-body {
+      padding-right: 25px;
+   }
+
+   .flash-alert-text {
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--text-color);
+      margin: 0;
+   }
+
+   @media (max-width: 768px) {
+      .flash-alert-popup {
+         max-width: calc(100% - 40px);
+         bottom: 15px;
+         right: 15px;
+         left: 15px;
+      }
+   }
+</style>
+
+<script>
+   document.addEventListener('DOMContentLoaded', function() {
+      const flashPopup = document.getElementById('flashAlertPopup');
+      const closeFlashBtn = document.getElementById('closeFlashAlert');
+      
+      // Close popup on button click
+      if (closeFlashBtn) {
+         closeFlashBtn.addEventListener('click', function() {
+            if (flashPopup) {
+               flashPopup.classList.remove('show');
+               setTimeout(function() {
+                  if (flashPopup.parentNode) {
+                     flashPopup.parentNode.removeChild(flashPopup);
+                  }
+               }, 400);
+            }
+         });
+      }
+      
+      // Auto-hide after 5 seconds
+      if (flashPopup) {
+         setTimeout(function() {
+            if (flashPopup.classList.contains('show')) {
+               flashPopup.classList.remove('show');
+               setTimeout(function() {
+                  if (flashPopup.parentNode) {
+                     flashPopup.parentNode.removeChild(flashPopup);
+                  }
+               }, 400);
+            }
+         }, 5000);
+      }
+   });
+</script>
+<% end %>
+
 <footer id="footer" class="text-center py-4">
    <div class="container">
       <div class="d-flex justify-content-between align-items-center flex-column-reverse flex-sm-row">

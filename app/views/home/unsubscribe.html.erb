@@ -69,22 +69,17 @@
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     const toggleBtn = document.getElementById('subscription-toggle-btn');
-    const statusText = document.getElementById('subscription-status');
-    let isSubscribed = true; // Start with subscribed state
-
+    
     toggleBtn.addEventListener('click', function() {
-      if (isSubscribed) {
-        // Switch to unsubscribed
-        toggleBtn.textContent = 'Resubscribe';
-        statusText.textContent = 'You have successfully unsubscribed from our emails.';
-        statusText.style.display = 'block';
-        isSubscribed = false;
+      // Extract email from current URL query parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const email = urlParams.get('email');
+      
+      // Always navigate to unsubscribe_me route, let server handle validation
+      if (email) {
+        window.location.href = '/unsubscribe_me?email=' + encodeURIComponent(email);
       } else {
-        // Switch to subscribed
-        toggleBtn.textContent = 'Unsubscribe';
-        statusText.textContent = 'You have successfully resubscribed to our emails.';
-        statusText.style.display = 'block';
-        isSubscribed = true;
+        window.location.href = '/unsubscribe_me';
       }
     });
   });
