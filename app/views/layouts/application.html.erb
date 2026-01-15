@@ -5,7 +5,25 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%# Favicon and Site Icon for Google Search Results %>
+    <%# Standard favicon.ico - must be in public directory %>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/vnd.microsoft.icon">
+    <%# PNG favicons for different sizes - using logo-colored.png as base %>
+    <% logo_favicon = safe_og_image_url('logo-colored.png') %>
+    <% if logo_favicon.present? %>
+      <link rel="icon" type="image/png" sizes="16x16" href="<%= logo_favicon %>">
+      <link rel="icon" type="image/png" sizes="32x32" href="<%= logo_favicon %>">
+      <link rel="icon" type="image/png" sizes="96x96" href="<%= logo_favicon %>">
+      <%# Site Icon - Google's preferred format for search results (192x192 or 512x512) %>
+      <link rel="icon" type="image/png" sizes="192x192" href="<%= logo_favicon %>">
+      <link rel="icon" type="image/png" sizes="512x512" href="<%= logo_favicon %>">
+    <% end %>
+    <%# Apple touch icons (already in public directory) %>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-precomposed.png">
+    <%# Shortcut icon for older browsers %>
+    <link rel="shortcut icon" href="/favicon.ico">
     <!-- <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css"> -->
     <!-- Bootstrap Minified CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
