@@ -7,9 +7,19 @@
     <%= csp_meta_tag %>
     <%# Favicon and Site Icon for Google Search Results %>
     <%# Modern SVG favicon (preferred by modern browsers) %>
-    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <%# Standard favicon.ico for older browsers and fallback %>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/vnd.microsoft.icon">
+    <%# PNG favicons for specific sizes from public directory %>
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <%# Site Icons - Google's preferred format for search results (192x192 and 512x512) %>
+    <%# These are critical for Google Search to display your icon %>
     <link rel="icon" type="image/png" sizes="192x192" href="/web-app-manifest-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/web-app-manifest-512x512.png">
+    <%# Apple touch icons for iOS devices %>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-precomposed.png">
     <%# Web App Manifest - provides metadata for PWA and site icons %>
     <link rel="manifest" href="/site.webmanifest">
     <%# Shortcut icon for older browsers %>
