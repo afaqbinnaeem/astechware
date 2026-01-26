@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   match "/404", to: "errors#not_found", via: :all
   match "/500", to: "errors#internal_server_error", via: :all
   post 'submit_form', to: 'home#submit_form'
-  get '/portfolio', to: 'home#portfolio'
+  get '/case-studies', to: 'home#portfolio'
   get '/projects', to: 'home#projects', as: 'projects'
   get '/contact', to: 'home#contact', as: 'contact'
   get '/how-we-derisk-projects', to: 'home#derisk_projects', as: 'derisk_projects'
