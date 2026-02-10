@@ -1052,8 +1052,10 @@ nav.nav-inner {
     background-attachment: scroll;
   }
 
-  .hero-section .d-flex {
-    /* flex-direction: column; */
+  .hero-micro-tags{
+    gap: 5px !important;
+    align-items: center !important;
+    flex-direction: column;
   }
 
   .hero-section .btn {
