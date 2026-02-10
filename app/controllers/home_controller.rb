@@ -7,6 +7,15 @@ class HomeController < ApplicationController
     @page_keywords = "A'sTechware, Best Software House, Best Digital Agency in Pakistan"
   end
 
+  def about
+  end
+
+  def clients
+  end
+
+  def ai_agents
+  end
+
   def submit_form
     @form = Form.new(form_params)
     ContactFormMailer.submit_contact_form(@form).deliver
