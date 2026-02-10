@@ -918,6 +918,14 @@ nav.nav-inner {
   overflow: hidden;
 }
 
+.hero-about {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.65) 100%), url('about-header.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 .hero-portfolio {
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.2) 100%), url('89781.webp');
   background-size: cover;
