@@ -1124,6 +1124,14 @@ nav.nav-inner {
   z-index: -1;
 }
 
+.read-case-study-link{
+  padding-bottom: 10px;
+  transform: translateY(-2px);
+}
+.read-case-study-link:hover{
+  color: var(--text-color) !important;
+  text-decoration: underline;
+}
 .who-we-serve-section {
   background: #f4f6f9;
 }

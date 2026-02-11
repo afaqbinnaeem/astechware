@@ -25,7 +25,7 @@
           <section class="case-study-section mb-5">
             <div class="row g-4">
               <!-- Restaurant Directory -->
-              <div class="col-12 col-md-6">
+              <div class="col-12 col-md-6" id="restaurant-directory">
                 <article class="case-summary-card h-100">
                   <div class="case-summary-icon" aria-hidden="true">
                     <i class="fa fa-cutlery"></i>
@@ -106,7 +106,7 @@
               </div>
 
               <!-- Golf Course SaaS -->
-              <div class="col-12 col-md-6">
+              <div class="col-12 col-md-6" id="golf-saas">
                 <article class="case-summary-card h-100">
                   <div class="case-summary-icon" aria-hidden="true">
                     <i class="fa fa-flag-checkered"></i>
@@ -175,7 +175,7 @@
               </div>
 
               <!-- Event Platform -->
-              <div class="col-12 col-md-6">
+              <div class="col-12 col-md-6" id="event-platform">
                 <article class="case-summary-card h-100">
                   <div class="case-summary-icon" aria-hidden="true">
                     <i class="fa fa-ticket"></i>
@@ -248,7 +248,7 @@
               </div>
 
               <!-- Wellness Clinic -->
-              <div class="col-12 col-md-6">
+              <div class="col-12 col-md-6" id="wellness-clinic">
                 <article class="case-summary-card h-100">
                   <div class="case-summary-icon" aria-hidden="true">
                     <i class="fa fa-heartbeat"></i>
@@ -323,7 +323,7 @@
               </div>
 
               <!-- Law Firm – Summary Tile -->
-              <div class="col-12">
+              <div class="col-12" id="law-firm">
                 <article class="case-summary-card h-100">
                   <div class="case-summary-icon" aria-hidden="true">
                     <i class="fa fa-balance-scale"></i>
@@ -785,32 +785,72 @@
 </style>
 
 <script>
-   document.addEventListener('DOMContentLoaded', function() {
-      const popup = document.getElementById('devExperiencePopup');
-      const closeBtn = document.getElementById('closePopup');
-      
-      // Show popup after 2 seconds
-      setTimeout(function() {
-         if (popup) {
-            popup.classList.add('show');
-         }
-      }, 2000);
-      
-      // Close popup on button click
-      if (closeBtn) {
-         closeBtn.addEventListener('click', function() {
-            if (popup) {
-               popup.classList.remove('show');
-            }
-         });
+  function initCaseStudiesPage() {
+    const popup = document.getElementById('devExperiencePopup');
+    const closeBtn = document.getElementById('closePopup');
+
+    // Show popup after 2 seconds
+    setTimeout(function() {
+      if (popup) {
+        popup.classList.add('show');
       }
-      
-      // Close popup when clicking outside (optional)
-      document.addEventListener('click', function(e) {
-         if (popup && popup.classList.contains('show')) {
-            if (!popup.contains(e.target) && !e.target.closest('.dev-experience-popup')) {
-            }
-         }
+    }, 2000);
+
+    // Close popup on button click
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function() {
+        if (popup) {
+          popup.classList.remove('show');
+        }
       });
-   });
+    }
+
+    // Close popup when clicking outside (optional)
+    document.addEventListener('click', function(e) {
+      if (popup && popup.classList.contains('show')) {
+        if (!popup.contains(e.target) && !e.target.closest('.dev-experience-popup')) {
+        }
+      }
+    });
+
+    // Smooth scrolling to case study anchors with offset
+    const hash = window.location.hash;
+    const SCROLL_OFFSET = 120; // keep section a bit higher on screen
+    const SCROLL_DURATION = 900; // slower scroll (ms)
+
+    function smoothScrollToTarget(target) {
+      const startY = window.pageYOffset;
+      const targetRect = target.getBoundingClientRect();
+      const targetY = targetRect.top + window.pageYOffset - SCROLL_OFFSET;
+      const distance = targetY - startY;
+      const startTime = performance.now();
+
+      function step(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / SCROLL_DURATION, 1);
+        // easeInOut
+        const ease = 0.5 * (1 - Math.cos(Math.PI * progress));
+        window.scrollTo(0, startY + distance * ease);
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        }
+      }
+
+      requestAnimationFrame(step);
+    }
+
+    if (hash) {
+      const target = document.querySelector(hash);
+      if (target) {
+        // Start from top, then animate down with offset
+        window.scrollTo(0, 0);
+        setTimeout(function() {
+          smoothScrollToTarget(target);
+        }, 50);
+      }
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', initCaseStudiesPage);
+  document.addEventListener('turbo:load', initCaseStudiesPage);
 </script>
