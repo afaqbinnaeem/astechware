@@ -210,7 +210,7 @@ h3 {
   background: var(--site-color);
   border-color: var(--site-color);
   min-width: 150px;
-  line-height: 40px;
+  line-height: 30px;
   font-size: 18px;
   color: var(--text-color) !important;
 }
@@ -1120,7 +1120,7 @@ nav.nav-inner {
   left: 0;
   right: 0;
   background: var(--site-color);
-  height: 160px;
+  height: 140px;
   z-index: -1;
 }
 
@@ -11327,6 +11327,8 @@ nav.nav-inner {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .build-system-card::before {
@@ -11363,6 +11365,10 @@ nav.nav-inner {
 .build-system-card p {
   font-size: 0.95rem;
   line-height: 1.6;
+}
+
+.build-system-card .outcome-badge {
+  margin-top: auto;
 }
 
 .build-icon-wrapper {
