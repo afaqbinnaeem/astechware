@@ -1183,6 +1183,24 @@ nav.nav-inner {
   transform: translateY(-2px);
 }
 
+.about-image-card {
+  box-shadow: 0 -8px 0 0 var(--site-color), 0 8px 0 0 var(--site-color), 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+}
+
+.about-image-inner {
+  width: 100%;
+  height: 100%;
+  padding: 12px 0;
+}
+
+.about-image-inner img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .expertise-section {
   background: #eff1f4;
 }
