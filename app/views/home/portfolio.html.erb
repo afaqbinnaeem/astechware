@@ -431,25 +431,41 @@
           </section>
 
           <!-- FINAL CTA -->
-          <section class="case-study-section mb-4">
-            <div class="text-center py-5 px-4 case-study-cta">
-              <h2 class="heading-border heading-center fw-bold mb-4 pb-3 d-inline-block">Ready to Build Something Similar?</h2>
-              <p>Most clients start with a <strong>Free AI Readiness Assessment</strong> ,  a 30-minute diagnostic call where we:</p>
-              <ul class="bullet-list">
-                <li>Audit your workflows for AI automation opportunities</li>
-                <li>Map potential ROI for your top 3 use cases</li>
-                <li>Design a governance framework your board will approve</li>
-                <li>Outline a realistic timeline and budget</li>
-              </ul>
-              <a
-                href="https://calendly.com/ahmadkamran/new-meeting"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn-primary btn-lg rounded-pill px-4 mb-3 px-md-5"
-                style="white-space: nowrap;"
-              >
-                Book a Free Assessment
-              </a>
+          <section class="case-study-section mb-5">
+            <div class="case-study-cta text-center text-md-start py-5 px-4 px-md-5">
+              <div class="row align-items-center g-4">
+                <div class="col-12 col-md-7 col-lg-8">
+                  <h2 class="heading-border heading-center heading-left fw-bold mb-3 pb-3 d-inline-block">
+                    Ready to Build Something Similar?
+                  </h2>
+                  <p class="lead mb-3">
+                    Most clients start with a <strong>Free AI Readiness Assessment</strong> — a 30-minute diagnostic call where we:
+                  </p>
+                  <ul class="bullet-list mb-0">
+                    <li>Audit your workflows for AI automation opportunities</li>
+                    <li>Map potential ROI for your top 3 use cases</li>
+                    <li>Design a governance framework your board will approve</li>
+                    <li>Outline a realistic, milestone-based timeline and budget</li>
+                  </ul>
+                </div>
+                <div class="col-12 col-md-5 col-lg-4 d-flex justify-content-center justify-content-md-end">
+                  <div class="text-center text-md-end">
+                    <p class="small text-muted mb-2">
+                      No pressure, no retainers — just a practical roadmap you can use with or without us.
+                    </p>
+                    <a
+                      href="https://calendly.com/ahmadkamran/new-meeting"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="btn btn-primary btn-lg rounded-pill px-4 px-md-5 mb-2"
+                      style="white-space: nowrap;"
+                    >
+                      Book a Free Assessment
+                    </a>
+                    <p class="small text-muted mb-0">Avg. response within 1 business day.</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
 
@@ -616,8 +632,40 @@
   }
 
   .case-study-cta {
-    background-color: #eff1f4;
-    border-radius: 12px;
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f3f4ff 100%);
+    border-radius: 16px;
+    border: 1px solid #e0e7ff;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .case-study-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at top left, rgba(249, 196, 46, 0.16), transparent 55%),
+      radial-gradient(circle at bottom right, rgba(25, 118, 210, 0.14), transparent 55%);
+    opacity: 0.9;
+    pointer-events: none;
+  }
+
+  .case-study-cta > .row {
+    position: relative;
+    z-index: 1;
+  }
+
+  .case-study-cta .lead {
+    font-size: 1.05rem;
+  }
+
+  .case-study-cta .bullet-list li {
+    font-size: 0.98rem;
+  }
+
+  .case-study-cta .btn {
+    box-shadow: 0 10px 25px rgba(25, 118, 210, 0.25);
   }
 
   @media (max-width: 768px) {
