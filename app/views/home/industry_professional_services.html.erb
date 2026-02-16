@@ -1,0 +1,875 @@
+<% content_for :head do %>
+  <% og_image = safe_og_image_url('logo-colored.png') %>
+  <% if og_image.present? %>
+    <% set_meta_tags(
+      title: "Professional Services Technology Solutions | PSA Platforms & Resource Management | A'sTechware",
+      description: "Professional services automation platforms for consulting, accounting, agencies, and billable-time firms. Increase utilization, improve profitability, reduce admin burden.",
+      keywords: "professional services automation, PSA platform, consulting firm technology, resource management, time tracking, project profitability, billable utilization",
+      og: { title: "Professional Services Technology Solutions | A'sTechware", description: "Operations platforms, resource management, and workflow automation for billable-time firms.", image: og_image, url: safe_request_url, type: 'website', site_name: "A'sTechware" },
+      twitter: { card: 'summary_large_image', title: "Professional Services Technology Solutions | A'sTechware", description: "Operations platforms, resource management, and workflow automation for billable-time firms.", image: og_image }
+    ) %>
+  <% else %>
+    <% set_meta_tags(
+      title: "Professional Services Technology Solutions | PSA Platforms & Resource Management | A'sTechware",
+      description: "Professional services automation platforms for consulting, accounting, agencies, and billable-time firms. Increase utilization, improve profitability, reduce admin burden.",
+      keywords: "professional services automation, PSA platform, consulting firm technology, resource management, time tracking, project profitability, billable utilization",
+      og: { title: "Professional Services Technology Solutions | A'sTechware", description: "Operations platforms, resource management, and workflow automation for billable-time firms.", url: safe_request_url, type: 'website', site_name: "A'sTechware" },
+      twitter: { card: 'summary', title: "Professional Services Technology Solutions | A'sTechware", description: "Operations platforms, resource management, and workflow automation for billable-time firms." }
+    ) %>
+  <% end %>
+<% end %>
+
+<!-- Hero Section -->
+<div class="hero-section py-5 service-page-hero professional-services-hero industry-landing-hero">
+  <div class="container">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-12 col-lg-8 mx-auto text-center">
+        <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;">
+          Professional Services Technology Solutions
+        </h1>
+        <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.4; max-width: 720px; margin-left: auto; margin-right: auto;">
+          Operations Platforms, Resource Management, and Workflow Automation for Billable-Time Firms
+        </p>
+        <p class="mb-4" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
+          Operations platforms, resource management, and workflow automation for firms that run on billable time. Built for consulting, accounting, architecture, engineering, marketing agencies, and professional service organizations.
+        </p>
+        <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+          Schedule Free Consultation
+        </a>
+      </div>
+    </div>
+    <%# Optional hero image: add image to app/assets/images/professional-services-hero.jpg and uncomment %>
+    <%# <div class="row mt-5"><div class="col-12 col-lg-10 mx-auto text-center"><%= image_tag 'professional-services-hero.jpg', class: 'img-fluid rounded shadow', alt: 'Modern professional services office with technology integration', loading: 'lazy' %><%# </div></div> %>
+  </div>
+</div>
+
+<div class="inner-sections professional-services-industry-page">
+
+  <!-- Overview -->
+  <section class="py-5 bg-white" id="overview">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Transforming Professional Services Through Technology</h2>
+          <p class="large-para mb-4">
+            Professional services firms face a unique challenge: profitability depends on efficiently converting billable hours into revenue while maintaining exceptional client service. Whether you're a consulting firm, accounting practice, creative agency, or engineering firm, the math is simple—more billable hours, better utilization, faster collections equals higher profitability.
+          </p>
+          <p class="large-para mb-4">
+            We build technology solutions specifically for professional services organizations that run on time, expertise, and relationships. From project management and resource allocation to time tracking and client billing, our platforms are designed to maximize billable utilization, reduce administrative burden, and improve client satisfaction.
+          </p>
+          <p class="large-para mb-0">
+            Our professional services expertise spans management consulting, accounting and tax, architecture and engineering, marketing and creative agencies, IT services, and fractional executive services. We understand that professional services technology must support complex project structures, multiple billing models, resource constraints, and client communication—all while being intuitive enough that busy professionals actually use it.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Challenges (8 cards) -->
+  <section class="py-5 bg-light-grey" id="challenges">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Challenges Professional Services Firms Face</h2>
+      </div>
+      <div class="row g-3">
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">1</span>
+            <h4 class="h6 mb-2">Low Billable Utilization</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Target 70–80%, reality often 40–60%</li>
+              <li>Non-billable work eating time</li>
+              <li>Difficulty tracking where time goes</li>
+              <li>Revenue leakage from unbilled hours</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">2</span>
+            <h4 class="h6 mb-2">Project Profitability Challenges</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Scope creep without additional billing</li>
+              <li>Underestimating hours leading to losses</li>
+              <li>Fixed-fee projects over budget</li>
+              <li>No real-time profitability visibility</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">3</span>
+            <h4 class="h6 mb-2">Resource Allocation &amp; Capacity Planning</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Manual scheduling with spreadsheets</li>
+              <li>Double-booking and under-allocation</li>
+              <li>No visibility into capacity constraints</li>
+              <li>Difficulty balancing workload</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">4</span>
+            <h4 class="h6 mb-2">Time Tracking &amp; Billing Complexity</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Manual time entry tedious and inaccurate</li>
+              <li>30–40% time leakage typical</li>
+              <li>Multiple billing models</li>
+              <li>Delayed billing and write-downs</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">5</span>
+            <h4 class="h6 mb-2">Client Communication &amp; Transparency</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Clients don't see value until invoice</li>
+              <li>Lack of project visibility</li>
+              <li>Manual status updates consuming time</li>
+              <li>Difficulty managing expectations</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">6</span>
+            <h4 class="h6 mb-2">Proposal &amp; Estimating Inefficiency</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Proposals taking 20–40 hours</li>
+              <li>Inconsistent pricing and scoping</li>
+              <li>Low win rates (20–30% typical)</li>
+              <li>No templates or reusable content</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">7</span>
+            <h4 class="h6 mb-2">Administrative Burden</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Partners spending 40–50% time on admin</li>
+              <li>Manual expense tracking</li>
+              <li>Complicated multi-project accounting</li>
+              <li>Time-consuming compliance and reporting</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">8</span>
+            <h4 class="h6 mb-2">Talent Retention &amp; Development</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Junior staff burned out on admin</li>
+              <li>Lack of skills development tracking</li>
+              <li>No visibility into career progression</li>
+              <li>High turnover increasing costs</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Professional Services Solutions (8 sections) -->
+  <section class="py-5 bg-white" id="solutions">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Our Professional Services Solutions</h2>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">1. Project &amp; Portfolio Management</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>End-to-end project management platforms</li>
+              <li>Multi-project portfolio dashboards</li>
+              <li>Task management and workflows</li>
+              <li>Milestone tracking and deliverables</li>
+              <li>Project templates and playbooks</li>
+              <li>Client collaboration portals</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Phases, tasks, milestones; Gantt and timeline</li>
+              <li>Task dependencies and critical path</li>
+              <li>Budget vs actual (time and money)</li>
+              <li>Resource allocation and scheduling</li>
+              <li>File sharing; client-facing portals</li>
+              <li>Automated status reports</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-2">Management consulting; IT implementation; marketing and creative; construction and engineering; accounting and audit.</p>
+            <p class="mb-0 small text-muted fw-semibold">Impact: 30–50% on-time delivery improvement; 25% scope creep reduction; better client satisfaction.</p>
+          </div>
+
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">2. Resource Management &amp; Capacity Planning</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Resource scheduling and allocation tools</li>
+              <li>Capacity planning dashboards</li>
+              <li>Skills and availability tracking</li>
+              <li>Utilization optimization</li>
+              <li>Forecast demand modeling</li>
+              <li>Bench and pipeline management</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Visual scheduling (calendar); drag-and-drop assignment</li>
+              <li>Skills and certification tracking</li>
+              <li>Real-time availability and utilization</li>
+              <li>Capacity forecasting (3–6 months)</li>
+              <li>Conflict detection; mobile updates</li>
+              <li>Integration with project management</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-2">Allocating consultants; planning staffing; identifying constraints; balancing workload; optimizing billable utilization.</p>
+            <p class="mb-0 small text-muted fw-semibold">Impact: 15–25% utilization improvement; reduce bench time; better staffing decisions.</p>
+          </div>
+
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">3. Time Tracking &amp; Expense Management</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Intuitive time tracking applications</li>
+              <li>Automated time capture (calendar, email)</li>
+              <li>Expense tracking and reimbursement</li>
+              <li>Mobile time entry</li>
+              <li>Project and task allocation</li>
+              <li>Approval workflows</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>One-click timer; bulk weekly entry</li>
+              <li>Calendar integration (auto-suggest entries)</li>
+              <li>Mobile and desktop apps</li>
+              <li>Expense receipt capture (OCR); mileage, per diem</li>
+              <li>Project/client categorization</li>
+              <li>Manager approval workflows</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-2">Consultants; agency creatives; field technicians; accountants; engineers.</p>
+            <p class="mb-0 small text-muted fw-semibold">Impact: 95%+ time capture vs 60–70% typical; 10–15 hrs saved monthly per employee; 10–20% utilization increase.</p>
+          </div>
+
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">4. Billing &amp; Revenue Management</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Flexible billing (hourly, fixed, retainer, value)</li>
+              <li>Invoice generation and management</li>
+              <li>Collections and payment processing</li>
+              <li>Revenue recognition automation</li>
+              <li>Retainer and subscription management</li>
+              <li>Financial forecasting</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Multiple billing models in one system</li>
+              <li>Automated invoices from time entries</li>
+              <li>Customizable templates; online payment</li>
+              <li>Automated payment reminders</li>
+              <li>Retainer burn-down; revenue forecasting</li>
+              <li>QuickBooks, Xero, NetSuite integration</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-2">Hourly (consulting, legal); fixed-fee; retainer; subscription; value-based pricing.</p>
+            <p class="mb-0 small text-muted fw-semibold">Impact: 40–60% faster invoicing; DSO reduced 30%; better cash flow predictability.</p>
+          </div>
+
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">5. Client Relationship Management (CRM)</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Client database and relationship tracking</li>
+              <li>Opportunity and pipeline management</li>
+              <li>Proposal generation and tracking</li>
+              <li>Contact management; communication history</li>
+              <li>Client portal access</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Client and contact database</li>
+              <li>Opportunity tracking and forecasting</li>
+              <li>Proposal templates and automation</li>
+              <li>Email integration; activity and follow-ups</li>
+              <li>Client portal; contract and engagement management</li>
+              <li>Referral source tracking</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-2">Business development; client onboarding; relationship management; referrals; client communications.</p>
+            <p class="mb-0 small text-muted fw-semibold">Impact: 25–40% proposal win rate increase; 20–30% faster proposals; better retention and upsell.</p>
+          </div>
+
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">6. Document &amp; Knowledge Management</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Centralized document repositories</li>
+              <li>Version control and collaboration</li>
+              <li>Template and playbook libraries</li>
+              <li>Client file management</li>
+              <li>Search and retrieval; document generation</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Centralized cloud storage; folders by client/project</li>
+              <li>Version control and check-in/out</li>
+              <li>Full-text search; template libraries</li>
+              <li>Document generation from templates</li>
+              <li>Client access controls; Office 365, Google Workspace</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-2">Proposal and deliverable templates; client work product; knowledge base; compliance; methodologies and playbooks.</p>
+            <p class="mb-0 small text-muted fw-semibold">Impact: 50–70% less document search time; 30–40% faster proposals; consistent quality.</p>
+          </div>
+
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">7. Financial Management &amp; Profitability</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Real-time financial dashboards</li>
+              <li>Project profitability analysis</li>
+              <li>Budget vs actual tracking</li>
+              <li>Resource cost and margin analysis</li>
+              <li>Cash flow forecasting</li>
+              <li>Practice area performance</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Real-time revenue and profitability</li>
+              <li>Project budget vs actual (time, expenses)</li>
+              <li>Utilization and realization rates</li>
+              <li>Client profitability; practice area performance</li>
+              <li>Cash flow and AR/AP; what-if modeling</li>
+              <li>Executive and board reporting</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-2">Partner dashboards; PM profitability; resource decisions; pricing; FP&amp;A.</p>
+            <p class="mb-0 small text-muted fw-semibold">Impact: Real-time visibility; identify unprofitable projects early; data-driven pricing and staffing.</p>
+          </div>
+
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">8. Client Portal &amp; Collaboration</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Branded client portals</li>
+              <li>Secure file sharing</li>
+              <li>Project status visibility</li>
+              <li>Communication and messaging</li>
+              <li>Feedback and approval workflows</li>
+              <li>Self-service document access</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>White-labeled portals; secure login</li>
+              <li>Project dashboards for clients</li>
+              <li>Document upload/download</li>
+              <li>Two-way messaging; approval workflows</li>
+              <li>Time and expense transparency</li>
+              <li>Invoice and payment access</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-2">Client collaboration; secure document exchange; progress tracking; fewer status meetings; client engagement.</p>
+            <p class="mb-0 small text-muted fw-semibold">Impact: 60–75% fewer status requests; higher satisfaction; better retention.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Professional Services-Specific Benefits (6 cards) -->
+  <section class="py-5 bg-light-grey" id="benefits">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Professional Services-Specific Benefits</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100">
+            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div></div>
+            <h4 class="h5 mb-2">Increased Billable Utilization</h4>
+            <p class="mb-0 small">Typical 15–25% increase in billable hours; better tracking eliminates 30–40% leakage; resource planning reduces bench; e.g. 50%→65% utilization = 30% revenue increase without hiring.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100">
+            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-line-chart" aria-hidden="true"></i></div></div>
+            <h4 class="h5 mb-2">Improved Project Profitability</h4>
+            <p class="mb-0 small">Real-time budget vs actual prevents overruns; scope management reduces unbilled work; better estimating from history; typical 15–30% margin increase on fixed-fee projects.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100">
+            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-money" aria-hidden="true"></i></div></div>
+            <h4 class="h5 mb-2">Faster Revenue Collection</h4>
+            <p class="mb-0 small">Automated billing; online payment reduces DSO 25–40%; retainer tracking prevents under-billing; e.g. 60-day→35-day DSO improves cash flow.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100">
+            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-cogs" aria-hidden="true"></i></div></div>
+            <h4 class="h5 mb-2">Reduced Administrative Burden</h4>
+            <p class="mb-0 small">Automate time entry, expenses, status updates; partners recover 10–15 billable hours weekly; admin time reduced 30–50%; more time for client work and BD.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100">
+            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-users" aria-hidden="true"></i></div></div>
+            <h4 class="h5 mb-2">Better Client Satisfaction</h4>
+            <p class="mb-0 small">Transparent progress; proactive communication; professional portals; typical NPS improvement 20–30 points.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100">
+            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-heart" aria-hidden="true"></i></div></div>
+            <h4 class="h5 mb-2">Enhanced Talent Retention</h4>
+            <p class="mb-0 small">Remove tedious admin; clear career paths; skills tracking; reduce turnover 20–30%.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Stack -->
+  <section class="py-5 bg-white" id="technology">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Technology Stack for Professional Services</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Core Platforms</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Accelo, Asana, Monday.com; PSA platforms</li>
+              <li>Microsoft Project, Smartsheet</li>
+              <li>Float, Resource Guru</li>
+              <li>Harvest, Toggl, Clockify</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Financial &amp; Billing</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>QuickBooks, Xero, NetSuite</li>
+              <li>FreshBooks, Bill.com</li>
+              <li>Stripe, PayPal</li>
+              <li>Revenue recognition; FP&amp;A tools</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">CRM &amp; Business Development</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Salesforce, HubSpot, Pipedrive</li>
+              <li>Custom proposal systems</li>
+              <li>DocuSign, PandaDoc</li>
+              <li>Marketing automation; LinkedIn, email</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Collaboration &amp; Communication</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Microsoft 365, Google Workspace</li>
+              <li>Slack, Microsoft Teams</li>
+              <li>Zoom, Teams video</li>
+              <li>SharePoint, Google Drive; client portal frameworks</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Analytics &amp; Reporting</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Tableau, Power BI, Looker</li>
+              <li>Custom dashboards</li>
+              <li>Snowflake, BigQuery</li>
+              <li>Financial consolidation; predictive analytics</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industry-Specific Considerations -->
+  <section class="py-5 bg-light-grey" id="considerations">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Industry-Specific Considerations</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Consulting Firms</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Engagement letters and SOW management</li>
+              <li>Travel and expense reimbursement</li>
+              <li>Deliverable tracking and acceptance</li>
+              <li>Partner and associate compensation</li>
+              <li>Practice area P&amp;L reporting</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Accounting &amp; Tax</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Busy season management</li>
+              <li>Engagement letters and independence</li>
+              <li>Workpaper and review notes</li>
+              <li>Tax return and extension tracking</li>
+              <li>Compliance calendar</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Creative &amp; Marketing Agencies</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Creative brief and approval workflows</li>
+              <li>Media buying and budget tracking</li>
+              <li>Retainer burn-down</li>
+              <li>Campaign tracking and reporting</li>
+              <li>Asset and brand management</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Architecture &amp; Engineering</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Drawing and specification management</li>
+              <li>Change order tracking</li>
+              <li>Sub-consultant management</li>
+              <li>Permit and regulatory tracking</li>
+              <li>Construction administration</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">IT Services &amp; MSPs</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Ticket and incident management</li>
+              <li>SLA tracking</li>
+              <li>Recurring revenue management</li>
+              <li>Asset and configuration management</li>
+              <li>RMM integration</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Study Spotlights (3) -->
+  <section class="py-5 bg-white" id="case-studies">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Case Study Spotlights</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-lg-4">
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h4 class="h5 mb-3">Management Consulting Firm</h4>
+            <p class="small text-muted mb-2">45-consultant boutique strategy firm • $18M annual revenue</p>
+            <h5 class="h6 mt-3 mb-1">Challenge</h5>
+            <p class="small mb-2">Utilization 52% (target 70%); profitability unknown until month-end; partners 40% on admin; proposals 30–40 hrs; 75-day DSO.</p>
+            <h5 class="h6 mb-1">Solution</h5>
+            <p class="small mb-2">Integrated PSA (project, resource, time, billing); real-time profitability dashboards; automated time capture; proposal templates; client portal.</p>
+            <h5 class="h6 mb-1">Results</h5>
+            <ul class="small mb-0 ps-3" style="line-height: 1.6;">Utilization 52%→68% (30% revenue increase); partner admin 40%→20%; 120+ partner hours recovered monthly; proposal 30–40→8–12 hrs; DSO 75→42 days; $5.4M+ additional annual revenue.</ul>
+            <%= link_to "Read case studies →", case_studies_path, class: "d-inline-block mt-3 fw-semibold small" %>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4">
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h4 class="h5 mb-3">Creative Marketing Agency</h4>
+            <p class="small text-muted mb-2">25-person digital marketing and design • 40 active retainer clients</p>
+            <h5 class="h6 mt-3 mb-1">Challenge</h5>
+            <p class="small mb-2">Retainer overages; no profitability visibility; 60% time tracking compliance; scope creep; client complaints about transparency.</p>
+            <h5 class="h6 mb-1">Solution</h5>
+            <p class="small mb-2">Time tracking with mobile and reminders; retainer burn-down with alerts; project budgeting and budget vs actual; client portal; automated monthly reports.</p>
+            <h5 class="h6 mb-1">Results</h5>
+            <ul class="small mb-0 ps-3" style="line-height: 1.6;">Time tracking 60%→95%; retainer overages identified (prevented $180K leakage); profitability visibility; status calls -70%; margin 18%→28%.</ul>
+            <%= link_to "Read case studies →", case_studies_path, class: "d-inline-block mt-3 fw-semibold small" %>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4">
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h4 class="h5 mb-3">Engineering Firm</h4>
+            <p class="small text-muted mb-2">60-engineer civil/structural firm • 120+ active projects</p>
+            <h5 class="h6 mt-3 mb-1">Challenge</h5>
+            <p class="small mb-2">Resource allocation in spreadsheets; project delays from conflicts; no capacity visibility; 5+ hrs weekly on timesheets; manual status reports.</p>
+            <h5 class="h6 mb-1">Solution</h5>
+            <p class="small mb-2">Resource scheduling and capacity tool; integrated time (one-click timers); project dashboard with automated status; client portal; mobile time for field.</p>
+            <h5 class="h6 mb-1">Results</h5>
+            <ul class="small mb-0 ps-3" style="line-height: 1.6;">Scheduling 10 hrs→1 hr weekly; delays -40%; time entry 5 hrs→45 min per engineer; client satisfaction +35%; 25% more projects without hiring.</ul>
+            <%= link_to "Read case studies →", case_studies_path, class: "d-inline-block mt-3 fw-semibold small" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Typical Project Timeline -->
+  <section class="py-5 bg-light-grey" id="timeline">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Typical Project Timeline</h2>
+          <p class="large-para mb-4">Timeline varies based on firm size, complexity, and number of integrations.</p>
+          <div class="row g-3">
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Phase 1: Weeks 1–2</span>
+                <h4 class="h6 mt-2 mb-2">Discovery &amp; Process Analysis</h4>
+                <p class="mb-0 small">Workflow documentation; pain points; stakeholder interviews; requirements and integrations; success metrics; change management.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Phase 2: Weeks 3–4</span>
+                <h4 class="h6 mt-2 mb-2">System Design &amp; Configuration</h4>
+                <p class="mb-0 small">Process redesign; architecture; data migration planning; integration design; roles and permissions; dashboards and reporting.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Phase 3: Weeks 5–10</span>
+                <h4 class="h6 mt-2 mb-2">Core Platform Development</h4>
+                <p class="mb-0 small">Project management; resource scheduling; time and expense; billing; client portal; mobile app.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Phase 4: Weeks 11–12</span>
+                <h4 class="h6 mt-2 mb-2">Integration &amp; Data Migration</h4>
+                <p class="mb-0 small">Accounting (QuickBooks, Xero, NetSuite); CRM; calendar and email; historical data; documents; custom APIs.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Phase 5: Weeks 13–14</span>
+                <h4 class="h6 mt-2 mb-2">Testing &amp; Training</h4>
+                <p class="mb-0 small">UAT with pilot; process validation; admin and power user training; end-user training; documentation; change communications.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Phase 6: Weeks 15–16</span>
+                <h4 class="h6 mt-2 mb-2">Rollout &amp; Optimization</h4>
+                <p class="mb-0 small">Pilot launch; feedback and adjustments; full rollout; support; process optimization; success metrics.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who We Serve -->
+  <section class="py-5 bg-white" id="who-we-serve">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Who We Serve</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-2">Management &amp; Strategy Consulting</h4>
+            <p class="mb-0 small">Boutique strategy; management consulting; operations; HR and org; technology and digital transformation.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-2">Accounting &amp; Financial Services</h4>
+            <p class="mb-0 small">Public accounting (audit, tax, advisory); bookkeeping; fractional CFO; financial planning; valuation and forensic.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-2">Creative &amp; Marketing Agencies</h4>
+            <p class="mb-0 small">Digital marketing; advertising; design and branding; PR; social and content.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-2">Architecture &amp; Engineering</h4>
+            <p class="mb-0 small">Architecture; civil and structural; MEP; environmental; land surveying and planning.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-2">Legal &amp; Compliance</h4>
+            <p class="mb-0 small">Law firms; compliance consulting; regulatory affairs; internal audit; risk management.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-2">Technology Services</h4>
+            <p class="mb-0 small">IT consulting; software agencies; MSPs; cybersecurity; cloud and DevOps.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-5 bg-light-grey" id="faq">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Frequently Asked Questions</h2>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="accordion professional-services-faq" id="professionalServicesFaq">
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#psind1" aria-expanded="false" aria-controls="psind1">How long does it take to implement a PSA platform?</button>
+              </h3>
+              <div id="psind1" class="accordion-collapse collapse" data-bs-parent="#professionalServicesFaq">
+                <div class="accordion-body">Basic implementations: 8–12 weeks. Comprehensive with integrations and custom workflows: 4–6 months. We recommend phased: start with time tracking and project management, then add resource planning, billing, and client portals.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#psind2" aria-expanded="false" aria-controls="psind2">Will people actually use it? We've tried other systems that failed.</button>
+              </h3>
+              <div id="psind2" class="accordion-collapse collapse" data-bs-parent="#professionalServicesFaq">
+                <div class="accordion-body">Adoption is critical. We: (1) Design workflows to match how your firm works, (2) Make time entry and tasks as easy as possible (mobile, one-click, automation), (3) Provide training and change management, (4) Get leadership buy-in, (5) Show quick wins to build momentum.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#psind3" aria-expanded="false" aria-controls="psind3">Can you integrate with our accounting system?</button>
+              </h3>
+              <div id="psind3" class="accordion-collapse collapse" data-bs-parent="#professionalServicesFaq">
+                <div class="accordion-body">Yes. We integrate with QuickBooks Online, Xero, NetSuite, Sage Intacct, and others. We sync clients, projects, time, expenses, invoices, payments. For custom or legacy systems we build custom integrations.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#psind4" aria-expanded="false" aria-controls="psind4">How much does professional services technology cost?</button>
+              </h3>
+              <div id="psind4" class="accordion-collapse collapse" data-bs-parent="#professionalServicesFaq">
+                <div class="accordion-body">Costs vary by firm size. Basic time and project management: $30–50K. Comprehensive PSA: $80–200K. Large firms with complex needs: $300–500K+. Most see ROI within 6–12 months from utilization and reduced admin.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#psind5" aria-expanded="false" aria-controls="psind5">How do you measure success and ROI?</button>
+              </h3>
+              <div id="psind5" class="accordion-collapse collapse" data-bs-parent="#professionalServicesFaq">
+                <div class="accordion-body">We track: billable utilization (target +10–20%), project profitability (+15–25% margins), time capture (90%+), DSO (-25–40%), admin time (-40–60%), client satisfaction (NPS +20–30). Most firms see positive ROI in 6–12 months.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#psind6" aria-expanded="false" aria-controls="psind6">Can we customize it for our unique workflows?</button>
+              </h3>
+              <div id="psind6" class="accordion-collapse collapse" data-bs-parent="#professionalServicesFaq">
+                <div class="accordion-body">Yes. We build flexible platforms for your processes, billing models, deliverables, and client needs. Customization is expected for success.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#psind7" aria-expanded="false" aria-controls="psind7">What happens to our historical project and financial data?</button>
+              </h3>
+              <div id="psind7" class="accordion-collapse collapse" data-bs-parent="#professionalServicesFaq">
+                <div class="accordion-body">We migrate historical clients, projects, time, invoices, and financial data. This preserves reporting and provides baselines. Migration is validated for accuracy.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#psind8" aria-expanded="false" aria-controls="psind8">Do you provide training for our team?</button>
+              </h3>
+              <div id="psind8" class="accordion-collapse collapse" data-bs-parent="#professionalServicesFaq">
+                <div class="accordion-body">Yes. We provide admin and super-user training, end-user sessions (live and recorded), documentation and help, ongoing support during rollout, and refresher training for new hires. Training is tailored by role (partners, PMs, consultants, admin).</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#psind9" aria-expanded="false" aria-controls="psind9">Can we start with just time tracking and add features later?</button>
+              </h3>
+              <div id="psind9" class="accordion-collapse collapse" data-bs-parent="#professionalServicesFaq">
+                <div class="accordion-body">Absolutely. We recommend phased: start with time tracking and basic project management for quick wins, then add resource planning, billing, client portals, and analytics. This spreads cost and reduces change risk.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#psind10" aria-expanded="false" aria-controls="psind10">What ongoing support do you provide?</button>
+              </h3>
+              <div id="psind10" class="accordion-collapse collapse" data-bs-parent="#professionalServicesFaq">
+                <div class="accordion-body">We offer support packages: technical support, software updates, new-hire training, process optimization, integration maintenance, reporting and analytics. Support can be full-service or train-your-team.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="py-5 bg-white" id="related">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Related Services</h2>
+      </div>
+      <div class="row g-3 justify-content-center">
+        <div class="col-6 col-md-4 col-lg-2">
+          <%= link_to ai_agent_development_path, class: "btn btn-outline-primary w-100 py-3 small" do %>AI Agent Development<% end %>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <%= link_to custom_software_path, class: "btn btn-outline-primary w-100 py-3 small" do %>Custom Software<% end %>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <%= link_to api_integrations_path, class: "btn btn-outline-primary w-100 py-3 small" do %>API Integrations<% end %>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <%= link_to industry_financial_path, class: "btn btn-outline-primary w-100 py-3 small" do %>Financial Operations<% end %>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <%= link_to machine_learning_path, class: "btn btn-outline-primary w-100 py-3 small" do %>Machine Learning<% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-5 bg-light-grey" id="cta">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="workflow-card p-5 p-lg-5 text-center">
+            <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Ready to Transform Your Professional Services Firm?</h2>
+            <p class="lead mb-4">Whether you're struggling with low utilization, project profitability, or administrative burden, we're here to help you build technology that drives growth and efficiency.</p>
+            <h4 class="h6 mb-3">Free Professional Services Technology Assessment Includes:</h4>
+            <ul class="list-unstyled mb-4" style="line-height: 2;">
+              <li>60-minute consultation with professional services tech experts</li>
+              <li>Current state analysis (utilization, profitability, admin burden)</li>
+              <li>Process improvement recommendations</li>
+              <li>Technology roadmap tailored to your firm</li>
+              <li>ROI projections with realistic timelines</li>
+              <li>Transparent pricing and phased approach</li>
+            </ul>
+            <div class="d-flex flex-wrap gap-3 justify-content-center mb-4">
+              <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">Schedule Free Consultation</a>
+              <%= link_to "View Professional Services Case Studies", case_studies_path, class: "btn btn-outline-primary btn-lg rounded-pill px-4" %>
+            </div>
+            <p class="mb-0 small text-muted">Email: <a href="mailto:ahmad@astechware.com" class="text-decoration-none">ahmad@astechware.com</a> • Book a call: <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="text-decoration-none">Calendly</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

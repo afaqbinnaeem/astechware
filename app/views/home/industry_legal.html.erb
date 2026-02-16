@@ -1,0 +1,849 @@
+<% content_for :head do %>
+  <% og_image = safe_og_image_url('logo-colored.png') %>
+  <% if og_image.present? %>
+    <% set_meta_tags(
+      title: "Legal Technology Solutions | AI-Powered Contract Review & Legal Research | A'sTechware",
+      description: "Legal tech solutions for document analysis, contract review, legal research, and practice management. Increase billable hours, enhance accuracy, and serve clients better.",
+      keywords: "legal technology, contract analysis AI, legal research automation, law firm practice management, legal document review, legal AI",
+      og: { title: "Legal Technology Solutions | A'sTechware", description: "AI-powered legal workflows with accuracy, auditability, and client excellence.", image: og_image, url: safe_request_url, type: 'website', site_name: "A'sTechware" },
+      twitter: { card: 'summary_large_image', title: "Legal Technology Solutions | A'sTechware", description: "AI-powered legal workflows with accuracy, auditability, and client excellence.", image: og_image }
+    ) %>
+  <% else %>
+    <% set_meta_tags(
+      title: "Legal Technology Solutions | AI-Powered Contract Review & Legal Research | A'sTechware",
+      description: "Legal tech solutions for document analysis, contract review, legal research, and practice management. Increase billable hours, enhance accuracy, and serve clients better.",
+      keywords: "legal technology, contract analysis AI, legal research automation, law firm practice management, legal document review, legal AI",
+      og: { title: "Legal Technology Solutions | A'sTechware", description: "AI-powered legal workflows with accuracy, auditability, and client excellence.", url: safe_request_url, type: 'website', site_name: "A'sTechware" },
+      twitter: { card: 'summary', title: "Legal Technology Solutions | A'sTechware", description: "AI-powered legal workflows with accuracy, auditability, and client excellence." }
+    ) %>
+  <% end %>
+<% end %>
+
+<!-- Hero Section -->
+<div class="hero-section py-5 service-page-hero legal-tech-hero industry-landing-hero">
+  <div class="container">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-12 col-lg-8 mx-auto text-center">
+        <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;">
+          Legal Technology Solutions
+        </h1>
+        <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.4; max-width: 720px; margin-left: auto; margin-right: auto;">
+          AI-Powered Legal Workflows with Accuracy, Auditability, and Client Excellence
+        </p>
+        <p class="mb-4" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
+          Document analysis, contract review, research automation, and case management workflows with full auditability. Built for law firms that demand accuracy, cite sources, and serve clients exceptionally.
+        </p>
+        <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+          Schedule Free Legal Tech Consultation
+        </a>
+      </div>
+    </div>
+    <%# Optional hero image: add image to app/assets/images/legal-hero.jpg and uncomment %>
+    <%# <div class="row mt-5"><div class="col-12 col-lg-10 mx-auto text-center"><%= image_tag 'legal-hero.jpg', class: 'img-fluid rounded shadow', alt: 'Modern law office with technology integration', loading: 'lazy' %><%# </div></div> %>
+  </div>
+</div>
+
+<div class="inner-sections legal-industry-page">
+
+  <!-- Overview -->
+  <section class="py-5 bg-white" id="overview">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Transforming Legal Practice Through Technology</h2>
+          <p class="large-para mb-4">
+            The legal profession is at an inflection point. Clients demand faster turnaround, transparent pricing, and modern communication—while lawyers are buried in document review, legal research, and administrative tasks. Legal technology isn’t about replacing lawyers; it’s about multiplying their effectiveness and letting them focus on high-value strategic work.
+          </p>
+          <p class="large-para mb-4">
+            We build legal technology solutions with a deep understanding of legal workflows, ethical obligations, and the importance of accuracy and citation discipline. From solo practitioners to large law firms, our solutions are designed to increase billable hours, reduce errors, enhance client service, and maintain professional standards.
+          </p>
+          <p class="large-para mb-0">
+            Our legal tech expertise spans litigation support, contract management, legal research automation, document analysis, practice management, and client communication. We understand that every practice area has unique needs—corporate law, litigation, family law, immigration, real estate, intellectual property—and our solutions adapt to your specific workflows.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Challenges (8 cards) -->
+  <section class="py-5 bg-light-grey" id="challenges">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Challenges Legal Professionals Face</h2>
+      </div>
+      <div class="row g-3">
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">1</span>
+            <h4 class="h6 mb-2">Time-Consuming Document Review</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Manual contract analysis taking 5–10 hours per document</li>
+              <li>Inconsistent review standards across attorneys</li>
+              <li>Risk of missing critical clauses or issues</li>
+              <li>High costs passed to clients reducing competitiveness</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">2</span>
+            <h4 class="h6 mb-2">Legal Research Takes Too Long</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>3–5 hours per research memorandum</li>
+              <li>Expensive research databases (Westlaw, LexisNexis)</li>
+              <li>Citation checking tedious but critical</li>
+              <li>Difficulty keeping up with case law developments</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">3</span>
+            <h4 class="h6 mb-2">Administrative Burden</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Partners spending 40–60% time on non-billable work</li>
+              <li>Manual time tracking and billing</li>
+              <li>Client intake and conflict checks</li>
+              <li>Calendar management and court deadlines</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">4</span>
+            <h4 class="h6 mb-2">Document Management Chaos</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Version control nightmares</li>
+              <li>Difficulty finding precedents and templates</li>
+              <li>No centralized document repository</li>
+              <li>Security and privilege concerns with file sharing</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">5</span>
+            <h4 class="h6 mb-2">Client Communication Gaps</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Clients demanding faster responses and updates</li>
+              <li>Manual status updates consuming time</li>
+              <li>Lack of client self-service portal</li>
+              <li>Difficulty managing client expectations</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">6</span>
+            <h4 class="h6 mb-2">High Client Acquisition Costs</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Traditional marketing channels expensive and ineffective</li>
+              <li>Difficulty differentiating from competitors</li>
+              <li>No online presence or client reviews</li>
+              <li>Referral networks not scalable</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">7</span>
+            <h4 class="h6 mb-2">Billing &amp; Collections Challenges</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Delayed billing leading to write-downs</li>
+              <li>Manual invoice generation and tracking</li>
+              <li>Difficulty collecting on outstanding invoices</li>
+              <li>No alternative fee arrangements (AFAs)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">8</span>
+            <h4 class="h6 mb-2">Case &amp; Matter Management</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Spreadsheets and sticky notes not scalable</li>
+              <li>Missed deadlines and court dates</li>
+              <li>Poor task delegation and follow-up</li>
+              <li>No visibility into matter status and profitability</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Legal Technology Solutions (8 sections) -->
+  <section class="py-5 bg-white" id="solutions">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Our Legal Technology Solutions</h2>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">1. AI-Powered Document Analysis &amp; Review</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Contract analysis and comparison tools</li>
+              <li>Due diligence document review platforms</li>
+              <li>Lease abstraction systems</li>
+              <li>Clause extraction and risk identification</li>
+              <li>Document redaction automation</li>
+              <li>Privilege and confidentiality tagging</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>AI-powered clause identification and extraction</li>
+              <li>Contract comparison (redline generation)</li>
+              <li>Risk scoring and flagging</li>
+              <li>Key date and obligation extraction</li>
+              <li>Bulk document processing; searchable repository</li>
+              <li>Version control and audit trails</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-2">M&A due diligence; real estate lease analysis; contract lifecycle management; employment agreement review; corporate governance document management.</p>
+            <p class="mb-0 small text-muted fw-semibold">Time Savings: 70–80% reduction in document review time</p>
+          </div>
+
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">2. Legal Research Automation</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>AI-powered legal research assistants</li>
+              <li>Case law analysis and summarization</li>
+              <li>Citation verification and Shepardization</li>
+              <li>Legal memo generation (with attorney review)</li>
+              <li>Precedent and brief banks</li>
+              <li>Regulatory change tracking</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Natural language legal queries</li>
+              <li>Case law summarization with key holdings</li>
+              <li>Citation checking and verification</li>
+              <li>West headnote and key number research</li>
+              <li>Judicial opinion analysis</li>
+              <li>Legal research memo drafting assistance; source verification</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-2">Litigation research and brief writing; transactional due diligence research; regulatory compliance research; legal opinion preparation; appellate brief research.</p>
+            <p class="mb-0 small text-muted fw-semibold">Time Savings: 40–60% reduction in research time</p>
+          </div>
+
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">3. Practice Management &amp; Case Tracking</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Complete practice management systems</li>
+              <li>Matter and case tracking</li>
+              <li>Calendar and deadline management</li>
+              <li>Task assignment and workflows</li>
+              <li>Time tracking and billing</li>
+              <li>Document management integration</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Matter-centric organization</li>
+              <li>Automated court deadline calculation</li>
+              <li>Task management with dependencies</li>
+              <li>Time entry from any device</li>
+              <li>Matter budgeting and tracking; conflict checking</li>
+              <li>Secure client portal; integration with LawToolBox, etc.</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-0">Solo practitioners to large firms; litigation case management; transactional matter tracking; personal injury pipelines; family law practice management.</p>
+          </div>
+
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">4. Client Intake &amp; CRM</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Online client intake and consultation scheduling</li>
+              <li>Lead tracking and conversion</li>
+              <li>Automated conflict checking</li>
+              <li>Engagement letter generation</li>
+              <li>Client communication platforms</li>
+              <li>Referral tracking and management</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Online intake forms with e-signature</li>
+              <li>Automated conflict checks</li>
+              <li>Lead scoring and assignment</li>
+              <li>Consultation scheduling</li>
+              <li>Engagement letter templates with automation</li>
+              <li>Client communication tracking; marketing source attribution</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-0">Personal injury intake; family law consultations; estate planning onboarding; corporate transactional intake; immigration case initiation.</p>
+          </div>
+
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">5. Document Automation &amp; Templates</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Legal document template systems</li>
+              <li>Form generation with conditional logic</li>
+              <li>E-signature integration</li>
+              <li>Document assembly platforms</li>
+              <li>Contract lifecycle management</li>
+              <li>Precedent libraries</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Drag-and-drop form builder</li>
+              <li>Conditional clauses based on answers</li>
+              <li>Integration with practice management</li>
+              <li>E-signature workflows (DocuSign, Adobe Sign)</li>
+              <li>Template versioning and approval</li>
+              <li>Client self-service document creation; matter-specific generation</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-0">Estate planning (wills, trusts, POA); corporate formation; real estate closing documents; litigation pleadings and discovery; family law agreements.</p>
+          </div>
+
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">6. Litigation Support &amp; E-Discovery</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>E-discovery platforms</li>
+              <li>Document review and coding systems</li>
+              <li>Deposition and trial preparation tools</li>
+              <li>Evidence management</li>
+              <li>Chronology and timeline builders</li>
+              <li>Expert witness management</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Bulk document upload and processing</li>
+              <li>AI-assisted document review and coding</li>
+              <li>Privilege review and redaction</li>
+              <li>Searchable document databases</li>
+              <li>Timeline and chronology generation</li>
+              <li>Exhibit management for trial; deposition organization; Relativity/Concordance integration</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-0">Complex commercial litigation; class actions; employment litigation; product liability; regulatory investigations.</p>
+          </div>
+
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">7. Client Communication &amp; Portals</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Secure client portals</li>
+              <li>Client messaging platforms</li>
+              <li>Document sharing and e-signature</li>
+              <li>Payment processing</li>
+              <li>Case status updates</li>
+              <li>Appointment scheduling</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Secure login with 2FA</li>
+              <li>Real-time case status updates</li>
+              <li>Secure document upload/download</li>
+              <li>Client messaging with attorney</li>
+              <li>Invoice viewing and payment</li>
+              <li>Appointment self-scheduling; mobile app; automated status emails</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-0">Keeping clients informed; reducing “where’s my case” calls; secure document exchange; transparent billing and payment; modern client experience.</p>
+          </div>
+
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">8. Legal Billing &amp; Accounting</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Time and expense tracking</li>
+              <li>Invoice generation and management</li>
+              <li>Trust accounting systems</li>
+              <li>Collections and payment processing</li>
+              <li>Alternative fee arrangement (AFA) management</li>
+              <li>Financial reporting and analytics</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Timer apps (desktop, mobile, web)</li>
+              <li>Automatic time entry from emails/calendar</li>
+              <li>Flexible billing (hourly, flat, contingency, blended)</li>
+              <li>LEDES invoicing for corporate clients</li>
+              <li>Trust account management (IOLTA compliance)</li>
+              <li>Online payment; automated reminders; matter profitability analysis</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-0">Hourly billing; flat fee packages; contingency fee tracking; corporate client LEDES billing; trust accounting for settlements.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Legal-Specific Benefits (6 cards) -->
+  <section class="py-5 bg-light-grey" id="benefits">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Legal-Specific Benefits</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100">
+            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div></div>
+            <h4 class="h5 mb-2">Increased Billable Hours</h4>
+            <p class="mb-0 small">Automate 10–15 hours weekly of non-billable tasks per attorney; partners recover 120+ billable hours monthly (documented case study); associates spend more time on substantive work; paralegals freed from repetitive tasks.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100">
+            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-check-circle" aria-hidden="true"></i></div></div>
+            <h4 class="h5 mb-2">Enhanced Accuracy &amp; Quality</h4>
+            <p class="mb-0 small">Consistent document review standards; AI catches clauses and risks humans miss; citation verification prevents errors; reduced malpractice risk from missed deadlines or errors.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100">
+            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-bolt" aria-hidden="true"></i></div></div>
+            <h4 class="h5 mb-2">Faster Client Service</h4>
+            <p class="mb-0 small">70–80% faster contract review turnaround; legal research in hours not days; documents generated in minutes; clients receive updates proactively.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100">
+            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-users" aria-hidden="true"></i></div></div>
+            <h4 class="h5 mb-2">Improved Client Satisfaction</h4>
+            <p class="mb-0 small">Modern, transparent communication; client self-service portal; predictable timelines and costs; professional, technology-forward image.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100">
+            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-money" aria-hidden="true"></i></div></div>
+            <h4 class="h5 mb-2">Better Financial Performance</h4>
+            <p class="mb-0 small">Higher realization rates; faster collections with online payment; ability to offer competitive flat fees; matter profitability visibility.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100">
+            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-trophy" aria-hidden="true"></i></div></div>
+            <h4 class="h5 mb-2">Competitive Differentiation</h4>
+            <p class="mb-0 small">Modern law firm image attracts better clients; technology enables AFAs; scale practice without hiring proportionally; handle more complex matters efficiently.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Stack -->
+  <section class="py-5 bg-white" id="technology">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Technology Stack for Legal</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Legal-Specific AI &amp; NLP</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Fine-tuned legal language models</li>
+              <li>Named entity recognition (parties, dates, amounts, obligations)</li>
+              <li>Contract clause classification</li>
+              <li>Legal citation extraction and verification</li>
+              <li>Document similarity and comparison</li>
+              <li>Redaction and anonymization</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Document Processing</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>OCR for scanned documents</li>
+              <li>PDF text extraction and processing</li>
+              <li>Document versioning and comparison</li>
+              <li>Metadata extraction and management</li>
+              <li>Full-text search (Elasticsearch)</li>
+              <li>Document assembly and generation</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Practice Management Integration</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Clio, MyCase, PracticePanther, Smokeball</li>
+              <li>LawToolBox for calendaring</li>
+              <li>QuickBooks for accounting</li>
+              <li>Westlaw, LexisNexis, Fastcase</li>
+              <li>Relativity, Everlaw for e-discovery</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Security &amp; Ethics</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Attorney-client privilege protection</li>
+              <li>Ethical walls and conflict screening</li>
+              <li>Audit trails for all document access</li>
+              <li>End-to-end encryption; RBAC</li>
+              <li>State bar ethics compliance</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">E-Signature &amp; Workflow</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>DocuSign, Adobe Sign, HelloSign</li>
+              <li>Document routing and approval workflows</li>
+              <li>Client intake and engagement automation</li>
+              <li>Court filing (e-filing systems)</li>
+              <li>LawPay, trust accounting</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compliance & Professional Standards -->
+  <section class="py-5 bg-light-grey" id="compliance">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Compliance &amp; Professional Standards</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Legal Ethics &amp; Professional Responsibility</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Attorney-client privilege; work product</li>
+              <li>Confidentiality (ABA Model Rule 1.6)</li>
+              <li>Conflicts (Rule 1.7, 1.9); automated conflict checking</li>
+              <li>Competence &amp; diligence (Rule 1.1, 1.3)</li>
+              <li>Supervision of AI and junior attorney work</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Data Security &amp; Privacy</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>ABA Formal Opinion 477R</li>
+              <li>State-specific security requirements</li>
+              <li>Cloud ethics opinions compliance</li>
+              <li>Data breach notification</li>
+              <li>E-discovery and spoliation avoidance</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Trust Accounting &amp; IOLTA</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>State bar trust accounting rules</li>
+              <li>IOLTA compliance</li>
+              <li>Three-way reconciliation</li>
+              <li>Audit trails and reporting</li>
+              <li>Separate operating and trust accounts</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Court Rules &amp; E-Filing</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Federal and state e-filing requirements</li>
+              <li>E-discovery rules (FRCP 26, 34)</li>
+              <li>Metadata concerns and ethics</li>
+              <li>Electronic service of process</li>
+              <li>Redaction for public filings</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Study Spotlights (3) -->
+  <section class="py-5 bg-white" id="case-studies">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Case Study Spotlights</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-lg-4">
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h4 class="h5 mb-3">Mid-Size Corporate Law Firm</h4>
+            <p class="small text-muted mb-2">25-attorney firm (corporate, M&A, securities) • Complex commercial transactions</p>
+            <h5 class="h6 mt-3 mb-1">Challenge</h5>
+            <p class="small mb-2">Partners 60% time on admin; due diligence taking weeks; associates burned out on contract review; clients demanding faster turnaround and lower costs.</p>
+            <h5 class="h6 mb-1">Solution</h5>
+            <p class="small mb-2">AI contract analysis for due diligence; legal research assistant with citation verification; document automation; client portal; practice management with matter tracking.</p>
+            <h5 class="h6 mb-1">Results</h5>
+            <ul class="small mb-0 ps-3" style="line-height: 1.6;">120+ billable hours recovered monthly per partner; 75% faster contract review (3 days → 18 hours for 200-doc review); $180K+ annual revenue increase per partner; 40% associate satisfaction improvement; NPS 45 → 78.</ul>
+            <%= link_to "Read full case study →", case_studies_path + "#law-firm", class: "d-inline-block mt-3 fw-semibold small" %>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4">
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h4 class="h5 mb-3">Personal Injury Law Firm</h4>
+            <p class="small text-muted mb-2">8-attorney plaintiff-side PI firm • 300+ active cases</p>
+            <h5 class="h6 mt-3 mb-1">Challenge</h5>
+            <p class="small mb-2">Manual intake 45+ min per lead; missing follow-up tasks; clients calling for status; hard to track progress and settlement demands; no pipeline or profitability visibility.</p>
+            <h5 class="h6 mb-1">Solution</h5>
+            <p class="small mb-2">Automated online intake and consultation scheduling; case management with task automation; client portal with automatic status updates; document management; pipeline and settlement dashboard.</p>
+            <h5 class="h6 mb-1">Results</h5>
+            <ul class="small mb-0 ps-3" style="line-height: 1.6;">Intake 45 min → 12 min; follow-up tasks 90% vs 60% completion; phone calls reduced 65%; case resolution time improved 25%; settlement values up 15%.</ul>
+            <%= link_to "Read case studies →", case_studies_path, class: "d-inline-block mt-3 fw-semibold small" %>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4">
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h4 class="h5 mb-3">Solo Practitioner (Estate Planning)</h4>
+            <p class="small text-muted mb-2">Solo attorney • Estate planning and elder law • 15–20 new clients monthly</p>
+            <h5 class="h6 mt-3 mb-1">Challenge</h5>
+            <p class="small mb-2">10+ hours weekly on document drafting; manual intake with paper forms; billing and collections 5 hours weekly; no online presence or reviews; hard to scale beyond 15–20 clients/month.</p>
+            <h5 class="h6 mb-1">Solution</h5>
+            <p class="small mb-2">Document automation for wills, trusts, POA; online intake with e-signature; automated billing and online payment; client portal; website with scheduling and consultation booking.</p>
+            <h5 class="h6 mb-1">Results</h5>
+            <ul class="small mb-0 ps-3" style="line-height: 1.6;">Document prep 10 hrs → 2 hrs weekly; client capacity +50% (25–30/month); collections time -80%; client acquisition cost -60%; revenue +40% in 6 months.</ul>
+            <%= link_to "Read case studies →", case_studies_path, class: "d-inline-block mt-3 fw-semibold small" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Typical Project Timeline -->
+  <section class="py-5 bg-light-grey" id="timeline">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Typical Project Timeline</h2>
+          <p class="large-para mb-4">Timeline varies based on firm size, practice areas, and system complexity.</p>
+          <div class="row g-3">
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Phase 1: Weeks 1–2</span>
+                <h4 class="h6 mt-2 mb-2">Discovery &amp; Workflow Analysis</h4>
+                <p class="mb-0 small">Practice area and workflow assessment; document review and case management processes; client communication and intake; current system audit; staff and attorney interviews; success metrics.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Phase 2: Weeks 3–4</span>
+                <h4 class="h6 mt-2 mb-2">Solution Design &amp; Legal Ethics Review</h4>
+                <p class="mb-0 small">Technical architecture; AI model selection and fine-tuning; security and privilege design; state bar ethics review; UI mockups; integration planning.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Phase 3: Weeks 5–10</span>
+                <h4 class="h6 mt-2 mb-2">Core Development</h4>
+                <p class="mb-0 small">Authentication and access controls; document analysis and AI processing; legal research integration; matter/case management; time tracking and billing; client portal.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Phase 4: Weeks 11–12</span>
+                <h4 class="h6 mt-2 mb-2">Legal Content &amp; Training</h4>
+                <p class="mb-0 small">AI model training on legal documents; legal templates and form library; citation database and verification; attorney review and validation; legal accuracy testing.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Phase 5: Weeks 13–14</span>
+                <h4 class="h6 mt-2 mb-2">Integration &amp; Testing</h4>
+                <p class="mb-0 small">Practice management integration; legal research platform integration; document management; e-signature workflows; UAT with attorneys; security and ethics compliance review.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Phase 6: Weeks 15–16</span>
+                <h4 class="h6 mt-2 mb-2">Training &amp; Rollout</h4>
+                <p class="mb-0 small">Attorney and staff training; pilot with select matters; feedback and refinement; full production rollout; client onboarding; ongoing support and optimization.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who We Serve -->
+  <section class="py-5 bg-white" id="who-we-serve">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Who We Serve</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-2">Law Firm Sizes</h4>
+            <p class="mb-0 small">Solo practitioners; small firms (2–10 attorneys); mid-size (11–50); large firms (50+); virtual law firms and distributed teams.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-2">Practice Areas</h4>
+            <p class="mb-0 small">Corporate and transactional; litigation (commercial, employment, PI); real estate; estate planning and elder law; family law; immigration; IP; employment and labor; criminal defense.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-2">Client Types</h4>
+            <p class="mb-0 small">Law firms seeking competitive advantage; firms in rapid growth; high document volume practices; attorneys transitioning from large to small firm; new grads starting practice; in-house legal departments.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-5 bg-light-grey" id="faq">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Frequently Asked Questions</h2>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="accordion legal-industry-faq" id="legalIndustryFaq">
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#legind1" aria-expanded="false" aria-controls="legind1">Can AI really review legal documents accurately?</button>
+              </h3>
+              <div id="legind1" class="accordion-collapse collapse" data-bs-parent="#legalIndustryFaq">
+                <div class="accordion-body">AI is a powerful tool for document analysis, but it should augment—not replace—attorney judgment. Our systems flag clauses, identify risks, and extract key terms; attorneys review the AI’s output and make final decisions. Think of it as a highly efficient first-pass reviewer that never gets tired.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#legind2" aria-expanded="false" aria-controls="legind2">How do you ensure attorney-client privilege is protected?</button>
+              </h3>
+              <div id="legind2" class="accordion-collapse collapse" data-bs-parent="#legalIndustryFaq">
+                <div class="accordion-body">We build privilege protection into the architecture: encrypted communications, access controls limiting who sees what, complete audit trails, and secure cloud infrastructure. We also help you establish proper IT policies and train staff on privilege considerations with technology.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#legind3" aria-expanded="false" aria-controls="legind3">What if the AI makes a mistake or misses something critical?</button>
+              </h3>
+              <div id="legind3" class="accordion-collapse collapse" data-bs-parent="#legalIndustryFaq">
+                <div class="accordion-body">AI is not perfect, and we’re transparent about that. Attorney review is always required for critical decisions. Our systems include confidence scores, highlighting uncertain analysis for closer human review. We maintain liability insurance and work with you to establish proper review protocols.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#legind4" aria-expanded="false" aria-controls="legind4">Can you integrate with our existing legal research platforms?</button>
+              </h3>
+              <div id="legind4" class="accordion-collapse collapse" data-bs-parent="#legalIndustryFaq">
+                <div class="accordion-body">Yes. We integrate with Westlaw, LexisNexis, Fastcase, Casetext, and other legal research platforms. We can pull research results, citations, and case law into our tools. For proprietary platforms, we can build custom integrations.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#legind5" aria-expanded="false" aria-controls="legind5">How much does legal technology implementation cost?</button>
+              </h3>
+              <div id="legind5" class="accordion-collapse collapse" data-bs-parent="#legalIndustryFaq">
+                <div class="accordion-body">Costs vary by firm size and scope. Basic document automation starts around $20–40K. Comprehensive practice management with AI features ranges from $80–200K+. We offer phased implementations and can often show ROI within 3–6 months from increased billable hours.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#legind6" aria-expanded="false" aria-controls="legind6">Do we need to change how we practice law?</button>
+              </h3>
+              <div id="legind6" class="accordion-collapse collapse" data-bs-parent="#legalIndustryFaq">
+                <div class="accordion-body">Not drastically. We design technology to fit your existing workflows. However, technology may reveal better ways of doing things—faster document review, better client communication, more efficient matter management. We work collaboratively to adopt technology at your pace.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#legind7" aria-expanded="false" aria-controls="legind7">What about ethics and bar association approval?</button>
+              </h3>
+              <div id="legind7" class="accordion-collapse collapse" data-bs-parent="#legalIndustryFaq">
+                <div class="accordion-body">We stay current on ABA ethics opinions and state bar guidance on legal technology, cloud computing, AI, and confidentiality. We help you review applicable ethics rules and implement technology in compliance with professional responsibility obligations. Most state bars encourage technology adoption when done properly.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#legind8" aria-expanded="false" aria-controls="legind8">Can technology help us offer alternative fee arrangements?</button>
+              </h3>
+              <div id="legind8" class="accordion-collapse collapse" data-bs-parent="#legalIndustryFaq">
+                <div class="accordion-body">Yes. Technology reduces time spent on commodity tasks, making flat fees and other AFAs more profitable. Better matter budgeting and tracking help you predict costs accurately. Many firms use technology to become more cost-competitive while maintaining or increasing profitability.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#legind9" aria-expanded="false" aria-controls="legind9">How long until we see ROI from legal technology?</button>
+              </h3>
+              <div id="legind9" class="accordion-collapse collapse" data-bs-parent="#legalIndustryFaq">
+                <div class="accordion-body">Most firms see positive ROI within 3–6 months. Benefits include: billable hours recovered, faster case/matter resolution, improved collections, reduced overhead, and competitive advantage. We help you track metrics to demonstrate clear ROI.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#legind10" aria-expanded="false" aria-controls="legind10">Do you provide ongoing support after implementation?</button>
+              </h3>
+              <div id="legind10" class="accordion-collapse collapse" data-bs-parent="#legalIndustryFaq">
+                <div class="accordion-body">Yes. We offer ongoing support including software updates, bug fixes, technical support, ethics compliance monitoring, and feature enhancements. We provide training for new attorneys and staff, and can manage systems on your behalf if desired.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="py-5 bg-white" id="related">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Related Services</h2>
+      </div>
+      <div class="row g-3 justify-content-center">
+        <div class="col-6 col-md-4 col-lg-2">
+          <%= link_to ai_agent_development_path, class: "btn btn-outline-primary w-100 py-3 small" do %>AI Agent Development<% end %>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <%= link_to custom_software_path, class: "btn btn-outline-primary w-100 py-3 small" do %>Custom Software<% end %>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <%= link_to api_integrations_path, class: "btn btn-outline-primary w-100 py-3 small" do %>API Integrations<% end %>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <%= link_to custom_software_path, class: "btn btn-outline-primary w-100 py-3 small" do %>Document Processing &amp; Automation<% end %>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <%= link_to machine_learning_path, class: "btn btn-outline-primary w-100 py-3 small" do %>Machine Learning<% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-5 bg-light-grey" id="cta">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="workflow-card p-5 p-lg-5 text-center">
+            <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Ready to Multiply Your Legal Practice's Effectiveness?</h2>
+            <p class="lead mb-4">Whether you're drowning in document review, losing billable hours to administrative tasks, or looking to differentiate your practice, we're here to help.</p>
+            <h4 class="h6 mb-3">Free Legal Technology Assessment Includes:</h4>
+            <ul class="list-unstyled mb-4" style="line-height: 2;">
+              <li>60-minute consultation with legal tech experts</li>
+              <li>Practice workflow analysis</li>
+              <li>Technology recommendations tailored to your practice area</li>
+              <li>ROI projections and timeline</li>
+              <li>Ethics and compliance review</li>
+              <li>Transparent pricing and phased approach</li>
+            </ul>
+            <div class="d-flex flex-wrap gap-3 justify-content-center mb-4">
+              <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">Schedule Free Legal Tech Consultation</a>
+              <%= link_to "View Legal Case Studies", case_studies_path, class: "btn btn-outline-primary btn-lg rounded-pill px-4" %>
+            </div>
+            <p class="mb-0 small text-muted">Email: <a href="mailto:ahmad@astechware.com" class="text-decoration-none">ahmad@astechware.com</a> • Book a call: <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="text-decoration-none">Calendly</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

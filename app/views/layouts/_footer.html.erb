@@ -1,0 +1,113 @@
+<footer class="site-footer" id="footer" role="contentinfo">
+  <div class="footer-main">
+    <div class="container">
+      <div class="row g-4 g-lg-5 py-5">
+        <%# Column 1: Company Info %>
+        <div class="col-12 col-lg-4 col-xl-3 footer-col footer-company">
+          <div class="footer-logo mb-3">
+            <%= link_to root_path, class: "d-inline-block" do %>
+              <%= image_tag 'logo.png', width: '120', class: 'img-fluid', alt: "A'sTechware Logo", loading: "lazy" %>
+            <% end %>
+          </div>
+          <p class="footer-mission text-muted small mb-4">
+            We design and build production-grade AI automations and custom web and mobile platforms—from internal ops to marketplaces and customer-facing products—so businesses can run faster without adding headcount.
+          </p>
+          <div class="footer-social mb-3">
+            <ul class="list-unstyled d-flex flex-wrap gap-2 m-0">
+              <li><a href="https://www.linkedin.com/company/astechware" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a></li>
+              <li><a href="https://www.instagram.com/astechware/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram"><i class="fa fa-instagram"></i></a></li>
+              <li><a href="https://twitter.com/astechware" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Twitter"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="https://www.facebook.com/astechware" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Facebook"><i class="fa fa-facebook-f"></i></a></li>
+            </ul>
+          </div>
+          <div class="footer-contact small">
+            <p class="mb-1"><a href="mailto:ahmad@astechware.com" class="text-decoration-none text-muted">ahmad@astechware.com</a></p>
+            <p class="mb-0 text-muted">Book a call: <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="text-decoration-none">Calendly</a></p>
+          </div>
+        </div>
+
+        <%# Column 2: Services %>
+        <div class="col-6 col-md-4 col-lg-2 footer-col footer-services">
+          <h3 class="footer-heading">Services</h3>
+          <ul class="footer-links list-unstyled m-0">
+            <li><%= link_to "AI Agent Development", ai_agent_development_path, class: "footer-link" %></li>
+            <li><%= link_to "Machine Learning Solutions", machine_learning_path, class: "footer-link" %></li>
+            <li><%= link_to "Platform Modernization", platform_modernization_path, class: "footer-link" %></li>
+            <li><%= link_to "Custom Software Development", custom_software_path, class: "footer-link" %></li>
+            <li><%= link_to "Healthcare Automation (HIPAA)", industry_healthcare_path, class: "footer-link" %></li>
+            <li><%= link_to "Legal Tech Solutions", industry_legal_path, class: "footer-link" %></li>
+            <li><%= link_to "API Integrations", api_integrations_path, class: "footer-link" %></li>
+            <li><%= link_to "DevOps Engineering", devops_engineering_path, class: "footer-link" %></li>
+            <li><%= link_to "AI Agents Overview", ai_agents_path, class: "footer-link" %></li>
+            <li><%= link_to "How We De-risk Projects", derisk_projects_path, class: "footer-link" %></li>
+          </ul>
+          <%= link_to "View All Services →", ai_agents_path, class: "footer-link-more" %>
+        </div>
+
+        <%# Column 3: Industries %>
+        <div class="col-6 col-md-4 col-lg-2 footer-col footer-industries">
+          <h3 class="footer-heading">Industries</h3>
+          <ul class="footer-links list-unstyled m-0">
+            <li><%= link_to "Healthcare", industry_healthcare_path, class: "footer-link" %></li>
+            <li><%= link_to "Legal", industry_legal_path, class: "footer-link" %></li>
+            <li><%= link_to "Financial Services", industry_financial_path, class: "footer-link" %></li>
+            <li><%= link_to "B2B SaaS", industry_b2b_saas_path, class: "footer-link" %></li>
+            <li><%= link_to "Professional Services", industry_professional_services_path, class: "footer-link" %></li>
+          </ul>
+          <%= link_to "View All Industries →", industry_healthcare_path, class: "footer-link-more" %>
+        </div>
+
+        <%# Column 4: Company %>
+        <div class="col-6 col-md-4 col-lg-2 footer-col footer-company-links">
+          <h3 class="footer-heading">Company</h3>
+          <ul class="footer-links list-unstyled m-0">
+            <li><%= link_to "About Us", about_path, class: "footer-link" %></li>
+            <li><%= link_to "Our Methodology", methodology_path, class: "footer-link" %></li>
+            <li><%= link_to "Case Studies", case_studies_path, class: "footer-link" %></li>
+            <li><%= link_to "Blog & Resources", blogs_path, class: "footer-link" %></li>
+            <li><%= link_to "Careers", contact_path, class: "footer-link" %></li>
+            <li><%= link_to "Contact Us", contact_path, class: "footer-link" %></li>
+          </ul>
+        </div>
+
+        <%# Column 5: Newsletter %>
+        <div class="col-12 col-lg-4 col-xl-3 footer-col footer-newsletter">
+          <h3 class="footer-heading">Stay Informed</h3>
+          <p class="footer-newsletter-tagline text-muted small mb-3">
+            Get insights on AI, platform engineering, and industry trends.
+          </p>
+          <%= form_for :form, url: submit_form_path, method: :post, html: { class: "footer-newsletter-form", data: { turbo: false } } do |f| %>
+            <%= f.hidden_field :reason, value: "Newsletter" %>
+            <%= f.hidden_field :name, value: "Newsletter Subscriber" %>
+            <%= f.hidden_field :company_name, value: "" %>
+            <%= f.hidden_field :cover_letter, value: "Newsletter signup" %>
+            <div class="input-group">
+              <%= f.email_field :email, class: "form-control footer-newsletter-input", placeholder: "Your email", required: true, "aria-label": "Email for newsletter" %>
+              <%= f.submit "Subscribe", class: "btn btn-primary footer-newsletter-btn" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%# Bottom Bar %>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="row align-items-center py-3">
+        <div class="col-12 col-md-6 text-center text-md-start mb-2 mb-md-0">
+          <span class="footer-copyright text-muted small">
+            © <%= Date.current.year %> A'sTechware. All rights reserved.
+          </span>
+        </div>
+        <div class="col-12 col-md-6 text-center text-md-end">
+          <ul class="footer-legal list-unstyled d-flex flex-wrap justify-content-center justify-content-md-end gap-3 m-0 small">
+            <li><%= link_to "Privacy Policy", privacy_policy_path, class: "footer-legal-link" %></li>
+            <li><%= link_to "Terms of Service", terms_of_service_path, class: "footer-legal-link" %></li>
+            <li class="footer-built text-muted">Built with Rails &amp; Bootstrap</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,535 @@
+<% content_for :head do %>
+  <% og_image = safe_og_image_url('logo-colored.png') %>
+  <% if og_image.present? %>
+    <% set_meta_tags(
+      title: "Machine Learning Solutions | A'sTechware",
+      description: "Production-grade ML models for prediction, classification, and anomaly detection. End-to-end pipelines with monitoring, retraining, and drift detection built in.",
+      og: { title: "Machine Learning Solutions | A'sTechware", description: "Production-grade ML models that drive real business outcomes.", image: og_image, url: safe_request_url, type: 'website', site_name: "A'sTechware" },
+      twitter: { card: 'summary_large_image', title: "Machine Learning Solutions | A'sTechware", description: "Production-grade ML models that drive real business outcomes.", image: og_image }
+    ) %>
+  <% else %>
+    <% set_meta_tags(
+      title: "Machine Learning Solutions | A'sTechware",
+      description: "Production-grade ML models for prediction, classification, and anomaly detection. Pipelines with monitoring, retraining, and drift detection built in.",
+      og: { title: "Machine Learning Solutions | A'sTechware", description: "Production-grade ML models that drive real business outcomes.", url: safe_request_url, type: 'website', site_name: "A'sTechware" },
+      twitter: { card: 'summary', title: "Machine Learning Solutions | A'sTechware", description: "Production-grade ML models that drive real business outcomes." }
+    ) %>
+  <% end %>
+<% end %>
+
+<!-- Hero Section -->
+<div class="hero-section py-5 service-page-hero ml-solutions-hero">
+  <div class="container">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-12 col-lg-9 mx-auto text-center">
+        <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;">
+          Machine Learning Solutions
+        </h1>
+        <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.4; max-width: 720px; margin-left: auto; margin-right: auto;">
+          Production-Grade ML Models That Drive Real Business Outcomes
+        </p>
+        <p class="mb-4" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
+          We design and deploy ML models for prediction, classification, and anomaly detection. Production-grade pipelines with monitoring, retraining, and drift detection built in.
+        </p>
+        <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+          Schedule Discovery Call
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="inner-sections ml-solutions-service-page">
+
+  <!-- Overview -->
+  <section class="py-5 bg-white" id="overview">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Overview</h2>
+          <p class="large-para mb-4">
+            We deliver end-to-end machine learning solutions built for production—from data preparation and feature engineering through deployment, monitoring, and retraining. Our focus is business outcomes: demand forecasts that reduce stockouts, models that flag fraud in real time, and classifiers that automate routing and review.
+          </p>
+          <p class="large-para mb-4">
+            We don’t stop at model accuracy. We build pipelines that run reliably at scale, with data validation, versioning, and drift detection so your models stay accurate as your data changes. Responsible AI practices—explainability, bias checks, and clear documentation—are part of every engagement.
+          </p>
+          <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.7;">
+            <li><strong>End-to-end ML pipeline development:</strong> Data ingestion, preprocessing, training, evaluation, and serving in one coherent system.</li>
+            <li><strong>From data preparation to production deployment:</strong> No handoff gaps—we own the full path from raw data to live predictions.</li>
+            <li><strong>Focus on business outcomes, not just model accuracy:</strong> We optimize for ROI: reduced cost, fewer errors, faster decisions.</li>
+            <li><strong>Monitoring and retraining strategies:</strong> Performance dashboards, drift detection, and automated retraining so models don’t decay.</li>
+            <li><strong>Responsible AI practices:</strong> Explainability, fairness checks, and model documentation for compliance and trust.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Challenges We Solve -->
+  <section class="py-5 bg-light-grey" id="challenges">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Challenges We Solve</h2>
+        <p class="large-para mb-0" style="max-width: 640px; margin: 0 auto;">Why ML projects stall—and how we get them to production and keep them there.</p>
+      </div>
+      <div class="row g-3">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">1</span>
+            <h4 class="h6 mb-2">Models that work in notebooks but fail in production</h4>
+            <p class="mb-0 small">We build production-ready pipelines: versioned data, reproducible training, and scalable serving with proper error handling and latency targets.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">2</span>
+            <h4 class="h6 mb-2">Data quality and preparation bottlenecks</h4>
+            <p class="mb-0 small">Rigorous data validation, feature stores, and preprocessing pipelines so training and inference use consistent, high-quality inputs.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">3</span>
+            <h4 class="h6 mb-2">Model drift and performance degradation</h4>
+            <p class="mb-0 small">Drift detection on inputs and outputs, performance tracking over time, and automated retraining triggers so you catch degradation early.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">4</span>
+            <h4 class="h6 mb-2">Lack of monitoring and observability</h4>
+            <p class="mb-0 small">Dashboards for accuracy, latency, and throughput; alerts when metrics drop; and logging so you can debug and improve.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">5</span>
+            <h4 class="h6 mb-2">Unclear ROI and business impact</h4>
+            <p class="mb-0 small">We tie model performance to business metrics—revenue, cost, error rates—and report on impact so you can justify and scale.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">6</span>
+            <h4 class="h6 mb-2">Inability to explain model decisions</h4>
+            <p class="mb-0 small">SHAP, feature importance, and model cards so stakeholders and auditors understand how and why the model predicts.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Approach -->
+  <section class="py-5 bg-white" id="approach">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Our Approach</h2>
+          <p class="large-para mb-4">We start with the business problem and work backward to the right model and pipeline—not the other way around.</p>
+          <ul class="service-page-list mb-0" style="font-size: 1.05rem;">
+            <li><strong>Start with business problem, not the algorithm:</strong> Define success in terms of cost, revenue, or operational metrics before choosing a model.</li>
+            <li><strong>Rigorous data quality and feature engineering:</strong> Clean, validated data and domain-informed features—the foundation of reliable ML.</li>
+            <li><strong>Multiple model evaluation and selection:</strong> Compare approaches on holdout data and business metrics; choose the best tradeoff for your use case.</li>
+            <li><strong>Production-ready ML pipelines:</strong> Reproducible training, versioned models, and serving infrastructure that scales.</li>
+            <li><strong>Continuous monitoring and retraining:</strong> Track performance and data drift; retrain when needed so the model stays accurate.</li>
+            <li><strong>Explainability and interpretability:</strong> Document how the model works and when to trust it—critical for compliance and adoption.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Business Benefits (6 cards) -->
+  <section class="py-5 bg-light-grey" id="benefits">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Business Benefits</h2>
+        <p class="large-para mb-0" style="max-width: 640px; margin: 0 auto;">What you gain when ML is built for production and aligned to business outcomes.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-line-chart" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Predictive Accuracy</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Forecast demand, churn, or outcomes</li>
+              <li>Reduce uncertainty in planning</li>
+              <li>Make proactive vs reactive decisions</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-cogs" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Operational Efficiency</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Automate classification and routing</li>
+              <li>Reduce manual review time</li>
+              <li>Scale decision-making</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-shield" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Risk Detection</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Identify anomalies in real-time</li>
+              <li>Fraud detection and prevention</li>
+              <li>Quality control automation</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-users" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Personalization</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Recommendation engines</li>
+              <li>Dynamic pricing optimization</li>
+              <li>Customer segmentation</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-money" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Cost Savings</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Optimize resource allocation</li>
+              <li>Reduce waste and inefficiency</li>
+              <li>Improve yield and quality</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-refresh" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Continuous Improvement</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Models learn from new data</li>
+              <li>Performance monitoring and alerts</li>
+              <li>Automated retraining pipelines</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Deliver -->
+  <section class="py-5 bg-white" id="deliverables">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">What We Deliver</h2>
+        <p class="large-para mb-0" style="max-width: 640px; margin: 0 auto;">Models, infrastructure, monitoring, and documentation—everything you need to run ML in production.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-uppercase text-muted mb-3">ML Models &amp; Pipelines</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+              <li>Trained ML models (classification, regression, clustering, etc.)</li>
+              <li>Feature engineering pipelines</li>
+              <li>Data preprocessing and validation</li>
+              <li>Model versioning and registry</li>
+              <li>A/B testing framework</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-uppercase text-muted mb-3">Production Infrastructure</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+              <li>ML serving infrastructure</li>
+              <li>API endpoints for predictions</li>
+              <li>Batch processing pipelines</li>
+              <li>Real-time inference capabilities</li>
+              <li>Scalable compute resources</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-uppercase text-muted mb-3">Monitoring &amp; Maintenance</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+              <li>Performance dashboards</li>
+              <li>Data drift detection</li>
+              <li>Model performance tracking</li>
+              <li>Alerting on degradation</li>
+              <li>Retraining automation</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-uppercase text-muted mb-3">Documentation</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+              <li>Model documentation (model cards)</li>
+              <li>API specifications</li>
+              <li>Data requirements and schemas</li>
+              <li>Operational runbooks</li>
+              <li>Training materials</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Stack -->
+  <section class="py-5 bg-light-grey" id="technology">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Technology Stack</h2>
+        <p class="large-para mb-0" style="max-width: 640px; margin: 0 auto;">Frameworks and tools we use to build and operate production ML systems.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">ML Frameworks</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Scikit-learn, XGBoost, LightGBM</li>
+              <li>TensorFlow, PyTorch (for deep learning)</li>
+              <li>Hugging Face Transformers (for NLP)</li>
+              <li>Custom ensemble methods</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">MLOps Tools</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>MLflow or Weights &amp; Biases for tracking</li>
+              <li>Feature stores (Feast, Tecton)</li>
+              <li>Model serving (TensorFlow Serving, Seldon)</li>
+              <li>Airflow for pipeline orchestration</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Data &amp; Infrastructure</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Python, Pandas, NumPy, Polars</li>
+              <li>PostgreSQL, BigQuery, Snowflake</li>
+              <li>Spark for large-scale processing</li>
+              <li>AWS SageMaker, GCP Vertex AI, or Azure ML</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="py-5 bg-white" id="timeline">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Timeline</h2>
+          <p class="large-para mb-4">Typical 12-week path from problem definition to production. We work in phases so you can validate at each step.</p>
+          <div class="row g-3">
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Weeks 1–3</span>
+                <h4 class="h6 mt-2 mb-2">Data Exploration &amp; Baseline</h4>
+                <p class="mb-0 small">Data exploration, problem definition, baseline models, and success metrics.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Weeks 4–6</span>
+                <h4 class="h6 mt-2 mb-2">Feature Engineering &amp; Model Dev</h4>
+                <p class="mb-0 small">Feature engineering, model development, evaluation, and selection.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Weeks 7–9</span>
+                <h4 class="h6 mt-2 mb-2">Production Pipeline &amp; Integration</h4>
+                <p class="mb-0 small">Production pipeline development, API design, and integration with your systems.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Weeks 10–12</span>
+                <h4 class="h6 mt-2 mb-2">Deployment &amp; Handoff</h4>
+                <p class="mb-0 small">Deployment, monitoring setup, retraining workflows, and team training.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Study Spotlight -->
+  <section class="py-5 bg-light-grey" id="case-study">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Case Study Spotlight</h2>
+        <p class="lead mb-0">Retail Demand Forecasting</p>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="workflow-card p-4 p-lg-5">
+            <div class="row g-4">
+              <div class="col-12 col-md-4">
+                <h4 class="h6 text-uppercase text-muted mb-2">Challenge</h4>
+                <p class="mb-0 small">Overstocking and stockouts costing $2M annually. Manual forecasting couldn’t keep up with seasonality and location-level demand.</p>
+              </div>
+              <div class="col-12 col-md-4">
+                <h4 class="h6 text-uppercase text-muted mb-2">Solution</h4>
+                <p class="mb-0 small">ML model predicting demand by product, location, and season—integrated with inventory and replenishment systems. Automated retraining on new sales data.</p>
+              </div>
+              <div class="col-12 col-md-4">
+                <h4 class="h6 text-uppercase text-muted mb-2">Results</h4>
+                <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+                  <li><strong>23% reduction</strong> in stockouts</li>
+                  <li><strong>18% reduction</strong> in overstock</li>
+                  <li><strong>$1.2M</strong> annual savings</li>
+                </ul>
+              </div>
+            </div>
+            <p class="mt-4 pt-4 border-top mb-0 small text-muted">Representative of production ML outcomes we deliver. Full case studies available on request.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="py-5 bg-white" id="faqs">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Frequently Asked Questions</h2>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="accordion ml-faq-accordion" id="mlFaqAccordion">
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mlfaq1" aria-expanded="false" aria-controls="mlfaq1">What data do we need to get started?</button>
+              </h3>
+              <div id="mlfaq1" class="accordion-collapse collapse" data-bs-parent="#mlFaqAccordion">
+                <div class="accordion-body">We need historical data that reflects the problem you’re solving—e.g. past sales for demand forecasting, or labeled examples for classification. We’ll define data requirements and quality checks in discovery. We can also help with data collection or cleaning if needed.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mlfaq2" aria-expanded="false" aria-controls="mlfaq2">How do you measure model performance?</button>
+              </h3>
+              <div id="mlfaq2" class="accordion-collapse collapse" data-bs-parent="#mlFaqAccordion">
+                <div class="accordion-body">We use standard metrics (accuracy, precision, recall, RMSE, etc.) plus business metrics—e.g. revenue impact, cost saved, or error rate in production. We define success criteria up front and track them in dashboards so you see real impact, not just model scores.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mlfaq3" aria-expanded="false" aria-controls="mlfaq3">How often do models need retraining?</button>
+              </h3>
+              <div id="mlfaq3" class="accordion-collapse collapse" data-bs-parent="#mlFaqAccordion">
+                <div class="accordion-body">It depends on how fast your data distribution changes. We set up drift detection and performance monitoring; when accuracy drops or drift is detected, we trigger retraining. Some models run monthly, others quarterly—we define the strategy in the project and automate it.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mlfaq4" aria-expanded="false" aria-controls="mlfaq4">Can you explain how the model makes decisions?</button>
+              </h3>
+              <div id="mlfaq4" class="accordion-collapse collapse" data-bs-parent="#mlFaqAccordion">
+                <div class="accordion-body">Yes. We use interpretability tools (SHAP, feature importance, partial dependence) and deliver model cards that describe inputs, outputs, limitations, and fairness considerations. For high-stakes or regulated use cases, we design for explainability from the start.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mlfaq5" aria-expanded="false" aria-controls="mlfaq5">What if our data quality is poor?</button>
+              </h3>
+              <div id="mlfaq5" class="accordion-collapse collapse" data-bs-parent="#mlFaqAccordion">
+                <div class="accordion-body">We include data validation and cleaning as part of the pipeline. We’ll flag gaps, outliers, and missing values and work with you to improve collection or define sensible defaults. Sometimes the first phase is “get the data right” before we train—we’re upfront about that.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mlfaq6" aria-expanded="false" aria-controls="mlfaq6">How do you prevent bias in ML models?</button>
+              </h3>
+              <div id="mlfaq6" class="accordion-collapse collapse" data-bs-parent="#mlFaqAccordion">
+                <div class="accordion-body">We assess fairness across relevant groups (e.g. demographics) during evaluation, use balanced or representative data where possible, and document limitations in model cards. For regulated domains we align to existing fairness and compliance requirements.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mlfaq7" aria-expanded="false" aria-controls="mlfaq7">What ongoing maintenance is required?</button>
+              </h3>
+              <div id="mlfaq7" class="accordion-collapse collapse" data-bs-parent="#mlFaqAccordion">
+                <div class="accordion-body">Monitoring runs continuously; we set up alerts so you know when performance drops or drift is detected. Retraining can be automated on a schedule or triggered by alerts. We typically recommend a lightweight retainer for the first 6–12 months to tune thresholds and retraining frequency, then you can run it in-house with the runbooks we provide.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="py-5 bg-light-grey" id="related">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Related Services</h2>
+      </div>
+      <div class="row g-3 justify-content-center">
+        <div class="col-6 col-md-3">
+          <%= link_to ai_agent_development_path, class: "btn btn-outline-primary w-100 py-3" do %>
+            <i class="fa fa-comments me-2" aria-hidden="true"></i>AI Agent Development
+          <% end %>
+        </div>
+        <div class="col-6 col-md-3">
+          <%= link_to custom_software_path, class: "btn btn-outline-primary w-100 py-3" do %>
+            <i class="fa fa-code me-2" aria-hidden="true"></i>Custom Software Development
+          <% end %>
+        </div>
+        <div class="col-6 col-md-3">
+          <%= link_to projects_path, class: "btn btn-outline-primary w-100 py-3" do %>
+            <i class="fa fa-database me-2" aria-hidden="true"></i>Big Data &amp; Engineering
+          <% end %>
+        </div>
+        <div class="col-6 col-md-3">
+          <%= link_to api_integrations_path, class: "btn btn-outline-primary w-100 py-3" do %>
+            <i class="fa fa-plug me-2" aria-hidden="true"></i>API Integrations
+          <% end %>
+        </div>
+        <div class="col-6 col-md-3">
+          <%= link_to devops_engineering_path, class: "btn btn-outline-primary w-100 py-3" do %>
+            <i class="fa fa-code-fork me-2" aria-hidden="true"></i>DevOps Engineering
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-8 mx-auto text-center">
+          <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Ready to Put ML to Work?</h2>
+          <p class="lead mb-4">Schedule a discovery call to define your use case, map data and success metrics, and get a realistic timeline. We build production ML—not research projects.</p>
+          <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+            Schedule Discovery Call
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

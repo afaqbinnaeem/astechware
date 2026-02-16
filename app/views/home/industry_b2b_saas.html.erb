@@ -1,0 +1,827 @@
+<% content_for :head do %>
+  <% og_image = safe_og_image_url('logo-colored.png') %>
+  <% if og_image.present? %>
+    <% set_meta_tags(
+      title: "B2B SaaS Development | MVP to Enterprise Platform Engineering | A'sTechware",
+      description: "Build, scale, and modernize B2B SaaS products. Ship MVPs in 90 days, add enterprise features, integrate AI, and modernize legacy platforms. Production-ready SaaS development.",
+      keywords: "B2B SaaS development, SaaS MVP, enterprise features, platform modernization, API development, subscription billing, SOC 2 compliance, SaaS architecture",
+      og: { title: "B2B SaaS Development | A'sTechware", description: "Full platform builds, AI integration, and infrastructure modernization for SaaS.", image: og_image, url: safe_request_url, type: 'website', site_name: "A'sTechware" },
+      twitter: { card: 'summary_large_image', title: "B2B SaaS Development | A'sTechware", description: "Full platform builds, AI integration, and infrastructure modernization for SaaS.", image: og_image }
+    ) %>
+  <% else %>
+    <% set_meta_tags(
+      title: "B2B SaaS Development | MVP to Enterprise Platform Engineering | A'sTechware",
+      description: "Build, scale, and modernize B2B SaaS products. Ship MVPs in 90 days, add enterprise features, integrate AI, and modernize legacy platforms. Production-ready SaaS development.",
+      keywords: "B2B SaaS development, SaaS MVP, enterprise features, platform modernization, API development, subscription billing, SOC 2 compliance, SaaS architecture",
+      og: { title: "B2B SaaS Development | A'sTechware", description: "Full platform builds, AI integration, and infrastructure modernization for SaaS.", url: safe_request_url, type: 'website', site_name: "A'sTechware" },
+      twitter: { card: 'summary', title: "B2B SaaS Development | A'sTechware", description: "Full platform builds, AI integration, and infrastructure modernization for SaaS." }
+    ) %>
+  <% end %>
+<% end %>
+
+<!-- Hero Section -->
+<div class="hero-section py-5 service-page-hero b2b-saas-hero industry-landing-hero">
+  <div class="container">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-12 col-lg-8 mx-auto text-center">
+        <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;">
+          B2B SaaS Technology Solutions
+        </h1>
+        <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.4; max-width: 720px; margin-left: auto; margin-right: auto;">
+          Full Platform Builds, AI Feature Integration, and Infrastructure Modernization
+        </p>
+        <p class="mb-4" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
+          Full platform builds, AI feature integrations, and infrastructure modernization for software companies. Built for SaaS businesses that need to ship features fast, scale reliably, and compete on innovation.
+        </p>
+        <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+          Schedule Free SaaS Consultation
+        </a>
+      </div>
+    </div>
+    <%# Optional hero image: add image to app/assets/images/b2b-saas-hero.jpg and uncomment %>
+    <%# <div class="row mt-5"><div class="col-12 col-lg-10 mx-auto text-center"><%= image_tag 'b2b-saas-hero.jpg', class: 'img-fluid rounded shadow', alt: 'Modern SaaS platform dashboard interface', loading: 'lazy' %><%# </div></div> %>
+  </div>
+</div>
+
+<div class="inner-sections b2b-saas-industry-page">
+
+  <!-- Overview -->
+  <section class="py-5 bg-white" id="overview">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Building the Future of B2B SaaS</h2>
+          <p class="large-para mb-4">
+            The B2B SaaS landscape is more competitive than ever. Customers expect enterprise-grade features, modern AI capabilities, and flawless reliability—while your engineering team is stretched thin between maintaining legacy code, shipping new features, and scaling infrastructure. You're not just building software; you're building a business that must grow predictably and profitably.
+          </p>
+          <p class="large-para mb-4">
+            We build technology solutions specifically for B2B SaaS companies at every stage: from pre-launch MVP to scaling growth-stage platforms to modernizing mature products. Whether you need to ship your MVP in 90 days, add AI capabilities to compete, or modernize legacy architecture that's slowing you down, we deliver production-ready solutions that drive business outcomes.
+          </p>
+          <p class="large-para mb-0">
+            Our B2B SaaS expertise spans product development, platform engineering, AI/ML integration, infrastructure modernization, API design, multi-tenancy architecture, billing and subscription management, and developer tools. We understand that SaaS success requires balancing speed to market, technical excellence, scalability, and cost efficiency—and we architect solutions accordingly.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Challenges (8 cards) -->
+  <section class="py-5 bg-light-grey" id="challenges">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Challenges B2B SaaS Companies Face</h2>
+      </div>
+      <div class="row g-3">
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">1</span>
+            <h4 class="h6 mb-2">Engineering Capacity Constraints</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Too many feature requests, not enough developers</li>
+              <li>Engineers spread across product, infra, support</li>
+              <li>Hiring takes 3–6 months and is expensive</li>
+              <li>Contractor quality and coordination issues</li>
+              <li>Can't ship features fast enough to compete</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">2</span>
+            <h4 class="h6 mb-2">Technical Debt &amp; Legacy Architecture</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Monolithic architecture impossible to change</li>
+              <li>Slow deployments (days or weeks)</li>
+              <li>Scaling requires complete rewrites</li>
+              <li>Database performance bottlenecks</li>
+              <li>Ancient tech stack scaring away talent</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">3</span>
+            <h4 class="h6 mb-2">AI Integration Pressure</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Competitors shipping AI features</li>
+              <li>Customer demand for AI-powered capabilities</li>
+              <li>Internal team lacks AI/ML expertise</li>
+              <li>Prototype demos don't survive production</li>
+              <li>Unclear ROI on AI investments</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">4</span>
+            <h4 class="h6 mb-2">Product-Market Fit &amp; Feature Velocity</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Need to ship MVP before funding runs out</li>
+              <li>Testing multiple product directions</li>
+              <li>Feature velocity slowing as codebase grows</li>
+              <li>Product and engineering misaligned</li>
+              <li>Weeks to ship what should take days</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">5</span>
+            <h4 class="h6 mb-2">Multi-Tenancy &amp; Data Isolation</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Single-tenant architecture doesn't scale economically</li>
+              <li>Security and compliance require proper isolation</li>
+              <li>Cross-tenant data leakage risks</li>
+              <li>Difficult to support different customer tiers</li>
+              <li>Enterprise customers demand dedicated instances</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">6</span>
+            <h4 class="h6 mb-2">Billing &amp; Subscription Complexity</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Multiple pricing models (seats, usage, tiers)</li>
+              <li>Complex billing logic fragile and bug-prone</li>
+              <li>Revenue recognition and accounting integration</li>
+              <li>Upgrade/downgrade and proration logic</li>
+              <li>Failed payments and dunning management</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">7</span>
+            <h4 class="h6 mb-2">Infrastructure &amp; Scaling Costs</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Cloud bills growing faster than revenue</li>
+              <li>Cannot predict infrastructure costs</li>
+              <li>Manual scaling causes outages</li>
+              <li>No observability into performance issues</li>
+              <li>Over-provisioning wastes money; under-provisioning loses customers</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">8</span>
+            <h4 class="h6 mb-2">Security &amp; Compliance Requirements</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Enterprise customers demand SOC 2, HIPAA, GDPR</li>
+              <li>Security features blocking sales</li>
+              <li>Audit preparation consuming months</li>
+              <li>No systematic approach to compliance</li>
+              <li>Penetration tests revealing vulnerabilities</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our B2B SaaS Solutions (8 sections) -->
+  <section class="py-5 bg-white" id="solutions">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Our B2B SaaS Solutions</h2>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">1. MVP &amp; Product Development</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Minimum Viable Products (MVPs) in 90 days</li>
+              <li>Product prototypes for fundraising</li>
+              <li>Feature development for existing products</li>
+              <li>Product redesigns and modernization</li>
+              <li>Mobile and web applications</li>
+              <li>API-first architectures</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Full-stack (frontend, backend, database)</li>
+              <li>Modern stack (React, Node.js, Python); REST or GraphQL</li>
+              <li>Auth and authorization; multi-tenancy from day one</li>
+              <li>Responsive web; mobile (React Native, Flutter, PWA)</li>
+              <li>Admin dashboards and analytics</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-2">Pre-seed startups; validating ideas; adding major features; rebuilding legacy; new markets/verticals.</p>
+            <p class="mb-0 small text-muted fw-semibold">Typical Outcomes: Ship MVP in 90 days vs 6–12 months; raise seed with working product; test PMF; beat competitors to market.</p>
+          </div>
+
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">2. AI &amp; Machine Learning Integration</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>AI-powered product features</li>
+              <li>ML model development</li>
+              <li>AI chatbots and copilots</li>
+              <li>Recommendation engines; predictive analytics</li>
+              <li>NLP; computer vision</li>
+              <li>Automated workflows</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Production-ready ML (not demos)</li>
+              <li>AI integration into existing products</li>
+              <li>Training, deployment, monitoring; retraining pipelines</li>
+              <li>Prompt engineering and LLM integration</li>
+              <li>Vector DBs for RAG; safety and governance</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-2">AI copilots; smart automation; document processing; predictive analytics; chatbots; content generation; anomaly detection.</p>
+            <p class="mb-0 small text-muted fw-semibold">Typical Outcomes: Ship AI in weeks; 2–3x engagement; differentiation; premium pricing for AI.</p>
+          </div>
+
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">3. Platform Architecture &amp; Modernization</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Microservices architecture design</li>
+              <li>Monolith to microservices migration</li>
+              <li>API gateway and service mesh</li>
+              <li>Event-driven architectures</li>
+              <li>Database optimization and migration</li>
+              <li>Multi-tenancy architecture</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Service-oriented or microservices</li>
+              <li>API gateway; message queues and event streaming</li>
+              <li>DB partitioning and sharding; caching (Redis, CDN)</li>
+              <li>Docker, Kubernetes; IaC (Terraform)</li>
+              <li>Observability and monitoring</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-2">Scaling beyond monolith; deployment velocity; cost reduction; team growth; parallel development; reliability.</p>
+            <p class="mb-0 small text-muted fw-semibold">Typical Outcomes: 10x deployment frequency; 50% infra cost reduction; 99.9%+ uptime; scale to millions of users.</p>
+          </div>
+
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">4. API Development &amp; Integrations</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Public API development</li>
+              <li>Partner integrations; webhook infrastructure</li>
+              <li>API documentation and SDKs</li>
+              <li>GraphQL or REST; third-party integration platform</li>
+              <li>Marketplace and app ecosystem</li>
+              <li>iPaaS</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Versioned APIs; OAuth 2.0, API keys</li>
+              <li>Rate limiting; webhook delivery and retry</li>
+              <li>OpenAPI/Swagger; SDK generation</li>
+              <li>Integration catalog; pre-built connectors</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-2">Public API for customers; integrations with other SaaS; partner ecosystem; Zapier/Make connectors; embedded platform.</p>
+            <p class="mb-0 small text-muted fw-semibold">Typical Outcomes: APIs enable expansion; integrations reduce churn 20–30%; API as growth channel; ecosystem defensibility.</p>
+          </div>
+
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">5. Billing, Payments &amp; Subscription Management</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Subscription billing systems</li>
+              <li>Usage-based billing platforms</li>
+              <li>Payment processing; invoice generation</li>
+              <li>Revenue recognition automation</li>
+              <li>Dunning and failed payment recovery</li>
+              <li>Self-service account management</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Flat, tiered, usage, hybrid pricing</li>
+              <li>Subscription lifecycle; metered billing</li>
+              <li>Proration; trial and conversion</li>
+              <li>Stripe, Chargebee; accounting (QuickBooks, NetSuite)</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-2">SaaS subscription; usage-based (API, storage); freemium to paid; self-service upgrades; enterprise contracts; bundles.</p>
+            <p class="mb-0 small text-muted fw-semibold">Typical Outcomes: Reduce revenue leakage 30–40%; expansion revenue +25%; billing tickets -60%; faster time to revenue.</p>
+          </div>
+
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">6. Enterprise Features &amp; Compliance</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>SSO and SAML</li>
+              <li>RBAC; audit logging and compliance reporting</li>
+              <li>SOC 2 preparation; HIPAA and GDPR features</li>
+              <li>Data residency and sovereignty</li>
+              <li>Enterprise admin; white-labeling</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>SSO (SAML, OAuth, OIDC); SCIM provisioning</li>
+              <li>Granular permissions; complete audit trails</li>
+              <li>Encryption; SOC 2 controls; compliance docs</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-2">Enterprise sales; SOC 2 Type II; HIPAA/GDPR; security questionnaires; RFPs.</p>
+            <p class="mb-0 small text-muted fw-semibold">Typical Outcomes: Close enterprise 2–3x faster; ACV +40–60%; pass security reviews; SOC 2 certification.</p>
+          </div>
+
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">7. DevOps &amp; Infrastructure</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>CI/CD pipeline automation</li>
+              <li>Infrastructure as Code</li>
+              <li>Kubernetes orchestration</li>
+              <li>Monitoring and observability</li>
+              <li>Incident response; disaster recovery</li>
+              <li>Cost optimization; security automation</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Automated deployments; blue-green and canary</li>
+              <li>Auto-scaling; APM, logs, traces</li>
+              <li>Alerting and on-call; cost tracking</li>
+              <li>Security scanning in CI/CD; backup and recovery</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-2">Frequent safe deployments; cost reduction; reliability; auto-scaling; SLAs; global customers.</p>
+            <p class="mb-0 small text-muted fw-semibold">Typical Outcomes: Deploy 10–50x more; MTTR -70%+; infra cost -30–50%; 99.9%+ uptime.</p>
+          </div>
+
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">8. Developer Experience &amp; Tooling</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Developer portals and documentation</li>
+              <li>Interactive API docs</li>
+              <li>Code generators and CLI tools</li>
+              <li>Testing and staging environments</li>
+              <li>Internal tools and admin panels</li>
+              <li>SDK and library development</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Interactive API docs; code samples</li>
+              <li>Sandbox environments; OpenAPI specs</li>
+              <li>CLI tools; feature flags</li>
+              <li>Internal dashboards and analytics</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-2">Customer developers; API-first strategy; platform and marketplace; internal tooling; developer community.</p>
+            <p class="mb-0 small text-muted fw-semibold">Typical Outcomes: Faster onboarding; higher API adoption; better developer satisfaction; self-service reduces support.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- B2B SaaS-Specific Benefits (6 cards) -->
+  <section class="py-5 bg-light-grey" id="benefits">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">B2B SaaS-Specific Benefits</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100">
+            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-rocket" aria-hidden="true"></i></div></div>
+            <h4 class="h5 mb-2">Faster Time to Market</h4>
+            <p class="mb-0 small">Ship MVP in 90 days vs 6–12 months; weekly or daily deploys vs quarterly; test ideas in weeks; outpace competitors.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100">
+            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-bolt" aria-hidden="true"></i></div></div>
+            <h4 class="h5 mb-2">Improved Product Velocity</h4>
+            <p class="mb-0 small">3–5x feature shipping speed; deploy multiple times daily; parallel development; faster iteration on feedback.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100">
+            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-line-chart" aria-hidden="true"></i></div></div>
+            <h4 class="h5 mb-2">Scalable Growth</h4>
+            <p class="mb-0 small">Scale 10 to 10,000+ customers; 10–100x traffic without rewrites; infra costs grow slower than revenue; multi-tenant efficiency.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100">
+            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-trophy" aria-hidden="true"></i></div></div>
+            <h4 class="h5 mb-2">Competitive Differentiation</h4>
+            <p class="mb-0 small">AI without hiring ML team; enterprise features without 12-month project; modern stack attracts talent; API ecosystem defensibility.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100">
+            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-money" aria-hidden="true"></i></div></div>
+            <h4 class="h5 mb-2">Revenue &amp; Margin Improvement</h4>
+            <p class="mb-0 small">Billing optimization -30–40% leakage; infra optimization -30–50% costs; enterprise +40–60% ACV; self-service reduces support.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100">
+            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-shield" aria-hidden="true"></i></div></div>
+            <h4 class="h5 mb-2">Risk Reduction</h4>
+            <p class="mb-0 small">SOC 2 protects enterprise deals; better architecture reduces tech debt; monitoring prevents outages; security prevents breaches.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Stack -->
+  <section class="py-5 bg-white" id="technology">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Technology Stack for B2B SaaS</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Frontend</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>React, Next.js, Vue.js, Angular; TypeScript</li>
+              <li>Tailwind CSS, Material-UI</li>
+              <li>React Native, Flutter; PWA</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Backend &amp; Database</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Node.js (Express, NestJS); Python (FastAPI, Django)</li>
+              <li>Ruby on Rails; Go</li>
+              <li>PostgreSQL; MongoDB; Redis; Elasticsearch</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">AI/ML</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>OpenAI GPT-4, Anthropic Claude</li>
+              <li>TensorFlow, PyTorch</li>
+              <li>Pinecone, Weaviate, pgvector; LangChain, LlamaIndex</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Infrastructure</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>AWS, GCP, Azure</li>
+              <li>Kubernetes (EKS, GKE, AKS); Docker</li>
+              <li>Terraform; GitHub Actions, GitLab CI</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">SaaS Tools</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Stripe; Auth0, WorkOS (SSO)</li>
+              <li>Segment; Intercom, Zendesk</li>
+              <li>Sentry; Datadog, New Relic</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compliance & Security Standards -->
+  <section class="py-5 bg-light-grey" id="compliance">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Compliance &amp; Security Standards</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">For Enterprise Sales</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>SOC 2 Type II</li>
+              <li>ISO 27001</li>
+              <li>GDPR; CCPA</li>
+              <li>HIPAA (if applicable)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Security Features</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Encryption at rest and in transit</li>
+              <li>MFA, SSO; RBAC</li>
+              <li>Audit logging; pen testing</li>
+              <li>Vulnerability scanning; secure API design</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Enterprise Requirements</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>SSO (SAML, OIDC); SCIM</li>
+              <li>Data retention; residency options</li>
+              <li>99.9%+ SLA; 24/7 support</li>
+              <li>Custom contracts and BAAs</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Study Spotlights (3) -->
+  <section class="py-5 bg-white" id="case-studies">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Case Study Spotlights</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-lg-4">
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h4 class="h5 mb-3">B2B SaaS MVP to Seed Funding</h4>
+            <p class="small text-muted mb-2">Pre-seed startup (construction tech) • Idea → MVP → $2M seed</p>
+            <h5 class="h6 mt-3 mb-1">Challenge</h5>
+            <p class="small mb-2">Non-technical founder; 9 months with offshore team, no usable product; 3 months runway; needed working product to raise; competitors gaining.</p>
+            <h5 class="h6 mb-1">Solution</h5>
+            <p class="small mb-2">Rebuilt MVP in modern stack; 90-day timeline; core workflows for demo; basic multi-tenancy and admin; production with monitoring.</p>
+            <h5 class="h6 mb-1">Results</h5>
+            <ul class="small mb-0 ps-3" style="line-height: 1.6;">MVP in 94 days; 5 pilot customers in 4 weeks; raised $2M seed; product led to $8M Series A; saved company from runway.</ul>
+            <%= link_to "Read case studies →", case_studies_path, class: "d-inline-block mt-3 fw-semibold small" %>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4">
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h4 class="h5 mb-3">Enterprise Feature Addition</h4>
+            <p class="small text-muted mb-2">Series B B2B SaaS (HR tech) • $15M ARR, 100% YoY</p>
+            <h5 class="h6 mt-3 mb-1">Challenge</h5>
+            <p class="small mb-2">Losing enterprise deals (no SSO, advanced permissions); 6–9 month cycles dying at security review; 6-month internal estimate for enterprise features.</p>
+            <h5 class="h6 mb-1">Solution</h5>
+            <p class="small mb-2">SSO (SAML, OIDC) with WorkOS; RBAC; audit logging; admin controls; SOC 2 prep and gap analysis.</p>
+            <h5 class="h6 mb-1">Results</h5>
+            <ul class="small mb-0 ps-3" style="line-height: 1.6;">Enterprise features in 12 weeks; 3 waiting deals $400K ARR in 30 days; sales cycle 6–9→3–4 months; ACV $25K→$65K; SOC 2 on track.</ul>
+            <%= link_to "Read case studies →", case_studies_path, class: "d-inline-block mt-3 fw-semibold small" %>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4">
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h4 class="h5 mb-3">Infrastructure Modernization</h4>
+            <p class="small text-muted mb-2">Series B B2B SaaS (fintech) • $20M ARR, 800+ customers</p>
+            <h5 class="h6 mt-3 mb-1">Challenge</h5>
+            <p class="small mb-2">Monolithic Rails; 6–8 hr deployments with rollbacks; $50K/month infra growing 20%/month; DB performance; team demoralized.</p>
+            <h5 class="h6 mb-1">Solution</h5>
+            <p class="small mb-2">Microservices extraction; CI/CD; DB optimization and read replicas; Redis caching; Kubernetes; cost optimization.</p>
+            <h5 class="h6 mb-1">Results</h5>
+            <ul class="small mb-0 ps-3" style="line-height: 1.6;">Deploy 6–8 hrs→15 min; frequency weekly→10x daily; costs -40%; page load -60%; velocity 4x; zero customer incidents in 6 months.</ul>
+            <%= link_to "Read case studies →", case_studies_path, class: "d-inline-block mt-3 fw-semibold small" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Typical Project Timeline -->
+  <section class="py-5 bg-light-grey" id="timeline">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Typical Project Timeline</h2>
+          <p class="large-para mb-4">Timeline for 90-day MVP; varies by scope and complexity.</p>
+          <div class="row g-3">
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Phase 1: Weeks 1–2</span>
+                <h4 class="h6 mt-2 mb-2">Discovery &amp; Requirements</h4>
+                <p class="mb-0 small">Product vision; user personas and workflows; technical requirements; integrations; success metrics; risk assessment.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Phase 2: Weeks 3–4</span>
+                <h4 class="h6 mt-2 mb-2">Architecture &amp; Design</h4>
+                <p class="mb-0 small">System architecture; database schema; API design; UI/UX and prototyping; security and compliance; infrastructure planning.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Phase 3: Weeks 5–10</span>
+                <h4 class="h6 mt-2 mb-2">MVP Development</h4>
+                <p class="mb-0 small">Core features; auth and onboarding; key workflows; admin dashboards; basic integrations; mobile responsiveness.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Phase 4: Weeks 11–12</span>
+                <h4 class="h6 mt-2 mb-2">Testing &amp; Refinement</h4>
+                <p class="mb-0 small">Functional and integration testing; UAT; performance and load; security; bug fixes; documentation.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Phase 5: Weeks 13–14</span>
+                <h4 class="h6 mt-2 mb-2">Launch &amp; Monitoring</h4>
+                <p class="mb-0 small">Production deployment; monitoring and alerting; onboarding; feedback; rapid iteration; analytics.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Phase 6: Ongoing</span>
+                <h4 class="h6 mt-2 mb-2">Iteration &amp; Scale</h4>
+                <p class="mb-0 small">Feature expansion; performance; security; scaling; customer feedback; continuous improvement.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who We Serve -->
+  <section class="py-5 bg-white" id="who-we-serve">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Who We Serve</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-2">By Stage</h4>
+            <p class="mb-0 small">Pre-seed/Seed (MVP); Series A (scaling); Series B+ (modernization, enterprise); Mature (legacy, AI).</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-2">By Vertical</h4>
+            <p class="mb-0 small">Vertical SaaS; horizontal SaaS; developer tools; data and analytics; infrastructure and security SaaS.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-2">By Product Type</h4>
+            <p class="mb-0 small">Multi-tenant B2B; API-first platforms; embedded and white-label; marketplace; usage-based SaaS.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-2">By Team Size</h4>
+            <p class="mb-0 small">Solo/small (&lt;10); growth (10–50); scale (50–200); mature augmentation (200+).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-5 bg-light-grey" id="faq">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Frequently Asked Questions</h2>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="accordion b2b-saas-faq" id="b2bSaasFaq">
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#b2bfaq1" aria-expanded="false" aria-controls="b2bfaq1">How fast can you ship an MVP?</button>
+              </h3>
+              <div id="b2bfaq1" class="accordion-collapse collapse" data-bs-parent="#b2bSaasFaq">
+                <div class="accordion-body">We target 90 days (12 weeks) from kickoff to launch for a focused B2B SaaS MVP: discovery, design, development, testing, deployment. More complex products may take 4–6 months. We prioritize core workflows and iterate on real usage.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#b2bfaq2" aria-expanded="false" aria-controls="b2bfaq2">Do you only build from scratch or can you enhance our existing product?</button>
+              </h3>
+              <div id="b2bfaq2" class="accordion-collapse collapse" data-bs-parent="#b2bSaasFaq">
+                <div class="accordion-body">Both. About 60% of our projects are adding features or modernizing existing SaaS; 40% are new builds. We work in existing codebases or start from scratch with equal comfort.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#b2bfaq3" aria-expanded="false" aria-controls="b2bfaq3">Can you work with our in-house engineering team?</button>
+              </h3>
+              <div id="b2bfaq3" class="accordion-collapse collapse" data-bs-parent="#b2bSaasFaq">
+                <div class="accordion-body">Yes. We often work alongside internal teams—owning specific features or augmenting capacity. We use your tools, processes, and git workflows. Many clients use us to maintain velocity while hiring.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#b2bfaq4" aria-expanded="false" aria-controls="b2bfaq4">What tech stack do you recommend for B2B SaaS?</button>
+              </h3>
+              <div id="b2bfaq4" class="accordion-collapse collapse" data-bs-parent="#b2bSaasFaq">
+                <div class="accordion-body">Default: React (Next.js) frontend, Node.js or Python backend, PostgreSQL, AWS. We adapt to your needs and constraints. We focus on boring, proven technology that scales.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#b2bfaq5" aria-expanded="false" aria-controls="b2bfaq5">How do you handle AI/ML integration for SaaS products?</button>
+              </h3>
+              <div id="b2bfaq5" class="accordion-collapse collapse" data-bs-parent="#b2bSaasFaq">
+                <div class="accordion-body">We build production-ready AI: error handling, monitoring, cost controls, fallbacks. We use proven LLM providers with fine-tuning when needed, implement RAG for accuracy, and build governance for safe usage.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#b2bfaq6" aria-expanded="false" aria-controls="b2bfaq6">How much does B2B SaaS development cost?</button>
+              </h3>
+              <div id="b2bfaq6" class="accordion-collapse collapse" data-bs-parent="#b2bSaasFaq">
+                <div class="accordion-body">90-day MVP: typically $150–300K by complexity. Feature work: $30–150K+. Platform modernization: $200–500K+ for comprehensive. We provide estimates after discovery and offer milestone-based pricing.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#b2bfaq7" aria-expanded="false" aria-controls="b2bfaq7">Do you help with SOC 2 and other compliance requirements?</button>
+              </h3>
+              <div id="b2bfaq7" class="accordion-collapse collapse" data-bs-parent="#b2bSaasFaq">
+                <div class="accordion-body">Yes. We build compliance-ready architecture from day one and can prepare you for SOC 2 audit: controls, documentation, policies, auditor connection. Most clients achieve SOC 2 Type II in 6–9 months with our help.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#b2bfaq8" aria-expanded="false" aria-controls="b2bfaq8">Can you scale to millions of users?</button>
+              </h3>
+              <div id="b2bfaq8" class="accordion-collapse collapse" data-bs-parent="#b2bSaasFaq">
+                <div class="accordion-body">Yes. We design for scale: multi-tenancy, sharding, caching, CDN, auto-scaling, async processing. We've built systems handling millions of users and billions of API calls. Scaling is about architecture from day one.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#b2bfaq9" aria-expanded="false" aria-controls="b2bfaq9">What happens after launch?</button>
+              </h3>
+              <div id="b2bfaq9" class="accordion-collapse collapse" data-bs-parent="#b2bSaasFaq">
+                <div class="accordion-body">We offer ongoing support: dedicated teams for features, on-call and incident response, monitoring and optimization, security updates, training for your team. Many clients keep us on retainer.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#b2bfaq10" aria-expanded="false" aria-controls="b2bfaq10">How do you ensure quality and avoid technical debt?</button>
+              </h3>
+              <div id="b2bfaq10" class="accordion-collapse collapse" data-bs-parent="#b2bSaasFaq">
+                <div class="accordion-body">Production-ready from day one: comprehensive testing (unit, integration, E2E), code reviews and pair programming, documentation, monitoring, security practices, regular refactoring. We balance velocity with quality.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="py-5 bg-white" id="related">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Related Services</h2>
+      </div>
+      <div class="row g-3 justify-content-center">
+        <div class="col-6 col-md-4 col-lg-2">
+          <%= link_to ai_agent_development_path, class: "btn btn-outline-primary w-100 py-3 small" do %>AI Agent Development<% end %>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <%= link_to platform_modernization_path, class: "btn btn-outline-primary w-100 py-3 small" do %>Platform Modernization<% end %>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <%= link_to api_integrations_path, class: "btn btn-outline-primary w-100 py-3 small" do %>API Integrations<% end %>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <%= link_to devops_engineering_path, class: "btn btn-outline-primary w-100 py-3 small" do %>DevOps Engineering<% end %>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <%= link_to machine_learning_path, class: "btn btn-outline-primary w-100 py-3 small" do %>Machine Learning<% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-5 bg-light-grey" id="cta">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="workflow-card p-5 p-lg-5 text-center">
+            <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Ready to Build, Scale, or Modernize Your B2B SaaS?</h2>
+            <p class="lead mb-4">Whether you're shipping your first MVP, adding enterprise features to win bigger deals, or modernizing legacy architecture, we're here to help you build production-ready SaaS that drives business outcomes.</p>
+            <h4 class="h6 mb-3">Free B2B SaaS Technology Assessment Includes:</h4>
+            <ul class="list-unstyled mb-4" style="line-height: 2;">
+              <li>60-minute consultation with SaaS product and engineering experts</li>
+              <li>Product roadmap and technical requirements review</li>
+              <li>Architecture and scaling recommendations</li>
+              <li>Technology stack evaluation</li>
+              <li>Timeline and milestone breakdown</li>
+              <li>Transparent pricing with phased approach</li>
+            </ul>
+            <div class="d-flex flex-wrap gap-3 justify-content-center mb-4">
+              <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">Schedule Free SaaS Consultation</a>
+              <%= link_to "View SaaS Case Studies", case_studies_path, class: "btn btn-outline-primary btn-lg rounded-pill px-4" %>
+            </div>
+            <p class="mb-0 small text-muted">Email: <a href="mailto:ahmad@astechware.com" class="text-decoration-none">ahmad@astechware.com</a> • Book a call: <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="text-decoration-none">Calendly</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

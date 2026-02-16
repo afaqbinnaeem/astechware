@@ -1,68 +1,156 @@
+<%# Enterprise desktop nav (lg and up) %>
+<nav class="enterprise-nav d-none d-lg-block" aria-label="Main navigation">
+  <div class="enterprise-nav-inner container-fluid">
+    <div class="d-flex align-items-center justify-content-between flex-wrap">
+      <%= link_to root_path, class: "enterprise-nav-logo ajax" do %>
+        <%= image_tag "logo.png", width: "120", class: "img-fluid", alt: "A'sTechware Logo", loading: "lazy" %>
+      <% end %>
+      <ul class="enterprise-nav-menu list-unstyled m-0 d-flex align-items-center flex-wrap">
+        <li class="enterprise-nav-item dropdown">
+          <a class="enterprise-nav-link dropdown-toggle" href="#" id="navSolutions" role="button" data-bs-toggle="dropdown" aria-expanded="false">Solutions</a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navSolutions">
+            <li><%= link_to "AI Agent Development", ai_agent_development_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "Machine Learning Solutions", machine_learning_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "Platform Modernization", platform_modernization_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "Custom Software Development", custom_software_path, class: "dropdown-item ajax" %></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><%= link_to "API Integrations", api_integrations_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "DevOps Engineering", devops_engineering_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "How We De-risk Projects", derisk_projects_path, class: "dropdown-item ajax" %></li>
+          </ul>
+        </li>
+        <li class="enterprise-nav-item dropdown">
+          <a class="enterprise-nav-link dropdown-toggle" href="#" id="navIndustries" role="button" data-bs-toggle="dropdown" aria-expanded="false">Industries</a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navIndustries">
+            <li><%= link_to "Healthcare & Medical", industry_healthcare_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "Legal Services", industry_legal_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "Financial Services", industry_financial_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "B2B SaaS", industry_b2b_saas_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "Professional Services", industry_professional_services_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "Education Technology", industry_edtech_path, class: "dropdown-item ajax" %></li>
+          </ul>
+        </li>
+        <li class="enterprise-nav-item"><%= link_to "Methodology", methodology_path, class: "enterprise-nav-link ajax" %></li>
+        <li class="enterprise-nav-item"><%= link_to "Case Studies", case_studies_path, class: "enterprise-nav-link ajax" %></li>
+        <li class="enterprise-nav-item dropdown">
+          <a class="enterprise-nav-link dropdown-toggle" href="#" id="navResources" role="button" data-bs-toggle="dropdown" aria-expanded="false">Resources</a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navResources">
+            <li><%= link_to "Blog", blogs_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "Case Studies", case_studies_path, class: "dropdown-item ajax" %></li>
+          </ul>
+        </li>
+        <li class="enterprise-nav-item dropdown">
+          <a class="enterprise-nav-link dropdown-toggle" href="#" id="navCompany" role="button" data-bs-toggle="dropdown" aria-expanded="false">Company</a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navCompany">
+            <li><%= link_to "About Us", about_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "Team", team_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "Contact", contact_path, class: "dropdown-item ajax" %></li>
+          </ul>
+        </li>
+        <li class="enterprise-nav-item"><%= link_to "Contact", contact_path, class: "enterprise-nav-link ajax" %></li>
+        <li class="enterprise-nav-item enterprise-nav-cta">
+          <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary rounded-pill px-4 enterprise-cta-btn">
+            Schedule Consultation
+          </a>
+        </li>
+        <% if current_user.present? %>
+          <li class="enterprise-nav-item"><%= link_to "Dashboard", dashboard_index_path, class: "enterprise-nav-link ajax" %></li>
+          <li class="enterprise-nav-item"><%= link_to "Log Out", destroy_user_session_path, class: "enterprise-nav-link ajax" %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<%# Sliding menu (mobile) + legacy header for mobile only %>
 <div class="nav-holder">
   <div class="nav-holder-wrap but-hol">
     <div class="nav-container fl-wrap">
-      <!-- nav -->
-      <nav class="nav-inner sliding-menu" id="menu"><div class="sliding-menu-wrapper">
-        <ul id="menu-panel-hv34y" class="menu-panel-root list-unstyled m-0 p-0">
-          <li id="menu-item-347" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-13 current_page_item"><a href="/" class="ajax">Home</a></li>
-          <li id="menu-item-case-studies" class="menu-item menu-item-type-post_type menu-item-object-page"><%= link_to "Case Studies", "/case-studies", class: "ajax" %></li>
-          <li id="menu-item-369" class="menu-item menu-item-type-post_type menu-item-object-page"><%= link_to "AI Agents", ai_agents_path, class: "ajax" %></li>
-          <li id="menu-item-834" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children submen-dec">
-            <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="nav booking-btn-menu">
-              <i class="fa fa-calendar me-2" aria-hidden="true"></i>
-              Book a Free Discovery Call
-            </a>
-          </li>
-          <% if current_user.present? %>
-            <li id="menu-item-834" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children submen-dec">
-              <%= link_to "Dashboard", dashboard_index_path, class: "nav" %>
+      <nav class="nav-inner sliding-menu" id="menu" aria-label="Main navigation">
+        <div class="sliding-menu-wrapper">
+          <ul class="menu-panel-root list-unstyled m-0 p-0">
+            <li class="menu-item"><%= link_to "Home", root_path, class: "ajax" %></li>
+            <li class="menu-item menu-item-has-children">
+              <span class="menu-item-label">Solutions</span>
+              <ul class="sub-menu list-unstyled m-0 ps-3">
+                <li><%= link_to "AI Agent Development", ai_agent_development_path, class: "ajax" %></li>
+                <li><%= link_to "Machine Learning Solutions", machine_learning_path, class: "ajax" %></li>
+                <li><%= link_to "Platform Modernization", platform_modernization_path, class: "ajax" %></li>
+                <li><%= link_to "Custom Software Development", custom_software_path, class: "ajax" %></li>
+                <li><%= link_to "API Integrations", api_integrations_path, class: "ajax" %></li>
+                <li><%= link_to "DevOps Engineering", devops_engineering_path, class: "ajax" %></li>
+                <li><%= link_to "How We De-risk Projects", derisk_projects_path, class: "ajax" %></li>
+              </ul>
             </li>
-            <li id="menu-item-834" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children submen-dec">
-              <%= link_to "Log Out", destroy_user_session_path, class: "nav" %>
+            <li class="menu-item menu-item-has-children">
+              <span class="menu-item-label">Industries</span>
+              <ul class="sub-menu list-unstyled m-0 ps-3">
+                <li><%= link_to "Healthcare & Medical", industry_healthcare_path, class: "ajax" %></li>
+                <li><%= link_to "Legal Services", industry_legal_path, class: "ajax" %></li>
+                <li><%= link_to "Financial Services", industry_financial_path, class: "ajax" %></li>
+                <li><%= link_to "B2B SaaS", industry_b2b_saas_path, class: "ajax" %></li>
+                <li><%= link_to "Professional Services", industry_professional_services_path, class: "ajax" %></li>
+                <li><%= link_to "Education Technology", industry_edtech_path, class: "ajax" %></li>
+              </ul>
             </li>
-          <% end %>
-        </ul>
-        <ul class="sub-menu menu-panel d-none" id="menu-panel-30qpy" style="width: 400px;">
-          <a class="back" href="#menu-panel-back"></a>
-          <li id="menu-item-90" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="#" class="ajax">Contacts</a></li>
-          <li id="menu-item-831" class="menu-item menu-item-type-custom menu-item-object-custom"><a target="_blank" href="#" class="">Appointments</a></li>
-        </ul></div></nav>
-        <!-- nav end-->
+            <li class="menu-item"><%= link_to "Methodology", methodology_path, class: "ajax" %></li>
+            <li class="menu-item"><%= link_to "Case Studies", case_studies_path, class: "ajax" %></li>
+            <li class="menu-item menu-item-has-children">
+              <span class="menu-item-label">Resources</span>
+              <ul class="sub-menu list-unstyled m-0 ps-3">
+                <li><%= link_to "Blog", blogs_path, class: "ajax" %></li>
+                <li><%= link_to "Case Studies", case_studies_path, class: "ajax" %></li>
+              </ul>
+            </li>
+            <li class="menu-item menu-item-has-children">
+              <span class="menu-item-label">Company</span>
+              <ul class="sub-menu list-unstyled m-0 ps-3">
+                <li><%= link_to "About Us", about_path, class: "ajax" %></li>
+                <li><%= link_to "Team", team_path, class: "ajax" %></li>
+                <li><%= link_to "Contact", contact_path, class: "ajax" %></li>
+              </ul>
+            </li>
+            <li class="menu-item"><%= link_to "Contact", contact_path, class: "ajax" %></li>
+            <li class="menu-item menu-item-cta">
+              <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="nav booking-btn-menu">
+                <i class="fa fa-calendar me-2" aria-hidden="true"></i>
+                Schedule Consultation
+              </a>
+            </li>
+            <% if current_user.present? %>
+              <li class="menu-item"><%= link_to "Dashboard", dashboard_index_path, class: "nav" %></li>
+              <li class="menu-item"><%= link_to "Log Out", destroy_user_session_path, class: "nav" %></li>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
     </div>
-    <div class="nav-footer"><span>
-    © A'sTechware / All rights reserved. </span></div>
+    <div class="nav-footer"><span>© A'sTechware / All rights reserved.</span></div>
     <div class="nav-holder-wrap_line"></div>
     <div class="nav-holder-wrap_dec"></div>
   </div>
 </div>
 
-<header class="main-header">
-  <!-- logo  -->
+<header class="main-header d-lg-none">
   <a href="/" class="ajax logo-holder">
     <h1 class="ns-text-logo m-0"><%= image_tag 'logo.png', width: '100', class: 'img-fluid p-2 p-sm-0', alt: "A'sTechware Logo", loading: "lazy" %></h1>
   </a>
-  <!-- logo end -->
-  <!-- nav-button-wrap-->
   <div class="nav-button but-hol">
     <span class="ncs"></span>
     <span class="nos"></span>
     <span class="nbs"></span>
     <div class="menu-button-text">Menu</div>
   </div>
-  <!-- nav-button-wrap end-->
-  <!-- header-contacts-->
   <div class="header-contacts">
-    <span href="#" class="ajax contacts-btn text-uppercase d-none d-md-block">Custom Software & AI Systems Built for Real Operations
-</span>
+    <span class="ajax contacts-btn text-uppercase d-none d-md-block">Custom Software & AI for Operations</span>
   </div>
-  <!-- header-contacts end-->
 </header>
 
-<div class="hc_dec_color">
+<div class="hc_dec_color d-lg-none">
   <div class="page-subtitle">
     <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="booking-btn-header" style="opacity: 1; transform: translate3d(0px, 0px, 0px);">
       <i class="fa fa-calendar me-2" aria-hidden="true"></i>
-      Book a Free Discovery Call
+      Schedule Consultation
     </a>
   </div>
 </div>
@@ -76,13 +164,13 @@
   </div>
 </div>
 
-<div class="right-header">
+<div class="right-header d-lg-none">
   <div class="right-header_social">
     <ul class="list-unstyled m-0">
-      <li><a target="_blank" href="https://www.facebook.com/astechware"><i class="fa fa-facebook-f"></i></a></li>
-      <li><a target="_blank" href="https://twitter.com/astechware"><i class="fa fa-twitter"></i></a></li>
-      <li><a target="_blank" href="https://linkedin.com/company/astechware"><i class="fa fa-linkedin"></i></a></li>
-      <li><a target="_blank" href="https://www.instagram.com/astechware/"><i class="fa fa-instagram"></i></a></li>
+      <li><a target="_blank" href="https://www.facebook.com/astechware" rel="noopener noreferrer" aria-label="Facebook"><i class="fa fa-facebook-f"></i></a></li>
+      <li><a target="_blank" href="https://twitter.com/astechware" rel="noopener noreferrer" aria-label="Twitter"><i class="fa fa-twitter"></i></a></li>
+      <li><a target="_blank" href="https://linkedin.com/company/astechware" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a></li>
+      <li><a target="_blank" href="https://www.instagram.com/astechware/" rel="noopener noreferrer" aria-label="Instagram"><i class="fa fa-instagram"></i></a></li>
     </ul>
   </div>
 </div>

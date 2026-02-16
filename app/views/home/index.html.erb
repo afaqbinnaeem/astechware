@@ -72,6 +72,29 @@
       </div>
    </div>
 </div>
+<!-- Company Metrics -->
+<div class="py-4" id="company-metrics">
+   <div class="container">
+      <div class="row text-center g-4">
+         <div class="col-6 col-md-3">
+            <div class="metric-number">8+</div>
+            <div class="metric-label">Years of Experience</div>
+         </div>
+         <div class="col-6 col-md-3">
+            <div class="metric-number">50+</div>
+            <div class="metric-label">Projects Delivered</div>
+         </div>
+         <div class="col-6 col-md-3">
+            <div class="metric-number">95%</div>
+            <div class="metric-label">Client Retention</div>
+         </div>
+         <div class="col-6 col-md-3">
+            <div class="metric-number">10+</div>
+            <div class="metric-label">Industries Served</div>
+         </div>
+      </div>
+   </div>
+</div>
 <div class="inner-sections">
 
    
@@ -597,74 +620,187 @@
       </div>
    </div>
 
-   <div class="expertise-section py-5" id="specialize_in">
+   <!-- Services Grid -->
+   <div class="expertise-section py-5" id="services">
       <div class="container">
-         <h2 class="heading-border text-center heading-center mb-3 pb-3">We Specialize In</h2>
-         <p class="large-para mb-5 text-center">Automation, AI, and product engineering for teams building production-ready systems.</p>
+         <div class="text-center mb-5">
+            <h2 class="heading-border text-center heading-center mb-3 pb-3 d-inline-block">Our Services</h2>
+            <p class="large-para mb-0">End-to-end AI, automation, and engineering capabilities for production-ready systems.</p>
+         </div>
+         <div class="row g-4">
+            <div class="col-12 col-sm-6 col-lg-3">
+               <div class="service-card h-100">
+                  <div class="service-card-icon">
+                     <i class="fa fa-cogs" aria-hidden="true"></i>
+                  </div>
+                  <h5 class="service-card-title">AI Agent Development</h5>
+                  <p class="service-card-desc">We build AI agents and copilots that handle real workflows in production. Every agent includes human-in-the-loop protocols, audit trails, and observability from day one.</p>
+                  <%= link_to "Learn More →", ai_agent_development_path, class: "service-card-link" %>
+               </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+               <div class="service-card h-100">
+                  <div class="service-card-icon">
+                     <i class="fa fa-line-chart" aria-hidden="true"></i>
+                  </div>
+                  <h5 class="service-card-title">Machine Learning Solutions</h5>
+                  <p class="service-card-desc">We design and deploy ML models for prediction, classification, and anomaly detection. Production-grade pipelines with monitoring, retraining, and drift detection built in.</p>
+                  <%= link_to "Learn More →", machine_learning_path, class: "service-card-link" %>
+               </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+               <div class="service-card h-100">
+                  <div class="service-card-icon">
+                     <i class="fa fa-refresh" aria-hidden="true"></i>
+                  </div>
+                  <h5 class="service-card-title">Platform Modernization</h5>
+                  <p class="service-card-desc">We rescue failing platforms and modernize systems that cannot scale. Focused on changes that directly improve reliability, performance, and maintainability.</p>
+                  <%= link_to "Learn More →", platform_modernization_path, class: "service-card-link" %>
+               </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+               <div class="service-card h-100">
+                  <div class="service-card-icon">
+                     <i class="fa fa-code" aria-hidden="true"></i>
+                  </div>
+                  <h5 class="service-card-title">Custom Software Development</h5>
+                  <p class="service-card-desc">We build SaaS platforms, internal tools, and operations software from concept to production. Full-stack delivery with architecture, APIs, and long-term support.</p>
+                  <%= link_to "Learn More →", custom_software_path, class: "service-card-link" %>
+               </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+               <div class="service-card h-100">
+                  <div class="service-card-icon">
+                     <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                  </div>
+                  <h5 class="service-card-title">Healthcare Automation (HIPAA)</h5>
+                  <p class="service-card-desc">HIPAA-aligned AI workflows for healthcare: scheduling, patient intake, messaging, and document processing. Secure access controls, audit logs, and compliant PHI handling.</p>
+                  <%= link_to "Learn More →", industry_healthcare_path, class: "service-card-link" %>
+               </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+               <div class="service-card h-100">
+                  <div class="service-card-icon">
+                     <i class="fa fa-balance-scale" aria-hidden="true"></i>
+                  </div>
+                  <h5 class="service-card-title">Legal Tech Solutions</h5>
+                  <p class="service-card-desc">AI-powered legal workflows focused on accuracy and traceability. Document analysis, structured research, citation verification, and human review for sensitive outputs.</p>
+                  <%= link_to "Learn More →", industry_legal_path, class: "service-card-link" %>
+               </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+               <div class="service-card h-100">
+                  <div class="service-card-icon">
+                     <i class="fa fa-plug" aria-hidden="true"></i>
+                  </div>
+                  <h5 class="service-card-title">API Integrations</h5>
+                  <p class="service-card-desc">We connect your systems end-to-end: CRMs, billing, scheduling, messaging, and data providers. Reliable integrations with error handling, retry logic, and monitoring.</p>
+                  <%= link_to "Learn More →", api_integrations_path, class: "service-card-link" %>
+               </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+               <div class="service-card h-100">
+                  <div class="service-card-icon">
+                     <i class="fa fa-server" aria-hidden="true"></i>
+                  </div>
+                  <h5 class="service-card-title">DevOps Engineering</h5>
+                  <p class="service-card-desc">CI/CD pipelines, infrastructure as code, container orchestration, and cloud operations. Built for reliability, security, and repeatable deployments across environments.</p>
+                  <%= link_to "Learn More →", devops_engineering_path, class: "service-card-link" %>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- Industries We Serve -->
+   <div class="py-5 bg-white" id="industries-we-serve">
+      <div class="container">
          <div class="row">
-         <div class="col-12 col-md-6 col-lg-4 mb-4">
-               <div class="icon-box-s2 s1 text-center">
-                  <div class="icon-main">
-                     <span class="flaticon-browser"><i class="fa fa-building-o" aria-hidden="true"></i></span>
-                  </div>
-                  <div class="content-box">
-                     <h5><a href="#" onclick="return false;">B2B SaaS & Custom Software Development</a></h5>
-                     <p>We design and build scalable B2B SaaS products from MVPs to production platforms including architecture, APIs, dashboards, integrations, and long-term maintainability.</p>
-                  </div>
+            <div class="col-12 col-lg-10 mx-auto">
+               <div class="text-center mb-5">
+                  <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Industries We Serve</h2>
+                  <p class="large-para mb-0" style="max-width: 750px; margin: 0 auto;">
+                     We build AI systems and production software for organizations across regulated, operations-heavy, and high-growth industries.
+                  </p>
                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mb-4">
-               <div class="icon-box-s2 s1 text-center">
-                  <div class="icon-main">
-                     <span class="flaticon-browser"><i class="fa fa-medkit" aria-hidden="true"></i></span>
+               <div class="row g-4">
+                  <div class="col-12 col-md-6 col-lg-4">
+                     <%= link_to industry_healthcare_path, class: 'text-decoration-none text-dark d-block h-100' do %>
+                        <div class="build-system-card p-4 h-100">
+                           <div class="build-icon-wrapper mb-3">
+                              <div class="build-icon">
+                                 <i class="fa fa-heartbeat"></i>
+                              </div>
+                           </div>
+                           <h4 class="mb-2">Healthcare &amp; Medical</h4>
+                           <p class="mb-0">AI scheduling, patient intake, HIPAA-compliant messaging, and clinical workflow automation for clinics and multi-location practices.</p>
+                        </div>
+                     <% end %>
                   </div>
-                  <div class="content-box">
-                     <h5><a href="#" onclick="return false;">Healthcare Automation (HIPAA Patterns)</a></h5>
-                     <p>We build HIPAA-aligned healthcare automations and AI workflows with secure access controls, audit logs, encryption, and compliant PHI handling. Our solutions cover scheduling, patient intake, messaging, document processing, and HL7/FHIR integrations when needed.</p>
+                  <div class="col-12 col-md-6 col-lg-4">
+                     <%= link_to industry_legal_path, class: 'text-decoration-none text-dark d-block h-100' do %>
+                        <div class="build-system-card p-4 h-100">
+                           <div class="build-icon-wrapper mb-3">
+                              <div class="build-icon">
+                                 <i class="fa fa-balance-scale"></i>
+                              </div>
+                           </div>
+                           <h4 class="mb-2">Legal Services</h4>
+                           <p class="mb-0">Document analysis, contract review, research automation, and case management workflows with full auditability.</p>
+                        </div>
+                     <% end %>
                   </div>
-               </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mb-4">
-               <div class="icon-box-s2 s2 text-center">
-                  <div class="icon-main">
-                     <span class="flaticon-browser"><i class="fa fa-balance-scale" aria-hidden="true"></i></span>
+                  <div class="col-12 col-md-6 col-lg-4">
+                     <%= link_to industry_financial_path, class: 'text-decoration-none text-dark d-block h-100' do %>
+                        <div class="build-system-card p-4 h-100">
+                           <div class="build-icon-wrapper mb-3">
+                              <div class="build-icon">
+                                 <i class="fa fa-university"></i>
+                              </div>
+                           </div>
+                           <h4 class="mb-2">Financial Services</h4>
+                           <p class="mb-0">Secure platforms for payments, invoicing, compliance, and AI-driven financial workflow automation.</p>
+                        </div>
+                     <% end %>
                   </div>
-                  <div class="content-box">
-                     <h5><a href="#" onclick="return false;">Legal Workflows &amp; Document Automation</a></h5>
-                     <p>We create legal automation workflows focused on accuracy, permissions, and traceability. This includes source verification, citation discipline, audit trails, and human review steps for sensitive legal outputs.</p>
+                  <div class="col-12 col-md-6 col-lg-4">
+                     <%= link_to industry_professional_services_path, class: 'text-decoration-none text-dark d-block h-100' do %>
+                        <div class="build-system-card p-4 h-100">
+                           <div class="build-icon-wrapper mb-3">
+                              <div class="build-icon">
+                                 <i class="fa fa-briefcase"></i>
+                              </div>
+                           </div>
+                           <h4 class="mb-2">Professional Services</h4>
+                           <p class="mb-0">Operations platforms, resource management, and workflow automation for firms that run on billable time.</p>
+                        </div>
+                     <% end %>
                   </div>
-               </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mb-4">
-               <div class="icon-box-s2 s3 text-center">
-                  <div class="icon-main">
-                     <span class="flaticon-browser"><i class="fa fa-bullhorn" aria-hidden="true"></i></span>
+                  <div class="col-12 col-md-6 col-lg-4">
+                     <%= link_to industry_b2b_saas_path, class: 'text-decoration-none text-dark d-block h-100' do %>
+                        <div class="build-system-card p-4 h-100">
+                           <div class="build-icon-wrapper mb-3">
+                              <div class="build-icon">
+                                 <i class="fa fa-cloud"></i>
+                              </div>
+                           </div>
+                           <h4 class="mb-2">B2B SaaS</h4>
+                           <p class="mb-0">Full platform builds, AI feature integrations, and infrastructure modernization for software companies.</p>
+                        </div>
+                     <% end %>
                   </div>
-                  <div class="content-box">
-                     <h5><a href="#" onclick="return false;">Marketing + Lead Generation Automation</a></h5>
-                     <p>We design end-to-end marketing and lead gen automations that connect content, lead capture, qualification, and booking, with seamless CRM sync across platforms like HubSpot, Salesforce, and Pipedrive.</p>
-                  </div>
-               </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mb-4">
-               <div class="icon-box-s2 s4 text-center">
-                  <div class="icon-main">
-                     <span class="flaticon-browser"><i class="fa fa-wrench" aria-hidden="true"></i></span>
-                  </div>
-                  <div class="content-box">
-                     <h5><a href="#" onclick="return false;">GoHighLevel + Agency Automations</a></h5>
-                     <p>We help agencies scale with custom GoHighLevel workflows, snapshot templates, integrations, and automated multi-client reporting.</p>
-                  </div>
-               </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mb-4">
-               <div class="icon-box-s2 s5 text-center">
-                  <div class="icon-main">
-                     <span class="flaticon-browser"><i class="fa fa-building-o" aria-hidden="true"></i></span>
-                  </div>
-                  <div class="content-box">
-                     <h5><a href="#" onclick="return false;">Microsoft 365 / Power Platform Automations</a></h5>
-                     <p>We build Power Automate workflows and Microsoft 365 automations across Teams, SharePoint, and Outlook, including custom connectors and integrations.</p>
+                  <div class="col-12 col-md-6 col-lg-4">
+                     <%= link_to industry_edtech_path, class: 'text-decoration-none text-dark d-block h-100' do %>
+                        <div class="build-system-card p-4 h-100">
+                           <div class="build-icon-wrapper mb-3">
+                              <div class="build-icon">
+                                 <i class="fa fa-graduation-cap"></i>
+                              </div>
+                           </div>
+                           <h4 class="mb-2">Education Technology</h4>
+                           <p class="mb-0">Learning platforms, student management, content delivery, and engagement tools built for scale.</p>
+                        </div>
+                     <% end %>
                   </div>
                </div>
             </div>
@@ -1351,19 +1487,6 @@
 
 <% end %>
 
-<footer id="footer" class="text-center py-4">
-   <div class="container">
-      <div class="d-flex justify-content-between align-items-center flex-column-reverse flex-sm-row">
-         <span>
-            ©<script>document.write(new Date().getFullYear())</script> All rights reserved.
-         </span>
-         <ul class="list-unstyled d-flex m-0 mb-2 mb-sm-0">
-            <li class="me-3"><%= link_to "Privacy Policy", privacy_policy_path %></li>
-            <li><a href="#" onclick="return false;">Terms of use</a></li>
-         </ul>
-      </div>
-   </div>
-</footer>
 <%# Menu JS %>
 <script>
    const bodyTag = document.querySelector("body");

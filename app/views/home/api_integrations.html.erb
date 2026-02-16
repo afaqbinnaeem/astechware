@@ -1,0 +1,596 @@
+<% content_for :head do %>
+  <% og_image = safe_og_image_url('logo-colored.png') %>
+  <% if og_image.present? %>
+    <% set_meta_tags(
+      title: "API Integration Services | Connect Systems End-to-End | A'sTechware",
+      description: "Connect your systems end-to-end: CRMs, billing, scheduling, messaging. Reliable integrations with error handling, retry logic, and monitoring.",
+      og: { title: "API Integration Services | A'sTechware", description: "Connect your systems end-to-end with reliable integrations.", image: og_image, url: safe_request_url, type: 'website', site_name: "A'sTechware" },
+      twitter: { card: 'summary_large_image', title: "API Integration Services | A'sTechware", description: "Connect your systems end-to-end with reliable integrations.", image: og_image }
+    ) %>
+  <% else %>
+    <% set_meta_tags(
+      title: "API Integration Services | Connect Systems End-to-End | A'sTechware",
+      description: "Connect your systems end-to-end: CRMs, billing, scheduling, messaging. Reliable integrations with error handling, retry logic, and monitoring.",
+      og: { title: "API Integration Services | A'sTechware", description: "Connect your systems end-to-end with reliable integrations.", url: safe_request_url, type: 'website', site_name: "A'sTechware" },
+      twitter: { card: 'summary', title: "API Integration Services | A'sTechware", description: "Connect your systems end-to-end with reliable integrations." }
+    ) %>
+  <% end %>
+<% end %>
+
+<!-- Hero Section -->
+<div class="hero-section py-5 service-page-hero api-integrations-hero">
+  <div class="container">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-12 col-lg-9 mx-auto text-center">
+        <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;">
+          API Integration Services
+        </h1>
+        <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.4; max-width: 720px; margin-left: auto; margin-right: auto;">
+          Connect Your Systems End-to-End with Reliable Integrations
+        </p>
+        <p class="mb-4" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
+          We connect your systems end-to-end: CRMs, billing, scheduling, messaging, and data providers. Reliable integrations with error handling, retry logic, and monitoring—so integrations work invisibly and recover automatically from failures.
+        </p>
+        <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+          Discuss Your Integration Needs
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="inner-sections api-integrations-service-page">
+
+  <!-- Overview -->
+  <section class="py-5 bg-white" id="overview">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Overview</h2>
+          <p class="large-para mb-4">
+            We build integrations that <strong>run reliably in the background</strong>—so your teams and customers never hit broken syncs or silent failures. Every integration is designed with error handling, retry logic, and monitoring from day one. When something goes wrong, the system recovers automatically or alerts you with clear, actionable information.
+          </p>
+          <p class="large-para mb-4">
+            Whether you need CRM and billing connected, real-time and batch sync, or webhooks and file-based flows, we map your data, implement robust patterns, and leave you with documentation and visibility. Integrations should work invisibly; we make sure they do.
+          </p>
+          <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.7;">
+            <li><strong>End-to-end system connectivity:</strong> Connect CRMs, ERPs, payment systems, scheduling, and messaging so data flows where it’s needed.</li>
+            <li><strong>Bi-directional data synchronization:</strong> Keep systems in sync in both directions with conflict handling and clear source-of-truth rules.</li>
+            <li><strong>Real-time and batch integration patterns:</strong> Choose the right pattern per use case—webhooks and events for speed, batch for bulk and legacy.</li>
+            <li><strong>Error handling and recovery:</strong> Retries, dead letter queues, and circuit breakers so transient failures don’t break the business.</li>
+            <li><strong>Monitoring and alerting:</strong> Dashboards and alerts so you see health and failures before users do.</li>
+            <li><strong>Documentation and maintainability:</strong> Architecture docs, data mapping, and runbooks so your team can operate and extend integrations.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Challenges We Solve (7) -->
+  <section class="py-5 bg-light-grey" id="challenges">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Challenges We Solve</h2>
+        <p class="large-para mb-0" style="max-width: 640px; margin: 0 auto;">Common integration pain points—and how we address them with reliability and visibility.</p>
+      </div>
+      <div class="row g-3">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">1</span>
+            <h4 class="h6 mb-2">Manual data entry across multiple systems</h4>
+            <p class="mb-0 small">We automate data flow between systems so one action in the CRM, billing, or scheduling tool updates the rest—no copy-paste, no re-entry.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">2</span>
+            <h4 class="h6 mb-2">Data inconsistencies between platforms</h4>
+            <p class="mb-0 small">Clear sync rules, validation, and idempotent operations keep data consistent; we define a single source of truth and sync from it.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">3</span>
+            <h4 class="h6 mb-2">Broken integrations with no error visibility</h4>
+            <p class="mb-0 small">We build logging, alerting, and dashboards so failures are visible and debuggable—no more silent breakage.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">4</span>
+            <h4 class="h6 mb-2">API rate limiting and throttling issues</h4>
+            <p class="mb-0 small">Rate limit awareness, backoff, and queue-based processing so we stay within provider limits without dropping data.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">5</span>
+            <h4 class="h6 mb-2">Authentication and security complexity</h4>
+            <p class="mb-0 small">OAuth, API keys, and webhook signatures implemented correctly; credentials stored securely and rotated without breaking flows.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">6</span>
+            <h4 class="h6 mb-2">Webhooks that fail silently</h4>
+            <p class="mb-0 small">Webhook verification, retries, and dead letter handling so incoming events are processed or surfaced for manual review.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">7</span>
+            <h4 class="h6 mb-2">Legacy systems with poor APIs</h4>
+            <p class="mb-0 small">We work with file feeds, SOAP, and limited REST—building adapters and sync layers so legacy systems participate in modern flows.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Integration Approach -->
+  <section class="py-5 bg-white" id="approach">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Our Integration Approach</h2>
+          <p class="large-para mb-4">We design for reliability first. Every integration is built so it can recover from failures and give you visibility when it doesn’t.</p>
+          <ul class="service-page-list mb-0" style="font-size: 1.05rem;">
+            <li><strong>Requirements analysis and data mapping:</strong> We define entities, fields, and sync direction so integration scope is clear before we code.</li>
+            <li><strong>Robust error handling and retry logic:</strong> Transient failures trigger automatic retries with exponential backoff; permanent failures go to queues for review.</li>
+            <li><strong>Idempotent operations (safe retries):</strong> Retrying a request doesn’t duplicate data—we use keys and idempotency so retries are safe.</li>
+            <li><strong>Comprehensive logging and monitoring:</strong> Every call and failure is logged; we add dashboards and alerts so you see health at a glance.</li>
+            <li><strong>Rate limit management:</strong> We respect provider limits with throttling and queues so high volume doesn’t break the integration.</li>
+            <li><strong>Webhook verification and security:</strong> Signatures are verified; only legitimate events are processed; replay and abuse are mitigated.</li>
+            <li><strong>Automated testing and validation:</strong> Integration tests and sanity checks so changes don’t silently break production.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Business Benefits (6 cards) -->
+  <section class="py-5 bg-light-grey" id="benefits">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Business Benefits</h2>
+        <p class="large-para mb-0" style="max-width: 640px; margin: 0 auto;">Less manual work, accurate data, and full visibility—integrations that run reliably so you can focus on the business.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-magic" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Eliminate Manual Work</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>No more copy-pasting data</li>
+              <li>Automatic synchronization</li>
+              <li>Real-time updates across systems</li>
+              <li>10–20 hours saved weekly per team</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-check-circle" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Data Accuracy</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Single source of truth</li>
+              <li>Eliminate transcription errors</li>
+              <li>Consistent data across platforms</li>
+              <li>Automatic validation</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-bolt" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Faster Operations</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Real-time information flow</li>
+              <li>Reduce delays and bottlenecks</li>
+              <li>Faster customer response</li>
+              <li>Improved team coordination</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-users" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Better Customer Experience</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Seamless multi-platform interactions</li>
+              <li>Consistent information everywhere</li>
+              <li>Faster service delivery</li>
+              <li>Professional communication</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-line-chart" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Scalability</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Handle growing data volumes</li>
+              <li>Add new integrations easily</li>
+              <li>Adapt to business changes</li>
+              <li>Future-proof architecture</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-bar-chart" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Visibility &amp; Control</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Monitor integration health</li>
+              <li>Track data flow</li>
+              <li>Debugging and troubleshooting</li>
+              <li>Performance analytics</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Deliver -->
+  <section class="py-5 bg-white" id="deliverables">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">What We Deliver</h2>
+        <p class="large-para mb-0" style="max-width: 640px; margin: 0 auto;">Integration development, error handling, monitoring, and documentation—so your systems stay connected and recoverable.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-uppercase text-muted mb-3">Integration Development</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+              <li>RESTful API integrations</li>
+              <li>GraphQL API connections</li>
+              <li>SOAP/XML legacy integrations</li>
+              <li>Webhook setup and handling</li>
+              <li>File-based exchange (SFTP, S3)</li>
+              <li>Real-time streaming integrations</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-uppercase text-muted mb-3">Common Integration Types</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+              <li>CRM (Salesforce, HubSpot, Pipedrive)</li>
+              <li>Payment (Stripe, PayPal, Square)</li>
+              <li>Accounting (QuickBooks, Xero, NetSuite)</li>
+              <li>Email/SMS (SendGrid, Twilio, Mailchimp)</li>
+              <li>Calendar (Google Calendar, Calendly)</li>
+              <li>E-commerce (Shopify, WooCommerce, Magento)</li>
+              <li>Analytics (GA, Mixpanel, Segment)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-uppercase text-muted mb-3">Error Handling &amp; Reliability</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+              <li>Automatic retry with exponential backoff</li>
+              <li>Dead letter queues for failed operations</li>
+              <li>Idempotent operation design</li>
+              <li>Circuit breakers for failing services</li>
+              <li>Graceful degradation patterns</li>
+              <li>Comprehensive error logging</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-uppercase text-muted mb-3">Monitoring &amp; Documentation</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+              <li>Integration health dashboards</li>
+              <li>Real-time alerting on failures</li>
+              <li>Performance metrics and SLAs</li>
+              <li>Architecture and data mapping docs</li>
+              <li>Error procedures and runbooks</li>
+              <li>Ongoing optimization</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Stack -->
+  <section class="py-5 bg-light-grey" id="technology">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Technology Stack</h2>
+        <p class="large-para mb-0" style="max-width: 640px; margin: 0 auto;">Integration platforms, backend services, monitoring, and security—built for reliability and scale.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Integration Platforms</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Custom-built or Zapier/Make.com enhancement</li>
+              <li>Message queues (RabbitMQ, Redis, AWS SQS)</li>
+              <li>Event streaming (Kafka, AWS EventBridge)</li>
+              <li>API gateways (Kong, AWS API Gateway)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Backend</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Node.js or Python for integration services</li>
+              <li>PostgreSQL for data staging</li>
+              <li>Redis for caching and rate limiting</li>
+              <li>Background jobs (Celery, Bull)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Monitoring</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Application monitoring (Datadog, New Relic)</li>
+              <li>Log aggregation (CloudWatch, ELK)</li>
+              <li>Uptime (Better Uptime, Pingdom)</li>
+              <li>Error tracking (Sentry, Rollbar)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Security</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>OAuth 2.0, API keys, JWT</li>
+              <li>Webhook signature verification</li>
+              <li>Encrypted data transmission</li>
+              <li>Secure credential storage (e.g. AWS Secrets Manager)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="py-5 bg-white" id="timeline">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Timeline</h2>
+          <p class="large-para mb-4">Typical 6-week path for a focused integration set. Timeline varies with number and complexity of systems; we’ll scope during discovery.</p>
+          <div class="row g-3">
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Week 1</span>
+                <h4 class="h6 mt-2 mb-2">Requirements, API Exploration &amp; Data Mapping</h4>
+                <p class="mb-0 small">Discovery of systems, APIs, and data models; data mapping and sync rules.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Weeks 2–3</span>
+                <h4 class="h6 mt-2 mb-2">Core Integration Development</h4>
+                <p class="mb-0 small">Build connectors, sync logic, and webhooks; initial end-to-end flow.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Week 4</span>
+                <h4 class="h6 mt-2 mb-2">Error Handling, Retry Logic &amp; Testing</h4>
+                <p class="mb-0 small">Retries, dead letter handling, idempotency; integration and failure-path testing.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Week 5</span>
+                <h4 class="h6 mt-2 mb-2">Monitoring Setup &amp; Documentation</h4>
+                <p class="mb-0 small">Dashboards, alerts, runbooks, and data mapping documentation.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Week 6</span>
+                <h4 class="h6 mt-2 mb-2">Production Deployment &amp; Handoff</h4>
+                <p class="mb-0 small">Production rollout, credential handoff, and training so your team can operate and extend.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Study Spotlight (2) -->
+  <section class="py-5 bg-light-grey" id="case-study">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Case Study Spotlight</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-lg-6">
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h4 class="h5 mb-3">Marketing Agency CRM Integration</h4>
+            <div class="mb-3">
+              <h5 class="h6 text-uppercase text-muted mb-2">Challenge</h5>
+              <p class="mb-0 small">Manual data entry between forms, CRM, email, and billing—error-prone and time-consuming.</p>
+            </div>
+            <div class="mb-3">
+              <h5 class="h6 text-uppercase text-muted mb-2">Solution</h5>
+              <p class="mb-0 small">Automated flow from lead capture through CRM, email, and invoice—one source of truth, no re-entry.</p>
+            </div>
+            <div class="mb-0">
+              <h5 class="h6 text-uppercase text-muted mb-2">Results</h5>
+              <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+                <li>95% reduction in manual work</li>
+                <li>Zero data entry errors in production</li>
+                <li>18 hours saved weekly</li>
+              </ul>
+            </div>
+            <%= link_to "Read case studies →", case_studies_path, class: "d-inline-block mt-3 fw-semibold small" %>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6">
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h4 class="h5 mb-3">Golf Operations Platform</h4>
+            <div class="mb-3">
+              <h5 class="h6 text-uppercase text-muted mb-2">Challenge</h5>
+              <p class="mb-0 small">Disconnected booking, payments, CRM, and email—no single view, manual sync, and inconsistent customer experience.</p>
+            </div>
+            <div class="mb-3">
+              <h5 class="h6 text-uppercase text-muted mb-2">Solution</h5>
+              <p class="mb-0 small">Unified integration platform connecting six systems with real-time sync and automated customer communication.</p>
+            </div>
+            <div class="mb-0">
+              <h5 class="h6 text-uppercase text-muted mb-2">Results</h5>
+              <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+                <li>Real-time data sync across booking, payments, CRM</li>
+                <li>Automated customer communication</li>
+                <li>Seamless operations and one source of truth</li>
+              </ul>
+            </div>
+            <%= link_to "Read full case study →", case_studies_path + "#golf-saas", class: "d-inline-block mt-3 fw-semibold small" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs (8) -->
+  <section class="py-5 bg-white" id="faqs">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Frequently Asked Questions</h2>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="accordion api-faq-accordion" id="apiFaqAccordion">
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#apifaq1" aria-expanded="false" aria-controls="apifaq1">What APIs can you integrate with?</button>
+              </h3>
+              <div id="apifaq1" class="accordion-collapse collapse" data-bs-parent="#apiFaqAccordion">
+                <div class="accordion-body">We integrate with a wide range: CRMs (Salesforce, HubSpot, Pipedrive), payment (Stripe, PayPal, Square), accounting (QuickBooks, Xero, NetSuite), email/SMS (SendGrid, Twilio, Mailchimp), scheduling (Google Calendar, Calendly), e-commerce (Shopify, WooCommerce), and many more. If it has an API or file-based interface, we can usually connect it. We’ll confirm feasibility during discovery.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#apifaq2" aria-expanded="false" aria-controls="apifaq2">How do you handle API rate limits?</button>
+              </h3>
+              <div id="apifaq2" class="accordion-collapse collapse" data-bs-parent="#apiFaqAccordion">
+                <div class="accordion-body">We design for rate limits from the start: throttling, exponential backoff on retries, and queue-based processing so we stay within provider limits. We track usage and can add alerts when approaching limits. For high-volume syncs, we use batch endpoints where available and spread load over time.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#apifaq3" aria-expanded="false" aria-controls="apifaq3">What happens when an integration fails?</button>
+              </h3>
+              <div id="apifaq3" class="accordion-collapse collapse" data-bs-parent="#apiFaqAccordion">
+                <div class="accordion-body">Transient failures trigger automatic retries with exponential backoff. If retries are exhausted, the event or record goes to a dead letter queue (or equivalent) so nothing is lost. We set up alerting so you’re notified of failures; runbooks and logs help you or us debug. The goal is <strong>recover automatically or surface clearly</strong>—no silent breakage.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#apifaq4" aria-expanded="false" aria-controls="apifaq4">Can you integrate with legacy systems?</button>
+              </h3>
+              <div id="apifaq4" class="accordion-collapse collapse" data-bs-parent="#apiFaqAccordion">
+                <div class="accordion-body">Yes. We work with SOAP/XML, file-based feeds (SFTP, S3, CSV), and limited REST APIs. We build adapters and sync layers so legacy systems can participate in modern flows. Discovery includes assessing the legacy API or file format and designing a reliable, maintainable integration.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#apifaq5" aria-expanded="false" aria-controls="apifaq5">How long does a typical integration take?</button>
+              </h3>
+              <div id="apifaq5" class="accordion-collapse collapse" data-bs-parent="#apiFaqAccordion">
+                <div class="accordion-body">A focused set of 1–3 integrations often fits in 4–6 weeks including discovery, build, error handling, monitoring, and handoff. Complex multi-system or legacy integrations can take longer. We scope timeline during discovery based on API quality, data volume, and reliability requirements.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#apifaq6" aria-expanded="false" aria-controls="apifaq6">Do you provide ongoing monitoring and support?</button>
+              </h3>
+              <div id="apifaq6" class="accordion-collapse collapse" data-bs-parent="#apiFaqAccordion">
+                <div class="accordion-body">Yes. We deliver dashboards and alerting as part of the project. We can also provide ongoing monitoring and support retainers: we watch health, respond to alerts, fix issues, and optimize. Scope and SLA are agreed up front.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#apifaq7" aria-expanded="false" aria-controls="apifaq7">Can you migrate data during integration setup?</button>
+              </h3>
+              <div id="apifaq7" class="accordion-collapse collapse" data-bs-parent="#apiFaqAccordion">
+                <div class="accordion-body">Yes. We can run one-time or phased data migrations as part of integration rollout: historical sync, backfill, or cutover from an old system. We design migrations to be idempotent and verifiable so data is consistent and you can validate before go-live.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#apifaq8" aria-expanded="false" aria-controls="apifaq8">How do you ensure data security?</button>
+              </h3>
+              <div id="apifaq8" class="accordion-collapse collapse" data-bs-parent="#apiFaqAccordion">
+                <div class="accordion-body">We use encrypted connections (TLS), secure credential storage (e.g. AWS Secrets Manager or equivalent), and minimal required permissions. OAuth and API keys are handled per provider best practices; webhook payloads are signature-verified. We don’t log sensitive payloads in plain text and can align to your data residency and compliance needs.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="py-5 bg-light-grey" id="related">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Related Services</h2>
+      </div>
+      <div class="row g-3 justify-content-center">
+        <div class="col-6 col-md-3">
+          <%= link_to custom_software_path, class: "btn btn-outline-primary w-100 py-3" do %>
+            <i class="fa fa-code me-2" aria-hidden="true"></i>Custom Software Development
+          <% end %>
+        </div>
+        <div class="col-6 col-md-3">
+          <%= link_to devops_engineering_path, class: "btn btn-outline-primary w-100 py-3" do %>
+            <i class="fa fa-wrench me-2" aria-hidden="true"></i>DevOps Engineering
+          <% end %>
+        </div>
+        <div class="col-6 col-md-3">
+          <%= link_to platform_modernization_path, class: "btn btn-outline-primary w-100 py-3" do %>
+            <i class="fa fa-refresh me-2" aria-hidden="true"></i>Platform Modernization
+          <% end %>
+        </div>
+        <div class="col-6 col-md-3">
+          <%= link_to ai_agent_development_path, class: "btn btn-outline-primary w-100 py-3" do %>
+            <i class="fa fa-comments me-2" aria-hidden="true"></i>AI Agent Development
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-8 mx-auto text-center">
+          <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Ready to Connect Your Systems?</h2>
+          <p class="lead mb-4">Discuss your integration needs. We’ll map your systems, outline a reliable architecture with error handling and monitoring, and get your data flowing end-to-end—so integrations work invisibly and recover automatically when things go wrong.</p>
+          <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+            Discuss Your Integration Needs
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

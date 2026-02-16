@@ -1,34 +1,76 @@
+<% content_for :head do %>
+  <% set_meta_tags(
+    title: "AI Agents That Work in Production | Enterprise AI Automation | A'sTechware",
+    description: "Production-ready AI agents and copilots with human-in-the-loop governance, audit trails, and enterprise compliance. We build AI that survives production.",
+    keywords: "AI agents, production AI, enterprise AI automation, AI copilots, AI governance, LangChain, LangGraph",
+    og: { title: "AI Agents That Work in Production | A'sTechware", description: "Enterprise-grade AI automation with human-in-the-loop governance.", url: safe_request_url, type: 'website', site_name: "A'sTechware" },
+    twitter: { card: 'summary', title: "AI Agents That Work in Production | A'sTechware", description: "Enterprise-grade AI automation with human-in-the-loop governance." }
+  ) %>
+<% end %>
+
 <!-- Hero Section -->
-<div class="hero-section py-5">
+<div class="hero-section py-5 ai-agents-hero">
   <div class="container">
     <div class="row align-items-center min-vh-50">
-      <div class="col-12 col-lg-8 mx-auto text-center">
-        <h1 class="display-4 fw-bold mb-4"
-            style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;">
+      <div class="col-12 col-lg-9 mx-auto text-center">
+        <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;">
           AI Agents That Work in Production
         </h1>
-        <p class="lead mb-3"
-           style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto;">
+        <p class="lead mb-2" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto;">
           Most SaaS teams can demo AI in a week. The hard part is shipping AI that survives production: messy user inputs, permissioning, audit trails, escalations, and ongoing monitoring.
         </p>
-        <p class="lead mb-4"
-           style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto;">
-          We build AI agents and copilots that plug directly into your product and workflows, designed for real customers, real data, and real operational constraints.
+        <p class="mb-3" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.5; max-width: 720px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
+          Enterprise-Grade AI Automation with Human-in-the-Loop Governance
         </p>
-        <a href="/case-studies" class="btn btn-primary btn-lg rounded-pill px-4">
-          See All Case Studies →
-        </a>
+        <div class="d-flex flex-wrap gap-3 justify-content-center mb-4">
+          <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">Schedule AI Strategy Call</a>
+          <%= link_to "See Case Studies", case_studies_path, class: "btn btn-outline-light btn-lg rounded-pill px-5" %>
+        </div>
+        <%# Optional: workflow diagram placeholder %>
+        <div class="mt-4 p-3 rounded bg-dark bg-opacity-25 small text-start" style="max-width: 560px; margin-left: auto; margin-right: auto;">
+          <strong class="d-block mb-2 text-white-50">AI agent workflow with human oversight:</strong>
+          <span class="text-white-50">Request → Agent processes → Confidence check → Human approval (when needed) → Action executed → Audit log</span>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="inner-sections">
-  <!-- What We Build -->
-  <div class="py-5 bg-white">
+<div class="inner-sections ai-agents-page">
+
+  <!-- Overview -->
+  <section class="py-5 bg-white" id="overview">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Production-Ready AI Agents</h2>
+          <p class="large-para mb-4">
+            We build AI agents and copilots that plug directly into your product and workflows, designed for real customers, real data, and real operational constraints.
+          </p>
+          <p class="large-para mb-4">
+            From customer-facing chatbots to internal document processing, from sales qualification to compliance monitoring, our AI agents handle real-world complexity while maintaining enterprise standards for security, auditability, and governance. We've deployed agents processing millions of interactions, with 95%+ accuracy rates and complete audit trails for compliance.
+          </p>
+          <div class="workflow-card p-4 p-lg-5 bg-light">
+            <h3 class="h6 text-uppercase text-muted mb-3">Key Differentiators</h3>
+            <ul class="list-unstyled mb-0 row g-2">
+              <li class="col-12 col-md-6"><span class="text-primary me-2">✓</span> Production-ready from day one, not prototypes</li>
+              <li class="col-12 col-md-6"><span class="text-primary me-2">✓</span> Human-in-the-loop at critical decision points</li>
+              <li class="col-12 col-md-6"><span class="text-primary me-2">✓</span> Complete audit trails for every AI action</li>
+              <li class="col-12 col-md-6"><span class="text-primary me-2">✓</span> Role-based access and data permissions</li>
+              <li class="col-12 col-md-6"><span class="text-primary me-2">✓</span> Real-time monitoring and anomaly detection</li>
+              <li class="col-12 col-md-6"><span class="text-primary me-2">✓</span> HIPAA, SOC 2, GDPR compliance support</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Build (expanded) -->
+  <section class="py-5 bg-light" id="what-we-build">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">What We Build: AI Agents & Automation</h2>
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">What We Build: AI Agents &amp; Automation</h2>
         <p class="large-para mb-0">
           AI agents and copilots for B2B SaaS, professional services, operations platforms, and industry-specific applications, with governance, observability, and safety built in from day one.
         </p>
@@ -36,159 +78,252 @@
 
       <div class="row g-4">
         <div class="col-12 col-lg-6">
-          <div class="workflow-card p-4 h-100">
-            <h3 class="h4 mb-3">Product-Embedded AI (Inside Your App)</h3>
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h3 class="h4 mb-3">1. Product-Embedded AI (Inside Your App)</h3>
             <p class="mb-3">
               We design AI that lives inside your product, where users already work. These agents help users complete complex actions, make better decisions, and move faster without leaving the app.
             </p>
             <p class="mb-3">
-              This includes AI copilots that assist with drafting, configuration, and multi-step actions. We build smart onboarding agents that guide users through setup and reduce time-to-value.
+              This includes AI copilots that assist with drafting, configuration, and multi-step actions. We build smart onboarding agents that guide users through setup and reduce time-to-value. Autonomous workflow agents can execute multi-step tasks with approvals when needed; context-aware assistants use account, role, and usage context to provide accurate, relevant help.
             </p>
-            <p class="mb-3">
-              Autonomous workflow agents can execute multi-step tasks with approvals when needed, while context-aware assistants use account, role, and usage context to provide accurate, relevant help.
-            </p>
-            <p class="mb-0">
+            <h4 class="h6 text-uppercase text-muted mt-4 mb-2">Common Use Cases</h4>
+            <ul class="small mb-3 ps-3" style="line-height: 1.7;">
+              <li><strong>Smart Configuration Wizards:</strong> Guide users through complex setup with conversational AI</li>
+              <li><strong>Intelligent Search &amp; Discovery:</strong> Natural language search across your product data</li>
+              <li><strong>Automated Data Entry:</strong> Extract and populate forms from documents or conversations</li>
+              <li><strong>Smart Recommendations:</strong> Suggest next actions based on user context and goals</li>
+              <li><strong>Predictive Maintenance:</strong> Alert users before issues occur based on usage patterns</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Technology Stack</h4>
+            <p class="small mb-2">LLM integration (GPT-4, Claude, Gemini); embedding models for semantic search; product database integration; user context and permissions; session state management.</p>
+            <p class="mb-0 small">
               <strong>Example:</strong> Golf course SaaS copilot increased online bookings from 15% to 84% with AI-powered conversational reporting and smart pricing.
-             <span class="d-inline-block ms-1 mt-1">
-             <a class="text-primary read-case-study-link" href="/case-studies#golf-saas">Read case study →</a>
-             </span>
+              <%= link_to "Read case study →", case_studies_path(anchor: "golf-saas"), class: "text-primary text-decoration-none ms-1" %>
             </p>
           </div>
         </div>
 
         <div class="col-12 col-lg-6">
-          <div class="workflow-card p-4 h-100">
-            <h3 class="h4 mb-3">Customer-Facing Agents (Support and Sales)</h3>
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h3 class="h4 mb-3">2. Customer-Facing Agents (Support and Sales)</h3>
             <p class="mb-3">
-              We build AI agents that improve response speed and consistency across customer-facing teams. These agents handle common requests, route edge cases to humans, and ensure customers get accurate answers quickly.
+              We build AI agents that improve response speed and consistency across customer-facing teams. They handle common requests, route edge cases to humans, and ensure customers get accurate answers quickly—including tier-1 support, sales qualification, and implementation helpers. We also build retention signal agents that flag churn risk.
             </p>
-            <p class="mb-3">
-              This includes tier-1 support agents that resolve repetitive tickets, sales qualification agents that answer technical questions and book demos, and implementation helpers that guide customers through setup and integrations.
-            </p>
-            <p class="mb-3">
-              We also build retention signal agents that flag churn risk based on usage patterns and customer conversations.
-            </p>
-            <p class="mb-0">
-              <strong>Example:</strong> Wellness clinic AI receptionist reduced no-shows from 35% to 6%, recovering ~$28K/month in lost revenue.   
-             <span class="d-inline-block ms-1 mt-1">
-             <a class="text-primary read-case-study-link" href="/case-studies#wellness-clinic">Read case study →</a>
-             </span>
+            <h4 class="h6 text-uppercase text-muted mt-4 mb-2">Agent Capabilities</h4>
+            <ul class="small mb-3 ps-3" style="line-height: 1.7;">
+              <li><strong>Tier 1–2 Support:</strong> FAQs, troubleshooting, knowledge base access</li>
+              <li><strong>Sales Qualification:</strong> Qualify leads, book demos, answer technical questions</li>
+              <li><strong>Appointment Scheduling:</strong> Book, reschedule, reminders with calendar integration</li>
+              <li><strong>Order Status &amp; Tracking:</strong> Real-time updates, returns, refund processing</li>
+              <li><strong>Escalation Management:</strong> Route complex issues to the right human agent</li>
+            </ul>
+            <div class="p-3 rounded bg-light small mb-3">
+              <strong class="d-block mb-1">Success Metrics (sample deployment):</strong>
+              Average resolution 72hrs → 18sec (99.7% reduction); 5,127 tickets in 90 days; 4.7/5 satisfaction; 24/7/365 availability.
+            </div>
+            <p class="mb-0 small">
+              <strong>Example:</strong> Wellness clinic AI receptionist reduced no-shows from 35% to 6%, recovering ~$28K/month.
+              <%= link_to "Read case study →", case_studies_path, anchor: "wellness-clinic", class: "text-primary text-decoration-none ms-1" %>
             </p>
           </div>
         </div>
       </div>
 
-      <div class="row g-4 mt-1">
+      <div class="row g-4 mt-2">
         <div class="col-12 col-lg-6">
-          <div class="workflow-card p-4 h-100">
-            <h3 class="h4 mb-3">Internal Operations Agents (Back Office)</h3>
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h3 class="h4 mb-3">3. Internal Operations Agents (Back Office)</h3>
             <p class="mb-3">
-              For internal teams, we build agents that remove busywork and reduce operational load. These agents handle repetitive, error-prone tasks so your team can focus on higher-value work.
+              For internal teams, we build agents that remove busywork and reduce operational load: document processing (extraction, classification, summarization, PII redaction), data enrichment for CRM and account records, and more.
             </p>
-            <p class="mb-3">
-              Common use cases include document processing for extraction, classification, summarization, and PII redaction. We build data enrichment agents that automatically augment CRM and account records.
-            </p>
-            <p class="mb-0">
-              <strong>Example:</strong> Law firm document analysis recovered 120+ billable hours/month, reducing contract reviews from hours to under 1 hour.   
-             <span class="d-inline-block ms-1 mt-1">
-             <a class="text-primary read-case-study-link" href="/case-studies#law-firm">Read case study →</a>
-             </span>
+            <h4 class="h6 text-uppercase text-muted mt-4 mb-2">Document Intelligence</h4>
+            <ul class="small mb-2 ps-3" style="line-height: 1.6;">PDF/image OCR; classification and routing; key info extraction; contract analysis; compliance review.</ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Data Enrichment &amp; Automation</h4>
+            <ul class="small mb-2 ps-3" style="line-height: 1.6;">CRM enrichment; lead scoring; account health monitoring; anomaly and fraud detection.</ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Quality Assurance &amp; DevOps</h4>
+            <ul class="small mb-0 ps-3" style="line-height: 1.6;">Code review assistance; test case generation; log analysis; incident triage; security scanning.</ul>
+            <p class="mt-3 mb-0 small">
+              <strong>Example:</strong> Law firm document analysis recovered 120+ billable hours/month.
+              <%= link_to "Read case study →", case_studies_path, anchor: "law-firm", class: "text-primary text-decoration-none ms-1" %>
             </p>
           </div>
         </div>
 
         <div class="col-12 col-lg-6">
-          <div class="workflow-card p-4 h-100">
-            <h3 class="h4 mb-3">Multi-Agent Orchestration (For Complex Workflows)</h3>
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h3 class="h4 mb-3">4. Multi-Agent Orchestration</h3>
             <p class="mb-3">
-              When workflows become complex, we design systems where multiple specialized agents work together safely. A manager or routing agent coordinates tasks, delegates responsibilities, and ensures the right agent handles the right step.
+              When workflows are complex, we design systems where multiple specialized agents work together safely. A routing agent coordinates tasks and delegates; human-in-the-loop approvals and full audit trails are standard.
             </p>
-            <p class="mb-3">
-              These systems include human-in-the-loop approvals at critical decision points, full audit trails that log every input, action, and tool call, and feedback loops that continuously improve performance over time.
+            <h4 class="h6 text-uppercase text-muted mt-4 mb-2">How Multi-Agent Systems Work</h4>
+            <ol class="small mb-3 ps-3" style="line-height: 1.7;">
+              <li><strong>Routing Agent:</strong> Analyzes request and delegates to specialized agent</li>
+              <li><strong>Specialized Agents:</strong> Billing, support, sales, etc.</li>
+              <li><strong>Validation Agent:</strong> Checks outputs for accuracy and safety</li>
+              <li><strong>Human Approval:</strong> Critical actions wait for confirmation</li>
+              <li><strong>Audit Logger:</strong> Records complete decision trail</li>
+              <li><strong>Feedback Loop:</strong> Learns from corrections and edge cases</li>
+            </ol>
+            <p class="small mb-0">
+              <strong>Example flow:</strong> Customer inquiry → Routing agent → Billing agent checks account → Refund needed → Human approves → Agent processes → Confirmation sent → All steps logged.
             </p>
-            <p class="mb-0">
-              <strong>Example:</strong> Event platform automation generated 850+ social posts automatically, increasing average ticket sales by 67% across 45 organizers.   
-             <span class="d-inline-block ms-1 mt-1">
-             <a class="text-primary read-case-study-link" href="/case-studies#event-platform">Read case study →</a>
-             </span>
+            <p class="mt-3 mb-0 small">
+              <strong>Case:</strong> Event platform automation generated 850+ social posts, 67% ticket sales increase.
+              <%= link_to "Read case study →", case_studies_path, anchor: "event-platform", class: "text-primary text-decoration-none ms-1" %>
             </p>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- AI GOVERNANCE & SAFETY (NEW SECTION) -->
-  <div class="py-5 bg-light">
+  <!-- AI Agents by Industry -->
+  <section class="py-5 bg-white" id="ai-by-industry">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">AI Governance & Safety</h2>
-        <p class="large-para mb-0">
-          Every AI agent we build includes enterprise governance from day one, not bolted on later. This is what makes our systems safe for production and approved by boards.
-        </p>
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">AI Agents Tailored to Your Industry</h2>
       </div>
-
       <div class="row g-4">
         <div class="col-12 col-md-6 col-lg-4">
           <div class="workflow-card p-4 h-100">
-            <h3 class="h5 mb-3">Human-in-the-Loop Protocols</h3>
-            <p class="mb-0">
-              Critical decisions, high-value transactions, and edge cases automatically escalate to humans with full context. Confidence thresholds ensure AI only acts when certain.
-            </p>
+            <h4 class="h6 text-primary mb-2">Healthcare</h4>
+            <p class="small mb-1 fw-bold">Patient Scheduling Agent</p>
+            <p class="small mb-2">Natural language booking; insurance verification; HIPAA-compliant messaging; no-show reduction (35% → 6%).</p>
+            <p class="small mb-0 fw-bold">Clinical Documentation Assistant</p>
+            <p class="small mb-0">Voice-to-text; ICD-10 suggestions; prior auth automation; 2–3 hours saved daily per provider.</p>
           </div>
         </div>
-
         <div class="col-12 col-md-6 col-lg-4">
           <div class="workflow-card p-4 h-100">
-            <h3 class="h5 mb-3">Complete Audit Trails</h3>
-            <p class="mb-0">
-              Every AI decision, data access, and action is logged with timestamps, reasoning, and confidence scores for compliance, debugging, and continuous improvement.
-            </p>
+            <h4 class="h6 text-primary mb-2">Legal Services</h4>
+            <p class="small mb-1 fw-bold">Document Analysis Agent</p>
+            <p class="small mb-2">Contract review, clause extraction; legal research; discovery classification; 75% faster review.</p>
+            <p class="small mb-0 fw-bold">Legal Research Assistant</p>
+            <p class="small mb-0">Case law search; citation verification; precedent ID; memo drafting assistance.</p>
           </div>
         </div>
-
         <div class="col-12 col-md-6 col-lg-4">
           <div class="workflow-card p-4 h-100">
-            <h3 class="h5 mb-3">Role-Based Access Control</h3>
-            <p class="mb-0">
-              Agents only access data and tools appropriate to their scope. Customer service agents can't touch financial data; support agents can't modify pricing.
-            </p>
+            <h4 class="h6 text-primary mb-2">Financial Services</h4>
+            <p class="small mb-1 fw-bold">Fraud Detection Agent</p>
+            <p class="small mb-2">Real-time transaction monitoring; anomaly detection; identity verification; 95%+ detection rate.</p>
+            <p class="small mb-0 fw-bold">Customer Support Agent</p>
+            <p class="small mb-0">Account inquiries; dispute handling; product recommendations; 24/7 availability.</p>
           </div>
         </div>
-
         <div class="col-12 col-md-6 col-lg-4">
           <div class="workflow-card p-4 h-100">
-            <h3 class="h5 mb-3">Real-Time Monitoring</h3>
-            <p class="mb-0">
-              Observability dashboards track performance, confidence scores, failure rates, and anomalies with automated alerts when behavior drifts or errors spike.
-            </p>
+            <h4 class="h6 text-primary mb-2">Professional Services</h4>
+            <p class="small mb-1 fw-bold">Proposal Generation Agent</p>
+            <p class="small mb-2">SOW and proposal drafting; past project analysis; template customization; 70% faster creation.</p>
+            <p class="small mb-0 fw-bold">Time Tracking Assistant</p>
+            <p class="small mb-0">Time entry suggestions; project categorization; billing accuracy; 10–15 hours recovered weekly.</p>
           </div>
         </div>
-
         <div class="col-12 col-md-6 col-lg-4">
           <div class="workflow-card p-4 h-100">
-            <h3 class="h5 mb-3">PII/PHI Protection</h3>
-            <p class="mb-0">
-              Encryption at rest and in transit, automatic redaction of sensitive information, and data minimization ensure safe handling of personal and health data.
-            </p>
+            <h4 class="h6 text-primary mb-2">B2B SaaS</h4>
+            <p class="small mb-1 fw-bold">Customer Onboarding Agent</p>
+            <p class="small mb-2">Setup wizard guidance; integration help; feature discovery; 50% faster time-to-value.</p>
+            <p class="small mb-0 fw-bold">Product Copilot</p>
+            <p class="small mb-0">In-app assistance; feature suggestions; workflow automation; usage tips.</p>
           </div>
         </div>
-
         <div class="col-12 col-md-6 col-lg-4">
           <div class="workflow-card p-4 h-100">
-            <h3 class="h5 mb-3">Compliance Frameworks</h3>
-            <p class="mb-0">
-              HIPAA, SOC 2, and GDPR alignment built into architecture when required. Business Associate Agreements, access logging, and retention policies included.
-            </p>
+            <h4 class="h6 text-primary mb-2">Education</h4>
+            <p class="small mb-1 fw-bold">Student Support Agent</p>
+            <p class="small mb-2">Admissions inquiries; course recommendations; enrollment and financial aid.</p>
+            <p class="small mb-0 fw-bold">Grading Assistant</p>
+            <p class="small mb-0">Essay grading and feedback; MC scoring; plagiarism detection; 10+ hours saved weekly per instructor.</p>
           </div>
         </div>
       </div>
-
     </div>
-  </div>
+  </section>
+
+  <!-- AI Governance & Safety (with Governance in Practice) -->
+  <section class="py-5 bg-light" id="governance">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">AI Governance &amp; Safety</h2>
+        <p class="large-para mb-0">
+          Every AI agent we build includes enterprise governance from day one—what makes our systems safe for production and approved by boards.
+        </p>
+      </div>
+      <div class="row g-4 mb-5">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h5 mb-3">Human-in-the-Loop Protocols</h3>
+            <p class="mb-0">Critical decisions and edge cases escalate to humans with full context. Confidence thresholds ensure AI only acts when certain.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h5 mb-3">Complete Audit Trails</h3>
+            <p class="mb-0">Every AI decision, data access, and action logged with timestamps, reasoning, and confidence scores.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h5 mb-3">Role-Based Access Control</h3>
+            <p class="mb-0">Agents only access data and tools appropriate to their scope. Support can't touch financial data.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h5 mb-3">Real-Time Monitoring</h3>
+            <p class="mb-0">Observability dashboards track performance, confidence, failure rates, and anomalies with automated alerts.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h5 mb-3">PII/PHI Protection</h3>
+            <p class="mb-0">Encryption, automatic redaction, and data minimization for personal and health data.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h5 mb-3">Compliance Frameworks</h3>
+            <p class="mb-0">HIPAA, SOC 2, GDPR alignment; BAAs, access logging, and retention policies.</p>
+          </div>
+        </div>
+      </div>
+      <h3 class="h5 mb-3 text-center">Governance in Practice</h3>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-2">Healthcare Patient Scheduling</h4>
+            <p class="small mb-1"><strong>Agent can:</strong> Book, reschedule, send reminders.</p>
+            <p class="small mb-1"><strong>Agent cannot:</strong> Cancel without confirmation; access medical records.</p>
+            <p class="small mb-1"><strong>Human approval:</strong> Emergency requests, certain schedule changes.</p>
+            <p class="small mb-0"><strong>Audit:</strong> All actions logged with patient ID, timestamp, reasoning.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-2">Financial Customer Support</h4>
+            <p class="small mb-1"><strong>Agent can:</strong> Answer account questions, explain transactions.</p>
+            <p class="small mb-1"><strong>Agent cannot:</strong> Initiate refunds over $X; change account settings.</p>
+            <p class="small mb-1"><strong>Human approval:</strong> Refunds, account modifications, suspected fraud.</p>
+            <p class="small mb-0"><strong>Audit:</strong> Full conversation log, data accessed, actions taken.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-2">Legal Document Analysis</h4>
+            <p class="small mb-1"><strong>Agent can:</strong> Extract clauses, flag risks, summarize.</p>
+            <p class="small mb-1"><strong>Agent cannot:</strong> Provide legal advice; make binding interpretations.</p>
+            <p class="small mb-1"><strong>Human approval:</strong> All outputs reviewed by attorney before client delivery.</p>
+            <p class="small mb-0"><strong>Audit:</strong> Document analyzed, confidence scores, attorney notes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Production-First Approach -->
-  <div class="py-5 bg-white">
+  <section class="py-5 bg-white" id="production-first">
     <div class="container">
       <div class="row g-4 align-items-start">
         <div class="col-12 col-lg-6">
@@ -197,13 +332,12 @@
             We design every agent with production constraints in mind. Guardrails and permissions ensure role-based access, scoped tools, and safe actions.
           </p>
           <p class="mb-3">
-            Observability is built in from day one, with logs, traces, dashboards, and alerts for failures. We don't wait until production to add monitoring, it's part of the architecture from the start.
+            Observability is built in from day one—logs, traces, dashboards, and alerts for failures. We don't wait until production to add monitoring; it's part of the architecture from the start.
           </p>
           <p class="mb-0">
             Security is handled through proper PII handling, auditability, secure storage, and redaction workflows. Every system is designed assuming it will handle sensitive data and real customer interactions.
           </p>
         </div>
-
         <div class="col-12 col-lg-6">
           <div class="workflow-card p-4 h-100">
             <h3 class="h5 mb-3">From Demo to Durable System</h3>
@@ -217,182 +351,436 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Typical Outcomes (UPDATED WITH REAL NUMBERS) -->
-  <div class="py-5 bg-light">
+  <!-- How We Build AI Agents -->
+  <section class="py-5 bg-white" id="how-we-build">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Our AI Agent Development Process</h2>
+      </div>
+      <div class="row g-3">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+            <span class="small text-uppercase text-muted fw-bold">Phase 1: Weeks 1–2</span>
+            <h4 class="h6 mt-2 mb-2">Discovery &amp; Use Case Validation</h4>
+            <p class="small mb-1">Workflow mapping; success criteria; data assessment; compliance requirements; ROI estimation.</p>
+            <p class="small mb-0 text-muted">Deliverables: Use case spec, technical requirements, governance design, timeline.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+            <span class="small text-uppercase text-muted fw-bold">Phase 2: Weeks 2–4</span>
+            <h4 class="h6 mt-2 mb-2">Data &amp; Prompt Engineering</h4>
+            <p class="small mb-1">Data prep; prompt optimization; few-shot examples; model selection; adversarial testing.</p>
+            <p class="small mb-0 text-muted">Deliverables: Configured agent, prompt library, test suite, baseline metrics.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+            <span class="small text-uppercase text-muted fw-bold">Phase 3: Weeks 4–6</span>
+            <h4 class="h6 mt-2 mb-2">Integration &amp; Orchestration</h4>
+            <p class="small mb-1">CRM, DB, API integration; tool/function calling; human-in-the-loop design; escalation paths.</p>
+            <p class="small mb-0 text-muted">Deliverables: Integrated system, API docs, admin interface, user guides.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+            <span class="small text-uppercase text-muted fw-bold">Phase 4: Weeks 6–7</span>
+            <h4 class="h6 mt-2 mb-2">Testing &amp; Validation</h4>
+            <p class="small mb-1">Functional and adversarial testing; performance and security review; UAT.</p>
+            <p class="small mb-0 text-muted">Deliverables: Test report, security assessment, benchmarks, UAT sign-off.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+            <span class="small text-uppercase text-muted fw-bold">Phase 5: Weeks 7–8</span>
+            <h4 class="h6 mt-2 mb-2">Deployment &amp; Monitoring</h4>
+            <p class="small mb-1">Staged rollout; monitoring and alerting; training; feedback loop; runbooks.</p>
+            <p class="small mb-0 text-muted">Deliverables: Production deployment, dashboards, training, SOPs.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+            <span class="small text-uppercase text-muted fw-bold">Phase 6: Ongoing</span>
+            <h4 class="h6 mt-2 mb-2">Optimization &amp; Scaling</h4>
+            <p class="small mb-1">Performance tuning; feedback incorporation; edge cases; cost optimization; feature expansion.</p>
+            <p class="small mb-0 text-muted">Deliverables: Performance reports, optimization recommendations, roadmap.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Real Results -->
+  <section class="py-5 bg-light" id="real-results">
     <div class="container">
       <div class="text-center mb-5">
         <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Real Results from Production Deployments</h2>
-        <p class="large-para mb-0">
-          Actual metrics from recent AI agent deployments across our client portfolio.
-        </p>
+        <p class="large-para mb-0">Actual metrics from recent AI agent deployments across our client portfolio.</p>
       </div>
-
       <div class="row g-4">
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-sm-6 col-lg-4">
           <div class="workflow-card p-4 h-100 text-center">
-            <h3 class="display-4 mb-2 text-primary">5,127</h3>
-            <p class="mb-0">
-              Tickets auto-resolved in first 90 days (Restaurant Directory support automation)
-            </p>
+            <h3 class="display-6 mb-2 text-primary">5,127</h3>
+            <p class="mb-0 small">Tickets auto-resolved in first 90 days (support automation)</p>
           </div>
         </div>
-
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-sm-6 col-lg-4">
           <div class="workflow-card p-4 h-100 text-center">
-            <h3 class="display-4 mb-2 text-primary">72hrs → 18sec</h3>
-            <p class="mb-0">
-              Response time improvement with AI support agent (99.7% reduction)
-            </p>
+            <h3 class="display-6 mb-2 text-primary">72hrs → 18sec</h3>
+            <p class="mb-0 small">Response time (99.7% reduction)</p>
           </div>
         </div>
-
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-sm-6 col-lg-4">
           <div class="workflow-card p-4 h-100 text-center">
-            <h3 class="display-4 mb-2 text-primary">120+</h3>
-            <p class="mb-0">
-              Billable hours recovered monthly for law firm (document analysis AI)
-            </p>
+            <h3 class="display-6 mb-2 text-primary">120+</h3>
+            <p class="mb-0 small">Billable hours recovered monthly (document analysis)</p>
           </div>
         </div>
-
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-sm-6 col-lg-4">
           <div class="workflow-card p-4 h-100 text-center">
-            <h3 class="display-4 mb-2 text-primary">35% → 6%</h3>
-            <p class="mb-0">
-              No-show reduction for wellness clinic (AI reminders + confirmations)
-            </p>
+            <h3 class="display-6 mb-2 text-primary">35% → 6%</h3>
+            <p class="mb-0 small">No-show reduction (AI reminders)</p>
           </div>
         </div>
-
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-sm-6 col-lg-4">
           <div class="workflow-card p-4 h-100 text-center">
-            <h3 class="display-4 mb-2 text-primary">15% → 84%</h3>
-            <p class="mb-0">
-              Online bookings for golf SaaS (with AI receptionist + smart pricing)
-            </p>
+            <h3 class="display-6 mb-2 text-primary">15% → 84%</h3>
+            <p class="mb-0 small">Online bookings (golf SaaS copilot)</p>
           </div>
         </div>
-
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-sm-6 col-lg-4">
           <div class="workflow-card p-4 h-100 text-center">
-            <h3 class="display-4 mb-2 text-primary">850+</h3>
-            <p class="mb-0">
-              Social posts auto-generated for event platform (67% ticket sales increase)
-            </p>
+            <h3 class="display-6 mb-2 text-primary">850+</h3>
+            <p class="mb-0 small">Social posts auto-generated (67% ticket sales increase)</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="workflow-card p-4 h-100 text-center">
+            <h3 class="display-6 mb-2 text-primary">40%</h3>
+            <p class="mb-0 small">Reduction in support ticket volume (tier-1 AI agent)</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="workflow-card p-4 h-100 text-center">
+            <h3 class="display-6 mb-2 text-primary">$180K</h3>
+            <p class="mb-0 small">Annual revenue saved (retainer tracking AI)</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="workflow-card p-4 h-100 text-center">
+            <h3 class="display-6 mb-2 text-primary">99.2%</h3>
+            <p class="mb-0 small">Uptime for AI agents in production</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="workflow-card p-4 h-100 text-center">
+            <h3 class="display-6 mb-2 text-primary">3.2sec</h3>
+            <p class="mb-0 small">Average response time (customer-facing agents)</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="workflow-card p-4 h-100 text-center">
+            <h3 class="display-6 mb-2 text-primary">8,500+</h3>
+            <p class="mb-0 small">Documents processed monthly (legal contract agent)</p>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-4">
+          <div class="workflow-card p-4 h-100 text-center">
+            <h3 class="display-6 mb-2 text-primary">92%</h3>
+            <p class="mb-0 small">User satisfaction with AI features (NPS: 72)</p>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- TYPICAL TIMELINE (NEW SECTION) -->
-  <div class="py-5 bg-white">
+  <!-- Technology & Integration -->
+  <section class="py-5 bg-white" id="technology-integration">
     <div class="container">
-      <div class="text-center mb-4">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Typical Timeline</h2>
-        <p class="large-para mb-0">From kickoff to production deployment</p>
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Built to Integrate with Your Stack</h2>
       </div>
-
-      <div class="row g-4 justify-content-center">
-        <div class="col-12 col-md-10 col-lg-8">
-          <div class="workflow-card p-4">
-            <div class="row text-center">
-              <div class="col-12 col-md-4 mb-3 mb-md-0">
-                <h3 class="h5 text-primary mb-2">Week 1-2</h3>
-                <p class="small mb-1 fw-bold">Assessment & Architecture</p>
-                <p class="small text-muted mb-0">Audit workflows, design agent, plan governance framework</p>
-              </div>
-              <div class="col-12 col-md-4 mb-3 mb-md-0">
-                <h3 class="h5 text-primary mb-2">Week 3-6</h3>
-                <p class="small mb-1 fw-bold">Build & Test</p>
-                <p class="small text-muted mb-0">Develop agent, adversarial testing, integrate with your stack</p>
-              </div>
-              <div class="col-12 col-md-4">
-                <h3 class="h5 text-primary mb-2">Week 7-8</h3>
-                <p class="small mb-1 fw-bold">Deploy & Optimize</p>
-                <p class="small text-muted mb-0">Staged rollout, monitor performance, iterate based on usage</p>
-              </div>
-            </div>
-            <hr class="my-4">
-            <p class="text-center mb-0 small">
-              <strong>Most AI agent deployments: 3-8 weeks from kickoff to production</strong><br>
-              <span class="text-muted">Complex multi-agent systems may take 8-12 weeks</span>
-            </p>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-2">CRM &amp; Sales</h4>
+            <p class="small mb-0">Salesforce, HubSpot, Pipedrive; custom CRMs; contact databases.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-2">Support &amp; Communication</h4>
+            <p class="small mb-0">Zendesk, Intercom, Freshdesk; Slack, Teams; email; SMS (Twilio, MessageBird).</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-2">Calendaring &amp; Docs</h4>
+            <p class="small mb-0">Google/Outlook Calendar; Calendly, Acuity; Confluence, Notion, Google Docs; help centers.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-2">EHR &amp; Healthcare</h4>
+            <p class="small mb-0">Epic, Cerner, Athenahealth; practice management; HIPAA-compliant messaging.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-2">Legal &amp; Practice</h4>
+            <p class="small mb-0">Clio, MyCase, PracticePanther; document management; billing and time tracking.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-2">Payments &amp; Billing</h4>
+            <p class="small mb-0">Stripe, PayPal, Square; Chargebee, Recurly; QuickBooks, Xero.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-2">Data &amp; Analytics</h4>
+            <p class="small mb-0">PostgreSQL, MongoDB, MySQL; Snowflake, BigQuery; Mixpanel, Amplitude.</p>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Stack -->
-  <div class="py-5 bg-light">
+  <!-- Stack (expanded) -->
+  <section class="py-5 bg-light" id="stack">
     <div class="container">
-      <div class="row g-4 align-items-center">
+      <div class="row g-4 align-items-start">
         <div class="col-12 col-lg-5">
           <h2 class="heading-border mb-3 pb-3 d-inline-block">Stack</h2>
           <p class="mb-3">
-            We keep the stack pragmatic and production-ready, choosing tools based on your constraints, compliance needs, and existing infrastructure.
-          </p>
-          <p class="mb-3">
-            The goal is not to chase trends, but to ship reliable systems your team can run long-term. We're model-agnostic and cloud-agnostic, your infrastructure, your choice.
-          </p>
-          <p class="mb-3">
-            Agents are integrated with real tools such as ticketing systems, CRMs, databases, and email so they can take meaningful actions. Clear escalation paths ensure smooth handoffs to humans when needed.
-          </p>
-          <p class="mb-0">
-            We also design QA and testing helpers for regression checks and edge-case generation, and DevOps or operations assistants that triage alerts and suggest remediation.
+            We keep the stack pragmatic and production-ready—model-agnostic and cloud-agnostic. Agents integrate with real tools (ticketing, CRMs, databases, email) and clear escalation paths. Observability is built in from day one.
           </p>
         </div>
         <div class="col-12 col-lg-7">
           <div class="row g-4">
             <div class="col-12 col-md-6">
               <div class="workflow-card p-4 h-100">
-                <h3 class="h6 text-uppercase text-muted mb-2">Orchestration &amp; Agents</h3>
-                <p class="mb-0">
-                  LangGraph or custom orchestration for agent workflows, tools, and state management when needed.
-                </p>
+                <h4 class="h6 text-uppercase text-muted mb-2">AI/ML Infrastructure</h4>
+                <p class="small mb-0">LLMs: OpenAI (GPT-4, Turbo), Anthropic (Claude), Google (Gemini). Embeddings: OpenAI, Sentence Transformers. Vector DBs: pgvector, Pinecone, Qdrant, Weaviate. Frameworks: LangGraph, LangChain, custom orchestration.</p>
               </div>
             </div>
             <div class="col-12 col-md-6">
               <div class="workflow-card p-4 h-100">
-                <h3 class="h6 text-uppercase text-muted mb-2">Retrieval &amp; RAG</h3>
-                <p class="mb-0">
-                  pgvector, Pinecone, or Qdrant based on performance, scale, and budget constraints.
-                </p>
+                <h4 class="h6 text-uppercase text-muted mb-2">Observability &amp; Monitoring</h4>
+                <p class="small mb-0">LangSmith, Helicone; Datadog/New Relic; Sentry; token usage and cost tracking; budget alerts.</p>
               </div>
             </div>
             <div class="col-12 col-md-6">
               <div class="workflow-card p-4 h-100">
-                <h3 class="h6 text-uppercase text-muted mb-2">Models</h3>
-                <p class="mb-0">
-                  OpenAI, Anthropic, or Gemini APIs selected per use case, risk profile, and data sensitivity.
-                </p>
+                <h4 class="h6 text-uppercase text-muted mb-2">Security &amp; Compliance</h4>
+                <p class="small mb-0">AES-256 at rest; TLS in transit; PII/PHI redaction; RBAC; OAuth 2.0, API keys; MFA; audit logging; SOC 2, HIPAA, GDPR patterns.</p>
               </div>
             </div>
             <div class="col-12 col-md-6">
               <div class="workflow-card p-4 h-100">
-                <h3 class="h6 text-uppercase text-muted mb-2">Monitoring &amp; Evaluation</h3>
-                <p class="mb-0">
-                  Helicone, LangSmith, or custom dashboards for monitoring, tracing, and evaluating agent behavior over time.
-                </p>
+                <h4 class="h6 text-uppercase text-muted mb-2">Retrieval &amp; RAG</h4>
+                <p class="small mb-0">pgvector, Pinecone, Qdrant by scale and budget; RAG pipelines with evaluation.</p>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="d-flex justify-content-center align-items-center flex-wrap gap-3 mt-5">
-        <a href="/case-studies" class="btn btn-primary btn-lg rounded-pill px-4 me-3" style="width: 336px;">
-          See All Case Studies →
-        </a>
-        <a href="/contact" class="btn btn-outline-primary btn-lg rounded-pill px-4">
-          Get Your AI Readiness Assessment
-        </a>
+  <!-- Pricing & Engagement -->
+  <section class="py-5 bg-white" id="pricing">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Flexible Engagement Options</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h5 mb-2">Development Projects</h4>
+            <p class="small mb-2"><strong>Simple agent</strong> (FAQ bot, scheduling): $30–50K</p>
+            <p class="small mb-2"><strong>Complex agent</strong> (document analysis, multi-tool): $60–120K</p>
+            <p class="small mb-2"><strong>Multi-agent system:</strong> $120–250K+</p>
+            <p class="small mb-2">Timeline: 6–12 weeks. Includes requirements, development, testing, integration, training, 30-day post-launch support.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h5 mb-2">Ongoing Partnership</h4>
+            <p class="small mb-2"><strong>Part-time</strong> (20 hrs/week): $8–12K/month</p>
+            <p class="small mb-2"><strong>Full-time</strong> (40 hrs/week): $15–25K/month</p>
+            <p class="small mb-0">Includes continuous development, optimization, monitoring, monthly strategy sessions.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h5 mb-2">Support &amp; Maintenance</h4>
+            <p class="small mb-2"><strong>Basic</strong> (monitoring, alerts): $2–4K/month</p>
+            <p class="small mb-2"><strong>Full</strong> (support + optimization): $5–10K/month</p>
+            <p class="small mb-0">24/7 monitoring, tuning, cost optimization, bug fixes, monthly reports.</p>
+          </div>
+        </div>
+      </div>
+      <p class="text-center small text-muted mt-3 mb-0">All pricing is indicative; contact us for a detailed estimate based on scope and complexity.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-5 bg-light" id="faq">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Frequently Asked Questions About AI Agents</h2>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="accordion" id="aiAgentsFaq">
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1">What is an AI agent vs a chatbot?</button>
+              </h3>
+              <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#aiAgentsFaq">
+                <div class="accordion-body">An AI agent can take actions (book appointments, update CRM, process refunds) using tools and your systems. A simple chatbot mainly answers questions. We build agents that do both: answer and act, with guardrails and human approval where needed.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">How long does it take to build and deploy an AI agent?</button>
+              </h3>
+              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#aiAgentsFaq">
+                <div class="accordion-body">Most agents: 3–8 weeks from kickoff to production. Simple FAQ or scheduling agents can be 3–4 weeks; document analysis or multi-tool agents 6–8 weeks; multi-agent systems 8–12 weeks. We phase delivery so you get value early.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">Can you integrate with our existing CRM, help desk, and tools?</button>
+              </h3>
+              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#aiAgentsFaq">
+                <div class="accordion-body">Yes. We integrate with Salesforce, HubSpot, Zendesk, Intercom, Slack, email, calendars, EHRs, and custom APIs. We design agents to use your existing stack so they can take real actions (create tickets, update records, send messages) with proper permissions.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">How do you handle compliance (HIPAA, SOC 2, GDPR)?</button>
+              </h3>
+              <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#aiAgentsFaq">
+                <div class="accordion-body">We build compliance into the architecture: encryption, access controls, audit logs, data minimization, redaction. We support BAAs for HIPAA and implement SOC 2 and GDPR patterns (consent, retention, right to deletion). Governance defines what the agent can and cannot do and when humans must approve.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">What about cost and ROI?</button>
+              </h3>
+              <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#aiAgentsFaq">
+                <div class="accordion-body">We track token usage and cost per interaction. ROI comes from ticket deflection, time saved, revenue recovered (e.g. no-show reduction), and faster resolution. We provide baseline projections in discovery and measure actual outcomes post-launch. Many clients see payback in 6–12 months.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6" aria-expanded="false" aria-controls="faq6">Do you provide ongoing support and optimization?</button>
+              </h3>
+              <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#aiAgentsFaq">
+                <div class="accordion-body">Yes. We offer support packages (monitoring, tuning, bug fixes) and dedicated team options for continuous improvement. We use production data and feedback to improve prompts, handle edge cases, and reduce cost while maintaining quality.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7" aria-expanded="false" aria-controls="faq7">What models do you use (OpenAI, Claude, etc.)?</button>
+              </h3>
+              <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#aiAgentsFaq">
+                <div class="accordion-body">We're model-agnostic. We use OpenAI (GPT-4, Turbo), Anthropic (Claude), and Google (Gemini) based on use case, cost, latency, and data sensitivity. We can also use open-source or on-prem models where required for compliance.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq8" aria-expanded="false" aria-controls="faq8">How do you handle hallucinations and wrong answers?</button>
+              </h3>
+              <div id="faq8" class="accordion-collapse collapse" data-bs-parent="#aiAgentsFaq">
+                <div class="accordion-body">We use RAG (retrieval-augmented generation) so answers are grounded in your data; confidence thresholds so low-confidence responses escalate to humans; validation steps in multi-agent flows; and monitoring to detect and correct drift. We also define clear "I don't know" behavior and fallbacks.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq9" aria-expanded="false" aria-controls="faq9">Can agents take actions in our systems (create tickets, update CRM)?</button>
+              </h3>
+              <div id="faq9" class="accordion-collapse collapse" data-bs-parent="#aiAgentsFaq">
+                <div class="accordion-body">Yes. We build tool/function calling so agents can perform scoped actions (create Zendesk tickets, update Salesforce, send emails, book calendar slots) with role-based permissions. Critical actions can require human approval before execution.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq10" aria-expanded="false" aria-controls="faq10">What data do you need from us to build an agent?</button>
+              </h3>
+              <div id="faq10" class="accordion-collapse collapse" data-bs-parent="#aiAgentsFaq">
+                <div class="accordion-body">Typically: sample conversations or tickets, knowledge base or docs, and access to systems to integrate (APIs, sandbox). For document agents we need sample documents and labeling for training. We assess data quality and gaps in discovery.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq11" aria-expanded="false" aria-controls="faq11">Do you work with our in-house engineering team?</button>
+              </h3>
+              <div id="faq11" class="accordion-collapse collapse" data-bs-parent="#aiAgentsFaq">
+                <div class="accordion-body">Yes. We often partner with internal teams: we lead agent design and build, your team owns infrastructure and product integration. We use your repos, tools, and workflows and hand off with documentation and training so you can maintain and extend.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq12" aria-expanded="false" aria-controls="faq12">How do you measure agent performance?</button>
+              </h3>
+              <div id="faq12" class="accordion-collapse collapse" data-bs-parent="#aiAgentsFaq">
+                <div class="accordion-body">We track resolution rate, response time, escalation rate, user satisfaction (CSAT/NPS), and cost per interaction. We set baselines in discovery and report on them post-launch. We also run periodic quality reviews and A/B tests on prompts and flows.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq13" aria-expanded="false" aria-controls="faq13">What if our use case is highly custom or regulated?</button>
+              </h3>
+              <div id="faq13" class="accordion-collapse collapse" data-bs-parent="#aiAgentsFaq">
+                <div class="accordion-body">We specialize in regulated and custom environments. We've built agents for healthcare (HIPAA), legal (privilege and confidentiality), and financial services. We design governance first and scope the agent to what's safe and defensible, with human oversight where required.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq14" aria-expanded="false" aria-controls="faq14">Can we start with a pilot or proof of concept?</button>
+              </h3>
+              <div id="faq14" class="accordion-collapse collapse" data-bs-parent="#aiAgentsFaq">
+                <div class="accordion-body">Yes. We often start with a 4–6 week pilot on one workflow (e.g. one ticket type or one document type) to validate accuracy, integration, and ROI before scaling. Pilots are production-quality with monitoring so you can decide on rollout with real data.</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-5 bg-white" id="cta">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="workflow-card p-5 text-center">
+            <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Ready to Deploy AI Agents That Actually Work?</h2>
+            <p class="lead mb-4">Whether you're building your first AI agent, scaling existing automation, or need enterprise-grade governance, we're here to help.</p>
+            <h4 class="h6 mb-3">What You Get in Your Initial Consultation</h4>
+            <ul class="list-unstyled mb-4 text-start" style="max-width: 480px; margin-left: auto; margin-right: auto; line-height: 2;">
+              <li><span class="text-primary me-2">✓</span> 60-minute AI strategy session with our technical team</li>
+              <li><span class="text-primary me-2">✓</span> Use case assessment—which workflows benefit most from AI</li>
+              <li><span class="text-primary me-2">✓</span> Technical feasibility analysis</li>
+              <li><span class="text-primary me-2">✓</span> Governance framework recommendations for your industry</li>
+              <li><span class="text-primary me-2">✓</span> ROI projections with realistic timelines</li>
+              <li><span class="text-primary me-2">✓</span> Transparent pricing and phased approach</li>
+            </ul>
+            <p class="small text-muted mb-4">No sales pitch. Just honest technical assessment.</p>
+            <div class="d-flex flex-wrap gap-3 justify-content-center">
+              <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">Schedule Free AI Strategy Call</a>
+              <%= link_to "View All Case Studies", case_studies_path, class: "btn btn-outline-primary btn-lg rounded-pill px-4" %>
+              <%= link_to "Contact Us", contact_path, class: "btn btn-outline-secondary btn-lg rounded-pill px-4" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
-
-
