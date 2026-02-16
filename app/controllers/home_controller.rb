@@ -35,14 +35,32 @@ class HomeController < ApplicationController
   end
 
   def submit_form
+    # Verify reCAPTCHA if enabled
+    if recaptcha_enabled?
+      recaptcha_token = params['g-recaptcha-response']
+      verification_result = RecaptchaVerificationService.verify(recaptcha_token, request.remote_ip)
+      
+      unless verification_result[:success]
+        redirect_path = request.referer&.include?('/contact') ? contact_path : root_path
+        redirect_to redirect_path, alert: "reCAPTCHA verification failed. Please try again."
+        return
+      end
+    end
+
     @form = Form.new(form_params)
     ContactFormMailer.submit_contact_form(@form).deliver
     redirect_path = request.referer&.include?('/contact') ? contact_path : root_path
     redirect_to redirect_path, notice: "Successfully Submitted Response."
   end
 
-  private def form_params
+  private
+
+  def form_params
     params.require(:form).permit(:reason, :name, :email, :company_name, :cover_letter)
+  end
+
+  def recaptcha_enabled?
+    ENV['RECAPTCHA_SITE_KEY'].present? || Rails.application.credentials.dig(:recaptcha, :site_key).present?
   end
 
   def ourTeam

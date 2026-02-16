@@ -56,6 +56,11 @@
       gtag('config', 'G-FKTRX5XQV8');
     </script>
 
+    <%# Google reCAPTCHA v2 %>
+    <% if recaptcha_site_key.present? %>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <% end %>
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_shim_tag %>
     <%= javascript_importmap_tags %>

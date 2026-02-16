@@ -35,4 +35,9 @@ module ApplicationHelper
       root_url
     end
   end
+
+  # Get reCAPTCHA site key for frontend
+  def recaptcha_site_key
+    ENV['RECAPTCHA_SITE_KEY'] || Rails.application.credentials.dig(:recaptcha, :site_key)
+  end
 end

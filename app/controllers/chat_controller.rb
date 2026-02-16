@@ -665,23 +665,128 @@ class ChatController < ApplicationController
     end
 
     api_key = ENV['OPENAI_API_KEY']
-    model = ENV['OPENAI_MODEL'] || 'gpt-4.1-mini'
 
     if api_key.blank?
       render json: { error: 'OpenAI API key not configured' }, status: :internal_server_error
       return
     end
 
+    # Get conversation history
+    history = normalize_history(params[:history])
+
+    # First, classify the intent
+    intent_result = classify_intent(history: history, current_message: user_message)
+
+    # If user is sending information, handle lead capture
+    if intent_result[:intent] == 'sending_information'
+      handle_lead_capture(history: history, current_message: user_message)
+      return
+    end
+
+    # Otherwise, proceed with normal chat flow
+    handle_normal_chat(user_message: user_message, history: history)
+  end
+
+  private
+
+  def normalize_history(history_param)
+    return [] unless history_param.present? && history_param.is_a?(Array)
+
+    valid_history = history_param.map do |msg|
+      msg_hash = msg.is_a?(ActionController::Parameters) ? msg.to_unsafe_h : msg.to_h
+      msg_hash
+    end.select do |msg_hash|
+      msg_hash.is_a?(Hash) &&
+        msg_hash['role'].present? &&
+        msg_hash['content'].present? &&
+        %w[user assistant].include?(msg_hash['role'])
+    end
+
+    # Keep only last 10 messages from history
+    valid_history = valid_history.last(10) if valid_history.length > 10
+    valid_history
+  end
+
+  def classify_intent(history:, current_message:)
     begin
-      client = OpenAI::Client.new(access_token: api_key)
+      ChatIntentClassifier.classify(
+        conversation_history: history,
+        current_message: current_message
+      )
+    rescue StandardError => e
+      Rails.logger.error "Intent Classification Error: #{e.message}"
+      # Default to simple_chat if classification fails
+      { intent: 'simple_chat', confidence: 'low' }
+    end
+  end
+
+  def handle_lead_capture(history:, current_message:)
+    begin
+      # Extract contact information
+      contact_info = ContactInfoExtractor.extract(
+        conversation_history: history,
+        current_message: current_message
+      )
+
+      # Generate conversation summary for context
+      conversation_summary = generate_conversation_summary(history: history, current_message: current_message)
+
+      # Send email notification
+      send_lead_notification(contact_info: contact_info, conversation_summary: conversation_summary)
+
+      # Return user-friendly response
+      user_response = "Thank you for providing your information! Your query has been sent to our technical team. We'll get back to you within 1 business day with detailed information specific to your needs."
+
+      render json: { message: user_response, error: nil }
+    rescue StandardError => e
+      Rails.logger.error "Lead Capture Error: #{e.message}"
+      Rails.logger.error e.backtrace.join("\n")
+      # Fall back to normal chat if lead capture fails
+      handle_normal_chat(user_message: current_message, history: history)
+    end
+  end
+
+  def generate_conversation_summary(history:, current_message:)
+    # Generate a proper conversation summary using GPT
+    ConversationSummaryGenerator.generate(
+      conversation_history: history,
+      current_message: current_message
+    )
+  end
+
+  def send_lead_notification(contact_info:, conversation_summary:)
+    begin
+      ChatLeadMailer.notify_lead(
+        contact_info: contact_info,
+        conversation_summary: conversation_summary
+      ).deliver
+    rescue StandardError => e
+      Rails.logger.error "Email Delivery Error: #{e.message}"
+      # Don't fail the request if email fails, just log it
+    end
+  end
+
+  def handle_normal_chat(user_message:, history:)
+    model = ENV['OPENAI_MODEL'] || 'gpt-4o-mini'
+
+    begin
+      client = OpenAI::Client.new(access_token: ENV['OPENAI_API_KEY'])
+
+      # Build messages array with system prompt, history, and current message
+      messages = [{ role: 'system', content: SYSTEM_PROMPT }]
+
+      # Add conversation history
+      history.each do |msg_hash|
+        messages << { role: msg_hash['role'], content: msg_hash['content'] }
+      end
+
+      # Add current user message
+      messages << { role: 'user', content: user_message }
 
       response = client.chat(
         parameters: {
           model: model,
-          messages: [
-            { role: 'system', content: SYSTEM_PROMPT },
-            { role: 'user', content: user_message }
-          ],
+          messages: messages,
           temperature: 0.7,
           max_tokens: 1000
         }
