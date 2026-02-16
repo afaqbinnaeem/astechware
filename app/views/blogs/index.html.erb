@@ -1,34 +1,68 @@
-<div class="inner-sections">
+<% content_for :head do %>
+  <% set_meta_tags(
+    title: "Insights & Resources | Production AI & Platform Engineering | A'sTechware",
+    description: "Expert perspectives on production AI, platform engineering, and building systems that work under operational pressure. Educational content for technical leaders.",
+    keywords: "AI blog, platform engineering, production AI, AI governance, technical insights, case studies",
+    og: { title: "Insights & Resources | A'sTechware", description: "Expert perspectives on production AI and platform engineering.", url: safe_request_url, type: "website", site_name: "A'sTechware" },
+    twitter: { card: "summary", title: "Insights & Resources | A'sTechware", description: "Expert perspectives on production AI and platform engineering." }
+  ) %>
+<% end %>
 
-  <%= render 'blog_header' %>
-  
-  <!-- Case Studies Section -->
-  <div class="py-5 bg-light" id="ahmad_writing">
-     <div class="container">
-        <div class="text-center mb-5">
-           <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Case Studies</h2>
-           <p class="large-para mb-4">Deep dives into AI agents, SaaS case studies, and real product work.</p>
-        </div>
-        <div class="row gx-3 case-studies-grid">
-           <%= render 'shared/blog_tile', img: "ahmad/3agent.jpeg", title: "Case Study: Vestra.app – Automating Property Management with AI‑Powered Simplicity", date: "Case Study", directed_link: vestra_app_case_study_path %>
-           <%= render 'shared/blog_tile', img: "ahmad/whatsapp-agent.jpeg", title: "WhatsApp & Voice AI Agent Demo: Healthcare Triage & Appointment Booking", date: "AI Demo", directed_link: whatsapp_voice_ai_agent_demo_path %>
-           <%= render 'shared/blog_tile', img: "ahmad/repi-work.jpeg", title: "Case Study: Modular AI Agents That Save Time, Scale Outreach, and Automate Support", date: "Case Study", directed_link: modular_ai_agents_case_study_path %>
-        </div>
-     </div>
-  </div>
-
-  <div class="blogs-section py-5">
+<div class="blog-landing inner-sections">
+  <!-- Blog Landing Header -->
+  <header class="blog-landing-header py-5 bg-light">
     <div class="container">
-      <div class="text-center">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Blogs</h2>
-        <p class="large-para mb-5">News, research, client success stories, opinions, and perspectives on digital business technology.</p>
+      <div class="row">
+        <div class="col-12 col-lg-9 mx-auto text-center">
+          <h1 class="display-5 fw-bold mb-3">Insights &amp; Resources</h1>
+          <p class="lead mb-2" style="max-width: 720px; margin-left: auto; margin-right: auto;">
+            Expert perspectives on production AI, platform engineering, and building systems that actually work under operational pressure.
+          </p>
+          <p class="text-muted mb-0" style="max-width: 640px; margin-left: auto; margin-right: auto;">
+            Educational content to help technical leaders make informed decisions about AI implementation, governance, and platform modernization.
+          </p>
+        </div>
       </div>
-      <%= render 'shared/all_blogs', blocked_link: blogs_path %>
     </div>
-  </div>
+  </header>
 
+  <!-- Featured Article -->
+  <section class="py-5 bg-white">
+    <div class="container">
+      <h2 class="visually-hidden">Featured Article</h2>
+      <%= render "blogs/blog_featured_card", article: blog_featured_article %>
+    </div>
+  </section>
 
+  <!-- Category Filter + Main + Sidebar -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="blog-category-filter mb-4 pb-3 border-bottom">
+        <div class="d-flex flex-wrap gap-2 justify-content-center">
+          <a href="<%= blogs_path %>" class="btn btn-outline-secondary btn-sm rounded-pill active">All Articles</a>
+          <a href="<%= blogs_path %>?category=ai-automation" class="btn btn-outline-secondary btn-sm rounded-pill">AI &amp; Automation</a>
+          <a href="<%= blogs_path %>?category=platform-engineering" class="btn btn-outline-secondary btn-sm rounded-pill">Platform Engineering</a>
+          <a href="<%= blogs_path %>?category=governance-compliance" class="btn btn-outline-secondary btn-sm rounded-pill">Governance &amp; Compliance</a>
+          <a href="<%= blogs_path %>?category=industry-solutions" class="btn btn-outline-secondary btn-sm rounded-pill">Industry Solutions</a>
+          <a href="<%= blogs_path %>?category=technical-deep-dives" class="btn btn-outline-secondary btn-sm rounded-pill">Technical Deep Dives</a>
+          <a href="<%= blogs_path %>?category=case-studies" class="btn btn-outline-secondary btn-sm rounded-pill">Case Studies</a>
+        </div>
+      </div>
 
-
+      <div class="row">
+        <div class="col-12 col-lg-9">
+          <div class="row g-4 blog-grid">
+            <% blog_articles_list.each do |article| %>
+              <div class="col-12 col-md-6 col-lg-4">
+                <%= render "blogs/blog_grid_card", article: article %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-12 col-lg-3 mt-5 mt-lg-0">
+          <%= render "blogs/blog_sidebar" %>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
-

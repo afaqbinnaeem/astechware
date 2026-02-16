@@ -17,6 +17,16 @@
       twitter: { card: 'summary', title: "B2B SaaS Development | A'sTechware", description: "Full platform builds, AI integration, and infrastructure modernization for SaaS." }
     ) %>
   <% end %>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "Service",
+    "serviceType" => "B2B SaaS Development",
+    "provider" => { "@type" => "Organization", "name" => "A'sTechware" },
+    "areaServed" => "Worldwide",
+    "description" => "Build, scale, and modernize B2B SaaS products. MVP to enterprise, AI integration, platform modernization."
+  }.to_json) %>
+  </script>
 <% end %>
 
 <!-- Hero Section -->

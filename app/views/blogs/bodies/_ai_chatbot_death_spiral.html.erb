@@ -1,0 +1,26 @@
+<p class="lead">Your AI chatbot launched with 95% accuracy. Two months later, customers are complaining. Here's why demos work but production fails—and how to fix it.</p>
+
+<h2>The Chatbot Death Spiral Explained</h2>
+<p>Accuracy degradation is predictable: Week 1 you see 95%+; by Week 8 you're down to 60% or worse. User language evolves, edge cases accumulate, and without a correction mechanism, bad answers repeat. We break down the five reasons and the system that reverses the spiral.</p>
+
+<h2>Five Reasons Chatbots Degrade</h2>
+<ul>
+  <li><strong>User language evolves</strong>—people find new ways to ask the same thing. Training data and demos use a fixed set of phrasings; in the wild, customers reword, use slang, or ask in fragments. The model wasn't trained on "where's my stuff" or "refund pls" and starts guessing.</li>
+  <li><strong>Edge cases accumulate</strong>—the model never saw these in training or demos. Returns, partial orders, multi-currency, exceptions: they show up over time and the bot has no good answer, so it either hallucinates or gives a generic reply that doesn't help.</li>
+  <li><strong>Context drift</strong>—your products and policies change; the bot doesn't. New SKUs, updated refund rules, or seasonal offers make old answers wrong. Without a process to update knowledge and prompts, the bot drifts out of date.</li>
+  <li><strong>No correction mechanism</strong>—wrong answers aren't flagged or fed back. Every bad response that goes uncorrected is a missed chance to improve. You need thumbs down, escalation reasons, and a way to turn those into new training examples.</li>
+  <li><strong>Overconfidence</strong>—the AI doesn't know when to escalate to a human. Even when it's unsure, it may answer anyway. You need confidence thresholds and clear handoff rules so sensitive or ambiguous cases go to a person.</li>
+</ul>
+
+<h2>Real Example: Support Chatbot 95% → 62% in 6 Weeks</h2>
+<p>We've seen this pattern across support, sales, and triage bots. One SaaS team launched a support chatbot with high hopes; week one, resolution rate looked great. By week six, tickets were piling up and customers were repeating the same questions because the bot kept missing intent. Without monitoring and feedback, performance drops within weeks. The fix isn't a one-time retrain—it's a continuous improvement system.</p>
+
+<h2>The Fix: Continuous Improvement System</h2>
+<p>Production-ready chatbots need: a monitoring dashboard (confidence scores, escalation rate, thumbs down), a human review queue for low-confidence responses, weekly prompt tuning based on failures, monthly retraining with new examples, and A/B testing for prompt changes. Put alerts in place when confidence or satisfaction dips, and feed corrections back into your training pipeline so the model learns from real failures.</p>
+<p>In practice, that means: (1) log every response with confidence and outcome; (2) route low-confidence or thumbs-down replies to a review queue; (3) export failures into a format you can add to your fine-tuning or few-shot set; (4) run a weekly review to update prompts and add new examples; (5) A/B test prompt or model changes before full rollout. Teams that do this keep accuracy in the high 80s or 90s instead of watching it slide. We'll cover architecture and cost comparison in the full article.</p>
+
+<blockquote class="blockquote border-start border-4 border-primary ps-3 my-4">
+  <p class="mb-0">"Maintaining a chatbot is not a launch-and-forget project. It's an ongoing system—monitor, correct, retrain."</p>
+</blockquote>
+
+<p>Without this loop, you'll keep firefighting: another retrain, another prompt tweak, another spike in complaints. With it, the chatbot becomes a maintained product instead of a one-off launch. <strong>Coming soon:</strong> code examples for monitoring and feedback loops, architecture diagram, and cost comparison (maintaining vs rebuilding). In the meantime, we can run an AI chatbot audit on your current setup—<a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener">schedule a consultation</a>.</p>

@@ -1,0 +1,54 @@
+<aside class="blog-sidebar">
+  <div class="blog-sidebar-card mb-4">
+    <h3 class="h6 text-uppercase text-muted mb-3">Get AI &amp; Engineering Insights</h3>
+    <p class="small mb-3">Practical perspectives on production AI, platform engineering, and building systems that work.</p>
+    <form action="#" method="post" class="blog-newsletter-form">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <div class="mb-2">
+        <input type="email" name="email" class="form-control form-control-sm" placeholder="Your email" required aria-label="Email for newsletter">
+      </div>
+      <button type="submit" class="btn btn-primary btn-sm w-100 rounded-pill">Subscribe</button>
+    </form>
+  </div>
+
+  <div class="blog-sidebar-card mb-4">
+    <h3 class="h6 text-uppercase text-muted mb-3">Popular Articles</h3>
+    <ul class="list-unstyled mb-0">
+      <% blog_articles_list.first(5).each_with_index do |article, i| %>
+        <li class="mb-3">
+          <%= link_to article[:path].call, class: "blog-sidebar-link d-block small text-decoration-none" do %>
+            <span class="text-muted me-2"><%= i + 1 %>.</span>
+            <%= truncate(article[:title], length: 52) %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="blog-sidebar-card mb-4">
+    <h3 class="h6 text-uppercase text-muted mb-3">Categories</h3>
+    <ul class="list-unstyled mb-0">
+      <li class="mb-2"><a href="<%= blogs_path %>" class="blog-sidebar-link small text-decoration-none">All Articles</a></li>
+      <li class="mb-2"><a href="<%= blogs_path %>?category=ai-automation" class="blog-sidebar-link small text-decoration-none">AI &amp; Automation</a></li>
+      <li class="mb-2"><a href="<%= blogs_path %>?category=platform-engineering" class="blog-sidebar-link small text-decoration-none">Platform Engineering</a></li>
+      <li class="mb-2"><a href="<%= blogs_path %>?category=governance-compliance" class="blog-sidebar-link small text-decoration-none">Governance &amp; Compliance</a></li>
+      <li class="mb-2"><a href="<%= blogs_path %>?category=industry-solutions" class="blog-sidebar-link small text-decoration-none">Industry Solutions</a></li>
+      <li class="mb-2"><a href="<%= blogs_path %>?category=technical-deep-dives" class="blog-sidebar-link small text-decoration-none">Technical Deep Dives</a></li>
+      <li class="mb-2"><a href="<%= blogs_path %>?category=case-studies" class="blog-sidebar-link small text-decoration-none">Case Studies</a></li>
+    </ul>
+  </div>
+
+  <div class="blog-sidebar-card mb-4">
+    <form action="<%= blogs_path %>" method="get" class="blog-search-form" role="search">
+      <label for="blog-search" class="visually-hidden">Search articles</label>
+      <div class="input-group input-group-sm">
+        <input type="search" id="blog-search" name="q" class="form-control" placeholder="Search articles..." aria-label="Search articles">
+        <button type="submit" class="btn btn-outline-secondary" aria-label="Submit search"><i class="fa fa-search"></i></button>
+      </div>
+    </form>
+  </div>
+
+  <div class="blog-sidebar-cta">
+    <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary w-100 rounded-pill">Schedule Consultation</a>
+  </div>
+</aside>

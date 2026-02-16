@@ -1,0 +1,104 @@
+<%# Blog post template: render with layout and pass article hash; optional content_for :blog_toc for table of contents. %>
+<% article = local_assigns[:article] || {} %>
+<div class="blog-post-page inner-sections">
+  <article class="container py-4">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+        <%# Hero image %>
+        <div class="position-relative mb-4 rounded overflow-hidden">
+          <%= image_tag article[:image], class: "blog-post-hero img-fluid", alt: article[:title], loading: "eager" if article[:image].present? %>
+          <span class="blog-badge blog-badge-<%= article[:category_slug].to_s.parameterize %> position-absolute top-0 start-0 m-3"><%= article[:category] %></span>
+        </div>
+
+        <h1 class="mb-3"><%= article[:title] %></h1>
+
+        <%# Author info %>
+        <div class="blog-author-block d-flex flex-wrap align-items-center gap-3 mb-4">
+          <div class="d-flex align-items-center gap-2">
+            <div class="rounded-circle bg-secondary bg-opacity-25 d-flex align-items-center justify-content-center text-secondary fw-semibold" style="width: 44px; height: 44px;"><%= (article[:author_name].to_s[0] || "A") %></div>
+            <div>
+              <span class="fw-semibold"><%= article[:author_name] %></span>
+              <% if article[:author_title].present? %><span class="text-muted small d-block"><%= article[:author_title] %></span><% end %>
+            </div>
+          </div>
+          <span class="text-muted small"><%= article[:date] %> · <%= article[:read_time] %> read</span>
+        </div>
+
+        <%# Optional table of contents %>
+        <% if content_for?(:blog_toc) %>
+          <nav class="blog-toc mb-4" aria-label="Article contents">
+            <strong class="d-block mb-2">Contents</strong>
+            <%= yield :blog_toc %>
+          </nav>
+        <% end %>
+
+        <%# Main content %>
+        <div class="entry-content">
+          <%= yield %>
+        </div>
+
+        <%# Tags (optional) %>
+        <% if content_for?(:blog_tags) %>
+          <div class="post-tags mt-4 pt-3 border-top">
+            <strong class="small text-muted text-uppercase">Tags</strong>
+            <div class="mt-2"><%= yield :blog_tags %></div>
+          </div>
+        <% end %>
+
+        <%# Share %>
+        <div class="d-flex align-items-center gap-2 mt-4 pt-3 border-top">
+          <span class="small text-muted me-2">Share:</span>
+          <a href="https://twitter.com/intent/tweet?url=<%= ERB::Util.url_encode(request.original_url) %>&text=<%= ERB::Util.url_encode(article[:title]) %>" target="_blank" rel="noopener noreferrer" class="blog-share-btn bg-dark text-white me-2" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=<%= ERB::Util.url_encode(request.original_url) %>" target="_blank" rel="noopener noreferrer" class="blog-share-btn bg-dark text-white me-2" aria-label="Share on LinkedIn"><i class="fa fa-linkedin"></i></a>
+        </div>
+
+        <%# Author bio %>
+        <div class="blog-author-bio mt-4">
+          <div class="d-flex align-items-start gap-3">
+            <div class="rounded-circle bg-secondary bg-opacity-25 d-flex align-items-center justify-content-center text-secondary fw-semibold flex-shrink-0" style="width: 56px; height: 56px;"><%= (article[:author_name].to_s[0] || "A") %></div>
+            <div>
+              <strong><%= article[:author_name] %></strong>
+              <p class="small text-muted mb-0 mt-1">A'sTechware designs and builds production-grade AI automations and custom platforms so businesses can run faster without adding headcount.</p>
+            </div>
+          </div>
+        </div>
+
+        <%# Newsletter CTA %>
+        <div class="blog-sidebar-card mt-5">
+          <h3 class="h6 text-uppercase text-muted mb-2">Get AI &amp; Engineering Insights</h3>
+          <p class="small mb-3">Practical perspectives on production AI and platform engineering. No spam.</p>
+          <form action="#" method="post" class="blog-newsletter-form">
+            <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+            <div class="input-group">
+              <input type="email" name="email" class="form-control form-control-sm" placeholder="Your email" required aria-label="Email">
+              <button type="submit" class="btn btn-primary btn-sm">Subscribe</button>
+            </div>
+          </form>
+        </div>
+
+        <%# Schedule Consultation %>
+        <div class="text-center mt-4">
+          <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary rounded-pill px-4">Schedule Consultation</a>
+        </div>
+
+        <%# Related articles %>
+        <% related = (article.present? && article[:path].present?) ? blog_related_articles(article[:path].call, limit: 4) : [] %>
+        <% if related.any? %>
+          <section class="blog-related mt-5" aria-label="Related articles">
+            <h2 class="h5 mb-4">Related Articles</h2>
+            <div class="row g-3">
+              <% related.each do |rel| %>
+                <div class="col-12 col-sm-6">
+                  <%= link_to rel[:path].call, class: "blog-sidebar-link d-block p-3 rounded border text-decoration-none" do %>
+                    <span class="small text-muted text-uppercase"><%= rel[:category] %></span>
+                    <span class="d-block fw-semibold mt-1"><%= truncate(rel[:title], length: 56) %></span>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+          </section>
+        <% end %>
+      </div>
+    </div>
+  </article>
+</div>

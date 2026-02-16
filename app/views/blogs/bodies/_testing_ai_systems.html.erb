@@ -1,0 +1,17 @@
+<p class="lead">Your AI passed all tests. Then it told a customer to "go away." Traditional testing doesn't work for AI—here's what does.</p>
+
+<h2>Why Traditional Testing Fails</h2>
+<p>Non-deterministic (same input → different outputs), no clear pass/fail (subjective quality), infinite edge cases, and behavior changes with model updates. Unit tests that assert exact strings break as soon as you tweak a prompt. You need a different framework that embraces variability and measures quality instead of byte-for-byte match.</p>
+
+<h2>The AI Testing Framework</h2>
+<ol>
+  <li><strong>Prompt regression testing</strong>—golden dataset of inputs and expected outputs; test every prompt change against it; version control prompts.</li>
+  <li><strong>Adversarial testing</strong>—jailbreak attempts, prompt injection, malicious and edge-case inputs (empty, very long, special chars).</li>
+  <li><strong>Evaluation metrics</strong>—accuracy vs golden answers, relevance (semantic similarity), safety (harmful output detection), consistency (similar outputs for same input), latency (P50, P95, P99).</li>
+  <li><strong>A/B testing in production</strong>—compare prompt versions; measure satisfaction and business metrics.</li>
+  <li><strong>Human evaluation</strong>—sample reviews, thumbs up/down, red team exercises.</li>
+  <li><strong>Monitoring as testing</strong>—confidence scores, escalation rates, satisfaction, anomaly detection. Ongoing production signals are part of the test suite.</li>
+</ol>
+
+<h2>Real Examples and Tools</h2>
+<p>Support chatbot testing framework: golden set of intents and expected behavior (e.g. "refund" → policy answer or escalation), run on every prompt/model change. Document analysis: regression tests with known docs and expected extracted fields; fail if key fields are missing or wrong. Agent adversarial testing: ambiguous instructions, injection attempts, and out-of-scope requests to ensure the agent refuses or escalates instead of complying. Code: prompt regression suite, adversarial test cases, metric calculation (e.g. semantic similarity to expected answer, safety classifier score). Tools: LangSmith, Braintrust, custom frameworks. Start with a small golden set and regression tests for every prompt change; add adversarial cases and production monitoring once the basics are in place. <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener">Schedule AI testing framework implementation</a>.</p>

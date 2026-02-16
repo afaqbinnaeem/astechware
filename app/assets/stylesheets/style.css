@@ -9196,6 +9196,81 @@ nav.nav-inner {
   transform: translateY(-2px);
 }
 
+/* ===== Insights & Resources (Blog Landing) ===== */
+.blog-landing .blog-landing-header h1 { color: var(--text-color, #242a3b); }
+.blog-featured-card { border-radius: 12px; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.blog-featured-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12) !important; }
+.blog-featured-card .card-body a:hover { color: inherit; }
+.blog-featured-card .btn-primary { background-color: var(--site-color); border-color: var(--site-color); color: #242a3b; }
+.blog-featured-card .btn-primary:hover { background-color: var(--site-color-hover, #e6b328); border-color: var(--site-color-hover); color: #242a3b; }
+
+.blog-grid-card { border-radius: 12px; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.blog-grid-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12) !important; }
+.blog-grid-card .blog-grid-card-img { background: #f5f5f5; }
+.blog-grid-card .card-img-top { transition: transform 0.35s ease; }
+.blog-grid-card:hover .card-img-top { transform: scale(1.03); }
+.blog-grid-card a:hover { color: inherit; }
+.blog-grid-card .text-primary:hover { color: var(--site-color) !important; }
+
+.blog-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  background: var(--site-color);
+  color: #242a3b;
+}
+.blog-badge-featured { background: var(--site-color); color: #242a3b; }
+.blog-badge-case-studies { background: #6366f1; color: #fff; }
+.blog-badge-ai-automation { background: #0ea5e9; color: #fff; }
+.blog-badge-technical-deep-dives { background: #10b981; color: #fff; }
+.blog-badge-industry-insights { background: #f59e0b; color: #fff; }
+.blog-badge-technical-guides { background: #8b5cf6; color: #fff; }
+.blog-badge-industry-solutions { background: #ec4899; color: #fff; }
+
+.blog-category-filter .btn.active { background: var(--site-color); border-color: var(--site-color); color: #242a3b; }
+.blog-category-filter .btn:hover:not(.active) { border-color: var(--site-color); color: var(--site-color); }
+
+.blog-sidebar { position: sticky; top: 1.5rem; }
+.blog-sidebar-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+.blog-sidebar-link { color: var(--text-color, #242a3b); transition: color 0.2s; }
+.blog-sidebar-link:hover { color: var(--site-color); }
+.blog-newsletter-form .form-control { border-radius: 8px; }
+.blog-sidebar-cta .btn { font-weight: 600; }
+.blog-sidebar-cta .btn:hover { background-color: var(--site-color-hover, #e6b328); border-color: var(--site-color-hover); color: #242a3b; }
+
+@media (max-width: 991.98px) {
+  .blog-sidebar { position: static; }
+}
+
+/* ===== Blog Post Template ===== */
+.blog-post-page .blog-post-hero { height: 280px; object-fit: cover; width: 100%; background: #f0f0f0; }
+.blog-post-page .blog-post-badge { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.blog-post-page .blog-author-block { border-top: 1px solid #eee; border-bottom: 1px solid #eee; padding: 1rem 0; }
+.blog-post-page .blog-toc { font-size: 0.9rem; background: #f8f9fa; border-radius: 8px; padding: 1rem 1.25rem; }
+.blog-post-page .blog-toc ul { list-style: none; padding-left: 0; margin: 0; }
+.blog-post-page .blog-toc a { color: var(--text-color); text-decoration: none; }
+.blog-post-page .blog-toc a:hover { color: var(--site-color); }
+.blog-post-page .entry-content h2 { margin-top: 1.75rem; margin-bottom: 0.75rem; font-size: 1.5rem; }
+.blog-post-page .entry-content h3 { margin-top: 1.25rem; margin-bottom: 0.5rem; font-size: 1.2rem; }
+.blog-post-page .entry-content pre, .blog-post-page .entry-content code { background: #f4f4f4; border-radius: 4px; }
+.blog-post-page .entry-content pre { padding: 1rem; overflow-x: auto; }
+.blog-post-page .entry-content blockquote.pull-quote { border-left: 4px solid var(--site-color); padding-left: 1rem; margin: 1.5rem 0; font-style: italic; color: #555; }
+.blog-post-page .blog-related { border-top: 1px solid #eee; padding-top: 2rem; }
+.blog-post-page .blog-author-bio { background: #f8f9fa; border-radius: 12px; padding: 1.25rem; }
+.blog-post-page .blog-share-btn { width: 36px; height: 36px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; }
+
 .happy-customer .testimonial-text {
   font-size: 20px;
 }

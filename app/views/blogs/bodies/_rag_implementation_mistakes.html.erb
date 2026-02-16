@@ -1,0 +1,20 @@
+<p class="lead">You gave your AI access to all your docs. It still makes things up. Here's why naive RAG fails and how to fix it.</p>
+
+<h2>Why Naive RAG Fails</h2>
+<ul>
+  <li><strong>Bad chunking</strong>—splitting on character count breaks context and splits key information across chunks.</li>
+  <li><strong>Wrong embedding model</strong>—trained on the wrong domain; retrieval quality suffers.</li>
+  <li><strong>Low retrieval precision</strong>—wrong docs in the top-k.</li>
+  <li><strong>No re-ranking</strong>—the best chunk isn't first; the LLM focuses on the wrong one.</li>
+  <li><strong>Poor prompt engineering</strong>—the model ignores or underweights the retrieved context.</li>
+  <li><strong>No "I don't know"</strong>—when retrieval score is low, the model answers anyway and hallucinates.</li>
+</ul>
+
+<h2>The Anatomy of Good RAG</h2>
+<p><strong>Chunking:</strong> Semantic chunking with overlap so meaning isn't split—e.g. by section or paragraph, not by 500 characters. <strong>Embeddings:</strong> Domain-specific or fine-tuned for your content so "force majeure" and "act of God" land near each other in legal docs. <strong>Vector DB:</strong> pgvector, Pinecone, or Qdrant with proper indexing and filters (e.g. by doc type or date). <strong>Hybrid search:</strong> Semantic + BM25 keyword so you don't miss exact terms like product codes or IDs. <strong>Re-ranking:</strong> Cross-encoder over top-k to put the best chunk on top; the first chunk often gets the most weight from the LLM. <strong>Prompt:</strong> Clear template that says "answer only from context; if not found say so." <strong>Confidence:</strong> If retrieval score is below threshold, don't answer—escalate or say "I don't know."</p>
+<p>Pipeline order matters: chunk → embed → index → at query time: embed query → retrieve top-k → re-rank → build prompt with top chunks → generate. Skipping re-ranking or confidence checks is where many teams lose accuracy.</p>
+
+<h2>Real Example: Legal RAG 60% → 92%</h2>
+<p>Fixing chunking, switching to a legal-tuned embedding, adding hybrid search and re-ranking, and a strict "don't guess" prompt took accuracy from 60% to 92%. The biggest win was confidence filtering: when the retrieval score was below 0.7, the system said "I don't have a confident answer" and escalated instead of hallucinating. We'll cover code for semantic chunking, hybrid search, and confidence-based answering in the full article.</p>
+
+<p>When RAG isn't enough: for highly specialized, consistent tasks, fine-tuning may beat RAG. Always measure: precision, recall, and F1 on a held-out set, plus real user feedback. Run evals on "known good" questions and on adversarial cases (questions that shouldn't be answerable from your docs). If the model answers those anyway, tighten your confidence threshold and your prompt. <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener">Schedule a RAG system audit</a> and we can pinpoint where your pipeline is leaking accuracy.</p>

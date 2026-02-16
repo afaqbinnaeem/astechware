@@ -17,6 +17,16 @@
       twitter: { card: 'summary', title: "Legal Technology Solutions | A'sTechware", description: "AI-powered legal workflows with accuracy, auditability, and client excellence." }
     ) %>
   <% end %>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "Service",
+    "serviceType" => "Legal Tech AI Solutions",
+    "provider" => { "@type" => "Organization", "name" => "A'sTechware" },
+    "areaServed" => "Worldwide",
+    "description" => "Legal tech solutions for document analysis, contract review, legal research, and practice management."
+  }.to_json) %>
+  </script>
 <% end %>
 
 <!-- Hero Section -->

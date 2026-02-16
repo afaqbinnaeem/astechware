@@ -1,0 +1,24 @@
+<p class="lead">Your AI feature costs $50K/month. It should cost $8K. Here's where the money goes and how to fix it.</p>
+
+<h2>Where AI Costs Come From</h2>
+<p>Model selection (GPT-4 vs GPT-3.5 vs Claude can mean a 60x price difference), token usage (input + output), request frequency, and paying for the same queries repeatedly when there's no caching. We break down the math: total cost = tokens × price × requests. Input tokens usually cost less than output, but long context (e.g. sending a 50-page doc every time) multiplies fast. The biggest wins come from sending fewer tokens and making fewer calls—model choice and caching do most of the work.</p>
+
+<h2>Real Case: Legal Tech $40K → $16K</h2>
+<p>One legal tech company was sending full documents to GPT-4 for every summarization. With model tiering, prompt compression, and semantic caching, we cut their bill by more than half while keeping quality. Concretely: we moved simple classification and extraction to a smaller model, kept GPT-4 only for complex reasoning; we trimmed system prompts and dropped redundant context; we hashed user queries and cached results for identical or near-identical requests. Quality stayed the same in A/B tests; cost dropped in six weeks.</p>
+
+<h2>Eight Cost Optimization Strategies</h2>
+<ol>
+  <li><strong>Model tiering</strong>—use cheaper models for simple tasks (e.g. GPT-3.5 for 70% of workloads).</li>
+  <li><strong>Prompt optimization</strong>—reduce from 2,000 tokens to 400 where possible.</li>
+  <li><strong>Aggressive caching</strong>—40%+ fewer API calls with semantic caching.</li>
+  <li><strong>Response streaming</strong>—stop early when the answer is sufficient.</li>
+  <li><strong>Batch processing</strong>—10 docs in one call instead of 10 calls.</li>
+  <li><strong>Embeddings for RAG</strong>—don't send full docs to GPT-4; retrieve then summarize.</li>
+  <li><strong>Rate limiting</strong>—prevent runaway costs per user or feature.</li>
+  <li><strong>Monitoring dashboard</strong>—cost per user, per feature, so you see spikes before the bill.</li>
+</ol>
+
+<h2>Red Flags in Your AI Bill</h2>
+<p>Watch for: same query repeated thousands of times, GPT-4 used for classification, no caching on RAG, and no attribution by feature. Tools like LangSmith and Helicone help you see cost per request and per feature so you can fix the worst offenders first. When fine-tuning is worth it: specialized tasks can see 95% cost reduction once you move off raw API calls.</p>
+
+<p>Start by adding a simple cost log (tokens in, tokens out, model) to every call; within a week you'll see which flows dominate the bill. Then apply model tiering and caching there. If you're on RAG, ensure you're not re-embedding or re-querying the same docs repeatedly—cache embeddings and retrieval results. For user-facing features, add per-user or per-session limits so one abusive or buggy client can't blow the budget. <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener">Schedule an AI cost audit</a> and we can map your current spend to a concrete optimization plan.</p>

@@ -17,6 +17,16 @@
       twitter: { card: 'summary', title: "Professional Services Technology Solutions | A'sTechware", description: "Operations platforms, resource management, and workflow automation for billable-time firms." }
     ) %>
   <% end %>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "Service",
+    "serviceType" => "Professional Services Automation",
+    "provider" => { "@type" => "Organization", "name" => "A'sTechware" },
+    "areaServed" => "Worldwide",
+    "description" => "Professional services automation platforms for consulting, accounting, agencies, and billable-time firms."
+  }.to_json) %>
+  </script>
 <% end %>
 
 <!-- Hero Section -->

@@ -1,20 +1,23 @@
 <% content_for :head do %>
   <% og_image = safe_og_image_url('logo-colored.png') %>
-  <% if og_image.present? %>
-    <% set_meta_tags(
-      title: "Machine Learning Solutions | A'sTechware",
-      description: "Production-grade ML models for prediction, classification, and anomaly detection. End-to-end pipelines with monitoring, retraining, and drift detection built in.",
-      og: { title: "Machine Learning Solutions | A'sTechware", description: "Production-grade ML models that drive real business outcomes.", image: og_image, url: safe_request_url, type: 'website', site_name: "A'sTechware" },
-      twitter: { card: 'summary_large_image', title: "Machine Learning Solutions | A'sTechware", description: "Production-grade ML models that drive real business outcomes.", image: og_image }
-    ) %>
-  <% else %>
-    <% set_meta_tags(
-      title: "Machine Learning Solutions | A'sTechware",
-      description: "Production-grade ML models for prediction, classification, and anomaly detection. Pipelines with monitoring, retraining, and drift detection built in.",
-      og: { title: "Machine Learning Solutions | A'sTechware", description: "Production-grade ML models that drive real business outcomes.", url: safe_request_url, type: 'website', site_name: "A'sTechware" },
-      twitter: { card: 'summary', title: "Machine Learning Solutions | A'sTechware", description: "Production-grade ML models that drive real business outcomes." }
-    ) %>
-  <% end %>
+  <% set_meta_tags(
+    title: "Machine Learning Solutions | Production-Ready ML | A'sTechware",
+    description: "Production-grade ML models for prediction, classification, and anomaly detection. End-to-end pipelines with monitoring, retraining, and drift detection built in.",
+    keywords: "machine learning solutions, production AI systems, ML pipelines, predictive models, custom software development",
+    og: { title: "Machine Learning Solutions | A'sTechware", description: "Production-grade ML models that drive real business outcomes.", url: safe_request_url, type: 'website', site_name: "A'sTechware" },
+    twitter: { card: og_image.present? ? 'summary_large_image' : 'summary', title: "Machine Learning Solutions | A'sTechware", description: "Production-grade ML models that drive real business outcomes." }
+  ) %>
+  <% set_meta_tags(og: { image: og_image, 'image:secure_url' => og_image, 'image:type' => 'image/png' }, twitter: { image: og_image }) if og_image.present? %>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "Service",
+    "serviceType" => "Machine Learning Solutions",
+    "provider" => { "@type" => "Organization", "name" => "A'sTechware" },
+    "areaServed" => "Worldwide",
+    "description" => "Production-grade ML models for prediction, classification, and anomaly detection with monitoring and drift detection."
+  }.to_json) %>
+  </script>
 <% end %>
 
 <!-- Hero Section -->

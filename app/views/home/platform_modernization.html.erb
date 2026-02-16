@@ -1,20 +1,23 @@
 <% content_for :head do %>
   <% og_image = safe_og_image_url('logo-colored.png') %>
-  <% if og_image.present? %>
-    <% set_meta_tags(
-      title: "Platform Modernization Services | A'sTechware",
-      description: "Rescue failing platforms and modernize systems that can't scale. Incremental improvements for reliability, performance, and maintainability, with business continuity.",
-      og: { title: "Platform Modernization Services | A'sTechware", description: "Rescue failing platforms and modernize systems that can't scale.", image: og_image, url: safe_request_url, type: 'website', site_name: "A'sTechware" },
-      twitter: { card: 'summary_large_image', title: "Platform Modernization Services | A'sTechware", description: "Rescue failing platforms and modernize systems that can't scale.", image: og_image }
-    ) %>
-  <% else %>
-    <% set_meta_tags(
-      title: "Platform Modernization Services | A'sTechware",
-      description: "Rescue failing platforms and modernize systems that can't scale. Focus on reliability, performance, and maintainability, not theoretical architecture.",
-      og: { title: "Platform Modernization Services | A'sTechware", description: "Rescue failing platforms and modernize systems that can't scale.", url: safe_request_url, type: 'website', site_name: "A'sTechware" },
-      twitter: { card: 'summary', title: "Platform Modernization Services | A'sTechware", description: "Rescue failing platforms and modernize systems that can't scale." }
-    ) %>
-  <% end %>
+  <% set_meta_tags(
+    title: "Platform Modernization | Production-Ready Systems | A'sTechware",
+    description: "Rescue failing platforms and modernize systems that can't scale. Incremental improvements for reliability, performance, and maintainability, with business continuity.",
+    keywords: "platform modernization, platform engineering services, legacy modernization, custom software development, B2B SaaS development",
+    og: { title: "Platform Modernization Services | A'sTechware", description: "Rescue failing platforms and modernize systems that can't scale.", url: safe_request_url, type: 'website', site_name: "A'sTechware" },
+    twitter: { card: og_image.present? ? 'summary_large_image' : 'summary', title: "Platform Modernization Services | A'sTechware", description: "Rescue failing platforms and modernize systems that can't scale." }
+  ) %>
+  <% set_meta_tags(og: { image: og_image, 'image:secure_url' => og_image, 'image:type' => 'image/png' }, twitter: { image: og_image }) if og_image.present? %>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "Service",
+    "serviceType" => "Platform Modernization",
+    "provider" => { "@type" => "Organization", "name" => "A'sTechware" },
+    "areaServed" => "Worldwide",
+    "description" => "Rescue failing platforms and modernize systems for reliability, performance, and maintainability."
+  }.to_json) %>
+  </script>
 <% end %>
 
 <!-- Hero Section -->

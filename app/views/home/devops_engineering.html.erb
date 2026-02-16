@@ -1,20 +1,23 @@
 <% content_for :head do %>
   <% og_image = safe_og_image_url('logo-colored.png') %>
-  <% if og_image.present? %>
-    <% set_meta_tags(
-      title: "DevOps Engineering Services | CI/CD, IaC, Cloud Operations | A'sTechware",
-      description: "CI/CD pipelines, infrastructure as code, container orchestration, cloud operations. Built for reliability, security, and repeatable deployments.",
-      og: { title: "DevOps Engineering Services | A'sTechware", description: "CI/CD, Infrastructure as Code, and cloud operations for reliability.", image: og_image, url: safe_request_url, type: 'website', site_name: "A'sTechware" },
-      twitter: { card: 'summary_large_image', title: "DevOps Engineering Services | A'sTechware", description: "CI/CD, IaC, and cloud operations for reliability.", image: og_image }
-    ) %>
-  <% else %>
-    <% set_meta_tags(
-      title: "DevOps Engineering Services | CI/CD, IaC, Cloud Operations | A'sTechware",
-      description: "CI/CD pipelines, infrastructure as code, container orchestration, cloud operations. Built for reliability, security, and repeatable deployments.",
-      og: { title: "DevOps Engineering Services | A'sTechware", description: "CI/CD, Infrastructure as Code, and cloud operations for reliability.", url: safe_request_url, type: 'website', site_name: "A'sTechware" },
-      twitter: { card: 'summary', title: "DevOps Engineering Services | A'sTechware", description: "CI/CD, IaC, and cloud operations for reliability." }
-    ) %>
-  <% end %>
+  <% set_meta_tags(
+    title: "DevOps Engineering | CI/CD, IaC, Cloud | A'sTechware",
+    description: "CI/CD pipelines, infrastructure as code, container orchestration, cloud operations. Built for reliability, security, and repeatable deployments.",
+    keywords: "DevOps engineering, CI/CD, infrastructure as code, platform engineering services, cloud operations",
+    og: { title: "DevOps Engineering Services | A'sTechware", description: "CI/CD, Infrastructure as Code, and cloud operations for reliability.", url: safe_request_url, type: 'website', site_name: "A'sTechware" },
+    twitter: { card: og_image.present? ? 'summary_large_image' : 'summary', title: "DevOps Engineering Services | A'sTechware", description: "CI/CD, IaC, and cloud operations for reliability." }
+  ) %>
+  <% set_meta_tags(og: { image: og_image, 'image:secure_url' => og_image, 'image:type' => 'image/png' }, twitter: { image: og_image }) if og_image.present? %>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "Service",
+    "serviceType" => "DevOps Engineering",
+    "provider" => { "@type" => "Organization", "name" => "A'sTechware" },
+    "areaServed" => "Worldwide",
+    "description" => "CI/CD pipelines, infrastructure as code, and cloud operations for reliability and repeatable deployments."
+  }.to_json) %>
+  </script>
 <% end %>
 
 <!-- Hero Section -->

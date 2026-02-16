@@ -1,3 +1,12 @@
+<% content_for :head do %>
+  <% set_meta_tags(
+    title: "Contact | Schedule a Technical Call | A'sTechware",
+    description: "Tell us about your project. Schedule a 30-min technical call to discuss AI agents, platform modernization, or custom software. Production-first engineering.",
+    keywords: "contact A'sTechware, schedule consultation, AI development, custom software, platform engineering",
+    og: { title: "Contact | A'sTechware", description: "Schedule a technical call to discuss your AI or platform project.", url: safe_request_url, type: 'website', site_name: "A'sTechware" },
+    twitter: { card: 'summary', title: "Contact | A'sTechware", description: "Schedule a technical call to discuss your AI or platform project." }
+  ) %>
+<% end %>
 <!-- Hero Section -->
 <div class="hero-section contact-portfolio py-5">
   <div class="container">

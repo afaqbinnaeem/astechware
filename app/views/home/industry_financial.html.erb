@@ -17,6 +17,16 @@
       twitter: { card: 'summary', title: "Financial Services Technology Solutions | A'sTechware", description: "Secure platforms for payments, compliance, and AI-driven financial workflows." }
     ) %>
   <% end %>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "Service",
+    "serviceType" => "Financial Services AI",
+    "provider" => { "@type" => "Organization", "name" => "A'sTechware" },
+    "areaServed" => "Worldwide",
+    "description" => "Secure fintech platforms for payments, lending, fraud detection, and financial workflows. SOC 2, PCI DSS, KYC/AML."
+  }.to_json) %>
+  </script>
 <% end %>
 
 <!-- Hero Section -->

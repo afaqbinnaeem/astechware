@@ -17,6 +17,16 @@
       twitter: { card: 'summary', title: "Education Technology Solutions | A'sTechware", description: "Learning platforms, student management & engagement tools built for scale." }
     ) %>
   <% end %>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "Service",
+    "serviceType" => "Education Technology Solutions",
+    "provider" => { "@type" => "Organization", "name" => "A'sTechware" },
+    "areaServed" => "Worldwide",
+    "description" => "EdTech platforms, LMS, student information systems, and engagement tools. FERPA-compliant."
+  }.to_json) %>
+  </script>
 <% end %>
 
 <!-- Hero Section -->

@@ -17,6 +17,16 @@
       twitter: { card: 'summary', title: "Healthcare Technology Solutions | A'sTechware", description: "HIPAA-compliant healthcare automation for modern medical practices." }
     ) %>
   <% end %>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "Service",
+    "serviceType" => "Healthcare AI Automation",
+    "provider" => { "@type" => "Organization", "name" => "A'sTechware" },
+    "areaServed" => "Worldwide",
+    "description" => "HIPAA-compliant healthcare automation for scheduling, patient intake, telehealth, and clinical workflows."
+  }.to_json) %>
+  </script>
 <% end %>
 
 <!-- Hero Section -->

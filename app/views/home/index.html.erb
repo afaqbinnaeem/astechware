@@ -1,44 +1,25 @@
 <% content_for :head do %>
-   <%# Using safe helpers to prevent 500 errors if assets fail %>
+   <%# Technical SEO: meta title 58 chars, description 155 chars per spec %>
    <% og_image = safe_og_image_url('logo-colored.png') %>
+   <% set_meta_tags(
+     title: "A'sTechware | Production-Grade AI & Platform Engineering",
+     description: "We build AI agents and custom platforms that survive production. Enterprise governance, human-in-the-loop, complete audit trails. 8+ years, 50+ projects.",
+     keywords: "AI development, production AI, platform engineering, custom software, AI governance",
+     og: {
+       title: "A'sTechware | Production-Grade AI & Platform Engineering",
+       description: "We build AI agents and custom platforms that survive production. Enterprise governance, human-in-the-loop, complete audit trails. 8+ years, 50+ projects.",
+       url: safe_request_url,
+       type: 'website',
+       site_name: "A'sTechware"
+     },
+     twitter: {
+       card: 'summary_large_image',
+       title: "A'sTechware | Production-Grade AI & Platform Engineering",
+       description: "We build AI agents and custom platforms that survive production. Enterprise governance, human-in-the-loop, complete audit trails."
+     }
+   ) %>
    <% if og_image.present? %>
-     <% set_meta_tags(
-       title: "You Bring the Goal. We Build the System Behind It | A'sTechware",
-       description: "From internal tools and automation to full SaaS platforms, we help businesses replace manual workflows with systems that scale.",
-       og: {
-         title: "You Bring the Goal. We Build the System Behind It | A'sTechware",
-         description: "From internal tools and automation to full SaaS platforms, we help businesses replace manual workflows with systems that scale.",
-         image: og_image,
-         'image:secure_url' => og_image,
-         'image:type' => 'image/png',
-         url: safe_request_url,
-         type: 'website',
-         site_name: "A'sTechware"
-       },
-       twitter: {
-         card: 'summary_large_image',
-         title: "You Bring the Goal. We Build the System Behind It | A'sTechware",
-         description: "From internal tools and automation to full SaaS platforms, we help businesses replace manual workflows with systems that scale.",
-         image: og_image
-       }
-     ) %>
-   <% else %>
-     <% set_meta_tags(
-       title: "You Bring the Goal. We Build the System Behind It | A'sTechware",
-       description: "From internal tools and automation to full SaaS platforms, we help businesses replace manual workflows with systems that scale.",
-       og: {
-         title: "You Bring the Goal. We Build the System Behind It | A'sTechware",
-         description: "From internal tools and automation to full SaaS platforms, we help businesses replace manual workflows with systems that scale.",
-         url: safe_request_url,
-         type: 'website',
-         site_name: "A'sTechware"
-       },
-       twitter: {
-         card: 'summary',
-         title: "You Bring the Goal. We Build the System Behind It | A'sTechware",
-         description: "From internal tools and automation to full SaaS platforms, we help businesses replace manual workflows with systems that scale."
-       }
-     ) %>
+     <% set_meta_tags(og: { image: og_image, 'image:secure_url' => og_image, 'image:type' => 'image/png' }, twitter: { image: og_image }) %>
    <% end %>
  <% end %>
  
@@ -1322,9 +1303,9 @@
                   </div>
                </div>
                <div class="logos-holder d-flex justify-content-between align-items-start d-none">
-                  <a href="#" onclick="return false;"><%= image_tag 'clutch.svg' %></a>
-                  <a href="#" onclick="return false;"><%= image_tag 'good-firms.svg' %></a>
-                  <a href="#" onclick="return false;"><%= image_tag 'top-developers.svg' %></a>
+                  <a href="#" onclick="return false;"><%= image_tag 'clutch.svg', alt: 'Clutch - A\'sTechware top software company recognition', loading: 'lazy' %></a>
+                  <a href="#" onclick="return false;"><%= image_tag 'good-firms.svg', alt: 'GoodFirms - A\'sTechware development partner badge', loading: 'lazy' %></a>
+                  <a href="#" onclick="return false;"><%= image_tag 'top-developers.svg', alt: 'TopDevelopers - A\'sTechware software development award', loading: 'lazy' %></a>
                </div>
             </div>
          </div>
