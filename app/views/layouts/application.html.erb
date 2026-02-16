@@ -57,7 +57,9 @@
     </script>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <% javascript_importmap_tags %>
+    <%= javascript_importmap_shim_tag %>
+    <%= javascript_importmap_tags %>
+    <%= javascript_import_module_tag "application" %>
     <%= yield :head %>
     <%# Set Open Graph meta tags for social sharing - using logo-colored.png with colored background %>
     <%# Using safe helpers to prevent 500 errors if assets fail %>
@@ -296,5 +298,24 @@
   </script>
 
     <%= yield :footer_script %>
+    <%= render 'shared/chat_widget' %>
+    <script>
+    // Fallback toggle handler in case Stimulus doesn't load
+    document.addEventListener('DOMContentLoaded', function() {
+      var bubble = document.querySelector('.chat-bubble');
+      var window = document.querySelector('.chat-window');
+      if (bubble && window && typeof window.Stimulus === 'undefined') {
+        bubble.addEventListener('click', function(e) {
+          if (bubble.style.display !== 'none') {
+            bubble.style.display = 'none';
+            window.style.display = 'flex';
+          } else {
+            bubble.style.display = 'flex';
+            window.style.display = 'none';
+          }
+        });
+      }
+    });
+    </script>
   </body>
 </html>

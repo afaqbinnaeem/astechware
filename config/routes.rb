@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   match "/404", to: "errors#not_found", via: :all
   match "/500", to: "errors#internal_server_error", via: :all
   post 'submit_form', to: 'home#submit_form'
+  post 'chat/message', to: 'chat#message'
   get '/ai-agents', to: 'home#ai_agents', as: 'ai_agents'
   get '/clients', to: 'home#clients', as: 'clients'
   get '/about', to: 'home#about', as: 'about'
