@@ -1,0 +1,558 @@
+<% content_for :head do %>
+  <% og_image = safe_og_image_url('logo-colored.png') %>
+  <% if og_image.present? %>
+    <% set_meta_tags(
+      title: "Platform Modernization Services | A'sTechware",
+      description: "Rescue failing platforms and modernize systems that can't scale. Incremental improvements for reliability, performance, and maintainability—with business continuity.",
+      og: { title: "Platform Modernization Services | A'sTechware", description: "Rescue failing platforms and modernize systems that can't scale.", image: og_image, url: safe_request_url, type: 'website', site_name: "A'sTechware" },
+      twitter: { card: 'summary_large_image', title: "Platform Modernization Services | A'sTechware", description: "Rescue failing platforms and modernize systems that can't scale.", image: og_image }
+    ) %>
+  <% else %>
+    <% set_meta_tags(
+      title: "Platform Modernization Services | A'sTechware",
+      description: "Rescue failing platforms and modernize systems that can't scale. Focus on reliability, performance, and maintainability—not theoretical architecture.",
+      og: { title: "Platform Modernization Services | A'sTechware", description: "Rescue failing platforms and modernize systems that can't scale.", url: safe_request_url, type: 'website', site_name: "A'sTechware" },
+      twitter: { card: 'summary', title: "Platform Modernization Services | A'sTechware", description: "Rescue failing platforms and modernize systems that can't scale." }
+    ) %>
+  <% end %>
+<% end %>
+
+<!-- Hero Section -->
+<div class="hero-section py-5 service-page-hero platform-mod-hero">
+  <div class="container">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-12 col-lg-9 mx-auto text-center">
+        <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;">
+          Platform Modernization Services
+        </h1>
+        <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.4; max-width: 720px; margin-left: auto; margin-right: auto;">
+          Rescue Failing Platforms and Modernize Systems That Can't Scale
+        </p>
+        <p class="mb-4" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
+          We rescue failing platforms and modernize systems that cannot scale. Focused on changes that directly improve reliability, performance, and maintainability—not theoretical architecture.
+        </p>
+        <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+          Schedule Discovery Call
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="inner-sections platform-mod-service-page">
+
+  <!-- Overview -->
+  <section class="py-5 bg-white" id="overview">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Overview</h2>
+          <p class="large-para mb-4">
+            Platform modernization means fixing systems that are slow, unstable, or hard to change—without betting the business on a risky big-bang rewrite. We focus on incremental improvements that deliver measurable gains in speed, uptime, and developer velocity while keeping the lights on.
+          </p>
+          <p class="large-para mb-4">
+            We start with observability: you can’t fix what you can’t measure. Then we prioritize the highest-impact changes—database optimization, caching, API cleanup, deployment automation—and roll them out in phases with rollback plans. Business continuity is non-negotiable; we reduce technical debt in a way that pays ROI, not in theory.
+          </p>
+          <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.7;">
+            <li><strong>Fixing systems that are slow, unstable, or hard to change:</strong> Targeted improvements to the parts that hurt most—queries, infrastructure, or code structure.</li>
+            <li><strong>Incremental improvements vs big-bang rewrites:</strong> We prefer phased modernization with clear milestones over “rebuild everything.” Lower risk, faster value.</li>
+            <li><strong>Focus on measurable improvements:</strong> Speed, uptime, deployment frequency, and developer velocity—metrics you can track and report.</li>
+            <li><strong>Maintaining business continuity during transformation:</strong> No “switch off the old system” surprises. Rollouts are staged, tested, and reversible.</li>
+            <li><strong>Technical debt reduction with ROI:</strong> We tackle debt that blocks growth or burns cost; we don’t refactor for its own sake.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Challenges We Solve (7) -->
+  <section class="py-5 bg-light-grey" id="challenges">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Challenges We Solve</h2>
+        <p class="large-para mb-0" style="max-width: 640px; margin: 0 auto;">Common reasons platforms fail to scale—and how we fix them without disrupting the business.</p>
+      </div>
+      <div class="row g-3">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">1</span>
+            <h4 class="h6 mb-2">Slow page loads and poor user experience</h4>
+            <p class="mb-0 small">We identify bottlenecks (DB, N+1, missing indexes, no caching) and fix them. Results: 50–90% faster load times in typical engagements.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">2</span>
+            <h4 class="h6 mb-2">Frequent outages and system instability</h4>
+            <p class="mb-0 small">Monitoring, alerting, and hardening so you detect and recover faster. We target 80–95% reduction in unplanned downtime.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">3</span>
+            <h4 class="h6 mb-2">Cannot add features without breaking things</h4>
+            <p class="mb-0 small">Test coverage, CI/CD, and safer deployment practices so you ship features 2–3x faster without fear of regressions.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">4</span>
+            <h4 class="h6 mb-2">Database performance bottlenecks</h4>
+            <p class="mb-0 small">Query optimization, indexing, connection pooling, and read replicas where needed—so the database stops being the bottleneck.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">5</span>
+            <h4 class="h6 mb-2">Security vulnerabilities and compliance gaps</h4>
+            <p class="mb-0 small">Security review, dependency updates, access controls, and audit logging so you meet SOC 2, HIPAA, or GDPR requirements.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">6</span>
+            <h4 class="h6 mb-2">Expensive cloud costs with poor optimization</h4>
+            <p class="mb-0 small">Right-sizing, reserved capacity, and eliminating waste. Typical outcome: 30–60% reduction in cloud spend.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">7</span>
+            <h4 class="h6 mb-2">Knowledge silos and lack of documentation</h4>
+            <p class="mb-0 small">Architecture docs, runbooks, and knowledge transfer so the team can operate and evolve the system without a single point of failure.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Approach -->
+  <section class="py-5 bg-white" id="approach">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Our Approach</h2>
+          <p class="large-para mb-4">We prioritize reliability and measurable impact over theoretical perfection. Every change is staged and reversible.</p>
+          <ul class="service-page-list mb-0" style="font-size: 1.05rem;">
+            <li><strong>Start with observability and metrics:</strong> Instrument what you have so we can see where time and failures come from—then fix the right things.</li>
+            <li><strong>Identify highest-impact improvements:</strong> We focus on changes that move the needle: uptime, latency, cost, or deployment speed.</li>
+            <li><strong>Incremental rollouts with rollback plans:</strong> No big-bang cutovers. Every phase is deployable and reversible so you stay in control.</li>
+            <li><strong>Focus on reliability before features:</strong> Stabilize first—then we make it easier to add features without breaking production.</li>
+            <li><strong>Documentation and knowledge transfer:</strong> Runbooks, architecture docs, and handoffs so your team owns the system long-term.</li>
+            <li><strong>Team training on new systems:</strong> We train your people on new pipelines, monitoring, and practices—not just hand over code.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Business Benefits (6 cards) -->
+  <section class="py-5 bg-light-grey" id="benefits">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Business Benefits</h2>
+        <p class="large-para mb-0" style="max-width: 640px; margin: 0 auto;">Measurable outcomes from platform modernization—reliability, performance, cost, and velocity.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-shield" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Improved Reliability</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Reduce downtime by 80–95%</li>
+              <li>Faster incident detection and recovery</li>
+              <li>Proactive monitoring vs reactive firefighting</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-tachometer" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Better Performance</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>50–90% faster page loads</li>
+              <li>Handle 10x more concurrent users</li>
+              <li>Reduced infrastructure costs</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-rocket" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Faster Feature Delivery</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Ship features 2–3x faster</li>
+              <li>Reduce deployment fear and friction</li>
+              <li>Automated testing prevents regressions</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-money" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Cost Optimization</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>30–60% reduction in cloud costs</li>
+              <li>Eliminate wasteful resource usage</li>
+              <li>Right-size infrastructure</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-lock" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Enhanced Security</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Close security vulnerabilities</li>
+              <li>Meet compliance (SOC 2, HIPAA, GDPR)</li>
+              <li>Audit logging and access controls</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-users" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Developer Productivity</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Clear documentation and architecture</li>
+              <li>Better local development experience</li>
+              <li>Reduced time debugging production issues</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Deliver -->
+  <section class="py-5 bg-white" id="deliverables">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">What We Deliver</h2>
+        <p class="large-para mb-0" style="max-width: 640px; margin: 0 auto;">Assessment, technical improvements, infrastructure upgrades, and knowledge transfer—so you can run the platform long-term.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-uppercase text-muted mb-3">Assessment &amp; Planning</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+              <li>Current state audit and analysis</li>
+              <li>Performance benchmarking</li>
+              <li>Architecture review</li>
+              <li>Modernization roadmap with priorities</li>
+              <li>Risk assessment</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-uppercase text-muted mb-3">Technical Improvements</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+              <li>Database optimization and indexing</li>
+              <li>Caching layer implementation</li>
+              <li>Code refactoring and cleanup</li>
+              <li>API modernization</li>
+              <li>Search optimization (Elasticsearch, etc.)</li>
+              <li>Background job processing</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-uppercase text-muted mb-3">Infrastructure Upgrades</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+              <li>Cloud migration (if needed)</li>
+              <li>Container orchestration (Docker, Kubernetes)</li>
+              <li>CI/CD pipeline automation</li>
+              <li>Infrastructure as Code (Terraform, CloudFormation)</li>
+              <li>Monitoring and alerting (Datadog, New Relic, etc.)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-uppercase text-muted mb-3">Documentation &amp; Knowledge Transfer</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+              <li>Updated architecture diagrams</li>
+              <li>API documentation</li>
+              <li>Operational runbooks</li>
+              <li>Team training sessions</li>
+              <li>Handoff and ongoing support plan</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Stack -->
+  <section class="py-5 bg-light-grey" id="technology">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Technology Stack</h2>
+        <p class="large-para mb-0" style="max-width: 640px; margin: 0 auto;">We work with your existing stack and introduce modern tools where they deliver the most impact.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Backend Modernization</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Language/framework upgrades (Python, Node.js, Ruby, Java, etc.)</li>
+              <li>Database migrations (PostgreSQL, MySQL, MongoDB)</li>
+              <li>Message queues (Redis, RabbitMQ, Kafka)</li>
+              <li>API gateways and microservices patterns</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Frontend Modernization</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Modern frameworks (React, Vue, Next.js)</li>
+              <li>Performance optimization</li>
+              <li>Progressive Web App capabilities</li>
+              <li>Mobile-responsive design</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Infrastructure</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Cloud platforms (AWS, GCP, Azure)</li>
+              <li>Container orchestration (Kubernetes, ECS, Cloud Run)</li>
+              <li>CDN integration (CloudFlare, CloudFront)</li>
+              <li>Observability (OpenTelemetry, Prometheus, Grafana)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="py-5 bg-white" id="timeline">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Timeline</h2>
+          <p class="large-para mb-4">Typical 20-week path from assessment to handoff. Timeline varies based on platform complexity and scope—we’ll tailor phases to your situation.</p>
+          <div class="row g-3">
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Weeks 1–2</span>
+                <h4 class="h6 mt-2 mb-2">Assessment &amp; Prioritization</h4>
+                <p class="mb-0 small">Assessment, benchmarking, and prioritization of quick wins vs structural work.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Weeks 3–8</span>
+                <h4 class="h6 mt-2 mb-2">Phase 1: Quick Wins</h4>
+                <p class="mb-0 small">High-impact fixes: DB tuning, caching, critical refactors, monitoring.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Weeks 9–16</span>
+                <h4 class="h6 mt-2 mb-2">Phase 2: Structural Changes</h4>
+                <p class="mb-0 small">CI/CD, infra upgrades, API modernization, larger refactors.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Weeks 17–20</span>
+                <h4 class="h6 mt-2 mb-2">Final Optimizations &amp; Handoff</h4>
+                <p class="mb-0 small">Final optimizations, documentation, training, and ongoing support plan.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Study Spotlight (2) -->
+  <section class="py-5 bg-light-grey" id="case-study">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Case Study Spotlight</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-lg-6">
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h4 class="h5 mb-3">Restaurant Directory Platform Rebuild</h4>
+            <div class="mb-3">
+              <h5 class="h6 text-uppercase text-muted mb-2">Challenge</h5>
+              <p class="mb-0 small">Slow searches (8–12s), frequent crashes, unusable admin. Platform was days from shutdown.</p>
+            </div>
+            <div class="mb-3">
+              <h5 class="h6 text-uppercase text-muted mb-2">Solution</h5>
+              <p class="mb-0 small">Database redesign, search engine implementation (Elasticsearch), caching, and admin refactor.</p>
+            </div>
+            <div class="mb-0">
+              <h5 class="h6 text-uppercase text-muted mb-2">Results</h5>
+              <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+                <li>Sub-second search</li>
+                <li>99.9% uptime</li>
+                <li>Admin tasks 10x faster</li>
+              </ul>
+            </div>
+            <%= link_to "Read full case study →", case_studies_path + "#restaurant-directory", class: "d-inline-block mt-3 fw-semibold small" %>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6">
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h4 class="h5 mb-3">Legal Practice Management Platform</h4>
+            <div class="mb-3">
+              <h5 class="h6 text-uppercase text-muted mb-2">Challenge</h5>
+              <p class="mb-0 small">System couldn’t handle growth; manual deployments caused risk and delay.</p>
+            </div>
+            <div class="mb-3">
+              <h5 class="h6 text-uppercase text-muted mb-2">Solution</h5>
+              <p class="mb-0 small">Cloud migration, automated CI/CD pipelines, and performance optimization.</p>
+            </div>
+            <div class="mb-0">
+              <h5 class="h6 text-uppercase text-muted mb-2">Results</h5>
+              <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+                <li>3x user capacity</li>
+                <li>Zero-downtime deployments</li>
+                <li>40% cost reduction</li>
+              </ul>
+            </div>
+            <%= link_to "Read full case study →", case_studies_path + "#law-firm", class: "d-inline-block mt-3 fw-semibold small" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="py-5 bg-white" id="faqs">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Frequently Asked Questions</h2>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="accordion platform-mod-faq-accordion" id="platformModFaqAccordion">
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pmfaq1" aria-expanded="false" aria-controls="pmfaq1">Should we rebuild from scratch or modernize incrementally?</button>
+              </h3>
+              <div id="pmfaq1" class="accordion-collapse collapse" data-bs-parent="#platformModFaqAccordion">
+                <div class="accordion-body">We almost always recommend incremental modernization. Big-bang rewrites are risky, take longer, and often fail to deliver. We identify the highest-impact improvements and roll them out in phases—so you get value quickly and can stop or adjust at any time. Full rewrites only make sense when the existing system is unsalvageable; we’ll tell you if that’s the case.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pmfaq2" aria-expanded="false" aria-controls="pmfaq2">How do you prevent disruption to our users during modernization?</button>
+              </h3>
+              <div id="pmfaq2" class="accordion-collapse collapse" data-bs-parent="#platformModFaqAccordion">
+                <div class="accordion-body">We use phased rollouts, feature flags, and rollback plans. Changes go to staging first; we measure impact before production. If something goes wrong, we revert. We also avoid “big bang” cutovers—we migrate incrementally so users never see a single risky switchover.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pmfaq3" aria-expanded="false" aria-controls="pmfaq3">How long does platform modernization typically take?</button>
+              </h3>
+              <div id="pmfaq3" class="accordion-collapse collapse" data-bs-parent="#platformModFaqAccordion">
+                <div class="accordion-body">It depends on scope and complexity. A typical engagement runs 12–20 weeks: 1–2 weeks assessment, 6 weeks of quick wins, 6–8 weeks of structural work, then documentation and handoff. We’ll give you a tailored timeline after the initial audit.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pmfaq4" aria-expanded="false" aria-controls="pmfaq4">What if we need to maintain the old system while building new?</button>
+              </h3>
+              <div id="pmfaq4" class="accordion-collapse collapse" data-bs-parent="#platformModFaqAccordion">
+                <div class="accordion-body">We do that all the time. We work in the existing codebase and infrastructure first—improving what you have—so there’s no “second system” to maintain in parallel. If we do introduce new components (e.g. a new search layer), we integrate them gradually so the old and new coexist until you’re ready to retire the old.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pmfaq5" aria-expanded="false" aria-controls="pmfaq5">How do you prioritize what to fix first?</button>
+              </h3>
+              <div id="pmfaq5" class="accordion-collapse collapse" data-bs-parent="#platformModFaqAccordion">
+                <div class="accordion-body">We start with observability: where are the outages, slow queries, and cost spikes? We prioritize by impact (uptime, revenue, cost) and effort. Quick wins that move the needle come first; then we tackle structural work that unlocks faster delivery or scale.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pmfaq6" aria-expanded="false" aria-controls="pmfaq6">Can you modernize while we continue adding features?</button>
+              </h3>
+              <div id="pmfaq6" class="accordion-collapse collapse" data-bs-parent="#platformModFaqAccordion">
+                <div class="accordion-body">Yes. We work in the same codebase and pipelines as your team. We coordinate so our refactors and your feature work don’t conflict. Often we improve the pipeline (CI/CD, tests) first so adding features becomes safer and faster for everyone.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pmfaq7" aria-expanded="false" aria-controls="pmfaq7">What ongoing support do you provide after modernization?</button>
+              </h3>
+              <div id="pmfaq7" class="accordion-collapse collapse" data-bs-parent="#platformModFaqAccordion">
+                <div class="accordion-body">We deliver runbooks, documentation, and training so your team can operate the system. We typically offer a 30–90 day support window for questions and minor fixes. Longer-term retainers are available for ongoing optimization or new phases of work.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="py-5 bg-light-grey" id="related">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Related Services</h2>
+      </div>
+      <div class="row g-3 justify-content-center">
+        <div class="col-6 col-md-3">
+          <%= link_to custom_software_path, class: "btn btn-outline-primary w-100 py-3" do %>
+            <i class="fa fa-code me-2" aria-hidden="true"></i>Custom Software Development
+          <% end %>
+        </div>
+        <div class="col-6 col-md-3">
+          <%= link_to projects_path, class: "btn btn-outline-primary w-100 py-3" do %>
+            <i class="fa fa-code-fork me-2" aria-hidden="true"></i>DevOps Engineering
+          <% end %>
+        </div>
+        <div class="col-6 col-md-3">
+          <%= link_to api_integrations_path, class: "btn btn-outline-primary w-100 py-3" do %>
+            <i class="fa fa-plug me-2" aria-hidden="true"></i>API Integrations
+          <% end %>
+        </div>
+        <div class="col-6 col-md-3">
+          <%= link_to machine_learning_path, class: "btn btn-outline-primary w-100 py-3" do %>
+            <i class="fa fa-line-chart me-2" aria-hidden="true"></i>Machine Learning Solutions
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-8 mx-auto text-center">
+          <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Ready to Rescue Your Platform?</h2>
+          <p class="lead mb-4">Schedule a discovery call for an initial assessment. We’ll identify the highest-impact improvements and outline a realistic, phased plan—with business continuity at the center.</p>
+          <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+            Schedule Discovery Call
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

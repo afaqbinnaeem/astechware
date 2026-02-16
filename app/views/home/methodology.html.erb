@@ -1,0 +1,411 @@
+<% content_for :head do %>
+  <% og_image = safe_og_image_url('logo-colored.png') %>
+  <% if og_image.present? %>
+    <% set_meta_tags(
+      title: "The A'sTechware Framework | Production-First Engineering with Built-In Governance",
+      description: "Our 6-step methodology for delivering AI systems, SaaS platforms, and automation. Discovery, architecture, iterative development, governance, deployment, and continuous optimization.",
+      og: {
+        title: "The A'sTechware Framework | Production-First Engineering with Built-In Governance",
+        description: "Our 6-step methodology for delivering AI systems, SaaS platforms, and automation. Discovery, architecture, iterative development, governance, deployment, and continuous optimization.",
+        image: og_image,
+        'image:secure_url' => og_image,
+        'image:type' => 'image/png',
+        url: safe_request_url,
+        type: 'website',
+        site_name: "A'sTechware"
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: "The A'sTechware Framework | Production-First Engineering with Built-In Governance",
+        description: "Our 6-step methodology for delivering AI systems, SaaS platforms, and automation.",
+        image: og_image
+      }
+    ) %>
+  <% else %>
+    <% set_meta_tags(
+      title: "The A'sTechware Framework | Production-First Engineering with Built-In Governance",
+      description: "Our 6-step methodology for delivering AI systems, SaaS platforms, and automation. Discovery, architecture, iterative development, governance, deployment, and continuous optimization.",
+      og: {
+        title: "The A'sTechware Framework | Production-First Engineering with Built-In Governance",
+        description: "Our 6-step methodology for delivering AI systems, SaaS platforms, and automation.",
+        url: safe_request_url,
+        type: 'website',
+        site_name: "A'sTechware"
+      },
+      twitter: {
+        card: 'summary',
+        title: "The A'sTechware Framework | Production-First Engineering with Built-In Governance",
+        description: "Our 6-step methodology for delivering AI systems, SaaS platforms, and automation."
+      }
+    ) %>
+  <% end %>
+<% end %>
+
+<!-- Hero Section -->
+<div class="hero-section hero-methodology py-5">
+  <div class="container">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-12 col-lg-9 mx-auto text-center">
+        <p class="methodology-label mb-3">OUR METHODOLOGY</p>
+        <h1 class="display-4 fw-bold mb-4" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.15;">
+          The A&apos;sTechware Framework
+        </h1>
+        <p class="lead mb-0" style="font-size: clamp(18px, 2.3vw, 22px); line-height: 1.6; max-width: 820px; margin-left: auto; margin-right: auto;">
+          Production-First Engineering with Built-In Governance. A structured, repeatable process for delivering AI systems, SaaS platforms, and automation that work under real operational pressure.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="inner-sections">
+
+  <!-- Framework Introduction -->
+  <div class="py-5 bg-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="text-center mb-5">
+            <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Six Steps to Production</h2>
+            <p class="large-para mb-0" style="max-width: 780px; margin: 0 auto;">
+              Every engagement follows the same disciplined process. This is how we consistently deliver systems that handle real users, real data, and real complexity.
+            </p>
+          </div>
+
+          <!-- Timeline Process -->
+          <div class="methodology-timeline">
+
+            <!-- Step 1 -->
+            <div class="methodology-step">
+              <div class="methodology-step-connector">
+                <div class="methodology-step-number">1</div>
+                <div class="methodology-step-line"></div>
+              </div>
+              <div class="methodology-step-content">
+                <div class="methodology-step-card">
+                  <div class="methodology-step-header">
+                    <div class="methodology-step-icon">
+                      <i class="fa fa-search" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                      <h3 class="methodology-step-title">Discovery &amp; Pattern Analysis</h3>
+                      <span class="methodology-step-timing">Week 1</span>
+                    </div>
+                  </div>
+                  <p class="methodology-step-desc">
+                    We start by understanding the business, not the technology. Before writing a line of code, we map the operational landscape to identify where automation and AI will deliver the highest return.
+                  </p>
+                  <ul class="methodology-step-list">
+                    <li><i class="fa fa-check" aria-hidden="true"></i> Understand business goals and operational constraints</li>
+                    <li><i class="fa fa-check" aria-hidden="true"></i> Identify automation opportunities with highest ROI</li>
+                    <li><i class="fa fa-check" aria-hidden="true"></i> Map existing workflows, systems, and data flows</li>
+                    <li><i class="fa fa-check" aria-hidden="true"></i> Define success metrics and measurable outcomes</li>
+                  </ul>
+                  <div class="methodology-step-outcome">
+                    <strong>Deliverable:</strong> System blueprint with prioritized opportunities, risk assessment, and realistic timeline.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="methodology-step">
+              <div class="methodology-step-connector">
+                <div class="methodology-step-number">2</div>
+                <div class="methodology-step-line"></div>
+              </div>
+              <div class="methodology-step-content">
+                <div class="methodology-step-card">
+                  <div class="methodology-step-header">
+                    <div class="methodology-step-icon">
+                      <i class="fa fa-sitemap" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                      <h3 class="methodology-step-title">Architecture &amp; Security Design</h3>
+                      <span class="methodology-step-timing">Week 1&ndash;2</span>
+                    </div>
+                  </div>
+                  <p class="methodology-step-desc">
+                    We design systems for production from the start. Architecture decisions are made with scalability, security, and governance in mind&mdash;not bolted on later when problems emerge.
+                  </p>
+                  <ul class="methodology-step-list">
+                    <li><i class="fa fa-check" aria-hidden="true"></i> Design scalable, production-ready architecture</li>
+                    <li><i class="fa fa-check" aria-hidden="true"></i> Build in governance and compliance from day one</li>
+                    <li><i class="fa fa-check" aria-hidden="true"></i> Plan for observability, monitoring, and alerting</li>
+                    <li><i class="fa fa-check" aria-hidden="true"></i> Create deployment strategy and rollback procedures</li>
+                  </ul>
+                  <div class="methodology-step-outcome">
+                    <strong>Deliverable:</strong> Technical architecture document, data flow diagrams, security model, and deployment plan.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="methodology-step">
+              <div class="methodology-step-connector">
+                <div class="methodology-step-number">3</div>
+                <div class="methodology-step-line"></div>
+              </div>
+              <div class="methodology-step-content">
+                <div class="methodology-step-card">
+                  <div class="methodology-step-header">
+                    <div class="methodology-step-icon">
+                      <i class="fa fa-code" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                      <h3 class="methodology-step-title">Iterative Development</h3>
+                      <span class="methodology-step-timing">Weeks 2&ndash;6</span>
+                    </div>
+                  </div>
+                  <p class="methodology-step-desc">
+                    We build in short, demonstrable cycles. Every week produces working software that stakeholders can see, test, and provide feedback on&mdash;not status reports about progress.
+                  </p>
+                  <ul class="methodology-step-list">
+                    <li><i class="fa fa-check" aria-hidden="true"></i> Weekly demo milestones with working software</li>
+                    <li><i class="fa fa-check" aria-hidden="true"></i> Continuous stakeholder feedback and course correction</li>
+                    <li><i class="fa fa-check" aria-hidden="true"></i> Test in production-like environments from the start</li>
+                    <li><i class="fa fa-check" aria-hidden="true"></i> Document architecture and decisions as we build</li>
+                  </ul>
+                  <div class="methodology-step-outcome">
+                    <strong>Deliverable:</strong> Working system increments, demo recordings, and updated documentation after each milestone.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="methodology-step">
+              <div class="methodology-step-connector">
+                <div class="methodology-step-number">4</div>
+                <div class="methodology-step-line"></div>
+              </div>
+              <div class="methodology-step-content">
+                <div class="methodology-step-card">
+                  <div class="methodology-step-header">
+                    <div class="methodology-step-icon">
+                      <i class="fa fa-shield" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                      <h3 class="methodology-step-title">Governance Integration</h3>
+                      <span class="methodology-step-timing">Ongoing</span>
+                    </div>
+                  </div>
+                  <p class="methodology-step-desc">
+                    For every AI system, governance is not a final checkbox. It is woven into development from the first sprint. This is what makes our systems safe for production and approved by compliance teams.
+                  </p>
+                  <ul class="methodology-step-list">
+                    <li><i class="fa fa-check" aria-hidden="true"></i> Implement human-in-the-loop protocols for critical decisions</li>
+                    <li><i class="fa fa-check" aria-hidden="true"></i> Build audit trails and comprehensive logging</li>
+                    <li><i class="fa fa-check" aria-hidden="true"></i> Set up role-based access control and data scoping</li>
+                    <li><i class="fa fa-check" aria-hidden="true"></i> Create escalation workflows and confidence thresholds</li>
+                  </ul>
+                  <div class="methodology-step-outcome">
+                    <strong>Deliverable:</strong> Governance documentation, access control matrix, audit log specification, and escalation playbook.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="methodology-step">
+              <div class="methodology-step-connector">
+                <div class="methodology-step-number">5</div>
+                <div class="methodology-step-line"></div>
+              </div>
+              <div class="methodology-step-content">
+                <div class="methodology-step-card">
+                  <div class="methodology-step-header">
+                    <div class="methodology-step-icon">
+                      <i class="fa fa-rocket" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                      <h3 class="methodology-step-title">Production Deployment</h3>
+                      <span class="methodology-step-timing">Final Phase</span>
+                    </div>
+                  </div>
+                  <p class="methodology-step-desc">
+                    We deploy with the same discipline we build with. Staged rollouts, real-world validation, and operational readiness ensure the system performs under actual conditions before full launch.
+                  </p>
+                  <ul class="methodology-step-list">
+                    <li><i class="fa fa-check" aria-hidden="true"></i> Staged rollout approach with controlled exposure</li>
+                    <li><i class="fa fa-check" aria-hidden="true"></i> Real-world testing with actual data and users</li>
+                    <li><i class="fa fa-check" aria-hidden="true"></i> Performance monitoring and alerting setup</li>
+                    <li><i class="fa fa-check" aria-hidden="true"></i> Team training, runbooks, and operational handoff</li>
+                  </ul>
+                  <div class="methodology-step-outcome">
+                    <strong>Deliverable:</strong> Production system, monitoring dashboards, runbooks, and team training materials.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 6 -->
+            <div class="methodology-step methodology-step-last">
+              <div class="methodology-step-connector">
+                <div class="methodology-step-number">6</div>
+              </div>
+              <div class="methodology-step-content">
+                <div class="methodology-step-card">
+                  <div class="methodology-step-header">
+                    <div class="methodology-step-icon">
+                      <i class="fa fa-refresh" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                      <h3 class="methodology-step-title">Continuous Optimization</h3>
+                      <span class="methodology-step-timing">Post-Launch</span>
+                    </div>
+                  </div>
+                  <p class="methodology-step-desc">
+                    Launch is the beginning, not the end. We monitor system performance, gather real usage data, and iterate based on business outcomes to ensure the system continues to deliver value over time.
+                  </p>
+                  <ul class="methodology-step-list">
+                    <li><i class="fa fa-check" aria-hidden="true"></i> Monitor system performance and reliability metrics</li>
+                    <li><i class="fa fa-check" aria-hidden="true"></i> Gather user feedback and usage analytics</li>
+                    <li><i class="fa fa-check" aria-hidden="true"></i> Iterate based on business outcomes, not assumptions</li>
+                    <li><i class="fa fa-check" aria-hidden="true"></i> Scale architecture as demand grows</li>
+                  </ul>
+                  <div class="methodology-step-outcome">
+                    <strong>Deliverable:</strong> Performance reports, optimization recommendations, and scaling roadmap.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- What This Means in Practice -->
+  <div class="py-5 bg-light-grey">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="text-center mb-5">
+            <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">What This Means in Practice</h2>
+            <p class="large-para mb-0" style="max-width: 750px; margin: 0 auto;">
+              Our framework is not a slide deck. It is the operating system behind every project we deliver.
+            </p>
+          </div>
+          <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="build-system-card p-4 h-100">
+                <div class="build-icon-wrapper mb-3">
+                  <div class="build-icon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                </div>
+                <h4 class="mb-2">Predictable Timelines</h4>
+                <p class="mb-0">Milestone-based delivery means you know what is being built, when it will be ready, and what it will cost at every stage.</p>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="build-system-card p-4 h-100">
+                <div class="build-icon-wrapper mb-3">
+                  <div class="build-icon">
+                    <i class="fa fa-eye"></i>
+                  </div>
+                </div>
+                <h4 class="mb-2">Full Visibility</h4>
+                <p class="mb-0">Weekly demos, written updates, and open communication. You see real progress, not status reports about progress.</p>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="build-system-card p-4 h-100">
+                <div class="build-icon-wrapper mb-3">
+                  <div class="build-icon">
+                    <i class="fa fa-lock"></i>
+                  </div>
+                </div>
+                <h4 class="mb-2">No Lock-In</h4>
+                <p class="mb-0">You own all code, infrastructure, and documentation from day one. Pause or stop at any milestone without losing work.</p>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="build-system-card p-4 h-100">
+                <div class="build-icon-wrapper mb-3">
+                  <div class="build-icon">
+                    <i class="fa fa-shield"></i>
+                  </div>
+                </div>
+                <h4 class="mb-2">Built-In Governance</h4>
+                <p class="mb-0">AI governance, compliance, and audit trails are part of the architecture from the start, not an afterthought.</p>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="build-system-card p-4 h-100">
+                <div class="build-icon-wrapper mb-3">
+                  <div class="build-icon">
+                    <i class="fa fa-line-chart"></i>
+                  </div>
+                </div>
+                <h4 class="mb-2">Outcome-Driven</h4>
+                <p class="mb-0">We measure success in hours saved, revenue recovered, and capacity increased, not just features shipped.</p>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="build-system-card p-4 h-100">
+                <div class="build-icon-wrapper mb-3">
+                  <div class="build-icon">
+                    <i class="fa fa-check-circle"></i>
+                  </div>
+                </div>
+                <h4 class="mb-2">Battle-Tested</h4>
+                <p class="mb-0">This framework has been applied across healthcare, legal, SaaS, events, and operations platforms with consistent results.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Testimonial -->
+  <div class="py-5 bg-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-8 mx-auto">
+          <div class="methodology-testimonial text-center">
+            <div class="methodology-testimonial-quote">
+              <i class="fa fa-quote-left" aria-hidden="true"></i>
+            </div>
+            <blockquote class="mb-4">
+              <p class="methodology-testimonial-text">
+                Working with Ahmad and A&apos;sTechware has been an incredible experience. They have demonstrated deep technical expertise, clear communication, and a commitment to delivering a high-quality product to our team.
+              </p>
+            </blockquote>
+            <div class="methodology-testimonial-author">
+              <%= image_tag 'ahmad/clients/nathan.jpeg', class: 'rounded-circle', alt: 'Nathan - Vestra Software', style: 'width:72px;height:72px;object-fit:cover;', loading: "lazy" %>
+              <div class="mt-3">
+                <strong class="d-block" style="font-size: 1.1rem;">Nathan</strong>
+                <span class="text-muted">Founder at Vestra Software</span>
+                <span class="d-block mt-1"><span class="badge bg-light text-dark border">United States</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="py-5 bg-light-grey">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-8 mx-auto text-center">
+          <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Ready to Start?</h2>
+          <p class="large-para mb-4" style="max-width: 650px; margin: 0 auto;">
+            Most clients start with a free 30-minute technical call to discuss their goals, map opportunities, and outline a realistic path forward.
+          </p>
+          <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5 mb-3">
+            Book a 30-Min Technical Call
+          </a>
+          <p class="text-muted small mb-0">No pressure. No retainers. Just a practical conversation about what is possible.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

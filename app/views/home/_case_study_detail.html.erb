@@ -1,0 +1,199 @@
+<%# Renders one full case study using the 8-section template. Pass local: case_study (Hash) %>
+<% cs = case_study %>
+<% slug = cs[:slug].presence || cs[:title].to_s.parameterize %>
+
+<article class="case-detail mb-5" id="<%= slug %>">
+  <%# 1. Hero Image %>
+  <div class="case-detail-hero mb-4">
+    <% if cs[:hero_image].present? %>
+      <%= image_tag cs[:hero_image], class: 'case-detail-hero-img img-fluid w-100', alt: "#{cs[:title]} – project", loading: 'lazy' %>
+    <% else %>
+      <div class="case-detail-hero-placeholder">
+        <i class="fa <%= cs[:hero_icon].presence || 'fa-folder-open' %>" aria-hidden="true"></i>
+        <span class="case-detail-hero-title"><%= cs[:title] %></span>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="case-detail-body">
+    <%# 2. Client Overview Box %>
+    <% if cs[:client].present? && cs[:client].any? %>
+      <div class="case-detail-client-box mb-4">
+        <h3 class="h6 text-uppercase text-muted mb-3">Client Overview</h3>
+        <div class="row g-3">
+          <% if cs[:client][:industry].present? %>
+            <div class="col-6 col-md-3">
+              <span class="case-detail-client-label">Industry</span>
+              <span class="case-detail-client-value"><%= cs[:client][:industry] %></span>
+            </div>
+          <% end %>
+          <% if cs[:client][:company_size].present? %>
+            <div class="col-6 col-md-3">
+              <span class="case-detail-client-label">Company size</span>
+              <span class="case-detail-client-value"><%= cs[:client][:company_size] %></span>
+            </div>
+          <% end %>
+          <% if cs[:client][:location].present? %>
+            <div class="col-6 col-md-3">
+              <span class="case-detail-client-label">Location</span>
+              <span class="case-detail-client-value"><%= cs[:client][:location] %></span>
+            </div>
+          <% end %>
+          <% if cs[:client][:challenge_type].present? %>
+            <div class="col-6 col-md-3">
+              <span class="case-detail-client-label">Challenge type</span>
+              <span class="case-detail-client-value"><%= cs[:client][:challenge_type] %></span>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+    <%# 3. The Challenge %>
+    <% if cs[:challenge].present? %>
+      <section class="case-detail-section mb-4">
+        <h2 class="case-detail-heading">The Challenge</h2>
+        <% Array(cs[:challenge][:intro_paragraphs]).each do |p| %>
+          <p class="case-detail-para"><%= p %></p>
+        <% end %>
+        <% if cs[:challenge][:pain_points].present? %>
+          <h4 class="h6 mt-3 mb-2">Specific pain points</h4>
+          <ul class="bullet-list mb-3">
+            <% Array(cs[:challenge][:pain_points]).each do |item| %><li><%= item %></li><% end %>
+          </ul>
+        <% end %>
+        <% if cs[:challenge][:why_existing].present? %>
+          <h4 class="h6 mt-3 mb-2">Why existing solutions weren&apos;t working</h4>
+          <p class="case-detail-para mb-0"><%= cs[:challenge][:why_existing] %></p>
+        <% end %>
+      </section>
+    <% end %>
+
+    <%# 4. Our Solution %>
+    <% if cs[:solution].present? %>
+      <section class="case-detail-section mb-4">
+        <h2 class="case-detail-heading">Our Solution</h2>
+        <% if cs[:solution][:what_we_built].present? %>
+          <h4 class="h6 mb-2">What we built</h4>
+          <ul class="bullet-list mb-3">
+            <% Array(cs[:solution][:what_we_built]).each do |item| %><li><%= item %></li><% end %>
+          </ul>
+        <% end %>
+        <% if cs[:solution][:technical_approach].present? %>
+          <h4 class="h6 mb-2">Technical approach</h4>
+          <p class="case-detail-para mb-3"><%= cs[:solution][:technical_approach] %></p>
+        <% end %>
+        <% if cs[:solution][:timeline].present? %>
+          <p class="case-detail-meta mb-2"><strong>Timeline:</strong> <%= cs[:solution][:timeline] %></p>
+        <% end %>
+        <% if cs[:solution][:technologies].present? %>
+          <p class="case-detail-meta mb-0"><strong>Technologies:</strong> <%= cs[:solution][:technologies].is_a?(Array) ? cs[:solution][:technologies].join(', ') : cs[:solution][:technologies].to_s %></p>
+        <% end %>
+      </section>
+    <% end %>
+
+    <%# 5. Results & Impact %>
+    <% if cs[:results].present? %>
+      <section class="case-detail-section case-detail-results mb-4">
+        <h2 class="case-detail-heading">Results &amp; Impact</h2>
+        <% if cs[:results][:before_after].present? %>
+          <div class="row g-3 mb-3">
+            <% Array(cs[:results][:before_after]).each do |ba| %>
+              <div class="col-12 col-sm-6 col-md-4">
+                <div class="case-detail-metric-card">
+                  <span class="case-detail-metric-before"><%= ba[:before] %></span>
+                  <i class="fa fa-arrow-right case-detail-metric-arrow" aria-hidden="true"></i>
+                  <span class="case-detail-metric-after"><%= ba[:after] %></span>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+        <% if cs[:results][:metrics].present? %>
+          <ul class="metric-list mb-2">
+            <% Array(cs[:results][:metrics]).each do |m| %><li><%= m %></li><% end %>
+          </ul>
+        <% end %>
+        <% if cs[:results][:satisfaction].present? %>
+          <p class="case-detail-para mb-2"><%= cs[:results][:satisfaction] %></p>
+        <% end %>
+        <% if cs[:results][:outcomes].present? %>
+          <ul class="bullet-list mb-0">
+            <% Array(cs[:results][:outcomes]).each do |o| %><li><%= o %></li><% end %>
+          </ul>
+        <% end %>
+      </section>
+    <% end %>
+
+    <%# 6. Client Testimonial %>
+    <% if cs[:testimonial].present? && cs[:testimonial][:quote].present? %>
+      <section class="case-detail-testimonial mb-4">
+        <blockquote class="case-detail-quote">
+          <p class="mb-3">&ldquo;<%= cs[:testimonial][:quote] %>&rdquo;</p>
+          <footer class="case-detail-quote-footer">
+            <% if cs[:testimonial][:photo].present? %>
+              <%= image_tag cs[:testimonial][:photo], class: 'case-detail-quote-photo rounded-circle', alt: cs[:testimonial][:name], loading: 'lazy' %>
+            <% end %>
+            <div>
+              <strong class="d-block"><%= cs[:testimonial][:name] %></strong>
+              <% if cs[:testimonial][:title].present? %><span class="text-muted"><%= cs[:testimonial][:title] %><% if cs[:testimonial][:company].present? %>, <%= cs[:testimonial][:company] %><% end %></span><% end %>
+            </div>
+          </footer>
+        </blockquote>
+      </section>
+    <% end %>
+
+    <%# 7. Technical Details (expandable) %>
+    <% if cs[:technical_details].present? %>
+      <section class="case-detail-section mb-4">
+        <div class="accordion case-detail-accordion" id="case-detail-tech-<%= slug.parameterize %>">
+          <div class="accordion-item border rounded">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#case-detail-tech-body-<%= slug.parameterize %>" aria-expanded="false" aria-controls="case-detail-tech-body-<%= slug.parameterize %>">
+                Technical details (architecture, features, integrations, security)
+              </button>
+            </h2>
+            <div id="case-detail-tech-body-<%= slug.parameterize %>" class="accordion-collapse collapse" data-bs-parent="#case-detail-tech-<%= slug.parameterize %>">
+              <div class="accordion-body">
+                <% if cs[:technical_details][:architecture].present? %>
+                  <h4 class="h6 mb-2">Architecture overview</h4>
+                  <p class="case-detail-para mb-3"><%= cs[:technical_details][:architecture] %></p>
+                <% end %>
+                <% if cs[:technical_details][:features].present? %>
+                  <h4 class="h6 mb-2">Key features implemented</h4>
+                  <ul class="bullet-list mb-3">
+                    <% Array(cs[:technical_details][:features]).each do |f| %><li><%= f %></li><% end %>
+                  </ul>
+                <% end %>
+                <% if cs[:technical_details][:integrations].present? %>
+                  <h4 class="h6 mb-2">Integration points</h4>
+                  <ul class="bullet-list mb-3">
+                    <% Array(cs[:technical_details][:integrations]).each do |i| %><li><%= i %></li><% end %>
+                  </ul>
+                <% end %>
+                <% if cs[:technical_details][:security].present? %>
+                  <h4 class="h6 mb-2">Security &amp; compliance measures</h4>
+                  <ul class="bullet-list mb-0">
+                    <% Array(cs[:technical_details][:security]).each do |s| %><li><%= s %></li><% end %>
+                  </ul>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    <% end %>
+
+    <%# 8. Related Services %>
+    <% if cs[:related_services].present? %>
+      <section class="case-detail-related mb-4">
+        <h3 class="h6 text-uppercase text-muted mb-2">Related services</h3>
+        <div class="d-flex flex-wrap gap-2">
+          <% Array(cs[:related_services]).each do |svc| %>
+            <%= link_to svc[:label], svc[:path], class: 'btn btn-outline-primary btn-sm' %>
+          <% end %>
+        </div>
+      </section>
+    <% end %>
+  </div>
+</article>

@@ -1,0 +1,241 @@
+<%# Reusable Service Page Template. Pass local: service (Hash with keys below) %>
+<%# service: name, tagline, cta_text, cta_url, overview_paragraphs[], problems_solved[], approach_different, benefits[], deliverables[], technical_specs[], timeline, tech_stack[], recent_results[], process_intro, process_phases[], cta_heading, cta_subheading, show_contact_form (optional) %>
+<% cta_text = service[:cta_text].presence || "Schedule Discovery Call" %>
+<% cta_url = service[:cta_url].presence || "https://calendly.com/ahmadkamran/new-meeting" %>
+
+<!-- Hero Section -->
+<div class="hero-section py-5 service-page-hero">
+  <div class="container">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-12 col-lg-9 mx-auto text-center">
+        <h1 class="display-4 fw-bold mb-4" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;">
+          <%= service[:name] %>
+        </h1>
+        <p class="lead mb-4" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto;">
+          <%= service[:tagline] %>
+        </p>
+        <a href="<%= cta_url %>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+          <%= cta_text %>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="inner-sections service-page-body">
+
+  <% if service[:overview_paragraphs].present? || service[:problems_solved].present? || service[:approach_different].present? %>
+  <!-- Overview Section -->
+  <div class="py-5 bg-white" id="overview">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Overview</h2>
+          <% Array(service[:overview_paragraphs]).each do |para| %>
+            <p class="large-para mb-4"><%= para %></p>
+          <% end %>
+          <% if service[:problems_solved].present? %>
+            <h3 class="h5 mb-2 mt-4">What Problems This Solves</h3>
+            <ul class="service-page-list mb-4">
+              <% Array(service[:problems_solved]).each do |item| %>
+                <li><%= item %></li>
+              <% end %>
+            </ul>
+          <% end %>
+          <% if service[:approach_different].present? %>
+            <h3 class="h5 mb-2 mt-3">How We Approach It Differently</h3>
+            <p class="large-para mb-0"><%= service[:approach_different] %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+  <% if service[:benefits].present? %>
+  <!-- Business Benefits Grid -->
+  <div class="py-5 bg-light-grey" id="benefits">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Business Benefits</h2>
+        <p class="large-para mb-0" style="max-width: 700px; margin: 0 auto;">What you gain when you work with us on this service.</p>
+      </div>
+      <div class="row g-4">
+        <% Array(service[:benefits]).each do |benefit| %>
+          <div class="col-12 col-sm-6 col-lg-3">
+            <div class="build-system-card p-4 h-100 service-benefit-card">
+              <div class="build-icon-wrapper mb-3">
+                <div class="build-icon">
+                  <i class="fa <%= benefit[:icon] %>" aria-hidden="true"></i>
+                </div>
+              </div>
+              <h4 class="mb-2"><%= benefit[:title] %></h4>
+              <p class="mb-3"><%= benefit[:description] %></p>
+              <% if benefit[:metric].present? %>
+                <div class="service-benefit-metric"><%= benefit[:metric] %></div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+  <% if service[:deliverables].present? || service[:technical_specs].present? || service[:timeline].present? %>
+  <!-- What We Deliver -->
+  <div class="py-5 bg-white" id="deliverables">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">What We Deliver</h2>
+          <% if service[:deliverables].present? %>
+            <h3 class="h5 mb-2">Key Deliverables</h3>
+            <ul class="service-page-list mb-4">
+              <% Array(service[:deliverables]).each do |item| %>
+                <li><%= item %></li>
+              <% end %>
+            </ul>
+          <% end %>
+          <% if service[:technical_specs].present? %>
+            <h3 class="h5 mb-2 mt-4">Technical Specifications</h3>
+            <ul class="service-page-list mb-4">
+              <% Array(service[:technical_specs]).each do |item| %>
+                <li><%= item %></li>
+              <% end %>
+            </ul>
+          <% end %>
+          <% if service[:timeline].present? %>
+            <h3 class="h5 mb-2 mt-3">Timeline Expectations</h3>
+            <p class="large-para mb-0"><%= service[:timeline] %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+  <% if service[:tech_stack].present? %>
+  <!-- Technology Stack -->
+  <div class="py-5 bg-light-grey" id="technology">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Technology Stack</h2>
+        <p class="large-para mb-0" style="max-width: 650px; margin: 0 auto;">Frameworks, languages, and platforms we use for this service.</p>
+      </div>
+      <div class="row g-3 justify-content-center">
+        <% Array(service[:tech_stack]).each do |tech| %>
+          <div class="col-6 col-md-4 col-lg-2">
+            <div class="service-tech-item">
+              <% if tech[:icon].present? %>
+                <i class="fa <%= tech[:icon] %> service-tech-icon" aria-hidden="true"></i>
+              <% end %>
+              <span class="service-tech-name"><%= tech[:name] %></span>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+  <% if service[:recent_results].present? %>
+  <!-- Recent Results / Case Studies -->
+  <div class="py-5 bg-white" id="results">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Recent Results</h2>
+        <p class="large-para mb-0" style="max-width: 700px; margin: 0 auto;">Client stories and outcomes from our AI agent work.</p>
+      </div>
+      <div class="row g-4">
+        <% Array(service[:recent_results]).each do |result| %>
+          <div class="col-12 col-lg-6">
+            <div class="workflow-card p-4 h-100">
+              <h4 class="mb-2"><%= result[:title] %></h4>
+              <% if result[:description].present? %>
+                <p class="mb-3"><%= result[:description] %></p>
+              <% end %>
+              <% if result[:metrics].present? %>
+                <ul class="service-metrics-list mb-3">
+                  <% Array(result[:metrics]).each do |m| %>
+                    <li><%= m %></li>
+                  <% end %>
+                </ul>
+              <% end %>
+              <% if result[:quote].present? %>
+                <blockquote class="service-result-quote mb-0">
+                  <p class="mb-2">&ldquo;<%= result[:quote] %>&rdquo;</p>
+                  <% if result[:client_name].present? %>
+                    <cite class="small text-muted">&mdash; <%= result[:client_name] %><% if result[:client_title].present? %>, <%= result[:client_title] %><% end %></cite>
+                  <% end %>
+                </blockquote>
+              <% end %>
+              <% if result[:link].present? %>
+                <a href="<%= result[:link] %>" class="btn btn-outline-primary btn-sm mt-3">Read case study →</a>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+  <% if service[:process_intro].present? || service[:process_phases].present? %>
+  <!-- Process Section -->
+  <div class="py-5 bg-light-grey" id="process">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">How This Service Follows Our Methodology</h2>
+          <% if service[:process_intro].present? %>
+            <p class="large-para mb-4"><%= service[:process_intro] %></p>
+          <% end %>
+          <% if service[:process_phases].present? %>
+            <h3 class="h5 mb-3">Typical Project Phases</h3>
+            <div class="row g-3">
+              <% Array(service[:process_phases]).each_with_index do |phase, i| %>
+                <div class="col-12 col-md-6">
+                  <div class="service-phase-card">
+                    <span class="service-phase-num"><%= i + 1 %></span>
+                    <div>
+                      <strong><%= phase[:title] %></strong>
+                      <p class="mb-0 small text-muted"><%= phase[:description] %></p>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+            <% if service[:process_expect].present? %>
+              <h3 class="h5 mb-2 mt-4">What Clients Can Expect</h3>
+              <p class="large-para mb-0"><%= service[:process_expect] %></p>
+            <% end %>
+          <% end %>
+          <div class="text-center mt-4">
+            <a href="/methodology" class="btn btn-outline-primary">View full A'sTechware Framework →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+  <!-- CTA Section -->
+  <div class="py-5 bg-white" id="service-cta">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-8 mx-auto text-center">
+          <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block"><%= service[:cta_heading].presence || "Ready to Get Started?" %></h2>
+          <p class="large-para mb-4"><%= service[:cta_subheading].presence || "Tell us about your project and we'll outline how we can help." %></p>
+          <% if service[:show_contact_form] %>
+            <%= link_to "Contact Us", contact_path, class: "btn btn-primary btn-lg rounded-pill px-5 me-2" %>
+          <% end %>
+          <a href="<%= cta_url %>" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+            <%= cta_text %>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

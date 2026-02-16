@@ -16,6 +16,24 @@ class HomeController < ApplicationController
   def ai_agents
   end
 
+  def ai_agent_development
+  end
+
+  def machine_learning
+  end
+
+  def platform_modernization
+  end
+
+  def custom_software
+  end
+
+  def api_integrations
+  end
+
+  def devops_engineering
+  end
+
   def submit_form
     @form = Form.new(form_params)
     ContactFormMailer.submit_contact_form(@form).deliver
@@ -37,6 +55,7 @@ class HomeController < ApplicationController
   end
 
   def portfolio
+    # Case studies are 100% hardcoded in app/views/home/portfolio.html.erb (no DB, no lib).
   end
 
   def projects
@@ -48,7 +67,31 @@ class HomeController < ApplicationController
   def derisk_projects
   end
 
+  def methodology
+  end
+
+  def industry_healthcare
+  end
+
+  def industry_legal
+  end
+
+  def industry_financial
+  end
+
+  def industry_b2b_saas
+  end
+
+  def industry_professional_services
+  end
+
+  def industry_edtech
+  end
+
   def privacy_policy
+  end
+
+  def terms_of_service
   end
 
   def unsubscribe

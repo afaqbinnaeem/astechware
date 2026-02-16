@@ -1,0 +1,803 @@
+<% content_for :head do %>
+  <% og_image = safe_og_image_url('logo-colored.png') %>
+  <% if og_image.present? %>
+    <% set_meta_tags(
+      title: "Education Technology Solutions | Learning Platforms & Student Management | A'sTechware",
+      description: "Build scalable EdTech platforms, LMS, student information systems, and engagement tools. FERPA-compliant, accessible, and designed for measurable learning outcomes.",
+      keywords: "EdTech development, learning management system, student information system, online learning platform, education technology solutions",
+      og: { title: "Education Technology Solutions | A'sTechware", description: "Learning platforms, student management & engagement tools built for scale.", image: og_image, url: safe_request_url, type: 'website', site_name: "A'sTechware" },
+      twitter: { card: 'summary_large_image', title: "Education Technology Solutions | A'sTechware", description: "Learning platforms, student management & engagement tools built for scale.", image: og_image }
+    ) %>
+  <% else %>
+    <% set_meta_tags(
+      title: "Education Technology Solutions | Learning Platforms & Student Management | A'sTechware",
+      description: "Build scalable EdTech platforms, LMS, student information systems, and engagement tools. FERPA-compliant, accessible, and designed for measurable learning outcomes.",
+      keywords: "EdTech development, learning management system, student information system, online learning platform, education technology solutions",
+      og: { title: "Education Technology Solutions | A'sTechware", description: "Learning platforms, student management & engagement tools built for scale.", url: safe_request_url, type: 'website', site_name: "A'sTechware" },
+      twitter: { card: 'summary', title: "Education Technology Solutions | A'sTechware", description: "Learning platforms, student management & engagement tools built for scale." }
+    ) %>
+  <% end %>
+<% end %>
+
+<!-- Hero Section -->
+<div class="hero-section py-5 service-page-hero edtech-hero industry-landing-hero">
+  <div class="container">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-12 col-lg-8 mx-auto text-center">
+        <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;">
+          Education Technology Solutions
+        </h1>
+        <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.4; max-width: 720px; margin-left: auto; margin-right: auto;">
+          Learning Platforms, Student Management &amp; Engagement Tools Built for Scale
+        </p>
+        <p class="mb-4" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
+          We build learning platforms, student management systems, content delivery infrastructure, and engagement tools for educational institutions, corporate training programs, and online education providers. Built for scale, accessibility, and measurable learning outcomes.
+        </p>
+        <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+          Schedule Free Consultation
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="inner-sections edtech-industry-page">
+
+  <!-- Overview -->
+  <section class="py-5 bg-white" id="overview">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Transforming Education Through Technology</h2>
+          <p class="large-para mb-4">
+            Education technology has the power to democratize learning, personalize instruction, and scale quality education globally. We build EdTech platforms that handle real-world educational complexity—from K-12 schools to universities, corporate training programs to online course platforms.
+          </p>
+          <p class="large-para mb-4">
+            Our EdTech solutions focus on three core pillars: robust learning management, seamless content delivery, and meaningful student engagement. Whether you're building a new learning platform from scratch, modernizing legacy systems, or adding AI-powered personalization, we deliver production-ready solutions that scale with your student population.
+          </p>
+          <p class="large-para mb-4">
+            We understand that EdTech isn't just about technology—it's about learning outcomes, instructor effectiveness, student engagement, and administrative efficiency. Our solutions are designed to support educators, empower learners, and provide administrators with actionable insights.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Challenges (8 cards) -->
+  <section class="py-5 bg-light-grey" id="challenges">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Challenges Educational Organizations Face</h2>
+      </div>
+      <div class="row g-3">
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">1</span>
+            <h4 class="h6 mb-2">Legacy Systems That Can't Scale</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Outdated LMS platforms that can't handle growth</li>
+              <li>Poor mobile experience for modern learners</li>
+              <li>Integration challenges with modern tools</li>
+              <li>High maintenance costs and limited flexibility</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">2</span>
+            <h4 class="h6 mb-2">Poor Student Engagement</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Generic one-size-fits-all content</li>
+              <li>Lack of interactive and multimedia learning</li>
+              <li>No personalization or adaptive learning</li>
+              <li>Low course completion rates</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">3</span>
+            <h4 class="h6 mb-2">Content Management Complexity</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Difficult to create, update, and organize content</li>
+              <li>No version control or content reuse</li>
+              <li>Manual grading and assessment</li>
+              <li>Limited multimedia support</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">4</span>
+            <h4 class="h6 mb-2">Administrative Burden</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Manual enrollment and registration</li>
+              <li>Time-consuming attendance tracking</li>
+              <li>Complex reporting requirements</li>
+              <li>Disconnected systems requiring duplicate data entry</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">5</span>
+            <h4 class="h6 mb-2">Limited Analytics &amp; Insights</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>No visibility into student progress</li>
+              <li>Cannot identify at-risk students early</li>
+              <li>Difficulty measuring learning outcomes</li>
+              <li>No data-driven decision making</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">6</span>
+            <h4 class="h6 mb-2">Accessibility &amp; Compliance</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>WCAG/ADA compliance challenges</li>
+              <li>Not accessible to students with disabilities</li>
+              <li>FERPA/COPPA compliance complexity</li>
+              <li>Multi-language support needs</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">7</span>
+            <h4 class="h6 mb-2">Instructor Tools &amp; Support</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Limited tools for content creation</li>
+              <li>Time-consuming grading and feedback</li>
+              <li>Difficulty managing large classes</li>
+              <li>No collaboration features</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">8</span>
+            <h4 class="h6 mb-2">Cost &amp; Budget Constraints</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Expensive per-seat licensing models</li>
+              <li>Hidden costs and vendor lock-in</li>
+              <li>Limited budgets for IT infrastructure</li>
+              <li>Need for cost-effective solutions</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our EdTech Solutions (8 sections) -->
+  <section class="py-5 bg-white" id="solutions">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Our EdTech Solutions</h2>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">1. Learning Management Systems (LMS)</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Complete LMS platforms from scratch</li>
+              <li>LMS modernization and migration</li>
+              <li>Mobile-first learning experiences</li>
+              <li>Offline learning capabilities</li>
+              <li>Multi-tenancy for institutions/organizations</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Course creation and management; student enrollment and progress tracking</li>
+              <li>Assignment submission and grading; discussion forums and collaboration</li>
+              <li>Video content delivery and streaming; quiz and assessment engine</li>
+              <li>Certificate generation; mobile apps (iOS/Android or PWA)</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-0 small">K-12 schools and districts; universities and colleges; corporate training; online course providers; professional development platforms.</p>
+          </div>
+
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">2. Student Information Systems (SIS)</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Complete student information management</li>
+              <li>Enrollment and registration automation</li>
+              <li>Attendance tracking systems</li>
+              <li>Grade management and reporting</li>
+              <li>Parent/guardian portals; administrative dashboards</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Student profiles and records; class scheduling and roster management</li>
+              <li>Real-time attendance; gradebook and transcript generation</li>
+              <li>Communication tools (email/SMS/push); document management</li>
+              <li>Reporting and analytics; integration with state/district systems</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-0 small">K-12 schools and districts; charter school networks; private schools; alternative education programs.</p>
+          </div>
+
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">3. Content Delivery &amp; Course Authoring</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Course authoring tools; content management systems</li>
+              <li>Video streaming platforms</li>
+              <li>Interactive content delivery</li>
+              <li>SCORM/xAPI-compliant systems</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Drag-and-drop course builder; multimedia (video, audio, interactive)</li>
+              <li>Version control and content reuse; content libraries and templates</li>
+              <li>Adaptive content delivery; CDN integration; offline content sync</li>
+              <li>Assessment and quiz builder</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-0 small">Course creators and instructors; corporate training; educational publishers; online course marketplaces.</p>
+          </div>
+
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">4. Student Engagement &amp; Communication</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Student engagement platforms</li>
+              <li>Communication and notification systems</li>
+              <li>Gamification and rewards; social learning features</li>
+              <li>AI-powered chatbots for support</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Real-time notifications (email/SMS/push); discussion forums and chat</li>
+              <li>Peer-to-peer collaboration; gamification (badges, leaderboards, points)</li>
+              <li>AI teaching assistants; student support chatbots</li>
+              <li>Virtual office hours; parent/guardian communication</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-0 small">Improving course completion; building learning communities; 24/7 student support; increasing parent engagement.</p>
+          </div>
+
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">5. Learning Analytics &amp; Insights</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Learning analytics dashboards</li>
+              <li>Predictive analytics for student success</li>
+              <li>Reporting and compliance systems</li>
+              <li>Early warning systems for at-risk students</li>
+              <li>Learning outcome measurement</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Real-time progress tracking; engagement metrics</li>
+              <li>Predictive modeling (dropout risk, success prediction)</li>
+              <li>Customizable reports and dashboards; learning outcome assessment</li>
+              <li>Compliance reporting; data visualization; export and integration</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-0 small">Identifying at-risk students early; measuring program effectiveness; compliance and accreditation; data-driven curriculum improvements.</p>
+          </div>
+
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">6. AI-Powered Personalization</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Adaptive learning systems</li>
+              <li>Personalized learning paths</li>
+              <li>AI tutoring and assistance</li>
+              <li>Intelligent content recommendations</li>
+              <li>Automated grading and feedback</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Adaptive content delivery; personalized recommendations</li>
+              <li>AI-powered tutoring and Q&amp;A</li>
+              <li>Automated essay grading and feedback</li>
+              <li>Learning style identification; skill gap analysis; customized study plans</li>
+              <li>Natural language processing for student queries</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-0 small">Personalized learning; scaling one-on-one tutoring; reducing instructor grading time; improving learning outcomes.</p>
+          </div>
+
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">7. Assessment &amp; Testing Platforms</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Online testing and assessment systems</li>
+              <li>Quiz and exam builders</li>
+              <li>Proctoring solutions</li>
+              <li>Skills assessment platforms</li>
+              <li>Certification management</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Multiple question types (MCQ, essay, coding, etc.)</li>
+              <li>Question banks and randomization; timed assessments</li>
+              <li>Auto-grading and manual grading workflows</li>
+              <li>Plagiarism detection; remote proctoring integration</li>
+              <li>Skills-based assessments; certificate and badge issuance</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-0 small">Online exams and quizzes; skills certification; entrance and placement testing; professional development assessments.</p>
+          </div>
+
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">8. Corporate Training &amp; Professional Development</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Corporate LMS platforms</li>
+              <li>Skills training and tracking</li>
+              <li>Compliance training systems</li>
+              <li>Onboarding automation</li>
+              <li>Professional development tracking</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Role-based training paths; compliance tracking and reporting</li>
+              <li>Skills assessment and gap analysis</li>
+              <li>Training effectiveness measurement</li>
+              <li>Integration with HR systems; mobile learning</li>
+              <li>Certification management; continuing education credits (CEU)</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-0 small">Employee onboarding; compliance training; skills development; professional certification programs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EdTech-Specific Benefits (6 cards) -->
+  <section class="py-5 bg-light-grey" id="benefits">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">EdTech-Specific Benefits</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100">
+            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-graduation-cap" aria-hidden="true"></i></div></div>
+            <h4 class="h5 mb-2">Improved Learning Outcomes</h4>
+            <p class="mb-0 small">Personalized learning; data-driven instruction; early intervention for struggling students; 25–40% improvement in course completion (industry average).</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100">
+            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-users" aria-hidden="true"></i></div></div>
+            <h4 class="h5 mb-2">Increased Student Engagement</h4>
+            <p class="mb-0 small">Interactive and multimedia content; gamification and social learning; mobile-first accessibility; 2–3x increase in student interaction.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100">
+            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-cogs" aria-hidden="true"></i></div></div>
+            <h4 class="h5 mb-2">Operational Efficiency</h4>
+            <p class="mb-0 small">Automated administrative tasks; reduced manual data entry; streamlined enrollment and registration; 50–70% reduction in admin time.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100">
+            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-blackboard" aria-hidden="true"></i></div></div>
+            <h4 class="h5 mb-2">Better Instructor Experience</h4>
+            <p class="mb-0 small">Easy content creation and management; automated grading and feedback; real-time student progress visibility; 10–15 hours saved weekly per instructor.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100">
+            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-bar-chart" aria-hidden="true"></i></div></div>
+            <h4 class="h5 mb-2">Data-Driven Decision Making</h4>
+            <p class="mb-0 small">Real-time analytics and insights; identify trends and patterns; measure program effectiveness; evidence-based curriculum improvements.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100">
+            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-line-chart" aria-hidden="true"></i></div></div>
+            <h4 class="h5 mb-2">Scalability &amp; Cost Savings</h4>
+            <p class="mb-0 small">Serve more students without proportional costs; cloud-based auto-scaling; reduce per-student technology costs; 30–50% cost reduction vs traditional systems.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Stack -->
+  <section class="py-5 bg-white" id="technology">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Technology Stack</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Learning Platforms</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Open-source LMS (Moodle, Canvas, Open edX) customization</li>
+              <li>Custom LMS (React, Node.js, Python/Django)</li>
+              <li>Mobile apps (React Native, Flutter); PWA</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Content Delivery</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Video streaming (AWS MediaConvert, Cloudflare Stream)</li>
+              <li>CDN (CloudFlare, CloudFront)</li>
+              <li>SCORM/xAPI/LTI; H5P for interactive content</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Data &amp; Analytics</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Learning analytics (xAPI/Learning Record Store)</li>
+              <li>PostgreSQL or MongoDB; D3.js, Chart.js</li>
+              <li>Predictive analytics with ML</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">AI &amp; Personalization</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>NLP (spaCy, NLTK)</li>
+              <li>Recommendation engines (TensorFlow, scikit-learn)</li>
+              <li>Automated grading (OpenAI GPT, Claude)</li>
+              <li>Chatbot frameworks (Rasa, Dialogflow)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Integrations</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>SIS integration; SSO (SAML, OAuth, LDAP)</li>
+              <li>Video conferencing (Zoom, Microsoft Teams)</li>
+              <li>Stripe, PayPal; Google Classroom, Teams for Education</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Security &amp; Compliance</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>FERPA/COPPA compliance</li>
+              <li>WCAG 2.1 AA accessibility</li>
+              <li>Data encryption; role-based access</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compliance & Standards -->
+  <section class="py-5 bg-light-grey" id="compliance">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Compliance &amp; Standards</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-lg-6">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Educational Standards We Support</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li><strong>FERPA:</strong> Protecting student privacy and data</li>
+              <li><strong>COPPA:</strong> Children's online privacy protection</li>
+              <li><strong>WCAG 2.1 AA:</strong> Web accessibility standards</li>
+              <li><strong>Section 508:</strong> Federal accessibility requirements</li>
+              <li><strong>SCORM/xAPI:</strong> E-learning content standards</li>
+              <li><strong>LTI:</strong> Learning Tools Interoperability</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Best Practices</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Universal Design for Learning (UDL)</li>
+              <li>Mobile-first responsive design</li>
+              <li>Offline learning capabilities</li>
+              <li>Multi-language and localization</li>
+              <li>Privacy by design</li>
+              <li>Inclusive and accessible content</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Study Spotlights (3) -->
+  <section class="py-5 bg-white" id="case-studies">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Case Study Spotlights</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-lg-4">
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h4 class="h5 mb-3">K-12 District LMS Migration</h4>
+            <p class="small text-muted mb-2">Mid-sized school district (15,000 students)</p>
+            <h5 class="h6 mt-3 mb-1">Challenge</h5>
+            <p class="small mb-2">Outdated LMS couldn't support remote learning; poor mobile experience; limited parent communication; no real-time analytics.</p>
+            <h5 class="h6 mb-1">Solution</h5>
+            <p class="small mb-2">Custom modern LMS with mobile apps; parent portal and communication; real-time analytics dashboard; integration with existing SIS.</p>
+            <h5 class="h6 mb-1">Results</h5>
+            <ul class="small mb-0 ps-3" style="line-height: 1.6;">95% student daily engagement (up from 60%); 40% improvement in course completion; 85% parent satisfaction (up from 45%); 15 hours/week saved per administrator.</ul>
+            <%= link_to "Read case studies →", case_studies_path, class: "d-inline-block mt-3 fw-semibold small" %>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4">
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h4 class="h5 mb-3">Corporate Training Platform</h4>
+            <p class="small text-muted mb-2">Fortune 500 company</p>
+            <h5 class="h6 mt-3 mb-1">Challenge</h5>
+            <p class="small mb-2">Disconnected training systems; no skills tracking or certification; compliance training difficult to track; poor mobile experience for remote workforce.</p>
+            <h5 class="h6 mb-1">Solution</h5>
+            <p class="small mb-2">Unified corporate LMS; skills assessment and gap analysis; automated compliance tracking; mobile-first design.</p>
+            <h5 class="h6 mb-1">Results</h5>
+            <ul class="small mb-0 ps-3" style="line-height: 1.6;">97% compliance completion (up from 72%); 3x faster onboarding; $1.2M annual training cost savings; 89% employee satisfaction.</ul>
+            <%= link_to "Read case studies →", case_studies_path, class: "d-inline-block mt-3 fw-semibold small" %>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4">
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h4 class="h5 mb-3">Online Course Platform</h4>
+            <p class="small text-muted mb-2">Online education startup</p>
+            <h5 class="h6 mt-3 mb-1">Challenge</h5>
+            <p class="small mb-2">Scale from 0 to 100,000 students; video streaming and content delivery; payment and subscriptions; instructor tools and course authoring.</p>
+            <h5 class="h6 mb-1">Solution</h5>
+            <p class="small mb-2">Scalable marketplace platform; video streaming with CDN; course authoring for instructors; subscription and payment management.</p>
+            <h5 class="h6 mb-1">Results</h5>
+            <ul class="small mb-0 ps-3" style="line-height: 1.6;">150,000+ students in 18 months; 99.9% uptime during peak; 78% course completion (industry avg 15%); $8M+ revenue in first year.</ul>
+            <%= link_to "Read case studies →", case_studies_path, class: "d-inline-block mt-3 fw-semibold small" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Typical Project Timeline -->
+  <section class="py-5 bg-light-grey" id="timeline">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Typical Project Timeline</h2>
+          <p class="large-para mb-4">Timeline varies based on platform complexity and scope.</p>
+          <div class="row g-3">
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Phase 1: Weeks 1–2</span>
+                <h4 class="h6 mt-2 mb-2">Discovery &amp; Planning</h4>
+                <p class="mb-0 small">Requirements and stakeholder interviews; current system audit; user personas; feature prioritization; technical architecture.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Phase 2: Weeks 3–4</span>
+                <h4 class="h6 mt-2 mb-2">Design &amp; Prototyping</h4>
+                <p class="mb-0 small">UX design; interface and branding; interactive prototypes; accessibility review; user testing.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Phase 3: Weeks 5–12</span>
+                <h4 class="h6 mt-2 mb-2">Core Development</h4>
+                <p class="mb-0 small">Auth; course/content management; enrollment and progress; assessment and grading; communication; mobile (if applicable).</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Phase 4: Weeks 13–16</span>
+                <h4 class="h6 mt-2 mb-2">Integration &amp; Enhancement</h4>
+                <p class="mb-0 small">SIS/HR integration; payment processing; video streaming; analytics and reporting; third-party integrations.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Phase 5: Weeks 17–18</span>
+                <h4 class="h6 mt-2 mb-2">Testing &amp; Refinement</h4>
+                <p class="mb-0 small">UAT; performance and load testing; accessibility compliance; security audit; bug fixes.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Phase 6: Weeks 19–20</span>
+                <h4 class="h6 mt-2 mb-2">Launch &amp; Training</h4>
+                <p class="mb-0 small">Pilot with select users; staff training and documentation; production deployment; post-launch support; continuous improvement.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who We Serve -->
+  <section class="py-5 bg-white" id="who-we-serve">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Who We Serve</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-2">K-12 Schools &amp; Districts</h4>
+            <p class="mb-0 small">Public and private schools; charter school networks; school districts; alternative education; homeschool cooperatives.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-2">Higher Education</h4>
+            <p class="mb-0 small">Community colleges; universities; professional schools; research institutions; continuing education.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-2">Corporate &amp; Professional</h4>
+            <p class="mb-0 small">Fortune 500; SMBs; professional associations; training firms; certification bodies.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-2">Online Education</h4>
+            <p class="mb-0 small">Online course providers; EdTech startups; course marketplaces; bootcamps; tutoring platforms.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-5 bg-light-grey" id="faq">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Frequently Asked Questions</h2>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="accordion edtech-faq" id="edtechFaq">
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#edfaq1" aria-expanded="false" aria-controls="edfaq1">How long does it take to build a custom LMS?</button>
+              </h3>
+              <div id="edfaq1" class="accordion-collapse collapse" data-bs-parent="#edtechFaq">
+                <div class="accordion-body">A basic LMS can be built in 3–4 months; a comprehensive platform with advanced features may take 6–9 months. We recommend starting with an MVP and iterating based on user feedback.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#edfaq2" aria-expanded="false" aria-controls="edfaq2">Can you integrate with our existing Student Information System (SIS)?</button>
+              </h3>
+              <div id="edfaq2" class="accordion-collapse collapse" data-bs-parent="#edtechFaq">
+                <div class="accordion-body">Yes. We integrate with major SIS platforms including PowerSchool, Infinite Campus, Skyward, and others, and can build custom integrations for proprietary systems.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#edfaq3" aria-expanded="false" aria-controls="edfaq3">How do you ensure FERPA/COPPA compliance?</button>
+              </h3>
+              <div id="edfaq3" class="accordion-collapse collapse" data-bs-parent="#edtechFaq">
+                <div class="accordion-body">We build privacy and security into the architecture from day one: data encryption, access controls, audit logging, parental consent workflows. We also provide compliance documentation and training.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#edfaq4" aria-expanded="false" aria-controls="edfaq4">Can the platform handle thousands of concurrent users?</button>
+              </h3>
+              <div id="edfaq4" class="accordion-collapse collapse" data-bs-parent="#edtechFaq">
+                <div class="accordion-body">Yes. We design for scale using cloud infrastructure (AWS, GCP, Azure) with auto-scaling. We've built platforms that handle 100,000+ concurrent users during peak times.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#edfaq5" aria-expanded="false" aria-controls="edfaq5">What about accessibility for students with disabilities?</button>
+              </h3>
+              <div id="edfaq5" class="accordion-collapse collapse" data-bs-parent="#edtechFaq">
+                <div class="accordion-body">We follow WCAG 2.1 AA and Section 508, including screen reader support, keyboard navigation, captions for videos, and alternative text. Accessibility is tested throughout development.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#edfaq6" aria-expanded="false" aria-controls="edfaq6">Can instructors create their own content?</button>
+              </h3>
+              <div id="edfaq6" class="accordion-collapse collapse" data-bs-parent="#edtechFaq">
+                <div class="accordion-body">Yes. We build intuitive course authoring tools so instructors can create and manage content without technical expertise—multimedia, quizzes, assignments, and interactive elements.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#edfaq7" aria-expanded="false" aria-controls="edfaq7">How much does a custom EdTech platform cost?</button>
+              </h3>
+              <div id="edfaq7" class="accordion-collapse collapse" data-bs-parent="#edtechFaq">
+                <div class="accordion-body">Costs vary by scope. A basic LMS starts around $50–80K; comprehensive platforms with advanced features may range from $150–500K+. We offer phased approaches to spread costs.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#edfaq8" aria-expanded="false" aria-controls="edfaq8">Do you provide ongoing support and maintenance?</button>
+              </h3>
+              <div id="edfaq8" class="accordion-collapse collapse" data-bs-parent="#edtechFaq">
+                <div class="accordion-body">Yes. We offer support packages including bug fixes, security updates, feature enhancements, and technical support, plus training for your team to manage the platform independently.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#edfaq9" aria-expanded="false" aria-controls="edfaq9">Can you help with content migration from our old system?</button>
+              </h3>
+              <div id="edfaq9" class="accordion-collapse collapse" data-bs-parent="#edtechFaq">
+                <div class="accordion-body">Yes. We provide data migration services to transfer courses, user data, grades, and content from legacy systems, ensuring data integrity and minimal disruption.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#edfaq10" aria-expanded="false" aria-controls="edfaq10">How do you measure the success of an EdTech platform?</button>
+              </h3>
+              <div id="edfaq10" class="accordion-collapse collapse" data-bs-parent="#edtechFaq">
+                <div class="accordion-body">We focus on measurable outcomes: student engagement, course completion rates, learning outcomes, instructor time savings, administrative efficiency, and user satisfaction scores.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="py-5 bg-white" id="related">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Related Services</h2>
+      </div>
+      <div class="row g-3 justify-content-center">
+        <div class="col-6 col-md-4 col-lg-2">
+          <%= link_to ai_agent_development_path, class: "btn btn-outline-primary w-100 py-3 small" do %>AI Agent Development<% end %>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <%= link_to custom_software_path, class: "btn btn-outline-primary w-100 py-3 small" do %>Custom Software<% end %>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <%= link_to machine_learning_path, class: "btn btn-outline-primary w-100 py-3 small" do %>Machine Learning<% end %>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <%= link_to api_integrations_path, class: "btn btn-outline-primary w-100 py-3 small" do %>API Integrations<% end %>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <%= link_to devops_engineering_path, class: "btn btn-outline-primary w-100 py-3 small" do %>DevOps Engineering<% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-5 bg-light-grey" id="cta">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="workflow-card p-5 p-lg-5 text-center">
+            <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Ready to Transform Education with Technology?</h2>
+            <p class="lead mb-4">Whether you're building a new learning platform, modernizing an existing system, or adding AI-powered features, we're here to help.</p>
+            <h4 class="h6 mb-3">What You Get:</h4>
+            <ul class="list-unstyled mb-4" style="line-height: 2;">
+              <li>Free 60-minute consultation</li>
+              <li>Platform assessment and recommendations</li>
+              <li>Technology roadmap and timeline</li>
+              <li>Transparent pricing and approach</li>
+            </ul>
+            <div class="d-flex flex-wrap gap-3 justify-content-center mb-4">
+              <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">Schedule Free Consultation</a>
+              <%= link_to "View Our Portfolio", case_studies_path, class: "btn btn-outline-primary btn-lg rounded-pill px-4" %>
+            </div>
+            <p class="mb-0 small text-muted">Email: <a href="mailto:ahmad@astechware.com" class="text-decoration-none">ahmad@astechware.com</a> • Book a call: <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="text-decoration-none">Calendly</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

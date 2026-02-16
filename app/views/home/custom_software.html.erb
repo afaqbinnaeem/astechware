@@ -1,0 +1,594 @@
+<% content_for :head do %>
+  <% og_image = safe_og_image_url('logo-colored.png') %>
+  <% if og_image.present? %>
+    <% set_meta_tags(
+      title: "Custom Software Development | A'sTechware",
+      description: "Full-stack SaaS platforms and internal tools built for production. End-to-end delivery with architecture, APIs, and long-term support. No vendor lock-in.",
+      og: { title: "Custom Software Development | A'sTechware", description: "Full-stack SaaS platforms and internal tools built for production.", image: og_image, url: safe_request_url, type: 'website', site_name: "A'sTechware" },
+      twitter: { card: 'summary_large_image', title: "Custom Software Development | A'sTechware", description: "Full-stack SaaS platforms and internal tools built for production.", image: og_image }
+    ) %>
+  <% else %>
+    <% set_meta_tags(
+      title: "Custom Software Development | A'sTechware",
+      description: "Full-stack SaaS platforms and internal tools built for production. End-to-end delivery—architecture, APIs, and long-term support.",
+      og: { title: "Custom Software Development | A'sTechware", description: "Full-stack SaaS platforms and internal tools built for production.", url: safe_request_url, type: 'website', site_name: "A'sTechware" },
+      twitter: { card: 'summary', title: "Custom Software Development | A'sTechware", description: "Full-stack SaaS platforms and internal tools built for production." }
+    ) %>
+  <% end %>
+<% end %>
+
+<!-- Hero Section -->
+<div class="hero-section py-5 service-page-hero custom-software-hero">
+  <div class="container">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-12 col-lg-9 mx-auto text-center">
+        <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;">
+          Custom Software Development
+        </h1>
+        <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.4; max-width: 720px; margin-left: auto; margin-right: auto;">
+          Full-Stack SaaS Platforms and Internal Tools Built for Production
+        </p>
+        <p class="mb-4" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
+          We build SaaS platforms, internal tools, and operations software from concept to production. Full-stack delivery with architecture, APIs, and long-term support.
+        </p>
+        <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+          Schedule Discovery Call
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="inner-sections custom-software-service-page">
+
+  <!-- Overview -->
+  <section class="py-5 bg-white" id="overview">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Overview</h2>
+          <p class="large-para mb-4">
+            We deliver complete custom software—not half-finished handoffs. From discovery and design through build, deploy, and support, you get a production-ready system that you own. No vendor lock-in, no black boxes: you receive source code, documentation, and the ability to maintain or extend the product with us or on your own.
+          </p>
+          <p class="large-para mb-4">
+            Our engagements cover web and mobile applications, internal tools and admin systems, B2B SaaS products, and operations software. Every system is built for scale and maintainability from day one—with proper architecture, testing, and DevOps so you can ship with confidence.
+          </p>
+          <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.7;">
+            <li><strong>End-to-end platform development:</strong> From requirements and wireframes to production deployment and post-launch support.</li>
+            <li><strong>Web and mobile applications:</strong> Responsive web apps, PWAs, and native or cross-platform mobile (React Native) when needed.</li>
+            <li><strong>Internal tools and admin systems:</strong> Dashboards, workflows, and operations software that match how your team actually works.</li>
+            <li><strong>B2B SaaS products:</strong> Multi-tenant architecture, subscriptions, and features that scale with your customers.</li>
+            <li><strong>Operations and workflow software:</strong> Automate manual processes and integrate with your existing systems and data.</li>
+            <li><strong>Built for scale and maintainability:</strong> Clean architecture, tests, and documentation so the system grows with your business.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Challenges We Solve (6) -->
+  <section class="py-5 bg-light-grey" id="challenges">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Challenges We Solve</h2>
+        <p class="large-para mb-0" style="max-width: 640px; margin: 0 auto;">Why organizations choose custom software—and how we deliver without the usual gaps.</p>
+      </div>
+      <div class="row g-3">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">1</span>
+            <h4 class="h6 mb-2">Need for custom software but can't hire full engineering team</h4>
+            <p class="mb-0 small">We act as your engineering partner: full-stack delivery, clear communication, and handoff so you get a product without the overhead of hiring and managing a full team.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">2</span>
+            <h4 class="h6 mb-2">Off-the-shelf solutions don't fit unique workflows</h4>
+            <p class="mb-0 small">We build exactly what you need—workflows, data model, and integrations tailored to your business instead of forcing you into a generic product.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">3</span>
+            <h4 class="h6 mb-2">Stitching together multiple contractors leads to gaps</h4>
+            <p class="mb-0 small">One team owns the full stack: design, backend, frontend, DevOps, and documentation. No finger-pointing or integration gaps between vendors.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">4</span>
+            <h4 class="h6 mb-2">Legacy systems that can't keep up with business growth</h4>
+            <p class="mb-0 small">We build new systems that scale—or modernize existing ones—so you can grow without being held back by outdated technology.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">5</span>
+            <h4 class="h6 mb-2">Need to ship MVP fast but also maintain quality</h4>
+            <p class="mb-0 small">We ship in iterations with weekly demos—MVPs that are production-ready, not throwaway prototypes. Quality and speed together.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">6</span>
+            <h4 class="h6 mb-2">Integration with existing systems and data sources</h4>
+            <p class="mb-0 small">We integrate with your CRM, payments, analytics, and internal systems via APIs and secure data flows—no rip-and-replace required.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Approach -->
+  <section class="py-5 bg-white" id="approach">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Our Approach</h2>
+          <p class="large-para mb-4">We deliver complete solutions with production-ready architecture from day one—no shortcuts that create technical debt later.</p>
+          <ul class="service-page-list mb-0" style="font-size: 1.05rem;">
+            <li><strong>Requirements discovery and validation:</strong> We align on scope, users, and success metrics before writing code so we build the right thing.</li>
+            <li><strong>User-centered design and UX:</strong> Wireframes and flows designed for your specific users and workflows—not generic templates.</li>
+            <li><strong>Iterative development with weekly demos:</strong> You see working software every week; we adjust based on feedback so there are no surprises at launch.</li>
+            <li><strong>Production-ready architecture from day one:</strong> Scalable structure, security, and deployment from the first sprint—not bolted on at the end.</li>
+            <li><strong>Comprehensive testing:</strong> Unit, integration, and E2E tests so we catch regressions early and deploy with confidence.</li>
+            <li><strong>DevOps and deployment automation:</strong> CI/CD, monitoring, and backups so you can ship and operate without manual heroics.</li>
+            <li><strong>Documentation and team training:</strong> You get docs, runbooks, and training so your team can own and extend the system.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Business Benefits (6 cards) -->
+  <section class="py-5 bg-light-grey" id="benefits">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Business Benefits</h2>
+        <p class="large-para mb-0" style="max-width: 640px; margin: 0 auto;">Why custom software pays off—competitive advantage, efficiency, and full ownership.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-trophy" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Competitive Advantage</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Build exactly what you need, not what's available</li>
+              <li>Differentiate with custom features</li>
+              <li>Own your technology roadmap</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-cogs" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Operational Efficiency</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Automate manual processes</li>
+              <li>Reduce human error</li>
+              <li>Scale without hiring proportionally</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Better User Experience</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Design for your specific users</li>
+              <li>Intuitive workflows tailored to your business</li>
+              <li>Mobile and web accessibility</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-database" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Data Ownership &amp; Control</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Your data stays yours</li>
+              <li>Custom reporting and analytics</li>
+              <li>Integration with your existing systems</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-line-chart" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Scalability &amp; Flexibility</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Built to grow with your business</li>
+              <li>Add features as needs evolve</li>
+              <li>Adapt to market changes quickly</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-money" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Long-Term Cost Savings</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Eliminate expensive SaaS subscriptions</li>
+              <li>Reduce per-user licensing costs</li>
+              <li>Own and control maintenance</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Deliver -->
+  <section class="py-5 bg-white" id="deliverables">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">What We Deliver</h2>
+        <p class="large-para mb-0" style="max-width: 640px; margin: 0 auto;">Complete solutions—product, backend, integrations, DevOps, and documentation. You own everything.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-uppercase text-muted mb-3">Product Development</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+              <li>Web application (responsive design)</li>
+              <li>Mobile apps (iOS/Android or PWA)</li>
+              <li>Admin dashboards and tools</li>
+              <li>User authentication and authorization</li>
+              <li>Multi-tenancy (if SaaS)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-uppercase text-muted mb-3">Backend Infrastructure</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+              <li>RESTful or GraphQL APIs</li>
+              <li>Database design and optimization</li>
+              <li>Business logic and workflows</li>
+              <li>Background job processing</li>
+              <li>File storage and media handling</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-uppercase text-muted mb-3">Integrations</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+              <li>Payment processing (Stripe, PayPal, etc.)</li>
+              <li>Email/SMS (SendGrid, Twilio)</li>
+              <li>CRM (Salesforce, HubSpot)</li>
+              <li>Analytics (Google Analytics, Mixpanel)</li>
+              <li>Third-party API integrations</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-uppercase text-muted mb-3">DevOps &amp; Deployment</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+              <li>Automated CI/CD pipelines</li>
+              <li>Cloud hosting (AWS/GCP/Azure)</li>
+              <li>Monitoring and alerting</li>
+              <li>Automated backups</li>
+              <li>Security best practices</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-uppercase text-muted mb-3">Documentation &amp; Support</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+              <li>Technical documentation</li>
+              <li>API documentation</li>
+              <li>User guides and training</li>
+              <li>Source code with comments</li>
+              <li>30–60 days post-launch support</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Stack -->
+  <section class="py-5 bg-light-grey" id="technology">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Technology Stack</h2>
+        <p class="large-para mb-0" style="max-width: 640px; margin: 0 auto;">Modern, proven technologies—we match the stack to your requirements and team.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Frontend</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>React, Next.js, or Vue.js</li>
+              <li>TypeScript for type safety</li>
+              <li>Tailwind CSS for styling</li>
+              <li>Responsive and accessible design</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Backend</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Node.js (Express/NestJS) or Python (FastAPI/Django)</li>
+              <li>PostgreSQL or MongoDB</li>
+              <li>Redis for caching</li>
+              <li>File storage (S3, CloudFlare R2)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Mobile</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>React Native (cross-platform)</li>
+              <li>Progressive Web App (PWA)</li>
+              <li>Native iOS/Android (if needed)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Infrastructure</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>AWS, GCP, or Azure</li>
+              <li>Docker containerization</li>
+              <li>GitHub/GitLab for version control</li>
+              <li>Automated testing and deployment</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="py-5 bg-white" id="timeline">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Timeline</h2>
+          <p class="large-para mb-4">Typical 18-week path from discovery to production. Timeline varies significantly based on scope and complexity—we’ll tailor phases to your project.</p>
+          <div class="row g-3">
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Weeks 1–2</span>
+                <h4 class="h6 mt-2 mb-2">Discovery &amp; Wireframes</h4>
+                <p class="mb-0 small">Requirements, validation, and wireframes so we build the right product.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Weeks 3–4</span>
+                <h4 class="h6 mt-2 mb-2">Architecture &amp; Schema</h4>
+                <p class="mb-0 small">Architecture design, database schema, and technical blueprint.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Weeks 5–12</span>
+                <h4 class="h6 mt-2 mb-2">Core Feature Development</h4>
+                <p class="mb-0 small">Sprint-based development with weekly demos; MVP and core features.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Weeks 13–16</span>
+                <h4 class="h6 mt-2 mb-2">Testing &amp; Refinement</h4>
+                <p class="mb-0 small">Testing, bug fixes, performance tuning, and polish.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Weeks 17–18</span>
+                <h4 class="h6 mt-2 mb-2">Deployment &amp; Training</h4>
+                <p class="mb-0 small">Production deployment, team training, and handoff.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Study Spotlight (2) -->
+  <section class="py-5 bg-light-grey" id="case-study">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Case Study Spotlight</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-lg-6">
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h4 class="h5 mb-3">Golf Operations Platform</h4>
+            <div class="mb-3">
+              <h5 class="h6 text-uppercase text-muted mb-2">Challenge</h5>
+              <p class="mb-0 small">Manage tee times, memberships, and payments across multiple courses with no unified system.</p>
+            </div>
+            <div class="mb-3">
+              <h5 class="h6 text-uppercase text-muted mb-2">Solution</h5>
+              <p class="mb-0 small">Full-stack SaaS platform with mobile app: booking, POS, member management, and AI receptionist.</p>
+            </div>
+            <div class="mb-0">
+              <h5 class="h6 text-uppercase text-muted mb-2">Results</h5>
+              <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+                <li>500+ daily bookings</li>
+                <li>Online bookings: 15% → 84%</li>
+                <li>~$42K additional annual revenue; 120+ billable hours saved monthly</li>
+              </ul>
+            </div>
+            <%= link_to "Read full case study →", case_studies_path + "#golf-saas", class: "d-inline-block mt-3 fw-semibold small" %>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6">
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h4 class="h5 mb-3">Wellness Clinic Platform</h4>
+            <div class="mb-3">
+              <h5 class="h6 text-uppercase text-muted mb-2">Challenge</h5>
+              <p class="mb-0 small">Manual appointment booking, paper forms, no patient portal; no-shows and phone volume draining revenue.</p>
+            </div>
+            <div class="mb-3">
+              <h5 class="h6 text-uppercase text-muted mb-2">Solution</h5>
+              <p class="mb-0 small">HIPAA-compliant patient portal with e-forms, scheduling, reminders, and AI-assisted triage.</p>
+            </div>
+            <div class="mb-0">
+              <h5 class="h6 text-uppercase text-muted mb-2">Results</h5>
+              <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+                <li>No-shows: 35% → 6%</li>
+                <li>~90% reduction in admin time on booking</li>
+                <li>~$28K/month recovered revenue; expansion from 6 to 8 locations</li>
+              </ul>
+            </div>
+            <%= link_to "Read full case study →", case_studies_path + "#wellness-clinic", class: "d-inline-block mt-3 fw-semibold small" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs (8) -->
+  <section class="py-5 bg-white" id="faqs">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Frequently Asked Questions</h2>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="accordion custom-software-faq-accordion" id="customSoftwareFaqAccordion">
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#csfaq1" aria-expanded="false" aria-controls="csfaq1">How much does custom software development cost?</button>
+              </h3>
+              <div id="csfaq1" class="accordion-collapse collapse" data-bs-parent="#customSoftwareFaqAccordion">
+                <div class="accordion-body">Cost depends on scope, complexity, and timeline. We provide fixed-scope estimates after discovery so you have a clear budget. Many projects run in the $50K–$200K range for a production MVP; we’ll outline options (phased delivery, MVP first) so you can choose what fits.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#csfaq2" aria-expanded="false" aria-controls="csfaq2">How long does it take to build an MVP?</button>
+              </h3>
+              <div id="csfaq2" class="accordion-collapse collapse" data-bs-parent="#customSoftwareFaqAccordion">
+                <div class="accordion-body">Typically 8–16 weeks for a production-ready MVP, depending on features and integrations. We work in 2-week sprints with demos so you see progress and can adjust scope. We don’t deliver “prototypes” that can’t go live—our MVPs are deployable and maintainable.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#csfaq3" aria-expanded="false" aria-controls="csfaq3">Can you help us validate our idea before building?</button>
+              </h3>
+              <div id="csfaq3" class="accordion-collapse collapse" data-bs-parent="#customSoftwareFaqAccordion">
+                <div class="accordion-body">Yes. We offer discovery and validation engagements: user research, wireframes, technical feasibility, and a clear roadmap. You get a prioritized scope and estimate before committing to full build—so you can validate with minimal investment.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#csfaq4" aria-expanded="false" aria-controls="csfaq4">Do we own the source code?</button>
+              </h3>
+              <div id="csfaq4" class="accordion-collapse collapse" data-bs-parent="#customSoftwareFaqAccordion">
+                <div class="accordion-body">Yes. You receive full ownership of the source code, documentation, and assets. We deliver via your repo (e.g. GitHub/GitLab) or hand off in a format you specify. No lock-in—you can maintain or extend with us or another team.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#csfaq5" aria-expanded="false" aria-controls="csfaq5">What happens after launch?</button>
+              </h3>
+              <div id="csfaq5" class="accordion-collapse collapse" data-bs-parent="#customSoftwareFaqAccordion">
+                <div class="accordion-body">We include 30–60 days of post-launch support: bug fixes, monitoring, and training. After that, you can run the system in-house using the docs and runbooks we provide, or we can offer a retainer for ongoing maintenance and new features.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#csfaq6" aria-expanded="false" aria-controls="csfaq6">Can you maintain and add features after launch?</button>
+              </h3>
+              <div id="csfaq6" class="accordion-collapse collapse" data-bs-parent="#customSoftwareFaqAccordion">
+                <div class="accordion-body">Yes. Many clients engage us for ongoing work: new features, integrations, and maintenance. We work in the same codebase we built, so we’re efficient and don’t leave you with a system only we could ever understand.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#csfaq7" aria-expanded="false" aria-controls="csfaq7">How do you ensure the software is secure?</button>
+              </h3>
+              <div id="csfaq7" class="accordion-collapse collapse" data-bs-parent="#customSoftwareFaqAccordion">
+                <div class="accordion-body">We follow security best practices: authentication/authorization, encryption in transit and at rest, dependency updates, and secure deployment. For regulated domains (healthcare, finance) we align to HIPAA, SOC 2, or GDPR as needed. We document security controls and can support audits.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#csfaq8" aria-expanded="false" aria-controls="csfaq8">Can you integrate with our existing systems?</button>
+              </h3>
+              <div id="csfaq8" class="accordion-collapse collapse" data-bs-parent="#customSoftwareFaqAccordion">
+                <div class="accordion-body">Yes. We integrate with CRMs, ERPs, payment systems, and internal APIs. We use standard protocols (REST, webhooks, OAuth) and work with your team to define data flows and security. Integration scope is part of discovery so it’s included in the plan and timeline.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="py-5 bg-light-grey" id="related">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Related Services</h2>
+      </div>
+      <div class="row g-3 justify-content-center">
+        <div class="col-6 col-md-3">
+          <%= link_to platform_modernization_path, class: "btn btn-outline-primary w-100 py-3" do %>
+            <i class="fa fa-wrench me-2" aria-hidden="true"></i>Platform Modernization
+          <% end %>
+        </div>
+        <div class="col-6 col-md-3">
+          <%= link_to projects_path, class: "btn btn-outline-primary w-100 py-3" do %>
+            <i class="fa fa-code-fork me-2" aria-hidden="true"></i>DevOps Engineering
+          <% end %>
+        </div>
+        <div class="col-6 col-md-3">
+          <%= link_to api_integrations_path, class: "btn btn-outline-primary w-100 py-3" do %>
+            <i class="fa fa-plug me-2" aria-hidden="true"></i>API Integrations
+          <% end %>
+        </div>
+        <div class="col-6 col-md-3">
+          <%= link_to contact_path, class: "btn btn-outline-primary w-100 py-3" do %>
+            <i class="fa fa-paint-brush me-2" aria-hidden="true"></i>UI/UX Design
+          <% end %>
+        </div>
+        <div class="col-6 col-md-3">
+          <%= link_to contact_path, class: "btn btn-outline-primary w-100 py-3" do %>
+            <i class="fa fa-mobile me-2" aria-hidden="true"></i>Mobile App Development
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-8 mx-auto text-center">
+          <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Ready to Build Your Product?</h2>
+          <p class="lead mb-4">Schedule a discovery call to discuss your idea, scope an MVP, and get a realistic timeline and estimate. We deliver complete solutions—not half-finished handoffs.</p>
+          <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+            Schedule Discovery Call
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,533 @@
+<% content_for :head do %>
+  <% og_image = safe_og_image_url('logo-colored.png') %>
+  <% if og_image.present? %>
+    <% set_meta_tags(
+      title: "AI Agent Development Services | A'sTechware",
+      description: "Production-ready AI agents and copilots with enterprise governance built in. Human-in-the-loop, audit trails, observability. We build AI that works in real workflows—not demos.",
+      og: { title: "AI Agent Development Services | A'sTechware", description: "Production-ready AI agents with enterprise governance built in.", image: og_image, url: safe_request_url, type: 'website', site_name: "A'sTechware" },
+      twitter: { card: 'summary_large_image', title: "AI Agent Development Services | A'sTechware", description: "Production-ready AI agents with enterprise governance.", image: og_image }
+    ) %>
+  <% else %>
+    <% set_meta_tags(
+      title: "AI Agent Development Services | A'sTechware",
+      description: "Production-ready AI agents and copilots with enterprise governance built in. Human-in-the-loop, audit trails, observability from day one.",
+      og: { title: "AI Agent Development Services | A'sTechware", description: "Production-ready AI agents with enterprise governance.", url: safe_request_url, type: 'website', site_name: "A'sTechware" },
+      twitter: { card: 'summary', title: "AI Agent Development Services | A'sTechware", description: "Production-ready AI agents with enterprise governance." }
+    ) %>
+  <% end %>
+<% end %>
+
+<!-- Hero Section -->
+<div class="hero-section py-5 service-page-hero ai-agent-hero">
+  <div class="container">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-12 col-lg-9 mx-auto text-center">
+        <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;">
+          AI Agent Development Services
+        </h1>
+        <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.4; max-width: 720px; margin-left: auto; margin-right: auto;">
+          Production-Ready AI Agents with Enterprise Governance Built In
+        </p>
+        <p class="mb-4" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
+          We build AI agents and copilots that handle real workflows in production. Every agent includes human-in-the-loop protocols, audit trails, and observability from day one.
+        </p>
+        <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+          Schedule Discovery Call
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="inner-sections ai-agent-service-page">
+
+  <!-- Overview -->
+  <section class="py-5 bg-white" id="overview">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Overview</h2>
+          <p class="large-para mb-4">
+            We build AI agents that run in production—handling real users, messy data, and edge cases. Not demos that break under load or prototypes that never ship. Our agents are designed to survive real environments and scale safely.
+          </p>
+          <p class="large-para mb-4">
+            Every engagement starts with governance. Human-in-the-loop protocols, escalation paths, and audit trails are designed in from the first sprint—not bolted on when compliance asks. We integrate with your existing systems (CRM, ticketing, messaging) so you get operational value without rip-and-replace.
+          </p>
+          <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.7;">
+            <li><strong>Survive production:</strong> Messy data, edge cases, and real users—with error handling, fallbacks, and monitoring from day one.</li>
+            <li><strong>Governance from the start:</strong> Human oversight, role-based access, and compliance-ready logging built into the architecture.</li>
+            <li><strong>Escalations done right:</strong> Clear handoff rules, confidence thresholds, and operator dashboards so nothing falls through the cracks.</li>
+            <li><strong>Complete audit trails:</strong> Every decision and action logged for compliance, dispute resolution, and continuous improvement.</li>
+            <li><strong>Scale safely:</strong> Model-agnostic design, staged rollouts, and performance monitoring so you grow without breaking.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Challenges We Solve -->
+  <section class="py-5 bg-light-grey" id="challenges">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Challenges We Solve</h2>
+        <p class="large-para mb-0" style="max-width: 640px; margin: 0 auto;">Common pain points that block AI from reaching production—and how we address them.</p>
+      </div>
+      <div class="row g-3">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">1</span>
+            <h4 class="h6 mb-2">Prototype AI that fails in production</h4>
+            <p class="mb-0 small">We build for real data and real users from day one—error handling, fallbacks, and load testing included.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">2</span>
+            <h4 class="h6 mb-2">Lack of human oversight and safety controls</h4>
+            <p class="mb-0 small">Human-in-the-loop is designed in: escalation rules, confidence thresholds, and operator dashboards.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">3</span>
+            <h4 class="h6 mb-2">No audit trails or compliance tracking</h4>
+            <p class="mb-0 small">Every agent decision and data access is logged—ready for HIPAA, SOC 2, GDPR, or internal audit.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">4</span>
+            <h4 class="h6 mb-2">AI making decisions without context</h4>
+            <p class="mb-0 small">We wire agents to your systems so they have the right context—and clear boundaries on what they can and cannot do.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">5</span>
+            <h4 class="h6 mb-2">Poor error handling and edge case management</h4>
+            <p class="mb-0 small">Graceful degradation, retries, and handoff to humans when the agent is unsure—no silent failures.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">6</span>
+            <h4 class="h6 mb-2">Inability to explain AI decisions to stakeholders</h4>
+            <p class="mb-0 small">Reasoning traces, confidence scores, and runbooks so your team and auditors can understand every outcome.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Approach -->
+  <section class="py-5 bg-white" id="approach">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Our Approach</h2>
+          <p class="large-para mb-4">Production-first AI development—governance and reliability before features.</p>
+          <ul class="service-page-list mb-0" style="font-size: 1.05rem;">
+            <li><strong>Start with governance architecture:</strong> Define human-in-the-loop points, escalation rules, and audit requirements before writing code.</li>
+            <li><strong>Build human-in-the-loop from day one:</strong> Every agent flow includes handoff paths and operator visibility—not added later.</li>
+            <li><strong>Implement comprehensive logging and monitoring:</strong> Every decision, API call, and data access logged; dashboards and alerts from week one.</li>
+            <li><strong>Test with real data and edge cases:</strong> Staging runs against production-like data and failure scenarios before go-live.</li>
+            <li><strong>Deploy with rollback capabilities:</strong> Feature flags, staged rollout, and one-click rollback so you can ship with confidence.</li>
+            <li><strong>Continuous performance monitoring:</strong> Track accuracy, latency, escalation rate, and business outcomes—and iterate.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Business Benefits (6 cards) -->
+  <section class="py-5 bg-light-grey" id="benefits">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Business Benefits</h2>
+        <p class="large-para mb-0" style="max-width: 640px; margin: 0 auto;">What you gain when you deploy production-ready AI agents—with metrics that matter.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-line-chart" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Operational Efficiency</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Automate 60–80% of repetitive tasks</li>
+              <li>24/7 availability without human fatigue</li>
+              <li>Scale without proportional cost increases</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-shield" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Risk Mitigation</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Human oversight on critical decisions</li>
+              <li>Complete audit trails for compliance</li>
+              <li>Fallback protocols prevent failures</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-rocket" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Faster Time-to-Value</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>3–8 weeks from concept to production</li>
+              <li>Iterative deployment reduces risk</li>
+              <li>See ROI within first quarter</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-bar-chart" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Data-Driven Insights</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Every interaction logged and analyzed</li>
+              <li>Identify process improvement opportunities</li>
+              <li>Continuous learning from real usage</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-puzzle-piece" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Seamless Integration</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Works with existing systems</li>
+              <li>API-first architecture</li>
+              <li>No rip-and-replace required</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-cogs" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Future-Proof Architecture</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Model-agnostic design</li>
+              <li>Easy to update and improve</li>
+              <li>Scales as your business grows</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Deliver -->
+  <section class="py-5 bg-white" id="deliverables">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">What We Deliver</h2>
+        <p class="large-para mb-0" style="max-width: 640px; margin: 0 auto;">Technical outputs, documentation, governance, and support—so you can operate and scale with confidence.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-uppercase text-muted mb-3">Technical Deliverables</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+              <li>Production-ready AI agent(s)</li>
+              <li>Human-in-the-loop workflows</li>
+              <li>Admin dashboard for monitoring</li>
+              <li>Integration with your systems</li>
+              <li>Role-based access controls</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-uppercase text-muted mb-3">Documentation</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+              <li>System architecture diagrams</li>
+              <li>API documentation</li>
+              <li>Admin user guides</li>
+              <li>Escalation protocols</li>
+              <li>Runbook for operations team</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-uppercase text-muted mb-3">Governance &amp; Compliance</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+              <li>Complete audit logging</li>
+              <li>Compliance checklist (HIPAA/SOC 2/GDPR)</li>
+              <li>Privacy controls and data handling</li>
+              <li>Security review documentation</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-uppercase text-muted mb-3">Support</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+              <li>30 days post-launch support</li>
+              <li>Training for your team</li>
+              <li>Ongoing optimization plan</li>
+              <li>Monitoring and alerting setup</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Stack -->
+  <section class="py-5 bg-light-grey" id="technology">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Technology Stack</h2>
+        <p class="large-para mb-0" style="max-width: 640px; margin: 0 auto;">Frameworks and infrastructure we use to build production-ready agents.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">AI / ML Tools</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>LangGraph for agent orchestration</li>
+              <li>OpenAI GPT-4, Anthropic Claude, or Google Gemini</li>
+              <li>LangSmith for observability</li>
+              <li>Custom prompt engineering</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Backend</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Python (FastAPI) or Node.js</li>
+              <li>PostgreSQL with pgvector for retrieval</li>
+              <li>Redis for caching</li>
+              <li>Celery for background tasks</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Infrastructure</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>AWS / GCP / Azure (your preference)</li>
+              <li>Docker containerization</li>
+              <li>CI/CD with automated testing</li>
+              <li>Monitoring with OpenTelemetry</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="py-5 bg-white" id="timeline">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Timeline</h2>
+          <p class="large-para mb-4">Typical 8-week path from discovery to production. We work in milestones so you can validate progress at every step.</p>
+          <div class="row g-3">
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Weeks 1–2</span>
+                <h4 class="h6 mt-2 mb-2">Discovery &amp; Architecture</h4>
+                <p class="mb-0 small">Requirements, workflow mapping, governance design, and architecture blueprint.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Weeks 3–4</span>
+                <h4 class="h6 mt-2 mb-2">Core Agent &amp; Human-in-the-Loop</h4>
+                <p class="mb-0 small">Core agent development, escalation flows, and operator dashboards.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Weeks 5–6</span>
+                <h4 class="h6 mt-2 mb-2">Integration &amp; Testing</h4>
+                <p class="mb-0 small">Integration with your systems, testing with real scenarios and edge cases.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Weeks 7–8</span>
+                <h4 class="h6 mt-2 mb-2">Deployment &amp; Training</h4>
+                <p class="mb-0 small">Production deployment, team training, runbooks, and handoff.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Study Spotlight -->
+  <section class="py-5 bg-light-grey" id="case-study">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Case Study Spotlight</h2>
+        <p class="lead mb-0">Healthcare AI Assistant</p>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="workflow-card p-4 p-lg-5">
+            <div class="row g-4">
+              <div class="col-12 col-md-4">
+                <h4 class="h6 text-uppercase text-muted mb-2">Challenge</h4>
+                <p class="mb-0 small">5,000+ patient inquiries monthly; staff overwhelmed. No-shows and phone volume were bleeding revenue and capacity.</p>
+              </div>
+              <div class="col-12 col-md-4">
+                <h4 class="h6 text-uppercase text-muted mb-2">Solution</h4>
+                <p class="mb-0 small">AI agent for appointment scheduling, FAQs, and triage—with HIPAA-compliant messaging and human escalation for complex or sensitive cases.</p>
+              </div>
+              <div class="col-12 col-md-4">
+                <h4 class="h6 text-uppercase text-muted mb-2">Results</h4>
+                <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+                  <li><strong>5,127 tickets</strong> auto-resolved in first 90 days</li>
+                  <li>No-shows: <strong>35% → 6%</strong></li>
+                  <li>Staff focuses on complex cases; recovered revenue ~$28K/month</li>
+                </ul>
+              </div>
+            </div>
+            <div class="mt-4 pt-4 border-top">
+              <%= link_to "Read full case study →", case_studies_path + "#wellness-clinic", class: "fw-semibold" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="py-5 bg-white" id="faqs">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Frequently Asked Questions</h2>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="accordion ai-agent-faq-accordion" id="aiAgentFaqAccordion">
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1">How do you ensure AI doesn't make dangerous decisions?</button>
+              </h3>
+              <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#aiAgentFaqAccordion">
+                <div class="accordion-body">We design human-in-the-loop from the start. Critical decisions (e.g. refunds, medical advice, legal conclusions) require human approval or are never delegated to the agent. We define clear boundaries, confidence thresholds, and escalation rules so the AI only acts within safe scope. Every action is logged for audit.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">What happens when the AI encounters something it can't handle?</button>
+              </h3>
+              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#aiAgentFaqAccordion">
+                <div class="accordion-body">We build graceful handoff. When confidence is low or the request is out of scope, the agent escalates to a human (with full context) or returns a clear “I need to connect you with someone” response. No silent failures or wrong answers—fallback protocols are part of the design.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">Can we audit every decision the AI makes?</button>
+              </h3>
+              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#aiAgentFaqAccordion">
+                <div class="accordion-body">Yes. Every agent decision, API call, and data access is logged with timestamps, user context, and reasoning where applicable. You get dashboards and exportable logs for compliance, dispute resolution, and continuous improvement. We align to HIPAA, SOC 2, and GDPR requirements where relevant.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">How long until we see ROI?</button>
+              </h3>
+              <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#aiAgentFaqAccordion">
+                <div class="accordion-body">Most clients see measurable impact within the first quarter after launch—e.g. tickets deflected, hours recovered, no-shows reduced. We define success metrics up front (e.g. “5,000 tickets auto-resolved in 90 days”) and track them from day one so you can report ROI to leadership.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">What ongoing costs should we expect?</button>
+              </h3>
+              <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#aiAgentFaqAccordion">
+                <div class="accordion-body">Costs include LLM API usage (scales with volume), hosting (your cloud or ours), and optional retainer for monitoring and optimization. We outline a cost model during discovery so there are no surprises. Many clients see net savings from day one due to reduced manual work.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6" aria-expanded="false" aria-controls="faq6">How do you handle privacy and data security?</button>
+              </h3>
+              <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#aiAgentFaqAccordion">
+                <div class="accordion-body">We follow data minimization: only the data needed for the task is sent to the agent. We use enterprise LLM options with BAAs where required (e.g. HIPAA). Data is not used for model training. We document privacy controls, retention, and access in the security review we deliver.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7" aria-expanded="false" aria-controls="faq7">Can this integrate with our CRM / ERP / ticketing system?</button>
+              </h3>
+              <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#aiAgentFaqAccordion">
+                <div class="accordion-body">Yes. We build API-first and integrate with HubSpot, Salesforce, Zendesk, ServiceNow, and custom systems. We work with your existing stack—no rip-and-replace. Integration scope is defined in discovery and included in the timeline.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="py-5 bg-light-grey" id="related">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Related Services</h2>
+      </div>
+      <div class="row g-3 justify-content-center">
+        <div class="col-6 col-md-3">
+          <%= link_to machine_learning_path, class: "btn btn-outline-primary w-100 py-3" do %>
+            <i class="fa fa-line-chart me-2" aria-hidden="true"></i>Machine Learning Solutions
+          <% end %>
+        </div>
+        <div class="col-6 col-md-3">
+          <%= link_to industry_healthcare_path, class: "btn btn-outline-primary w-100 py-3" do %>
+            <i class="fa fa-heartbeat me-2" aria-hidden="true"></i>Healthcare Automation
+          <% end %>
+        </div>
+        <div class="col-6 col-md-3">
+          <%= link_to industry_legal_path, class: "btn btn-outline-primary w-100 py-3" do %>
+            <i class="fa fa-balance-scale me-2" aria-hidden="true"></i>Legal Tech Solutions
+          <% end %>
+        </div>
+        <div class="col-6 col-md-3">
+          <%= link_to projects_path, class: "btn btn-outline-primary w-100 py-3" do %>
+            <i class="fa fa-code me-2" aria-hidden="true"></i>Custom Software Development
+          <% end %>
+        </div>
+        <div class="col-12 text-center mt-3">
+          <%= link_to "View all case studies", case_studies_path, class: "fw-semibold" %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-8 mx-auto text-center">
+          <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Ready to Build Production-Ready AI?</h2>
+          <p class="lead mb-4">Schedule a discovery call to map your use case, define success metrics, and get a realistic timeline. We don’t build demos—we build systems that run in production.</p>
+          <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+            Schedule Discovery Call
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,849 @@
+<% content_for :head do %>
+  <% og_image = safe_og_image_url('logo-colored.png') %>
+  <% if og_image.present? %>
+    <% set_meta_tags(
+      title: "Financial Services Technology Solutions | Secure Fintech Platforms & Payment Processing | A'sTechware",
+      description: "Build secure, compliant fintech platforms for payments, lending, fraud detection, and financial workflows. SOC 2, PCI DSS, KYC/AML expertise.",
+      keywords: "fintech development, payment processing platform, financial services technology, lending platform, fraud detection, KYC/AML automation, SOC 2 compliance",
+      og: { title: "Financial Services Technology Solutions | A'sTechware", description: "Secure platforms for payments, compliance, and AI-driven financial workflows.", image: og_image, url: safe_request_url, type: 'website', site_name: "A'sTechware" },
+      twitter: { card: 'summary_large_image', title: "Financial Services Technology Solutions | A'sTechware", description: "Secure platforms for payments, compliance, and AI-driven financial workflows.", image: og_image }
+    ) %>
+  <% else %>
+    <% set_meta_tags(
+      title: "Financial Services Technology Solutions | Secure Fintech Platforms & Payment Processing | A'sTechware",
+      description: "Build secure, compliant fintech platforms for payments, lending, fraud detection, and financial workflows. SOC 2, PCI DSS, KYC/AML expertise.",
+      keywords: "fintech development, payment processing platform, financial services technology, lending platform, fraud detection, KYC/AML automation, SOC 2 compliance",
+      og: { title: "Financial Services Technology Solutions | A'sTechware", description: "Secure platforms for payments, compliance, and AI-driven financial workflows.", url: safe_request_url, type: 'website', site_name: "A'sTechware" },
+      twitter: { card: 'summary', title: "Financial Services Technology Solutions | A'sTechware", description: "Secure platforms for payments, compliance, and AI-driven financial workflows." }
+    ) %>
+  <% end %>
+<% end %>
+
+<!-- Hero Section -->
+<div class="hero-section py-5 service-page-hero financial-hero industry-landing-hero">
+  <div class="container">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-12 col-lg-8 mx-auto text-center">
+        <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;">
+          Financial Services Technology Solutions
+        </h1>
+        <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.4; max-width: 720px; margin-left: auto; margin-right: auto;">
+          Secure Platforms for Payments, Compliance, and AI-Driven Financial Workflows
+        </p>
+        <p class="mb-4" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
+          Secure platforms for payments, invoicing, compliance, and AI-driven financial workflow automation. Built for fintech, banks, payment processors, and financial institutions that demand security, compliance, and reliability.
+        </p>
+        <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+          Schedule Free Fintech Consultation
+        </a>
+      </div>
+    </div>
+    <%# Optional hero image: add image to app/assets/images/financial-hero.jpg and uncomment %>
+    <%# <div class="row mt-5"><div class="col-12 col-lg-10 mx-auto text-center"><%= image_tag 'financial-hero.jpg', class: 'img-fluid rounded shadow', alt: 'Modern financial technology interface with security elements', loading: 'lazy' %><%# </div></div> %>
+  </div>
+</div>
+
+<div class="inner-sections financial-industry-page">
+
+  <!-- Overview -->
+  <section class="py-5 bg-white" id="overview">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Transforming Financial Services Through Technology</h2>
+          <p class="large-para mb-4">
+            The financial services industry is experiencing rapid digital transformation. Customers expect real-time payments, seamless mobile experiences, and personalized financial services—while regulators demand stricter compliance, fraud prevention, and data protection. Financial technology isn’t about replacing traditional banking; it’s about modernizing infrastructure, automating compliance, and delivering better customer experiences.
+          </p>
+          <p class="large-para mb-4">
+            We build financial services technology with deep expertise in payment processing, regulatory compliance (SOC 2, PCI DSS, KYC/AML), fraud detection, and scalable transaction systems. From fintech startups to established financial institutions, our solutions handle billions in transaction volume while maintaining security and compliance.
+          </p>
+          <p class="large-para mb-0">
+            Our fintech expertise spans payment processing, lending platforms, wealth management tools, accounting automation, fraud detection, compliance monitoring, and financial analytics. We understand that financial services technology requires zero-downtime reliability, real-time processing, and bulletproof security—and we architect systems accordingly.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Challenges (8 cards) -->
+  <section class="py-5 bg-light-grey" id="challenges">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Challenges Financial Services Organizations Face</h2>
+      </div>
+      <div class="row g-3">
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">1</span>
+            <h4 class="h6 mb-2">Legacy Systems &amp; Technical Debt</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Mainframe systems from the 1970s–80s still in production</li>
+              <li>Batch processing when customers expect real-time</li>
+              <li>Expensive to maintain, difficult to change</li>
+              <li>Cannot support modern features (mobile, APIs, real-time)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">2</span>
+            <h4 class="h6 mb-2">Complex Regulatory Compliance</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>SOC 2, PCI DSS, GDPR, CCPA, and more</li>
+              <li>KYC and AML requirements</li>
+              <li>Constantly changing regulations</li>
+              <li>Heavy audit and reporting burden</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">3</span>
+            <h4 class="h6 mb-2">Fraud &amp; Security Threats</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Sophisticated fraud schemes and identity theft</li>
+              <li>Account takeover and credential stuffing</li>
+              <li>Payment fraud and chargebacks</li>
+              <li>Data breaches with severe consequences</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">4</span>
+            <h4 class="h6 mb-2">Customer Experience Gaps</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Clunky mobile apps and outdated interfaces</li>
+              <li>Slow transaction processing and settlement</li>
+              <li>Poor self-service options</li>
+              <li>Lack of personalization and financial insights</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">5</span>
+            <h4 class="h6 mb-2">Payment Processing Challenges</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>High payment processing fees (2–3%+)</li>
+              <li>Slow settlement times (T+2 or longer)</li>
+              <li>Multiple payment methods to support</li>
+              <li>Complex reconciliation and reporting</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">6</span>
+            <h4 class="h6 mb-2">Manual Processes &amp; Inefficiency</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Manual loan underwriting and approval</li>
+              <li>Spreadsheet-based financial analysis</li>
+              <li>Manual reconciliation and accounting</li>
+              <li>Time-consuming compliance checks</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">7</span>
+            <h4 class="h6 mb-2">Data Silos &amp; Integration Issues</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Disconnected core banking, CRM, and operational systems</li>
+              <li>Manual data reconciliation</li>
+              <li>Poor analytics and insights</li>
+              <li>Difficulty getting holistic customer view</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">8</span>
+            <h4 class="h6 mb-2">Scaling &amp; Performance</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Cannot handle transaction volume spikes</li>
+              <li>Downtime during critical periods</li>
+              <li>Expensive to scale infrastructure</li>
+              <li>Slow response times during peak loads</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Financial Services Solutions (8 sections) -->
+  <section class="py-5 bg-white" id="solutions">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Our Financial Services Solutions</h2>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">1. Payment Processing Platforms</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Payment gateway integration</li>
+              <li>Multi-currency payment processing</li>
+              <li>ACH, wire transfer, and RTP (Real-Time Payments)</li>
+              <li>Digital wallet and mobile payments</li>
+              <li>Subscription billing and recurring payments</li>
+              <li>Payment orchestration platforms</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>All major payment methods (cards, ACH, wires, crypto)</li>
+              <li>Real-time processing and settlement</li>
+              <li>PCI DSS compliant tokenization</li>
+              <li>Fraud detection and prevention</li>
+              <li>Multi-currency and FX; automated reconciliation</li>
+              <li>Payment analytics; webhook notifications</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-0">E-commerce payment processing; subscription and SaaS billing; marketplace and platform payments; P2P payments; cross-border remittances.</p>
+          </div>
+
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">2. Banking &amp; Core Financial Systems</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Digital banking platforms</li>
+              <li>Core banking system modernization</li>
+              <li>Account management systems</li>
+              <li>Loan origination systems (LOS)</li>
+              <li>Credit card processing platforms</li>
+              <li>Treasury management systems</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Real-time account balances and transactions</li>
+              <li>Multi-account and multi-currency support</li>
+              <li>Automated transaction processing</li>
+              <li>Interest calculation and posting; statement generation</li>
+              <li>Mobile and online banking; API-first architecture</li>
+              <li>Regulatory reporting automation</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-0">Neobanks and challenger banks; credit unions; community banks; digital-only banks; Banking-as-a-Service (BaaS) platforms.</p>
+          </div>
+
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">3. Lending &amp; Underwriting Platforms</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Digital loan origination systems</li>
+              <li>Automated underwriting engines</li>
+              <li>Credit decision engines</li>
+              <li>Loan servicing platforms</li>
+              <li>Buy-Now-Pay-Later (BNPL) solutions</li>
+              <li>Alternative credit scoring</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Automated application and document collection</li>
+              <li>Real-time credit decisioning</li>
+              <li>Integration with credit bureaus (Experian, Equifax, TransUnion)</li>
+              <li>AI-powered risk assessment</li>
+              <li>Automated income and employment verification</li>
+              <li>Loan pricing and rate optimization; servicing and collections; borrower portal</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-0">Consumer lending (personal, auto, mortgages); small business lending; BNPL; P2P lending; invoice financing and factoring.</p>
+          </div>
+
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">4. Fraud Detection &amp; Prevention</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Real-time fraud detection systems</li>
+              <li>Transaction monitoring and alerts</li>
+              <li>Identity verification and KYC</li>
+              <li>AML compliance</li>
+              <li>Behavioral analytics and anomaly detection</li>
+              <li>Chargeback prevention</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Machine learning fraud models</li>
+              <li>Real-time transaction scoring</li>
+              <li>Device fingerprinting and behavioral biometrics</li>
+              <li>Velocity checks and pattern analysis</li>
+              <li>Automated case management; SAR generation</li>
+              <li>OFAC/watchlists integration; false positive reduction</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-0">Payment fraud prevention; account takeover detection; identity theft prevention; money laundering detection; chargeback mitigation.</p>
+          </div>
+
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">5. Wealth Management &amp; Investment Platforms</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Robo-advisory platforms</li>
+              <li>Portfolio management systems</li>
+              <li>Trading platforms</li>
+              <li>Financial planning tools</li>
+              <li>Client relationship management (CRM)</li>
+              <li>Reporting and analytics</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Automated portfolio rebalancing; tax-loss harvesting</li>
+              <li>Risk assessment and allocation</li>
+              <li>Real-time market data integration</li>
+              <li>Order management and execution</li>
+              <li>Client portal and mobile app</li>
+              <li>Performance reporting; regulatory compliance (SEC, FINRA)</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-0">Robo-advisors; RIA platforms; wealth management firms; family office technology; financial planning practices.</p>
+          </div>
+
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">6. Accounting &amp; Financial Operations</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Automated accounts payable/receivable</li>
+              <li>Invoice processing and matching</li>
+              <li>Expense management platforms</li>
+              <li>Financial close automation</li>
+              <li>Treasury and cash management</li>
+              <li>Financial reporting and consolidation</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Automated invoice capture (OCR)</li>
+              <li>3-way matching (PO, invoice, receipt)</li>
+              <li>Approval workflows and routing</li>
+              <li>Payment automation (ACH, checks, wires)</li>
+              <li>Expense policy enforcement</li>
+              <li>Multi-entity consolidation; real-time dashboards; audit trail</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-0">Corporate finance; accounting firms; fractional CFO services; multi-entity organizations; private equity portfolio companies.</p>
+          </div>
+
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">7. Compliance &amp; Regulatory Technology (RegTech)</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>KYC/AML automation</li>
+              <li>Transaction monitoring systems</li>
+              <li>Regulatory reporting automation</li>
+              <li>Audit and compliance management</li>
+              <li>Risk assessment platforms</li>
+              <li>Sanctions screening</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Automated identity verification (IDV)</li>
+              <li>Continuous customer screening</li>
+              <li>Real-time transaction monitoring</li>
+              <li>Automated SAR/CTR; regulatory report generation</li>
+              <li>Risk scoring; compliance workflow automation</li>
+              <li>Audit trail and documentation</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-0">Banks and financial institutions; fintech; MSBs; cryptocurrency exchanges; insurance companies.</p>
+          </div>
+
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <h3 class="h4 mb-3">8. Financial Analytics &amp; Business Intelligence</h3>
+            <h4 class="h6 text-uppercase text-muted mb-2">What We Build</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Real-time financial dashboards</li>
+              <li>Predictive analytics platforms</li>
+              <li>Customer lifetime value (LTV) modeling</li>
+              <li>Credit risk analytics</li>
+              <li>Financial forecasting tools</li>
+              <li>Profitability analysis</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Key Features</h4>
+            <ul class="mb-3 ps-3" style="line-height: 1.7;">
+              <li>Real-time data aggregation</li>
+              <li>Custom dashboard builder</li>
+              <li>Predictive modeling (churn, default, LTV)</li>
+              <li>Cohort analysis and segmentation</li>
+              <li>Scenario planning and stress testing</li>
+              <li>Automated reports; data visualization; API access</li>
+            </ul>
+            <h4 class="h6 text-uppercase text-muted mb-2">Use Cases</h4>
+            <p class="mb-0">Financial performance monitoring; risk management and stress testing; customer analytics; portfolio analysis; executive BI.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Financial Services-Specific Benefits (6 cards) -->
+  <section class="py-5 bg-light-grey" id="benefits">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Financial Services-Specific Benefits</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100">
+            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-shield" aria-hidden="true"></i></div></div>
+            <h4 class="h5 mb-2">Enhanced Security &amp; Compliance</h4>
+            <p class="mb-0 small">SOC 2, PCI DSS, GDPR built-in; automated KYC/AML reduce manual effort by 80%; real-time fraud detection; complete audit trails for regulators.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100">
+            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-users" aria-hidden="true"></i></div></div>
+            <h4 class="h5 mb-2">Improved Customer Experience</h4>
+            <p class="mb-0 small">Real-time payment processing; modern mobile-first interfaces; self-service portals reduce support calls by 60%; personalized financial insights.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100">
+            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-cogs" aria-hidden="true"></i></div></div>
+            <h4 class="h5 mb-2">Operational Efficiency</h4>
+            <p class="mb-0 small">Automated underwriting: days → minutes; 70–90% reduction in manual data entry and reconciliation; STP for routine transactions; 10x volume without proportional cost.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100">
+            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></div></div>
+            <h4 class="h5 mb-2">Fraud &amp; Risk Reduction</h4>
+            <p class="mb-0 small">Real-time fraud detection catches 95%+ of fraudulent transactions; AI reduces false positives 60–80%; automated AML 1000x faster; prevent losses worth 2–5% of volume.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100">
+            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-line-chart" aria-hidden="true"></i></div></div>
+            <h4 class="h5 mb-2">Revenue Growth</h4>
+            <p class="mb-0 small">Faster loan origination increases volume 40–60%; reduced abandonment (15%→5%); cross-sell with personalized recommendations; competitive pricing with automated underwriting.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100">
+            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-money" aria-hidden="true"></i></div></div>
+            <h4 class="h5 mb-2">Cost Savings</h4>
+            <p class="mb-0 small">50–70% reduction in compliance overhead; lower payment fees with direct integration; reduce support costs with self-service; cloud cuts IT costs 30–50%.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Stack -->
+  <section class="py-5 bg-white" id="technology">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Technology Stack for Financial Services</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Payment Processing</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Stripe, Plaid, Dwolla, PayPal APIs</li>
+              <li>ACH (Nacha), wire, RTP</li>
+              <li>Crypto (Coinbase Commerce, BitPay)</li>
+              <li>PSP integrations</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Core Banking &amp; Fintech</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Thought Machine, Mambu, Temenos</li>
+              <li>BaaS (Synapse, Unit, Treasury Prime)</li>
+              <li>Open banking (Plaid, Yodlee, Finicity)</li>
+              <li>Credit bureaus; alternative data (Pinwheel, Argyle)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Fraud &amp; Compliance</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Identity (Onfido, Jumio, Persona)</li>
+              <li>Fraud (Sift, Forter, Riskified)</li>
+              <li>KYC/AML (ComplyAdvantage, Chainalysis)</li>
+              <li>OFAC/sanctions; fraud orchestration</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Security &amp; Encryption</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>PCI DSS compliant infrastructure</li>
+              <li>Tokenization and AES-256 encryption</li>
+              <li>HSM; MFA</li>
+              <li>SOC 2 Type II cloud providers</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Data &amp; Analytics</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Real-time pipelines (Kafka, Kinesis)</li>
+              <li>Snowflake, BigQuery</li>
+              <li>ML (TensorFlow, scikit-learn)</li>
+              <li>Tableau, Looker, Power BI; credit risk modeling</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compliance & Regulatory Standards -->
+  <section class="py-5 bg-light-grey" id="compliance">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Compliance &amp; Regulatory Standards</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Financial Regulations</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>SOC 2 Type II</li>
+              <li>PCI DSS (Level 1–4)</li>
+              <li>GDPR/CCPA</li>
+              <li>BSA (AML, CTR)</li>
+              <li>GLBA; Dodd-Frank; FINRA</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Identity &amp; AML</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>KYC; CIP; EDD</li>
+              <li>SAR; CTR</li>
+              <li>OFAC sanctions screening</li>
+              <li>FinCEN beneficial ownership</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Payment &amp; Banking</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Nacha (ACH)</li>
+              <li>Reg E, Reg Z, Reg CC</li>
+              <li>FDIC (for banks)</li>
+              <li>State MTLs</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Data Security &amp; Privacy</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>SOC 2 Type II; PCI DSS</li>
+              <li>ISO 27001</li>
+              <li>Encryption (at rest, in transit)</li>
+              <li>Data residency; incident response</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Study Spotlights (3) -->
+  <section class="py-5 bg-white" id="case-studies">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Case Study Spotlights</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-lg-4">
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h4 class="h5 mb-3">Digital Lending Platform</h4>
+            <p class="small text-muted mb-2">Fintech startup • Consumer personal loans • $50M+ annual originations</p>
+            <h5 class="h6 mt-3 mb-1">Challenge</h5>
+            <p class="small mb-2">Manual application 3–5 days; 45% abandonment; single credit bureau; manual underwriting; 3–5 day funding.</p>
+            <h5 class="h6 mb-1">Solution</h5>
+            <p class="small mb-2">Automated loan origination; real-time credit decisioning; alternative credit scoring; automated income/identity verification; same-day funding via ACH.</p>
+            <h5 class="h6 mb-1">Results</h5>
+            <ul class="small mb-0 ps-3" style="line-height: 1.6;">Application 20 min → 3 min; abandonment 45% → 12%; decision 3–5 days → 60 seconds; funding same day; loan volume +280% in 12 months; cost per loan -65%.</ul>
+            <%= link_to "Read case studies →", case_studies_path, class: "d-inline-block mt-3 fw-semibold small" %>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4">
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h4 class="h5 mb-3">Payment Processing for E-Commerce</h4>
+            <p class="small text-muted mb-2">Mid-market e-commerce (fashion/apparel) • $15M+ annual GMV</p>
+            <h5 class="h6 mt-3 mb-1">Challenge</h5>
+            <p class="small mb-2">High fees (2.9% + $0.30); fraud 3–4% revenue loss; T+2 settlement; 10+ hrs weekly reconciliation; no international support.</p>
+            <h5 class="h6 mb-1">Solution</h5>
+            <p class="small mb-2">Direct processor integration; real-time fraud detection (ML); multi-currency; automated reconciliation; subscription billing.</p>
+            <h5 class="h6 mb-1">Results</h5>
+            <ul class="small mb-0 ps-3" style="line-height: 1.6;">Fees 2.9% → 1.8% ($165K saved/year); fraud 3.4% → 0.4% ($450K saved); settlement T+1; reconciliation 10 hrs → 30 min weekly; international sales +45%.</ul>
+            <%= link_to "Read case studies →", case_studies_path, class: "d-inline-block mt-3 fw-semibold small" %>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4">
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h4 class="h5 mb-3">Accounting Automation for Private Equity</h4>
+            <p class="small text-muted mb-2">PE firm • 12 portfolio companies • 50,000+ invoices annually</p>
+            <h5 class="h6 mt-3 mb-1">Challenge</h5>
+            <p class="small mb-2">Manual invoice processing across 12 companies; inconsistent approval workflows; poor cash flow visibility; month-end close 10–15 days; hard to consolidate.</p>
+            <h5 class="h6 mb-1">Solution</h5>
+            <p class="small mb-2">Automated AP capture and processing; standardized approval workflows; centralized payment hub; real-time dashboards; multi-entity consolidation.</p>
+            <h5 class="h6 mb-1">Results</h5>
+            <ul class="small mb-0 ps-3" style="line-height: 1.6;">Invoice processing -85%; approval 7 days → 24 hrs; month-end 10–15 days → 3–5 days; early payment discounts +$240K/year; real-time cash visibility.</ul>
+            <%= link_to "Read case studies →", case_studies_path, class: "d-inline-block mt-3 fw-semibold small" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Typical Project Timeline -->
+  <section class="py-5 bg-light-grey" id="timeline">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Typical Project Timeline</h2>
+          <p class="large-para mb-4">Timeline varies based on complexity, transaction volume, and regulatory requirements.</p>
+          <div class="row g-3">
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Phase 1: Weeks 1–3</span>
+                <h4 class="h6 mt-2 mb-2">Requirements &amp; Compliance Review</h4>
+                <p class="mb-0 small">Business requirements; regulatory/compliance (SOC 2, PCI); current system audit; security and data flow; risk assessment; vendor/API evaluation.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Phase 2: Weeks 4–5</span>
+                <h4 class="h6 mt-2 mb-2">Architecture &amp; Security Design</h4>
+                <p class="mb-0 small">System and security architecture; payment flow; database design; API design; disaster recovery and business continuity.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Phase 3: Weeks 6–14</span>
+                <h4 class="h6 mt-2 mb-2">Core Development</h4>
+                <p class="mb-0 small">Auth (MFA); payment integration; transaction processing and settlement; account management; fraud detection; admin dashboards and reporting.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Phase 4: Weeks 15–17</span>
+                <h4 class="h6 mt-2 mb-2">Compliance &amp; Security Implementation</h4>
+                <p class="mb-0 small">PCI DSS (if applicable); KYC/AML workflows; encryption and tokenization; audit logging; OFAC/sanctions; data privacy (GDPR, CCPA).</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Phase 5: Weeks 18–20</span>
+                <h4 class="h6 mt-2 mb-2">Testing &amp; Audit</h4>
+                <p class="mb-0 small">Functional and integration testing; load/performance testing; security penetration testing; SOC 2 prep; PCI assessment (if applicable); hardening.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Phase 6: Weeks 21–22</span>
+                <h4 class="h6 mt-2 mb-2">Launch &amp; Monitoring</h4>
+                <p class="mb-0 small">Soft launch; monitoring and alerting; incident response; full production launch; transaction and fraud monitoring; ongoing optimization.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who We Serve -->
+  <section class="py-5 bg-white" id="who-we-serve">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Who We Serve</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-2">Fintech Companies</h4>
+            <p class="mb-0 small">Digital banks and neobanks; payment processors and gateways; lending (consumer, business, BNPL); robo-advisors; cryptocurrency and blockchain.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-2">Traditional Financial Institutions</h4>
+            <p class="mb-0 small">Community banks and credit unions; regional and national banks; insurance; wealth management; private equity and venture capital.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-2">Enterprise Finance Teams</h4>
+            <p class="mb-0 small">Corporate treasury and finance; accounting and financial operations; AP/AR automation; FP&amp;A; shared services centers.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-2">Payments &amp; Commerce</h4>
+            <p class="mb-0 small">E-commerce platforms; marketplaces; SaaS and subscription; gig economy; cross-border payments and remittances.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-2">Compliance &amp; RegTech</h4>
+            <p class="mb-0 small">Compliance software vendors; risk management platforms; identity verification; fraud prevention; audit and tax firms.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-5 bg-light-grey" id="faq">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Frequently Asked Questions</h2>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="accordion financial-industry-faq" id="financialIndustryFaq">
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#finind1" aria-expanded="false" aria-controls="finind1">How do you ensure SOC 2 and PCI DSS compliance?</button>
+              </h3>
+              <div id="finind1" class="accordion-collapse collapse" data-bs-parent="#financialIndustryFaq">
+                <div class="accordion-body">We build compliance into the architecture from day one: encryption, access controls, audit logging, network segmentation, secure coding. We work with third-party auditors for SOC 2 Type II and PCI DSS attestations and provide documentation for your compliance needs.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#finind2" aria-expanded="false" aria-controls="finind2">Can you handle high transaction volumes and real-time processing?</button>
+              </h3>
+              <div id="finind2" class="accordion-collapse collapse" data-bs-parent="#financialIndustryFaq">
+                <div class="accordion-body">Yes. We design for scale with cloud auto-scaling, distributed databases, message queues, and caching. We’ve built systems handling 10,000+ TPS with sub-second latency. We load test for peak volumes plus 2–3x buffer.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#finind3" aria-expanded="false" aria-controls="finind3">How do you prevent fraud and financial losses?</button>
+              </h3>
+              <div id="finind3" class="accordion-collapse collapse" data-bs-parent="#financialIndustryFaq">
+                <div class="accordion-body">Multi-layered fraud prevention: real-time ML transaction scoring, velocity checks, device fingerprinting, behavioral analysis, fraud database integration. We also build controls for authorization, settlement, and reconciliation to prevent operational losses.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#finind4" aria-expanded="false" aria-controls="finind4">What payment methods and processors can you integrate with?</button>
+              </h3>
+              <div id="finind4" class="accordion-collapse collapse" data-bs-parent="#financialIndustryFaq">
+                <div class="accordion-body">All major processors (Stripe, Adyen, PayPal, Square, Braintree), payment methods (cards, ACH, wires, RTP, crypto), and banking networks. We can build direct card network or banking integrations for high-volume clients.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#finind5" aria-expanded="false" aria-controls="finind5">How long does it take to build a fintech platform?</button>
+              </h3>
+              <div id="finind5" class="accordion-collapse collapse" data-bs-parent="#financialIndustryFaq">
+                <div class="accordion-body">Simple payment integration and front-end: 8–12 weeks. Comprehensive platforms with compliance and fraud: 5–7 months. Large-scale core banking or trading: 12–18 months. We recommend an MVP approach to get to market faster.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#finind6" aria-expanded="false" aria-controls="finind6">What does financial services technology cost?</button>
+              </h3>
+              <div id="finind6" class="accordion-collapse collapse" data-bs-parent="#financialIndustryFaq">
+                <div class="accordion-body">Costs vary by complexity and compliance. Basic payment integration: $50–80K. Comprehensive platforms with compliance and fraud: $200–500K+. Core banking and trading: $1M+. We offer phased approaches to spread cost and reduce risk.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#finind7" aria-expanded="false" aria-controls="finind7">Do you provide ongoing support and monitoring?</button>
+              </h3>
+              <div id="finind7" class="accordion-collapse collapse" data-bs-parent="#financialIndustryFaq">
+                <div class="accordion-body">Yes. Financial systems need 24/7 monitoring and support. We offer system monitoring, fraud analysis, security updates, compliance management, performance optimization, and incident response. We can also train your team to take over operations.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#finind8" aria-expanded="false" aria-controls="finind8">How do you handle data security and privacy?</button>
+              </h3>
+              <div id="finind8" class="accordion-collapse collapse" data-bs-parent="#financialIndustryFaq">
+                <div class="accordion-body">Industry-standard encryption (AES-256 at rest, TLS 1.2+ in transit), tokenization, HSMs for keys, strict access controls. We follow zero-trust and defense in depth and conduct regular security audits. Data handling complies with GDPR, CCPA, and financial privacy regulations.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#finind9" aria-expanded="false" aria-controls="finind9">Can you migrate data from our legacy systems?</button>
+              </h3>
+              <div id="finind9" class="accordion-collapse collapse" data-bs-parent="#financialIndustryFaq">
+                <div class="accordion-body">Yes. We have experience migrating from mainframes, Oracle, AS/400, etc. We do careful data mapping, validation, and testing. We can run systems in parallel, do incremental migration, and provide rollback. Data integrity is validated at every step.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#finind10" aria-expanded="false" aria-controls="finind10">What's your approach to regulatory change management?</button>
+              </h3>
+              <div id="finind10" class="accordion-collapse collapse" data-bs-parent="#financialIndustryFaq">
+                <div class="accordion-body">Regulations evolve constantly. We stay current via industry associations, compliance vendors, and counsel. We design configuration-driven rule engines that adapt to new requirements without code changes. We provide compliance guidance and audit preparation support.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="py-5 bg-white" id="related">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Related Services</h2>
+      </div>
+      <div class="row g-3 justify-content-center">
+        <div class="col-6 col-md-4 col-lg-2">
+          <%= link_to ai_agent_development_path, class: "btn btn-outline-primary w-100 py-3 small" do %>AI Agent Development<% end %>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <%= link_to custom_software_path, class: "btn btn-outline-primary w-100 py-3 small" do %>Custom Software<% end %>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <%= link_to api_integrations_path, class: "btn btn-outline-primary w-100 py-3 small" do %>API Integrations<% end %>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <%= link_to machine_learning_path, class: "btn btn-outline-primary w-100 py-3 small" do %>Machine Learning<% end %>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <%= link_to devops_engineering_path, class: "btn btn-outline-primary w-100 py-3 small" do %>DevOps Engineering<% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-5 bg-light-grey" id="cta">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="workflow-card p-5 p-lg-5 text-center">
+            <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Ready to Build Secure, Compliant Financial Technology?</h2>
+            <p class="lead mb-4">Whether you're launching a fintech startup, modernizing legacy systems, or automating financial operations, we're here to help.</p>
+            <h4 class="h6 mb-3">Free Fintech Technology Assessment Includes:</h4>
+            <ul class="list-unstyled mb-4" style="line-height: 2;">
+              <li>60-minute consultation with fintech experts</li>
+              <li>Requirements and use case analysis</li>
+              <li>Compliance requirements review (SOC 2, PCI, KYC/AML)</li>
+              <li>Technology architecture recommendations</li>
+              <li>Security and fraud prevention design</li>
+              <li>Timeline and investment breakdown</li>
+            </ul>
+            <div class="d-flex flex-wrap gap-3 justify-content-center mb-4">
+              <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">Schedule Free Fintech Consultation</a>
+              <%= link_to "View Fintech Case Studies", case_studies_path, class: "btn btn-outline-primary btn-lg rounded-pill px-4" %>
+            </div>
+            <p class="mb-0 small text-muted">Email: <a href="mailto:ahmad@astechware.com" class="text-decoration-none">ahmad@astechware.com</a> • Book a call: <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="text-decoration-none">Calendly</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

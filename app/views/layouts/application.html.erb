@@ -148,9 +148,12 @@
       </div>
 
     </div>
-    <div id="wrapper" class="d-none">
+    <div id="wrapper" class="d-none site-wrapper">
       <%= render 'layouts/header' %>
-      <%= yield %>
+      <main id="main-content">
+        <%= yield %>
+      </main>
+      <%= render 'layouts/footer' %>
     </div>
 
     <script type="text/javascript">

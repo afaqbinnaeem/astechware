@@ -1,0 +1,618 @@
+<% content_for :head do %>
+  <% og_image = safe_og_image_url('logo-colored.png') %>
+  <% if og_image.present? %>
+    <% set_meta_tags(
+      title: "DevOps Engineering Services | CI/CD, IaC, Cloud Operations | A'sTechware",
+      description: "CI/CD pipelines, infrastructure as code, container orchestration, cloud operations. Built for reliability, security, and repeatable deployments.",
+      og: { title: "DevOps Engineering Services | A'sTechware", description: "CI/CD, Infrastructure as Code, and cloud operations for reliability.", image: og_image, url: safe_request_url, type: 'website', site_name: "A'sTechware" },
+      twitter: { card: 'summary_large_image', title: "DevOps Engineering Services | A'sTechware", description: "CI/CD, IaC, and cloud operations for reliability.", image: og_image }
+    ) %>
+  <% else %>
+    <% set_meta_tags(
+      title: "DevOps Engineering Services | CI/CD, IaC, Cloud Operations | A'sTechware",
+      description: "CI/CD pipelines, infrastructure as code, container orchestration, cloud operations. Built for reliability, security, and repeatable deployments.",
+      og: { title: "DevOps Engineering Services | A'sTechware", description: "CI/CD, Infrastructure as Code, and cloud operations for reliability.", url: safe_request_url, type: 'website', site_name: "A'sTechware" },
+      twitter: { card: 'summary', title: "DevOps Engineering Services | A'sTechware", description: "CI/CD, IaC, and cloud operations for reliability." }
+    ) %>
+  <% end %>
+<% end %>
+
+<!-- Hero Section -->
+<div class="hero-section py-5 service-page-hero devops-hero">
+  <div class="container">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-12 col-lg-9 mx-auto text-center">
+        <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;">
+          DevOps Engineering Services
+        </h1>
+        <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.4; max-width: 720px; margin-left: auto; margin-right: auto;">
+          CI/CD, Infrastructure as Code, and Cloud Operations for Reliability
+        </p>
+        <p class="mb-4" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
+          CI/CD pipelines, infrastructure as code, container orchestration, and cloud operations. Built for reliability, security, and repeatable deployments across environments—so deployments become boring in the best way: safe and predictable.
+        </p>
+        <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+          Discuss Your DevOps Needs
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="inner-sections devops-service-page">
+
+  <!-- Overview -->
+  <section class="py-5 bg-white" id="overview">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Overview</h2>
+          <p class="large-para mb-4">
+            We build DevOps practices and tooling so your team can <strong>deploy often, with confidence</strong>. The goal is for deployments to become boring: automated, repeatable, and safe. We focus on automation, infrastructure as code, monitoring, and security so you spend less time firefighting and more time shipping.
+          </p>
+          <p class="large-para mb-4">
+            Whether you’re moving from manual deploys to CI/CD, adopting containers and orchestration, or optimizing cloud cost and reliability, we design for your stack and team size. We deliver pipelines, IaC, observability, and documentation—and we train your team so they can own and extend it.
+          </p>
+          <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.7;">
+            <li><strong>Automated deployment pipelines:</strong> Build, test, and deploy on every change—with gates and rollback so releases are safe.</li>
+            <li><strong>Infrastructure as Code (IaC):</strong> Terraform, CloudFormation, or Pulumi so every environment is version-controlled and reproducible.</li>
+            <li><strong>Container orchestration:</strong> Docker, Kubernetes, or ECS/Fargate so you scale and deploy consistently across dev, staging, and prod.</li>
+            <li><strong>Cloud optimization:</strong> Right-sizing, auto-scaling, and waste reduction so you get reliability without overspending.</li>
+            <li><strong>Monitoring and observability:</strong> Metrics, logs, traces, and alerting so you see issues before users do and debug quickly.</li>
+            <li><strong>Security and compliance:</strong> Security scanning in CI/CD, secret management, and compliance-as-code so deployments stay secure.</li>
+            <li><strong>Developer experience improvements:</strong> Self-service environments, consistent tooling, and fast feedback so developers ship without friction.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Challenges We Solve (7) -->
+  <section class="py-5 bg-light-grey" id="challenges">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Challenges We Solve</h2>
+        <p class="large-para mb-0" style="max-width: 640px; margin: 0 auto;">Common deployment and infrastructure pain points—and how we address them with automation and visibility.</p>
+      </div>
+      <div class="row g-3">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">1</span>
+            <h4 class="h6 mb-2">Manual deployments prone to errors</h4>
+            <p class="mb-0 small">We automate build, test, and deploy so every release follows the same path—reducing human error and stress.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">2</span>
+            <h4 class="h6 mb-2">Long deployment cycles (hours or days)</h4>
+            <p class="mb-0 small">CI/CD and automated testing cut deploy time from hours to minutes so you can ship multiple times per day.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">3</span>
+            <h4 class="h6 mb-2">"Works on my machine" environment inconsistencies</h4>
+            <p class="mb-0 small">IaC and containers give you identical dev, staging, and prod—no more environment drift.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">4</span>
+            <h4 class="h6 mb-2">No visibility into production issues</h4>
+            <p class="mb-0 small">We set up APM, logs, metrics, and alerting so you know when something breaks and can debug quickly.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">5</span>
+            <h4 class="h6 mb-2">Expensive cloud costs without optimization</h4>
+            <p class="mb-0 small">Right-sizing, auto-scaling, and reserved capacity strategies—we’ve seen 30–60% cost reduction in practice.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">6</span>
+            <h4 class="h6 mb-2">Security vulnerabilities in deployment process</h4>
+            <p class="mb-0 small">Security scanning in CI/CD, secret management, and least-privilege access so the pipeline itself is secure.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">7</span>
+            <h4 class="h6 mb-2">Inability to scale infrastructure quickly</h4>
+            <p class="mb-0 small">Auto-scaling, container orchestration, and IaC let you scale up (or down) in minutes, not days.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our DevOps Approach -->
+  <section class="py-5 bg-white" id="approach">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Our DevOps Approach</h2>
+          <p class="large-para mb-4">We prioritize automation, reproducibility, and incremental improvement. Big-bang rewrites are risky; we build step by step so each change is safe and measurable.</p>
+          <ul class="service-page-list mb-0" style="font-size: 1.05rem;">
+            <li><strong>Automate everything that can be automated:</strong> Builds, tests, deployments, and routine operations—so humans focus on decisions, not clicks.</li>
+            <li><strong>Infrastructure as Code for reproducibility:</strong> Every environment is defined in code; spin up or tear down with a single command.</li>
+            <li><strong>Comprehensive monitoring and alerting:</strong> You see health and failures in real time; we tune alerts so you’re not flooded with noise.</li>
+            <li><strong>Security built into CI/CD pipelines:</strong> SAST, dependency scanning, secret scanning, and gates so vulnerable code doesn’t reach production.</li>
+            <li><strong>Incremental improvements, not big-bang changes:</strong> We improve one area at a time so you keep shipping while we level up the stack.</li>
+            <li><strong>Documentation and team training:</strong> Runbooks, architecture docs, and training so your team can operate and extend the system.</li>
+            <li><strong>On-call and incident response planning:</strong> Clear escalation, playbooks, and post-incident review so incidents are handled and learned from.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Business Benefits (6 cards) -->
+  <section class="py-5 bg-light-grey" id="benefits">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Business Benefits</h2>
+        <p class="large-para mb-0" style="max-width: 640px; margin: 0 auto;">Faster releases, better reliability, lower cost—DevOps that makes deployments safe and predictable.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-rocket" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Faster Time to Market</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Deploy multiple times per day safely</li>
+              <li>Automated testing prevents regressions</li>
+              <li>Rapid rollback on issues</li>
+              <li>Reduced deployment risk</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-shield" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Improved Reliability</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>99.9%+ uptime targets</li>
+              <li>Faster incident detection</li>
+              <li>Automated recovery procedures</li>
+              <li>Proactive monitoring</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-money" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Cost Optimization</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Right-size infrastructure</li>
+              <li>Eliminate waste</li>
+              <li>Auto-scaling for efficiency</li>
+              <li>30–60% cloud cost reduction in practice</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-lock" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Better Security</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Automated security scanning</li>
+              <li>Secret management</li>
+              <li>Compliance as code</li>
+              <li>Audit trails for all changes</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-code" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Developer Productivity</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Self-service environments</li>
+              <li>Consistent dev/staging/prod</li>
+              <li>Faster feedback loops</li>
+              <li>Less time firefighting</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="build-system-card p-4 h-100 service-benefit-card">
+            <div class="build-icon-wrapper mb-3">
+              <div class="build-icon"><i class="fa fa-line-chart" aria-hidden="true"></i></div>
+            </div>
+            <h4 class="h5 mb-2">Scalability</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
+              <li>Handle traffic spikes automatically</li>
+              <li>Geographic distribution</li>
+              <li>Database scaling strategies</li>
+              <li>Load balancing and failover</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Deliver -->
+  <section class="py-5 bg-white" id="deliverables">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">What We Deliver</h2>
+        <p class="large-para mb-0" style="max-width: 640px; margin: 0 auto;">CI/CD, IaC, containers, monitoring, security, and documentation—so you can deploy and operate with confidence.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-uppercase text-muted mb-3">CI/CD Pipelines</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+              <li>Automated build and test</li>
+              <li>Multi-stage (dev → staging → prod)</li>
+              <li>Unit, integration, E2E testing</li>
+              <li>Security scanning (SAST, DAST, dependencies)</li>
+              <li>Deployment rollback capabilities</li>
+              <li>Blue-green or canary deployments</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-uppercase text-muted mb-3">Infrastructure as Code</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+              <li>Terraform or CloudFormation templates</li>
+              <li>Version-controlled infrastructure</li>
+              <li>Repeatable environment creation</li>
+              <li>Disaster recovery automation</li>
+              <li>Multi-region setup (if needed)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-uppercase text-muted mb-3">Container Orchestration</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+              <li>Docker containerization</li>
+              <li>Kubernetes or ECS/Fargate</li>
+              <li>Service mesh (if needed)</li>
+              <li>Auto-scaling policies</li>
+              <li>Health checks and self-healing</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-uppercase text-muted mb-3">Monitoring &amp; Observability</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+              <li>Application performance monitoring (APM)</li>
+              <li>Infrastructure monitoring</li>
+              <li>Log aggregation and analysis</li>
+              <li>Distributed tracing</li>
+              <li>Real-time alerting and dashboards</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-uppercase text-muted mb-3">Security &amp; Compliance</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+              <li>Secret management (Secrets Manager, Vault)</li>
+              <li>Network security (VPCs, security groups, WAF)</li>
+              <li>SSL/TLS certificate management</li>
+              <li>Automated backups and DR</li>
+              <li>Compliance scanning (e.g. CIS benchmarks)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-uppercase text-muted mb-3">Documentation &amp; Training</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+              <li>Architecture diagrams</li>
+              <li>Deployment procedures</li>
+              <li>Incident response playbooks</li>
+              <li>Runbooks for common operations</li>
+              <li>Team training sessions</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Stack -->
+  <section class="py-5 bg-light-grey" id="technology">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Technology Stack</h2>
+        <p class="large-para mb-0" style="max-width: 640px; margin: 0 auto;">Cloud, CI/CD, IaC, containers, and monitoring—we use the right tools for your environment.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Cloud Platforms</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>AWS (EC2, ECS, Lambda, RDS, etc.)</li>
+              <li>Google Cloud (GCE, GKE, Cloud Run)</li>
+              <li>Azure (VMs, AKS, App Service)</li>
+              <li>Multi-cloud or hybrid</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">CI/CD &amp; IaC</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>GitHub Actions, GitLab CI, CircleCI</li>
+              <li>ArgoCD or Flux (GitOps)</li>
+              <li>Terraform, CloudFormation, Pulumi</li>
+              <li>Ansible for configuration</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Containers</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Docker</li>
+              <li>Kubernetes (EKS, GKE, AKS)</li>
+              <li>AWS ECS/Fargate</li>
+              <li>Helm charts</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Monitoring</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Datadog, New Relic, Dynatrace</li>
+              <li>Prometheus + Grafana</li>
+              <li>ELK stack</li>
+              <li>CloudWatch, Stackdriver, Azure Monitor</li>
+              <li>Sentry, Rollbar for errors</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="py-5 bg-white" id="timeline">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Timeline</h2>
+          <p class="large-para mb-4">Typical 10-week path for a full DevOps engagement. Timeline varies with infrastructure complexity and scope; we’ll confirm during discovery.</p>
+          <div class="row g-3">
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Weeks 1–2</span>
+                <h4 class="h6 mt-2 mb-2">Infrastructure Audit, CI/CD Assessment &amp; Requirements</h4>
+                <p class="mb-0 small">Current state review, deployment and infra pain points, and target architecture and priorities.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Weeks 3–4</span>
+                <h4 class="h6 mt-2 mb-2">Infrastructure as Code &amp; Basic Pipelines</h4>
+                <p class="mb-0 small">IaC for key environments; first CI/CD pipeline with build, test, and deploy to dev/staging.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Weeks 5–6</span>
+                <h4 class="h6 mt-2 mb-2">Container Orchestration &amp; Advanced Deployments</h4>
+                <p class="mb-0 small">Containers and orchestration; blue-green or canary; production pipeline with gates.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Weeks 7–8</span>
+                <h4 class="h6 mt-2 mb-2">Monitoring, Alerting &amp; Security Hardening</h4>
+                <p class="mb-0 small">APM, logs, metrics, alerting; security scanning and secret management; runbooks.</p>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4">
+              <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
+                <span class="small text-uppercase text-muted fw-bold">Weeks 9–10</span>
+                <h4 class="h6 mt-2 mb-2">Optimization, Documentation &amp; Team Training</h4>
+                <p class="mb-0 small">Cost and performance tuning; architecture and runbook docs; handoff and training.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Study Spotlight (2) -->
+  <section class="py-5 bg-light-grey" id="case-study">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Case Study Spotlight</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-lg-6">
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h4 class="h5 mb-3">B2B SaaS Platform DevOps Overhaul</h4>
+            <div class="mb-3">
+              <h5 class="h6 text-uppercase text-muted mb-2">Challenge</h5>
+              <p class="mb-0 small">2-hour manual deployments, frequent downtime, no monitoring—releases were risky and slow.</p>
+            </div>
+            <div class="mb-3">
+              <h5 class="h6 text-uppercase text-muted mb-2">Solution</h5>
+              <p class="mb-0 small">Automated CI/CD, Kubernetes orchestration, and comprehensive monitoring and alerting.</p>
+            </div>
+            <div class="mb-0">
+              <h5 class="h6 text-uppercase text-muted mb-2">Results</h5>
+              <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+                <li>15-minute automated deployments</li>
+                <li>99.9% uptime</li>
+                <li>40% cloud cost reduction</li>
+              </ul>
+            </div>
+            <%= link_to "Read case studies →", case_studies_path, class: "d-inline-block mt-3 fw-semibold small" %>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6">
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h4 class="h5 mb-3">Multi-Region E-commerce Infrastructure</h4>
+            <div class="mb-3">
+              <h5 class="h6 text-uppercase text-muted mb-2">Challenge</h5>
+              <p class="mb-0 small">Couldn’t handle Black Friday traffic; manual scaling, no disaster recovery plan.</p>
+            </div>
+            <div class="mb-3">
+              <h5 class="h6 text-uppercase text-muted mb-2">Solution</h5>
+              <p class="mb-0 small">Auto-scaling Kubernetes, multi-region deployment, automated backups and failover.</p>
+            </div>
+            <div class="mb-0">
+              <h5 class="h6 text-uppercase text-muted mb-2">Results</h5>
+              <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+                <li>Handled 10x traffic spike with zero downtime</li>
+                <li>Geographic redundancy</li>
+                <li>Automated DR tested and documented</li>
+              </ul>
+            </div>
+            <%= link_to "Read case studies →", case_studies_path, class: "d-inline-block mt-3 fw-semibold small" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs (8) -->
+  <section class="py-5 bg-white" id="faqs">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Frequently Asked Questions</h2>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="accordion devops-faq-accordion" id="devopsFaqAccordion">
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#devfaq1" aria-expanded="false" aria-controls="devfaq1">How long does it take to set up CI/CD pipelines?</button>
+              </h3>
+              <div id="devfaq1" class="accordion-collapse collapse" data-bs-parent="#devopsFaqAccordion">
+                <div class="accordion-body">A basic pipeline (build, test, deploy to one environment) often takes 1–2 weeks. Full multi-stage CI/CD with security scanning, rollback, and production gates typically fits in 3–6 weeks depending on app complexity and existing tooling. We’ll scope during discovery.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#devfaq2" aria-expanded="false" aria-controls="devfaq2">What cloud platform should we use?</button>
+              </h3>
+              <div id="devfaq2" class="accordion-collapse collapse" data-bs-parent="#devopsFaqAccordion">
+                <div class="accordion-body">We work with AWS, GCP, and Azure. Choice depends on your existing commitment, team skills, and product needs (e.g. specific managed services). We can recommend based on your workload and help with multi-cloud or hybrid if needed.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#devfaq3" aria-expanded="false" aria-controls="devfaq3">How do you ensure zero-downtime deployments?</button>
+              </h3>
+              <div id="devfaq3" class="accordion-collapse collapse" data-bs-parent="#devopsFaqAccordion">
+                <div class="accordion-body">We use blue-green or canary deployments: new version is deployed alongside the old, traffic is shifted gradually or after validation, and we keep rollback one step away. Load balancers and health checks ensure traffic only goes to healthy instances. For stateful apps we design database and migration strategy to avoid downtime.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#devfaq4" aria-expanded="false" aria-controls="devfaq4">Can you migrate our existing infrastructure to IaC?</button>
+              </h3>
+              <div id="devfaq4" class="accordion-collapse collapse" data-bs-parent="#devopsFaqAccordion">
+                <div class="accordion-body">Yes. We can import existing resources into Terraform (or your chosen tool) or define new IaC that matches current setup and then switch. We do it incrementally so you don’t have a big-bang cutover. Existing resources stay in place until IaC is validated.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#devfaq5" aria-expanded="false" aria-controls="devfaq5">How do you handle secrets and credentials?</button>
+              </h3>
+              <div id="devfaq5" class="accordion-collapse collapse" data-bs-parent="#devopsFaqAccordion">
+                <div class="accordion-body">We use managed secret stores (e.g. AWS Secrets Manager, HashiCorp Vault) so secrets are never in code or config in plain text. CI/CD and runtime fetch secrets at deploy or startup. We follow least-privilege and rotation practices and can integrate with your existing vault or IdP.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#devfaq6" aria-expanded="false" aria-controls="devfaq6">What monitoring tools do you recommend?</button>
+              </h3>
+              <div id="devfaq6" class="accordion-collapse collapse" data-bs-parent="#devopsFaqAccordion">
+                <div class="accordion-body">We recommend based on your stack and budget: Datadog and New Relic for full-stack APM and infra; Prometheus + Grafana for open-source and cost control; CloudWatch/Stackdriver/Azure Monitor for cloud-native. We add log aggregation (e.g. ELK or cloud logging) and error tracking (Sentry, Rollbar) as needed.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#devfaq7" aria-expanded="false" aria-controls="devfaq7">Can you provide ongoing DevOps support?</button>
+              </h3>
+              <div id="devfaq7" class="accordion-collapse collapse" data-bs-parent="#devopsFaqAccordion">
+                <div class="accordion-body">Yes. We offer retainers for ongoing support: pipeline and infra changes, monitoring and incident response, cost and performance optimization, and training. Scope and SLA (e.g. response time, change windows) are agreed up front.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#devfaq8" aria-expanded="false" aria-controls="devfaq8">How do you optimize cloud costs?</button>
+              </h3>
+              <div id="devfaq8" class="accordion-collapse collapse" data-bs-parent="#devopsFaqAccordion">
+                <div class="accordion-body">We right-size instances and storage, set up auto-scaling so you don’t over-provision, use reserved or spot capacity where appropriate, and remove unused resources. We review tagging and billing data to find waste and track cost by service. Many teams see 30–60% reduction without sacrificing reliability.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="py-5 bg-light-grey" id="related">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Related Services</h2>
+      </div>
+      <div class="row g-3 justify-content-center">
+        <div class="col-6 col-md-3">
+          <%= link_to platform_modernization_path, class: "btn btn-outline-primary w-100 py-3" do %>
+            <i class="fa fa-refresh me-2" aria-hidden="true"></i>Platform Modernization
+          <% end %>
+        </div>
+        <div class="col-6 col-md-3">
+          <%= link_to custom_software_path, class: "btn btn-outline-primary w-100 py-3" do %>
+            <i class="fa fa-code me-2" aria-hidden="true"></i>Custom Software Development
+          <% end %>
+        </div>
+        <div class="col-6 col-md-3">
+          <%= link_to api_integrations_path, class: "btn btn-outline-primary w-100 py-3" do %>
+            <i class="fa fa-plug me-2" aria-hidden="true"></i>API Integrations
+          <% end %>
+        </div>
+        <div class="col-6 col-md-3">
+          <%= link_to platform_modernization_path, class: "btn btn-outline-primary w-100 py-3" do %>
+            <i class="fa fa-cloud me-2" aria-hidden="true"></i>Cloud Architecture Consulting
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-8 mx-auto text-center">
+          <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Ready to Make Deployments Boring?</h2>
+          <p class="lead mb-4">Discuss your DevOps needs. We’ll audit your current setup, design CI/CD and IaC for reliability and cost, and get you to deployments that are safe and predictable—so you can ship faster without the stress.</p>
+          <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+            Discuss Your DevOps Needs
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
