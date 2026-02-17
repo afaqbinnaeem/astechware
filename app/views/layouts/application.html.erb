@@ -5,7 +5,7 @@
     <%# Default SEO meta (overridden by set_meta_tags in views) %>
     <% set_meta_tags(
       title: "A'sTechware | Production-Grade AI & Platform Engineering",
-      description: "We build AI agents and custom platforms that survive production. Enterprise governance, human-in-the-loop, complete audit trails. 8+ years, 50+ projects.",
+      description: "We build AI agents and custom platforms that survive production. Enterprise governance, human-in-the-loop, complete audit trails. 10+ years, 50+ projects.",
       keywords: "AI development, production AI, platform engineering, custom software, AI governance"
     ) %>
     <%= csrf_meta_tags %>
@@ -173,6 +173,21 @@
     </div>
 
     <script type="text/javascript">
+      function initEnterpriseNavHoverDropdowns() {
+        document.querySelectorAll('.enterprise-nav .dropdown').forEach(function(dropdownEl) {
+          var toggle = dropdownEl.querySelector('[data-bs-toggle="dropdown"]');
+          if (!toggle || typeof bootstrap === 'undefined') return;
+          var bsDropdown = bootstrap.Dropdown.getOrCreateInstance(toggle);
+          var leaveTimeout;
+          dropdownEl.addEventListener('mouseenter', function() {
+            clearTimeout(leaveTimeout);
+            bsDropdown.show();
+          });
+          dropdownEl.addEventListener('mouseleave', function() {
+            leaveTimeout = setTimeout(function() { bsDropdown.hide(); }, 120);
+          });
+        });
+      }
       $(document).ready(function(){
         $(".nav-button").click(function(){
           $(this).toggleClass("cmenu");
@@ -185,7 +200,9 @@
         $(".share-btn").click(function(){
           $("body").toggleClass("social-active");
         });
+        initEnterpriseNavHoverDropdowns();
       });
+      document.addEventListener('turbo:load', initEnterpriseNavHoverDropdowns);
 
        $('.happy-cus-slider').slick({
          slidesToShow: 1,

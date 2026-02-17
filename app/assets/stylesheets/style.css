@@ -277,8 +277,8 @@ h3 {
   right: 0;
   z-index: 9999;
   height: 64px;
-  background: #fff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  background: var(--text-color);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
   -webkit-transform: translate3d(0, 0, 0);
 }
 
@@ -313,7 +313,7 @@ h3 {
   padding: 20px 14px;
   font-size: 14px;
   font-weight: 500;
-  color: var(--text-color);
+  color: white;
   letter-spacing: 0.02em;
   text-decoration: none;
   transition: color 0.2s ease;
@@ -322,6 +322,12 @@ h3 {
 .enterprise-nav-link:hover,
 .enterprise-nav-link:focus {
   color: var(--site-color);
+}
+
+.enterprise-nav-link:focus,
+.enterprise-nav-link:focus-visible {
+  outline: none;
+  box-shadow: none;
 }
 
 .enterprise-nav-link.dropdown-toggle::after {
@@ -362,9 +368,9 @@ h3 {
   font-weight: 600;
   letter-spacing: 0.02em;
   padding: 10px 20px !important;
-  background: var(--text-color) !important;
-  border-color: var(--text-color) !important;
-  color: #fff !important;
+  background: var(--site-color) !important;
+  border-color: var(--site-color) !important;
+  color: var(--text-color) !important;
   transition: background 0.2s ease, transform 0.2s ease;
 }
 
@@ -389,7 +395,7 @@ h3 {
   width: 70%;
   z-index: 9999;
   height: 80px;
-  background: #242a3b;
+  background: var(--text-color);
   -webkit-transform: translate3d(0, 0, 0);
 }
 
@@ -9511,12 +9517,16 @@ nav.nav-inner {
 }
 
 #footer {
-  background: #313131;
+  background: var(--text-color);
   color: #fff;
 }
 
 #footer a {
   color: #fff;
+}
+
+#footer a:hover {
+  color: var(--site-color);
 }
 
 
@@ -12534,6 +12544,44 @@ nav.nav-inner {
   display: inline-block;
 }
 
+.about-award-icon {
+  font-size: 2.5rem;
+  color: var(--text-color);
+  display: block;
+  transition: color 0.2s ease;
+}
+
+.about-award-card a:hover .about-award-icon {
+  color: var(--site-color);
+}
+
+.about-award-logo-text {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-color);
+  letter-spacing: 0.02em;
+  transition: color 0.2s ease;
+}
+
+.about-award-card a:hover .about-award-logo-text {
+  color: var(--site-color);
+}
+
+.about-award-stars {
+  color: var(--site-color);
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+}
+
+.about-award-logo-icon {
+  font-size: 48px;
+  color: var(--text-color);
+}
+
+.about-award-card a:hover .about-award-logo-icon {
+  color: var(--site-color);
+}
+
 .about-satisfaction-box {
   background: #f8f9fa;
   border: 1px solid #e9ecef;
@@ -12680,7 +12728,7 @@ nav.nav-inner {
 }
 
 .site-footer {
-  background: #242a3b;
+  background: var(--text-color);
   color: rgba(255, 255, 255, 0.85);
   margin-top: auto;
 }
@@ -12767,7 +12815,7 @@ nav.nav-inner {
 }
 
 .footer-link-more:hover {
-  color: #fff;
+  color: var(--site-color);
   text-decoration: underline;
 }
 
