@@ -4,11 +4,24 @@ export default class extends Controller {
   static targets = ["bubble", "window", "messages", "input", "sendButton"]
 
   connect() {
-    // Restore minimized state for this session (stay minimized after first minimize)
-    this.isMinimized = this.getSessionMinimized()
+    // On mobile, start minimized (closed) by default
+    const isMobile = this.isMobileDevice()
+    if (isMobile) {
+      // On mobile, check if user has explicitly opened it (saved as 'false' in sessionStorage)
+      // If no saved state or saved as 'true', default to minimized (closed)
+      const savedState = sessionStorage.getItem('chat_minimized')
+      this.isMinimized = savedState === 'false' ? false : true
+    } else {
+      // On desktop, restore minimized state for this session
+      this.isMinimized = this.getSessionMinimized()
+    }
     this.updateVisibility()
     // Clear sessionStorage on page load/reload
     this.clearHistory()
+  }
+
+  isMobileDevice() {
+    return window.innerWidth <= 576 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
   }
 
   toggle(event) {
@@ -31,9 +44,16 @@ export default class extends Controller {
 
   setSessionMinimized(minimized) {
     try {
-      // Only persist when user minimizes; never clear so it stays minimized for the session
-      if (minimized) {
-        sessionStorage.setItem('chat_minimized', 'true')
+      // On mobile, save both states (open/closed) so we remember user's preference
+      // On desktop, only persist when user minimizes so it stays minimized for the session
+      const isMobile = this.isMobileDevice()
+      if (isMobile) {
+        sessionStorage.setItem('chat_minimized', minimized ? 'true' : 'false')
+      } else {
+        // Desktop: only persist when minimized
+        if (minimized) {
+          sessionStorage.setItem('chat_minimized', 'true')
+        }
       }
     } catch (_e) {}
   }

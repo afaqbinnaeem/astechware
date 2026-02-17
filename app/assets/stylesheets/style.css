@@ -511,24 +511,34 @@ h3 {
   width: 500px;
   right: -500px;
   z-index: 319;
-  overflow: hidden;
+  overflow: visible;
+  bottom: 0;
+  height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
 }
 
 .open-dropdown .nav-holder {
   right: 30%;
 }
 
-/* .nav-holder-wrap {
+.nav-holder-wrap {
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
-	overflow: hidden;
-} */
+	height: 100%;
+	overflow: visible;
+}
 
 .nav-container {
   padding: 60px 50px 100px;
   z-index: 20;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 .fl-wrap {
@@ -539,7 +549,7 @@ h3 {
 
 nav.nav-inner {
   float: left;
-  overflow: hidden;
+  overflow: visible;
   width: 100%;
   position: relative;
   opacity: 0;
@@ -633,7 +643,7 @@ nav.nav-inner {
   right: 0;
   bottom: -70px;
   z-index: 20;
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--text-color);
   padding: 0 10px 0 50px;
   height: 70px;
   line-height: 70px;
@@ -9363,6 +9373,7 @@ nav.nav-inner {
   margin-left: auto;
   margin-right: auto;
   padding: 0 80px;
+  overflow: visible;
 }
 
 .clients-testimonials-slider .slick-track {
@@ -9413,7 +9424,7 @@ nav.nav-inner {
   margin: 0 !important;
   padding: 0 !important;
   transform: translateY(-50%);
-  z-index: 10;
+  z-index: 99999999999;
   background: #fff !important;
   border: none !important;
   border-radius: 50% !important;
@@ -9426,6 +9437,10 @@ nav.nav-inner {
   align-items: center;
   justify-content: center;
   color: var(--text-color);
+  pointer-events: auto !important;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
 }
 
 .clients-testimonials-slider .slick-prev:hover,
@@ -9487,26 +9502,37 @@ nav.nav-inner {
 
 @media (max-width: 768px) {
   .clients-testimonials-slider {
-    padding: 0 60px;
+    padding: 0 !important;
+    overflow: visible !important;
   }
   .clients-testimonials-slider .slick-prev,
   .clients-testimonials-slider .slick-next {
-    width: 40px !important;
-    height: 40px !important;
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
     transform: translateY(-50%);
+    pointer-events: auto !important;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    z-index: 99999999999 !important;
   }
   .clients-testimonials-slider .slick-prev:hover,
   .clients-testimonials-slider .slick-next:hover {
     transform: translateY(-50%) scale(1.05);
   }
   .clients-testimonials-slider .slick-prev {
-    left: 0 !important;
+    left: -10px !important;
   }
   .clients-testimonials-slider .slick-next {
-    right: 0 !important;
+    right: -10px !important;
   }
   .clients-testimonials-slider .clients-testimonial-card {
     min-height: 220px;
+  }
+  .clients-testimonials-slider .slick-prev:active,
+  .clients-testimonials-slider .slick-next:active {
+    transform: translateY(-50%) scale(0.95);
   }
 }
 
@@ -10996,6 +11022,31 @@ nav.nav-inner {
   .open-dropdown .nav-holder {
     right: 0px !important;
     width: 100% !important;
+    height: calc(100vh - 80px) !important;
+    bottom: 0 !important;
+    overflow: visible !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  
+  .nav-holder-wrap {
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: visible !important;
+  }
+  
+  .nav-container {
+    flex: 1 !important;
+    min-height: 0 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 40px 30px 100px !important;
+  }
+  
+  .nav-footer {
+    flex-shrink: 0 !important;
   }
 
   .nav-holder .nav-holder-wrap_line {

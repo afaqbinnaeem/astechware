@@ -239,6 +239,22 @@
             { breakpoint: 768, settings: { slidesToShow: 1, arrows: true } }
           ]
         });
+        
+        // Ensure arrow buttons work on mobile/touch devices - fallback handler
+        setTimeout(function() {
+          $('.clients-testimonials-slider .slick-prev, .clients-testimonials-slider .slick-next').on('touchstart', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            var $button = $(this);
+            var $slider = $('.clients-testimonials-slider');
+            if ($button.hasClass('slick-prev')) {
+              $slider.slick('slickPrev');
+            } else if ($button.hasClass('slick-next')) {
+              $slider.slick('slickNext');
+            }
+            return false;
+          });
+        }, 100);
       }
 
       // Params
