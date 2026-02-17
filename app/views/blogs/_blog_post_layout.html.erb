@@ -1,5 +1,12 @@
-<%# Blog post template: render with layout and pass article hash; optional content_for :blog_toc for table of contents. %>
+<%# Blog post template: breadcrumb, key takeaways, TOC, share (Twitter, LinkedIn, copy link), author bio, newsletter, related. %>
 <% article = local_assigns[:article] || {} %>
+<nav class="blog-breadcrumb-container container py-2" aria-label="Breadcrumb">
+  <ol class="blog-breadcrumb breadcrumb mb-0 bg-transparent small">
+    <li class="breadcrumb-item"><%= link_to "Home", root_path, class: "text-decoration-none" %></li>
+    <li class="breadcrumb-item"><%= link_to "Blog", blogs_path, class: "text-decoration-none" %></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= truncate(article[:title], length: 50) %></li>
+  </ol>
+</nav>
 <div class="blog-post-page inner-sections">
   <article class="container py-4">
     <div class="row justify-content-center">
@@ -10,9 +17,9 @@
           <span class="blog-badge blog-badge-<%= article[:category_slug].to_s.parameterize %> position-absolute top-0 start-0 m-3"><%= article[:category] %></span>
         </div>
 
-        <h1 class="mb-3"><%= article[:title] %></h1>
+        <h1 class="mb-2"><%= article[:title] %></h1>
 
-        <%# Author info %>
+        <%# Author + estimated read time %>
         <div class="blog-author-block d-flex flex-wrap align-items-center gap-3 mb-4">
           <div class="d-flex align-items-center gap-2">
             <div class="rounded-circle bg-secondary bg-opacity-25 d-flex align-items-center justify-content-center text-secondary fw-semibold" style="width: 44px; height: 44px;"><%= (article[:author_name].to_s[0] || "A") %></div>
@@ -21,10 +28,18 @@
               <% if article[:author_title].present? %><span class="text-muted small d-block"><%= article[:author_title] %></span><% end %>
             </div>
           </div>
-          <span class="text-muted small"><%= article[:date] %> · <%= article[:read_time] %> read</span>
+          <span class="text-muted small"><%= article[:date] %> · <span class="blog-read-time"><%= article[:read_time] %> read</span></span>
         </div>
 
-        <%# Optional table of contents %>
+        <%# Key Takeaways (from body partial) %>
+        <% if content_for?(:blog_key_takeaways) %>
+          <div class="blog-key-takeaways mb-4">
+            <h2 class="h6 text-uppercase text-muted mb-2">Key Takeaways</h2>
+            <%= yield :blog_key_takeaways %>
+          </div>
+        <% end %>
+
+        <%# Table of contents %>
         <% if content_for?(:blog_toc) %>
           <nav class="blog-toc mb-4" aria-label="Article contents">
             <strong class="d-block mb-2">Contents</strong>
@@ -45,11 +60,12 @@
           </div>
         <% end %>
 
-        <%# Share %>
-        <div class="d-flex align-items-center gap-2 mt-4 pt-3 border-top">
+        <%# Share: Twitter, LinkedIn, Copy link %>
+        <div class="d-flex flex-wrap align-items-center gap-2 mt-4 pt-3 border-top">
           <span class="small text-muted me-2">Share:</span>
           <a href="https://twitter.com/intent/tweet?url=<%= ERB::Util.url_encode(request.original_url) %>&text=<%= ERB::Util.url_encode(article[:title]) %>" target="_blank" rel="noopener noreferrer" class="blog-share-btn bg-dark text-white me-2" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
           <a href="https://www.linkedin.com/sharing/share-offsite/?url=<%= ERB::Util.url_encode(request.original_url) %>" target="_blank" rel="noopener noreferrer" class="blog-share-btn bg-dark text-white me-2" aria-label="Share on LinkedIn"><i class="fa fa-linkedin"></i></a>
+          <button type="button" class="blog-share-btn blog-share-copy border bg-light" data-blog-url="<%= request.original_url %>" aria-label="Copy link" title="Copy link"><i class="fa fa-link"></i></button>
         </div>
 
         <%# Author bio %>
@@ -58,7 +74,7 @@
             <div class="rounded-circle bg-secondary bg-opacity-25 d-flex align-items-center justify-content-center text-secondary fw-semibold flex-shrink-0" style="width: 56px; height: 56px;"><%= (article[:author_name].to_s[0] || "A") %></div>
             <div>
               <strong><%= article[:author_name] %></strong>
-              <p class="small text-muted mb-0 mt-1">A'sTechware designs and builds production-grade AI automations and custom platforms so businesses can run faster without adding headcount.</p>
+              <p class="small text-muted mb-0 mt-1">A'sTechware designs and builds production-grade AI automations and custom platforms so businesses can run faster without adding headcount. We focus on systems that survive production: governance, human-in-the-loop, and complete audit trails.</p>
             </div>
           </div>
         </div>
@@ -76,18 +92,18 @@
           </form>
         </div>
 
-        <%# Schedule Consultation %>
+        <%# CTA: Schedule Consultation %>
         <div class="text-center mt-4">
           <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary rounded-pill px-4">Schedule Consultation</a>
         </div>
 
-        <%# Related articles %>
+        <%# Related Articles (3–4) %>
         <% related = (article.present? && article[:path].present?) ? blog_related_articles(article[:path].call, limit: 4) : [] %>
         <% if related.any? %>
           <section class="blog-related mt-5" aria-label="Related articles">
             <h2 class="h5 mb-4">Related Articles</h2>
             <div class="row g-3">
-              <% related.each do |rel| %>
+              <% related.first(4).each do |rel| %>
                 <div class="col-12 col-sm-6">
                   <%= link_to rel[:path].call, class: "blog-sidebar-link d-block p-3 rounded border text-decoration-none" do %>
                     <span class="small text-muted text-uppercase"><%= rel[:category] %></span>
@@ -102,3 +118,19 @@
     </div>
   </article>
 </div>
+<script>
+(function() {
+  var btn = document.querySelector('.blog-share-copy');
+  if (btn) {
+    btn.addEventListener('click', function() {
+      var url = this.getAttribute('data-blog-url') || window.location.href;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function() { btn.setAttribute('title', 'Copied!'); });
+      } else {
+        var ta = document.createElement('textarea'); ta.value = url; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+        btn.setAttribute('title', 'Copied!');
+      }
+    });
+  }
+})();
+</script>

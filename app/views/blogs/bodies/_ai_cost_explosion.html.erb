@@ -1,12 +1,38 @@
+<% content_for :blog_key_takeaways do %>
+  <ul>
+    <li>AI cost = tokens × price × requests; model choice and caching drive most savings.</li>
+    <li>Legal tech cut $40K→$16K with model tiering, prompt compression, and semantic caching.</li>
+    <li>Use cheaper models for simple tasks; reserve GPT-4 for complex reasoning only.</li>
+    <li>Log tokens and model per call to find which flows dominate the bill.</li>
+    <li>Cache embeddings and retrieval results in RAG; add per-user rate limits for user-facing features.</li>
+    <li>Red flags: repeated identical queries, GPT-4 for classification, no cost attribution by feature.</li>
+  </ul>
+<% end %>
+<% content_for :blog_toc do %>
+  <ul class="list-unstyled mb-0">
+    <li><a href="#where-ai-costs-come-from">Where AI Costs Come From</a></li>
+    <li><a href="#real-case-legal-tech">Real Case: Legal Tech $40K → $16K</a></li>
+    <li><a href="#eight-cost-optimization-strategies">Eight Cost Optimization Strategies</a></li>
+    <li><a href="#red-flags-in-your-ai-bill">Red Flags in Your AI Bill</a></li>
+    <li><a href="#what-to-do-next">What to Do Next</a></li>
+  </ul>
+<% end %>
+
 <p class="lead">Your AI feature costs $50K/month. It should cost $8K. Here's where the money goes and how to fix it.</p>
 
-<h2>Where AI Costs Come From</h2>
+<h2 id="where-ai-costs-come-from">Where AI Costs Come From</h2>
 <p>Model selection (GPT-4 vs GPT-3.5 vs Claude can mean a 60x price difference), token usage (input + output), request frequency, and paying for the same queries repeatedly when there's no caching. We break down the math: total cost = tokens × price × requests. Input tokens usually cost less than output, but long context (e.g. sending a 50-page doc every time) multiplies fast. The biggest wins come from sending fewer tokens and making fewer calls—model choice and caching do most of the work.</p>
+<p>Real-world scenario: A fintech product was using a single GPT-4 call per "analyze this transaction" request, with a 4,000-token system prompt and up to 2,000 tokens of transaction history. At 2M requests per month, the bill topped $48K. After moving to a two-tier design—a small classifier to decide "simple vs complex"—and sending only the complex 15% to GPT-4, they cut cost by 72% while keeping accuracy. The lesson: not every request needs your most expensive model.</p>
 
-<h2>Real Case: Legal Tech $40K → $16K</h2>
+<blockquote class="blockquote border-start border-4 border-primary ps-3 my-4 pull-quote">
+  <p class="mb-0">"Start by adding a simple cost log (tokens in, tokens out, model) to every call; within a week you'll see which flows dominate the bill."</p>
+</blockquote>
+
+<h2 id="real-case-legal-tech">Real Case: Legal Tech $40K → $16K</h2>
 <p>One legal tech company was sending full documents to GPT-4 for every summarization. With model tiering, prompt compression, and semantic caching, we cut their bill by more than half while keeping quality. Concretely: we moved simple classification and extraction to a smaller model, kept GPT-4 only for complex reasoning; we trimmed system prompts and dropped redundant context; we hashed user queries and cached results for identical or near-identical requests. Quality stayed the same in A/B tests; cost dropped in six weeks.</p>
+<p>They had been sending 8,000–12,000 tokens per document (full contract) to GPT-4 for every summarization and classification. We introduced a lightweight embedding + retrieval step: for "summarize," we first extracted key clauses with a smaller model, then sent only those to GPT-4 for the final summary. For "classify document type," we used a fine-tuned smaller model entirely. Cache hit rate for repeated or near-identical queries reached 38% within a month, which alone saved roughly $12K. Combined with prompt compression (reducing average input from 6,000 to 1,200 tokens for the GPT-4 path), the total reduction was 60%.</p>
 
-<h2>Eight Cost Optimization Strategies</h2>
+<h2 id="eight-cost-optimization-strategies">Eight Cost Optimization Strategies</h2>
 <ol>
   <li><strong>Model tiering</strong>—use cheaper models for simple tasks (e.g. GPT-3.5 for 70% of workloads).</li>
   <li><strong>Prompt optimization</strong>—reduce from 2,000 tokens to 400 where possible.</li>
@@ -18,7 +44,24 @@
   <li><strong>Monitoring dashboard</strong>—cost per user, per feature, so you see spikes before the bill.</li>
 </ol>
 
-<h2>Red Flags in Your AI Bill</h2>
-<p>Watch for: same query repeated thousands of times, GPT-4 used for classification, no caching on RAG, and no attribution by feature. Tools like LangSmith and Helicone help you see cost per request and per feature so you can fix the worst offenders first. When fine-tuning is worth it: specialized tasks can see 95% cost reduction once you move off raw API calls.</p>
+<h3 id="cost-logging-example">What to Log (Minimal)</h3>
+<p>At minimum, log for every call: model name, input token count, output token count, and a feature or endpoint identifier. That lets you attribute cost by use case and find the top offenders. Example structure you can emit from your API layer:</p>
+<pre><code class="language-json">{
+  "model": "gpt-4",
+  "input_tokens": 1200,
+  "output_tokens": 180,
+  "feature": "contract_summary",
+  "cache_hit": false
+}</code></pre>
+<p>Aggregate by feature and by model; set alerts when daily or weekly spend exceeds a threshold. Tools like LangSmith and Helicone give you this out of the box if you're already using them in the stack.</p>
 
-<p>Start by adding a simple cost log (tokens in, tokens out, model) to every call; within a week you'll see which flows dominate the bill. Then apply model tiering and caching there. If you're on RAG, ensure you're not re-embedding or re-querying the same docs repeatedly—cache embeddings and retrieval results. For user-facing features, add per-user or per-session limits so one abusive or buggy client can't blow the budget. <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener">Schedule an AI cost audit</a> and we can map your current spend to a concrete optimization plan.</p>
+<h2 id="red-flags-in-your-ai-bill">Red Flags in Your AI Bill</h2>
+<p>Watch for: same query repeated thousands of times, GPT-4 used for classification, no caching on RAG, and no attribution by feature. Tools like LangSmith and Helicone help you see cost per request and per feature so you can fix the worst offenders first. When fine-tuning is worth it: specialized tasks can see 95% cost reduction once you move off raw API calls.</p>
+<p>Real-world red flag we've seen: a support chatbot was re-embedding the entire knowledge base on every user message because the client had no embedding cache. Once we cached embeddings per document and only re-embedded when docs changed, embedding API cost dropped by 90%. Another: a RAG pipeline was sending the top 5 retrieved chunks (each 500 tokens) plus a 2,000-token system prompt to GPT-4 for every question, even when the retrieval score was below 0.5. Adding a confidence gate—"if max score &lt; 0.7, respond 'I don't have a confident answer' and don't call GPT-4"—cut unnecessary calls by 30% and improved perceived quality.</p>
+
+<blockquote class="blockquote border-start border-4 border-primary ps-3 my-4 pull-quote">
+  <p class="mb-0">"Quality stayed the same in A/B tests; cost dropped in six weeks."</p>
+</blockquote>
+
+<h2 id="what-to-do-next">What to Do Next</h2>
+<p>Start by adding a simple cost log (tokens in, tokens out, model) to every call; within a week you'll see which flows dominate the bill. Then apply model tiering and caching there. If you're on RAG, ensure you're not re-embedding or re-querying the same docs repeatedly—cache embeddings and retrieval results. For user-facing features, add per-user or per-session limits so one abusive or buggy client can't blow the budget. We run <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener">AI cost audits</a> that map your current spend to a concrete optimization plan. For teams building or scaling production AI, our <a href="<%= ai_agent_development_path %>">AI Agent Development</a> and platform work includes cost governance and monitoring from day one—so you don't have to fix a $50K bill after the fact.</p>

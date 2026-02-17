@@ -1,4 +1,21 @@
-<h2>The Challenge: Manual Chaos in Property Management</h2>
+<% content_for :blog_key_takeaways do %>
+  <ul>
+    <li>Vestra automates 80% of daily property management tasks with a multi-role, multi-tenant SaaS platform.</li>
+    <li>Features: Stripe Connect rent collection, live chat, secure docs, AI-powered financial summaries.</li>
+    <li>Results: faster maintenance resolution, higher tenant satisfaction, scalable architecture.</li>
+    <li>Tech: Node.js, Next.js, Stripe Connect, OpenAI, PostgreSQL, DigitalOcean + Vercel.</li>
+    <li>Built for PMs who need customization and control without vendor lock-in.</li>
+  </ul>
+<% end %>
+<% content_for :blog_toc do %>
+  <ul class="list-unstyled mb-0">
+    <li><a href="#the-challenge">The Challenge</a></li>
+    <li><a href="#the-solution">The Solution: Vestra</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#what-to-do-next">What to Do Next</a></li>
+  </ul>
+<% end %>
+<h2 id="the-challenge">The Challenge: Manual Chaos in Property Management</h2>
 <p class="paragraph">Nathan, a real estate entrepreneur with a strong tech background, noticed a growing inefficiency across property management workflows. Property managers (PMs) juggled dozens of manual tasks daily:</p>
 <ul>
   <li>Rent collection through offline or fragmented systems</li>
@@ -9,7 +26,7 @@
 </ul>
 <p>The property management tools on the market were either too rigid, too generic, or lacked the customization and control needed for scale. Many required heavy customization or locked tenants into a single workflow. Nathan approached A'sTechware to design and develop an all-in-one solution that would eliminate these inefficiencies, with a strong focus on automation, security, and a seamless user experience—something that could grow from a handful of properties to thousands without a rewrite.</p>
 
-<h2>The Solution: Vestra – The Modern OS for Property Managers</h2>
+<h2 id="the-solution">The Solution: Vestra – The Modern OS for Property Managers</h2>
 <p>After a deep discovery session, A'sTechware proposed and architected a custom SaaS platform with the following pillars:</p>
 
 <h3>1. Multi-Role, Multi-Tenant Web App</h3>
@@ -72,4 +89,5 @@
 </ul>
 
 <p>Visit: <a href="https://vestra.app" target="_blank" rel="noopener noreferrer" class="text-primary">https://vestra.app</a></p>
-<p>If you're building a vertical SaaS product that needs multi-role access, payments, and operational automation, we can help you scope and deliver a production-ready platform without the usual guesswork. The same patterns—multi-tenant roles, Stripe Connect for marketplace-style payouts, and AI-assisted reporting—apply to other verticals like services, marketplaces, or B2B platforms.</p>
+<h2 id="what-to-do-next">What to Do Next</h2>
+<p>If you're building a vertical SaaS product that needs multi-role access, payments, and operational automation, we can help you scope and deliver a production-ready platform without the usual guesswork. The same patterns—multi-tenant roles, Stripe Connect for marketplace-style payouts, and AI-assisted reporting—apply to other verticals like services, marketplaces, or B2B platforms. <a href="<%= custom_software_path %>">Custom Software Development</a> at A'sTechware includes full-stack SaaS like Vestra. <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener">Schedule a call</a> or explore our <a href="<%= case_studies_path %>">case studies</a> for more examples.</p>

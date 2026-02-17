@@ -1,16 +1,45 @@
+<% content_for :blog_key_takeaways do %>
+  <ul>
+    <li>Synthetic data is cheap and scalable but replacing real data can cause model collapse.</li>
+    <li>Training on AI output amplifies errors and reduces diversity—use for augmentation, not replacement.</li>
+    <li>When it works: augmentation, rare cases, structured data, privacy-sensitive domains (with validation).</li>
+    <li>When it fails: replacing real data entirely, no validation, poor or repetitive generation.</li>
+    <li>Mix ratio: e.g. 90% real, 10% synthetic; validate and monitor for degradation.</li>
+    <li>Rule of thumb: synthetic for variety and edge cases, real data for core behavior.</li>
+  </ul>
+<% end %>
+<% content_for :blog_toc do %>
+  <ul class="list-unstyled mb-0">
+    <li><a href="#the-promise-of-synthetic-data">The Promise of Synthetic Data</a></li>
+    <li><a href="#the-trap-model-collapse">The Trap: Model Collapse</a></li>
+    <li><a href="#when-synthetic-works">When Synthetic Data Works</a></li>
+    <li><a href="#when-it-fails">When It Fails</a></li>
+    <li><a href="#best-practices">Best Practices</a></li>
+    <li><a href="#what-to-do-next">What to Do Next</a></li>
+  </ul>
+<% end %>
+
 <p class="lead">You trained your model on AI-generated data. Now it's worse than before. Here's why and how to use synthetic data safely.</p>
 
-<h2>The Promise of Synthetic Data</h2>
+<h2 id="the-promise-of-synthetic-data">The Promise of Synthetic Data</h2>
 <p>Cheap (no human labeling), scalable (millions of examples), privacy-preserving (no real data), and useful for rare-case augmentation. But replacing real data with synthetic can backfire.</p>
 
-<h2>The Trap: Model Collapse</h2>
+<h2 id="the-trap-model-collapse">The Trap: Model Collapse</h2>
 <p>Training on AI output can degrade the model—errors compound, diversity drops. Example: GPT-3 trained on GPT-3 output. The model collapses toward narrow, often worse, behavior. Each generation amplifies the generator's mistakes, so a small bias becomes a big one over time. In practice, you see bland or repetitive outputs, loss of rare but correct phrasings, and drift toward the generator's tics. That's why "replace all human labels with synthetic" is risky; the safe move is to augment, not replace.</p>
+<p>Real-world scenario: A support team generated 20,000 synthetic "refund request" conversations to augment 2,000 real ones. When they trained on 100% synthetic, accuracy on real conversations dropped from 82% to 61%. When they trained on 80% real + 20% synthetic, accuracy improved to 86% on rare edge cases while staying strong on common intents. The synthetic data had repeated phrasing patterns that the model overfitted to; mixing with real data preserved diversity.</p>
 
-<h2>When Synthetic Data Works</h2>
-<p>Data augmentation (add to real data, don't replace), rare cases (generate edge cases you're missing), structured data (forms, tables), privacy-sensitive domains (healthcare, finance) where real data can't be used. Always validate and mix carefully.</p>
+<blockquote class="blockquote border-start border-4 border-primary ps-3 my-4 pull-quote">
+  <p class="mb-0">"Synthetic for variety and edge cases, real data for core behavior."</p>
+</blockquote>
 
-<h2>When It Fails</h2>
-<p>Replacing real data entirely, no validation, poor generation prompts, low-quality or repetitive generation. The model learns the generator's biases and errors.</p>
+<h2 id="when-synthetic-works">When Synthetic Data Works</h2>
+<p>Data augmentation (add to real data, don't replace), rare cases (generate edge cases you're missing), structured data (forms, tables), privacy-sensitive domains (healthcare, finance) where real data can't be used. Always validate and mix carefully. We've seen customer support improve rare-case handling with synthetic data when the mix was 85% real and 15% synthetic and every synthetic example was spot-checked for correctness and diversity.</p>
 
-<h2>Best Practices</h2>
-<p>Mix ratio: e.g. 90% real, 10% synthetic. Validate synthetic examples (human review or automated checks—e.g. format, consistency, no duplicates). Use for augmentation, not replacement. Generate diverse examples (vary prompts, personas, and edge cases so you don't get a thousand minor variations of the same thing). Monitor for degradation (hold-out set, production metrics); if accuracy or diversity drops after adding synthetic data, reduce the ratio or improve generation quality. We've seen customer support improve rare-case handling with synthetic data, and image models degrade when trained on synthetic faces—the rule of thumb is: synthetic for variety and edge cases, real data for core behavior. <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener">Schedule a data strategy consultation</a>.</p>
+<h2 id="when-it-fails">When It Fails</h2>
+<p>Replacing real data entirely, no validation, poor generation prompts, low-quality or repetitive generation. The model learns the generator's biases and errors. Image models have been shown to degrade when trained on synthetic faces—artifacts and lack of diversity compound. For text, repetitive or templated synthetic data pulls the model toward generic answers and away from the variety present in real user language.</p>
+
+<h2 id="best-practices">Best Practices</h2>
+<p>Mix ratio: e.g. 90% real, 10% synthetic. Validate synthetic examples (human review or automated checks—e.g. format, consistency, no duplicates). Use for augmentation, not replacement. Generate diverse examples (vary prompts, personas, and edge cases so you don't get a thousand minor variations of the same thing). Monitor for degradation (hold-out set, production metrics); if accuracy or diversity drops after adding synthetic data, reduce the ratio or improve generation quality. We've seen customer support improve rare-case handling with synthetic data, and image models degrade when trained on synthetic faces—the rule of thumb is: synthetic for variety and edge cases, real data for core behavior.</p>
+
+<h2 id="what-to-do-next">What to Do Next</h2>
+<p>If you're considering synthetic data, start with a small mix (e.g. 10%), validate quality and diversity, and measure on a hold-out set before scaling. <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener">Schedule a data strategy consultation</a> and we can help design a safe mix and validation pipeline. Our <a href="<%= ai_agent_development_path %>">AI Agent Development</a> and ML practice includes data strategy, fine-tuning, and evals so your models stay reliable in production.</p>

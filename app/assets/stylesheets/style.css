@@ -9270,6 +9270,23 @@ nav.nav-inner {
 .blog-post-page .blog-related { border-top: 1px solid #eee; padding-top: 2rem; }
 .blog-post-page .blog-author-bio { background: #f8f9fa; border-radius: 12px; padding: 1.25rem; }
 .blog-post-page .blog-share-btn { width: 36px; height: 36px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; }
+.blog-post-page .blog-share-copy { cursor: pointer; }
+.blog-post-page .blog-share-copy:hover { background: #e9ecef !important; }
+.blog-post-page .blog-toc ul li { margin-bottom: 0.35rem; }
+.blog-post-page .blog-toc ul ul { padding-left: 1rem; margin-top: 0.25rem; }
+.blog-breadcrumb-container { max-width: 1140px; margin-left: auto; margin-right: auto; }
+.blog-breadcrumb .breadcrumb-item + .breadcrumb-item::before { content: "›"; }
+.blog-key-takeaways { background: #f0f7ff; border-left: 4px solid var(--site-color, #f9c42e); border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; }
+.blog-key-takeaways ul { margin-bottom: 0; padding-left: 1.25rem; }
+.blog-key-takeaways li { margin-bottom: 0.35rem; }
+.blog-post-page .entry-content pre { font-size: 0.9rem; line-height: 1.5; }
+.blog-post-page .entry-content pre code { background: transparent; padding: 0; }
+.blog-post-page .entry-content code { padding: 0.15em 0.4em; font-size: 0.9em; }
+@media (max-width: 575.98px) {
+  .blog-post-page .blog-author-block { flex-direction: column; align-items: flex-start; }
+  .blog-post-page .blog-key-takeaways { padding: 0.75rem 1rem; }
+  .blog-breadcrumb { font-size: 0.8rem; }
+}
 
 .happy-customer .testimonial-text {
   font-size: 20px;
