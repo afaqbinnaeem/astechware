@@ -12983,6 +12983,8 @@ nav.nav-inner {
   padding: 0.6rem 1rem;
   font-size: 0.9rem;
   background: #fff;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .footer-newsletter-input:focus {
@@ -13000,6 +13002,7 @@ nav.nav-inner {
   border: none;
   color: #242a3b;
   white-space: nowrap;
+  flex: 0 0 auto;
 }
 
 .footer-newsletter-btn:hover {

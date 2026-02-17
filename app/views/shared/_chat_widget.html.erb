@@ -1,7 +1,7 @@
 <div data-controller="chat" class="chat-widget-container" id="chat-widget-container">
   <!-- Minimized Bubble -->
   <div data-chat-target="bubble" class="chat-bubble" data-action="click->chat#toggle">
-    <i class="fa fa-comments"></i>
+    <span class="chat-bubble-text">A's Gpt</span>
   </div>
 
   <!-- Chat Window -->
@@ -34,7 +34,7 @@
           <input
             type="text"
             data-chat-target="input"
-            class="form-control chat-input"
+            class="form-control chat-input rounded-1"
             placeholder="Type your message..."
             autocomplete="off"
             data-action="keydown->chat#handleKeyPress"
@@ -42,7 +42,7 @@
           <button
             type="submit"
             data-chat-target="sendButton"
-            class="btn btn-primary chat-send-btn"
+            class="btn btn-primary chat-send-btn rounded-1"
             aria-label="Send message"
           >
             <i class="fa fa-paper-plane"></i>

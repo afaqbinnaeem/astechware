@@ -72,7 +72,7 @@
         <div class="col-12 col-lg-4 col-xl-3 footer-col footer-newsletter">
           <h3 class="footer-heading">Stay Informed</h3>
           <p class="footer-newsletter-tagline text-muted small mb-3">
-            Get insights on AI, platform engineering, and industry trends.
+            Gets insights on AI, platform engineering, and industry trends.
           </p>
           <%= form_for :form, url: submit_form_path, method: :post, html: { class: "footer-newsletter-form", data: { turbo: false } } do |f| %>
             <%= f.hidden_field :reason, value: "Newsletter" %>
@@ -80,7 +80,7 @@
             <%= f.hidden_field :company_name, value: "" %>
             <%= f.hidden_field :cover_letter, value: "Newsletter signup" %>
             <div class="input-group">
-              <%= f.email_field :email, class: "form-control footer-newsletter-input", placeholder: "Your email", required: true, "aria-label": "Email for newsletter" %>
+              <%= f.email_field :email, class: "form-control footer-newsletter-input flex-grow-1", placeholder: "Your email", required: true, "aria-label": "Email for newsletter" %>
               <%= f.submit "Subscribe", class: "btn btn-primary footer-newsletter-btn" %>
             </div>
           <% end %>
