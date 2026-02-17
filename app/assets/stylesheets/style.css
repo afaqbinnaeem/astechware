@@ -12417,6 +12417,12 @@ nav.nav-inner {
   color: var(--site-color);
 }
 
+/* Leadership section */
+.about-leadership-section {
+  padding-top: 3.5rem !important;
+  padding-bottom: 3.5rem !important;
+}
+
 /* Leadership cards */
 .about-leadership-card {
   background: #fff;
@@ -12433,6 +12439,93 @@ nav.nav-inner {
   transform: translateY(-3px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   border-color: var(--site-color);
+}
+
+/* Premium single leadership card (Founder & CEO) */
+.about-leadership-card--premium {
+  background: var(--bg-section);
+  border-radius: 16px;
+  border: 1px solid rgba(36, 42, 59, 0.08);
+  padding: 2.5rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 12px 40px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  align-items: center;
+}
+
+.about-leadership-card--premium:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06), 0 20px 48px rgba(0, 0, 0, 0.08);
+  border-color: rgba(249, 196, 46, 0.35);
+}
+
+.about-leadership-card--premium .about-leadership-photo {
+  width: 140px;
+  height: 140px;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(145deg, #f0f1f3 0%, #e2e4e8 100%);
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 24px rgba(36, 42, 59, 0.1);
+}
+
+.about-leadership-card--premium .about-leadership-initial {
+  font-size: 2.75rem;
+  color: rgba(36, 42, 59, 0.3);
+}
+
+.about-leadership-card--premium .about-leadership-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 0.35rem;
+  letter-spacing: -0.02em;
+}
+
+.about-leadership-card--premium .about-leadership-title {
+  font-size: 0.8rem;
+  color: var(--site-color);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 1.25rem;
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+.about-leadership-card--premium .about-leadership-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 3px;
+  background: var(--site-color);
+  border-radius: 2px;
+}
+
+.about-leadership-card--premium .about-leadership-bio {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-color);
+  opacity: 0.88;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5rem;
+}
+
+.about-leadership-card--premium .about-leadership-linkedin {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0a66c2;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.about-leadership-card--premium .about-leadership-linkedin:hover {
+  color: #004182;
+  background: rgba(10, 102, 194, 0.08);
 }
 
 .about-leadership-photo {
@@ -12594,8 +12687,25 @@ nav.nav-inner {
     height: 100px;
   }
 
+  .about-leadership-card--premium .about-leadership-photo {
+    width: 120px;
+    height: 120px;
+  }
+
   .about-leadership-initial {
     font-size: 1.75rem;
+  }
+
+  .about-leadership-card--premium .about-leadership-initial {
+    font-size: 2.25rem;
+  }
+
+  .about-leadership-card--premium {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .about-leadership-card--premium .about-leadership-name {
+    font-size: 1.25rem;
   }
 }
 
