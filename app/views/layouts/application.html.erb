@@ -330,6 +330,14 @@
             document.querySelector("#wrapper").classList.remove('d-none');
           }
       };
+      // After Turbo Drive navigations there is no full page load, so readystatechange
+      // doesn't run again. Hide loader and show content on every turbo:load.
+      document.addEventListener('turbo:load', function() {
+        var loader = document.querySelector("#loader");
+        var wrapper = document.querySelector("#wrapper");
+        if (loader) loader.style.display = "none";
+        if (wrapper) wrapper.classList.remove('d-none');
+      });
   </script>
 
     <%= yield :footer_script %>

@@ -4,7 +4,8 @@ export default class extends Controller {
   static targets = ["bubble", "window", "messages", "input", "sendButton"]
 
   connect() {
-    this.isMinimized = false
+    // Restore minimized state for this session (stay minimized after first minimize)
+    this.isMinimized = this.getSessionMinimized()
     this.updateVisibility()
     // Clear sessionStorage on page load/reload
     this.clearHistory()
@@ -16,7 +17,25 @@ export default class extends Controller {
       event.stopPropagation()
     }
     this.isMinimized = !this.isMinimized
+    this.setSessionMinimized(this.isMinimized)
     this.updateVisibility()
+  }
+
+  getSessionMinimized() {
+    try {
+      return sessionStorage.getItem('chat_minimized') === 'true'
+    } catch (_e) {
+      return false
+    }
+  }
+
+  setSessionMinimized(minimized) {
+    try {
+      // Only persist when user minimizes; never clear so it stays minimized for the session
+      if (minimized) {
+        sessionStorage.setItem('chat_minimized', 'true')
+      }
+    } catch (_e) {}
   }
 
   updateVisibility() {
