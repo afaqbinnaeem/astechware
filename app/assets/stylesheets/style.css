@@ -9366,11 +9366,12 @@ nav.nav-inner {
 .clients-testimonials-slider .slick-slide {
   padding: 0 12px;
   outline: none;
+  transition: opacity 0.5s ease;
 }
 
 .clients-testimonials-slider .clients-testimonial-card {
   min-height: 260px;
-  transition: box-shadow 0.25s ease;
+  transition: box-shadow 0.25s ease, transform 0.5s ease;
 }
 
 .clients-testimonials-slider .slick-current .clients-testimonial-card {
@@ -9381,18 +9382,21 @@ nav.nav-inner {
 .clients-testimonials-slider .slick-next {
   position: absolute !important;
   top: 50% !important;
+  left: auto !important;
+  right: auto !important;
   width: 48px !important;
   height: 48px !important;
   min-width: 48px;
   min-height: 48px;
-  margin-top: -24px !important;
+  margin: 0 !important;
   padding: 0 !important;
+  transform: translateY(-50%);
   z-index: 2;
   background: #fff !important;
   border: none !important;
   border-radius: 50% !important;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
-  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   font-size: 18px !important;
   line-height: 1;
   cursor: pointer;
@@ -9406,16 +9410,17 @@ nav.nav-inner {
 .clients-testimonials-slider .slick-next:hover {
   background: var(--text-color);
   color: #fff;
-  transform: scale(1.05);
+  transform: translateY(-50%) scale(1.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
 }
 
 .clients-testimonials-slider .slick-prev {
-  left: 0;
+  left: 8px !important;
 }
 
 .clients-testimonials-slider .slick-next {
-  right: 0;
-  left: auto;
+  right: 8px !important;
+  left: auto !important;
 }
 
 .clients-testimonials-slider .slick-prev:before,
@@ -9455,15 +9460,19 @@ nav.nav-inner {
   }
   .clients-testimonials-slider .slick-prev,
   .clients-testimonials-slider .slick-next {
-    width: 40px;
-    height: 40px;
-    margin-top: -20px;
+    width: 40px !important;
+    height: 40px !important;
+    transform: translateY(-50%);
+  }
+  .clients-testimonials-slider .slick-prev:hover,
+  .clients-testimonials-slider .slick-next:hover {
+    transform: translateY(-50%) scale(1.05);
   }
   .clients-testimonials-slider .slick-prev {
-    left: 8px;
+    left: 4px !important;
   }
   .clients-testimonials-slider .slick-next {
-    right: 8px;
+    right: 4px !important;
   }
   .clients-testimonials-slider .clients-testimonial-card {
     min-height: 220px;
