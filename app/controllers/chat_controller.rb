@@ -802,7 +802,7 @@ class ChatController < ApplicationController
       render json: { message: ai_message, error: nil }
     rescue StandardError => e
       Rails.logger.error "OpenAI API Error: #{e.message}"
-      render json: { error: 'Failed to get response from AI. Please try again later.' }, status: :internal_server_error
+      render json: { error: 'Failed to get response from AI. Please try again later.', message: "#{e.message}" }, status: :internal_server_error
     end
   end
 end
