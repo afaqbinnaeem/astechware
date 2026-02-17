@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     resources :comments
   end
   resources :dashboard, only: [:index]
-  resources :blogs, only: [:index]
+  get 'blogs', to: 'blogs#index', as: 'blogs'
+  get 'blogs/:slug', to: 'blogs#show', as: 'blog_show'
+  get 'sitemap.xml', to: 'sitemap#index', format: 'xml', as: 'sitemap'
   root 'home#index'
   match "/404", to: "errors#not_found", via: :all
   match "/500", to: "errors#internal_server_error", via: :all
@@ -36,13 +38,13 @@ Rails.application.routes.draw do
   get '/terms-of-service', to: 'home#terms_of_service', as: 'terms_of_service'
   get '/unsubscribe', to: 'home#unsubscribe', as: 'unsubscribe'
   get '/unsubscribe_me', to: 'home#unsubscribe_me', as: 'unsubscribe_me'
-  get 'vestra-app-case-study', as: 'vestra_app_case_study', to: 'blogs#vestra_app_case_study'
-  get 'whatsapp-voice-ai-agent-demo', as: 'whatsapp_voice_ai_agent_demo', to: 'blogs#whatsapp_voice_ai_agent_demo'
-  get 'modular-ai-agents-case-study', as: 'modular_ai_agents_case_study', to: 'blogs#modular_ai_agents_case_study'
-
-  get 'a-laymans-guide-for-hiring-a-top-software-company-in-pakistan', to: 'blogs#top_software_company_pk'
-  get 'exploring-the-latest-web-development-trends-a-dive-into-rails-7-and-turbo', as: 'rails_7_and_turbo', to: 'blogs#rails_7_and_turbo'
-  get 'top-5-startup-mistakes-to-avoid-learn-from-the-lessons-of-others', as: 'five_startup_mistakes', to: 'blogs#five_startup_mistakes'
-  get '4-reasons-why-you-should-invest-in-a-new-website', as: 'four_reason_for_new_web', to: 'blogs#four_reason_for_new_web'
-  get 'the-impact-of-ai-and-machine-learning-on-the-food-products-business', as: 'impact_of_ai_ml_on_food_industry', to: 'blogs#impact_of_ai_ml_on_food_industry'
+  # Redirect old blog URLs to /blogs/:slug (prevents 500s, preserves SEO)
+  get 'vestra-app-case-study', to: redirect('/blogs/vestra-app-case-study')
+  get 'whatsapp-voice-ai-agent-demo', to: redirect('/blogs/whatsapp-voice-ai-agent-demo')
+  get 'modular-ai-agents-case-study', to: redirect('/blogs/modular-ai-agents-case-study')
+  get 'a-laymans-guide-for-hiring-a-top-software-company-in-pakistan', to: redirect('/blogs/a-laymans-guide-for-hiring-a-top-software-company-in-pakistan')
+  get 'exploring-the-latest-web-development-trends-a-dive-into-rails-7-and-turbo', to: redirect('/blogs/rails-7-and-turbo')
+  get 'top-5-startup-mistakes-to-avoid-learn-from-the-lessons-of-others', to: redirect('/blogs/five-startup-mistakes')
+  get '4-reasons-why-you-should-invest-in-a-new-website', to: redirect('/blogs/four-reason-for-new-web')
+  get 'the-impact-of-ai-and-machine-learning-on-the-food-products-business', to: redirect('/blogs/impact-of-ai-ml-on-food-industry')
 end

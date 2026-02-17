@@ -1,0 +1,18 @@
+<p class="lead">Your AI can "see" images. So why does it keep missing the invoice total? Lessons from vision + language in production.</p>
+
+<h2>Common Use Cases</h2>
+<p>Invoice and receipt processing, ID verification, product catalog (image + description), medical image analysis, visual Q&A. Multi-modal models (GPT-4V, Claude 3, Gemini) promise one model for all of it—but deployment often fails without the right pipeline. The gap is usually preprocessing, fallbacks, and cost control, not model capability.</p>
+
+<h2>Why Multi-Modal Fails</h2>
+<ul>
+  <li><strong>Image quality</strong>—too small, blurry, or rotated. Vision models struggle with low-res or skewed scans; a quick preprocessing step (resize, deskew, contrast) often doubles accuracy.</li>
+  <li><strong>OCR is better</strong>—for text-heavy images (invoices, forms, receipts), use Tesseract or AWS Textract first. Send the extracted text to the LLM instead of the raw image; you get better accuracy and lower cost. Use vision only for layout, validation, or when OCR fails.</li>
+  <li><strong>Model limits</strong>—small text, complex layouts, tables. Even the best vision models miss fine print or misread dense grids; combine OCR + LLM for tables.</li>
+  <li><strong>No structured output</strong>—model returns prose instead of JSON; hard to integrate. Always prompt for a schema (e.g. JSON with fields like total, date, line_items) and validate before writing to your DB.</li>
+  <li><strong>Cost</strong>—images consume many tokens; resolution drives cost. Resize to the minimum needed (e.g. 1024px long edge for docs) and avoid sending the same image multiple times in one request.</li>
+  <li><strong>No fallback</strong>—when vision fails, the whole process fails. Design for timeouts and errors: retry once, then fall back to OCR-only or human review so the pipeline doesn't block.</li>
+</ul>
+
+<h2>Best Practices</h2>
+<p>Preprocess images (resize, rotate, contrast). For text-heavy docs: OCR first, then use vision for validation or extraction. Prompt for structured output (JSON schema). Handle vision failures (retry, fallback to OCR-only, or human review). Resize to optimal resolution for cost. Real examples: invoice processing with OCR + GPT-4V at 95% accuracy; ID verification with vision + validation rules; medical imaging with vision + human review. Always have a fallback path when the vision call fails or times out so the workflow doesn't break.</p>
+<p>Pipeline order: (1) validate image (size, format), (2) preprocess, (3) for docs, run OCR and pass text to LLM; for non-doc images, send to vision with a strict prompt and schema, (4) validate output against schema before persisting, (5) on failure, retry or route to human. We'll add code for preprocessing, OCR+LLM pipeline, and structured output. <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener">Schedule multi-modal implementation support</a>.</p>

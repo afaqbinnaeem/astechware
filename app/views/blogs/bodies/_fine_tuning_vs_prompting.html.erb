@@ -1,0 +1,13 @@
+<p class="lead">Your legal AI costs $15K/month in API calls. A $80K fine-tuned model would pay for itself in 6 months. Here's when and why.</p>
+
+<h2>When Prompting Is Enough</h2>
+<p>General tasks (summarization, Q&A), low volume (under ~100K requests/month), need for flexibility (change behavior quickly), or no training data—prompting is the right default. If you're still iterating on product and prompts, stay with APIs; you can switch to fine-tuning once usage and requirements stabilize. Prompting also wins when you need to support many use cases with one model: you'd need separate fine-tuned models per task, which increases ops and cost. Use APIs until you have a clear, stable task and enough labeled data to justify the investment.</p>
+
+<h2>When Fine-Tuning Wins</h2>
+<p>Domain-specific language (legal, medical, finance), high volume (over ~1M requests/month), accuracy plateaus with prompting (e.g. stuck at 80%), sensitive data you can't send to the OpenAI API, need for lower latency (smaller model), or cost optimization—fine-tuning can deliver 95% cost reduction and better accuracy.</p>
+
+<h2>The ROI Calculation</h2>
+<p>Prompting: $10K/month = $120K/year. Fine-tuning: $80K upfront + $2K/month = $104K year one; break-even around month 9. Year two and beyond: ~$24K vs $120K—about 5x savings. We'll include real examples: customer support (fine-tuned GPT-3.5 beating base GPT-4), medical coding (95% vs 70%), legal contract analysis (10x cost reduction).</p>
+
+<h2>Data and Strategy</h2>
+<p>Data requirements: typically 1,000–10,000 high-quality examples. Fewer can work for narrow tasks; more helps for broad domain coverage. Quality beats quantity: clean, consistent labels and representative inputs matter more than raw volume. Strategies: LoRA vs full fine-tuning (LoRA is cheaper and faster; full fine-tuning for maximum control); evaluation on a hold-out set and A/B in production so you measure real impact. When to fine-tune vs use RAG vs both: use RAG when knowledge changes often; add fine-tuning when you have stable, high-volume tasks and enough labeled data. Many systems use both—RAG for up-to-date knowledge, fine-tuned model for tone and task structure. <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener">Schedule a fine-tuning ROI analysis</a>.</p>

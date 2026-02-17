@@ -1,44 +1,25 @@
 <% content_for :head do %>
-   <%# Using safe helpers to prevent 500 errors if assets fail %>
+   <%# Technical SEO: meta title 58 chars, description 155 chars per spec %>
    <% og_image = safe_og_image_url('logo-colored.png') %>
+   <% set_meta_tags(
+     title: "A'sTechware | Production-Grade AI & Platform Engineering",
+     description: "We build AI agents and custom platforms that survive production. Enterprise governance, human-in-the-loop, complete audit trails. 8+ years, 50+ projects.",
+     keywords: "AI development, production AI, platform engineering, custom software, AI governance",
+     og: {
+       title: "A'sTechware | Production-Grade AI & Platform Engineering",
+       description: "We build AI agents and custom platforms that survive production. Enterprise governance, human-in-the-loop, complete audit trails. 8+ years, 50+ projects.",
+       url: safe_request_url,
+       type: 'website',
+       site_name: "A'sTechware"
+     },
+     twitter: {
+       card: 'summary_large_image',
+       title: "A'sTechware | Production-Grade AI & Platform Engineering",
+       description: "We build AI agents and custom platforms that survive production. Enterprise governance, human-in-the-loop, complete audit trails."
+     }
+   ) %>
    <% if og_image.present? %>
-     <% set_meta_tags(
-       title: "You Bring the Goal. We Build the System Behind It | A'sTechware",
-       description: "From internal tools and automation to full SaaS platforms, we help businesses replace manual workflows with systems that scale.",
-       og: {
-         title: "You Bring the Goal. We Build the System Behind It | A'sTechware",
-         description: "From internal tools and automation to full SaaS platforms, we help businesses replace manual workflows with systems that scale.",
-         image: og_image,
-         'image:secure_url' => og_image,
-         'image:type' => 'image/png',
-         url: safe_request_url,
-         type: 'website',
-         site_name: "A'sTechware"
-       },
-       twitter: {
-         card: 'summary_large_image',
-         title: "You Bring the Goal. We Build the System Behind It | A'sTechware",
-         description: "From internal tools and automation to full SaaS platforms, we help businesses replace manual workflows with systems that scale.",
-         image: og_image
-       }
-     ) %>
-   <% else %>
-     <% set_meta_tags(
-       title: "You Bring the Goal. We Build the System Behind It | A'sTechware",
-       description: "From internal tools and automation to full SaaS platforms, we help businesses replace manual workflows with systems that scale.",
-       og: {
-         title: "You Bring the Goal. We Build the System Behind It | A'sTechware",
-         description: "From internal tools and automation to full SaaS platforms, we help businesses replace manual workflows with systems that scale.",
-         url: safe_request_url,
-         type: 'website',
-         site_name: "A'sTechware"
-       },
-       twitter: {
-         card: 'summary',
-         title: "You Bring the Goal. We Build the System Behind It | A'sTechware",
-         description: "From internal tools and automation to full SaaS platforms, we help businesses replace manual workflows with systems that scale."
-       }
-     ) %>
+     <% set_meta_tags(og: { image: og_image, 'image:secure_url' => og_image, 'image:type' => 'image/png' }, twitter: { image: og_image }) %>
    <% end %>
  <% end %>
  
@@ -77,7 +58,7 @@
    <div class="container">
       <div class="row text-center g-4">
          <div class="col-6 col-md-3">
-            <div class="metric-number">8+</div>
+            <div class="metric-number">10+</div>
             <div class="metric-label">Years of Experience</div>
          </div>
          <div class="col-6 col-md-3">
@@ -85,7 +66,7 @@
             <div class="metric-label">Projects Delivered</div>
          </div>
          <div class="col-6 col-md-3">
-            <div class="metric-number">95%</div>
+            <div class="metric-number">98%</div>
             <div class="metric-label">Client Retention</div>
          </div>
          <div class="col-6 col-md-3">
@@ -97,7 +78,78 @@
 </div>
 <div class="inner-sections">
 
-   
+
+
+
+
+
+
+
+
+
+
+   <!-- We've worked with some great companies (logos marquee from ahmad-kamran) -->
+   <div class="py-5 bg-white" id="astechware_logos">
+      <style>
+         .logos-marquee {
+         overflow: hidden;
+         width: 100%;
+         position: relative;
+         }
+         .logos-track {
+         display: flex;
+         width: max-content;
+         animation: scroll-logos 30s linear infinite;
+         gap: 48px;
+         }
+         @keyframes scroll-logos {
+         0% { transform: translateX(0); }
+         100% { transform: translateX(-50%); }
+         }
+         .logo-item img {
+         max-height: 60px;
+         width: auto;
+         display: block;
+         }
+         @media (max-width: 600px) {
+         .logos-track { gap: 24px; }
+         .logo-item img { max-height: 40px; }
+         }
+      </style>
+      <div class="container">
+         <div class="text-center mb-4">
+            <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">We&apos;ve worked with some great companies</h2>
+            <p class="large-para mb-4">Trusted by teams across fintech, real estate, events, marketplaces, golf operations, online directories and local services.</p>
+         </div>
+         <% logos = [
+            { src: 'ahmad/logos/word_of_mouth_online_pty_ltd__logo.jpeg', alt: 'Word of Mouth Online Pty Ltd' },
+            { src: 'ahmad/logos/vestra_software_solutions_logo.jpeg', alt: 'Vestra Software Solutions' },
+            { src: 'ahmad/logos/zoficash_logo.jpeg', alt: 'Zoficash' },
+            { src: 'ahmad/logos/golfpay.png', alt: 'Golfpay' },
+            { src: 'ahmad/logos/rrf.jpeg', alt: 'RRF' },
+            # { src: 'ahmad/logos/astechware_logo.jpeg', alt: 'A'sTechware' },
+            { src: 'ahmad/logos/thegrantshub_logo.jpeg', alt: 'The Grants Hub' },
+            { src: 'ahmad/logos/driftgolf_logo.jpeg', alt: 'DriftGolf' },
+            { src: 'ahmad/logos/1630580396218.jpeg', alt: 'Selland Technologies' },
+            { src: 'ahmad/logos/zidzid.jpeg', alt: 'ZidZid' },
+            { src: 'ahmad/logos/warcoconstruction_logo.jpeg', alt: 'Warcoconstruction' },
+            { src: 'ahmad/logos/instashowing_logo.jpeg', alt: 'Instashowing' },
+            # { src: 'ahmad/logos/1725399994195.jpeg', alt: 'Eritheia Labs' },
+            { src: 'ahmad/logos/sws.svg', alt: 'SWS' }
+            ] %>
+         <div class="logos-marquee">
+            <div class="logos-track">
+               <% (logos + logos).each do |logo| %>
+               <div class="logo-item">
+                  <%= image_tag logo[:src], alt: logo[:alt], class: 'img-fluid', loading: "lazy" %>
+               </div>
+               <% end %>
+            </div>
+         </div>
+      </div>
+   </div>
+
+
 <!-- Why Choose Us Section -->
 <div class="py-5 bg-white" id="why-choose-us">
    <div class="container">
@@ -203,424 +255,9 @@
    </div>
 </div>
 
- <div class="ceo-section pb-0 pt-4" id="astechware_about">
-      <div class="container">
-         <div class="d-flex mb-4 mb-lg-5 align-items-center ">
-            <%= image_tag 'logo-colored.png', class: 'img-fluid rounded-circle', style: "width: 80px; height: 80px;", alt: "A'sTechware Logo Colored", loading: "lazy"  %>
-            <div class="ms-3 text-white">
-               <h2 class="m-0">Services Overview</h2>
-               <span><em class="h6 text-blue">
-               A'sTechware is a focused engineering team that builds AI automation and custom softwares.
-               </em></span>
-            </div>
-         </div>
 
 
-
-         <div class="row g-4 mt-0 mt-lg-5">
-         <div class="col-12 col-md-6">
-            <div class="workflow-card p-4 h-100">
-               <h3 class="h4 mb-3">AI Agents That Work in Production</h3>
-               <p style="text-justify: inter-word; margin-bottom: 0;">
-                  Most SaaS teams can demo AI in a week. The hard part is shipping AI that survives production: messy user inputs, permissioning, escalations, and ongoing monitoring.
-               </p>
-               <p style="text-justify: inter-word; margin-top: 1rem; margin-bottom: 0;">
-                  We build AI agents and copilots with enterprise governance built in from day one, human-in-the-loop protocols, audit trails, and observability that boards approve.
-               </p>
-               <div class="mt-3">
-                  <p class="small text-muted mb-0">
-                     <strong>Recent results:</strong> 5,127 tickets auto-resolved | 35%→6% no-shows | 120+ billable hours/month recovered
-                  </p>
-               </div>
-               <div class="mt-4">
-                  <a href="/ai-agents" class="btn btn-primary btn-lg rounded-3 px-4 built-btn">
-                     See AI Agents →
-                  </a>
-               </div>
-            </div>
-         </div>
-         <div class="col-12 col-md-6">
-            <div class="workflow-card p-4 h-100">
-               <h3 class="h4 mb-3">Product &amp; Platform Engineering</h3>
-               <p style="text-justify: inter-word; margin-bottom: 0;">
-                  We build end-to-end product features and platform upgrades that help your team ship reliably without months of internal rewrites or risky migrations.
-               </p>
-               <p style="text-justify: inter-word; margin-top: 1rem; margin-bottom: 0;">
-                  We can own full delivery, from UI implementation to backend services and integrations, without forcing you to hire for every gap.
-               </p>
-               <div class="mt-3">
-                  <p class="small text-muted mb-0">
-                     <strong>Recent work:</strong> Golf operations SaaS | Restaurant directory rebuild | Wellness clinic platform | Law firm automation
-                  </p>
-               </div>
-               <div class="mt-4">
-                  <a href="/case-studies" class="btn btn-primary btn-lg rounded-3 px-4 built-btn">
-                     See Case Studies →
-                  </a>
-               </div>
-            </div>
-         </div>
-      </div>
-
-
-
-      </div>
-   </div>
-
-   <!-- We've worked with some great companies (logos marquee from ahmad-kamran) -->
-   <div class="py-5 bg-white" id="astechware_logos">
-      <style>
-         .logos-marquee {
-         overflow: hidden;
-         width: 100%;
-         position: relative;
-         }
-         .logos-track {
-         display: flex;
-         width: max-content;
-         animation: scroll-logos 30s linear infinite;
-         gap: 48px;
-         }
-         @keyframes scroll-logos {
-         0% { transform: translateX(0); }
-         100% { transform: translateX(-50%); }
-         }
-         .logo-item img {
-         max-height: 60px;
-         width: auto;
-         display: block;
-         }
-         @media (max-width: 600px) {
-         .logos-track { gap: 24px; }
-         .logo-item img { max-height: 40px; }
-         }
-      </style>
-      <div class="container">
-         <div class="text-center mb-4">
-            <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">We&apos;ve worked with some great companies</h2>
-            <p class="large-para mb-4">Trusted by teams across fintech, real estate, events, marketplaces, golf operations, online directories and local services.</p>
-         </div>
-         <% logos = [
-            { src: 'ahmad/logos/word_of_mouth_online_pty_ltd__logo.jpeg', alt: 'Word of Mouth Online Pty Ltd' },
-            { src: 'ahmad/logos/vestra_software_solutions_logo.jpeg', alt: 'Vestra Software Solutions' },
-            { src: 'ahmad/logos/zoficash_logo.jpeg', alt: 'Zoficash' },
-            { src: 'ahmad/logos/golfpay.png', alt: 'Golfpay' },
-            { src: 'ahmad/logos/rrf.jpeg', alt: 'RRF' },
-            # { src: 'ahmad/logos/astechware_logo.jpeg', alt: 'A'sTechware' },
-            { src: 'ahmad/logos/thegrantshub_logo.jpeg', alt: 'The Grants Hub' },
-            { src: 'ahmad/logos/driftgolf_logo.jpeg', alt: 'DriftGolf' },
-            { src: 'ahmad/logos/1630580396218.jpeg', alt: 'Selland Technologies' },
-            { src: 'ahmad/logos/zidzid.jpeg', alt: 'ZidZid' },
-            { src: 'ahmad/logos/warcoconstruction_logo.jpeg', alt: 'Warcoconstruction' },
-            { src: 'ahmad/logos/instashowing_logo.jpeg', alt: 'Instashowing' },
-            # { src: 'ahmad/logos/1725399994195.jpeg', alt: 'Eritheia Labs' },
-            { src: 'ahmad/logos/sws.svg', alt: 'SWS' }
-            ] %>
-         <div class="logos-marquee">
-            <div class="logos-track">
-               <% (logos + logos).each do |logo| %>
-               <div class="logo-item">
-                  <%= image_tag logo[:src], alt: logo[:alt], class: 'img-fluid', loading: "lazy" %>
-               </div>
-               <% end %>
-            </div>
-         </div>
-      </div>
-   </div>
-  
-   <!-- Designed to Reduce Risk Section -->
-<div class="py-5 bg-light-grey">
-   <div class="container">
-      <div class="row">
-         <div class="col-12 col-lg-10 mx-auto">
-            <div class="text-center mb-5">
-               <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">How We De-Risk Projects</h2>
-               <p class="large-para mb-0">We design both the work and the engagement to earn trust gradually, not demand it upfront.</p>
-            </div>
-
-            <div class="row g-4 mb-4">
-               <div class="col-12 col-md-4">
-                  <div class="workflow-card p-4 h-100 text-center">
-                     <h4 class="h5 mb-2">Milestone-Based Delivery</h4>
-                     <p class="mb-0 small">Work broken into milestones. Pay per milestone, portion upfront, remainder after review.</p>
-                  </div>
-               </div>
-
-               <div class="col-12 col-md-4">
-                  <div class="workflow-card p-4 h-100 text-center">
-                     <h4 class="h5 mb-2">You Own Everything</h4>
-                     <p class="mb-0 small">All code, infrastructure, and documentation belong to you from day one. No lock-in.</p>
-                  </div>
-               </div>
-
-               <div class="col-12 col-md-4">
-                  <div class="workflow-card p-4 h-100 text-center">
-                     <h4 class="h5 mb-2">Natural Exit Points</h4>
-                     <p class="mb-0 small">Each milestone stands alone. Pause or adjust anytime without penalties or losing work.</p>
-                  </div>
-               </div>
-            </div>
-
-            <div class="text-center">
-               <p class="mb-3 text-muted small">
-                  Weekly demos • Full visibility • No forced retainers • Support when you need it
-               </p>
-               <p class="mb-3" style="font-style: italic; font-size: 1rem;">
-                  A recent rebuild we shared publicly → 
-                  <a href="https://www.linkedin.com/posts/astechware_restaurant-resource-online-search-tool-activity-7415014406423678977-2fYI?utm_source=share&utm_medium=member_desktop&rcm=ACoAACEv3E8BU6GjC8wN2TgFVUMzkndn2a55diA" class="linkedIn-tag" target="_blank" rel="noopener noreferrer" style="font-style: italic;">[Read the LinkedIn post]</a>
-               </p>
-
-               <a href="/how-we-derisk-projects" class="btn btn-primary btn-lg rounded-3 px-5">
-                  How we de-risk projects →
-               </a>
-            </div>
-         </div>
-      </div>
-   </div>
-</div>
-<!-- AI Agents Section (Homepage) -->
-<div class="py-5 bg-light" id="ai-agents-overview">
-   <div class="container">
-      <div class="row g-5">
-         <div class="col-12 col-lg-7">
-            <h2 class="heading-border mb-3 pb-3 d-inline-block">AI Agents That Work in Production</h2>
-            <p class="mb-3">
-               Most teams can demo AI in a week. The hard part is shipping AI that survives production: messy user inputs, permissioning, audit trails, escalations, and ongoing monitoring.
-            </p>
-            <p class="mb-4">
-               We build AI agents and copilots with enterprise governance built in from day one, designed for real customers, real data, and real operational constraints.
-            </p>
-
-            <div class="row g-3 mb-4">
-               <div class="col-12">
-                  <h3 class="h5 mb-3">Production-Ready with Governance Built In</h3>
-                  
-                  <div class="mb-3">
-                     <p class="mb-2">
-                        <strong>Human-in-the-Loop:</strong> Critical decisions and edge cases automatically escalate to humans with full context and confidence scores.
-                     </p>
-                  </div>
-
-                  <div class="mb-3">
-                     <p class="mb-2">
-                        <strong>Complete Audit Trails:</strong> Every AI decision, data access, and action logged for compliance, debugging, and continuous improvement.
-                     </p>
-                  </div>
-
-                  <div class="mb-3">
-                     <p class="mb-2">
-                        <strong>Role-Based Access:</strong> Agents only access data and tools appropriate to their scope, support can't touch financial data, sales can't modify pricing.
-                     </p>
-                  </div>
-
-                  <div class="mb-0">
-                     <p class="mb-0">
-                        <strong>Real-Time Monitoring:</strong> Observability dashboards track performance, confidence, and failures with automated alerts when behavior drifts.
-                     </p>
-                  </div>
-               </div>
-            </div>
-
-            <div class="mb-4">
-               <p class="small text-muted mb-2">
-                  <strong>Recent results:</strong>
-               </p>
-               <p class="small text-muted mb-0">
-                  5,127 tickets auto-resolved | 35%→6% no-shows | 120+ billable hours/month recovered | 15%→84% online bookings
-               </p>
-            </div>
-          
-            <a href="<%= ai_agents_path %>" class="btn btn-primary btn-lg rounded-3">
-               See full AI Agents overview →
-            </a>
-         </div>
-
-         <div class="col-12 col-lg-5">
-            <div class="workflow-card p-4 h-100">
-            <%= image_tag 'logo-colored.png', width: '100', class: 'img-fluid p-2 p-sm-0 mb-3 rounded-3', alt: "A'sTechware Logo", loading: "lazy" %>
-               <h3 class="h5 mb-3">What We Build</h3>
-
-               <div class="mb-3">
-                  <h4 class="h6 mb-1 fw-bold">Product-Embedded AI</h4>
-                  <p class="mb-0 small">
-                     AI copilots, smart onboarding, and workflow agents that live inside your product, helping users complete complex actions without leaving the app.
-                  </p>
-               </div>
-
-               <div class="mb-3">
-                  <h4 class="h6 mb-1 fw-bold">Customer-Facing Agents</h4>
-                  <p class="mb-0 small">
-                     Support and sales automation that handles repetitive work, qualifies leads, books demos, with safe escalation to humans for edge cases.
-                  </p>
-               </div>
-
-               <div class="mb-3">
-                  <h4 class="h6 mb-1 fw-bold">Internal Operations Agents</h4>
-                  <p class="mb-0 small">
-                     Document processing, data enrichment, QA testing, and DevOps triage, removing busywork so teams focus on high-value work.
-                  </p>
-               </div>
-
-               <div class="mb-3">
-                  <h4 class="h6 mb-1 fw-bold">Multi-Agent Orchestration</h4>
-                  <p class="mb-0 small">
-                     Multiple specialized agents working together safely, with routing, human approvals, audit trails, and continuous improvement loops.
-                  </p>
-               </div>
-
-               <div class="mt-4 pt-3 border-top">
-                  <p class="small mb-2 fw-bold">Typical Timeline:</p>
-                  <p class="small text-muted mb-0">
-                     3-8 weeks from kickoff to production deployment
-                  </p>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-</div>
-
-   <!-- Product & Platform Engineering (UPDATED) -->
-   <div class="py-5 bg-light-grey" id="product-platform">
-      <div class="container">
-         <div class="row">
-            <div class="col-12 col-lg-12 mx-auto">
-               <div class="text-center mb-5">
-                  <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Product &amp; Platform Engineering</h2>
-                  <p class="large-para mb-0" style="max-width: 800px; margin: 0 auto;">
-                     We build complete platforms and product features from UI to backend to deployment, for B2B SaaS, professional services, and operations-heavy businesses that need systems built right the first time.
-                  </p>
-               </div>
-
-               <div class="row g-4">
-                  <!-- Card 1: End-to-End Feature Delivery -->
-                  <div class="col-12 col-lg-4">
-                     <div class="build-system-card p-4 h-100" style="border-radius: 12px; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow=''">
-                        <div class="build-icon-wrapper mb-3">
-                           <div class="build-icon">
-                              <i class="fa fa-rocket"></i>
-                           </div>
-                        </div>
-                        <h3 class="h4 mb-3 fw-bold">End-to-End Feature Delivery</h3>
-                        <p class="mb-3" style="line-height: 1.7;">
-                           We own features from concept to production, so your internal team doesn't get stuck in partial handoffs or coordinating multiple contractors.
-                        </p>
-                        <ul class="mb-4" style="padding-left: 1.25rem; line-height: 1.8; font-size: 16px;">
-                           <li class="mb-2">Frontend UI and backend APIs built together, not in silos</li>
-                           <li class="mb-2">Third-party integrations: billing, CRMs, data providers, messaging</li>
-                           <li class="mb-2">Testing, deployment, and documentation included</li>
-                        </ul>
-                        <div class="outcome-badge p-3" style="background: #f8f9fa; border-left: 4px solid var(--site-color); border-radius: 6px;">
-                           <p class="mb-0" style="font-size: 14px; font-weight: 600; color: var(--text-color);">
-                              <strong>Outcome:</strong> Features ship faster, with fewer reworks and cleaner handoffs.
-                           </p>
-                        </div>
-                     </div>
-                  </div>
-
-                  <!-- Card 2: Stability & Scale Upgrades -->
-                  <div class="col-12 col-lg-4">
-                     <div class="build-system-card p-4 h-100" style="border-radius: 12px; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow=''">
-                        <div class="build-icon-wrapper mb-3">
-                           <div class="build-icon">
-                              <i class="fa fa-tachometer"></i>
-                           </div>
-                        </div>
-                        <h3 class="h4 mb-3 fw-bold">Platform Rebuilds &amp; Modernization</h3>
-                        <p class="mb-3" style="line-height: 1.7;">
-                           We rescue failing platforms and modernize systems that can't scale, focusing on changes that directly improve reliability, not theoretical architecture.
-                        </p>
-                        <ul class="mb-4" style="padding-left: 1.25rem; line-height: 1.8; font-size: 16px;">
-                           <li class="mb-2">Performance improvements: slow queries, caching, background jobs</li>
-                           <li class="mb-2">Observability: meaningful logs, metrics, traces, actionable alerts</li>
-                           <li class="mb-2">Database repair, search rebuilds, infrastructure upgrades</li>
-                        </ul>
-                        <div class="outcome-badge p-3" style="background: #f8f9fa; border-left: 4px solid var(--site-color); border-radius: 6px;">
-                           <p class="mb-0" style="font-size: 14px; font-weight: 600; color: var(--text-color);">
-                              <strong>Outcome:</strong> Fewer incidents, faster recovery, confidence shipping changes.
-                           </p>
-                        </div>
-                     </div>
-                  </div>
-
-                  <!-- Card 3: Platform Team Capabilities -->
-                  <div class="col-12 col-lg-4">
-                     <div class="build-system-card p-4 h-100" style="border-radius: 12px; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow=''">
-                        <div class="build-icon-wrapper mb-3">
-                           <div class="build-icon">
-                              <i class="fa fa-users"></i>
-                           </div>
-                        </div>
-                        <h3 class="h4 mb-3 fw-bold">Complete Platform Development</h3>
-                        <p class="mb-3" style="line-height: 1.7;">
-                           Build new SaaS platforms or operations systems from scratch, with the infrastructure, security, and deployment discipline of a dedicated platform team.
-                        </p>
-                        <ul class="mb-4" style="padding-left: 1.25rem; line-height: 1.8; font-size: 16px;">
-                           <li class="mb-2">Web + mobile applications with shared backend</li>
-                           <li class="mb-2">Standardized deployment pipelines across environments</li>
-                           <li class="mb-2">Security reviews and compliance patterns (SOC 2, GDPR, HIPAA)</li>
-                        </ul>
-                        <div class="outcome-badge p-3" style="background: #f8f9fa; border-left: 4px solid var(--site-color); border-radius: 6px;">
-                           <p class="mb-0" style="font-size: 14px; font-weight: 600; color: var(--text-color);">
-                              <strong>Outcome:</strong> Production-ready platform without hiring a full engineering team.
-                           </p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-
-   <!-- Who We Serve (UPDATED - HONEST VERSION) -->
-   <div class="who-we-serve-section py-5 bg-light" id="who-we-serve">
-      <div class="container">
-         <div class="text-center mb-5">
-            <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Who We Serve</h2>
-            <p class="large-para mb-0">
-               Growing businesses that need production-grade platforms and AI automation, from B2B SaaS to professional services to operations-heavy industries.
-            </p>
-         </div>
-         <div class="row g-4">
-            <div class="col-12 col-lg-4">
-               <div class="workflow-card p-4 h-100">
-                  <h3 class="h5 mb-3">Who you are</h3>
-                  <ul class="list-unstyled mb-0 who-we-serve-list">
-                     <li><span class="who-icon">•</span><span>B2B SaaS companies shipping product fast</span></li>
-                     <li><span class="who-icon">•</span><span>Professional services firms drowning in manual work</span></li>
-                     <li><span class="who-icon">•</span><span>Operations platforms needing modernization</span></li>
-                     <li><span class="who-icon">•</span><span>Industry-specific applications requiring custom builds</span></li>
-                  </ul>
-               </div>
-            </div>
-            <div class="col-12 col-lg-4">
-               <div class="workflow-card p-4 h-100">
-                  <h3 class="h5 mb-3">What we build</h3>
-                  <ul class="list-unstyled mb-0 who-we-serve-list">
-                     <li><span class="who-icon">•</span><span>Complete SaaS platforms from concept to production</span></li>
-                     <li><span class="who-icon">•</span><span>AI agents with enterprise governance built in</span></li>
-                     <li><span class="who-icon">•</span><span>Platform rebuilds that rescue failing systems</span></li>
-                     <li><span class="who-icon">•</span><span>End-to-end product features without partial handoffs</span></li>
-                  </ul>
-               </div>
-            </div>
-            <div class="col-12 col-lg-4">
-               <div class="workflow-card p-4 h-100">
-                  <h3 class="h5 mb-3">Why teams choose us</h3>
-                  <ul class="list-unstyled mb-0 who-we-serve-list">
-                     <li><span class="who-icon">•</span><span>We ship complete systems, not advice or prototypes</span></li>
-                     <li><span class="who-icon">•</span><span>When we add AI, governance is built in from day one</span></li>
-                     <li><span class="who-icon">•</span><span>We measure success in business outcomes, not features</span></li>
-                     <li><span class="who-icon">•</span><span>Weekly demos, clear milestones, natural exit points</span></li>
-                  </ul>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-
-   <!-- Services Grid -->
+      <!-- Services Grid -->
    <div class="expertise-section py-5" id="services">
       <div class="container">
          <div class="text-center mb-5">
@@ -808,7 +445,206 @@
       </div>
    </div>
 
-   <div class="tech-stack-section py-5 bg-white" id="technology-stack">
+      <!-- Product & Platform Engineering (UPDATED) -->
+   <div class="py-5 bg-light-grey" id="product-platform">
+      <div class="container">
+         <div class="row">
+            <div class="col-12 col-lg-12 mx-auto">
+               <div class="text-center mb-5">
+                  <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Product &amp; Platform Engineering</h2>
+                  <p class="large-para mb-0" style="max-width: 800px; margin: 0 auto;">
+                     We build complete platforms and product features from UI to backend to deployment, for B2B SaaS, professional services, and operations-heavy businesses that need systems built right the first time.
+                  </p>
+               </div>
+
+               <div class="row g-4">
+                  <!-- Card 1: End-to-End Feature Delivery -->
+                  <div class="col-12 col-lg-4">
+                     <div class="build-system-card p-4 h-100" style="border-radius: 12px; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow=''">
+                        <div class="build-icon-wrapper mb-3">
+                           <div class="build-icon">
+                              <i class="fa fa-rocket"></i>
+                           </div>
+                        </div>
+                        <h3 class="h4 mb-3 fw-bold">End-to-End Feature Delivery</h3>
+                        <p class="mb-3" style="line-height: 1.7;">
+                           We own features from concept to production, so your internal team doesn't get stuck in partial handoffs or coordinating multiple contractors.
+                        </p>
+                        <ul class="mb-4" style="padding-left: 1.25rem; line-height: 1.8; font-size: 16px;">
+                           <li class="mb-2">Frontend UI and backend APIs built together, not in silos</li>
+                           <li class="mb-2">Third-party integrations: billing, CRMs, data providers, messaging</li>
+                           <li class="mb-2">Testing, deployment, and documentation included</li>
+                        </ul>
+                        <div class="outcome-badge p-3" style="background: #f8f9fa; border-left: 4px solid var(--site-color); border-radius: 6px;">
+                           <p class="mb-0" style="font-size: 14px; font-weight: 600; color: var(--text-color);">
+                              <strong>Outcome:</strong> Features ship faster, with fewer reworks and cleaner handoffs.
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+
+                  <!-- Card 2: Stability & Scale Upgrades -->
+                  <div class="col-12 col-lg-4">
+                     <div class="build-system-card p-4 h-100" style="border-radius: 12px; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow=''">
+                        <div class="build-icon-wrapper mb-3">
+                           <div class="build-icon">
+                              <i class="fa fa-tachometer"></i>
+                           </div>
+                        </div>
+                        <h3 class="h4 mb-3 fw-bold">Platform Rebuilds &amp; Modernization</h3>
+                        <p class="mb-3" style="line-height: 1.7;">
+                           We rescue failing platforms and modernize systems that can't scale, focusing on changes that directly improve reliability, not theoretical architecture.
+                        </p>
+                        <ul class="mb-4" style="padding-left: 1.25rem; line-height: 1.8; font-size: 16px;">
+                           <li class="mb-2">Performance improvements: slow queries, caching, background jobs</li>
+                           <li class="mb-2">Observability: meaningful logs, metrics, traces, actionable alerts</li>
+                           <li class="mb-2">Database repair, search rebuilds, infrastructure upgrades</li>
+                        </ul>
+                        <div class="outcome-badge p-3" style="background: #f8f9fa; border-left: 4px solid var(--site-color); border-radius: 6px;">
+                           <p class="mb-0" style="font-size: 14px; font-weight: 600; color: var(--text-color);">
+                              <strong>Outcome:</strong> Fewer incidents, faster recovery, confidence shipping changes.
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+
+                  <!-- Card 3: Platform Team Capabilities -->
+                  <div class="col-12 col-lg-4">
+                     <div class="build-system-card p-4 h-100" style="border-radius: 12px; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow=''">
+                        <div class="build-icon-wrapper mb-3">
+                           <div class="build-icon">
+                              <i class="fa fa-users"></i>
+                           </div>
+                        </div>
+                        <h3 class="h4 mb-3 fw-bold">Complete Platform Development</h3>
+                        <p class="mb-3" style="line-height: 1.7;">
+                           Build new SaaS platforms or operations systems from scratch, with the infrastructure, security, and deployment discipline of a dedicated platform team.
+                        </p>
+                        <ul class="mb-4" style="padding-left: 1.25rem; line-height: 1.8; font-size: 16px;">
+                           <li class="mb-2">Web + mobile applications with shared backend</li>
+                           <li class="mb-2">Standardized deployment pipelines across environments</li>
+                           <li class="mb-2">Security reviews and compliance patterns (SOC 2, GDPR, HIPAA)</li>
+                        </ul>
+                        <div class="outcome-badge p-3" style="background: #f8f9fa; border-left: 4px solid var(--site-color); border-radius: 6px;">
+                           <p class="mb-0" style="font-size: 14px; font-weight: 600; color: var(--text-color);">
+                              <strong>Outcome:</strong> Production-ready platform without hiring a full engineering team.
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+
+
+
+<!-- AI Agents Section (Homepage) -->
+<div class="py-5 bg-light" id="ai-agents-overview">
+   <div class="container">
+      <div class="row g-5">
+         <div class="col-12 col-lg-7">
+            <h2 class="heading-border mb-3 pb-3 d-inline-block">AI Agents That Work in Production</h2>
+            <p class="mb-3">
+               Most teams can demo AI in a week. The hard part is shipping AI that survives production: messy user inputs, permissioning, audit trails, escalations, and ongoing monitoring.
+            </p>
+            <p class="mb-4">
+               We build AI agents and copilots with enterprise governance built in from day one, designed for real customers, real data, and real operational constraints.
+            </p>
+
+            <div class="row g-3 mb-4">
+               <div class="col-12">
+                  <h3 class="h5 mb-3">Production-Ready with Governance Built In</h3>
+                  
+                  <div class="mb-3">
+                     <p class="mb-2">
+                        <strong>Human-in-the-Loop:</strong> Critical decisions and edge cases automatically escalate to humans with full context and confidence scores.
+                     </p>
+                  </div>
+
+                  <div class="mb-3">
+                     <p class="mb-2">
+                        <strong>Complete Audit Trails:</strong> Every AI decision, data access, and action logged for compliance, debugging, and continuous improvement.
+                     </p>
+                  </div>
+
+                  <div class="mb-3">
+                     <p class="mb-2">
+                        <strong>Role-Based Access:</strong> Agents only access data and tools appropriate to their scope, support can't touch financial data, sales can't modify pricing.
+                     </p>
+                  </div>
+
+                  <div class="mb-0">
+                     <p class="mb-0">
+                        <strong>Real-Time Monitoring:</strong> Observability dashboards track performance, confidence, and failures with automated alerts when behavior drifts.
+                     </p>
+                  </div>
+               </div>
+            </div>
+
+            <div class="mb-4">
+               <p class="small text-muted mb-2">
+                  <strong>Recent results:</strong>
+               </p>
+               <p class="small text-muted mb-0">
+                  5,127 tickets auto-resolved | 35%→6% no-shows | 120+ billable hours/month recovered | 15%→84% online bookings
+               </p>
+            </div>
+          
+            <a href="<%= ai_agents_path %>" class="btn btn-primary btn-lg rounded-3">
+               See full AI Agents overview →
+            </a>
+         </div>
+
+         <div class="col-12 col-lg-5">
+            <div class="workflow-card p-4 h-100">
+            <%= image_tag 'logo-colored.png', width: '100', class: 'img-fluid p-2 p-sm-0 mb-3 rounded-3', alt: "A'sTechware Logo", loading: "lazy" %>
+               <h3 class="h5 mb-3">What We Build</h3>
+
+               <div class="mb-3">
+                  <h4 class="h6 mb-1 fw-bold">Product-Embedded AI</h4>
+                  <p class="mb-0 small">
+                     AI copilots, smart onboarding, and workflow agents that live inside your product, helping users complete complex actions without leaving the app.
+                  </p>
+               </div>
+
+               <div class="mb-3">
+                  <h4 class="h6 mb-1 fw-bold">Customer-Facing Agents</h4>
+                  <p class="mb-0 small">
+                     Support and sales automation that handles repetitive work, qualifies leads, books demos, with safe escalation to humans for edge cases.
+                  </p>
+               </div>
+
+               <div class="mb-3">
+                  <h4 class="h6 mb-1 fw-bold">Internal Operations Agents</h4>
+                  <p class="mb-0 small">
+                     Document processing, data enrichment, QA testing, and DevOps triage, removing busywork so teams focus on high-value work.
+                  </p>
+               </div>
+
+               <div class="mb-3">
+                  <h4 class="h6 mb-1 fw-bold">Multi-Agent Orchestration</h4>
+                  <p class="mb-0 small">
+                     Multiple specialized agents working together safely, with routing, human approvals, audit trails, and continuous improvement loops.
+                  </p>
+               </div>
+
+               <div class="mt-4 pt-3 border-top">
+                  <p class="small mb-2 fw-bold">Typical Timeline:</p>
+                  <p class="small text-muted mb-0">
+                     3-8 weeks from kickoff to production deployment
+                  </p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+   
+     <div class="tech-stack-section py-5 bg-white" id="technology-stack">
       <div class="container">
          <div class="text-center mb-5">
             <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">How We Build Production AI</h2>
@@ -870,6 +706,63 @@
          </div>
       </div>
    </div>
+   <!-- Designed to Reduce Risk Section -->
+<div class="py-5 bg-light-grey">
+   <div class="container">
+      <div class="row">
+         <div class="col-12 col-lg-10 mx-auto">
+            <div class="text-center mb-5">
+               <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">How We De-Risk Projects</h2>
+               <p class="large-para mb-0">We design both the work and the engagement to earn trust gradually, not demand it upfront.</p>
+            </div>
+
+            <div class="row g-4 mb-4">
+               <div class="col-12 col-md-4">
+                  <div class="workflow-card p-4 h-100 text-center">
+                     <h4 class="h5 mb-2">Milestone-Based Delivery</h4>
+                     <p class="mb-0 small">Work broken into milestones. Pay per milestone, portion upfront, remainder after review.</p>
+                  </div>
+               </div>
+
+               <div class="col-12 col-md-4">
+                  <div class="workflow-card p-4 h-100 text-center">
+                     <h4 class="h5 mb-2">You Own Everything</h4>
+                     <p class="mb-0 small">All code, infrastructure, and documentation belong to you from day one. No lock-in.</p>
+                  </div>
+               </div>
+
+               <div class="col-12 col-md-4">
+                  <div class="workflow-card p-4 h-100 text-center">
+                     <h4 class="h5 mb-2">Natural Exit Points</h4>
+                     <p class="mb-0 small">Each milestone stands alone. Pause or adjust anytime without penalties or losing work.</p>
+                  </div>
+               </div>
+            </div>
+
+            <div class="text-center">
+               <p class="mb-3 text-muted small">
+                  Weekly demos • Full visibility • No forced retainers • Support when you need it
+               </p>
+               <p class="mb-3" style="font-style: italic; font-size: 1rem;">
+                  A recent rebuild we shared publicly → 
+                  <a href="https://www.linkedin.com/posts/astechware_restaurant-resource-online-search-tool-activity-7415014406423678977-2fYI?utm_source=share&utm_medium=member_desktop&rcm=ACoAACEv3E8BU6GjC8wN2TgFVUMzkndn2a55diA" class="linkedIn-tag" target="_blank" rel="noopener noreferrer" style="font-style: italic;">[Read the LinkedIn post]</a>
+               </p>
+
+               <a href="/how-we-derisk-projects" class="btn btn-primary btn-lg rounded-3 px-5">
+                  How we de-risk projects →
+               </a>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+
+
+
+
+
+
    <!--
    <div class="expertise-section py-5">
       <div class="container">
@@ -1011,10 +904,10 @@
          <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Clients</h2>
          <p class="large-para mb-4">Feedback from teams we’ve worked with</p>
       </div>
-      <div class="row g-4">
+      <div class="clients-testimonials-slider position-relative">
          <%# 1. Nathan %>
-         <div class="col-12 col-md-6 col-lg-4">
-            <div class="card h-100 border-0 shadow-sm">
+         <div class="clients-slide">
+            <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
                <div class="card-body">
                   <div class="d-flex align-items-center justify-content-between mb-3">
                      <div class="d-flex align-items-center">
@@ -1026,16 +919,21 @@
                      </div>
                      <span class="badge bg-light text-dark border">United States</span>
                   </div>
-                  <p class="mb-0">
+                  <p class="mb-3">
                      Working with Ahmad and A'sTechware has been an incredible experience. They have demonstrated deep technical expertise, clear
                      communication, and a commitment to delivering a high‑quality product to our team.
+                  </p>
+                  <p class="mb-0 mt-2 pt-2 border-top small text-muted">
+                     <a href="https://www.upwork.com" target="_blank" rel="noopener noreferrer">Read on Upwork</a>
+                     <span class="mx-1">|</span>
+                     <a href="https://www.linkedin.com/company/astechware" target="_blank" rel="noopener noreferrer">Read on LinkedIn</a>
                   </p>
                </div>
             </div>
          </div>
          <%# 2. FKA Novara %>
-         <div class="col-12 col-md-6 col-lg-4">
-            <div class="card h-100 border-0 shadow-sm">
+         <div class="clients-slide">
+            <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
                <div class="card-body">
                   <div class="d-flex align-items-center justify-content-between mb-3">
                      <div class="d-flex align-items-center">
@@ -1047,17 +945,22 @@
                      </div>
                      <span class="badge bg-light text-dark border">Germany</span>
                   </div>
-                  <p class="mb-0">
+                  <p class="mb-3">
                      We came to meet Ahmad and A'sTechware in 2020 as a startup looking for a developer who could finalize a mockup based on Ruby on Rails.
                      With Ahmad and A'sTechware&apos;s help, we brought our application into production, achieving excellent stability and fully meeting
                      customer requirements.
+                  </p>
+                  <p class="mb-0 mt-2 pt-2 border-top small text-muted">
+                     <a href="https://www.upwork.com" target="_blank" rel="noopener noreferrer">Read on Upwork</a>
+                     <span class="mx-1">|</span>
+                     <a href="https://www.linkedin.com/company/astechware" target="_blank" rel="noopener noreferrer">Read on LinkedIn</a>
                   </p>
                </div>
             </div>
          </div>
          <%# 3. Joseph Chiavatti %>
-         <div class="col-12 col-md-6 col-lg-4">
-            <div class="card h-100 border-0 shadow-sm">
+         <div class="clients-slide">
+            <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
                <div class="card-body">
                   <div class="d-flex align-items-center justify-content-between mb-3">
                      <div class="d-flex align-items-center">
@@ -1069,16 +972,21 @@
                      </div>
                      <span class="badge bg-light text-dark border">United States</span>
                   </div>
-                  <p class="mb-0">
+                  <p class="mb-3">
                      Ahmad and A'sTechware have helped us with several projects in our company. They are fantastic communicators and do great work.
                      They care about making sure the project is completed the correct way and are quick to communicate on the channels we use.
+                  </p>
+                  <p class="mb-0 mt-2 pt-2 border-top small text-muted">
+                     <a href="https://www.upwork.com" target="_blank" rel="noopener noreferrer">Read on Upwork</a>
+                     <span class="mx-1">|</span>
+                     <a href="https://www.linkedin.com/company/astechware" target="_blank" rel="noopener noreferrer">Read on LinkedIn</a>
                   </p>
                </div>
             </div>
          </div>
          <%# 4. Sven-Volker Nowarra %>
-         <div class="col-12 col-md-6 col-lg-4">
-            <div class="card h-100 border-0 shadow-sm">
+         <div class="clients-slide">
+            <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
                <div class="card-body">
                   <div class="d-flex align-items-center justify-content-between mb-3">
                      <div class="d-flex align-items-center">
@@ -1090,9 +998,14 @@
                      </div>
                      <span class="badge bg-light text-dark border">Germany</span>
                   </div>
-                  <p class="mb-0">
+                  <p class="mb-3">
                      Working with Ahmad and A'sTechware for more than a year, we are highly confident with the work and consider the results delivered
                      production ready. We are happy to continue our work with ahmad and A'sTechware and are highly confident with their work.
+                  </p>
+                  <p class="mb-0 mt-2 pt-2 border-top small text-muted">
+                     <a href="https://www.upwork.com" target="_blank" rel="noopener noreferrer">Read on Upwork</a>
+                     <span class="mx-1">|</span>
+                     <a href="https://www.linkedin.com/company/astechware" target="_blank" rel="noopener noreferrer">Read on LinkedIn</a>
                   </p>
                </div>
             </div>
@@ -1111,16 +1024,21 @@
                      </div>
                      <span class="badge bg-light text-dark border">United States</span>
                   </div>
-                  <p class="mb-0">
+                  <p class="mb-3">
                      Ahmad and A'sTechware are some of the hardest working engineers I&apos;ve met. They worked endlessly and around the clock to make incredibly
                      quick progress and took responsibility before deployment by doing detailed testing.
+                  </p>
+                  <p class="mb-0 mt-2 pt-2 border-top small text-muted">
+                     <a href="https://www.upwork.com" target="_blank" rel="noopener noreferrer">Read on Upwork</a>
+                     <span class="mx-1">|</span>
+                     <a href="https://www.linkedin.com/company/astechware" target="_blank" rel="noopener noreferrer">Read on LinkedIn</a>
                   </p>
                </div>
             </div>
          </div>
          <%# 6. Anthony Barry %>
-         <div class="col-12 col-md-6 col-lg-4">
-            <div class="card h-100 border-0 shadow-sm">
+         <div class="clients-slide">
+            <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
                <div class="card-body">
                   <div class="d-flex align-items-center justify-content-between mb-3">
                      <div class="d-flex align-items-center">
@@ -1134,16 +1052,21 @@
                      </div>
                      <span class="badge bg-light text-dark border">Australia</span>
                   </div>
-                  <p class="mb-0">
+                  <p class="mb-3">
                      Ahmad and A'sTechware have been a pleasure to work with since they joined the team. They are cooperative, responsive, and will go the extra
                      yard to meet time‑sensitive priorities.
+                  </p>
+                  <p class="mb-0 mt-2 pt-2 border-top small text-muted">
+                     <a href="https://www.upwork.com" target="_blank" rel="noopener noreferrer">Read on Upwork</a>
+                     <span class="mx-1">|</span>
+                     <a href="https://www.linkedin.com/company/astechware" target="_blank" rel="noopener noreferrer">Read on LinkedIn</a>
                   </p>
                </div>
             </div>
          </div>
          <%# 7. Ben Selland %>
-         <div class="col-12 col-md-6 col-lg-4">
-            <div class="card h-100 border-0 shadow-sm">
+         <div class="clients-slide">
+            <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
                <div class="card-body">
                   <div class="d-flex align-items-center justify-content-between mb-3">
                      <div class="d-flex align-items-center">
@@ -1155,16 +1078,21 @@
                      </div>
                      <span class="badge bg-light text-dark border">United States</span>
                   </div>
-                  <p class="mb-0">
+                  <p class="mb-3">
                      Ahmad and A'sTechware have excellent engineers with a strong eye for details. I enjoy working with Ahmad and A'sTechware day to day and our team
                      members do as well.
+                  </p>
+                  <p class="mb-0 mt-2 pt-2 border-top small text-muted">
+                     <a href="https://www.upwork.com" target="_blank" rel="noopener noreferrer">Read on Upwork</a>
+                     <span class="mx-1">|</span>
+                     <a href="https://www.linkedin.com/company/astechware" target="_blank" rel="noopener noreferrer">Read on LinkedIn</a>
                   </p>
                </div>
             </div>
          </div>
          <%# 8. Dale Merritt %>
-         <div class="col-12 col-md-6 col-lg-4">
-            <div class="card h-100 border-0 shadow-sm">
+         <div class="clients-slide">
+            <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
                <div class="card-body">
                   <div class="d-flex align-items-center justify-content-between mb-3">
                      <div class="d-flex align-items-center">
@@ -1176,16 +1104,21 @@
                      </div>
                      <span class="badge bg-light text-dark border">United States</span>
                   </div>
-                  <p class="mb-0">
+                  <p class="mb-3">
                      Been working with Ahmad and A'sTechware for almost two years, and they&apos;ve been great to work with. One of the most reliable
                      developers I&apos;ve had the pleasure to work with.
+                  </p>
+                  <p class="mb-0 mt-2 pt-2 border-top small text-muted">
+                     <a href="https://www.upwork.com" target="_blank" rel="noopener noreferrer">Read on Upwork</a>
+                     <span class="mx-1">|</span>
+                     <a href="https://www.linkedin.com/company/astechware" target="_blank" rel="noopener noreferrer">Read on LinkedIn</a>
                   </p>
                </div>
             </div>
          </div>
          <%# 9. Ania Dergachev %>
-         <div class="col-12 col-md-6 col-lg-4">
-            <div class="card h-100 border-0 shadow-sm">
+         <div class="clients-slide">
+            <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
                <div class="card-body">
                   <div class="d-flex align-items-center justify-content-between mb-3">
                      <div class="d-flex align-items-center">
@@ -1197,16 +1130,21 @@
                      </div>
                      <span class="badge bg-light text-dark border">Canada</span>
                   </div>
-                  <p class="mb-0">
+                  <p class="mb-3">
                      Ahmad and A'sTechware consistently demonstrate reliability and are great team players. They tackle complex problems with a positive
                      attitude and strong determination to find the best solution.
+                  </p>
+                  <p class="mb-0 mt-2 pt-2 border-top small text-muted">
+                     <a href="https://www.upwork.com" target="_blank" rel="noopener noreferrer">Read on Upwork</a>
+                     <span class="mx-1">|</span>
+                     <a href="https://www.linkedin.com/company/astechware" target="_blank" rel="noopener noreferrer">Read on LinkedIn</a>
                   </p>
                </div>
             </div>
          </div>
          <%# 10. Zach %>
-         <div class="col-12 col-md-6 col-lg-4">
-            <div class="card h-100 border-0 shadow-sm">
+         <div class="clients-slide">
+            <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
                <div class="card-body">
                   <div class="d-flex align-items-center justify-content-between mb-3">
                      <div class="d-flex align-items-center">
@@ -1218,15 +1156,20 @@
                      </div>
                      <span class="badge bg-light text-dark border">United States</span>
                   </div>
-                  <p class="mb-0">
+                  <p class="mb-3">
                      Ahmad and A'sTechware have been outstanding partners. They are responsive, detail‑oriented, and focused on delivering quality results. I highly recommend them for any project. Looking forward to working with them again in the future.
+                  </p>
+                  <p class="mb-0 mt-2 pt-2 border-top small text-muted">
+                     <a href="https://www.upwork.com" target="_blank" rel="noopener noreferrer">Read on Upwork</a>
+                     <span class="mx-1">|</span>
+                     <a href="https://www.linkedin.com/company/astechware" target="_blank" rel="noopener noreferrer">Read on LinkedIn</a>
                   </p>
                </div>
             </div>
          </div>
            <%# 11. Brianne Harvey %>
-         <div class="col-12 col-md-6 col-lg-4">
-            <div class="card h-100 border-0 shadow-sm">
+         <div class="clients-slide">
+            <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
                <div class="card-body">
                   <div class="d-flex align-items-center justify-content-between mb-3">
                      <div class="d-flex align-items-center">
@@ -1238,8 +1181,13 @@
                      </div>
                      <span class="badge bg-light text-dark border">United States</span>
                   </div>
-                  <p class="mb-0">
+                  <p class="mb-3">
                      Ahmad has been an exceptional contractor, and we feel incredibly fortunate to have found him. He brings deep technical knowledge to the table, offers thoughtful feedback, and consistently recommends smarter, more efficient solutions.
+                  </p>
+                  <p class="mb-0 mt-2 pt-2 border-top small text-muted">
+                     <a href="https://www.upwork.com" target="_blank" rel="noopener noreferrer">Read on Upwork</a>
+                     <span class="mx-1">|</span>
+                     <a href="https://www.linkedin.com/company/astechware" target="_blank" rel="noopener noreferrer">Read on LinkedIn</a>
                   </p>
                </div>
             </div>
@@ -1365,9 +1313,9 @@
                   </div>
                </div>
                <div class="logos-holder d-flex justify-content-between align-items-start d-none">
-                  <a href="#" onclick="return false;"><%= image_tag 'clutch.svg' %></a>
-                  <a href="#" onclick="return false;"><%= image_tag 'good-firms.svg' %></a>
-                  <a href="#" onclick="return false;"><%= image_tag 'top-developers.svg' %></a>
+                  <a href="#" onclick="return false;"><%= image_tag 'clutch.svg', alt: 'Clutch - A\'sTechware top software company recognition', loading: 'lazy' %></a>
+                  <a href="#" onclick="return false;"><%= image_tag 'good-firms.svg', alt: 'GoodFirms - A\'sTechware development partner badge', loading: 'lazy' %></a>
+                  <a href="#" onclick="return false;"><%= image_tag 'top-developers.svg', alt: 'TopDevelopers - A\'sTechware software development award', loading: 'lazy' %></a>
                </div>
             </div>
          </div>

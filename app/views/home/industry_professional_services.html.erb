@@ -17,6 +17,16 @@
       twitter: { card: 'summary', title: "Professional Services Technology Solutions | A'sTechware", description: "Operations platforms, resource management, and workflow automation for billable-time firms." }
     ) %>
   <% end %>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "Service",
+    "serviceType" => "Professional Services Automation",
+    "provider" => { "@type" => "Organization", "name" => "A'sTechware" },
+    "areaServed" => "Worldwide",
+    "description" => "Professional services automation platforms for consulting, accounting, agencies, and billable-time firms."
+  }.to_json) %>
+  </script>
 <% end %>
 
 <!-- Hero Section -->
@@ -52,13 +62,13 @@
         <div class="col-12 col-lg-10 mx-auto">
           <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Transforming Professional Services Through Technology</h2>
           <p class="large-para mb-4">
-            Professional services firms face a unique challenge: profitability depends on efficiently converting billable hours into revenue while maintaining exceptional client service. Whether you're a consulting firm, accounting practice, creative agency, or engineering firm, the math is simple—more billable hours, better utilization, faster collections equals higher profitability.
+            Professional services firms face a unique challenge: profitability depends on efficiently converting billable hours into revenue while maintaining exceptional client service. Whether you're a consulting firm, accounting practice, creative agency, or engineering firm, the math is simple, more billable hours, better utilization, faster collections equals higher profitability.
           </p>
           <p class="large-para mb-4">
             We build technology solutions specifically for professional services organizations that run on time, expertise, and relationships. From project management and resource allocation to time tracking and client billing, our platforms are designed to maximize billable utilization, reduce administrative burden, and improve client satisfaction.
           </p>
           <p class="large-para mb-0">
-            Our professional services expertise spans management consulting, accounting and tax, architecture and engineering, marketing and creative agencies, IT services, and fractional executive services. We understand that professional services technology must support complex project structures, multiple billing models, resource constraints, and client communication—all while being intuitive enough that busy professionals actually use it.
+            Our professional services expertise spans management consulting, accounting and tax, architecture and engineering, marketing and creative agencies, IT services, and fractional executive services. We understand that professional services technology must support complex project structures, multiple billing models, resource constraints, and client communication, all while being intuitive enough that busy professionals actually use it.
           </p>
         </div>
       </div>

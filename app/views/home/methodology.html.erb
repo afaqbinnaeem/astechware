@@ -1,44 +1,19 @@
 <% content_for :head do %>
   <% og_image = safe_og_image_url('logo-colored.png') %>
-  <% if og_image.present? %>
-    <% set_meta_tags(
+  <% set_meta_tags(
+    title: "The A'sTechware Framework | Production-First Engineering with Built-In Governance",
+    description: "Our 6-step methodology for delivering AI systems, SaaS platforms, and automation. Discovery, architecture, iterative development, governance, deployment, and continuous optimization.",
+    keywords: "delivery methodology, production-first engineering, AI governance, platform engineering, milestone delivery",
+    og: {
       title: "The A'sTechware Framework | Production-First Engineering with Built-In Governance",
-      description: "Our 6-step methodology for delivering AI systems, SaaS platforms, and automation. Discovery, architecture, iterative development, governance, deployment, and continuous optimization.",
-      og: {
-        title: "The A'sTechware Framework | Production-First Engineering with Built-In Governance",
-        description: "Our 6-step methodology for delivering AI systems, SaaS platforms, and automation. Discovery, architecture, iterative development, governance, deployment, and continuous optimization.",
-        image: og_image,
-        'image:secure_url' => og_image,
-        'image:type' => 'image/png',
-        url: safe_request_url,
-        type: 'website',
-        site_name: "A'sTechware"
-      },
-      twitter: {
-        card: 'summary_large_image',
-        title: "The A'sTechware Framework | Production-First Engineering with Built-In Governance",
-        description: "Our 6-step methodology for delivering AI systems, SaaS platforms, and automation.",
-        image: og_image
-      }
-    ) %>
-  <% else %>
-    <% set_meta_tags(
-      title: "The A'sTechware Framework | Production-First Engineering with Built-In Governance",
-      description: "Our 6-step methodology for delivering AI systems, SaaS platforms, and automation. Discovery, architecture, iterative development, governance, deployment, and continuous optimization.",
-      og: {
-        title: "The A'sTechware Framework | Production-First Engineering with Built-In Governance",
-        description: "Our 6-step methodology for delivering AI systems, SaaS platforms, and automation.",
-        url: safe_request_url,
-        type: 'website',
-        site_name: "A'sTechware"
-      },
-      twitter: {
-        card: 'summary',
-        title: "The A'sTechware Framework | Production-First Engineering with Built-In Governance",
-        description: "Our 6-step methodology for delivering AI systems, SaaS platforms, and automation."
-      }
-    ) %>
-  <% end %>
+      description: "Our 6-step methodology for delivering AI systems, SaaS platforms, and automation.",
+      url: safe_request_url,
+      type: 'website',
+      site_name: "A'sTechware"
+    },
+    twitter: { card: og_image.present? ? 'summary_large_image' : 'summary', title: "The A'sTechware Framework | Production-First Engineering with Built-In Governance", description: "Our 6-step methodology for delivering AI systems, SaaS platforms, and automation." }
+  ) %>
+  <% set_meta_tags(og: { image: og_image, 'image:secure_url' => og_image, 'image:type' => 'image/png' }, twitter: { image: og_image }) if og_image.present? %>
 <% end %>
 
 <!-- Hero Section -->

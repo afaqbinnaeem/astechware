@@ -1,0 +1,23 @@
+<%# locals: article %>
+<article class="blog-featured-card card border-0 shadow-sm overflow-hidden">
+  <div class="row g-0">
+    <div class="col-12 col-lg-6">
+      <div class="position-relative">
+        <%= link_to article[:path].call do %>
+          <%= image_tag article[:image], class: "img-fluid w-100", alt: article[:title], style: "height: 320px; object-fit: cover;", loading: "eager" %>
+          <span class="blog-badge blog-badge-featured"><%= article[:category] %></span>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-12 col-lg-6">
+      <div class="card-body p-4 p-lg-5 d-flex flex-column justify-content-center">
+        <%= link_to article[:path].call, class: "text-decoration-none text-dark" do %>
+          <span class="d-inline-block small text-muted mb-2"><%= article[:date] %> · <%= article[:read_time] %> read</span>
+          <h2 class="h4 card-title mb-3"><%= article[:title] %></h2>
+          <p class="card-text text-muted mb-4"><%= article[:excerpt_long] %></p>
+          <span class="btn btn-primary rounded-pill px-4">Read More</span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</article>

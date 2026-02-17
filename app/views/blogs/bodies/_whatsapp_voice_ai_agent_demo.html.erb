@@ -1,0 +1,31 @@
+<h2>Overview</h2>
+<p class="paragraph">This demo presents a real-time AI solution integrating WhatsApp and Voice agents for healthcare triage and appointment booking. The system allows users to upload documents to train the AI agent with custom knowledge, interact via voice or WhatsApp, and receive intelligent responses for symptom triage and appointment scheduling. The workflow also supports escalation to a human agent and logs all interactions in a web dashboard. Built for production: we focus on handoff, auditability, and configurable logic so clinics and practices can deploy without losing control.</p>
+
+<h3>Demo Video</h3>
+<div class="ratio ratio-16x9 my-4 rounded overflow-hidden">
+  <iframe src="https://www.youtube.com/embed/IK8swdj1g6s" title="Real-Time AI WhatsApp & Voice Agent Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
+<h3>Key Features</h3>
+<ul>
+  <li>Document upload for custom AI training (RAG)</li>
+  <li>Voice AI agent for healthcare triage and appointment booking</li>
+  <li>WhatsApp AI agent for chat-based support</li>
+  <li>Urgency detection and emergency recommendations</li>
+  <li>Appointment scheduling with user details</li>
+  <li>Escalation to human agent and chat log dashboard</li>
+</ul>
+
+<h3>Sample Workflow</h3>
+<ol>
+  <li>User uploads a healthcare triage document to train the agent.</li>
+  <li>Voice agent interacts with user, detects symptoms, and provides recommendations.</li>
+  <li>Agent books appointments and requests additional details as needed.</li>
+  <li>WhatsApp agent responds to chat messages and can escalate to a human agent.</li>
+  <li>All interactions are logged and visible in the web dashboard.</li>
+</ol>
+
+<p>This solution demonstrates seamless integration of AI and human support for healthcare scenarios, ensuring both automation and personal assistance when required. Critical design choices: document upload feeds a RAG knowledge base so the agent answers from your policies and triage guidelines; urgency detection routes emergencies to immediate escalation; and all conversations are logged so supervisors can review and improve the agent. The same architecture can be adapted for other verticals—real estate inquiries, support desks, or appointment-heavy services—where 24/7 responsiveness and human escalation matter. Key is keeping one source of truth (your docs), one orchestration layer (LangChain + GPT), and clear handoff rules so the human agent always has context.</p>
+
+<h3>Technical Implementation</h3>
+<p>Built by A'sTechware using RAG (Retrieval-Augmented Generation), OpenAI GPT models, Twilio for WhatsApp and Voice integration, and LangChain for orchestration. Voice flows use speech-to-text (e.g. Deepgram or Twilio) into the same LLM pipeline as chat, so intent and context are shared. The system demonstrates production-ready AI agent capabilities that can be customized for various healthcare and service industries—configurable knowledge bases, escalation rules, and audit logs are all part of the package so you can deploy without losing control.</p>

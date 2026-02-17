@@ -17,6 +17,16 @@
       twitter: { card: 'summary', title: "Healthcare Technology Solutions | A'sTechware", description: "HIPAA-compliant healthcare automation for modern medical practices." }
     ) %>
   <% end %>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "Service",
+    "serviceType" => "Healthcare AI Automation",
+    "provider" => { "@type" => "Organization", "name" => "A'sTechware" },
+    "areaServed" => "Worldwide",
+    "description" => "HIPAA-compliant healthcare automation for scheduling, patient intake, telehealth, and clinical workflows."
+  }.to_json) %>
+  </script>
 <% end %>
 
 <!-- Hero Section -->
@@ -52,7 +62,7 @@
         <div class="col-12 col-lg-10 mx-auto">
           <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Transforming Healthcare Through Technology</h2>
           <p class="large-para mb-4">
-            The healthcare industry faces unprecedented challenges: staff shortages, administrative burden, rising costs, and increasing patient expectations. Healthcare technology isn’t just about digitizing forms—it’s about empowering clinical staff to focus on patient care while automation handles repetitive tasks.
+            The healthcare industry faces unprecedented challenges: staff shortages, administrative burden, rising costs, and increasing patient expectations. Healthcare technology isn’t just about digitizing forms, it’s about empowering clinical staff to focus on patient care while automation handles repetitive tasks.
           </p>
           <p class="large-para mb-4">
             We build healthcare platforms with a deep understanding of clinical workflows, HIPAA compliance requirements, and the unique challenges of medical practices. From solo practitioners to multi-location healthcare systems, our solutions are designed to reduce administrative burden, improve patient experiences, and ensure regulatory compliance from day one.

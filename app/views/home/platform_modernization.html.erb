@@ -1,20 +1,23 @@
 <% content_for :head do %>
   <% og_image = safe_og_image_url('logo-colored.png') %>
-  <% if og_image.present? %>
-    <% set_meta_tags(
-      title: "Platform Modernization Services | A'sTechware",
-      description: "Rescue failing platforms and modernize systems that can't scale. Incremental improvements for reliability, performance, and maintainability—with business continuity.",
-      og: { title: "Platform Modernization Services | A'sTechware", description: "Rescue failing platforms and modernize systems that can't scale.", image: og_image, url: safe_request_url, type: 'website', site_name: "A'sTechware" },
-      twitter: { card: 'summary_large_image', title: "Platform Modernization Services | A'sTechware", description: "Rescue failing platforms and modernize systems that can't scale.", image: og_image }
-    ) %>
-  <% else %>
-    <% set_meta_tags(
-      title: "Platform Modernization Services | A'sTechware",
-      description: "Rescue failing platforms and modernize systems that can't scale. Focus on reliability, performance, and maintainability—not theoretical architecture.",
-      og: { title: "Platform Modernization Services | A'sTechware", description: "Rescue failing platforms and modernize systems that can't scale.", url: safe_request_url, type: 'website', site_name: "A'sTechware" },
-      twitter: { card: 'summary', title: "Platform Modernization Services | A'sTechware", description: "Rescue failing platforms and modernize systems that can't scale." }
-    ) %>
-  <% end %>
+  <% set_meta_tags(
+    title: "Platform Modernization | Production-Ready Systems | A'sTechware",
+    description: "Rescue failing platforms and modernize systems that can't scale. Incremental improvements for reliability, performance, and maintainability, with business continuity.",
+    keywords: "platform modernization, platform engineering services, legacy modernization, custom software development, B2B SaaS development",
+    og: { title: "Platform Modernization Services | A'sTechware", description: "Rescue failing platforms and modernize systems that can't scale.", url: safe_request_url, type: 'website', site_name: "A'sTechware" },
+    twitter: { card: og_image.present? ? 'summary_large_image' : 'summary', title: "Platform Modernization Services | A'sTechware", description: "Rescue failing platforms and modernize systems that can't scale." }
+  ) %>
+  <% set_meta_tags(og: { image: og_image, 'image:secure_url' => og_image, 'image:type' => 'image/png' }, twitter: { image: og_image }) if og_image.present? %>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "Service",
+    "serviceType" => "Platform Modernization",
+    "provider" => { "@type" => "Organization", "name" => "A'sTechware" },
+    "areaServed" => "Worldwide",
+    "description" => "Rescue failing platforms and modernize systems for reliability, performance, and maintainability."
+  }.to_json) %>
+  </script>
 <% end %>
 
 <!-- Hero Section -->
@@ -29,7 +32,7 @@
           Rescue Failing Platforms and Modernize Systems That Can't Scale
         </p>
         <p class="mb-4" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
-          We rescue failing platforms and modernize systems that cannot scale. Focused on changes that directly improve reliability, performance, and maintainability—not theoretical architecture.
+          We rescue failing platforms and modernize systems that cannot scale. Focused on changes that directly improve reliability, performance, and maintainability, not theoretical architecture.
         </p>
         <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
           Schedule Discovery Call
@@ -48,15 +51,15 @@
         <div class="col-12 col-lg-10 mx-auto">
           <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Overview</h2>
           <p class="large-para mb-4">
-            Platform modernization means fixing systems that are slow, unstable, or hard to change—without betting the business on a risky big-bang rewrite. We focus on incremental improvements that deliver measurable gains in speed, uptime, and developer velocity while keeping the lights on.
+            Platform modernization means fixing systems that are slow, unstable, or hard to change, without betting the business on a risky big-bang rewrite. We focus on incremental improvements that deliver measurable gains in speed, uptime, and developer velocity while keeping the lights on.
           </p>
           <p class="large-para mb-4">
-            We start with observability: you can’t fix what you can’t measure. Then we prioritize the highest-impact changes—database optimization, caching, API cleanup, deployment automation—and roll them out in phases with rollback plans. Business continuity is non-negotiable; we reduce technical debt in a way that pays ROI, not in theory.
+            We start with observability: you can’t fix what you can’t measure. Then we prioritize the highest-impact changes, database optimization, caching, API cleanup, deployment automation, and roll them out in phases with rollback plans. Business continuity is non-negotiable; we reduce technical debt in a way that pays ROI, not in theory.
           </p>
           <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.7;">
-            <li><strong>Fixing systems that are slow, unstable, or hard to change:</strong> Targeted improvements to the parts that hurt most—queries, infrastructure, or code structure.</li>
+            <li><strong>Fixing systems that are slow, unstable, or hard to change:</strong> Targeted improvements to the parts that hurt most, queries, infrastructure, or code structure.</li>
             <li><strong>Incremental improvements vs big-bang rewrites:</strong> We prefer phased modernization with clear milestones over “rebuild everything.” Lower risk, faster value.</li>
-            <li><strong>Focus on measurable improvements:</strong> Speed, uptime, deployment frequency, and developer velocity—metrics you can track and report.</li>
+            <li><strong>Focus on measurable improvements:</strong> Speed, uptime, deployment frequency, and developer velocity, metrics you can track and report.</li>
             <li><strong>Maintaining business continuity during transformation:</strong> No “switch off the old system” surprises. Rollouts are staged, tested, and reversible.</li>
             <li><strong>Technical debt reduction with ROI:</strong> We tackle debt that blocks growth or burns cost; we don’t refactor for its own sake.</li>
           </ul>
@@ -70,7 +73,7 @@
     <div class="container">
       <div class="text-center mb-5">
         <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Challenges We Solve</h2>
-        <p class="large-para mb-0" style="max-width: 640px; margin: 0 auto;">Common reasons platforms fail to scale—and how we fix them without disrupting the business.</p>
+        <p class="large-para mb-0" style="max-width: 640px; margin: 0 auto;">Common reasons platforms fail to scale, and how we fix them without disrupting the business.</p>
       </div>
       <div class="row g-3">
         <div class="col-12 col-md-6 col-lg-4">
@@ -98,7 +101,7 @@
           <div class="workflow-card p-4 h-100">
             <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">4</span>
             <h4 class="h6 mb-2">Database performance bottlenecks</h4>
-            <p class="mb-0 small">Query optimization, indexing, connection pooling, and read replicas where needed—so the database stops being the bottleneck.</p>
+            <p class="mb-0 small">Query optimization, indexing, connection pooling, and read replicas where needed, so the database stops being the bottleneck.</p>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
@@ -134,12 +137,12 @@
           <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Our Approach</h2>
           <p class="large-para mb-4">We prioritize reliability and measurable impact over theoretical perfection. Every change is staged and reversible.</p>
           <ul class="service-page-list mb-0" style="font-size: 1.05rem;">
-            <li><strong>Start with observability and metrics:</strong> Instrument what you have so we can see where time and failures come from—then fix the right things.</li>
+            <li><strong>Start with observability and metrics:</strong> Instrument what you have so we can see where time and failures come from, then fix the right things.</li>
             <li><strong>Identify highest-impact improvements:</strong> We focus on changes that move the needle: uptime, latency, cost, or deployment speed.</li>
             <li><strong>Incremental rollouts with rollback plans:</strong> No big-bang cutovers. Every phase is deployable and reversible so you stay in control.</li>
-            <li><strong>Focus on reliability before features:</strong> Stabilize first—then we make it easier to add features without breaking production.</li>
+            <li><strong>Focus on reliability before features:</strong> Stabilize first, then we make it easier to add features without breaking production.</li>
             <li><strong>Documentation and knowledge transfer:</strong> Runbooks, architecture docs, and handoffs so your team owns the system long-term.</li>
-            <li><strong>Team training on new systems:</strong> We train your people on new pipelines, monitoring, and practices—not just hand over code.</li>
+            <li><strong>Team training on new systems:</strong> We train your people on new pipelines, monitoring, and practices, not just hand over code.</li>
           </ul>
         </div>
       </div>
@@ -151,7 +154,7 @@
     <div class="container">
       <div class="text-center mb-5">
         <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Business Benefits</h2>
-        <p class="large-para mb-0" style="max-width: 640px; margin: 0 auto;">Measurable outcomes from platform modernization—reliability, performance, cost, and velocity.</p>
+        <p class="large-para mb-0" style="max-width: 640px; margin: 0 auto;">Measurable outcomes from platform modernization, reliability, performance, cost, and velocity.</p>
       </div>
       <div class="row g-4">
         <div class="col-12 col-md-6 col-lg-4">
@@ -241,7 +244,7 @@
     <div class="container">
       <div class="text-center mb-5">
         <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">What We Deliver</h2>
-        <p class="large-para mb-0" style="max-width: 640px; margin: 0 auto;">Assessment, technical improvements, infrastructure upgrades, and knowledge transfer—so you can run the platform long-term.</p>
+        <p class="large-para mb-0" style="max-width: 640px; margin: 0 auto;">Assessment, technical improvements, infrastructure upgrades, and knowledge transfer, so you can run the platform long-term.</p>
       </div>
       <div class="row g-4">
         <div class="col-12 col-md-6 col-lg-3">
@@ -348,7 +351,7 @@
       <div class="row">
         <div class="col-12 col-lg-10 mx-auto">
           <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Timeline</h2>
-          <p class="large-para mb-4">Typical 20-week path from assessment to handoff. Timeline varies based on platform complexity and scope—we’ll tailor phases to your situation.</p>
+          <p class="large-para mb-4">Typical 20-week path from assessment to handoff. Timeline varies based on platform complexity and scope, we’ll tailor phases to your situation.</p>
           <div class="row g-3">
             <div class="col-12 col-sm-6 col-lg-3">
               <div class="workflow-card p-4 h-100 border-start border-4 border-primary">
@@ -453,7 +456,7 @@
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pmfaq1" aria-expanded="false" aria-controls="pmfaq1">Should we rebuild from scratch or modernize incrementally?</button>
               </h3>
               <div id="pmfaq1" class="accordion-collapse collapse" data-bs-parent="#platformModFaqAccordion">
-                <div class="accordion-body">We almost always recommend incremental modernization. Big-bang rewrites are risky, take longer, and often fail to deliver. We identify the highest-impact improvements and roll them out in phases—so you get value quickly and can stop or adjust at any time. Full rewrites only make sense when the existing system is unsalvageable; we’ll tell you if that’s the case.</div>
+                <div class="accordion-body">We almost always recommend incremental modernization. Big-bang rewrites are risky, take longer, and often fail to deliver. We identify the highest-impact improvements and roll them out in phases, so you get value quickly and can stop or adjust at any time. Full rewrites only make sense when the existing system is unsalvageable; we’ll tell you if that’s the case.</div>
               </div>
             </div>
             <div class="accordion-item border rounded mb-2">
@@ -461,7 +464,7 @@
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pmfaq2" aria-expanded="false" aria-controls="pmfaq2">How do you prevent disruption to our users during modernization?</button>
               </h3>
               <div id="pmfaq2" class="accordion-collapse collapse" data-bs-parent="#platformModFaqAccordion">
-                <div class="accordion-body">We use phased rollouts, feature flags, and rollback plans. Changes go to staging first; we measure impact before production. If something goes wrong, we revert. We also avoid “big bang” cutovers—we migrate incrementally so users never see a single risky switchover.</div>
+                <div class="accordion-body">We use phased rollouts, feature flags, and rollback plans. Changes go to staging first; we measure impact before production. If something goes wrong, we revert. We also avoid “big bang” cutovers, we migrate incrementally so users never see a single risky switchover.</div>
               </div>
             </div>
             <div class="accordion-item border rounded mb-2">
@@ -477,7 +480,7 @@
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pmfaq4" aria-expanded="false" aria-controls="pmfaq4">What if we need to maintain the old system while building new?</button>
               </h3>
               <div id="pmfaq4" class="accordion-collapse collapse" data-bs-parent="#platformModFaqAccordion">
-                <div class="accordion-body">We do that all the time. We work in the existing codebase and infrastructure first—improving what you have—so there’s no “second system” to maintain in parallel. If we do introduce new components (e.g. a new search layer), we integrate them gradually so the old and new coexist until you’re ready to retire the old.</div>
+                <div class="accordion-body">We do that all the time. We work in the existing codebase and infrastructure first, improving what you have, so there’s no “second system” to maintain in parallel. If we do introduce new components (e.g. a new search layer), we integrate them gradually so the old and new coexist until you’re ready to retire the old.</div>
               </div>
             </div>
             <div class="accordion-item border rounded mb-2">
@@ -547,7 +550,7 @@
       <div class="row">
         <div class="col-12 col-lg-8 mx-auto text-center">
           <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Ready to Rescue Your Platform?</h2>
-          <p class="lead mb-4">Schedule a discovery call for an initial assessment. We’ll identify the highest-impact improvements and outline a realistic, phased plan—with business continuity at the center.</p>
+          <p class="lead mb-4">Schedule a discovery call for an initial assessment. We’ll identify the highest-impact improvements and outline a realistic, phased plan, with business continuity at the center.</p>
           <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
             Schedule Discovery Call
           </a>

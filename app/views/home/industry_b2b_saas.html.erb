@@ -17,6 +17,16 @@
       twitter: { card: 'summary', title: "B2B SaaS Development | A'sTechware", description: "Full platform builds, AI integration, and infrastructure modernization for SaaS." }
     ) %>
   <% end %>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "Service",
+    "serviceType" => "B2B SaaS Development",
+    "provider" => { "@type" => "Organization", "name" => "A'sTechware" },
+    "areaServed" => "Worldwide",
+    "description" => "Build, scale, and modernize B2B SaaS products. MVP to enterprise, AI integration, platform modernization."
+  }.to_json) %>
+  </script>
 <% end %>
 
 <!-- Hero Section -->
@@ -52,13 +62,13 @@
         <div class="col-12 col-lg-10 mx-auto">
           <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Building the Future of B2B SaaS</h2>
           <p class="large-para mb-4">
-            The B2B SaaS landscape is more competitive than ever. Customers expect enterprise-grade features, modern AI capabilities, and flawless reliability—while your engineering team is stretched thin between maintaining legacy code, shipping new features, and scaling infrastructure. You're not just building software; you're building a business that must grow predictably and profitably.
+            The B2B SaaS landscape is more competitive than ever. Customers expect enterprise-grade features, modern AI capabilities, and flawless reliability, while your engineering team is stretched thin between maintaining legacy code, shipping new features, and scaling infrastructure. You're not just building software; you're building a business that must grow predictably and profitably.
           </p>
           <p class="large-para mb-4">
             We build technology solutions specifically for B2B SaaS companies at every stage: from pre-launch MVP to scaling growth-stage platforms to modernizing mature products. Whether you need to ship your MVP in 90 days, add AI capabilities to compete, or modernize legacy architecture that's slowing you down, we deliver production-ready solutions that drive business outcomes.
           </p>
           <p class="large-para mb-0">
-            Our B2B SaaS expertise spans product development, platform engineering, AI/ML integration, infrastructure modernization, API design, multi-tenancy architecture, billing and subscription management, and developer tools. We understand that SaaS success requires balancing speed to market, technical excellence, scalability, and cost efficiency—and we architect solutions accordingly.
+            Our B2B SaaS expertise spans product development, platform engineering, AI/ML integration, infrastructure modernization, API design, multi-tenancy architecture, billing and subscription management, and developer tools. We understand that SaaS success requires balancing speed to market, technical excellence, scalability, and cost efficiency, and we architect solutions accordingly.
           </p>
         </div>
       </div>
@@ -706,7 +716,7 @@
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#b2bfaq3" aria-expanded="false" aria-controls="b2bfaq3">Can you work with our in-house engineering team?</button>
               </h3>
               <div id="b2bfaq3" class="accordion-collapse collapse" data-bs-parent="#b2bSaasFaq">
-                <div class="accordion-body">Yes. We often work alongside internal teams—owning specific features or augmenting capacity. We use your tools, processes, and git workflows. Many clients use us to maintain velocity while hiring.</div>
+                <div class="accordion-body">Yes. We often work alongside internal teams, owning specific features or augmenting capacity. We use your tools, processes, and git workflows. Many clients use us to maintain velocity while hiring.</div>
               </div>
             </div>
             <div class="accordion-item border rounded mb-2">

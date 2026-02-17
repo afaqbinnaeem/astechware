@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>A'sTechware</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%# Default SEO meta (overridden by set_meta_tags in views) %>
+    <% set_meta_tags(
+      title: "A'sTechware | Production-Grade AI & Platform Engineering",
+      description: "We build AI agents and custom platforms that survive production. Enterprise governance, human-in-the-loop, complete audit trails. 8+ years, 50+ projects.",
+      keywords: "AI development, production AI, platform engineering, custom software, AI governance"
+    ) %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%# Favicon and Site Icon for Google Search Results %>
@@ -113,7 +118,11 @@
         "url": "<%= logo_url %>",
         "contentUrl": "<%= logo_url %>"
       },
-      "description": "We design and build production-grade AI automations and custom web/mobile platforms from internal ops systems to marketplaces and customer-facing products so businesses can run faster without adding headcount.",
+      "description": "Production-grade AI and platform engineering. We build AI agents and custom platforms that survive production with enterprise governance, human-in-the-loop, and complete audit trails.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "US"
+      },
       "sameAs": [
         "https://www.linkedin.com/company/astechware",
         "https://www.instagram.com/astechware"
@@ -121,7 +130,7 @@
       "contactPoint": {
         "@type": "ContactPoint",
         "email": "ahmad@astechware.com",
-        "contactType": "Customer Service"
+        "contactType": "Sales"
       }
     }
     </script>
@@ -194,6 +203,24 @@
          autoplay: true,
          autoplaySpeed: 1000,
        });
+
+       if ($('.clients-testimonials-slider').length) {
+         $('.clients-testimonials-slider').slick({
+           slidesToShow: 1,
+           slidesToScroll: 1,
+           arrows: true,
+           dots: true,
+           autoplay: true,
+           autoplaySpeed: 6000,
+           pauseOnHover: true,
+           prevArrow: '<button type="button" class="slick-prev clients-slider-arrow" aria-label="Previous testimonial"><i class="fa fa-chevron-left"></i></button>',
+           nextArrow: '<button type="button" class="slick-next clients-slider-arrow" aria-label="Next testimonial"><i class="fa fa-chevron-right"></i></button>',
+           responsive: [
+             { breakpoint: 992, settings: { slidesToShow: 1 } },
+             { breakpoint: 576, settings: { slidesToShow: 1, arrows: true } }
+           ]
+         });
+       }
 
       // Params
       var mainSliderSelector = '.main-slider',
