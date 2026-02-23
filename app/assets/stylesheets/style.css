@@ -12629,6 +12629,12 @@ nav.nav-inner {
   overflow: hidden;
 }
 
+.about-leadership-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .about-leadership-initial {
   font-size: 2.25rem;
   font-weight: 800;
@@ -12730,6 +12736,17 @@ nav.nav-inner {
   color: var(--text-color);
   display: block;
   transition: color 0.2s ease;
+}
+
+.about-award-icon-svg {
+  display: inline-block;
+  line-height: 0;
+}
+
+.about-award-upwork-svg {
+  width: 2.5rem;
+  height: 2.5rem;
+  vertical-align: middle;
 }
 
 .about-award-card a:hover .about-award-icon {
