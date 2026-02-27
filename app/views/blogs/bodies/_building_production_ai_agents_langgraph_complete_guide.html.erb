@@ -1,0 +1,47 @@
+<% content_for :blog_key_takeaways do %>
+  <ul>
+    <li>LangGraph gives you stateful, cyclic agent workflows—better than linear chains for real-world routing and tool use.</li>
+    <li>Design state graphs with clear nodes (LLM, tools, conditional edges) and think about persistence and checkpointing from the start.</li>
+    <li>Production LangGraph development needs error handling, retries, human-in-the-loop nodes, and observability.</li>
+    <li>Checkpointing is essential for long conversations and recovery; use LangGraph's built-in checkpointing or your own store.</li>
+    <li>Ship beyond the tutorial: add timeouts, fallbacks, and a clear handoff path when the graph can't complete.</li>
+  </ul>
+<% end %>
+<% content_for :blog_toc do %>
+  <ul class="list-unstyled mb-0">
+    <li><a href="#why-langgraph">Why LangGraph for Production AI Agents</a></li>
+    <li><a href="#core-concepts">Core Concepts: State Graph and Nodes</a></li>
+    <li><a href="#designing-your-graph">Designing Your Graph</a></li>
+    <li><a href="#checkpointing-and-persistence">Checkpointing and Persistence</a></li>
+    <li><a href="#human-in-the-loop">Human-in-the-Loop and Escalation</a></li>
+    <li><a href="#errors-and-observability">Errors, Retries, and Observability</a></li>
+    <li><a href="#what-to-do-next">What to Do Next</a></li>
+  </ul>
+<% end %>
+
+<p class="lead">LangGraph development lets you build production AI agents with stateful, multi-step workflows—but tutorials stop at the happy path. Here's how we use it for agents that run in production.</p>
+
+<h2 id="why-langgraph">Why LangGraph for Production AI Agents</h2>
+<p>LangGraph extends the LangChain idea of chains with cycles and explicit state. That makes it a strong fit for agents that need to loop (e.g. plan → act → observe → replan), branch on conditions (e.g. confidence thresholds, tool results), and maintain context across many steps. For production AI agents—support triage, workflow automation, or multi-tool orchestration—LangGraph development gives you a clear mental model: a graph of nodes (LLM, tools, logic) and edges (including conditional ones) that you can reason about, test, and observe.</p>
+
+<h2 id="core-concepts">Core Concepts: State Graph and Nodes</h2>
+<p>You define a state schema (e.g. messages, current step, tool results) and a set of nodes. Each node is a function that takes state and returns state updates. Edges connect nodes; conditional edges let you route based on state (e.g. "if confidence &lt; 0.7, go to human_review"). The graph can have cycles: for example, "agent" → "tools" → "agent" until the agent decides it's done. That's exactly the pattern you want for production agents that call APIs, query data, and sometimes need to retry or escalate.</p>
+
+<h2 id="designing-your-graph">Designing Your Graph</h2>
+<p>Start with the workflow you need: what are the steps, and where can things branch or loop? Typical nodes: a "router" or "agent" node that decides the next step; "tool" nodes that call external APIs or databases; "evaluate" nodes that check confidence or safety; "human_review" or "escalate" nodes for handoff. Use conditional edges to send low-confidence or high-risk paths to human review instead of auto-executing. Keep state minimal but sufficient—enough to resume and audit, not so much that serialization and debugging become painful.</p>
+
+<blockquote class="blockquote border-start border-4 border-primary ps-3 my-4 pull-quote">
+  <p class="mb-0">"In production LangGraph development, we add human-in-the-loop and escalation nodes by default—so the graph can hand off instead of guessing."</p>
+</blockquote>
+
+<h2 id="checkpointing-and-persistence">Checkpointing and Persistence</h2>
+<p>Long or multi-turn flows need checkpointing: save state after each step so you can resume, replay, or recover from failures. LangGraph supports checkpointer backends (in-memory, Redis, or your own store). For production, use a persistent store keyed by conversation or user so you can resume across restarts and support "continue where we left off." Checkpointing also helps with auditing: you have a trace of every node execution and state transition.</p>
+
+<h2 id="human-in-the-loop">Human-in-the-Loop and Escalation</h2>
+<p>Production agents should have explicit nodes for "ask human" or "escalate." When confidence is low, or when the agent would take a high-impact action (e.g. refund, delete), route to a human_review node that pauses the graph, notifies a person, and resumes with the human's decision in state. That keeps the graph model clean and makes governance and compliance tractable—you're not trying to bolt on approval after the fact.</p>
+
+<h2 id="errors-and-observability">Errors, Retries, and Observability</h2>
+<p>Tool calls fail; LLMs time out. Design for it: retries with backoff for transient failures, and a fallback path (e.g. "escalate to human" or "return a safe default") when max retries are exceeded. Add logging or tracing at every node so you can see the path through the graph, latency per node, and where failures occur. That observability is what separates production LangGraph development from a weekend prototype.</p>
+
+<h2 id="what-to-do-next">What to Do Next</h2>
+<p>Building production AI agents with LangGraph means designing for state, persistence, human-in-the-loop, and failure modes from the start. If you're exploring LangGraph development for a support agent, triage flow, or internal automation, we can help design the graph and productionize it—checkpointing, escalation, and observability included. Our <a href="<%= ai_agent_development_path %>">AI Agent Development</a> practice uses LangGraph and related stacks for agents that run in production. <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer">Schedule a technical call</a> to discuss your use case.</p>
