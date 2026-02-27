@@ -36,6 +36,24 @@ module ApplicationHelper
     end
   end
 
+  # Canonical URL: strip query params, normalize trailing slash, use production host in production
+  def canonical_url
+    base = Rails.env.production? ? "https://astechware.com" : "#{request.protocol}#{request.host_with_port}"
+    path = request.path.presence || "/"
+    path = path.sub(/\/*\z/, "")  # strip trailing slashes
+    path = "/" if path.blank?
+    "#{base}#{path}"
+  rescue StandardError => e
+    Rails.logger.warn "Failed to get canonical URL: #{e.message}"
+    root_url
+  end
+
+  # Full URL for OG image (1200x630). Use public/og-image.png in production.
+  def seo_og_image_url
+    base = Rails.env.production? ? "https://astechware.com" : "#{request.protocol}#{request.host_with_port}"
+    "#{base}/og-image.png"
+  end
+
   # Get reCAPTCHA site key for frontend
   def recaptcha_site_key
     ENV['RECAPTCHA_SITE_KEY'] || Rails.application.credentials.dig(:recaptcha, :site_key)
@@ -68,6 +86,50 @@ module ApplicationHelper
 
   def blog_featured_article
     blog_articles_list.first
+  end
+
+  # BreadcrumbList JSON-LD for inner pages (services, solutions, about, contact, etc.)
+  def breadcrumb_list_json_ld
+    base = Rails.env.production? ? "https://astechware.com" : base_url
+    path = request.path.to_s.sub(/\?.*\z/, "").strip
+    path = path.sub(/\/*\z/, "").presence || "/"
+    segments = path.split("/").reject(&:blank?)
+    items = [{ "@type" => "ListItem", "position" => 1, "name" => "Home", "item" => base + "/" }]
+    segments.each_with_index do |seg, i|
+      current_path = "/" + segments[0..i].join("/")
+      name = breadcrumb_segment_name(seg, segments, i)
+      items << { "@type" => "ListItem", "position" => i + 2, "name" => name, "item" => base + current_path }
+    end
+    { "@context" => "https://schema.org", "@type" => "BreadcrumbList", "itemListElement" => items }.to_json
+  end
+
+  def breadcrumb_segment_name(segment, all_segments, index)
+    names = {
+      "about" => "About",
+      "contact" => "Contact",
+      "case-studies" => "Case Studies",
+      "methodology" => "Methodology",
+      "how-we-derisk-projects" => "How We De-Risk Projects",
+      "blogs" => "Blog",
+      "services" => "Services",
+      "solutions" => "Solutions",
+      "ai-agent-development" => "AI Agent Development",
+      "machine-learning" => "Machine Learning",
+      "platform-modernization" => "Platform Modernization",
+      "custom-software" => "Custom Software",
+      "api-integrations" => "API & Integrations",
+      "devops-engineering" => "DevOps Engineering",
+      "ai-agents" => "AI Agents",
+      "healthcare" => "Healthcare",
+      "legal" => "Legal",
+      "financial" => "Financial",
+      "b2b-saas" => "B2B SaaS",
+      "professional-services" => "Professional Services",
+      "education-technology" => "Education Technology",
+      "privacy-policy" => "Privacy Policy",
+      "terms-of-service" => "Terms of Service"
+    }
+    names[segment] || segment.humanize
   end
 
   # Find blog article hash by slug (for blogs#show). Returns nil if not found.

@@ -1,21 +1,20 @@
 <% content_for :head do %>
-  <% og_image = safe_og_image_url('logo-colored.png') %>
   <% set_meta_tags(
-    title: "AI Agent Development | Production-Ready AI | A'sTechware",
-    description: "Production-ready AI agents and copilots with enterprise governance built in. Human-in-the-loop, audit trails, observability. We build AI that works in real workflows, not demos.",
-    keywords: "AI agent development, production AI systems, AI agents with human-in-the-loop, enterprise AI governance, HIPAA compliant AI, SOC 2 AI systems",
-    og: { title: "AI Agent Development Services | A'sTechware", description: "Production-ready AI agents with enterprise governance built in.", url: safe_request_url, type: 'website', site_name: "A'sTechware" },
-    twitter: { card: og_image.present? ? 'summary_large_image' : 'summary', title: "AI Agent Development Services | A'sTechware", description: "Production-ready AI agents with enterprise governance." }
+    title: "AI Agent Development Services",
+    description: "We build production-ready AI agents with human-in-the-loop protocols, audit trails, and observability. LangGraph, OpenAI, Anthropic. 3–8 weeks to deployment.",
+    keywords: "AI agent development, production AI systems, AI agents with human-in-the-loop, enterprise AI governance, HIPAA compliant AI, SOC 2 AI systems"
   ) %>
-  <% set_meta_tags(og: { image: og_image, 'image:secure_url' => og_image, 'image:type' => 'image/png' }, twitter: { image: og_image }) if og_image.present? %>
   <script type="application/ld+json">
   <%= raw({
     "@context" => "https://schema.org",
     "@type" => "Service",
-    "serviceType" => "AI Agent Development",
+    "name" => "AI Agent Development Services",
+    "url" => ai_agent_development_url,
+    "description" => "Production-ready AI agents with enterprise governance, human-in-the-loop, and complete audit trails.",
     "provider" => { "@type" => "Organization", "name" => "A'sTechware" },
     "areaServed" => "Worldwide",
-    "description" => "Production-ready AI agents with enterprise governance, human-in-the-loop, and complete audit trails."
+    "serviceType" => "AI Agent Development",
+    "category" => "AI & Software Development"
   }.to_json) %>
   </script>
 <% end %>

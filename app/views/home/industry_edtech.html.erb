@@ -1,30 +1,20 @@
 <% content_for :head do %>
-  <% og_image = safe_og_image_url('logo-colored.png') %>
-  <% if og_image.present? %>
-    <% set_meta_tags(
-      title: "Education Technology Solutions | Learning Platforms & Student Management | A'sTechware",
-      description: "Build scalable EdTech platforms, LMS, student information systems, and engagement tools. FERPA-compliant, accessible, and designed for measurable learning outcomes.",
-      keywords: "EdTech development, learning management system, student information system, online learning platform, education technology solutions",
-      og: { title: "Education Technology Solutions | A'sTechware", description: "Learning platforms, student management & engagement tools built for scale.", image: og_image, url: safe_request_url, type: 'website', site_name: "A'sTechware" },
-      twitter: { card: 'summary_large_image', title: "Education Technology Solutions | A'sTechware", description: "Learning platforms, student management & engagement tools built for scale.", image: og_image }
-    ) %>
-  <% else %>
-    <% set_meta_tags(
-      title: "Education Technology Solutions | Learning Platforms & Student Management | A'sTechware",
-      description: "Build scalable EdTech platforms, LMS, student information systems, and engagement tools. FERPA-compliant, accessible, and designed for measurable learning outcomes.",
-      keywords: "EdTech development, learning management system, student information system, online learning platform, education technology solutions",
-      og: { title: "Education Technology Solutions | A'sTechware", description: "Learning platforms, student management & engagement tools built for scale.", url: safe_request_url, type: 'website', site_name: "A'sTechware" },
-      twitter: { card: 'summary', title: "Education Technology Solutions | A'sTechware", description: "Learning platforms, student management & engagement tools built for scale." }
-    ) %>
-  <% end %>
+  <% set_meta_tags(
+    title: "EdTech Platform Development",
+    description: "Learning platforms, student management, content delivery, and engagement tools built for scale. EdTech engineering from concept to production.",
+    keywords: "EdTech development, learning management system, student information system, online learning platform, education technology solutions"
+  ) %>
   <script type="application/ld+json">
   <%= raw({
     "@context" => "https://schema.org",
     "@type" => "Service",
-    "serviceType" => "Education Technology Solutions",
+    "name" => "Education Technology Solutions",
+    "url" => industry_edtech_url,
+    "description" => "EdTech platforms, LMS, student information systems, and engagement tools. FERPA-compliant.",
     "provider" => { "@type" => "Organization", "name" => "A'sTechware" },
     "areaServed" => "Worldwide",
-    "description" => "EdTech platforms, LMS, student information systems, and engagement tools. FERPA-compliant."
+    "serviceType" => "Education Technology Solutions",
+    "category" => "Education Technology"
   }.to_json) %>
   </script>
 <% end %>

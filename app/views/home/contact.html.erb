@@ -1,10 +1,9 @@
+<% content_for :meta_site do %><% end %>
 <% content_for :head do %>
   <% set_meta_tags(
-    title: "Contact | Schedule a Technical Call | A'sTechware",
-    description: "Tell us about your project. Schedule a 30-min technical call to discuss AI agents, platform modernization, or custom software. Production-first engineering.",
-    keywords: "contact A'sTechware, schedule consultation, AI development, custom software, platform engineering",
-    og: { title: "Contact | A'sTechware", description: "Schedule a technical call to discuss your AI or platform project.", url: safe_request_url, type: 'website', site_name: "A'sTechware" },
-    twitter: { card: 'summary', title: "Contact | A'sTechware", description: "Schedule a technical call to discuss your AI or platform project." }
+    title: "Contact A'sTechware | Book a Technical Consultation",
+    description: "Get in touch with A'sTechware. Book a 30-minute technical call or email ahmad@astechware.com to discuss your project.",
+    keywords: "contact A'sTechware, schedule consultation, AI development, custom software, platform engineering"
   ) %>
 <% end %>
 <!-- Hero Section -->
@@ -106,9 +105,9 @@
             </div>
           </div>
           <div class="logos-holder d-flex justify-content-between align-items-start d-none">
-            <a href="#" onclick="return false;"><%= image_tag 'clutch.svg' %></a>
-            <a href="#" onclick="return false;"><%= image_tag 'good-firms.svg' %></a>
-            <a href="#" onclick="return false;"><%= image_tag 'top-developers.svg' %></a>
+            <a href="#" onclick="return false;"><%= image_tag 'clutch.svg', alt: 'Clutch — A\'sTechware Client Reviews' %></a>
+            <a href="#" onclick="return false;"><%= image_tag 'good-firms.svg', alt: 'GoodFirms — A\'sTechware Client Reviews' %></a>
+            <a href="#" onclick="return false;"><%= image_tag 'top-developers.svg', alt: 'Top Developers — A\'sTechware Recognition' %></a>
           </div>
         </div>
       </div>

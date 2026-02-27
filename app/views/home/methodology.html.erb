@@ -1,19 +1,9 @@
 <% content_for :head do %>
-  <% og_image = safe_og_image_url('logo-colored.png') %>
   <% set_meta_tags(
-    title: "The A'sTechware Framework | Production-First Engineering with Built-In Governance",
-    description: "Our 6-step methodology for delivering AI systems, SaaS platforms, and automation. Discovery, architecture, iterative development, governance, deployment, and continuous optimization.",
-    keywords: "delivery methodology, production-first engineering, AI governance, platform engineering, milestone delivery",
-    og: {
-      title: "The A'sTechware Framework | Production-First Engineering with Built-In Governance",
-      description: "Our 6-step methodology for delivering AI systems, SaaS platforms, and automation.",
-      url: safe_request_url,
-      type: 'website',
-      site_name: "A'sTechware"
-    },
-    twitter: { card: og_image.present? ? 'summary_large_image' : 'summary', title: "The A'sTechware Framework | Production-First Engineering with Built-In Governance", description: "Our 6-step methodology for delivering AI systems, SaaS platforms, and automation." }
+    title: "Our Engineering Methodology",
+    description: "Our milestone-based delivery methodology. Pay per milestone, weekly demos, full code ownership, and natural exit points at every stage.",
+    keywords: "delivery methodology, production-first engineering, AI governance, platform engineering, milestone delivery"
   ) %>
-  <% set_meta_tags(og: { image: og_image, 'image:secure_url' => og_image, 'image:type' => 'image/png' }, twitter: { image: og_image }) if og_image.present? %>
 <% end %>
 
 <!-- Hero Section -->
@@ -352,7 +342,7 @@
               </p>
             </blockquote>
             <div class="methodology-testimonial-author">
-              <%= image_tag 'ahmad/clients/nathan.jpeg', class: 'rounded-circle', alt: 'Nathan - Vestra Software', style: 'width:72px;height:72px;object-fit:cover;', loading: "lazy" %>
+              <%= image_tag 'ahmad/clients/nathan.jpeg', class: 'rounded-circle', alt: 'Nathan Wolf, CEO at Vestra', style: 'width:72px;height:72px;object-fit:cover;', loading: "lazy" %>
               <div class="mt-3">
                 <strong class="d-block" style="font-size: 1.1rem;">Nathan</strong>
                 <span class="text-muted">Founder at Vestra Software</span>

@@ -1,21 +1,20 @@
 <% content_for :head do %>
-  <% og_image = safe_og_image_url('logo-colored.png') %>
   <% set_meta_tags(
-    title: "API Integration Services | Connect Systems | A'sTechware",
-    description: "Connect your systems end-to-end: CRMs, billing, scheduling, messaging. Reliable integrations with error handling, retry logic, and monitoring.",
-    keywords: "API integrations, system integration, CRM integration, platform engineering services, custom software development",
-    og: { title: "API Integration Services | A'sTechware", description: "Connect your systems end-to-end with reliable integrations.", url: safe_request_url, type: 'website', site_name: "A'sTechware" },
-    twitter: { card: og_image.present? ? 'summary_large_image' : 'summary', title: "API Integration Services | A'sTechware", description: "Connect your systems end-to-end with reliable integrations." }
+    title: "API Integration Services",
+    description: "Connect your systems end-to-end: CRMs, billing, scheduling, messaging, and data providers. Reliable integrations with error handling, retry logic, and monitoring.",
+    keywords: "API integrations, system integration, CRM integration, platform engineering services, custom software development"
   ) %>
-  <% set_meta_tags(og: { image: og_image, 'image:secure_url' => og_image, 'image:type' => 'image/png' }, twitter: { image: og_image }) if og_image.present? %>
   <script type="application/ld+json">
   <%= raw({
     "@context" => "https://schema.org",
     "@type" => "Service",
-    "serviceType" => "API Integration Services",
+    "name" => "API & System Integrations",
+    "url" => api_integrations_url,
+    "description" => "Connect CRMs, billing, scheduling, and messaging with reliable integrations and monitoring.",
     "provider" => { "@type" => "Organization", "name" => "A'sTechware" },
     "areaServed" => "Worldwide",
-    "description" => "Connect CRMs, billing, scheduling, and messaging with reliable integrations and monitoring."
+    "serviceType" => "API Integration Services",
+    "category" => "Software Integration"
   }.to_json) %>
   </script>
 <% end %>

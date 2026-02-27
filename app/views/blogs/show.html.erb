@@ -1,16 +1,11 @@
 <% if @article.present? %>
   <% content_for :head do %>
     <% canonical_url = blog_show_url(@article[:slug]) rescue request.original_url %>
-    <link rel="canonical" href="<%= canonical_url %>">
-    <% blog_og_image = @article[:image].present? ? safe_og_image_url(@article[:image]) : safe_og_image_url("logo-colored.png") %>
     <% set_meta_tags(
-      title: "#{@article[:title]} | A'sTechware",
+      title: @article[:title].to_s,
       description: @article[:excerpt_short].to_s.truncate(155),
-      keywords: [@article[:category], "A'sTechware", "production AI", "platform engineering", "AI governance", "enterprise AI"].join(", "),
-      og: { title: @article[:title], description: @article[:excerpt_short], url: canonical_url, type: "article", site_name: "A'sTechware" },
-      twitter: { card: "summary_large_image", title: @article[:title], description: @article[:excerpt_short] }
+      keywords: [@article[:category], "A'sTechware", "production AI", "platform engineering", "AI governance", "enterprise AI"].join(", ")
     ) %>
-    <% set_meta_tags(og: { image: blog_og_image, "image:secure_url" => blog_og_image, "image:type" => "image/png" }, twitter: { image: blog_og_image }) if blog_og_image.present? %>
     <% logo_url = safe_og_image_url("logo-colored.png") %>
     <script type="application/ld+json">
     <%= raw({

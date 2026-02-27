@@ -1,0 +1,48 @@
+# A'sTechware
+
+A'sTechware builds production-grade AI and platforms for businesses that need systems that actually work. We specialize in AI agent development, machine learning, platform modernization, custom software, API integrations, and DevOps. Milestone-based delivery, weekly demos, full code ownership, and natural exit points.
+
+## Founder
+
+Ahmad Kamran — Founder & CEO. Leads strategy, client partnerships, and delivery. Focused on production-grade AI and platforms that scale, and a delivery model that gives clients full ownership and visibility.
+
+Email: ahmad@astechware.com
+Calendly: https://calendly.com/ahmadkamran/new-meeting
+
+## Experience
+
+10+ years delivering production systems. 50+ projects across industries. 98% client retention rate. Industries served: healthcare, legal, financial, B2B SaaS, professional services, education technology.
+
+## Services (with URLs)
+
+- AI Agent Development: https://astechware.com/services/ai-agent-development
+- Machine Learning & ML Engineering: https://astechware.com/services/machine-learning
+- Platform Modernization: https://astechware.com/services/platform-modernization
+- Custom Software Development: https://astechware.com/services/custom-software
+- API & System Integrations: https://astechware.com/services/api-integrations
+- DevOps & Cloud Engineering: https://astechware.com/services/devops-engineering
+
+## Industries / Solutions (with URLs)
+
+- Healthcare: https://astechware.com/solutions/healthcare
+- Legal: https://astechware.com/solutions/legal
+- Financial: https://astechware.com/solutions/financial
+- B2B SaaS: https://astechware.com/solutions/b2b-saas
+- Professional Services: https://astechware.com/solutions/professional-services
+- Education Technology: https://astechware.com/solutions/education-technology
+
+## Technology Stack
+
+LangGraph, LangChain, OpenAI, Anthropic, Python, Ruby on Rails, React, TypeScript, AWS, GCP, Docker, Kubernetes, CI/CD, Stripe, Twilio, healthcare and compliance integrations.
+
+## Key Differentiators
+
+Production-ready systems with error handling, monitoring, and failover from day one. AI with governance: human-in-the-loop and audit trails built in for compliance. Complete ownership: clients own all code, infrastructure, and documentation; no lock-in. Measurable results: hours saved, revenue recovered, capacity increased. Milestone-based delivery with weekly demos and natural exit points.
+
+Site: https://astechware.com
+About: https://astechware.com/about
+Contact: https://astechware.com/contact
+Case Studies: https://astechware.com/case-studies
+Methodology: https://astechware.com/methodology
+How We De-Risk Projects: https://astechware.com/how-we-derisk-projects
+Blog: https://astechware.com/blogs

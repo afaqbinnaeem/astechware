@@ -1,45 +1,9 @@
 <% content_for :head do %>
-   <%# Using safe helpers to prevent 500 errors if assets fail %>
-   <% og_image = safe_og_image_url('logo-colored.png') %>
-   <% if og_image.present? %>
-     <% set_meta_tags(
-       title: "Privacy Policy | A'sTechware",
-       description: "Privacy Policy for Astechware. Learn how we collect, use, and protect your information when you visit our website or interact with our services.",
-       og: {
-         title: "Privacy Policy | A'sTechware",
-         description: "Privacy Policy for Astechware. Learn how we collect, use, and protect your information when you visit our website or interact with our services.",
-         image: og_image,
-         'image:secure_url' => og_image,
-         'image:type' => 'image/png',
-         url: safe_request_url,
-         type: 'website',
-         site_name: "A'sTechware"
-       },
-       twitter: {
-         card: 'summary_large_image',
-         title: "Privacy Policy | A'sTechware",
-         description: "Privacy Policy for Astechware. Learn how we collect, use, and protect your information when you visit our website or interact with our services.",
-         image: og_image
-       }
-     ) %>
-   <% else %>
-     <% set_meta_tags(
-       title: "Privacy Policy | A'sTechware",
-       description: "Privacy Policy for Astechware. Learn how we collect, use, and protect your information when you visit our website or interact with our services.",
-       og: {
-         title: "Privacy Policy | A'sTechware",
-         description: "Privacy Policy for Astechware. Learn how we collect, use, and protect your information when you visit our website or interact with our services.",
-         url: safe_request_url,
-         type: 'website',
-         site_name: "A'sTechware"
-       },
-       twitter: {
-         card: 'summary',
-         title: "Privacy Policy | A'sTechware",
-         description: "Privacy Policy for Astechware. Learn how we collect, use, and protect your information when you visit our website or interact with our services."
-       }
-     ) %>
-   <% end %>
+   <% set_meta_tags(
+     title: "Privacy Policy",
+     description: "A'sTechware privacy policy. How we collect, use, and protect your data.",
+     keywords: "privacy policy, A'sTechware"
+   ) %>
 <% end %>
 
 <!-- Hero Section -->

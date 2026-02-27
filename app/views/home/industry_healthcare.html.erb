@@ -1,30 +1,20 @@
 <% content_for :head do %>
-  <% og_image = safe_og_image_url('logo-colored.png') %>
-  <% if og_image.present? %>
-    <% set_meta_tags(
-      title: "Healthcare Technology Solutions | HIPAA-Compliant Medical Practice Automation | A'sTechware",
-      description: "Build HIPAA-compliant healthcare automation for scheduling, patient intake, telehealth, and clinical workflows. Reduce no-shows, save staff time, improve patient satisfaction.",
-      keywords: "healthcare technology, medical practice automation, HIPAA-compliant software, patient scheduling, EHR integration, healthcare AI",
-      og: { title: "Healthcare Technology Solutions | A'sTechware", description: "HIPAA-compliant healthcare automation for modern medical practices.", image: og_image, url: safe_request_url, type: 'website', site_name: "A'sTechware" },
-      twitter: { card: 'summary_large_image', title: "Healthcare Technology Solutions | A'sTechware", description: "HIPAA-compliant healthcare automation for modern medical practices.", image: og_image }
-    ) %>
-  <% else %>
-    <% set_meta_tags(
-      title: "Healthcare Technology Solutions | HIPAA-Compliant Medical Practice Automation | A'sTechware",
-      description: "Build HIPAA-compliant healthcare automation for scheduling, patient intake, telehealth, and clinical workflows. Reduce no-shows, save staff time, improve patient satisfaction.",
-      keywords: "healthcare technology, medical practice automation, HIPAA-compliant software, patient scheduling, EHR integration, healthcare AI",
-      og: { title: "Healthcare Technology Solutions | A'sTechware", description: "HIPAA-compliant healthcare automation for modern medical practices.", url: safe_request_url, type: 'website', site_name: "A'sTechware" },
-      twitter: { card: 'summary', title: "Healthcare Technology Solutions | A'sTechware", description: "HIPAA-compliant healthcare automation for modern medical practices." }
-    ) %>
-  <% end %>
+  <% set_meta_tags(
+    title: "HIPAA Compliant AI for Healthcare",
+    description: "HIPAA-aligned AI workflows for healthcare: scheduling, patient intake, messaging, and document processing. Audit logs and compliant PHI handling.",
+    keywords: "healthcare technology, medical practice automation, HIPAA-compliant software, patient scheduling, EHR integration, healthcare AI"
+  ) %>
   <script type="application/ld+json">
   <%= raw({
     "@context" => "https://schema.org",
     "@type" => "Service",
-    "serviceType" => "Healthcare AI Automation",
+    "name" => "Healthcare & Medical Technology Solutions",
+    "url" => industry_healthcare_url,
+    "description" => "HIPAA-compliant healthcare automation for scheduling, patient intake, telehealth, and clinical workflows.",
     "provider" => { "@type" => "Organization", "name" => "A'sTechware" },
     "areaServed" => "Worldwide",
-    "description" => "HIPAA-compliant healthcare automation for scheduling, patient intake, telehealth, and clinical workflows."
+    "serviceType" => "Healthcare AI Automation",
+    "category" => "Healthcare Technology"
   }.to_json) %>
   </script>
 <% end %>

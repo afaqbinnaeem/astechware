@@ -64,6 +64,7 @@ gem "rubocop-rails"
 
 gem "devise" 
 gem "meta-tags"
+gem "sitemap_generator"
 
 # OpenAI API client for chatbot
 gem "ruby-openai"

@@ -32,6 +32,9 @@ COPY . .
 ARG SECRET_KEY_BASE=fakekeyforassets
 RUN bin/rails assets:clobber && bundle exec rails assets:precompile
 
+# Regenerate sitemap on every deploy (output: public/sitemap.xml.gz)
+RUN bundle exec rake sitemap:refresh
+
 # Run database migrations when deploying to Render. It is not great, maybe there's a better way?
 # https://community.render.com/t/release-command-for-db-migrations/247/6
 ARG RENDER

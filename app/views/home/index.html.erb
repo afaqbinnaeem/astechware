@@ -1,26 +1,73 @@
 <% content_for :head do %>
-   <%# Technical SEO: meta title 58 chars, description 155 chars per spec %>
-   <% og_image = safe_og_image_url('logo-colored.png') %>
+   <%# Title (page part only; layout adds " | A'sTechware"). Description unique per spec. %>
    <% set_meta_tags(
-     title: "A'sTechware | Production-Grade AI & Platform Engineering",
-     description: "We build AI agents and custom platforms that survive production. Enterprise governance, human-in-the-loop, complete audit trails. 10+ years, 50+ projects.",
-     keywords: "AI development, production AI, platform engineering, custom software, AI governance",
-     og: {
-       title: "A'sTechware | Production-Grade AI & Platform Engineering",
-       description: "We build AI agents and custom platforms that survive production. Enterprise governance, human-in-the-loop, complete audit trails. 10+ years, 50+ projects.",
-       url: safe_request_url,
-       type: 'website',
-       site_name: "A'sTechware"
-     },
-     twitter: {
-       card: 'summary_large_image',
-       title: "A'sTechware | Production-Grade AI & Platform Engineering",
-       description: "We build AI agents and custom platforms that survive production. Enterprise governance, human-in-the-loop, complete audit trails."
-     }
+     title: "AI Agent Development & Custom Software Engineering",
+     description: "A'sTechware builds production-grade AI agents, custom software, and platform modernization for B2B SaaS and regulated industries. Milestone-based delivery. Book a free technical call.",
+     keywords: "AI development, production AI, platform engineering, custom software, AI governance"
    ) %>
-   <% if og_image.present? %>
-     <% set_meta_tags(og: { image: og_image, 'image:secure_url' => og_image, 'image:type' => 'image/png' }, twitter: { image: og_image }) %>
-   <% end %>
+   <%# Homepage-only JSON-LD: WebSite, ProfessionalService, FAQPage, AggregateRating + Reviews %>
+   <% home_base = Rails.env.production? ? "https://astechware.com" : root_url.chomp("/") %>
+   <script type="application/ld+json">
+   <%= raw({
+     "@context" => "https://schema.org",
+     "@type" => "WebSite",
+     "name" => "A'sTechware",
+     "url" => home_base,
+     "description" => "Production-grade AI and platform engineering. AI agents, custom software, and platform modernization for B2B SaaS and regulated industries.",
+     "publisher" => { "@type" => "Organization", "name" => "A'sTechware", "url" => home_base }
+   }.to_json) %>
+   </script>
+   <script type="application/ld+json">
+   <%= raw({
+     "@context" => "https://schema.org",
+     "@type" => "ProfessionalService",
+     "name" => "A'sTechware",
+     "url" => home_base,
+     "description" => "Production-grade AI agents, custom software, platform modernization, API integrations, and DevOps. Milestone-based delivery, weekly demos, full code ownership.",
+     "priceRange" => "$$",
+     "areaServed" => "Worldwide",
+     "knowsAbout" => ["AI Agent Development", "Machine Learning", "Platform Engineering", "Custom Software", "API Integrations", "DevOps"],
+     "hasOfferCatalog" => {
+       "@type" => "OfferCatalog",
+       "name" => "Services",
+       "itemListElement" => [
+         { "@type" => "Offer", "itemOffered" => { "@type" => "Service", "name" => "AI Agent Development", "url" => "#{home_base}/services/ai-agent-development" } },
+         { "@type" => "Offer", "itemOffered" => { "@type" => "Service", "name" => "Machine Learning", "url" => "#{home_base}/services/machine-learning" } },
+         { "@type" => "Offer", "itemOffered" => { "@type" => "Service", "name" => "Platform Modernization", "url" => "#{home_base}/services/platform-modernization" } },
+         { "@type" => "Offer", "itemOffered" => { "@type" => "Service", "name" => "Custom Software", "url" => "#{home_base}/services/custom-software" } },
+         { "@type" => "Offer", "itemOffered" => { "@type" => "Service", "name" => "API & Integrations", "url" => "#{home_base}/services/api-integrations" } },
+         { "@type" => "Offer", "itemOffered" => { "@type" => "Service", "name" => "DevOps Engineering", "url" => "#{home_base}/services/devops-engineering" } }
+       ]
+     }
+   }.to_json) %>
+   </script>
+   <script type="application/ld+json">
+   <%= raw({
+     "@context" => "https://schema.org",
+     "@type" => "FAQPage",
+     "mainEntity" => [
+       { "@type" => "Question", "name" => "Do you require large upfront payments?", "acceptedAnswer" => { "@type" => "Answer", "text" => "No. Payments are structured per milestone, not for the entire project upfront." } },
+       { "@type" => "Question", "name" => "What if we're not satisfied after a milestone?", "acceptedAnswer" => { "@type" => "Answer", "text" => "You're not obligated to continue. Each milestone stands on its own." } },
+       { "@type" => "Question", "name" => "Who owns the code and system?", "acceptedAnswer" => { "@type" => "Answer", "text" => "You do always." } },
+       { "@type" => "Question", "name" => "Can another team take over later?", "acceptedAnswer" => { "@type" => "Answer", "text" => "Yes. Everything is documented and portable by design." } },
+       { "@type" => "Question", "name" => "Is this approach only for software builds?", "acceptedAnswer" => { "@type" => "Answer", "text" => "No. The same structure applies to automation, AI-assisted systems, and internal tools." } }
+     ]
+   }.to_json) %>
+   </script>
+   <script type="application/ld+json">
+   <%= raw({
+     "@context" => "https://schema.org",
+     "@type" => "Organization",
+     "name" => "A'sTechware",
+     "url" => home_base,
+     "aggregateRating" => { "@type" => "AggregateRating", "ratingValue" => "5.0", "reviewCount" => "11", "bestRating" => "5" },
+     "review" => [
+       { "@type" => "Review", "author" => { "@type" => "Person", "name" => "Nathan Wolf" }, "reviewBody" => "This is a stellar team! I have assigned new contracts to them for several years. A joy to work with. Smart people. Good people. Honest. Hard working. Excellent results.", "reviewRating" => { "@type" => "Rating", "ratingValue" => "5", "bestRating" => "5" } },
+       { "@type" => "Review", "author" => { "@type" => "Person", "name" => "Dale Merritt" }, "reviewBody" => "Been working with Ahmad for almost two years, and they've been great to work with. One of the most reliable developers I've had the pleasure to work with.", "reviewRating" => { "@type" => "Rating", "ratingValue" => "5", "bestRating" => "5" } },
+       { "@type" => "Review", "author" => { "@type" => "Person", "name" => "Brianne Harvey" }, "reviewBody" => "Ahmad has been an exceptional contractor and we feel incredibly fortunate to have found him.", "reviewRating" => { "@type" => "Rating", "ratingValue" => "5", "bestRating" => "5" } }
+     ]
+   }.to_json) %>
+   </script>
  <% end %>
  
 <!-- Hero Section -->
@@ -35,8 +82,8 @@
             We build product features, integrations, and AI agents that plug into your SaaS, designed for reliability, observability, and long-term maintainability.
             </p>
             <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center align-items-center">
-            <a href="https://calendly.com/ahmadkamran/new-meeting" 
-            target="_blank" class="btn btn-primary btn-lg rounded-pill px-4 hero-btn-primary" style="width: 351px;">
+            <a href="https://calendly.com/ahmadkamran/new-meeting"
+            target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-4 hero-btn-primary" style="width: 351px;">
             Book a 30-Min Technical Call
             </a>
             <a href="/case-studies" class="btn btn-outline-primary btn-lg rounded-pill px-4 d-flex align-items-center justify-content-center hero-btn-outline" style="width: 351px; white-space: nowrap; line-height: 40px;">
@@ -121,18 +168,18 @@
             <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">We&apos;ve worked with some great companies</h2>
          </div>
          <% logos = [
-            { src: 'ahmad/logos/word_of_mouth_online_pty_ltd__logo.jpeg', alt: 'Word of Mouth Online Pty Ltd' },
-            { src: 'ahmad/logos/vestra_software_solutions_logo.jpeg', alt: 'Vestra Software Solutions' },
-            { src: 'ahmad/logos/zoficash_logo.jpeg', alt: 'Zoficash' },
-            { src: 'ahmad/logos/golfpay.png', alt: 'Golfpay' },
-            { src: 'ahmad/logos/rrf.jpeg', alt: 'RRF' },
+            { src: 'ahmad/logos/word_of_mouth_online_pty_ltd__logo.jpeg', alt: "Word of Mouth Online Pty Ltd — A'sTechware Client" },
+            { src: 'ahmad/logos/vestra_software_solutions_logo.jpeg', alt: "Vestra Software Solutions — A'sTechware Client" },
+            { src: 'ahmad/logos/zoficash_logo.jpeg', alt: "Zoficash — A'sTechware Client" },
+            { src: 'ahmad/logos/golfpay.png', alt: "Golfpay — A'sTechware Client" },
+            { src: 'ahmad/logos/rrf.jpeg', alt: "RRF — A'sTechware Client" },
             # { src: 'ahmad/logos/astechware_logo.jpeg', alt: 'A'sTechware' },
-            { src: 'ahmad/logos/thegrantshub_logo.jpeg', alt: 'The Grants Hub' },
-            { src: 'ahmad/logos/driftgolf_logo.jpeg', alt: 'DriftGolf' },
-            { src: 'ahmad/logos/1630580396218.jpeg', alt: 'Selland Technologies' },
-            { src: 'ahmad/logos/zidzid.jpeg', alt: 'ZidZid' },
-            { src: 'ahmad/logos/warcoconstruction_logo.jpeg', alt: 'Warcoconstruction' },
-            { src: 'ahmad/logos/instashowing_logo.jpeg', alt: 'Instashowing' },
+            { src: 'ahmad/logos/thegrantshub_logo.jpeg', alt: "The Grants Hub — A'sTechware Client" },
+            { src: 'ahmad/logos/driftgolf_logo.jpeg', alt: "DriftGolf — A'sTechware Client" },
+            { src: 'ahmad/logos/1630580396218.jpeg', alt: "Selland Technologies — A'sTechware Client" },
+            { src: 'ahmad/logos/zidzid.jpeg', alt: "ZidZid — A'sTechware Client" },
+            { src: 'ahmad/logos/warcoconstruction_logo.jpeg', alt: "Warcoconstruction — A'sTechware Client" },
+            { src: 'ahmad/logos/instashowing_logo.jpeg', alt: "Instashowing — A'sTechware Client" },
             # { src: 'ahmad/logos/1725399994195.jpeg', alt: 'Eritheia Labs' },
             { src: 'ahmad/logos/sws.svg', alt: 'SWS' }
             ] %>
@@ -909,7 +956,7 @@
                <div class="card-body">
                   <div class="d-flex align-items-center justify-content-between mb-3">
                      <div class="d-flex align-items-center">
-                        <%= image_tag 'ahmad/clients/nathan.jpeg', class: 'rounded-circle me-3', alt: 'Nathan - Vestro Software', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
+                        <%= image_tag 'ahmad/clients/nathan.jpeg', class: 'rounded-circle me-3', alt: 'Nathan Wolf, CEO at Vestra', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
                         <div>
                            <h5 class="mb-0">Nathan</h5>
                            <small class="text-muted">Founder at Vestra Software</small>
@@ -933,7 +980,7 @@
                <div class="card-body">
                   <div class="d-flex align-items-center justify-content-between mb-3">
                      <div class="d-flex align-items-center">
-                        <%= image_tag 'ahmad/clients/Screenshot_1.png', class: 'rounded-circle me-3', alt: 'FKA Novara', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
+                        <%= image_tag 'ahmad/clients/Screenshot_1.png', class: 'rounded-circle me-3', alt: 'FKA Novara — A\'sTechware Client', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
                         <div>
                            <h5 class="mb-0">FKA Novara</h5>
                            <small class="text-muted">Startup Founder</small>
@@ -958,7 +1005,7 @@
                <div class="card-body">
                   <div class="d-flex align-items-center justify-content-between mb-3">
                      <div class="d-flex align-items-center">
-                        <%= image_tag 'ahmad/clients/joseph.jpeg', class: 'rounded-circle me-3', alt: 'Joseph Chiavatti', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
+                        <%= image_tag 'ahmad/clients/joseph.jpeg', class: 'rounded-circle me-3', alt: 'Joseph Chiavatti — A\'sTechware Client', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
                         <div>
                            <h5 class="mb-0">Joseph Chiavatti</h5>
                            <small class="text-muted">Technology Founder &amp; REALTOR®</small>
@@ -983,7 +1030,7 @@
                <div class="card-body">
                   <div class="d-flex align-items-center justify-content-between mb-3">
                      <div class="d-flex align-items-center">
-                        <%= image_tag 'ahmad/clients/sven.jpeg', class: 'rounded-circle me-3', alt: 'Sven-Volker Nowarra', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
+                        <%= image_tag 'ahmad/clients/sven.jpeg', class: 'rounded-circle me-3', alt: 'Sven-Volker Nowarra — A\'sTechware Client', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
                         <div>
                            <h5 class="mb-0">Sven‑Volker Nowarra</h5>
                            <small class="text-muted">In‑A‑Gadda‑Da‑Vida</small>
@@ -1007,7 +1054,7 @@
               <div class="card-body">
                  <div class="d-flex align-items-center justify-content-between mb-3">
                     <div class="d-flex align-items-center">
-                       <%= image_tag 'ahmad/clients/william.jpeg', class: 'rounded-circle me-3', alt: 'William Schoeffler', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
+                       <%= image_tag 'ahmad/clients/william.jpeg', class: 'rounded-circle me-3', alt: 'William Schoeffler — A\'sTechware Client', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
                        <div>
                           <h5 class="mb-0">William Schoeffler</h5>
                           <small class="text-muted">Co‑Founder and Product @ Hitch</small>
@@ -1031,7 +1078,7 @@
                <div class="card-body">
                   <div class="d-flex align-items-center justify-content-between mb-3">
                      <div class="d-flex align-items-center">
-                        <%= image_tag 'ahmad/clients/IMG_9811.png', class: 'rounded-circle me-3', alt: 'Anthony Barry', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
+                        <%= image_tag 'ahmad/clients/IMG_9811.png', class: 'rounded-circle me-3', alt: 'Anthony Barry — A\'sTechware Client', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
                         <div>
                            <h5 class="mb-0">Anthony Barry</h5>
                            <small class="text-muted">
@@ -1058,7 +1105,7 @@
                <div class="card-body">
                   <div class="d-flex align-items-center justify-content-between mb-3">
                      <div class="d-flex align-items-center">
-                        <%= image_tag 'ahmad/clients/ben-selland.jpeg', class: 'rounded-circle me-3', alt: 'Ben Selland', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
+                        <%= image_tag 'ahmad/clients/ben-selland.jpeg', class: 'rounded-circle me-3', alt: 'Ben Selland — A\'sTechware Client', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
                         <div>
                            <h5 class="mb-0">Ben Selland</h5>
                            <small class="text-muted">Principal at Selland Technologies</small>
@@ -1081,7 +1128,7 @@
                <div class="card-body">
                   <div class="d-flex align-items-center justify-content-between mb-3">
                      <div class="d-flex align-items-center">
-                        <%= image_tag 'ahmad/clients/golf.jpeg', class: 'rounded-circle me-3', alt: 'Dale Merritt', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
+                        <%= image_tag 'ahmad/clients/golf.jpeg', class: 'rounded-circle me-3', alt: 'Dale Merritt, CEO at Golfpay', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
                         <div>
                            <h5 class="mb-0">Dale Merritt</h5>
                            <small class="text-muted">Golfpay CEO | The &apos;1 Golf&apos; Company</small>
@@ -1104,7 +1151,7 @@
                <div class="card-body">
                   <div class="d-flex align-items-center justify-content-between mb-3">
                      <div class="d-flex align-items-center">
-                        <%= image_tag 'ahmad/clients/ania.png', class: 'rounded-circle me-3', alt: 'Ania Dergachev', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
+                        <%= image_tag 'ahmad/clients/ania.png', class: 'rounded-circle me-3', alt: 'Ania Dergachev — A\'sTechware Client', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
                         <div>
                            <h5 class="mb-0">Ania Dergachev</h5>
                            <small class="text-muted">Head, Product Design Studio</small>
@@ -1128,7 +1175,7 @@
                <div class="card-body">
                   <div class="d-flex align-items-center justify-content-between mb-3">
                      <div class="d-flex align-items-center">
-                        <%= image_tag 'ahmad/clients/zach.jpg', class: 'rounded-circle me-3', alt: 'Zach', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
+                        <%= image_tag 'ahmad/clients/zach.jpg', class: 'rounded-circle me-3', alt: 'Zach — A\'sTechware Client', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
                         <div>
                            <h5 class="mb-0">Zach Marion</h5>
                            <small class="text-muted">Founder at Shorline Waste Solution</small>
@@ -1151,7 +1198,7 @@
                <div class="card-body">
                   <div class="d-flex align-items-center justify-content-between mb-3">
                      <div class="d-flex align-items-center">
-                        <%= image_tag 'ahmad/clients/Brianne.jpeg', class: 'rounded-circle me-3', alt: 'Brianne Harvey', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
+                        <%= image_tag 'ahmad/clients/Brianne.jpeg', class: 'rounded-circle me-3', alt: 'Brianne Harvey, Founder at Restaurant Resource', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
                         <div>
                            <h5 class="mb-0">Brianne Harvey</h5>
                            <small class="text-muted">Founder at Restaurant Resource</small>
@@ -1212,7 +1259,7 @@
             <div class="col-12 col-lg-6">
                <div class="ratio ratio-4x3 rounded overflow-hidden about-image-card">
                   <div class="about-image-inner">
-                     <%= image_tag 'about-header.webp', class: 'img-fluid w-100 h-100 object-fit-cover rounded-3', alt: "About A'sTechware - AI & Product Engineering Team", loading: "lazy" %>
+                     <%= image_tag 'about-header.webp', class: 'img-fluid w-100 h-100 object-fit-cover rounded-3', alt: "A'sTechware AI and Product Engineering Team", loading: "lazy" %>
                   </div>
                </div>
             </div>

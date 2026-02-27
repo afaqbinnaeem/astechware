@@ -2,10 +2,10 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%# Default SEO meta (overridden by set_meta_tags in views) %>
+    <%# Default SEO meta (overridden by set_meta_tags in views). Title is page part only; layout adds site with reverse: true. %>
     <% set_meta_tags(
-      title: "A'sTechware | Production-Grade AI & Platform Engineering",
-      description: "We build AI agents and custom platforms that survive production. Enterprise governance, human-in-the-loop, complete audit trails. 10+ years, 50+ projects.",
+      title: "AI Agent Development & Custom Software Engineering",
+      description: "A'sTechware builds production-grade AI agents, custom software, and platform modernization for B2B SaaS and regulated industries. Milestone-based delivery. Book a free technical call.",
       keywords: "AI development, production AI, platform engineering, custom software, AI governance"
     ) %>
     <%= csrf_meta_tags %>
@@ -71,68 +71,62 @@
     <%= javascript_importmap_tags %>
     <%= javascript_import_module_tag "application" %>
     <%= yield :head %>
-    <%# Set Open Graph meta tags for social sharing - using logo-colored.png with colored background %>
-    <%# Using safe helpers to prevent 500 errors if assets fail %>
-    <% og_image = safe_og_image_url('logo-colored.png') %>
-    <% if og_image.present? %>
-      <%= display_meta_tags(
-        site: "A'sTechware",
-        og: {
-          image: og_image,
-          'image:secure_url' => og_image,
-          'image:type' => 'image/png',
-          url: safe_request_url,
-          type: 'website',
-          site_name: "A'sTechware"
-        },
-        twitter: {
-          card: 'summary_large_image',
-          image: og_image
-        }
-      ) %>
-    <% else %>
-      <%= display_meta_tags(
-        site: "A'sTechware",
-        og: {
-          url: safe_request_url,
-          type: 'website',
-          site_name: "A'sTechware"
-        },
-        twitter: {
-          card: 'summary'
-        }
-      ) %>
+    <%# Canonical and hreflang %>
+    <link rel="canonical" href="<%= canonical_url %>" />
+    <link rel="alternate" hreflang="en" href="<%= canonical_url %>" />
+    <link rel="alternate" hreflang="x-default" href="<%= canonical_url %>" />
+    <%# Preconnect for Core Web Vitals %>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <% if asset_path('astechware-transparent-logo.webp').present? %>
+    <link rel="preload" as="image" href="<%= asset_path('astechware-transparent-logo.webp') %>" />
     <% end %>
-
-    <%# JSON-LD Structured Data for Organization - Required for Google to display logo in search results %>
-    <% logo_url = safe_og_image_url('logo-colored.png') %>
-    <% if logo_url.present? %>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "A'sTechware",
-      "url": "<%= base_url %>",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "<%= logo_url %>",
-        "contentUrl": "<%= logo_url %>"
+    <%# Open Graph and Twitter (full set). OG image: 1200x630 at /og-image.png %>
+    <% og_image_url = seo_og_image_url %>
+    <%= display_meta_tags(
+      reverse: true,
+      site: content_for?(:meta_site) ? content_for(:meta_site).to_s : "A'sTechware",
+      og: {
+        type: 'website',
+        site_name: "A'sTechware",
+        url: canonical_url,
+        image: og_image_url,
+        'image:secure_url' => og_image_url,
+        'image:type' => 'image/png',
+        'image:width' => 1200,
+        'image:height' => 630,
+        'image:alt' => "A'sTechware — Production-Grade AI & Platform Engineering"
       },
-      "description": "Production-grade AI and platform engineering. We build AI agents and custom platforms that survive production with enterprise governance, human-in-the-loop, and complete audit trails.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "US"
-      },
-      "sameAs": [
-        "https://www.linkedin.com/company/astechware",
-        "https://www.instagram.com/astechware"
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "email": "ahmad@astechware.com",
-        "contactType": "Sales"
+      twitter: {
+        card: 'summary_large_image',
+        site: '@astechware',
+        image: og_image_url
       }
-    }
+    ) %>
+
+    <%# JSON-LD Organization (all pages) %>
+    <% org_logo_url = safe_og_image_url('logo-colored.png') %>
+    <% org_base = Rails.env.production? ? "https://astechware.com" : base_url %>
+    <script type="application/ld+json">
+    <%= raw({
+      "@context" => "https://schema.org",
+      "@type" => "Organization",
+      "name" => "A'sTechware",
+      "url" => org_base,
+      "logo" => org_logo_url.present? ? { "@type" => "ImageObject", "url" => org_logo_url } : nil,
+      "description" => "Production-grade AI and platform engineering. We build AI agents and custom platforms that survive production with enterprise governance, human-in-the-loop, and complete audit trails.",
+      "email" => "ahmad@astechware.com",
+      "foundingDate" => "2015",
+      "numberOfEmployees" => { "@type" => "QuantitativeValue", "minValue" => 1, "maxValue" => 10 },
+      "founder" => { "@type" => "Person", "name" => "Ahmad Kamran", "url" => "#{org_base}/about", "jobTitle" => "Founder & CEO" },
+      "sameAs" => ["https://www.linkedin.com/company/astechware", "https://www.instagram.com/astechware"],
+      "contactPoint" => { "@type" => "ContactPoint", "email" => "ahmad@astechware.com", "contactType" => "sales", "url" => "#{org_base}/contact" }
+    }.compact.to_json) %>
+    </script>
+    <%# BreadcrumbList for non-home pages (blog show has its own in content_for :head) %>
+    <% if request.path.present? && request.path != "/" && !request.path.match?(/\A\/blogs\/[^\/]+\z/) %>
+    <script type="application/ld+json">
+    <%= raw(breadcrumb_list_json_ld) %>
     </script>
     <% end %>
 
@@ -146,11 +140,11 @@
               <div class="flip-container">
                 <div class="flipper">
                   <div class="album-cover-container front">
-                      <%= image_tag 'astechware-transparent-logo.webp', alt: "A'sTechware Transparent Logo" %>
+                      <%= image_tag 'astechware-transparent-logo.webp', alt: "A'sTechware Logo — AI & Platform Engineering" %>
                   </div>
                   <div class="back">
                     <div class="album-cover-container front">
-                      <%= image_tag 'astechware-transparent-logo.webp', alt: "A'sTechware Transparent Logo" %>
+                      <%= image_tag 'astechware-transparent-logo.webp', alt: "A'sTechware Logo — AI & Platform Engineering" %>
                     </div>
                   </div>
                 </div>

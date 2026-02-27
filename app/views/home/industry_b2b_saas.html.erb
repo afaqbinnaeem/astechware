@@ -1,30 +1,20 @@
 <% content_for :head do %>
-  <% og_image = safe_og_image_url('logo-colored.png') %>
-  <% if og_image.present? %>
-    <% set_meta_tags(
-      title: "B2B SaaS Development | MVP to Enterprise Platform Engineering | A'sTechware",
-      description: "Build, scale, and modernize B2B SaaS products. Ship MVPs in 90 days, add enterprise features, integrate AI, and modernize legacy platforms. Production-ready SaaS development.",
-      keywords: "B2B SaaS development, SaaS MVP, enterprise features, platform modernization, API development, subscription billing, SOC 2 compliance, SaaS architecture",
-      og: { title: "B2B SaaS Development | A'sTechware", description: "Full platform builds, AI integration, and infrastructure modernization for SaaS.", image: og_image, url: safe_request_url, type: 'website', site_name: "A'sTechware" },
-      twitter: { card: 'summary_large_image', title: "B2B SaaS Development | A'sTechware", description: "Full platform builds, AI integration, and infrastructure modernization for SaaS.", image: og_image }
-    ) %>
-  <% else %>
-    <% set_meta_tags(
-      title: "B2B SaaS Development | MVP to Enterprise Platform Engineering | A'sTechware",
-      description: "Build, scale, and modernize B2B SaaS products. Ship MVPs in 90 days, add enterprise features, integrate AI, and modernize legacy platforms. Production-ready SaaS development.",
-      keywords: "B2B SaaS development, SaaS MVP, enterprise features, platform modernization, API development, subscription billing, SOC 2 compliance, SaaS architecture",
-      og: { title: "B2B SaaS Development | A'sTechware", description: "Full platform builds, AI integration, and infrastructure modernization for SaaS.", url: safe_request_url, type: 'website', site_name: "A'sTechware" },
-      twitter: { card: 'summary', title: "B2B SaaS Development | A'sTechware", description: "Full platform builds, AI integration, and infrastructure modernization for SaaS." }
-    ) %>
-  <% end %>
+  <% set_meta_tags(
+    title: "AI & Platform Engineering for B2B SaaS",
+    description: "Full platform builds, AI feature integrations, and infrastructure modernization for B2B SaaS companies. Ship faster without hiring a full engineering team.",
+    keywords: "B2B SaaS development, SaaS MVP, enterprise features, platform modernization, API development, subscription billing, SOC 2 compliance, SaaS architecture"
+  ) %>
   <script type="application/ld+json">
   <%= raw({
     "@context" => "https://schema.org",
     "@type" => "Service",
-    "serviceType" => "B2B SaaS Development",
+    "name" => "B2B SaaS Development",
+    "url" => industry_b2b_saas_url,
+    "description" => "Build, scale, and modernize B2B SaaS products. MVP to enterprise, AI integration, platform modernization.",
     "provider" => { "@type" => "Organization", "name" => "A'sTechware" },
     "areaServed" => "Worldwide",
-    "description" => "Build, scale, and modernize B2B SaaS products. MVP to enterprise, AI integration, platform modernization."
+    "serviceType" => "B2B SaaS Development",
+    "category" => "B2B SaaS"
   }.to_json) %>
   </script>
 <% end %>

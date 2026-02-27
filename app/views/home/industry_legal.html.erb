@@ -1,30 +1,20 @@
 <% content_for :head do %>
-  <% og_image = safe_og_image_url('logo-colored.png') %>
-  <% if og_image.present? %>
-    <% set_meta_tags(
-      title: "Legal Technology Solutions | AI-Powered Contract Review & Legal Research | A'sTechware",
-      description: "Legal tech solutions for document analysis, contract review, legal research, and practice management. Increase billable hours, enhance accuracy, and serve clients better.",
-      keywords: "legal technology, contract analysis AI, legal research automation, law firm practice management, legal document review, legal AI",
-      og: { title: "Legal Technology Solutions | A'sTechware", description: "AI-powered legal workflows with accuracy, auditability, and client excellence.", image: og_image, url: safe_request_url, type: 'website', site_name: "A'sTechware" },
-      twitter: { card: 'summary_large_image', title: "Legal Technology Solutions | A'sTechware", description: "AI-powered legal workflows with accuracy, auditability, and client excellence.", image: og_image }
-    ) %>
-  <% else %>
-    <% set_meta_tags(
-      title: "Legal Technology Solutions | AI-Powered Contract Review & Legal Research | A'sTechware",
-      description: "Legal tech solutions for document analysis, contract review, legal research, and practice management. Increase billable hours, enhance accuracy, and serve clients better.",
-      keywords: "legal technology, contract analysis AI, legal research automation, law firm practice management, legal document review, legal AI",
-      og: { title: "Legal Technology Solutions | A'sTechware", description: "AI-powered legal workflows with accuracy, auditability, and client excellence.", url: safe_request_url, type: 'website', site_name: "A'sTechware" },
-      twitter: { card: 'summary', title: "Legal Technology Solutions | A'sTechware", description: "AI-powered legal workflows with accuracy, auditability, and client excellence." }
-    ) %>
-  <% end %>
+  <% set_meta_tags(
+    title: "Legal AI & Document Automation Services",
+    description: "AI-powered legal workflows for document analysis, contract review, research automation, and case management. Full auditability for sensitive outputs.",
+    keywords: "legal technology, contract analysis AI, legal research automation, law firm practice management, legal document review, legal AI"
+  ) %>
   <script type="application/ld+json">
   <%= raw({
     "@context" => "https://schema.org",
     "@type" => "Service",
-    "serviceType" => "Legal Tech AI Solutions",
+    "name" => "Legal Tech AI Solutions",
+    "url" => industry_legal_url,
+    "description" => "Legal tech solutions for document analysis, contract review, legal research, and practice management.",
     "provider" => { "@type" => "Organization", "name" => "A'sTechware" },
     "areaServed" => "Worldwide",
-    "description" => "Legal tech solutions for document analysis, contract review, legal research, and practice management."
+    "serviceType" => "Legal Tech AI Solutions",
+    "category" => "Legal Technology"
   }.to_json) %>
   </script>
 <% end %>

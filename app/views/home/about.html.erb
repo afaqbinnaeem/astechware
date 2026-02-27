@@ -1,11 +1,23 @@
+<% content_for :meta_site do %><% end %>
 <% content_for :head do %>
   <% set_meta_tags(
-    title: "About Us | A'sTechware",
-    description: "Building production-grade AI and platforms for businesses that need systems that actually work. Learn our story, mission, values, and meet our team.",
-    keywords: "A'sTechware, production AI, platform engineering, custom software development, AI governance",
-    og: { title: "About Us | A'sTechware", description: "Building production-grade AI and platforms for businesses that need systems that actually work.", url: safe_request_url, type: 'website', site_name: "A'sTechware" },
-    twitter: { card: 'summary', title: "About Us | A'sTechware", description: "Building production-grade AI and platforms for businesses that need systems that actually work." }
+    title: "About A'sTechware | AI & Product Engineering Team",
+    description: "A'sTechware is a focused AI and product engineering team with 10+ years of experience, 50+ projects delivered, and a 98% client retention rate.",
+    keywords: "A'sTechware, production AI, platform engineering, custom software development, AI governance"
   ) %>
+  <% about_base = Rails.env.production? ? "https://astechware.com" : root_url.chomp("/") %>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "Person",
+    "name" => "Ahmad Kamran",
+    "url" => "#{about_base}/about",
+    "jobTitle" => "Founder & CEO",
+    "worksFor" => { "@type" => "Organization", "name" => "A'sTechware", "url" => about_base },
+    "knowsAbout" => ["AI Agent Development", "Platform Engineering", "Custom Software", "Production AI", "AI Governance"],
+    "sameAs" => ["https://www.linkedin.com/in/ahmadkamran/"]
+  }.to_json) %>
+  </script>
 <% end %>
 
 <!-- Hero Section -->
@@ -95,7 +107,7 @@
         <div class="col-12 col-lg-8 col-xl-6">
           <div class="about-leadership-card about-leadership-card--premium">
             <div class="about-leadership-photo">
-              <%= image_tag 'ceo-img-1.png', class: 'about-leadership-photo-img', alt: 'Ahmad Kamran - Founder & CEO, A\'sTechware', loading: 'lazy' %>
+              <%= image_tag 'ceo-img-1.png', class: 'about-leadership-photo-img', alt: "Ahmad Kamran, Founder & CEO at A'sTechware", loading: 'lazy' %>
             </div>
             <h4 class="about-leadership-name">Ahmad Kamran</h4>
             <p class="about-leadership-title">Founder &amp; CEO</p>

@@ -1,30 +1,20 @@
 <% content_for :head do %>
-  <% og_image = safe_og_image_url('logo-colored.png') %>
-  <% if og_image.present? %>
-    <% set_meta_tags(
-      title: "Professional Services Technology Solutions | PSA Platforms & Resource Management | A'sTechware",
-      description: "Professional services automation platforms for consulting, accounting, agencies, and billable-time firms. Increase utilization, improve profitability, reduce admin burden.",
-      keywords: "professional services automation, PSA platform, consulting firm technology, resource management, time tracking, project profitability, billable utilization",
-      og: { title: "Professional Services Technology Solutions | A'sTechware", description: "Operations platforms, resource management, and workflow automation for billable-time firms.", image: og_image, url: safe_request_url, type: 'website', site_name: "A'sTechware" },
-      twitter: { card: 'summary_large_image', title: "Professional Services Technology Solutions | A'sTechware", description: "Operations platforms, resource management, and workflow automation for billable-time firms.", image: og_image }
-    ) %>
-  <% else %>
-    <% set_meta_tags(
-      title: "Professional Services Technology Solutions | PSA Platforms & Resource Management | A'sTechware",
-      description: "Professional services automation platforms for consulting, accounting, agencies, and billable-time firms. Increase utilization, improve profitability, reduce admin burden.",
-      keywords: "professional services automation, PSA platform, consulting firm technology, resource management, time tracking, project profitability, billable utilization",
-      og: { title: "Professional Services Technology Solutions | A'sTechware", description: "Operations platforms, resource management, and workflow automation for billable-time firms.", url: safe_request_url, type: 'website', site_name: "A'sTechware" },
-      twitter: { card: 'summary', title: "Professional Services Technology Solutions | A'sTechware", description: "Operations platforms, resource management, and workflow automation for billable-time firms." }
-    ) %>
-  <% end %>
+  <% set_meta_tags(
+    title: "AI Automation for Professional Services Firms",
+    description: "Operations platforms, resource management, and AI workflow automation for professional services firms that run on billable time.",
+    keywords: "professional services automation, PSA platform, consulting firm technology, resource management, time tracking, project profitability, billable utilization"
+  ) %>
   <script type="application/ld+json">
   <%= raw({
     "@context" => "https://schema.org",
     "@type" => "Service",
-    "serviceType" => "Professional Services Automation",
+    "name" => "Professional Services Automation",
+    "url" => industry_professional_services_url,
+    "description" => "Professional services automation platforms for consulting, accounting, agencies, and billable-time firms.",
     "provider" => { "@type" => "Organization", "name" => "A'sTechware" },
     "areaServed" => "Worldwide",
-    "description" => "Professional services automation platforms for consulting, accounting, agencies, and billable-time firms."
+    "serviceType" => "Professional Services Automation",
+    "category" => "Professional Services"
   }.to_json) %>
   </script>
 <% end %>

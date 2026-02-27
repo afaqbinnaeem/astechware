@@ -1,30 +1,20 @@
 <% content_for :head do %>
-  <% og_image = safe_og_image_url('logo-colored.png') %>
-  <% if og_image.present? %>
-    <% set_meta_tags(
-      title: "Financial Services Technology Solutions | Secure Fintech Platforms & Payment Processing | A'sTechware",
-      description: "Build secure, compliant fintech platforms for payments, lending, fraud detection, and financial workflows. SOC 2, PCI DSS, KYC/AML expertise.",
-      keywords: "fintech development, payment processing platform, financial services technology, lending platform, fraud detection, KYC/AML automation, SOC 2 compliance",
-      og: { title: "Financial Services Technology Solutions | A'sTechware", description: "Secure platforms for payments, compliance, and AI-driven financial workflows.", image: og_image, url: safe_request_url, type: 'website', site_name: "A'sTechware" },
-      twitter: { card: 'summary_large_image', title: "Financial Services Technology Solutions | A'sTechware", description: "Secure platforms for payments, compliance, and AI-driven financial workflows.", image: og_image }
-    ) %>
-  <% else %>
-    <% set_meta_tags(
-      title: "Financial Services Technology Solutions | Secure Fintech Platforms & Payment Processing | A'sTechware",
-      description: "Build secure, compliant fintech platforms for payments, lending, fraud detection, and financial workflows. SOC 2, PCI DSS, KYC/AML expertise.",
-      keywords: "fintech development, payment processing platform, financial services technology, lending platform, fraud detection, KYC/AML automation, SOC 2 compliance",
-      og: { title: "Financial Services Technology Solutions | A'sTechware", description: "Secure platforms for payments, compliance, and AI-driven financial workflows.", url: safe_request_url, type: 'website', site_name: "A'sTechware" },
-      twitter: { card: 'summary', title: "Financial Services Technology Solutions | A'sTechware", description: "Secure platforms for payments, compliance, and AI-driven financial workflows." }
-    ) %>
-  <% end %>
+  <% set_meta_tags(
+    title: "AI for Financial Services & Fintech",
+    description: "Secure AI platforms for payments, invoicing, compliance, and financial workflow automation. SOC 2 and regulatory-ready engineering.",
+    keywords: "fintech development, payment processing platform, financial services technology, lending platform, fraud detection, KYC/AML automation, SOC 2 compliance"
+  ) %>
   <script type="application/ld+json">
   <%= raw({
     "@context" => "https://schema.org",
     "@type" => "Service",
-    "serviceType" => "Financial Services AI",
+    "name" => "Financial Services AI & Fintech",
+    "url" => industry_financial_url,
+    "description" => "Secure fintech platforms for payments, lending, fraud detection, and financial workflows. SOC 2, PCI DSS, KYC/AML.",
     "provider" => { "@type" => "Organization", "name" => "A'sTechware" },
     "areaServed" => "Worldwide",
-    "description" => "Secure fintech platforms for payments, lending, fraud detection, and financial workflows. SOC 2, PCI DSS, KYC/AML."
+    "serviceType" => "Financial Services AI",
+    "category" => "Financial Technology"
   }.to_json) %>
   </script>
 <% end %>

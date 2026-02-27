@@ -1,21 +1,20 @@
 <% content_for :head do %>
-  <% og_image = safe_og_image_url('logo-colored.png') %>
   <% set_meta_tags(
-    title: "Custom Software Development | Production-Ready SaaS | A'sTechware",
-    description: "Full-stack SaaS platforms and internal tools built for production. End-to-end delivery with architecture, APIs, and long-term support. No vendor lock-in.",
-    keywords: "custom software development, B2B SaaS development, full-stack development, platform engineering services, production-ready systems",
-    og: { title: "Custom Software Development | A'sTechware", description: "Full-stack SaaS platforms and internal tools built for production.", url: safe_request_url, type: 'website', site_name: "A'sTechware" },
-    twitter: { card: og_image.present? ? 'summary_large_image' : 'summary', title: "Custom Software Development | A'sTechware", description: "Full-stack SaaS platforms and internal tools built for production." }
+    title: "Custom Software Development Services",
+    description: "Full-stack SaaS platforms, internal tools, and operations software built from concept to production. React, Node.js, FastAPI, Rails. Web + mobile + integrations.",
+    keywords: "custom software development, B2B SaaS development, full-stack development, platform engineering services, production-ready systems"
   ) %>
-  <% set_meta_tags(og: { image: og_image, 'image:secure_url' => og_image, 'image:type' => 'image/png' }, twitter: { image: og_image }) if og_image.present? %>
   <script type="application/ld+json">
   <%= raw({
     "@context" => "https://schema.org",
     "@type" => "Service",
-    "serviceType" => "Custom Software Development",
+    "name" => "Custom Software Development",
+    "url" => custom_software_url,
+    "description" => "Full-stack SaaS platforms and internal tools built for production with long-term support.",
     "provider" => { "@type" => "Organization", "name" => "A'sTechware" },
     "areaServed" => "Worldwide",
-    "description" => "Full-stack SaaS platforms and internal tools built for production with long-term support."
+    "serviceType" => "Custom Software Development",
+    "category" => "Software Development"
   }.to_json) %>
   </script>
 <% end %>
