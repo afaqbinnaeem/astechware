@@ -9,24 +9,23 @@
         <li class="enterprise-nav-item dropdown">
           <a class="enterprise-nav-link dropdown-toggle" href="#" id="navSolutions" role="button" data-bs-toggle="dropdown" aria-expanded="false">Solutions</a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navSolutions">
-            <li><%= link_to "AI Agent Development", ai_agent_development_path, class: "dropdown-item ajax" %></li>
-            <li><%= link_to "Machine Learning Solutions", machine_learning_path, class: "dropdown-item ajax" %></li>
-            <li><%= link_to "Platform Modernization", platform_modernization_path, class: "dropdown-item ajax" %></li>
-            <li><%= link_to "Custom Software Development", custom_software_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "AI Agents & Automation", ai_agent_development_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "Custom Platform Development", custom_software_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "Platform Modernization & Scaling", platform_modernization_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "Integrations & API Engineering", api_integrations_path, class: "dropdown-item ajax" %></li>
             <li><hr class="dropdown-divider"></li>
-            <li><%= link_to "API Integrations", api_integrations_path, class: "dropdown-item ajax" %></li>
-            <li><%= link_to "DevOps Engineering", devops_engineering_path, class: "dropdown-item ajax" %></li>
             <li><%= link_to "How We De-risk Projects", derisk_projects_path, class: "dropdown-item ajax" %></li>
           </ul>
         </li>
         <li class="enterprise-nav-item dropdown">
           <a class="enterprise-nav-link dropdown-toggle" href="#" id="navIndustries" role="button" data-bs-toggle="dropdown" aria-expanded="false">Industries</a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navIndustries">
-            <li><%= link_to "Healthcare & Medical", industry_healthcare_path, class: "dropdown-item ajax" %></li>
-            <li><%= link_to "Legal Services", industry_legal_path, class: "dropdown-item ajax" %></li>
-            <li><%= link_to "Financial Services", industry_financial_path, class: "dropdown-item ajax" %></li>
             <li><%= link_to "B2B SaaS", industry_b2b_saas_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "Healthcare & Wellness", industry_healthcare_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "Fintech / Financial Services", industry_financial_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "Real Estate & Operations", industry_professional_services_path, class: "dropdown-item ajax" %></li>
             <li><%= link_to "Professional Services", industry_professional_services_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "Legal Services", industry_legal_path, class: "dropdown-item ajax" %></li>
             <li><%= link_to "Education Technology", industry_edtech_path, class: "dropdown-item ajax" %></li>
           </ul>
         </li>
@@ -48,7 +47,7 @@
         </li>
         <li class="enterprise-nav-item enterprise-nav-cta">
           <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary rounded-pill px-4 enterprise-cta-btn">
-            Schedule Consultation
+            Book a 30-Min Technical Call
           </a>
         </li>
         <% if current_user.present? %>
@@ -71,23 +70,22 @@
             <li class="menu-item menu-item-has-children">
               <span class="menu-item-label">Solutions</span>
               <ul class="sub-menu list-unstyled m-0 ps-3">
-                <li><%= link_to "AI Agent Development", ai_agent_development_path, class: "ajax" %></li>
-                <li><%= link_to "Machine Learning Solutions", machine_learning_path, class: "ajax" %></li>
-                <li><%= link_to "Platform Modernization", platform_modernization_path, class: "ajax" %></li>
-                <li><%= link_to "Custom Software Development", custom_software_path, class: "ajax" %></li>
-                <li><%= link_to "API Integrations", api_integrations_path, class: "ajax" %></li>
-                <li><%= link_to "DevOps Engineering", devops_engineering_path, class: "ajax" %></li>
+                <li><%= link_to "AI Agents & Automation", ai_agent_development_path, class: "ajax" %></li>
+                <li><%= link_to "Custom Platform Development", custom_software_path, class: "ajax" %></li>
+                <li><%= link_to "Platform Modernization & Scaling", platform_modernization_path, class: "ajax" %></li>
+                <li><%= link_to "Integrations & API Engineering", api_integrations_path, class: "ajax" %></li>
                 <li><%= link_to "How We De-risk Projects", derisk_projects_path, class: "ajax" %></li>
               </ul>
             </li>
             <li class="menu-item menu-item-has-children">
               <span class="menu-item-label">Industries</span>
               <ul class="sub-menu list-unstyled m-0 ps-3">
-                <li><%= link_to "Healthcare & Medical", industry_healthcare_path, class: "ajax" %></li>
-                <li><%= link_to "Legal Services", industry_legal_path, class: "ajax" %></li>
-                <li><%= link_to "Financial Services", industry_financial_path, class: "ajax" %></li>
                 <li><%= link_to "B2B SaaS", industry_b2b_saas_path, class: "ajax" %></li>
+                <li><%= link_to "Healthcare & Wellness", industry_healthcare_path, class: "ajax" %></li>
+                <li><%= link_to "Fintech / Financial Services", industry_financial_path, class: "ajax" %></li>
+                <li><%= link_to "Real Estate & Operations", industry_professional_services_path, class: "ajax" %></li>
                 <li><%= link_to "Professional Services", industry_professional_services_path, class: "ajax" %></li>
+                <li><%= link_to "Legal Services", industry_legal_path, class: "ajax" %></li>
                 <li><%= link_to "Education Technology", industry_edtech_path, class: "ajax" %></li>
               </ul>
             </li>
@@ -111,7 +109,7 @@
             <li class="menu-item menu-item-cta">
               <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="nav booking-btn-menu">
                 <i class="fa fa-calendar me-2" aria-hidden="true"></i>
-                Schedule Consultation
+                Book a 30-Min Technical Call
               </a>
             </li>
             <% if current_user.present? %>
@@ -147,7 +145,7 @@
   <div class="page-subtitle">
     <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="booking-btn-header" style="opacity: 1; transform: translate3d(0px, 0px, 0px);">
       <i class="fa fa-calendar me-2" aria-hidden="true"></i>
-      Schedule Consultation
+      Book a 30-Min Technical Call
     </a>
   </div>
 </div>
