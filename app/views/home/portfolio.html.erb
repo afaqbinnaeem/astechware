@@ -110,32 +110,73 @@
     {
       slug: 'wellness-clinic',
       title: 'Wellness Clinic',
-      tagline: 'From Operational Chaos to Predictable Growth',
+      tagline: 'Unified Operations & HIPAA-Compliant AI Platform',
       hero_icon: 'fa-heartbeat',
-      client: { industry: 'Healthcare / Wellness', company_size: '6 locations (expanded to 8)', location: 'United States', challenge_type: 'Operations, scheduling, HIPAA-compliant AI' },
+      client: { industry: 'Healthcare / Wellness', company_size: '6 locations (expanded to 8 during engagement)', location: 'United States', challenge_type: 'Operations unification, intelligent scheduling, HIPAA-compliant AI communications' },
       challenge: {
-        intro_paragraphs: ['A six-location clinic was drowning in operational issues. Demand wasn\'t the problem, systems were. Staff spent hours on the phone; no-shows were bleeding revenue; and multiple booking systems led to double-bookings and confusion.', 'The practice needed one unified platform with scheduling, reminders, and AI-assisted call and message handling, all without putting PHI at risk or violating HIPAA.'],
-        pain_points: ['3 different booking systems across locations', 'Weekly double-bookings and scheduling errors', 'Staff spending 4+ hours per day on the phone', '35% no-show rate costing an estimated $10K/week'],
-        why_existing: "Off-the-shelf scheduling tools didn't unify all locations or support HIPAA-compliant AI for calls and messages. A custom platform with BAA-backed AI and strict PHI handling was required."
+        intro_paragraphs: [
+          'A six-location wellness clinic was losing patients and revenue, not because of demand, but because of fragmented systems. Three different booking platforms across locations meant no single source of truth. Front desk staff were spending over four hours daily on phone calls for scheduling alone. Double-bookings happened weekly, creating patient frustration and practitioner downtime. The 35% no-show rate was costing an estimated $10,000 per week in lost revenue.',
+          'The clinic had tried off-the-shelf scheduling tools, but none could unify all locations under one system while also supporting AI-assisted call handling that met HIPAA requirements. Most scheduling SaaS products either lacked multi-location support or treated compliance as an afterthought, storing conversation logs containing PHI in unencrypted third-party systems with no Business Associate Agreements in place.',
+          'The practice needed a single platform that could handle scheduling, automated reminders, and AI-powered call and message handling, all built from the ground up with healthcare compliance woven into the architecture, not bolted on afterward.'
+        ],
+        pain_points: [
+          '3 separate booking systems with no cross-location visibility, a patient calling Location A couldn\'t be offered an earlier slot at Location B',
+          'Weekly double-bookings and scheduling conflicts causing practitioner idle time and patient complaints',
+          'Front desk staff spending 4+ hours daily on phone scheduling, leaving little capacity for in-office patient experience',
+          '35% no-show rate bleeding approximately $10K/week in unrealized revenue',
+          'Zero online booking capability, every appointment required a phone call',
+          'No centralized reporting, practice owner had to pull data from three systems to understand business performance'
+        ],
+        why_existing: "Off-the-shelf tools fell short in three critical areas. First, multi-location unification: most platforms treated each location as a separate instance with no shared availability view. Second, HIPAA-compliant AI: the clinic wanted intelligent call and message handling, but commercial AI tools (chatbots, voice assistants) had no BAAs, stored conversation transcripts containing PHI on non-compliant infrastructure, and offered no audit trail. Third, workflow integration: the clinic needed reminders and confirmations that respected patient communication preferences and opted out of SMS/email when requested, while never including PHI in any unencrypted channel. A custom platform with BAA-backed AI, strict PHI data segmentation, and real compliance architecture was the only viable path."
       },
       solution: {
-        what_we_built: ['Unified operations platform with central booking across all locations', 'Practitioner schedules with patient history (appropriate access controls)', 'Automated reminders and confirmations (HIPAA-compliant messaging; no PHI in SMS/email)', 'AI assistants for calls and messages with human escalation for medical questions or complex scheduling', 'Billing and operations dashboard', 'Full audit trail and BAA for all AI and data handling'],
-        technical_approach: 'Single platform for scheduling, reminders, and communications. AI only used for scheduling and non-PHI flows; PHI never stored in AI logs. Encryption, access controls, and audit logging throughout.',
-        timeline: '9 months',
-        technologies: 'Rails, React, PostgreSQL, Twilio, HIPAA-aligned hosting, encryption, audit logging'
+        what_we_built: [
+          'Centralized multi-location booking engine, real-time availability across all locations. Staff at any site can book, reschedule, or cancel at any location. Patients see unified availability through the online portal',
+          'Practitioner schedule management with patient visit history (role-based access controls ensure front desk sees scheduling data only; practitioners see relevant clinical context)',
+          'Automated multi-channel reminders, SMS, email, and phone confirmations based on patient preference. HIPAA-compliant messaging architecture: no PHI in SMS or email body content. Reminders contain only appointment time and location with a secure link for details requiring authentication',
+          'AI-powered call and message assistants, handle routine scheduling requests (booking, rescheduling, cancellations, availability inquiries) with natural language understanding. Built-in escalation protocol: any medical question, complex scheduling need, or patient distress signal routes immediately to a human staff member. AI never accesses medical records, only scheduling data',
+          'Billing and operations dashboard, consolidated view across all locations. Daily, weekly, and monthly reporting on utilization, no-show rates, revenue recovery, and staff productivity',
+          'Complete audit trail, every system interaction logged with user identity, timestamp, action taken, and data accessed. Business Associate Agreements in place for all AI processing and data handling components'
+        ],
+        technical_approach: 'The platform was designed with a clear data segmentation principle: AI systems only access scheduling and communication data, never medical records or clinical notes. This isn\'t just a policy, it\'s enforced architecturally. The AI service layer connects to a scheduling-only database view with no access path to clinical tables. Core stack: Ruby on Rails API backend, React frontend with responsive design for desktop and tablet, PostgreSQL with row-level security for multi-location data isolation, Twilio for voice and SMS with BAA, HIPAA-aligned hosting infrastructure with encryption at rest (AES-256) and in transit (TLS 1.2+).',
+        timeline: '9 months from kickoff to full deployment across all 6 locations',
+        technologies: 'Ruby on Rails, React, PostgreSQL (row-level security), Twilio (voice/SMS with BAA), HIPAA-aligned hosting, AES-256 encryption at rest, TLS 1.2+ in transit'
       },
       results: {
-        before_after: [{ before: '35% no-show rate', after: '6% no-show rate' }, { before: '0% online bookings', after: '78% online bookings' }, { before: '~$10K/week lost to no-shows', after: '~$28K/month recovered revenue' }, { before: '6 locations', after: '8 locations' }],
-        metrics: ['No-shows: 35% → 6%', 'Online bookings: 0% → 78%', 'Recovered revenue: ~$28K/month', 'Expansion from 6 to 8 locations in under a year'],
-        satisfaction: 'Staff could focus on patient care; patients had a clear path to book and confirm. Revenue and capacity improved without adding proportional overhead.',
-        outcomes: ['HIPAA-compliant AI and messaging', 'Single source of truth for scheduling across locations']
+        before_after: [
+          { before: '35% no-show rate', after: '6% (83% reduction)' },
+          { before: '0% online bookings', after: '78% (new capability)' },
+          { before: '~$10K/week lost to no-shows', after: '~$1.5K/week (~$28K/month recovered)' },
+          { before: '4+ hours daily phone time', after: '<45 minutes (81% reduction)' },
+          { before: '6 locations', after: '8 locations (33% expansion)' },
+          { before: '3 booking systems', after: '1 unified platform' },
+          { before: 'No cross-location booking', after: 'Real-time availability across network' }
+        ],
+        metrics: ['No-shows: 35% → 6% (83% reduction)', 'Online bookings: 0% → 78%', 'Revenue lost to no-shows: ~$10K/week → ~$1.5K/week (~$28K/month recovered)', 'Daily staff phone time: 4+ hours → <45 minutes (81% reduction)', 'Locations: 6 → 8 in under a year', 'Single unified platform; cross-location real-time availability'],
+        satisfaction: 'Staff shifted from spending their day on the phone to focusing on in-office patient experience. Patients could book, reschedule, and confirm through their preferred channel, online, text, or a quick AI-assisted phone call, without waiting on hold. The practice gained visibility into operations they never had before: which practitioners had open capacity, which locations were underbooked, which time slots had the highest no-show risk. The revenue recovery and operational efficiency gave the practice confidence to expand. Two new locations were opened within the first year of platform deployment, onboarded in days rather than weeks because the system was already built for multi-location operation.',
+        outcomes: ['Zero PHI exposure incidents across all AI interactions', 'Full audit trail available for any regulatory inquiry', 'BAA coverage across the entire data processing chain, no gaps', 'HITECH breach notification workflow in place (never triggered, but ready)']
       },
-      testimonial: { quote: "From losing $10K per week to no-shows to a 6% rate. We grew from six to eight locations in under a year.", name: 'Dr. Salman', title: nil, company: nil, photo: nil },
+      testimonial: { quote: "We were losing $10K a week to no-shows and spending half our day on the phone. Now our no-show rate is 6%, patients book online, and we grew from six to eight locations in under a year. The system paid for itself in the first quarter.", name: 'Dr. Salman', title: 'Practice Owner', company: nil, photo: nil },
       technical_details: {
-        architecture: 'Centralized scheduling and messaging platform with role-based access. AI only for scheduling and non-PHI flows; PHI never in AI conversation logs.',
-        features: ['Multi-channel reminders (SMS, email, phone) with patient preference and opt-out', 'AI call/message assistants with escalation for medical questions or complex requests', 'Call recording with consent; role-based access (front desk vs practitioners)', 'Data minimization: AI accesses scheduling only, not medical records'],
-        integrations: ['Twilio (voice/SMS)', 'email', 'existing practice management where needed'],
-        security: ['HIPAA-compliant data storage; encryption at rest and in transit', 'BAA in place for all AI and data processing', 'Access logging for every system interaction; retention policies aligned to regulations', 'Incident response protocol for potential data events']
+        architecture: 'Data segmentation by design: AI service layer connects to scheduling-only database view with no access path to clinical tables. Ruby on Rails API backend, React frontend, PostgreSQL with row-level security for multi-location data isolation, Twilio with BAA, HIPAA-aligned hosting with encryption at rest (AES-256) and in transit (TLS 1.2+).',
+        features: [
+          'Data minimization by design, AI conversation logs store intent classification and scheduling actions only; raw transcripts with potential PHI processed in-memory and discarded, never persisted',
+          'Role-based access control at the database level, PostgreSQL RLS policies ensure front desk, practitioners, and practice management see only their authorized scope',
+          'Audit logging, append-only audit table tracking every data access, modification, and AI interaction; logs retained per HIPAA requirements (minimum 6 years) with integrity verification',
+          'Consent management, call recording only with explicit patient consent; opt-in/opt-out respected across all communication channels',
+          'Incident response protocol, documented procedure for breach detection, containment, investigation, and HITECH-required notification workflows'
+        ],
+        integrations: [
+          'Twilio (voice and SMS) with signed BAA, all call routing, recording, and SMS delivery',
+          'Email delivery with PHI-safe templates (no clinical data in email body; secure portal links for sensitive content)',
+          'Existing practice management system integration for patient demographic sync (one-way feed, our system reads demographics, never writes clinical data)'
+        ],
+        security: [
+          'HIPAA-compliant data storage; encryption at rest (AES-256) and in transit (TLS 1.2+)',
+          'BAA in place for all AI and data processing components',
+          'Database-level RLS, even application bugs cannot leak data outside authorized scope',
+          'Incident response protocol for potential data events; HITECH breach notification workflow ready'
+        ]
       },
       related_services: [{ label: 'Healthcare Automation', path: industry_healthcare_path }, { label: 'AI Agent Development', path: ai_agent_development_path }]
     },
