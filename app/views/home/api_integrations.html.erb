@@ -1,16 +1,16 @@
 <% content_for :head do %>
   <% set_meta_tags(
-    title: "API Integration Services",
-    description: "Connect your systems end-to-end: CRMs, billing, scheduling, messaging, and data providers. Reliable integrations with error handling, retry logic, and monitoring.",
-    keywords: "API integration services, CRM integration development, Stripe integration, third party API integration"
+    title: "Integrations & API Engineering",
+    description: "Mission-critical integrations with industrial-grade reliability: idempotency keys, circuit breakers, DLQs, and real-time observability. Secure glue between AI agents and core operations.",
+    keywords: "API integration services, integrations engineering, idempotency keys, circuit breakers, dead letter queues, HL7 FHIR integration, EDI X12 integration, OAuth 2.0, webhooks, Stripe Connect integration"
   ) %>
   <script type="application/ld+json">
   <%= raw({
     "@context" => "https://schema.org",
     "@type" => "Service",
-    "name" => "API & System Integrations",
+    "name" => "Integrations & API Engineering",
     "url" => api_integrations_url,
-    "description" => "Connect CRMs, billing, scheduling, and messaging with reliable integrations and monitoring.",
+    "description" => "Mission-critical integrations with reliability patterns (idempotency, circuit breakers, DLQs) and compliance-first encryption/audit logging.",
     "provider" => { "@type" => "Organization", "name" => "A'sTechware" },
     "areaServed" => "Worldwide",
     "serviceType" => "API Integration Services",
@@ -25,13 +25,13 @@
     <div class="row align-items-center min-vh-50">
       <div class="col-12 col-lg-9 mx-auto text-center">
         <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;">
-          API Integration Services
+          Integrations &amp; API Engineering
         </h1>
         <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.4; max-width: 720px; margin-left: auto; margin-right: auto;">
-          Connect Your Systems End-to-End with Reliable Integrations
+          The Secure "Glue" Between Your AI Agents and Core Business Operations
         </p>
         <p class="mb-4" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
-          We connect your systems end-to-end: CRMs, billing, scheduling, messaging, and data providers. Reliable integrations with error handling, retry logic, and monitoring, so integrations work invisibly and recover automatically from failures.
+          We build mission-critical integrations that don't just "sync data"—they automate entire business lifecycles. From bi-directional EHR synchronization to real-time logistics dispatching, our integration layers are engineered with industrial-grade error handling and recovery protocols.
         </p>
         <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
           Discuss Your Integration Needs
@@ -94,7 +94,7 @@
           <div class="workflow-card p-4 h-100">
             <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">3</span>
             <h4 class="h6 mb-2">Broken integrations with no error visibility</h4>
-            <p class="mb-0 small">We build logging, alerting, and dashboards so failures are visible and debuggable, no more silent breakage.</p>
+            <p class="mb-0 small">Eliminating “Silent Failures” in medical or legal data flows through real-time observability and Dead Letter Queues (DLQ).</p>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
@@ -122,7 +122,14 @@
           <div class="workflow-card p-4 h-100">
             <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">7</span>
             <h4 class="h6 mb-2">Legacy systems with poor APIs</h4>
-            <p class="mb-0 small">We work with file feeds, SOAP, and limited REST, building adapters and sync layers so legacy systems participate in modern flows.</p>
+            <p class="mb-0 small">Modernizing “Un-integratable” legacy systems using custom adapters for SOAP, SFTP, and file-based EDI feeds.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">8</span>
+            <h4 class="h6 mb-2">Compliance-first sync across sensitive data</h4>
+            <p class="mb-0 small">Ensuring PHI (Healthcare) and PII (Legal) data remains encrypted and audited during every hop between systems.</p>
           </div>
         </div>
       </div>
@@ -321,10 +328,21 @@
       <div class="row g-4">
         <div class="col-12 col-md-6 col-lg-3">
           <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Reliability Patterns</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Circuit breakers</li>
+              <li>Exponential backoff</li>
+              <li>Idempotency keys</li>
+              <li>Dead Letter Queues (DLQ)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
             <h4 class="h6 mb-3">Integration Platforms</h4>
             <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
-              <li>Custom-built or Zapier/Make.com enhancement</li>
-              <li>Message queues (RabbitMQ, Redis, AWS SQS)</li>
+              <li>Custom-built and Zapier/Make.com enhancement</li>
+              <li>Message queues (RabbitMQ, Redis/BullMQ, AWS SQS)</li>
               <li>Event streaming (Kafka, AWS EventBridge)</li>
               <li>API gateways (Kong, AWS API Gateway)</li>
             </ul>
@@ -337,7 +355,7 @@
               <li>Node.js or Python for integration services</li>
               <li>PostgreSQL for data staging</li>
               <li>Redis for caching and rate limiting</li>
-              <li>Background jobs (Celery, Bull)</li>
+              <li>Background jobs (Celery, BullMQ)</li>
             </ul>
           </div>
         </div>
@@ -354,13 +372,21 @@
         </div>
         <div class="col-12 col-md-6 col-lg-3">
           <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-3">Security</h4>
+            <h4 class="h6 mb-3">Standards &amp; Security</h4>
             <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>HL7 FHIR (Medical), EDI X12 (Logistics/Billing)</li>
               <li>OAuth 2.0, API keys, JWT</li>
-              <li>Webhook signature verification</li>
-              <li>Encrypted data transmission</li>
-              <li>Secure credential storage (e.g. AWS Secrets Manager)</li>
+              <li>Webhooks + signature verification</li>
+              <li>Encrypted transport + audited data hops</li>
             </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row g-4 mt-1">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="workflow-card p-4">
+            <h4 class="h6 mb-2">Tools we commonly use</h4>
+            <p class="small mb-0">AWS EventBridge, Redis (BullMQ), Kafka, Segment, and Tray.io/Zapier for advanced orchestration.</p>
           </div>
         </div>
       </div>
@@ -416,55 +442,38 @@
     </div>
   </section>
 
-  <!-- Case Study Spotlight (2) -->
+  <!-- Case Study Spotlight -->
   <section class="py-5 bg-light-grey" id="case-study">
     <div class="container">
       <div class="text-center mb-4">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Case Study Spotlight</h2>
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Case Study Spotlight: The Connectivity Showcase</h2>
       </div>
       <div class="row g-4">
-        <div class="col-12 col-lg-6">
-          <div class="workflow-card p-4 p-lg-5 h-100">
-            <h4 class="h5 mb-3">Marketing Agency CRM Integration</h4>
-            <div class="mb-3">
-              <h5 class="h6 text-uppercase text-muted mb-2">Challenge</h5>
-              <p class="mb-0 small">Manual data entry between forms, CRM, email, and billing, error-prone and time-consuming.</p>
-            </div>
-            <div class="mb-3">
-              <h5 class="h6 text-uppercase text-muted mb-2">Solution</h5>
-              <p class="mb-0 small">Automated flow from lead capture through CRM, email, and invoice, one source of truth, no re-entry.</p>
-            </div>
-            <div class="mb-0">
-              <h5 class="h6 text-uppercase text-muted mb-2">Results</h5>
-              <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
-                <li>95% reduction in manual work</li>
-                <li>Zero data entry errors in production</li>
-                <li>18 hours saved weekly</li>
-              </ul>
-            </div>
-            <%= link_to "Read case studies →", case_studies_path, class: "d-inline-block mt-3 fw-semibold small" %>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-primary mb-2">Medical Interoperability Layer (GolfPay360 / Health Tech)</h4>
+            <p class="small mb-2"><strong>Systems connected:</strong> PMS + Clover POS + Custom SaaS + SMS Gateway</p>
+            <p class="small mb-2"><strong>Challenge:</strong> Disconnected booking and payment data led to manual reconciliation nightmares and double-bookings.</p>
+            <p class="small mb-2"><strong>Solution:</strong> Built a bi-directional sync engine using Webhooks and <strong>idempotent API patterns</strong>. One booking instantly updates the POS, locks the calendar, and triggers a confirmation SMS.</p>
+            <p class="small mb-0"><strong>Result:</strong> 100% data consistency; 120+ hours of manual reconciliation saved monthly.</p>
           </div>
         </div>
-        <div class="col-12 col-lg-6">
-          <div class="workflow-card p-4 p-lg-5 h-100">
-            <h4 class="h5 mb-3">Golf Operations Platform</h4>
-            <div class="mb-3">
-              <h5 class="h6 text-uppercase text-muted mb-2">Challenge</h5>
-              <p class="mb-0 small">Disconnected booking, payments, CRM, and email, no single view, manual sync, and inconsistent customer experience.</p>
-            </div>
-            <div class="mb-3">
-              <h5 class="h6 text-uppercase text-muted mb-2">Solution</h5>
-              <p class="mb-0 small">Unified integration platform connecting six systems with real-time sync and automated customer communication.</p>
-            </div>
-            <div class="mb-0">
-              <h5 class="h6 text-uppercase text-muted mb-2">Results</h5>
-              <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
-                <li>Real-time data sync across booking, payments, CRM</li>
-                <li>Automated customer communication</li>
-                <li>Seamless operations and one source of truth</li>
-              </ul>
-            </div>
-            <%= link_to "Read full case study →", case_studies_path + "#golf-saas", class: "d-inline-block mt-3 fw-semibold small" %>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-primary mb-2">Logistics Dispatch Hub (Shoreline Waste)</h4>
+            <p class="small mb-2"><strong>Systems connected:</strong> Route Planner + Mobile Driver App + Billing System + GPS Fleet Engine</p>
+            <p class="small mb-2"><strong>Challenge:</strong> Routes created in the office weren’t reaching drivers in real-time, and completed jobs weren’t triggering invoices.</p>
+            <p class="small mb-2"><strong>Solution:</strong> Engineered a real-time event bridge. When a route is optimized, it pushes to the driver’s handset; when a driver snaps a proof-of-work photo, the billing system automatically generates an invoice.</p>
+            <p class="small mb-0"><strong>Result:</strong> Zero-latency dispatching; 95% reduction in billing delays.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-primary mb-2">FinTech Multi-Party Split (Vestra)</h4>
+            <p class="small mb-2"><strong>Systems connected:</strong> Bank (ACH/Plaid) + Stripe Connect + Property Management Database</p>
+            <p class="small mb-2"><strong>Challenge:</strong> Moving money between tenants, owners, and admins required manual calculation and risked compliance errors.</p>
+            <p class="small mb-2"><strong>Solution:</strong> Built a custom ledger &amp; settlement engine on top of Stripe’s API. Automated the split-logic at the point of transaction, ensuring funds are routed correctly and instantly to three different stakeholders.</p>
+            <p class="small mb-0"><strong>Result:</strong> 100% automated fee distribution; eliminated all manual accounting errors.</p>
           </div>
         </div>
       </div>

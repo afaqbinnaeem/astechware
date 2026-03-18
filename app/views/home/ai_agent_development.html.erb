@@ -25,13 +25,13 @@
     <div class="row align-items-center min-vh-50">
       <div class="col-12 col-lg-9 mx-auto text-center">
         <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;">
-          AI &amp; ML Agent Development Services
+          AI &amp; ML Agent Development
         </h1>
         <p class="text-white fw-semibold mb-3" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.4; max-width: 720px; margin-left: auto; margin-right: auto;">
-          Production-Ready AI &amp; ML Agents with Enterprise Governance Built In
+          Production-Ready Autonomous Agents with Enterprise Governance Built-In
         </p>
         <p class="mb-4" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
-          We build AI and ML agents and copilots that handle real workflows in production. Every agent includes human-in-the-loop protocols, audit trails, and observability from day one.
+          We build workflow agents that don’t just “chat”, they execute: routing trucks, drafting affidavits, qualifying leads, updating CRMs, and running multi-step back-office workflows with approvals when needed.
         </p>
         <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
           Schedule Discovery Call
@@ -127,7 +127,7 @@
       <div class="row">
         <div class="col-12 col-lg-10 mx-auto">
           <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Our Approach</h2>
-          <p class="large-para mb-4">Production-first AI development, governance and reliability before features.</p>
+          <p class="large-para mb-4">Production-first agent engineering, governance and reliability before features. We build workflow agents that execute tasks, not just AI “features”.</p>
           <ul class="service-page-list mb-0" style="font-size: 1.05rem;">
             <li><strong>Start with governance architecture:</strong> Define human-in-the-loop points, escalation rules, and audit requirements before writing code.</li>
             <li><strong>Build human-in-the-loop from day one:</strong> Every agent flow includes handoff paths and operator visibility, not added later.</li>
@@ -136,6 +136,16 @@
             <li><strong>Deploy with rollback capabilities:</strong> Feature flags, staged rollout, and one-click rollback so you can ship with confidence.</li>
             <li><strong>Continuous performance monitoring:</strong> Track accuracy, latency, escalation rate, and business outcomes, and iterate.</li>
           </ul>
+          <div class="mt-4">
+            <div class="workflow-card p-4">
+              <h3 class="h6 text-uppercase text-muted mb-3">Vertical-Specific Patterns</h3>
+              <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+                <li><strong>Regulated (Legal / Health):</strong> We build <strong>Zero-Learning Pipelines</strong> where AI doesn't train on your client data, ensuring absolute privacy and HIPAA / legal ethics compliance.</li>
+                <li><strong>Operational (Logistics / HVAC):</strong> We implement <strong>Event-Driven Agents</strong> that trigger based on real-world actions (e.g., a technician finishing a job or a trash bin being missed).</li>
+                <li><strong>High-Growth (SaaS / Marketing):</strong> We deploy <strong>Revenue-Focused Agents</strong> that integrate with CRMs to score leads and personalize outreach at a scale humans can't match.</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -301,10 +311,10 @@
           <div class="workflow-card p-4 h-100">
             <h4 class="h6 mb-3">AI / ML Tools</h4>
             <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
-              <li>LangGraph for agent orchestration</li>
+              <li>Orchestration: LangGraph, CrewAI, LangChain</li>
               <li>OpenAI GPT-4, Anthropic Claude, or Google Gemini</li>
               <li>LangSmith for observability</li>
-              <li>Custom prompt engineering</li>
+              <li>Guardrails: NeMo Guardrails</li>
             </ul>
           </div>
         </div>
@@ -314,6 +324,7 @@
             <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
               <li>Python (FastAPI) or Node.js</li>
               <li>PostgreSQL with pgvector for retrieval</li>
+              <li>Memory/context: pgvector, Pinecone, Milvus</li>
               <li>Redis for caching</li>
               <li>Celery for background tasks</li>
             </ul>
@@ -380,33 +391,40 @@
   <section class="py-5 bg-light-grey" id="case-study">
     <div class="container">
       <div class="text-center mb-4">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Case Study Spotlight</h2>
-        <p class="lead mb-0">Healthcare AI Assistant</p>
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Case Study Spotlight: 3 Production Agents</h2>
       </div>
-      <div class="row">
-        <div class="col-12 col-lg-10 mx-auto">
-          <div class="workflow-card p-4 p-lg-5">
-            <div class="row g-4">
-              <div class="col-12 col-md-4">
-                <h4 class="h6 text-uppercase text-muted mb-2">Challenge</h4>
-                <p class="mb-0 small">5,000+ patient inquiries monthly; staff overwhelmed. No-shows and phone volume were bleeding revenue and capacity.</p>
-              </div>
-              <div class="col-12 col-md-4">
-                <h4 class="h6 text-uppercase text-muted mb-2">Solution</h4>
-                <p class="mb-0 small">AI agent for appointment scheduling, FAQs, and triage, with HIPAA-compliant messaging and human escalation for complex or sensitive cases.</p>
-              </div>
-              <div class="col-12 col-md-4">
-                <h4 class="h6 text-uppercase text-muted mb-2">Results</h4>
-                <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
-                  <li><strong>5,127 tickets</strong> auto-resolved in first 90 days</li>
-                  <li>No-shows: <strong>35% → 6%</strong></li>
-                  <li>Staff focuses on complex cases; recovered revenue ~$28K/month</li>
-                </ul>
-              </div>
-            </div>
-            <div class="mt-4 pt-4 border-top ">
-              <%= link_to "Read full case study →", case_studies_path + "#wellness-clinic", class: "fw-semibold service-card-link" %>
-            </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-primary mb-2">The Logistics Coordinator (Shoreline Waste)</h4>
+            <p class="small mb-1 fw-bold">Role</p>
+            <p class="small mb-2">Autonomous route planner &amp; dispatcher.</p>
+            <p class="small mb-1 fw-bold">Task</p>
+            <p class="small mb-2">Analyzes daily stops, optimizes GPS routes for fuel efficiency, and sends automated SMS updates to customers.</p>
+            <p class="small mb-1 fw-bold">Result</p>
+            <p class="small mb-0">100% automated route generation; eliminated manual dispatching errors.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-primary mb-2">The Medical Patient Intake Agent (Voice AI)</h4>
+            <p class="small mb-1 fw-bold">Role</p>
+            <p class="small mb-2">HIPAA-compliant voice &amp; text assistant.</p>
+            <p class="small mb-1 fw-bold">Task</p>
+            <p class="small mb-2">Handles 24/7 appointment booking, clinical triage based on symptoms, and SMART on FHIR data entry.</p>
+            <p class="small mb-1 fw-bold">Result</p>
+            <p class="small mb-0">35% → 6% reduction in no-shows; $28k/month in recovered revenue.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-primary mb-2">The Legal Playbook Reviewer (Private AI)</h4>
+            <p class="small mb-1 fw-bold">Role</p>
+            <p class="small mb-2">Contract analysis &amp; risk scoring agent.</p>
+            <p class="small mb-1 fw-bold">Task</p>
+            <p class="small mb-2">Scans incoming contracts against a firm's "Gold Standard" playbook and flags Red/Amber/Green risks.</p>
+            <p class="small mb-1 fw-bold">Result</p>
+            <p class="small mb-0">75% reduction in manual reading time; 100% data privacy via Private Azure OpenAI.</p>
           </div>
         </div>
       </div>

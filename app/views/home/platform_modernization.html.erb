@@ -1,16 +1,16 @@
 <% content_for :head do %>
   <% set_meta_tags(
-    title: "Platform Modernization Services",
-    description: "We rescue failing platforms and modernize systems that can't scale. Performance improvements, observability, database repair, and infrastructure upgrades.",
-    keywords: "platform modernization services, legacy system modernization, Rails modernization, scale existing platform, rescue failing platform"
+    title: "Platform Modernization & Scaling",
+    description: "Engineering Rescues for failing platforms. Incremental, zero-downtime modernization to restore performance, reliability, and developer velocity for 10x growth.",
+    keywords: "platform modernization, engineering rescue, legacy modernization, marketplace scaling, CI/CD, database optimization, infrastructure modernization"
   ) %>
   <script type="application/ld+json">
   <%= raw({
     "@context" => "https://schema.org",
     "@type" => "Service",
-    "name" => "Platform Modernization Services",
+    "name" => "Platform Modernization & Scaling",
     "url" => platform_modernization_url,
-    "description" => "Rescue failing platforms and modernize systems for reliability, performance, and maintainability.",
+    "description" => "Rescue failing platforms and modernize infrastructure with incremental, zero-downtime upgrades that restore reliability and developer velocity.",
     "provider" => { "@type" => "Organization", "name" => "A'sTechware" },
     "areaServed" => "Worldwide",
     "serviceType" => "Platform Modernization",
@@ -25,13 +25,13 @@
     <div class="row align-items-center min-vh-50">
       <div class="col-12 col-lg-9 mx-auto text-center">
         <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;">
-          Platform Modernization Services
+          Platform Modernization &amp; Scaling
         </h1>
         <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.4; max-width: 720px; margin-left: auto; margin-right: auto;">
-          Rescue Failing Platforms and Modernize Systems That Can't Scale
+          Rescue Failing Systems and Modernize Infrastructure for 10x Growth
         </p>
         <p class="mb-4" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
-          We rescue failing platforms and modernize systems that cannot scale. Focused on changes that directly improve reliability, performance, and maintainability, not theoretical architecture.
+          We specialize in <strong>Engineering Rescues</strong>. Whether you inherited a broken codebase from a previous agency or your current legacy system is buckling under new user load, we provide incremental, zero-downtime modernization that restores reliability and developer velocity.
         </p>
         <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
           Schedule Discovery Call
@@ -79,7 +79,7 @@
           <div class="workflow-card p-4 h-100">
             <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">1</span>
             <h4 class="h6 mb-2">Slow page loads and poor user experience</h4>
-            <p class="mb-0 small">We identify bottlenecks (DB, N+1, missing indexes, no caching) and fix them. Results: 50–90% faster load times in typical engagements.</p>
+            <p class="mb-0 small">Turning 8-second legacy searches into sub-second results through database indexing and semantic search layers.</p>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
@@ -93,7 +93,7 @@
           <div class="workflow-card p-4 h-100">
             <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">3</span>
             <h4 class="h6 mb-2">Cannot add features without breaking things</h4>
-            <p class="mb-0 small">Test coverage, CI/CD, and safer deployment practices so you ship features 2–3x faster without fear of regressions.</p>
+            <p class="mb-0 small">Eliminating “Deployment Fear” by implementing CI/CD pipelines so your team can ship 10x daily instead of once a week.</p>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
@@ -122,6 +122,13 @@
             <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">7</span>
             <h4 class="h6 mb-2">Knowledge silos and lack of documentation</h4>
             <p class="mb-0 small">Architecture docs, runbooks, and knowledge transfer so the team can operate and evolve the system without a single point of failure.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">8</span>
+            <h4 class="h6 mb-2">Agency handoff rescue</h4>
+            <p class="mb-0 small">Taking over “half-finished” or poorly architected projects from previous vendors and stabilizing them for a successful launch.</p>
           </div>
         </div>
       </div>
@@ -307,36 +314,45 @@
         <p class="large-para mb-0" style="max-width: 640px; margin: 0 auto;">We work with your existing stack and introduce modern tools where they deliver the most impact.</p>
       </div>
       <div class="row g-4">
-        <div class="col-12 col-md-4">
+        <div class="col-12 col-md-6 col-lg-3">
           <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-3">Backend Modernization</h4>
+            <h4 class="h6 mb-3">Backend</h4>
             <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
-              <li>Language/framework upgrades (Python, Node.js, Ruby, Java, etc.)</li>
-              <li>Database migrations (PostgreSQL, MySQL, MongoDB)</li>
-              <li>Message queues (Redis, RabbitMQ, Kafka)</li>
-              <li>API gateways and microservices patterns</li>
+              <li>Node.js (NestJS)</li>
+              <li>Go</li>
+              <li>Python (FastAPI)</li>
             </ul>
           </div>
         </div>
-        <div class="col-12 col-md-4">
+        <div class="col-12 col-md-6 col-lg-3">
           <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-3">Frontend Modernization</h4>
+            <h4 class="h6 mb-3">Database &amp; Search</h4>
             <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
-              <li>Modern frameworks (React, Vue, Next.js)</li>
-              <li>Performance optimization</li>
-              <li>Progressive Web App capabilities</li>
-              <li>Mobile-responsive design</li>
+              <li>PostgreSQL (Optimization)</li>
+              <li>Elasticsearch</li>
+              <li>Redis</li>
+              <li>Meilisearch</li>
             </ul>
           </div>
         </div>
-        <div class="col-12 col-md-4">
+        <div class="col-12 col-md-6 col-lg-3">
           <div class="workflow-card p-4 h-100">
             <h4 class="h6 mb-3">Infrastructure</h4>
             <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
-              <li>Cloud platforms (AWS, GCP, Azure)</li>
-              <li>Container orchestration (Kubernetes, ECS, Cloud Run)</li>
-              <li>CDN integration (CloudFlare, CloudFront)</li>
-              <li>Observability (OpenTelemetry, Prometheus, Grafana)</li>
+              <li>AWS (EKS/Lambda)</li>
+              <li>Docker</li>
+              <li>Kubernetes</li>
+              <li>Terraform</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 mb-3">Observability</h4>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li>Datadog</li>
+              <li>Sentry</li>
+              <li>New Relic</li>
             </ul>
           </div>
         </div>
@@ -386,55 +402,35 @@
     </div>
   </section>
 
-  <!-- Case Study Spotlight (2) -->
+  <!-- Case Study Spotlight -->
   <section class="py-5 bg-light-grey" id="case-study">
     <div class="container">
       <div class="text-center mb-4">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Case Study Spotlight</h2>
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Case Study Spotlight: The 3-Rescue Showcase</h2>
       </div>
       <div class="row g-4">
-        <div class="col-12 col-lg-6">
-          <div class="workflow-card p-4 p-lg-5 h-100">
-            <h4 class="h5 mb-3">Restaurant Directory Platform Rebuild</h4>
-            <div class="mb-3">
-              <h5 class="h6 text-uppercase text-muted mb-2">Challenge</h5>
-              <p class="mb-0 small">Slow searches (8–12s), frequent crashes, unusable admin. Platform was days from shutdown.</p>
-            </div>
-            <div class="mb-3">
-              <h5 class="h6 text-uppercase text-muted mb-2">Solution</h5>
-              <p class="mb-0 small">Database redesign, search engine implementation (Elasticsearch), caching, and admin refactor.</p>
-            </div>
-            <div class="mb-0">
-              <h5 class="h6 text-uppercase text-muted mb-2">Results</h5>
-              <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
-                <li>Sub-second search</li>
-                <li>99.9% uptime</li>
-                <li>Admin tasks 10x faster</li>
-              </ul>
-            </div>
-            <%= link_to "Read full case study →", case_studies_path + "#restaurant-directory", class: "d-inline-block mt-3 fw-semibold small" %>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-primary mb-2">Marketplace Recovery (Restaurant Resource)</h4>
+            <p class="small mb-2"><strong>Before:</strong> Inherited a failing platform with broken structure and unusable data; previous agency failed to launch.</p>
+            <p class="small mb-2"><strong>Modernization:</strong> Full structural rebuild, implemented an AI data-cleaning engine, and deployed a secure server architecture.</p>
+            <p class="small mb-0"><strong>After:</strong> Successful launch with 100% automated vendor onboarding; sub-second search performance; 5-star user reviews.</p>
           </div>
         </div>
-        <div class="col-12 col-lg-6">
-          <div class="workflow-card p-4 p-lg-5 h-100">
-            <h4 class="h5 mb-3">Legal Practice Management Platform</h4>
-            <div class="mb-3">
-              <h5 class="h6 text-uppercase text-muted mb-2">Challenge</h5>
-              <p class="mb-0 small">System couldn’t handle growth; manual deployments caused risk and delay.</p>
-            </div>
-            <div class="mb-3">
-              <h5 class="h6 text-uppercase text-muted mb-2">Solution</h5>
-              <p class="mb-0 small">Cloud migration, automated CI/CD pipelines, and performance optimization.</p>
-            </div>
-            <div class="mb-0">
-              <h5 class="h6 text-uppercase text-muted mb-2">Results</h5>
-              <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
-                <li>3x user capacity</li>
-                <li>Zero-downtime deployments</li>
-                <li>40% cost reduction</li>
-              </ul>
-            </div>
-            <%= link_to "Read full case study →", case_studies_path + "#law-firm", class: "d-inline-block mt-3 fw-semibold small" %>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-primary mb-2">Enterprise Marketplace Scaling (Word of Mouth)</h4>
+            <p class="small mb-2"><strong>Before:</strong> Legacy tech stack preventing new features; slow deployments and a 1990s-era user experience.</p>
+            <p class="small mb-2"><strong>Modernization:</strong> Full-scale modernization to a modern React/Node stack; integrated Stripe Connect and a dynamic Q&amp;A engine.</p>
+            <p class="small mb-0"><strong>After:</strong> 10x increase in developer velocity; 60% faster page loads; ready for national-scale traffic.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-primary mb-2">High-Concurrency SaaS (GolfPay360)</h4>
+            <p class="small mb-2"><strong>Before:</strong> Monolithic system unable to handle simultaneous bookings and POS sync across multiple locations.</p>
+            <p class="small mb-2"><strong>Modernization:</strong> Migrated to a multi-tenant microservices architecture with real-time data synchronization.</p>
+            <p class="small mb-0"><strong>After:</strong> 84% shift to online bookings; zero-incident performance during peak weekend spikes.</p>
           </div>
         </div>
       </div>
