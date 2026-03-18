@@ -34,6 +34,37 @@ class HomeController < ApplicationController
   def devops_engineering
   end
 
+  def case_study
+    slug = params[:slug].to_s
+
+    case_studies = {
+      'medical-voice-ai' => { title: 'Medical Voice AI & Clinical Triage' },
+      'legal-contract-ai' => { title: 'Private AI Pipeline for Contract Discovery' },
+      'shoreline-waste-logistics' => { title: 'Shoreline Waste Logistics & Route AI' },
+      'vestra-payments' => { title: 'Vestra Payment Orchestration' },
+      'zofi-cash-fintech' => { title: 'Zofi Cash Salary Advance (EWA) Platform' },
+      'golfpay360-saas' => { title: 'GolfPay360 High-Concurrency Booking' },
+      'red-dragon-hvac' => { title: 'Red Dragon HVAC MMS-to-Social Pipeline' },
+      'instashowing-real-estate' => { title: 'InstaShowing Real Estate Platform' },
+      'athenahealth-sync' => { title: 'Athenahealth Enterprise Integration' },
+      'ai-medical-scribe' => { title: 'Ambient AI Medical Scribe' },
+      'word-of-mouth-modernization' => { title: 'Word of Mouth Platform Modernization' },
+      'restaurant-resource-rescue' => { title: 'Restaurant Resource Rescue & Search AI' },
+      'legal-affidavit-engine' => { title: 'Legal Affidavit & Document AI' }
+    }
+
+    case_study = case_studies[slug]
+    raise ActionController::RoutingError, 'Not Found' if case_study.blank?
+
+    set_meta_tags(
+      title: "#{case_study[:title]} | Case Study",
+      description: "A'sTechware case study: #{case_study[:title]}. Production-ready engineering for high-stakes environments.",
+      keywords: 'case study, production engineering, AI automation, platform engineering'
+    )
+
+    render "home/case_studies/#{slug}"
+  end
+
   def submit_form
     # Verify reCAPTCHA if enabled
     if recaptcha_enabled?
