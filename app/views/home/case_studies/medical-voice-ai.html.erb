@@ -1,0 +1,116 @@
+<div class="hero-section py-5 service-page-hero">
+  <div class="container">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-12 col-lg-10 mx-auto text-center">
+        <h1 class="display-5 fw-bold mb-3" style="font-size: clamp(28px, 4.5vw, 52px); line-height: 1.15;">
+          Medical Voice AI &amp; Clinical Triage
+        </h1>
+        <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.3vw, 22px); line-height: 1.5; max-width: 900px; margin-left: auto; margin-right: auto;">
+          24/7 Autonomous Clinical Triage &amp; Booking (HIPAA-Compliant)
+        </p>
+        <p class="mb-0" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.7; max-width: 980px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
+          A multi-location medical group deployed a Voice AI agent to handle thousands of concurrent calls, reduce no-shows, and recover revenue—without compromising clinical safety or compliance.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="inner-sections">
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">The Challenge</h2>
+        <p class="large-para mb-0">
+          A multi-location medical group was losing approximately <strong>$30k/month</strong> due to “leaky” scheduling. Human operators could not handle a 24/7 surge, resulting in
+          <strong>35% no-show rates</strong> and patients hanging up after long hold times.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">The Solution</h2>
+        <p class="large-para mb-0">
+          We deployed an autonomous <strong>Voice AI agent</strong> capable of handling thousands of concurrent calls. Unlike a simple IVR, this agent understands intent, triages symptoms,
+          and checks real-time availability in the EHR.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Technical Approach</h2>
+        <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
+          <li><strong>Latency Optimization:</strong> Used a low-latency WebSocket layer to keep responses under 500ms and preserve human-like turn-taking.</li>
+          <li><strong>Contextual Triage:</strong> Built a decision-tree logic engine that cross-references patient symptoms against clinical urgency levels.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Technical Details</h2>
+        <div class="row g-4">
+          <div class="col-12 col-md-6">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">Architecture</h3>
+              <p class="mb-0 small">Twilio Media Streams → FastAPI (Orchestration) → Deepgram (STT) → GPT-4o (Reasoning) → ElevenLabs (TTS)</p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">Integrations</h3>
+              <p class="mb-0 small">Bi-directional sync with Athenahealth and Epic via HL7 FHIR.</p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">Security</h3>
+              <p class="mb-0 small">HIPAA-compliant BAA on all infrastructure; PII redaction in logs; AES-256 encryption at rest.</p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">AI Features</h3>
+              <p class="mb-0 small">Real-time sentiment analysis to detect “Emergency” tones and trigger a “Break Glass” human handoff.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Results &amp; Impact</h2>
+        <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
+          <li><strong>5,127</strong> appointments handled without human intervention.</li>
+          <li>No-show rate dropped from <strong>35%</strong> to <strong>6%</strong>.</li>
+          <li><strong>$28,000/month</strong> in recovered revenue.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto text-center">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Ready to build something similar?</h2>
+        <p class="lead mb-4">We’ll scope the workflow, reliability requirements, and compliance constraints—then ship incrementally and safely.</p>
+        <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5 me-2 mb-2">
+          Schedule a Technical Discovery Call
+        </a>
+        <%= link_to "View our Services", root_path(anchor: "services"), class: "btn btn-outline-primary btn-lg rounded-pill px-5 mb-2 ajax" %>
+      </div>
+    </div>
+  </section>
+</div>
+

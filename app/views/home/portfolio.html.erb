@@ -1,294 +1,24 @@
 <% content_for :head do %>
   <% set_meta_tags(
-    title: "Client Case Studies & Results",
-    description: "See how A'sTechware has helped clients resolve 5,000+ tickets automatically, reduce no-shows by 70%, and recover 120+ billable hours per month.",
-    keywords: "case studies, production AI, platform engineering, AI agent development, custom software, B2B SaaS development"
+    title: "Case Studies | Proven Engineering for High-Stakes Environments",
+    description: "We don’t build demos. We build production-ready systems that handle real money, real data, and real-world complexity. Explore results across Logistics, Healthcare, Legal, FinTech, and SaaS.",
+    keywords: "case studies, engineering rescue, production AI, platform modernization, logistics software, healthcare automation, legal AI, fintech payments, SaaS scaling"
   ) %>
 <% end %>
-<%# 100% hardcoded case studies (no DB, no lib). Paths resolved inline. %>
-<%
-  @case_studies = [
-    {
-      slug: 'restaurant-directory',
-      title: 'Restaurant Directory',
-      tagline: 'Near Shutdown → Sustainable Growth',
-      hero_icon: 'fa-cutlery',
-      client: { industry: 'Restaurant & Food Services', company_size: 'SMB (1,200+ listings)', location: 'United States', challenge_type: 'Platform rescue, search & AI' },
-      challenge: {
-        intro_paragraphs: [
-          'A restaurant directory with 1,200+ listings was days away from shutting down. The business had real traffic and real suppliers, but the platform was broken, and the previous development team had walked away.',
-          "This wasn't a growth project; it was survival. The client needed a partner who could fix the foundation first, then add automation where it would actually drive revenue."
-        ],
-        pain_points: ['Corrupted database with 4,800+ duplicate records', 'Search returning empty results so users couldn\'t find restaurants', 'Only 12% of pages indexed by Google', 'No clear path to restore supplier trust or recurring revenue'],
-        why_existing: "The prior team had left the codebase in an unstable state. Off-the-shelf directory software didn't fit the supplier model or the need for AI-powered content and search. A full rescue and custom build was the only viable path."
-      },
-      solution: {
-        what_we_built: ['Cleaned and repaired the database; removed duplicates and restored referential integrity', 'Rebuilt search so users could actually find restaurants (including semantic understanding and query correction)', 'Reworked supplier profiles for self-service management', 'Guided onboarding flows for vendors with human review for high-risk or incomplete submissions', 'Review request and response workflows with AI assistance and human approval for negative reviews', 'AI-powered content generation for supplier listings with quality scoring and duplicate detection', 'Smart search with semantic understanding, fallbacks, and A/B testing for improvements'],
-        technical_approach: 'We fixed the data layer and search first, then added AI in layers: onboarding, review workflows, and content generation. Every AI touchpoint included human review queues, confidence thresholds, and audit trails.',
-        timeline: '8 months (foundation first, then AI layer)',
-        technologies: 'Rails, PostgreSQL, Elasticsearch, OpenAI APIs, background jobs, audit logging'
-      },
-      results: {
-        before_after: [{ before: '200 monthly visitors', after: '4,200 monthly visitors' }, { before: '12 supplier inquiries/month', after: '85 supplier inquiries/month' }, { before: '$0 recurring revenue', after: '$1,800/month new recurring revenue' }],
-        metrics: ['Monthly visitors: 200 → 4,200', 'Supplier inquiries: 12 → 85 per month', 'New recurring revenue: $1,800/month', 'Platform saved from shutdown'],
-        satisfaction: 'Supplier and user feedback improved as search and onboarding became reliable.',
-        outcomes: ['Platform stabilized and scaled', 'AI governance (review queues, approval, audit) built in from day one']
-      },
-      testimonial: { quote: "Ahmad has been an exceptional contractor and we feel incredibly fortunate to have found him.", name: 'Brianne Harvey', title: 'Founder', company: 'Restaurant Resource', photo: 'ahmad/clients/Brianne.jpeg' },
-      technical_details: {
-        architecture: 'Monolithic Rails app with background jobs for AI and search indexing. Database cleaned and normalized; search rebuilt with hybrid keyword and semantic capabilities.',
-        features: ['Guided onboarding with human review queue and 85% confidence escalation', 'Review request/response workflows with human approval for negative reviews', 'AI content generation with quality scoring, duplicate detection, and version control', 'Smart search with query logging, fallback to keyword search, and A/B testing'],
-        integrations: ['Email/SMS for notifications', 'Payment and listing management', 'Analytics and monitoring'],
-        security: ['Rate limiting to prevent bot abuse', 'Audit trail for all onboarding and AI decisions', 'Compliance checks on AI-generated content (no false claims)', 'No PII used for AI training']
-      },
-      related_services: [{ label: 'AI Agent Development', path: ai_agent_development_path }, { label: 'Healthcare Automation', path: industry_healthcare_path }]
-    },
-    {
-      slug: 'golf-saas',
-      title: 'Golf Course SaaS',
-      tagline: 'Built From the Ground Up, Then Scaled With AI',
-      hero_icon: 'fa-flag-checkered',
-      client: { industry: 'Golf & Recreation', company_size: 'SMB / Multi-course', location: 'United States', challenge_type: 'Full platform build, operations & AI' },
-      challenge: {
-        intro_paragraphs: ['The client came to us with a clear goal: build a real SaaS platform to run golf operations end-to-end. No patchwork tools, no half-manual workflows.', 'Golf courses were losing revenue to phone-only booking, manual tee sheets, and no dynamic pricing. They needed one platform for booking, POS, members, and tournaments, plus AI to handle after-hours demand.'],
-        pain_points: ['Only 15% of bookings were online; rest were phone and walk-in', 'Staff overwhelmed by phone volume and manual scheduling', 'No dynamic pricing or conversational reporting', 'Disconnected tools for pro shop, F&B, and tournaments'],
-        why_existing: "Generic booking or POS systems didn't cover golf-specific flows (tee times, foursomes, tournaments, members). Building a dedicated platform with AI reception and pricing was the only way to get the desired control and revenue lift."
-      },
-      solution: {
-        what_we_built: ['Web and mobile tee-time booking', 'Member and loyalty management', 'POS for pro shop and F&B', 'Tournament management and scoring', 'Operational and revenue reporting', '24/7 AI phone receptionist with human escalation for high-value or large groups', 'Dynamic pricing based on demand (with caps and human approval for event days)', 'Conversational reporting with role-based access'],
-        technical_approach: 'Full-stack SaaS with mobile-responsive web and native-style flows. AI layer added for voice, pricing, and reporting with strict governance (escalation rules, audit trails, payment never through AI).',
-        timeline: '12 months (platform first, then AI features)',
-        technologies: 'Rails, React, PostgreSQL, Redis, Twilio (voice), OpenAI, Stripe'
-      },
-      results: {
-        before_after: [{ before: '15% online bookings', after: '84% online bookings' }, { before: 'High phone workload', after: 'Phone workload down dramatically' }, { before: 'Manual pricing', after: '~$42K additional annual revenue from dynamic pricing and capacity' }],
-        metrics: ['Online bookings: 15% → 84%', 'Additional annual revenue: ~$42K', '24/7 booking and inquiry handling without proportional staff increase'],
-        satisfaction: 'Staff and members adopted the platform; management gained real-time visibility into revenue and operations.',
-        outcomes: ['Single platform for booking, POS, and operations', 'AI receptionist and pricing with governance built in']
-      },
-      testimonial: { quote: "Been working with Ahmad for almost two years, and they've been great to work with. One of the most reliable developers I've had the pleasure to work with.", name: 'Dale Merritt', title: 'CEO', company: 'Golfpay', photo: 'ahmad/clients/golf.jpeg' },
-      technical_details: {
-        architecture: 'Multi-tenant SaaS with web and mobile clients, REST API, and background jobs. AI voice and NLU for reception; separate pricing engine with audit and override.',
-        features: ['Tee-time booking with inventory and foursome logic', 'AI phone receptionist with escalation for bookings over $500 or groups of 10+', 'Dynamic pricing capped at ±30%; event-day changes require human approval', 'Conversational reporting with RBAC (managers see revenue, staff see operations)'],
-        integrations: ['Stripe', 'Twilio', 'email/SMS', 'calendar and notifications'],
-        security: ['Payment information never processed by AI; routed to secure POS', 'Call recording and transcription with consent; dispute resolution', 'Audit trail for every price change with reasoning', 'Role-based access and query logging for compliance']
-      },
-      related_services: [{ label: 'AI Agent Development', path: ai_agent_development_path }, { label: 'B2B SaaS', path: industry_b2b_saas_path }]
-    },
-    {
-      slug: 'event-platform',
-      title: 'Event Platform',
-      tagline: 'From Manual Chaos to a Real SaaS With Automation',
-      hero_icon: 'fa-ticket',
-      client: { industry: 'Events & Entertainment', company_size: 'SMB / Multi-organizer', location: 'United States', challenge_type: 'Platform enhancement, marketing automation' },
-      challenge: {
-        intro_paragraphs: ['Events were great; marketing was not. Promotion lived in spreadsheets, folders, and last-minute posts even though a platform already existed.', 'Organizers needed a way to go from "photos and event details" to "published social campaigns and ads" without spending hours on repetitive work.'],
-        pain_points: ['No centralized event discovery or consistent ticketing experience', 'Manual social posts and ad creation; slow and inconsistent', 'No organizer dashboards or analytics', 'Ad spend and creative not optimized'],
-        why_existing: "Generic social or ad tools didn't tie into the event and ticketing data. Building AI that could generate on-brand posts and ad copy from event assets, with organizer approval and budget controls, required a custom integration."
-      },
-      solution: {
-        what_we_built: ['Centralized event discovery and ticketing/registrations', 'Organizer dashboards and analytics', 'Upload photos once → AI generates 15–20 social posts (with organizer review before publish)', 'Automated promotion sequences and audience targeting', 'Ad creation and optimization with budget caps and human approval before launch', 'Compliance checks for platform policies (Facebook, Google, Instagram)'],
-        technical_approach: 'Platform enhancements first (discovery, ticketing, dashboards), then AI layer for content and ads. Every AI output required human approval; payment and ad spend were gated and logged.',
-        timeline: '6 months',
-        technologies: 'Rails, React, OpenAI, social and ad APIs, background jobs, audit logging'
-      },
-      results: {
-        before_after: [{ before: 'Manual posts per event', after: '850+ posts created automatically (45 organizers)' }, { before: 'Baseline ticket sales', after: '+67% avg ticket sales per event' }, { before: 'Baseline traffic', after: '+180% platform traffic' }],
-        metrics: ['45 organizers actively using the platform', '850+ posts created automatically', 'Avg ticket sales per event: +67%', 'Platform traffic: +180%'],
-        satisfaction: 'Organizers could focus on events instead of repetitive posting; ticket sales and engagement improved.',
-        outcomes: ['AI-driven marketing with full organizer control', 'Budget and compliance safeguards on all paid ads']
-      },
-      testimonial: { quote: "Organizers upload photos, system does everything else. Ticket sales doubled.", name: 'Billy Martin', title: 'Founder', company: nil, photo: nil },
-      technical_details: {
-        architecture: 'Event and ticketing platform with background jobs for AI content generation and ad workflows. All paid ads require organizer approval and budget caps.',
-        features: ['AI social post generation (15–20 per upload) with brand voice checks and duplicate detection', 'Automated promotion sequences with pause/stop and performance alerts', 'Ad creation and optimization with budget caps, human approval, and compliance checks', 'Image rights verification; only organizer-uploaded assets used'],
-        integrations: ['Facebook', 'Instagram', 'Google Ads', 'ticketing and payment providers'],
-        security: ['No credit card data processed by AI; payments via secure platform integration', 'Human approval required before any paid ads launch', 'Real-time performance tracking with auto-pause for poor ROI', 'Audit trail for all AI-generated content and ad spend']
-      },
-      related_services: [{ label: 'AI Agent Development', path: ai_agent_development_path }, { label: 'B2B SaaS', path: industry_b2b_saas_path }]
-    },
-    {
-      slug: 'wellness-clinic',
-      title: 'Wellness Clinic',
-      tagline: 'Unified Operations & HIPAA-Compliant AI Platform',
-      hero_icon: 'fa-heartbeat',
-      client: { industry: 'Healthcare / Wellness', company_size: '6 locations (expanded to 8 during engagement)', location: 'United States', challenge_type: 'Operations unification, intelligent scheduling, HIPAA-compliant AI communications' },
-      challenge: {
-        intro_paragraphs: [
-          'A six-location wellness clinic was losing patients and revenue, not because of demand, but because of fragmented systems. Three different booking platforms across locations meant no single source of truth. Front desk staff were spending over four hours daily on phone calls for scheduling alone. Double-bookings happened weekly, creating patient frustration and practitioner downtime. The 35% no-show rate was costing an estimated $10,000 per week in lost revenue.',
-          'The clinic had tried off-the-shelf scheduling tools, but none could unify all locations under one system while also supporting AI-assisted call handling that met HIPAA requirements. Most scheduling SaaS products either lacked multi-location support or treated compliance as an afterthought, storing conversation logs containing PHI in unencrypted third-party systems with no Business Associate Agreements in place.',
-          'The practice needed a single platform that could handle scheduling, automated reminders, and AI-powered call and message handling, all built from the ground up with healthcare compliance woven into the architecture, not bolted on afterward.'
-        ],
-        pain_points: [
-          '3 separate booking systems with no cross-location visibility, a patient calling Location A couldn\'t be offered an earlier slot at Location B',
-          'Weekly double-bookings and scheduling conflicts causing practitioner idle time and patient complaints',
-          'Front desk staff spending 4+ hours daily on phone scheduling, leaving little capacity for in-office patient experience',
-          '35% no-show rate bleeding approximately $10K/week in unrealized revenue',
-          'Zero online booking capability, every appointment required a phone call',
-          'No centralized reporting, practice owner had to pull data from three systems to understand business performance'
-        ],
-        why_existing: "Off-the-shelf tools fell short in three critical areas. First, multi-location unification: most platforms treated each location as a separate instance with no shared availability view. Second, HIPAA-compliant AI: the clinic wanted intelligent call and message handling, but commercial AI tools (chatbots, voice assistants) had no BAAs, stored conversation transcripts containing PHI on non-compliant infrastructure, and offered no audit trail. Third, workflow integration: the clinic needed reminders and confirmations that respected patient communication preferences and opted out of SMS/email when requested, while never including PHI in any unencrypted channel. A custom platform with BAA-backed AI, strict PHI data segmentation, and real compliance architecture was the only viable path."
-      },
-      solution: {
-        what_we_built: [
-          'Centralized multi-location booking engine, real-time availability across all locations. Staff at any site can book, reschedule, or cancel at any location. Patients see unified availability through the online portal',
-          'Practitioner schedule management with patient visit history (role-based access controls ensure front desk sees scheduling data only; practitioners see relevant clinical context)',
-          'Automated multi-channel reminders, SMS, email, and phone confirmations based on patient preference. HIPAA-compliant messaging architecture: no PHI in SMS or email body content. Reminders contain only appointment time and location with a secure link for details requiring authentication',
-          'AI-powered call and message assistants, handle routine scheduling requests (booking, rescheduling, cancellations, availability inquiries) with natural language understanding. Built-in escalation protocol: any medical question, complex scheduling need, or patient distress signal routes immediately to a human staff member. AI never accesses medical records, only scheduling data',
-          'Billing and operations dashboard, consolidated view across all locations. Daily, weekly, and monthly reporting on utilization, no-show rates, revenue recovery, and staff productivity',
-          'Complete audit trail, every system interaction logged with user identity, timestamp, action taken, and data accessed. Business Associate Agreements in place for all AI processing and data handling components'
-        ],
-        technical_approach: 'The platform was designed with a clear data segmentation principle: AI systems only access scheduling and communication data, never medical records or clinical notes. This isn\'t just a policy, it\'s enforced architecturally. The AI service layer connects to a scheduling-only database view with no access path to clinical tables. Core stack: Ruby on Rails API backend, React frontend with responsive design for desktop and tablet, PostgreSQL with row-level security for multi-location data isolation, Twilio for voice and SMS with BAA, HIPAA-aligned hosting infrastructure with encryption at rest (AES-256) and in transit (TLS 1.2+).',
-        timeline: '9 months from kickoff to full deployment across all 6 locations',
-        technologies: 'Ruby on Rails, React, PostgreSQL (row-level security), Twilio (voice/SMS with BAA), HIPAA-aligned hosting, AES-256 encryption at rest, TLS 1.2+ in transit'
-      },
-      results: {
-        before_after: [
-          { before: '35% no-show rate', after: '6% (83% reduction)' },
-          { before: '0% online bookings', after: '78% (new capability)' },
-          { before: '~$10K/week lost to no-shows', after: '~$1.5K/week (~$28K/month recovered)' },
-          { before: '4+ hours daily phone time', after: '<45 minutes (81% reduction)' },
-          { before: '6 locations', after: '8 locations (33% expansion)' },
-          { before: '3 booking systems', after: '1 unified platform' },
-          { before: 'No cross-location booking', after: 'Real-time availability across network' }
-        ],
-        metrics: ['No-shows: 35% → 6% (83% reduction)', 'Online bookings: 0% → 78%', 'Revenue lost to no-shows: ~$10K/week → ~$1.5K/week (~$28K/month recovered)', 'Daily staff phone time: 4+ hours → <45 minutes (81% reduction)', 'Locations: 6 → 8 in under a year', 'Single unified platform; cross-location real-time availability'],
-        satisfaction: 'Staff shifted from spending their day on the phone to focusing on in-office patient experience. Patients could book, reschedule, and confirm through their preferred channel, online, text, or a quick AI-assisted phone call, without waiting on hold. The practice gained visibility into operations they never had before: which practitioners had open capacity, which locations were underbooked, which time slots had the highest no-show risk. The revenue recovery and operational efficiency gave the practice confidence to expand. Two new locations were opened within the first year of platform deployment, onboarded in days rather than weeks because the system was already built for multi-location operation.',
-        outcomes: ['Zero PHI exposure incidents across all AI interactions', 'Full audit trail available for any regulatory inquiry', 'BAA coverage across the entire data processing chain, no gaps', 'HITECH breach notification workflow in place (never triggered, but ready)']
-      },
-      testimonial: { quote: "We were losing $10K a week to no-shows and spending half our day on the phone. Now our no-show rate is 6%, patients book online, and we grew from six to eight locations in under a year. The system paid for itself in the first quarter.", name: 'Dr. Salman', title: 'Practice Owner', company: nil, photo: nil },
-      technical_details: {
-        architecture: 'Data segmentation by design: AI service layer connects to scheduling-only database view with no access path to clinical tables. Ruby on Rails API backend, React frontend, PostgreSQL with row-level security for multi-location data isolation, Twilio with BAA, HIPAA-aligned hosting with encryption at rest (AES-256) and in transit (TLS 1.2+).',
-        features: [
-          'Data minimization by design, AI conversation logs store intent classification and scheduling actions only; raw transcripts with potential PHI processed in-memory and discarded, never persisted',
-          'Role-based access control at the database level, PostgreSQL RLS policies ensure front desk, practitioners, and practice management see only their authorized scope',
-          'Audit logging, append-only audit table tracking every data access, modification, and AI interaction; logs retained per HIPAA requirements (minimum 6 years) with integrity verification',
-          'Consent management, call recording only with explicit patient consent; opt-in/opt-out respected across all communication channels',
-          'Incident response protocol, documented procedure for breach detection, containment, investigation, and HITECH-required notification workflows'
-        ],
-        integrations: [
-          'Twilio (voice and SMS) with signed BAA, all call routing, recording, and SMS delivery',
-          'Email delivery with PHI-safe templates (no clinical data in email body; secure portal links for sensitive content)',
-          'Existing practice management system integration for patient demographic sync (one-way feed, our system reads demographics, never writes clinical data)'
-        ],
-        security: [
-          'HIPAA-compliant data storage; encryption at rest (AES-256) and in transit (TLS 1.2+)',
-          'BAA in place for all AI and data processing components',
-          'Database-level RLS, even application bugs cannot leak data outside authorized scope',
-          'Incident response protocol for potential data events; HITECH breach notification workflow ready'
-        ]
-      },
-      related_services: [{ label: 'Healthcare Automation', path: industry_healthcare_path }, { label: 'AI Agent Development', path: ai_agent_development_path }]
-    },
-    {
-      slug: 'law-firm',
-      title: 'Law Firm',
-      tagline: 'Recovering Billable Hours Without Burning Out the Team',
-      hero_icon: 'fa-balance-scale',
-      client: { industry: 'Legal Services', company_size: '7-attorney firm', location: 'United States', challenge_type: 'Document automation, research, capacity' },
-      challenge: {
-        intro_paragraphs: ['A 7-attorney firm had a hidden problem: partners were working 60 hours but billing far less, and associates were spending nights on admin work. Over half of calls went unanswered; contract reviews and research were eating capacity that should have been billable.', 'The firm needed AI-assisted document analysis and research workflows that could speed up reviews and turnaround without replacing attorney judgment or breaching confidentiality.'],
-        pain_points: ['52% of calls unanswered', 'Associates spending nights on admin and document review', 'Contract reviews taking hours; research taking days', 'Burnout and attrition risk'],
-        why_existing: "Generic document or research tools weren't built for legal ethics, citation verification, or attorney-in-the-loop. We built workflows that assist rather than replace, with source verification and audit trails suitable for professional responsibility."
-      },
-      solution: {
-        what_we_built: ['Document analysis for contract and due-diligence review with clause-level audit trails and confidence scores', 'Structured legal research workflows with citation verification (Westlaw, LexisNexis) and human validation before client use', 'Better visibility across cases and matters', 'No AI output in court filings or client communication without attorney review'],
-        technical_approach: 'AI assists with extraction, summarization, and research suggestions; attorneys always approve before client-facing use. Documents never used for AI training; jurisdiction and source verification built in.',
-        timeline: 'Ongoing engagement over several months',
-        technologies: 'Python, NLP/LLM APIs, legal databases (Westlaw, LexisNexis), secure document storage, audit logging'
-      },
-      results: {
-        before_after: [{ before: 'Hours per contract review', after: 'Under 1 hour per contract review' }, { before: 'Days for research turnaround', after: '24-hour research turnaround' }, { before: 'Weekend work for associates', after: 'Weekend work eliminated' }, { before: 'Baseline billable hours', after: '120+ billable hours recovered per month' }],
-        metrics: ['120+ billable hours recovered per month', '$30K–36K additional monthly revenue', 'Contract reviews: hours → under 1 hour', 'Research turnaround: days → 24 hours', 'Weekend work eliminated for associates'],
-        satisfaction: 'Partners and associates could focus on high-value work; billing increased without increasing hours.',
-        outcomes: ['Attorney-in-the-loop on all client-facing output', 'Citation and source verification; no AI in court filings without verification']
-      },
-      testimonial: { quote: "We bill 30% more hours without working longer. Associates hit targets without burning out.", name: 'Managing Partner', title: nil, company: nil, photo: nil },
-      technical_details: {
-        architecture: 'Secure document ingestion and analysis pipeline; research workflow with legal DB integration. All outputs go through attorney review before client use.',
-        features: ['Clause-by-clause contract analysis with reasoning and confidence scores', 'Research workflow with jurisdiction filtering and citation verification', 'Hallucination detection and human validation before citing in client work', 'Client documents never used for AI training'],
-        integrations: ['Westlaw', 'LexisNexis', 'document management', 'time/billing where applicable'],
-        security: ['Confidentiality and privilege preserved; AI assists, does not replace judgment', 'Audit trail for every AI suggestion and human decision', 'No AI output in court filings without attorney verification', 'Regular testing for AI drift and performance']
-      },
-      related_services: [{ label: 'Legal Services', path: industry_legal_path }, { label: 'AI Agent Development', path: ai_agent_development_path }]
-    },
-    {
-      slug: 'vestra-property',
-      title: 'Vestra – Property Management SaaS',
-      tagline: 'Automating Property Management with AI-Powered Simplicity',
-      hero_icon: 'fa-building',
-      client: { industry: 'Property Management / Real Estate', company_size: 'SMB', location: 'United States', challenge_type: 'Full platform build, AI automation' },
-      challenge: {
-        intro_paragraphs: ['The client needed a modern SaaS platform for property managers that could automate a large share of daily tasks while keeping financials, documents, and tenant communication in one place.', 'Existing tools were either too generic or too fragmented. They wanted one platform with AI-powered insights, flexible rent collection, real-time chat, and secure document storage, built for production from day one.'],
-        pain_points: ['Manual, repetitive property and tenant management tasks', 'Disconnected tools for rent, maintenance, and communication', 'Lack of real-time visibility and reporting', 'Need for AI that could support decisions without replacing manager judgment'],
-        why_existing: "Off-the-shelf property software didn't match the desired workflow or level of automation. A custom platform with integrated AI and a clear path to 80% task automation was the chosen approach."
-      },
-      solution: {
-        what_we_built: ['Unified property and tenant management dashboard', 'AI-powered financial insights and reporting', 'Flexible rent collection and payment tracking', 'Real-time chat for tenant and owner communication', 'Secure document storage and sharing', 'Automation for routine tasks (notices, reminders, status updates)'],
-        technical_approach: 'Full-stack SaaS with clear data model for properties, units, tenants, and transactions. AI used for insights and suggested actions; critical decisions and financial operations remained human-controlled with audit trails.',
-        timeline: 'Multi-phase engagement over 12+ months',
-        technologies: 'Rails, React, PostgreSQL, Stripe/payments, real-time messaging, background jobs, AI/ML for insights'
-      },
-      results: {
-        before_after: [{ before: 'Manual task load', after: '~80% of daily tasks automated' }, { before: 'Fragmented tools', after: 'Single platform for operations, finance, and communication' }],
-        metrics: ['Substantial automation of daily property management tasks', 'Unified financial and operational visibility', 'Faster tenant and owner communication', 'Secure, auditable document and payment flows'],
-        satisfaction: 'The client has continued to assign new contracts and rely on the team for ongoing development and support.',
-        outcomes: ['Production-ready SaaS with AI and automation', 'Scalable architecture for additional properties and features']
-      },
-      testimonial: { quote: "This is a stellar team! I have assigned new contracts to them for several years. A joy to work with. Smart people. Good people. Honest. Hard working. Excellent results.", name: 'Nathan Wolf', title: 'CEO', company: 'Vestra', photo: nil },
-      technical_details: {
-        architecture: 'Multi-tenant SaaS with properties, units, tenants, and transactions. Real-time features for chat and notifications; background jobs for automation and reporting.',
-        features: ['Property and unit hierarchy with tenant and lease management', 'Rent collection and payment tracking with Stripe integration', 'Document storage and sharing with access controls', 'AI-driven insights and suggested actions with human approval', 'Real-time chat and notification system'],
-        integrations: ['Stripe', 'email/SMS', 'document storage', 'analytics'],
-        security: ['Role-based access for managers, owners, and tenants', 'Audit logging for financial and document actions', 'Secure handling of PII and payment data', 'Regular security practices and dependency updates']
-      },
-      related_services: [{ label: 'B2B SaaS', path: industry_b2b_saas_path }, { label: 'AI Agent Development', path: ai_agent_development_path }]
-    },
-    {
-      slug: 'ai-support-automation',
-      title: 'AI Support & Outreach Automation',
-      tagline: 'Modular AI Agents for Support, Sales, and Operations',
-      hero_icon: 'fa-cogs',
-      client: { industry: 'Cross-industry (SaaS, healthcare, real estate, home services)', company_size: 'SMB to mid-market', location: 'United States & international', challenge_type: 'Support volume, lead follow-up, operations automation' },
-      challenge: {
-        intro_paragraphs: ['Multiple clients came to us with the same pattern: support queues growing, leads going cold, and operations teams stuck on repetitive tasks. They needed AI agents that could handle real conversations and workflows, not demos that broke in production.', 'We built a set of modular AI agents (support, outreach, operations) that could be tailored to each business and integrated with their existing tools, with governance and observability built in from the start.'],
-        pain_points: ['Support tickets piling up; slow or inconsistent responses', 'Leads not followed up in time; manual outreach not scaling', 'Repetitive operational tasks (scheduling, data entry, triage)', 'Need for AI that could escalate safely and leave full audit trails'],
-        why_existing: "Generic chatbots or point solutions didn't integrate with existing CRMs, ticketing, or workflows, or didn't support the governance (human-in-the-loop, audit, compliance) that enterprises required. We built agents that plug into real systems with clear escalation and logging."
-      },
-      solution: {
-        what_we_built: ['Support agents that resolve common tickets and escalate edge cases with full context', 'Sales and lead qualification agents (booking demos, answering FAQs, routing to humans)', 'Operations agents for scheduling, data enrichment, and internal triage', 'Multi-channel support (e.g. WhatsApp, voice, web) where required', 'Unified observability: logs, confidence scores, and escalation metrics'],
-        technical_approach: 'Modular agent design with shared governance layer (RBAC, audit, human-in-the-loop). Each deployment customized to client data, tools, and escalation rules. 3–8 week typical timeline from kickoff to production.',
-        timeline: '3–8 weeks per deployment (varies by scope)',
-        technologies: 'LangGraph, OpenAI/Anthropic, Twilio (voice/WhatsApp), pgvector, LangSmith/Helicone, client CRMs and ticketing'
-      },
-      results: {
-        before_after: [{ before: '5,127+ tickets (manual or backlog)', after: '5,127 tickets auto-resolved in first 90 days (one deployment)' }, { before: 'Manual lead follow-up', after: 'Qualified leads and demos booked by AI with human handoff' }, { before: 'Manual triage and data entry', after: 'Operations agents handling scheduling and enrichment with audit trails' }],
-        metrics: ['5,127+ tickets auto-resolved in first 90 days (Restaurant Directory support automation)', 'Faster response times and consistent answers; escalation when confidence drops', 'Lead follow-up and demo booking automated with CRM sync', 'Deployments across healthcare, real estate, SaaS, and home services'],
-        satisfaction: 'Clients could scale support and outreach without proportionally scaling headcount; governance gave compliance and leadership confidence.',
-        outcomes: ['Production-ready agents with human-in-the-loop and audit', 'Modular design for reuse across support, sales, and operations']
-      },
-      testimonial: { quote: "These agents aren't just cool demos. We built them to solve real problems for real teams, and they've been tested across industries like healthcare, real estate, SaaS, and home services.", name: 'Astechware', title: 'Team', company: nil, photo: nil },
-      technical_details: {
-        architecture: 'Modular agent framework with orchestration (e.g. LangGraph), shared governance (RBAC, audit, escalation), and per-client integrations (CRM, ticketing, messaging).',
-        features: ['Support agents with ticket resolution and escalation with context', 'Outreach and qualification agents with CRM sync and human handoff', 'Operations agents for scheduling, enrichment, and triage', 'Multi-channel (web, WhatsApp, voice) with consistent logging and escalation'],
-        integrations: ['HubSpot', 'Salesforce', 'Zendesk', 'Twilio', 'client CRMs and ticketing'],
-        security: ['Human-in-the-loop for high-stakes or low-confidence actions', 'Complete audit trails for every AI decision and data access', 'Role-based access; PII/PHI handling per client compliance needs', 'Observability dashboards and alerts for drift and errors']
-      },
-      related_services: [{ label: 'AI Agent Development', path: ai_agent_development_path }, { label: 'Healthcare Automation', path: industry_healthcare_path }, { label: 'Legal Services', path: industry_legal_path }]
-    }
-  ]
-%>
 <!-- Hero Section -->
 <div class="hero-section hero-portfolio py-5">
   <div class="container">
     <div class="row align-items-center min-vh-50">
       <div class="col-12 col-lg-9 mx-auto text-center">
-        <h1 class="display-4 fw-bold mb-4" style="font-size: clamp(32px, 5vw, 54px); line-height: 1.15;">
-          B2B SaaS AI Case Studies. Real Deployments, Real ROI.
+        <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(32px, 5vw, 54px); line-height: 1.15;">
+          Case Studies
         </h1>
-        <p class="lead mb-0" style="font-size: clamp(18px, 2.3vw, 22px); line-height: 1.6; max-width: 860px; margin-left: auto; margin-right: auto;">
-          We build production‑grade platforms first, then layer automation and AI where it actually removes friction and drives revenue.
-          Every case below reflects real constraints, real trade‑offs, and measurable results.
+        <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.3vw, 22px); line-height: 1.5; max-width: 860px; margin-left: auto; margin-right: auto;">
+          Proven Engineering for High-Stakes Environments
+        </p>
+        <p class="mb-0" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.7; max-width: 920px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
+          We don’t build demos. We build production-ready systems that handle real money, real data, and real-world complexity.
+          From autonomous logistics to private legal AI, explore how we’ve helped industry leaders scale, modernize, and automate.
         </p>
       </div>
     </div>
@@ -296,616 +26,365 @@
 </div>
 
 <div class="inner-sections">
-  <div class="bg-light-grey">
-    <div class="container py-5">
+  <section class="py-5 bg-light-grey" id="case-studies-gallery">
+    <div class="container">
       <div class="row">
-        <div class="col-12 col-lg-11 mx-auto port-main">
-
-          <!-- Case Studies (8-section template) -->
-          <section class="case-study-section mb-5" aria-label="Case studies">
-            <% if @case_studies.present? %>
-              <% @case_studies.each do |case_study| %>
-                <%= render 'case_study_detail', case_study: case_study %>
-              <% end %>
-            <% end %>
-          </section>
-
-
-          <!-- PATTERN ACROSS PROJECTS -->
-          <section class="case-study-section mb-5">
-            <div class="case-study-card">
-              <h2 class="h3 fw-bold mb-3">The Pattern Across Every Project</h2>
-              <p class="mb-3">
-                None of these started with “Let’s add AI.”
-                They started with:
-              </p>
-              <ul class="bullet-list mb-3">
-                <li>Broken operations</li>
-                <li>Manual bottlenecks</li>
-                <li>Lost revenue</li>
-                <li>Overworked teams</li>
-              </ul>
-              <p>Our approach is consistent:</p>
-              <ol>
-                <li><strong>Build or fix the platform</strong> ,  Stable foundation first</li>
-                <li><strong>Deploy AI with governance</strong> ,  Production-ready systems, not prototypes</li>
-                <li><strong>Measure results in money & time</strong> ,  ROI tracking from day one</li>
-                <li><strong>Iterate based on real usage</strong> ,  Continuous improvement with human feedback</li>
-              </ol>
-
-              <h4 class="h5 fw-bold mt-4 mb-3">Every AI System Includes:</h4>
-              <ul class="bullet-list">
-                <li><strong>Human-in-the-loop protocols</strong> for critical decisions and edge cases</li>
-                <li><strong>Complete audit trails</strong> logging every AI decision and data access</li>
-                <li><strong>Observability dashboards</strong> with real-time monitoring and alerts</li>
-                <li><strong>Compliance frameworks</strong> aligned with industry requirements (HIPAA, SOC 2, etc.)</li>
-                <li><strong>Escalation workflows</strong> when AI confidence drops or errors occur</li>
-                <li><strong>3-8 week deployment timeline</strong> for AI features (not 6-12 months)</li>
-              </ul>
+        <div class="col-12 col-lg-11 mx-auto">
+          <div class="text-center mb-4">
+            <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Filter by Industry</h2>
+            <div class="d-flex flex-wrap gap-2 justify-content-center case-filter-controls" role="tablist" aria-label="Filter case studies by industry">
+              <button type="button" class="btn btn-sm btn-primary rounded-pill px-3 case-filter-btn is-active" data-filter="all">All Work</button>
+              <button type="button" class="btn btn-sm btn-outline-primary rounded-pill px-3 case-filter-btn" data-filter="logistics">Logistics &amp; Operations</button>
+              <button type="button" class="btn btn-sm btn-outline-primary rounded-pill px-3 case-filter-btn" data-filter="healthcare">Healthcare &amp; Medical</button>
+              <button type="button" class="btn btn-sm btn-outline-primary rounded-pill px-3 case-filter-btn" data-filter="legal">Legal Tech</button>
+              <button type="button" class="btn btn-sm btn-outline-primary rounded-pill px-3 case-filter-btn" data-filter="fintech_saas">FinTech &amp; SaaS</button>
             </div>
-          </section>
+          </div>
 
-          <!-- FINAL CTA -->
-          <section class="case-study-section mb-5">
-            <div class="case-study-cta text-center text-md-start py-5 px-4 px-md-5">
-              <div class="row align-items-center g-4">
-                <div class="col-12 col-md-7 col-lg-8">
-                  <h2 class="heading-border heading-center heading-left fw-bold mb-3 pb-3 d-inline-block">
-                    Ready to Build Something Similar?
-                  </h2>
-                  <p class="lead mb-3">
-                    Most clients start with a <strong>Free AI Readiness Assessment</strong> ,  a 30-minute diagnostic call where we:
-                  </p>
-                  <ul class="bullet-list mb-0">
-                    <li>Audit your workflows for AI automation opportunities</li>
-                    <li>Map potential ROI for your top 3 use cases</li>
-                    <li>Design a governance framework your board will approve</li>
-                    <li>Outline a realistic, milestone-based timeline and budget</li>
-                  </ul>
+          <div class="row g-4" id="caseStudiesGrid">
+            <!-- Logistics & Operations -->
+            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="logistics fintech_saas">
+              <%= link_to case_study_path('shoreline-waste-logistics'), class: "text-decoration-none text-dark d-block h-100" do %>
+              <div class="case-study-tile-card p-4 h-100">
+                <div class="d-flex align-items-start justify-content-between gap-3 mb-2">
+                  <h3 class="h5 mb-0">Shoreline Waste</h3>
+                  <span class="badge bg-primary-soft">Logistics</span>
                 </div>
-                <div class="col-12 col-md-5 col-lg-4 d-flex justify-content-center justify-content-md-end">
-                  <div class="text-center text-md-end">
-                    <p class="small text-muted mb-2">
-                      No pressure, no retainers ,  just a practical roadmap you can use with or without us.
-                    </p>
-                    <a
-                      href="https://calendly.com/ahmadkamran/new-meeting"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="btn btn-primary btn-lg rounded-pill px-4 px-md-5 mb-2"
-                      style="white-space: nowrap;"
-                    >
-                      Book a Free Assessment
-                    </a>
-                    <p class="small text-muted mb-0">Avg. response within 1 business day.</p>
-                  </div>
+                <p class="small text-muted mb-2">AI Route Optimization &amp; Driver Dispatch Platform.</p>
+                <p class="mb-3 small"><strong>The Win:</strong> 100% automated routing; 22% fuel reduction.</p>
+                <div class="d-flex flex-wrap gap-2">
+                  <span class="badge rounded-pill text-bg-light">Logistics &amp; Operations</span>
+                  <span class="badge rounded-pill text-bg-light">Dispatch</span>
+                  <span class="badge rounded-pill text-bg-light">Route Optimization</span>
                 </div>
               </div>
+              <% end %>
             </div>
-          </section>
+
+            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="logistics">
+              <%= link_to case_study_path('red-dragon-hvac'), class: "text-decoration-none text-dark d-block h-100" do %>
+              <div class="case-study-tile-card p-4 h-100">
+                <div class="d-flex align-items-start justify-content-between gap-3 mb-2">
+                  <h3 class="h5 mb-0">Red Dragon HVAC</h3>
+                  <span class="badge bg-primary-soft">Operations</span>
+                </div>
+                <p class="small text-muted mb-2">MMS-to-Social AI Marketing Pipeline.</p>
+                <p class="mb-3 small"><strong>The Win:</strong> 3x increase in organic local leads via automated field proof.</p>
+                <div class="d-flex flex-wrap gap-2">
+                  <span class="badge rounded-pill text-bg-light">Logistics &amp; Operations</span>
+                  <span class="badge rounded-pill text-bg-light">Field Ops</span>
+                  <span class="badge rounded-pill text-bg-light">AI Automation</span>
+                </div>
+              </div>
+              <% end %>
+            </div>
+
+            <!-- Healthcare & Medical -->
+            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="healthcare">
+              <%= link_to case_study_path('medical-voice-ai'), class: "text-decoration-none text-dark d-block h-100" do %>
+              <div class="case-study-tile-card p-4 h-100">
+                <div class="d-flex align-items-start justify-content-between gap-3 mb-2">
+                  <h3 class="h5 mb-0">Medical Voice AI</h3>
+                  <span class="badge bg-primary-soft">HIPAA</span>
+                </div>
+                <p class="small text-muted mb-2">24/7 Autonomous Clinical Triage &amp; Booking.</p>
+                <p class="mb-3 small"><strong>The Win:</strong> 35% → 6% no-show reduction; $28k/mo recovered revenue.</p>
+                <div class="d-flex flex-wrap gap-2">
+                  <span class="badge rounded-pill text-bg-light">Healthcare &amp; Medical</span>
+                  <span class="badge rounded-pill text-bg-light">Voice AI</span>
+                  <span class="badge rounded-pill text-bg-light">Triage</span>
+                </div>
+              </div>
+              <% end %>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="healthcare">
+              <%= link_to case_study_path('athenahealth-sync'), class: "text-decoration-none text-dark d-block h-100" do %>
+              <div class="case-study-tile-card p-4 h-100">
+                <div class="d-flex align-items-start justify-content-between gap-3 mb-2">
+                  <h3 class="h5 mb-0">Athenahealth Enterprise</h3>
+                  <span class="badge bg-primary-soft">FHIR</span>
+                </div>
+                <p class="small text-muted mb-2">Bi-directional EHR Sync for Multi-Location Groups.</p>
+                <p class="mb-3 small"><strong>The Win:</strong> Zero-latency data flow across 15+ clinical sites.</p>
+                <div class="d-flex flex-wrap gap-2">
+                  <span class="badge rounded-pill text-bg-light">Healthcare &amp; Medical</span>
+                  <span class="badge rounded-pill text-bg-light">EHR Sync</span>
+                  <span class="badge rounded-pill text-bg-light">Interoperability</span>
+                </div>
+              </div>
+              <% end %>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="healthcare">
+              <%= link_to case_study_path('ai-medical-scribe'), class: "text-decoration-none text-dark d-block h-100" do %>
+              <div class="case-study-tile-card p-4 h-100">
+                <div class="d-flex align-items-start justify-content-between gap-3 mb-2">
+                  <h3 class="h5 mb-0">Ambient AI Scribe</h3>
+                  <span class="badge bg-primary-soft">Clinicians</span>
+                </div>
+                <p class="small text-muted mb-2">Instant SOAP Note Generation for Clinicians.</p>
+                <p class="mb-3 small"><strong>The Win:</strong> 70% reduction in daily documentation “Pajama Time.”</p>
+                <div class="d-flex flex-wrap gap-2">
+                  <span class="badge rounded-pill text-bg-light">Healthcare &amp; Medical</span>
+                  <span class="badge rounded-pill text-bg-light">Documentation</span>
+                  <span class="badge rounded-pill text-bg-light">Automation</span>
+                </div>
+              </div>
+              <% end %>
+            </div>
+
+            <!-- Legal Tech -->
+            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="legal">
+              <%= link_to case_study_path('legal-contract-ai'), class: "text-decoration-none text-dark d-block h-100" do %>
+              <div class="case-study-tile-card p-4 h-100">
+                <div class="d-flex align-items-start justify-content-between gap-3 mb-2">
+                  <h3 class="h5 mb-0">Private AI Discovery</h3>
+                  <span class="badge bg-primary-soft">Private</span>
+                </div>
+                <p class="small text-muted mb-2">Red/Amber/Green Risk Scoring for M&amp;A.</p>
+                <p class="mb-3 small"><strong>The Win:</strong> 75% faster contract due diligence with 100% data privacy.</p>
+                <div class="d-flex flex-wrap gap-2">
+                  <span class="badge rounded-pill text-bg-light">Legal Tech</span>
+                  <span class="badge rounded-pill text-bg-light">Playbook Review</span>
+                  <span class="badge rounded-pill text-bg-light">Risk Scoring</span>
+                </div>
+              </div>
+              <% end %>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="legal">
+              <%= link_to case_study_path('legal-affidavit-engine'), class: "text-decoration-none text-dark d-block h-100" do %>
+              <div class="case-study-tile-card p-4 h-100">
+                <div class="d-flex align-items-start justify-content-between gap-3 mb-2">
+                  <h3 class="h5 mb-0">AI Affidavit Engine</h3>
+                  <span class="badge bg-primary-soft">Docs</span>
+                </div>
+                <p class="small text-muted mb-2">Automated PDF Assembly from Raw Evidence.</p>
+                <p class="mb-3 small"><strong>The Win:</strong> Drafting time reduced from 10 hours to 2 hours per case.</p>
+                <div class="d-flex flex-wrap gap-2">
+                  <span class="badge rounded-pill text-bg-light">Legal Tech</span>
+                  <span class="badge rounded-pill text-bg-light">Document Automation</span>
+                  <span class="badge rounded-pill text-bg-light">PDF Pipelines</span>
+                </div>
+              </div>
+              <% end %>
+            </div>
+
+            <!-- FinTech & PropTech -->
+            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="fintech_saas logistics">
+              <%= link_to case_study_path('vestra-payments'), class: "text-decoration-none text-dark d-block h-100" do %>
+              <div class="case-study-tile-card p-4 h-100">
+                <div class="d-flex align-items-start justify-content-between gap-3 mb-2">
+                  <h3 class="h5 mb-0">Vestra</h3>
+                  <span class="badge bg-primary-soft">Payments</span>
+                </div>
+                <p class="small text-muted mb-2">Multi-Party Payment Orchestration &amp; Fee Splitting.</p>
+                <p class="mb-3 small"><strong>The Win:</strong> 100% automated fund distribution; zero manual reconciliation.</p>
+                <div class="d-flex flex-wrap gap-2">
+                  <span class="badge rounded-pill text-bg-light">FinTech &amp; SaaS</span>
+                  <span class="badge rounded-pill text-bg-light">Stripe Connect</span>
+                  <span class="badge rounded-pill text-bg-light">Ledger</span>
+                </div>
+              </div>
+              <% end %>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="fintech_saas">
+              <%= link_to case_study_path('zofi-cash-fintech'), class: "text-decoration-none text-dark d-block h-100" do %>
+              <div class="case-study-tile-card p-4 h-100">
+                <div class="d-flex align-items-start justify-content-between gap-3 mb-2">
+                  <h3 class="h5 mb-0">Zofi Cash</h3>
+                  <span class="badge bg-primary-soft">EWA</span>
+                </div>
+                <p class="small text-muted mb-2">Salary Advance (EWA) Platform &amp; Payroll Integration.</p>
+                <p class="mb-3 small"><strong>The Win:</strong> Real-time liquidity for 10,000+ employees with zero default risk.</p>
+                <div class="d-flex flex-wrap gap-2">
+                  <span class="badge rounded-pill text-bg-light">FinTech &amp; SaaS</span>
+                  <span class="badge rounded-pill text-bg-light">Payroll Sync</span>
+                  <span class="badge rounded-pill text-bg-light">Risk</span>
+                </div>
+              </div>
+              <% end %>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="fintech_saas logistics">
+              <%= link_to case_study_path('instashowing-real-estate'), class: "text-decoration-none text-dark d-block h-100" do %>
+              <div class="case-study-tile-card p-4 h-100">
+                <div class="d-flex align-items-start justify-content-between gap-3 mb-2">
+                  <h3 class="h5 mb-0">InstaShowing</h3>
+                  <span class="badge bg-primary-soft">PropTech</span>
+                </div>
+                <p class="small text-muted mb-2">Real Estate Scheduling &amp; Offer Management Ledger.</p>
+                <p class="mb-3 small"><strong>The Win:</strong> 70% reduction in scheduling friction for agents and owners.</p>
+                <div class="d-flex flex-wrap gap-2">
+                  <span class="badge rounded-pill text-bg-light">FinTech &amp; SaaS</span>
+                  <span class="badge rounded-pill text-bg-light">Scheduling</span>
+                  <span class="badge rounded-pill text-bg-light">Operations</span>
+                </div>
+              </div>
+              <% end %>
+            </div>
+
+            <!-- B2B SaaS & Platform Modernization -->
+            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="fintech_saas">
+              <%= link_to case_study_path('golfpay360-saas'), class: "text-decoration-none text-dark d-block h-100" do %>
+              <div class="case-study-tile-card p-4 h-100">
+                <div class="d-flex align-items-start justify-content-between gap-3 mb-2">
+                  <h3 class="h5 mb-0">GolfPay360</h3>
+                  <span class="badge bg-primary-soft">SaaS</span>
+                </div>
+                <p class="small text-muted mb-2">High-Concurrency Booking Engine &amp; POS Integration.</p>
+                <p class="mb-3 small"><strong>The Win:</strong> 84% shift to online booking; saved 120+ admin hours monthly.</p>
+                <div class="d-flex flex-wrap gap-2">
+                  <span class="badge rounded-pill text-bg-light">FinTech &amp; SaaS</span>
+                  <span class="badge rounded-pill text-bg-light">High Concurrency</span>
+                  <span class="badge rounded-pill text-bg-light">POS</span>
+                </div>
+              </div>
+              <% end %>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="fintech_saas">
+              <%= link_to case_study_path('word-of-mouth-modernization'), class: "text-decoration-none text-dark d-block h-100" do %>
+              <div class="case-study-tile-card p-4 h-100">
+                <div class="d-flex align-items-start justify-content-between gap-3 mb-2">
+                  <h3 class="h5 mb-0">Word of Mouth</h3>
+                  <span class="badge bg-primary-soft">Rescue</span>
+                </div>
+                <p class="small text-muted mb-2">Legacy Marketplace Rescue &amp; Modernization.</p>
+                <p class="mb-3 small"><strong>The Win:</strong> 10x developer velocity; 60% faster page loads.</p>
+                <div class="d-flex flex-wrap gap-2">
+                  <span class="badge rounded-pill text-bg-light">FinTech &amp; SaaS</span>
+                  <span class="badge rounded-pill text-bg-light">Modernization</span>
+                  <span class="badge rounded-pill text-bg-light">Marketplace</span>
+                </div>
+              </div>
+              <% end %>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="fintech_saas">
+              <%= link_to case_study_path('restaurant-resource-rescue'), class: "text-decoration-none text-dark d-block h-100" do %>
+              <div class="case-study-tile-card p-4 h-100">
+                <div class="d-flex align-items-start justify-content-between gap-3 mb-2">
+                  <h3 class="h5 mb-0">Restaurant Resource</h3>
+                  <span class="badge bg-primary-soft">Search</span>
+                </div>
+                <p class="small text-muted mb-2">Legacy Database Rescue &amp; Semantic Search.</p>
+                <p class="mb-3 small"><strong>The Win:</strong> 12s search reduced to &lt;300ms; 99.9% uptime restored.</p>
+                <div class="d-flex flex-wrap gap-2">
+                  <span class="badge rounded-pill text-bg-light">FinTech &amp; SaaS</span>
+                  <span class="badge rounded-pill text-bg-light">Search</span>
+                  <span class="badge rounded-pill text-bg-light">Rescue</span>
+                </div>
+              </div>
+              <% end %>
+            </div>
+          </div>
 
         </div>
       </div>
     </div>
-  </div>
+  </section>
+
+  <section class="py-5 bg-white" id="why-us">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Why Partner With Us?</h2>
+          <p class="large-para mb-4">Beyond the Codebase</p>
+          <p class="large-para mb-4">Every project in our portfolio shares three core engineering principles:</p>
+          <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
+            <li><strong>Survive Production:</strong> We build for messy data, high concurrency, and real-world edge cases.</li>
+            <li><strong>Governance by Design:</strong> Human-in-the-loop protocols and full audit trails are standard, not optional.</li>
+            <li><strong>Zero Vendor Lock-in:</strong> You own the code, the documentation, and the infrastructure. We are your partners, not your bottleneck.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey" id="case-studies-cta">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto text-center">
+          <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Ready to build your own success story?</h2>
+          <p class="lead mb-4">Let’s map your systems, identify the highest-impact engineering moves, and ship safely—without “big bang” rewrites.</p>
+          <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5 me-2 mb-2">Schedule a Technical Discovery Call</a>
+          <%= link_to "View our Services", root_path(anchor: "services"), class: "btn btn-outline-primary btn-lg rounded-pill px-5 mb-2 ajax" %>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>
 
 <style>
-  /* Case Studies – Hero */
-  .case-study-label {
-    letter-spacing: 0.08em;
-    font-size: 0.8rem;
-    color: var(--site-color);
-  }
-
-  .hero-subline {
-    font-size: clamp(18px, 2.2vw, 22px);
-    font-weight: 500;
-    margin-top: 0.35rem;
-  }
-
-  /* Case Studies – Heading Scale (closer to home page) */
-  .case-study-card .h3 {
-    font-size: clamp(1.6rem, 2.2vw, 1.9rem);
-  }
-
-  .case-study-card .h5 {
-    font-size: 1.15rem;
-  }
-
-  .case-summary-card .h5 {
-    font-size: 1.2rem;
-  }
-
-  .case-summary-card .h6 {
-    font-size: 1.02rem;
-  }
-
-  .case-study-section .heading-border {
-    font-size: clamp(1.9rem, 2.6vw, 2.1rem);
-  }
-
-  /* Case Studies – Layout */
-  .case-study-section {
-    position: relative;
-    z-index: 1;
-  }
-
-  .case-study-card {
-    background: #ffffff;
-    border-radius: 14px;
-    border: 1px solid #e9ecef;
-    box-shadow: 0 4px 18px rgba(15, 23, 42, 0.06);
-    padding: 24px 24px 26px;
-  }
-
-  .case-study-card-soft {
-    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
-  }
-
-  .case-study-header p {
-    font-size: 0.98rem;
-  }
-
   .bg-primary-soft {
-    background: rgba(33, 150, 243, 0.08);
+    background: rgba(33, 150, 243, 0.10);
     color: #1976d2;
   }
 
-  /* Lists / Content */
-  .check-list,
-  .bullet-list,
-  .metric-list,
-  .numbered-list {
-    padding-left: 1.2rem;
-  }
-
-  .check-list li,
-  .bullet-list li,
-  .metric-list li {
-    font-size: 0.95rem;
-    margin-bottom: 0.35rem;
-  }
-
-  .numbered-list li {
-    font-size: 0.96rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .impact-text {
-    font-size: 0.95rem;
-    color: #495057;
-  }
-
-  .system-block + .system-block {
-    border-top: 1px solid #f1f3f5;
-    padding-top: 1rem;
-  }
-
-  .metric-card {
-    background: #f9fafb;
-    border-radius: 10px;
-    padding: 14px 16px;
-    border: 1px solid #edf2f7;
-  }
-
-  .metric-card h4 {
-    font-weight: 600;
-  }
-
-  .case-study-perspective p {
-    font-size: 0.97rem;
-  }
-
-  /* Case Summaries Grid */
-  .case-summary-card {
+  .case-study-tile-card {
     background: #ffffff;
     border-radius: 14px;
     border: 1px solid #e9ecef;
-    padding: 20px 20px 22px;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 2px 14px rgba(15, 23, 42, 0.05);
+    box-shadow: 0 2px 14px rgba(15, 23, 42, 0.06);
     transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
   }
 
-  .case-summary-card:hover {
+  .case-study-tile-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 28px rgba(15, 23, 42, 0.12);
     border-color: var(--site-color);
   }
 
-  .case-summary-icon {
-    width: 60px;
-    height: 60px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, var(--site-color) 0%, #e6b020 100%);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 28px;
-    margin-bottom: 10px;
-    color: #ffffff;
-    box-shadow: 0 4px 14px rgba(249, 196, 46, 0.4);
+  .case-study-tile.is-hidden {
+    display: none !important;
   }
-
-  .case-summary-tag {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #6c757d;
-  }
-
-  .testimonial {
-    font-size: 0.92rem;
-    border-top: 1px dashed #e0e0e0;
-    padding-top: 0.75rem;
-  }
-
-  .testimonial span {
-    font-size: 0.8rem;
-  }
-
-  .case-study-cta {
-    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f3f4ff 100%);
-    border-radius: 16px;
-    border: 1px solid #e0e7ff;
-    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .case-study-cta::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(circle at top left, rgba(249, 196, 46, 0.16), transparent 55%),
-      radial-gradient(circle at bottom right, rgba(25, 118, 210, 0.14), transparent 55%);
-    opacity: 0.9;
-    pointer-events: none;
-  }
-
-  .case-study-cta > .row {
-    position: relative;
-    z-index: 1;
-  }
-
-  .case-study-cta .lead {
-    font-size: 1.05rem;
-  }
-
-  .case-study-cta .bullet-list li {
-    font-size: 0.98rem;
-  }
-
-  .case-study-cta .btn {
-    box-shadow: 0 10px 25px rgba(25, 118, 210, 0.25);
-  }
-
-  /* Case detail template (8-section) */
-  .case-detail {
-    background: #ffffff;
-    border-radius: 14px;
-    border: 1px solid #e9ecef;
-    box-shadow: 0 2px 14px rgba(15, 23, 42, 0.05);
-    padding: 24px 24px 28px;
-  }
-
-  .case-detail-hero {
-    border-radius: 12px;
-    overflow: hidden;
-    background: linear-gradient(135deg, #f8fafc 0%, #e9ecef 100%);
-  }
-
-  .case-detail-hero-img {
-    display: block;
-    max-height: 320px;
-    object-fit: cover;
-  }
-
-  .case-detail-hero-placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    min-height: 140px;
-    padding: 24px;
-    color: var(--site-color);
-  }
-
-  .case-detail-hero-placeholder .fa {
-    font-size: 2.5rem;
-    opacity: 0.9;
-  }
-
-  .case-detail-hero-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--text-color);
-  }
-
-  .case-detail-client-box {
-    background: #f8fafc;
-    border-radius: 12px;
-    padding: 18px 20px;
-    border: 1px solid #edf2f7;
-  }
-
-  .case-detail-client-label {
-    display: block;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: #6c757d;
-    margin-bottom: 2px;
-  }
-
-  .case-detail-client-value {
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--text-color);
-  }
-
-  .case-detail-heading {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-bottom: 0.75rem;
-    color: var(--text-color);
-  }
-
-  .case-detail-para {
-    font-size: 0.98rem;
-    line-height: 1.6;
-    color: #495057;
-  }
-
-  .case-detail-meta {
-    font-size: 0.92rem;
-    color: #6c757d;
-  }
-
-  .case-detail-metric-card {
-    background: #f8fafc;
-    border-radius: 10px;
-    padding: 14px 16px;
-    border: 1px solid #e9ecef;
-    font-size: 0.9rem;
-  }
-
-  .case-detail-metric-before {
-    color: #6c757d;
-    text-decoration: line-through;
-  }
-
-  .case-detail-metric-arrow {
-    margin: 0 8px;
-    font-size: 0.8rem;
-    color: var(--site-color);
-  }
-
-  .case-detail-metric-after {
-    font-weight: 600;
-    color: var(--text-color);
-  }
-
-  .case-detail-quote {
-    border-left: 4px solid var(--site-color);
-    padding-left: 1rem;
-    margin: 0;
-    font-style: italic;
-    color: #495057;
-  }
-
-  .case-detail-quote-footer {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-top: 0.5rem;
-  }
-
-  .case-detail-quote-photo {
-    width: 48px;
-    height: 48px;
-    object-fit: cover;
-  }
-
-  .case-detail-accordion .accordion-button {
-    font-size: 0.95rem;
-    font-weight: 600;
-  }
-
-  .case-detail-related .btn {
-    white-space: nowrap;
-  }
-
-  @media (max-width: 768px) {
-    .case-study-card,
-    .case-summary-card {
-      padding: 18px 16px 20px;
-    }
-
-    .case-detail {
-      padding: 18px 16px 22px;
-    }
-
-    .hero-subline {
-      font-size: 1rem;
-    }
-  }
-</style>
-
-<div id="devExperiencePopup" class="dev-experience-popup">
-   <div class="popup-content">
-      <button class="popup-close" id="closePopup" aria-label="Close popup">
-         <i class="fa fa-times"></i>
-      </button>
-      <div class="popup-body">
-         <p class="popup-text mb-2">
-            <strong>Worried about bad dev experiences?</strong>
-         </p>
-         <p class="popup-text mb-0">
-            See how we structure projects to protect clients → 
-            <a href="/how-we-derisk-projects" class="popup-link">How we de-risk projects</a>
-         </p>
-      </div>
-   </div>
-</div>
-
-<style>
-   .dev-experience-popup {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 9999;
-      max-width: 380px;
-      opacity: 0;
-      transform: translateX(100%);
-      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      pointer-events: none;
-   }
-
-   .dev-experience-popup.show {
-      opacity: 1;
-      transform: translateX(0);
-      pointer-events: all;
-   }
-
-   .popup-content {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05);
-      padding: 20px;
-      position: relative;
-      border-left: 4px solid var(--site-color);
-   }
-
-   .popup-close {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: transparent;
-      border: none;
-      color: #6c757d;
-      font-size: 18px;
-      cursor: pointer;
-      padding: 5px 8px;
-      line-height: 1;
-      transition: all 0.2s;
-      border-radius: 4px;
-   }
-
-   .popup-close:hover {
-      color: var(--text-color);
-      background: #f8f9fa;
-   }
-
-   .popup-body {
-      padding-right: 25px;
-   }
-
-   .popup-text {
-      font-size: 14px;
-      line-height: 1.5;
-      color: var(--text-color);
-      margin: 0;
-   }
-
-   .popup-text strong {
-      color: var(--text-color);
-      font-weight: 600;
-   }
-
-   .popup-link {
-      color: var(--site-color);
-      # text-decoration: underline;
-      font-weight: 600;
-      transition: all 0.2s;
-      border-bottom: 1px solid var(--text-color);
-   }
-
-   .popup-link:hover {
-      color: var(--site-color-hover);
-      border-bottom-color: var(--site-color);
-   }
-
-   @media (max-width: 768px) {
-      .dev-experience-popup {
-         max-width: calc(100% - 40px);
-         bottom: 15px;
-         right: 15px;
-         left: 15px;
-      }
-   }
 </style>
 
 <script>
-  function initCaseStudiesPage() {
-    const popup = document.getElementById('devExperiencePopup');
-    const closeBtn = document.getElementById('closePopup');
+  function initCaseStudiesFiltering() {
+    const grid = document.getElementById('caseStudiesGrid');
+    if (!grid) return;
 
-    // Show popup after 2 seconds
-    setTimeout(function() {
-      if (popup) {
-        popup.classList.add('show');
-      }
-    }, 2000);
+    const buttons = Array.from(document.querySelectorAll('.case-filter-btn'));
+    const tiles = Array.from(grid.querySelectorAll('.case-study-tile'));
 
-    // Close popup on button click
-    if (closeBtn) {
-      closeBtn.addEventListener('click', function() {
-        if (popup) {
-          popup.classList.remove('show');
-        }
+    function setActiveButton(activeBtn) {
+      buttons.forEach((btn) => {
+        const isActive = btn === activeBtn;
+        btn.classList.toggle('is-active', isActive);
+        btn.classList.toggle('btn-primary', isActive);
+        btn.classList.toggle('btn-outline-primary', !isActive);
+        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
       });
     }
 
-    // Close popup when clicking outside (optional)
-    document.addEventListener('click', function(e) {
-      if (popup && popup.classList.contains('show')) {
-        if (!popup.contains(e.target) && !e.target.closest('.dev-experience-popup')) {
-        }
-      }
-    });
-
-    // Smooth scrolling to case study anchors with offset
-    const hash = window.location.hash;
-    const SCROLL_OFFSET = 120; // keep section a bit higher on screen
-    const SCROLL_DURATION = 900; // slower scroll (ms)
-
-    function smoothScrollToTarget(target) {
-      const startY = window.pageYOffset;
-      const targetRect = target.getBoundingClientRect();
-      const targetY = targetRect.top + window.pageYOffset - SCROLL_OFFSET;
-      const distance = targetY - startY;
-      const startTime = performance.now();
-
-      function step(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / SCROLL_DURATION, 1);
-        // easeInOut
-        const ease = 0.5 * (1 - Math.cos(Math.PI * progress));
-        window.scrollTo(0, startY + distance * ease);
-        if (progress < 1) {
-          requestAnimationFrame(step);
-        }
-      }
-
-      requestAnimationFrame(step);
+    function applyFilter(filter) {
+      tiles.forEach((tile) => {
+        const categories = (tile.getAttribute('data-categories') || '').split(/\s+/).filter(Boolean);
+        const shouldShow = filter === 'all' ? true : categories.includes(filter);
+        tile.classList.toggle('is-hidden', !shouldShow);
+      });
     }
 
-    if (hash) {
-      const target = document.querySelector(hash);
-      if (target) {
-        // Start from top, then animate down with offset
-        window.scrollTo(0, 0);
-        setTimeout(function() {
-          smoothScrollToTarget(target);
-        }, 50);
-      }
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter') || 'all';
+        setActiveButton(btn);
+        applyFilter(filter);
+      });
+    });
+
+    // Default
+    const defaultBtn = buttons.find((b) => b.getAttribute('data-filter') === 'all') || buttons[0];
+    if (defaultBtn) {
+      setActiveButton(defaultBtn);
+      applyFilter('all');
     }
   }
 
-  document.addEventListener('DOMContentLoaded', initCaseStudiesPage);
-  document.addEventListener('turbo:load', initCaseStudiesPage);
+  document.addEventListener('DOMContentLoaded', initCaseStudiesFiltering);
+  document.addEventListener('turbo:load', initCaseStudiesFiltering);
 </script>

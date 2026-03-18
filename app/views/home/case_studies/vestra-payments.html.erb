@@ -1,0 +1,114 @@
+<div class="hero-section py-5 service-page-hero">
+  <div class="container">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-12 col-lg-10 mx-auto text-center">
+        <h1 class="display-5 fw-bold mb-3" style="font-size: clamp(28px, 4.5vw, 52px); line-height: 1.15;">
+          Vestra Payment Orchestration
+        </h1>
+        <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.3vw, 22px); line-height: 1.5; max-width: 980px; margin-left: auto; margin-right: auto;">
+          Multi-Party Split Payments, Ledger-First Settlement, and Instant Payouts
+        </p>
+        <p class="mb-0" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.7; max-width: 980px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
+          Property managers eliminated manual splits and compliance risk with a custom ledger that automates flow-of-funds from the moment a tenant clicks “Pay.”
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="inner-sections">
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">The Challenge</h2>
+        <p class="large-para mb-0">
+          Property managers were manually calculating splits between owners (90%), platform fees (3%), and maintenance reserves (7%). This created a major month-end bottleneck and a compliance risk.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">The Solution</h2>
+        <p class="large-para mb-0">
+          We built a custom FinTech ledger that automates the entire <strong>flow of funds</strong> and executes split logic deterministically before money moves.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Technical Approach</h2>
+        <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
+          <li><strong>Ledger-First Design:</strong> Implemented double-entry bookkeeping in the database so every penny is accounted for before settlement.</li>
+          <li><strong>Idempotent Retries:</strong> Built idempotency into split operations so retries never duplicate movements—even when requests are sent twice.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Technical Details</h2>
+        <div class="row g-4">
+          <div class="col-12 col-md-6">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">Architecture</h3>
+              <p class="mb-0 small">Next.js (Frontend) → NestJS (Backend) → Stripe Connect (Express Accounts)</p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">Integrations</h3>
+              <p class="mb-0 small">Plaid (ACH verification) + Stripe (card and wallets).</p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">Security</h3>
+              <p class="mb-0 small">PCI-DSS Level 1; AES-256 encryption; multi-sig admin approvals for large withdrawals.</p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">AI Features</h3>
+              <p class="mb-0 small">Fraud detection agent that monitors unusual patterns and pauses payouts for manual review.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Results &amp; Impact</h2>
+        <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
+          <li><strong>Zero</strong> manual reconciliation required at month-end.</li>
+          <li><strong>100%</strong> automated fee distribution across thousands of properties.</li>
+          <li><strong>Instant liquidity:</strong> owners can “Instant Cash Out” via push-to-card payouts.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto text-center">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Ready to build something similar?</h2>
+        <p class="lead mb-4">We’ll design your ledger + settlement flows for correctness, auditability, and reliability under real payment failures.</p>
+        <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5 me-2 mb-2">
+          Schedule a Technical Discovery Call
+        </a>
+        <%= link_to "View our Services", root_path(anchor: "services"), class: "btn btn-outline-primary btn-lg rounded-pill px-5 mb-2 ajax" %>
+      </div>
+    </div>
+  </section>
+</div>
+
