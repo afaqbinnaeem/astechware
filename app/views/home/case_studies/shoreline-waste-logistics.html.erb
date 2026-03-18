@@ -3,13 +3,13 @@
     <div class="row align-items-center min-vh-50">
       <div class="col-12 col-lg-10 mx-auto text-center">
         <h1 class="display-5 fw-bold mb-3" style="font-size: clamp(28px, 4.5vw, 52px); line-height: 1.15;">
-          Shoreline Waste Logistics &amp; Route AI
+          Geospatial Logistics &amp; Fleet Orchestration Platform
         </h1>
         <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.3vw, 22px); line-height: 1.5; max-width: 980px; margin-left: auto; margin-right: auto;">
-          AI Route Optimization &amp; Driver Dispatch Platform
+          Shoreline Waste AI Route Optimization
         </p>
         <p class="mb-0" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.7; max-width: 980px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
-          A trash hauling operator replaced static paper routes with a real-time dispatch + proof-of-service system that reduces fuel spend and eliminates disputes.
+          A full-stack logistics &amp; telematics platform that modernizes dispatching, proves service completion, and optimizes routes in real time without disrupting daily operations.
         </p>
       </div>
     </div>
@@ -19,11 +19,29 @@
 <div class="inner-sections">
   <section class="py-5 bg-white">
     <div class="container">
-      <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">The Challenge</h2>
-        <p class="large-para mb-0">
-          A trash hauling company was operating on static, paper-based routes. Drivers were missing bins, fuel costs were rising, and there was no reliable way to prove a pickup was attempted.
-        </p>
+      <div class="row g-4 align-items-start">
+        <div class="col-12 col-lg-7">
+          <h2 class="heading-border heading-center heading-left mb-4 pb-3 d-inline-block">The Challenge</h2>
+          <p class="large-para mb-3">
+            A regional waste management provider relied on static, legacy route sheets. Drivers frequently deviated from optimal paths, fuel costs were unmonitored, and missed pick-up disputes
+            were unresolvable due to lack of visual evidence.
+          </p>
+          <p class="large-para mb-0">
+            The goal was to modernize fleet operations without disrupting daily proof-of-service requirements. “Close enough” routing doesn’t work at scale: exceptions are constant (blocked bins,
+            on-call adds), and without GPS-verified proof-of-work, customer claims turn into refunds and operational churn.
+          </p>
+        </div>
+        <div class="col-12 col-lg-5">
+          <div class="workflow-card p-4">
+            <h3 class="h6 text-uppercase text-muted mb-3">Quick Stats</h3>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li><strong>Mapping:</strong> Fleet Engine + PostGIS</li>
+              <li><strong>Proof:</strong> Geofence-verified photo logs</li>
+              <li><strong>Automation:</strong> Dispatch → Billing triggers</li>
+              <li><strong>Impact:</strong> 22% fuel savings; 90% fewer claims</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -32,8 +50,12 @@
     <div class="container">
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">The Solution</h2>
+        <p class="large-para mb-3">
+          We developed a full-stack logistics &amp; telematics platform that uses AI to solve route sequencing in real time, paired with a ruggedized mobile app for field execution.
+        </p>
         <p class="large-para mb-0">
-          We built a full-stack logistics engine: an <strong>AI Route Planner</strong> for dispatch and a ruggedized <strong>mobile driver app</strong> for proof-of-service and real-time updates.
+          Dispatchers get an AI route planner and live fleet visibility; drivers get a low-friction workflow that captures proof-of-work at the right moment. Proof-of-service is built into
+          the operational loop, and completion events can trigger billing automatically—keeping dispatch, finance, and customer support synchronized.
         </p>
       </div>
     </div>
@@ -44,8 +66,8 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Technical Approach</h2>
         <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
-          <li><strong>Traveling Salesman Optimization:</strong> Used Google Maps Fleet Engine to recalculate routes in real-time based on traffic and “On-Call” requests.</li>
-          <li><strong>Proof of Service:</strong> Implemented a geofence-triggered camera workflow that prompts for a photo only when the truck is within 20 meters of the stop.</li>
+          <li><strong>Heuristic routing:</strong> Google Maps Fleet Engine recalculates routes based on real-time traffic, vehicle constraints, and service-window SLAs.</li>
+          <li><strong>Geofence verification:</strong> Photo capture triggers only when GPS intersects the customer’s service polygon to produce defensible proof-of-work.</li>
         </ul>
       </div>
     </div>
@@ -59,25 +81,79 @@
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">Architecture</h3>
-              <p class="mb-0 small">React Native (Mobile) → Node.js (Microservices) → PostgreSQL (PostGIS for Geospatial data)</p>
+              <p class="mb-0 small">React Native (Mobile) → Node.js (Microservices) → PostgreSQL + PostGIS</p>
             </div>
           </div>
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">Integrations</h3>
-              <p class="mb-0 small">Samsara GPS Telematics + Stripe for automated billing upon “Job Completion” signal.</p>
+              <p class="mb-0 small">Samsara/Geotab for engine diagnostics + Stripe for automated “pay-per-lift” billing.</p>
             </div>
           </div>
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">Security</h3>
-              <p class="mb-0 small">Role-based access (Driver/Dispatcher/Admin); secure AWS S3 buckets for proof-of-work photo storage.</p>
+              <p class="mb-0 small">RBAC for dispatchers vs drivers; encrypted media storage for service photos.</p>
             </div>
           </div>
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">AI Features</h3>
-              <p class="mb-0 small">Route re-optimization engine: if a driver is delayed, the AI re-orders the remaining stops to finish before overtime.</p>
+              <p class="mb-0 small">Predictive maintenance: analyzes telematics signals to detect likely failures before they happen mid-route.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Engineering Deep Dive</h2>
+        <div class="row g-4">
+          <div class="col-12 col-md-6">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">Operational realities we designed for</h3>
+              <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+                <li>Missed stops, blocked bins, and “on-call” pickups added mid-route</li>
+                <li>Connectivity gaps in the field (offline-first driver workflows)</li>
+                <li>Proof-of-service requirements for dispute resolution and refunds</li>
+                <li>Dispatch changes that must reach drivers instantly and safely</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">Reliability patterns</h3>
+              <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+                <li>Event-driven updates (route optimized → push to device)</li>
+                <li>Idempotent “job completion” events to avoid duplicate invoices</li>
+                <li>Queue-backed processing for photos/uploads and billing triggers</li>
+                <li>Role-based access and audit trails for admin/dispatcher actions</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">Geospatial correctness</h3>
+              <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+                <li>PostGIS stop geometry + geofence thresholds to reduce false prompts</li>
+                <li>GPS drift handling near dense neighborhoods and alleys</li>
+                <li>Route re-optimization with hard constraints (overtime cutoffs)</li>
+                <li>Driver UX tuned for speed: minimal taps, safe prompts</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">Observability &amp; rollout</h3>
+              <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+                <li>Route health dashboards (late stops, missed pickups, exceptions)</li>
+                <li>Photo capture analytics + dispute resolution tracking</li>
+                <li>Staged rollout by route/team with reversible feature flags</li>
+                <li>Runbooks for driver support, device issues, and billing exceptions</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -90,9 +166,9 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Results &amp; Impact</h2>
         <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
-          <li><strong>100%</strong> automated route generation (previously took 4 hours daily).</li>
-          <li><strong>22%</strong> reduction in fuel consumption.</li>
-          <li><strong>Instant dispute resolution:</strong> blocked-bin photos reduced refund requests by <strong>90%</strong>.</li>
+          <li><strong>22% fuel savings:</strong> achieved through optimized stop sequencing and reduced idling.</li>
+          <li><strong>100% automated dispatching:</strong> eliminated 4 hours of manual route planning daily.</li>
+          <li><strong>90% reduction in claims:</strong> disputes resolved instantly via GPS-verified photos.</li>
         </ul>
       </div>
     </div>

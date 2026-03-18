@@ -3,13 +3,13 @@
     <div class="row align-items-center min-vh-50">
       <div class="col-12 col-lg-10 mx-auto text-center">
         <h1 class="display-5 fw-bold mb-3" style="font-size: clamp(28px, 4.5vw, 52px); line-height: 1.15;">
-          Medical Voice AI &amp; Clinical Triage
+          Autonomous Patient Engagement &amp; Triage System
         </h1>
         <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.3vw, 22px); line-height: 1.5; max-width: 900px; margin-left: auto; margin-right: auto;">
-          24/7 Autonomous Clinical Triage &amp; Booking (HIPAA-Compliant)
+          Medical Voice AI &amp; Clinical Triage (HIPAA-Compliant)
         </p>
         <p class="mb-0" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.7; max-width: 980px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
-          A multi-location medical group deployed a Voice AI agent to handle thousands of concurrent calls, reduce no-shows, and recover revenue—without compromising clinical safety or compliance.
+          A high-fidelity Voice AI orchestration layer that automates patient intake, clinical triage, and scheduling—built to survive real call volume while meeting HIPAA/HITECH safeguards.
         </p>
       </div>
     </div>
@@ -19,12 +19,29 @@
 <div class="inner-sections">
   <section class="py-5 bg-white">
     <div class="container">
-      <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">The Challenge</h2>
-        <p class="large-para mb-0">
-          A multi-location medical group was losing approximately <strong>$30k/month</strong> due to “leaky” scheduling. Human operators could not handle a 24/7 surge, resulting in
-          <strong>35% no-show rates</strong> and patients hanging up after long hold times.
-        </p>
+      <div class="row g-4 align-items-start">
+        <div class="col-12 col-lg-7">
+          <h2 class="heading-border heading-center heading-left mb-4 pb-3 d-inline-block">The Challenge</h2>
+          <p class="large-para mb-3">
+            A multi-specialty clinical group was experiencing a <strong>35% appointment abandonment rate</strong> and significant “leakage” across the patient journey.
+            High call volumes overwhelmed front-desk staff, causing delayed triaging of urgent symptoms and fragmented scheduling.
+          </p>
+          <p class="large-para mb-0">
+            The primary hurdle was scaling 24/7 patient access while maintaining <strong>HIPAA Title II</strong> administrative safeguards and preventing unauthorized disclosure of
+            Protected Health Information (PHI). In practice, that meant deterministic escalation for urgent cases, policy-bound scheduling actions, and privacy-safe logging and auditability.
+          </p>
+        </div>
+        <div class="col-12 col-lg-5">
+          <div class="workflow-card p-4">
+            <h3 class="h6 text-uppercase text-muted mb-3">Quick Stats</h3>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li><strong>Compliance:</strong> HIPAA / HITECH</li>
+              <li><strong>Interoperability:</strong> HL7 FHIR R4</li>
+              <li><strong>AI:</strong> GPT-4o + Deepgram Nova-2</li>
+              <li><strong>Impact:</strong> 35% → 6% no-shows; $28k/mo recovered</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -33,9 +50,13 @@
     <div class="container">
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">The Solution</h2>
+        <p class="large-para mb-3">
+          We engineered a high-fidelity <strong>Voice AI Orchestration Layer</strong> that automates patient intake, clinical triage, and scheduling.
+          Unlike standard IVR systems, it uses Natural Language Understanding (NLU) to interpret patient intent and urgency for a seamless, human-like experience.
+        </p>
         <p class="large-para mb-0">
-          We deployed an autonomous <strong>Voice AI agent</strong> capable of handling thousands of concurrent calls. Unlike a simple IVR, this agent understands intent, triages symptoms,
-          and checks real-time availability in the EHR.
+          The system is governance-by-design: it can complete routine scheduling autonomously, but it also detects “red flag” symptom patterns and performs a warm transfer to a human nurse
+          when urgency thresholds are met or confidence drops—keeping safety and compliance intact at scale.
         </p>
       </div>
     </div>
@@ -46,8 +67,8 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Technical Approach</h2>
         <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
-          <li><strong>Latency Optimization:</strong> Used a low-latency WebSocket layer to keep responses under 500ms and preserve human-like turn-taking.</li>
-          <li><strong>Contextual Triage:</strong> Built a decision-tree logic engine that cross-references patient symptoms against clinical urgency levels.</li>
+          <li><strong>Low-Latency Inference:</strong> Optimized a WebSocket-based streaming pipeline to keep turn-around time (TAT) under 600ms.</li>
+          <li><strong>Clinical Decision Support (CDS):</strong> Implemented a deterministic logic layer that cross-references symptoms against a medically-validated triage matrix.</li>
         </ul>
       </div>
     </div>
@@ -61,25 +82,79 @@
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">Architecture</h3>
-              <p class="mb-0 small">Twilio Media Streams → FastAPI (Orchestration) → Deepgram (STT) → GPT-4o (Reasoning) → ElevenLabs (TTS)</p>
+              <p class="mb-0 small">Twilio Media Streams → FastAPI (Orchestrator) → Deepgram Nova-2 (STT) → GPT-4o (Reasoning) → ElevenLabs (TTS)</p>
             </div>
           </div>
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
-              <h3 class="h6 text-uppercase text-muted mb-3">Integrations</h3>
-              <p class="mb-0 small">Bi-directional sync with Athenahealth and Epic via HL7 FHIR.</p>
+              <h3 class="h6 text-uppercase text-muted mb-3">Interoperability</h3>
+              <p class="mb-0 small">HL7 FHIR R4 integration for real-time resource availability and appointment write-backs.</p>
             </div>
           </div>
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
-              <h3 class="h6 text-uppercase text-muted mb-3">Security</h3>
-              <p class="mb-0 small">HIPAA-compliant BAA on all infrastructure; PII redaction in logs; AES-256 encryption at rest.</p>
+              <h3 class="h6 text-uppercase text-muted mb-3">Security &amp; Compliance</h3>
+              <p class="mb-0 small">Full HIPAA/HITECH compliance; BAA-covered infrastructure; AES-256 encryption at rest; automatic PII scrubbing from logs.</p>
             </div>
           </div>
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">AI Features</h3>
-              <p class="mb-0 small">Real-time sentiment analysis to detect “Emergency” tones and trigger a “Break Glass” human handoff.</p>
+              <p class="mb-0 small">Sentiment &amp; urgency detection to identify red-flag terms (e.g., “chest pain”) and trigger immediate warm transfer to a human nurse.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Engineering Deep Dive</h2>
+        <div class="row g-4">
+          <div class="col-12 col-md-6">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">What we had to handle in production</h3>
+              <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+                <li>After-hours surges with concurrent calls and unpredictable hold-times</li>
+                <li>Ambiguous symptom descriptions requiring safe triage + escalation</li>
+                <li>Real-time availability changes (cancellations, reschedules, provider capacity)</li>
+                <li>Compliance constraints: PHI minimization, audit trails, and safe logging</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">Reliability &amp; governance patterns</h3>
+              <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+                <li>Explicit “Break Glass” handoff paths for emergency tones or low-confidence triage</li>
+                <li>Deterministic decision-tree + policy checks before booking actions</li>
+                <li>Idempotent booking operations to prevent duplicate appointments during retries</li>
+                <li>Data minimization: store scheduling actions and outcomes, not raw PHI transcripts</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">Observability &amp; testing</h3>
+              <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+                <li>End-to-end tracing across STT → reasoning → TTS and EHR round-trips</li>
+                <li>Failure-path simulations (EHR downtime, rate limits, partial timeouts)</li>
+                <li>Conversation QA harness for intent classification and escalation accuracy</li>
+                <li>Alerting on latency regressions and abnormal escalation rates</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">Rollout strategy</h3>
+              <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+                <li>Shadow mode and staged routing before full cutover</li>
+                <li>Gradual expansion by location and call types (booking → reschedule → triage)</li>
+                <li>Playbooks for ops: runbooks, incident response, and escalation management</li>
+                <li>Continuous tuning using real call analytics while keeping governance fixed</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -92,9 +167,9 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Results &amp; Impact</h2>
         <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
-          <li><strong>5,127</strong> appointments handled without human intervention.</li>
-          <li>No-show rate dropped from <strong>35%</strong> to <strong>6%</strong>.</li>
-          <li><strong>$28,000/month</strong> in recovered revenue.</li>
+          <li><strong>6% no-show rate:</strong> reduced from 35% through automated reminders and easy rescheduling.</li>
+          <li><strong>$28,000/month recovered:</strong> captured previously “leaked” revenue from missed calls and abandoned bookings.</li>
+          <li><strong>5,127 tickets resolved:</strong> fully autonomous resolution in the first 90 days.</li>
         </ul>
       </div>
     </div>

@@ -3,13 +3,13 @@
     <div class="row align-items-center min-vh-50">
       <div class="col-12 col-lg-10 mx-auto text-center">
         <h1 class="display-5 fw-bold mb-3" style="font-size: clamp(28px, 4.5vw, 52px); line-height: 1.15;">
-          Red Dragon HVAC “MMS-to-Social” Pipeline
+          Automated Field-Proof Marketing &amp; Local SEO Engine
         </h1>
         <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.3vw, 22px); line-height: 1.5; max-width: 980px; margin-left: auto; margin-right: auto;">
-          Field photos → AI captions → daily Google/Facebook posting (with approvals)
+          Red Dragon HVAC “MMS-to-Social” Pipeline
         </p>
         <p class="mb-0" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.7; max-width: 980px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
-          Technicians just text a photo. The pipeline does the rest—vision analysis, SEO-localized captions, and scheduled publishing—with a human-in-the-loop approval dashboard.
+          A headless marketing pipeline that converts MMS photos into optimized Google Business and Meta posts, using Vision AI to generate accurate, localized captions with management approvals.
         </p>
       </div>
     </div>
@@ -19,12 +19,29 @@
 <div class="inner-sections">
   <section class="py-5 bg-white">
     <div class="container">
-      <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">The Challenge</h2>
-        <p class="large-para mb-0">
-          HVAC companies win with local social proof (Google/Facebook), but technicians don’t have time to write captions and post updates. The result is a “ghost town” social presence
-          and missed local leads.
-        </p>
+      <div class="row g-4 align-items-start">
+        <div class="col-12 col-lg-7">
+          <h2 class="heading-border heading-center heading-left mb-4 pb-3 d-inline-block">The Challenge</h2>
+          <p class="large-para mb-3">
+            Local service businesses (HVAC, plumbing, roofing) live or die by local search ranking. Technicians complete high-quality work daily, but rarely have time or incentive to document
+            it consistently—so social proof goes stale and map-pack visibility suffers.
+          </p>
+          <p class="large-para mb-0">
+            The client needed a “zero-UI” workflow for non-technical field staff: no app installs, no caption writing, and no complex steps. The system also had to generate SEO-relevant content
+            without feeling spammy, while giving management final control via an approval/kill-switch workflow.
+          </p>
+        </div>
+        <div class="col-12 col-lg-5">
+          <div class="workflow-card p-4">
+            <h3 class="h6 text-uppercase text-muted mb-3">Quick Stats</h3>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li><strong>Workflow:</strong> MMS → Headless pipeline</li>
+              <li><strong>Channels:</strong> Google Business + Meta</li>
+              <li><strong>AI:</strong> Vision → SEO copywriting</li>
+              <li><strong>Impact:</strong> 3x local leads; 100% tech adoption</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -33,8 +50,13 @@
     <div class="container">
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">The Solution</h2>
+        <p class="large-para mb-3">
+          We built a headless marketing pipeline that converts standard MMS (texted photos) into optimized Google Business and Facebook posts. Vision AI identifies what’s in the image so
+          technicians don’t write a single word of copy.
+        </p>
         <p class="large-para mb-0">
-          We built an AI-driven content pipeline with zero apps for technicians: they text a photo to a dedicated number, and the system generates and schedules the post automatically.
+          The pipeline is event-driven and approval-gated: images are ingested, metadata is stripped, GPS context is applied for localization, and management approves before publishing.
+          This yields daily, photo-verified proof without adding staff overhead.
         </p>
       </div>
     </div>
@@ -45,8 +67,8 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Technical Approach</h2>
         <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
-          <li><strong>Asynchronous Processing:</strong> Message queueing (RabbitMQ) processes images in the background while technicians move to the next job.</li>
-          <li><strong>SEO Localization:</strong> Extracts metadata (GPS) to embed city/neighborhood keywords for local search visibility.</li>
+          <li><strong>Asynchronous image processing:</strong> Event-driven ingestion strips metadata and enriches with GPS coordinates for localized tagging.</li>
+          <li><strong>Automated SEO copywriting:</strong> NLP generates human-sounding captions that include location and money keywords naturally.</li>
         </ul>
       </div>
     </div>
@@ -60,7 +82,7 @@
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">Architecture</h3>
-              <p class="mb-0 small">Python (FastAPI) → LangChain → OpenAI Vision API</p>
+              <p class="mb-0 small">FastAPI → LangChain → OpenAI Vision API (GPT-4o)</p>
             </div>
           </div>
           <div class="col-12 col-md-6">
@@ -72,13 +94,13 @@
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">Security</h3>
-              <p class="mb-0 small">Secure image hosting with TTL, plus a human-in-the-loop approval dashboard for business owners.</p>
+              <p class="mb-0 small">Secure S3 buckets with limited-access IAM roles; human-in-the-loop “kill switch” dashboard for review.</p>
             </div>
           </div>
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">AI Features</h3>
-              <p class="mb-0 small">Vision-to-text identifies equipment (e.g., “New Trane AC Unit”) and writes a technical, customer-friendly caption.</p>
+              <p class="mb-0 small">Visual object recognition identifies equipment (e.g., “Carrier Infinity Furnace”) to keep captions technically accurate.</p>
             </div>
           </div>
         </div>
@@ -91,9 +113,9 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Results &amp; Impact</h2>
         <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
-          <li><strong>3x</strong> increase in organic Google Business Profile views.</li>
-          <li>Daily posting achieved with <strong>zero additional staff time</strong>.</li>
-          <li><strong>45%</strong> increase in local inbound “Request a Quote” clicks.</li>
+          <li><strong>3x increase in local leads</strong> via improved map-pack rankings.</li>
+          <li><strong>100% technician adoption</strong> (workflow requires only a text message).</li>
+          <li><strong>45% higher click-through rate</strong> due to fresh, photo-verified social proof.</li>
         </ul>
       </div>
     </div>

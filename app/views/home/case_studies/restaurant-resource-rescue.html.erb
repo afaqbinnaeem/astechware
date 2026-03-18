@@ -3,13 +3,13 @@
     <div class="row align-items-center min-vh-50">
       <div class="col-12 col-lg-10 mx-auto text-center">
         <h1 class="display-5 fw-bold mb-3" style="font-size: clamp(28px, 4.5vw, 52px); line-height: 1.15;">
-          Restaurant Resource Rescue &amp; Search AI
+          High-Performance Search &amp; Inventory Recovery
         </h1>
         <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.3vw, 22px); line-height: 1.5; max-width: 980px; margin-left: auto; margin-right: auto;">
-          Stabilize failing systems, then ship intent-aware search
+          Restaurant Resource Database Rescue
         </p>
         <p class="mb-0" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.7; max-width: 980px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
-          A supplier platform rescued from an “unfixable” codebase: query performance restored, admin stabilized, and search rebuilt to be typo-tolerant and intent-aware.
+          An emergency performance audit and search rebuild for a 50,000+ SKU supplier platform—designed to handle complex part numbers, special characters, and real-time inventory updates.
         </p>
       </div>
     </div>
@@ -19,11 +19,29 @@
 <div class="inner-sections">
   <section class="py-5 bg-white">
     <div class="container">
-      <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">The Challenge</h2>
-        <p class="large-para mb-0">
-          A major restaurant supplier platform was failing: part searches took 8–12 seconds, the admin dashboard crashed under moderate load, and the previous agency had walked away.
-        </p>
+      <div class="row g-4 align-items-start">
+        <div class="col-12 col-lg-7">
+          <h2 class="heading-border heading-center heading-left mb-4 pb-3 d-inline-block">The Challenge</h2>
+          <p class="large-para mb-3">
+            A B2B industrial restaurant supplier’s search engine was effectively broken. With <strong>50,000+ SKUs</strong>, searching for a specific part took <strong>12 seconds</strong>,
+            driving massive cart abandonment. A previous vendor failed to implement a search architecture that could handle complex part numbers with special characters.
+          </p>
+          <p class="large-para mb-0">
+            The instability wasn’t isolated to search: background processing leaked memory, the admin experience degraded under load, and the platform crashed predictably. The rescue required
+            a foundation-first approach: stabilize runtime behavior, fix query patterns, then rebuild search as a dedicated system.
+          </p>
+        </div>
+        <div class="col-12 col-lg-5">
+          <div class="workflow-card p-4">
+            <h3 class="h6 text-uppercase text-muted mb-3">Quick Stats</h3>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li><strong>Catalog:</strong> 50,000+ SKUs</li>
+              <li><strong>Search:</strong> Meilisearch (typo-tolerant)</li>
+              <li><strong>Ops:</strong> Sidekiq stabilization</li>
+              <li><strong>Impact:</strong> 300ms search; 99.9% uptime</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -32,8 +50,13 @@
     <div class="container">
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">The Solution</h2>
+        <p class="large-para mb-3">
+          We performed an emergency performance audit and replaced the legacy SQL LIKE search with a dedicated in-memory search engine. We also refactored the ingestion pipeline to support
+          real-time inventory updates from multiple supplier feeds.
+        </p>
         <p class="large-para mb-0">
-          We stabilized the platform, eliminated bottlenecks, and implemented a proper search architecture designed for speed and correctness.
+          The outcome was a stable, fast platform: sub-second part lookup even with typos and colloquial terms, predictable background processing, and an admin workflow that no longer degrades
+          during daily operational peaks.
         </p>
       </div>
     </div>
@@ -44,8 +67,8 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Technical Approach</h2>
         <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
-          <li><strong>Query Optimization:</strong> Fixed N+1 patterns, added missing indexes, and reduced DB load by ~70% via ORM and query tuning.</li>
-          <li><strong>Semantic Search:</strong> Replaced basic text search with a vector-aware approach that understands intent and handles typos.</li>
+          <li><strong>In-memory indexing:</strong> Migrated search to Meilisearch for ultra-low latency and typo tolerance.</li>
+          <li><strong>Memory management:</strong> Fixed leaks in background processing that were crashing servers on a predictable cadence.</li>
         </ul>
       </div>
     </div>
@@ -59,7 +82,7 @@
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">Architecture</h3>
-              <p class="mb-0 small">Ruby on Rails → PostgreSQL → Meilisearch (ultra-fast, typo-tolerant search)</p>
+              <p class="mb-0 small">Ruby on Rails → Sidekiq → Meilisearch</p>
             </div>
           </div>
           <div class="col-12 col-md-6">
@@ -71,13 +94,13 @@
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">Security</h3>
-              <p class="mb-0 small">Admin hardened with MFA and IP allow-listing to protect supplier pricing access.</p>
+              <p class="mb-0 small">Secure API gateway; daily encrypted backups (30-day retention); RBAC admin dashboard.</p>
             </div>
           </div>
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">AI Features</h3>
-              <p class="mb-0 small">Intent-based recommendations suggest complementary parts based on search context.</p>
+              <p class="mb-0 small">Semantic matching maps colloquial searches to the correct technical part and suggests compatible items.</p>
             </div>
           </div>
         </div>
@@ -90,9 +113,9 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Results &amp; Impact</h2>
         <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
-          <li>Search improved from 12s to <strong>~300ms</strong> (sub-second performance).</li>
-          <li><strong>99.9%</strong> uptime achieved within the first 30 days.</li>
-          <li><strong>10x</strong> faster administrative workflows.</li>
+          <li><strong>300ms search results</strong> (improved from 12 seconds).</li>
+          <li><strong>99.9% uptime</strong> restored through platform stabilization.</li>
+          <li><strong>10x faster admin workflow</strong> for order processing and internal operations.</li>
         </ul>
       </div>
     </div>

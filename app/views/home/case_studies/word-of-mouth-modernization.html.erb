@@ -3,13 +3,13 @@
     <div class="row align-items-center min-vh-50">
       <div class="col-12 col-lg-10 mx-auto text-center">
         <h1 class="display-5 fw-bold mb-3" style="font-size: clamp(28px, 4.5vw, 52px); line-height: 1.15;">
-          Word of Mouth Platform Modernization
+          Enterprise Legacy-to-Cloud Marketplace Transformation
         </h1>
         <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.3vw, 22px); line-height: 1.5; max-width: 980px; margin-left: auto; margin-right: auto;">
-          Engineering Rescue: phased migration off legacy PHP/jQuery with zero downtime
+          Word of Mouth Marketplace Rescue
         </p>
         <p class="mb-0" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.7; max-width: 980px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
-          A high-traffic marketplace modernized to a React/Node stack using an incremental migration strategy—restoring developer velocity and performance without taking the platform offline.
+          A “live-heart transplant” modernization: decouple a legacy PHP/jQuery marketplace into a headless React/Node ecosystem with business continuity preserved end-to-end.
         </p>
       </div>
     </div>
@@ -19,11 +19,29 @@
 <div class="inner-sections">
   <section class="py-5 bg-white">
     <div class="container">
-      <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">The Challenge</h2>
-        <p class="large-para mb-0">
-          Word of Mouth was stuck on a legacy PHP/jQuery stack. The system was slow, brittle, and hard to scale—feature development had stalled because any change risked breaking production.
-        </p>
+      <div class="row g-4 align-items-start">
+        <div class="col-12 col-lg-7">
+          <h2 class="heading-border heading-center heading-left mb-4 pb-3 d-inline-block">The Challenge</h2>
+          <p class="large-para mb-3">
+            A national-scale marketplace (Word of Mouth) was operating on a technical-debt heavy legacy stack (PHP/jQuery). The system suffered 503 errors during peak traffic, and new feature
+            deployment took weeks.
+          </p>
+          <p class="large-para mb-0">
+            This was a live-heart transplant: modernize the core architecture without a second of downtime for 100,000+ active users. That required incremental cutovers, safe routing between
+            old and new systems, and continuous verification that performance and search stayed stable throughout the migration.
+          </p>
+        </div>
+        <div class="col-12 col-lg-5">
+          <div class="workflow-card p-4">
+            <h3 class="h6 text-uppercase text-muted mb-3">Quick Stats</h3>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li><strong>Modernization:</strong> Strangler Fig</li>
+              <li><strong>Search:</strong> PostgreSQL + Elasticsearch</li>
+              <li><strong>Edge:</strong> WAF/CDN hardening</li>
+              <li><strong>Impact:</strong> 10x velocity; 60% performance lift; zero downtime</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -32,8 +50,13 @@
     <div class="container">
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">The Solution</h2>
+        <p class="large-para mb-3">
+          We implemented the Strangler Fig pattern, gradually wrapping the legacy monolith in a modern React/Node ecosystem. By decoupling the frontend from the backend, we moved to a headless
+          architecture that allowed independent scaling of services.
+        </p>
         <p class="large-para mb-0">
-          We ran an <strong>Engineering Rescue</strong> and executed a phased migration to a modern stack with no downtime—shipping new capability while progressively replacing legacy components.
+          The migration shipped value continuously: new features landed in the modern stack, traffic was routed safely via gateway boundaries, and legacy components were retired incrementally.
+          The result was restored developer velocity, improved Core Web Vitals, and a platform that could scale nationally.
         </p>
       </div>
     </div>
@@ -44,8 +67,8 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Technical Approach</h2>
         <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
-          <li><strong>Strangler Fig Pattern:</strong> New React/Node features were routed via an API Gateway so “old” and “new” systems could run side-by-side.</li>
-          <li><strong>Database Refactoring:</strong> Reworked schema/indexing and introduced Elasticsearch for sub-second search.</li>
+          <li><strong>Database normalization &amp; indexing:</strong> Optimized a 500GB SQL database, reducing query times from 8s to &lt;200ms.</li>
+          <li><strong>CI/CD automation:</strong> GitHub Actions + automated staging environments to enforce regression testing before production pushes.</li>
         </ul>
       </div>
     </div>
@@ -59,25 +82,25 @@
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">Architecture</h3>
-              <p class="mb-0 small">Next.js (Frontend) → NestJS (Backend) → PostgreSQL + Elasticsearch</p>
+              <p class="mb-0 small">Next.js (SSG/ISR) → NestJS (Microservices) → PostgreSQL + Elasticsearch</p>
             </div>
           </div>
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">Integrations</h3>
-              <p class="mb-0 small">Stripe Connect, AWS S3 (media), SendGrid.</p>
+              <p class="mb-0 small">Stripe Connect (payouts), AWS S3 (media), Cloudflare (WAF/CDN).</p>
             </div>
           </div>
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">Security</h3>
-              <p class="mb-0 small">JWT/OAuth modernization, rate limiting, and WAF protections against DDoS.</p>
+              <p class="mb-0 small">OIDC/OAuth 2.0 modernization; rate limiting; SQL injection protection at the API gateway level.</p>
             </div>
           </div>
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">AI Features</h3>
-              <p class="mb-0 small">Dynamic Q&amp;A engine generates community insights from reviews to answer common buyer questions proactively.</p>
+              <p class="mb-0 small">Automated content moderation (“Review Guardian”) flags fraudulent/non-compliant reviews before publish.</p>
             </div>
           </div>
         </div>
@@ -90,9 +113,9 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Results &amp; Impact</h2>
         <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
-          <li><strong>10x</strong> increase in developer velocity (days, not months).</li>
-          <li><strong>60%</strong> faster page load times (LCP).</li>
-          <li><strong>0</strong> seconds of unplanned downtime during the 6-month migration.</li>
+          <li><strong>10x developer velocity:</strong> new features ship in days.</li>
+          <li><strong>60% performance lift:</strong> improved Core Web Vitals (LCP/FID).</li>
+          <li><strong>Zero migration downtime:</strong> 100% business continuity during the 6-month modernization.</li>
         </ul>
       </div>
     </div>

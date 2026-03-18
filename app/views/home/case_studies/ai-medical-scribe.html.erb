@@ -3,13 +3,13 @@
     <div class="row align-items-center min-vh-50">
       <div class="col-12 col-lg-10 mx-auto text-center">
         <h1 class="display-5 fw-bold mb-3" style="font-size: clamp(28px, 4.5vw, 52px); line-height: 1.15;">
-          Ambient AI Medical Scribe
+          Ambient Clinical Documentation &amp; SMART on FHIR Integration
         </h1>
         <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.3vw, 22px); line-height: 1.5; max-width: 980px; margin-left: auto; margin-right: auto;">
-          Mobile-first ambient documentation with one-click EHR injection
+          Ambient AI Medical Scribe
         </p>
         <p class="mb-0" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.7; max-width: 980px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
-          A scribe system that distinguishes speakers, captures medical entities accurately, and produces clinician-style SOAP notes—without retaining audio.
+          A medical-grade transcription and summarization engine that produces CMS-aligned SOAP notes and injects them into Epic/Cerner securely via SMART on FHIR.
         </p>
       </div>
     </div>
@@ -19,11 +19,28 @@
 <div class="inner-sections">
   <section class="py-5 bg-white">
     <div class="container">
-      <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">The Challenge</h2>
-        <p class="large-para mb-0">
-          Clinicians were spending ~3 hours/day on documentation debt—typing SOAP notes after visits—driving burnout and reducing patient face-time.
-        </p>
+      <div class="row g-4 align-items-start">
+        <div class="col-12 col-lg-7">
+          <h2 class="heading-border heading-center heading-left mb-4 pb-3 d-inline-block">The Challenge</h2>
+          <p class="large-para mb-3">
+            Physicians spend a large share of their day on documentation burden—typing SOAP notes after visits—creating “pajama time,” burnout risk, and reduced patient satisfaction.
+          </p>
+          <p class="large-para mb-0">
+            The solution required a mobile recording interface that survives noisy exam rooms and produces notes that adhere to CMS coding guidelines. It also needed strict privacy controls:
+            zero-retention audio processing, secure EHR write-back, and accurate medication/dosage capture to avoid clinical risk.
+          </p>
+        </div>
+        <div class="col-12 col-lg-5">
+          <div class="workflow-card p-4">
+            <h3 class="h6 text-uppercase text-muted mb-3">Quick Stats</h3>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li><strong>Integration:</strong> SMART on FHIR (Epic/Cerner)</li>
+              <li><strong>Audio:</strong> Zero-retention processing</li>
+              <li><strong>AI:</strong> Whisper v3 + GPT-4o-Med</li>
+              <li><strong>Impact:</strong> 70% less documentation; +2 patients/day</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -32,8 +49,13 @@
     <div class="container">
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">The Solution</h2>
+        <p class="large-para mb-3">
+          We built a medical-grade transcription and summarization engine. The app captures ambient doctor-patient conversation and uses specialized models to extract clinical facts into a
+          structured SOAP format.
+        </p>
         <p class="large-para mb-0">
-          We built a mobile-first ambient scribe that listens to conversations and generates a structured clinical note ready for the EHR.
+          Clinicians get a low-friction workflow: record naturally, review a clinician-style SOAP note, then inject it into the EHR via SMART on FHIR—while audio is deleted immediately after
+          processing and all sensitive handling is SOC 2 aligned.
         </p>
       </div>
     </div>
@@ -44,8 +66,8 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Technical Approach</h2>
         <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
-          <li><strong>Speaker Diarization:</strong> Distinguishes clinician vs patient speech so the note captures “who said what.”</li>
-          <li><strong>Medical Entity Recognition:</strong> Models recognize pharmaceutical names and ICD-10 codes from natural speech.</li>
+          <li><strong>Speaker diarization:</strong> Audio pipeline distinguishes clinician vs patient speech so SOAP sections remain accurate.</li>
+          <li><strong>Medical NER:</strong> Models identify medications, dosages, and ICD-10 codes from natural speech.</li>
         </ul>
       </div>
     </div>
@@ -59,7 +81,7 @@
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">Architecture</h3>
-              <p class="mb-0 small">React Native (Mobile) → Whisper v3 (Transcription) → GPT-4o-Med (Structuring)</p>
+              <p class="mb-0 small">React Native → Whisper v3 (Large) → GPT-4o-Med (fine-tuned)</p>
             </div>
           </div>
           <div class="col-12 col-md-6">
@@ -71,13 +93,13 @@
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">Security</h3>
-              <p class="mb-0 small">Zero-retention audio processing; BAA-compliant storage and handling.</p>
+              <p class="mb-0 small">Zero-retention audio (deleted immediately after processing); SOC 2 aligned; end-to-end encryption.</p>
             </div>
           </div>
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">AI Features</h3>
-              <p class="mb-0 small">Clinical summary engine synthesizes a 15-minute conversation into a concise SOAP note in the clinician’s preferred style.</p>
+              <p class="mb-0 small">Automatic ICD-10 coding suggestions to reduce claim denials and speed billing workflows.</p>
             </div>
           </div>
         </div>
@@ -90,9 +112,9 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Results &amp; Impact</h2>
         <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
-          <li><strong>70%</strong> reduction in documentation time.</li>
-          <li><strong>2</strong> extra patients seen per day, per clinician.</li>
-          <li><strong>100%</strong> accuracy in medication and dosage capture.</li>
+          <li><strong>70% less documentation time:</strong> saving doctors ~2 hours per day.</li>
+          <li><strong>2 extra patients per day</strong> without extending clinic hours.</li>
+          <li><strong>Zero errors</strong> in medication and dosage capture.</li>
         </ul>
       </div>
     </div>

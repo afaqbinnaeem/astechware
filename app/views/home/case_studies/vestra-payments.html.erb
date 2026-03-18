@@ -3,13 +3,13 @@
     <div class="row align-items-center min-vh-50">
       <div class="col-12 col-lg-10 mx-auto text-center">
         <h1 class="display-5 fw-bold mb-3" style="font-size: clamp(28px, 4.5vw, 52px); line-height: 1.15;">
-          Vestra Payment Orchestration
+          Automated Payment Settlement &amp; Escrow Engine
         </h1>
         <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.3vw, 22px); line-height: 1.5; max-width: 980px; margin-left: auto; margin-right: auto;">
-          Multi-Party Split Payments, Ledger-First Settlement, and Instant Payouts
+          Vestra Multi-Party Payment Orchestration
         </p>
         <p class="mb-0" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.7; max-width: 980px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
-          Property managers eliminated manual splits and compliance risk with a custom ledger that automates flow-of-funds from the moment a tenant clicks “Pay.”
+          A payment orchestration layer that automates ledgering and split payouts at the point of transaction—built for correctness, auditability, and AML-aware workflows.
         </p>
       </div>
     </div>
@@ -19,11 +19,29 @@
 <div class="inner-sections">
   <section class="py-5 bg-white">
     <div class="container">
-      <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">The Challenge</h2>
-        <p class="large-para mb-0">
-          Property managers were manually calculating splits between owners (90%), platform fees (3%), and maintenance reserves (7%). This created a major month-end bottleneck and a compliance risk.
-        </p>
+      <div class="row g-4 align-items-start">
+        <div class="col-12 col-lg-7">
+          <h2 class="heading-border heading-center heading-left mb-4 pb-3 d-inline-block">The Challenge</h2>
+          <p class="large-para mb-3">
+            A PropTech marketplace struggled with complex flow-of-funds. Rent payments needed to be split between Property Owners (92%), Maintenance Reserves (5%), and Platform Fees (3%) instantly.
+            Manual reconciliation caused accounting errors, delayed disbursements, and potential AML compliance gaps.
+          </p>
+          <p class="large-para mb-0">
+            The hard part is correctness under failure: webhooks arrive out of order, retries happen, and partial outages are inevitable. Without ledger-backed accounting and idempotent execution,
+            duplicate charges, split errors, and reconciliation drift become unavoidable—and those mistakes are expensive when money moves across multiple stakeholders.
+          </p>
+        </div>
+        <div class="col-12 col-lg-5">
+          <div class="workflow-card p-4">
+            <h3 class="h6 text-uppercase text-muted mb-3">Quick Stats</h3>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li><strong>Payments:</strong> Stripe Connect (Custom/Express)</li>
+              <li><strong>Verification:</strong> Plaid (KYC/KYB signals)</li>
+              <li><strong>Correctness:</strong> Double-entry ledger + idempotency</li>
+              <li><strong>Impact:</strong> Zero manual reconciliation; automated fee splits</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -32,8 +50,12 @@
     <div class="container">
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">The Solution</h2>
+        <p class="large-para mb-3">
+          We built a custom payment orchestration layer that automates ledgering and distribution of funds at the point of transaction—ensuring sub-account accuracy and instant transparency.
+        </p>
         <p class="large-para mb-0">
-          We built a custom FinTech ledger that automates the entire <strong>flow of funds</strong> and executes split logic deterministically before money moves.
+          The system treats payments as stateful financial events: every charge produces ledger entries, split rules are deterministic, and payouts occur only when balances reconcile.
+          Month-end becomes a predictable audit step rather than a manual fire drill.
         </p>
       </div>
     </div>
@@ -44,8 +66,8 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Technical Approach</h2>
         <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
-          <li><strong>Ledger-First Design:</strong> Implemented double-entry bookkeeping in the database so every penny is accounted for before settlement.</li>
-          <li><strong>Idempotent Retries:</strong> Built idempotency into split operations so retries never duplicate movements—even when requests are sent twice.</li>
+          <li><strong>Double-entry ledgering:</strong> Database-level ledger tracks virtual balances before triggering bank movements.</li>
+          <li><strong>Idempotency protection:</strong> Every request is tagged with a unique key to prevent duplicate charges or split errors during timeouts.</li>
         </ul>
       </div>
     </div>
@@ -59,25 +81,79 @@
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">Architecture</h3>
-              <p class="mb-0 small">Next.js (Frontend) → NestJS (Backend) → Stripe Connect (Express Accounts)</p>
+              <p class="mb-0 small">Next.js → NestJS → Stripe Connect (Custom/Express)</p>
             </div>
           </div>
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">Integrations</h3>
-              <p class="mb-0 small">Plaid (ACH verification) + Stripe (card and wallets).</p>
+              <p class="mb-0 small">Plaid API for instant ACH verification (KYC/KYB) + Stripe for cards/wallets.</p>
             </div>
           </div>
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">Security</h3>
-              <p class="mb-0 small">PCI-DSS Level 1; AES-256 encryption; multi-sig admin approvals for large withdrawals.</p>
+              <p class="mb-0 small">PCI-DSS Level 1 compliant; AES-256 bank-level encryption; automated SAR flagging; multi-sig approvals for large withdrawals.</p>
             </div>
           </div>
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">AI Features</h3>
-              <p class="mb-0 small">Fraud detection agent that monitors unusual patterns and pauses payouts for manual review.</p>
+              <p class="mb-0 small">Anomaly detection monitors transaction velocity and pauses suspected account takeover (ATO) attempts.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Engineering Deep Dive</h2>
+        <div class="row g-4">
+          <div class="col-12 col-md-6">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">Ledger-first correctness</h3>
+              <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+                <li>Every transaction produces balanced entries before settlement</li>
+                <li>Split logic is deterministic and versioned (owners/fees/reserves)</li>
+                <li>Reconciliation is a query, not a manual month-end process</li>
+                <li>Dispute/chargeback workflows maintain an auditable trail</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">Reliability patterns (payments)</h3>
+              <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+                <li>Idempotency keys across charge/split/payout operations</li>
+                <li>Retry policies with backoff and dead-letter handling for failures</li>
+                <li>Webhook verification + replay protection for payment events</li>
+                <li>State machines for payout lifecycle (pending → cleared → paid)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">Security &amp; compliance</h3>
+              <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+                <li>PCI tokenization and least-privilege access to payment objects</li>
+                <li>Multi-sig approvals and rate-limited admin actions</li>
+                <li>Immutable audit logs for access, payouts, and configuration changes</li>
+                <li>Fraud monitoring hooks with hold/review queues</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">Operational readiness</h3>
+              <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
+                <li>Alerts on payout failures, duplicate events, and anomaly patterns</li>
+                <li>Runbooks for chargebacks, reversals, and reconciliation audits</li>
+                <li>Backfills and replay tooling for webhook-driven systems</li>
+                <li>Environment separation for testing money movement safely</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -90,9 +166,9 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Results &amp; Impact</h2>
         <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
-          <li><strong>Zero</strong> manual reconciliation required at month-end.</li>
-          <li><strong>100%</strong> automated fee distribution across thousands of properties.</li>
-          <li><strong>Instant liquidity:</strong> owners can “Instant Cash Out” via push-to-card payouts.</li>
+          <li><strong>Zero manual reconciliation:</strong> accounting automated via real-time webhooks.</li>
+          <li><strong>Instant liquidity:</strong> owners receive funds via instant payouts rather than 3–5 day ACH waits.</li>
+          <li><strong>100% compliance:</strong> automated tax reporting and 1099-K generation.</li>
         </ul>
       </div>
     </div>

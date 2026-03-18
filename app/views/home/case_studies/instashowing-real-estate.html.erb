@@ -3,13 +3,13 @@
     <div class="row align-items-center min-vh-50">
       <div class="col-12 col-lg-10 mx-auto text-center">
         <h1 class="display-5 fw-bold mb-3" style="font-size: clamp(28px, 4.5vw, 52px); line-height: 1.15;">
-          InstaShowing Real Estate Platform
+          Real Estate Transaction Coordination &amp; Availability Engine
         </h1>
         <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.3vw, 22px); line-height: 1.5; max-width: 980px; margin-left: auto; margin-right: auto;">
-          Scheduling orchestration, feedback intelligence, and offer management in one workflow
+          InstaShowing Orchestration &amp; Offer Ledger
         </p>
         <p class="mb-0" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.7; max-width: 980px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
-          A platform that removes the “Is Tuesday at 4 PM okay?” loop by aggregating calendars, automating approvals, and tracking offers with auditability.
+          A centralized scheduling and offer ledger that acts as the system of record for the listing—optimized for fast field use with auditability and automation built in.
         </p>
       </div>
     </div>
@@ -19,11 +19,29 @@
 <div class="inner-sections">
   <section class="py-5 bg-white">
     <div class="container">
-      <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">The Challenge</h2>
-        <p class="large-para mb-0">
-          Home showings are notoriously fragmented. Agents, sellers, and buyers get stuck in long scheduling loops—causing missed opportunities and slower sales cycles.
-        </p>
+      <div class="row g-4 align-items-start">
+        <div class="col-12 col-lg-7">
+          <h2 class="heading-border heading-center heading-left mb-4 pb-3 d-inline-block">The Challenge</h2>
+          <p class="large-para mb-3">
+            The residential “showing-to-offer” loop is notoriously fragmented. Agents, sellers, and buyers coordinate across SMS, email, and calls, leading to missed feedback and opaque
+            offer negotiations.
+          </p>
+          <p class="large-para mb-0">
+            The goal was to build a centralized source of truth for the entire showing lifecycle while keeping the interface fast and simple enough for field use. That meant consolidating
+            availability across stakeholders, reducing approval friction, and ensuring offers/attachments are handled with auditability instead of spreadsheets.
+          </p>
+        </div>
+        <div class="col-12 col-lg-5">
+          <div class="workflow-card p-4">
+            <h3 class="h6 text-uppercase text-muted mb-3">Quick Stats</h3>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li><strong>Integrations:</strong> RESO Web API + DocuSign</li>
+              <li><strong>Comms:</strong> Twilio alerts</li>
+              <li><strong>Security:</strong> AES-256 + audit logs + 2FA</li>
+              <li><strong>Impact:</strong> 70% less friction; NPS 85+</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -32,8 +50,13 @@
     <div class="container">
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">The Solution</h2>
+        <p class="large-para mb-3">
+          We engineered a centralized scheduling and offer ledger that acts as the operating system for the listing. The platform automates the handshake between showing requests and seller
+          approvals, then tracks every offer in a tamper-resistant digital ledger.
+        </p>
         <p class="large-para mb-0">
-          We built a centralized real estate orchestration platform that handles scheduling, feedback collection, and offer management inside a single workflow.
+          The result is a single workflow: showings move from request → approval → notifications automatically, feedback is collected consistently, and offers are stored, compared, and progressed
+          with strict audit trails—reducing coordination noise and accelerating time-to-contract.
         </p>
       </div>
     </div>
@@ -44,8 +67,8 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Technical Approach</h2>
         <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
-          <li><strong>Calendar Aggregation:</strong> A “Master Availability” engine syncs Google, Outlook, and iCloud calendars to compute true availability instantly.</li>
-          <li><strong>Offer Tracking Ledger:</strong> A secure vault for upload/compare workflows with automated counter-offer generation and audit logging.</li>
+          <li><strong>Calendar universal sync:</strong> Multi-provider sync (Google/Outlook/iCloud) to compute true availability in real time.</li>
+          <li><strong>Event-driven feedback loop:</strong> Automated showing-to-feedback transition (including geofenced triggers) to drive higher response rates.</li>
         </ul>
       </div>
     </div>
@@ -65,19 +88,19 @@
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">Integrations</h3>
-              <p class="mb-0 small">MLS via RESO Web API, DocuSign for signing, and Twilio for “Showing Approved” alerts.</p>
+              <p class="mb-0 small">RESO Web API (MLS), DocuSign (offers), Twilio (SMS alerts).</p>
             </div>
           </div>
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">Security</h3>
-              <p class="mb-0 small">Encrypted document storage, strict audit logs for every “Offer Viewed”, and 2FA for agent accounts.</p>
+              <p class="mb-0 small">AES-256 encryption for offer docs; SOC 2-aligned handling; strict audit logs for every offer view; 2FA for agents.</p>
             </div>
           </div>
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">AI Features</h3>
-              <p class="mb-0 small">Sentiment feedback analysis categorizes buyer-agent notes into actionable seller reports.</p>
+              <p class="mb-0 small">Sentiment aggregator scans agent feedback and produces a “market sentiment report” highlighting recurring concerns.</p>
             </div>
           </div>
         </div>
@@ -90,9 +113,9 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Results &amp; Impact</h2>
         <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
-          <li><strong>70%</strong> reduction in time spent on scheduling calls.</li>
-          <li><strong>25%</strong> faster time-to-contract via streamlined offer management.</li>
-          <li><strong>NPS 85+</strong> from agents who no longer manage spreadsheets.</li>
+          <li><strong>70% friction reduction</strong> in the showing request lifecycle.</li>
+          <li><strong>25% faster contract time</strong> due to centralized offer management.</li>
+          <li><strong>NPS 85+</strong> from agents due to mobile-first, zero-lag workflows.</li>
         </ul>
       </div>
     </div>

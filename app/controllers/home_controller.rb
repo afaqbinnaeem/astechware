@@ -38,19 +38,19 @@ class HomeController < ApplicationController
     slug = params[:slug].to_s
 
     case_studies = {
-      'medical-voice-ai' => { title: 'Medical Voice AI & Clinical Triage' },
-      'legal-contract-ai' => { title: 'Private AI Pipeline for Contract Discovery' },
-      'shoreline-waste-logistics' => { title: 'Shoreline Waste Logistics & Route AI' },
-      'vestra-payments' => { title: 'Vestra Payment Orchestration' },
-      'zofi-cash-fintech' => { title: 'Zofi Cash Salary Advance (EWA) Platform' },
-      'golfpay360-saas' => { title: 'GolfPay360 High-Concurrency Booking' },
-      'red-dragon-hvac' => { title: 'Red Dragon HVAC MMS-to-Social Pipeline' },
-      'instashowing-real-estate' => { title: 'InstaShowing Real Estate Platform' },
-      'athenahealth-sync' => { title: 'Athenahealth Enterprise Integration' },
-      'ai-medical-scribe' => { title: 'Ambient AI Medical Scribe' },
-      'word-of-mouth-modernization' => { title: 'Word of Mouth Platform Modernization' },
-      'restaurant-resource-rescue' => { title: 'Restaurant Resource Rescue & Search AI' },
-      'legal-affidavit-engine' => { title: 'Legal Affidavit & Document AI' }
+      'medical-voice-ai' => { title: 'Autonomous Patient Engagement & Triage System' },
+      'legal-contract-ai' => { title: 'Enterprise Legal Discovery & Playbook Compliance Engine' },
+      'shoreline-waste-logistics' => { title: 'Geospatial Logistics & Fleet Orchestration Platform' },
+      'vestra-payments' => { title: 'Automated Payment Settlement & Escrow Engine' },
+      'zofi-cash-fintech' => { title: 'Liquidity-as-a-Service & Automated Payroll Settlement Engine' },
+      'golfpay360-saas' => { title: 'Multi-Tenant Hospitality Orchestration & POS Engine' },
+      'red-dragon-hvac' => { title: 'Automated Field-Proof Marketing & Local SEO Engine' },
+      'instashowing-real-estate' => { title: 'Real Estate Transaction Coordination & Availability Engine' },
+      'athenahealth-sync' => { title: 'Multi-Clinic Patient Lifecycle & EHR Bridge' },
+      'ai-medical-scribe' => { title: 'Ambient Clinical Documentation & SMART on FHIR Integration' },
+      'word-of-mouth-modernization' => { title: 'Enterprise Legacy-to-Cloud Marketplace Transformation' },
+      'restaurant-resource-rescue' => { title: 'High-Performance Search & Inventory Recovery' },
+      'legal-affidavit-engine' => { title: 'Automated Litigation Support & Document Synthesis' }
     }
 
     case_study = case_studies[slug]
