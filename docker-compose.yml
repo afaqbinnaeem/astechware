@@ -11,24 +11,6 @@ services:
       - .env
     environment:
       - HISTFILE=/usr/src/app/log/.bash_history
-      - POSTGRES_HOST=db
-    depends_on:
-      - db
-      - redis
-  db:
-    image: postgres:15
-    ports:
-      - "5433:5432"
-    environment:
-      - POSTGRES_PASSWORD=changeme
-    volumes:
-      - pg_data:/var/lib/postgresql/data
-  redis:
-    image: redis
-    volumes:
-      - redis_data:/data
 
 volumes:
-  pg_data:
-  redis_data:
   bundle:
