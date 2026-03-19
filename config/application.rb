@@ -28,7 +28,9 @@ module Railsondocker
 
     # When running in "static/no-DB" mode, avoid any ActiveRecord checks that
     # require a working database connection (pending migrations, etc.).
-    config.active_record.migration_error = false
+    if ENV["SKIP_DB"] == "true"
+      config.active_record.migration_error = false
+    end
 
     # Configuration for the application, engines, and railties goes here.
     #
