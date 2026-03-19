@@ -41,7 +41,13 @@ module Railsondocker
     # config.eager_load_paths << Rails.root.join("extras")
     config.exceptions_app = self.routes
 
+    # Rails 7 Host Authorization blocks requests with unexpected Host headers.
+    # Allow your real domain(s) in production/static mode.
     config.hosts << "db956e321597.ngrok.app"
+    ["astechware.com", "www.astechware.com"].each { |h| config.hosts << h }
+    (ENV["ALLOWED_HOSTS"]&.split(",") || []).map(&:strip).reject(&:empty?).each do |h|
+      config.hosts << h
+    end
 
   end
 end
