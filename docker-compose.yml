@@ -1,23 +1,24 @@
 services:
   web:
     build: .
-    command: bash -c "rm -f tmp/pids/server.pid && bin/rails s -p 3000 -b '0.0.0.0'"
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/usr/src/app
       - bundle:/usr/local/bundle
     ports:
-      - "3000:3000"
+      - "3001:3000"
     env_file:
       - .env
     environment:
-      - HISTFILE=/usr/src/app/log/.bash_history 
+      - HISTFILE=/usr/src/app/log/.bash_history
+      - POSTGRES_HOST=db
     depends_on:
       - db
       - redis
   db:
     image: postgres:15
     ports:
-      - "5432:5432"
+      - "5433:5432"
     environment:
       - POSTGRES_PASSWORD=changeme
     volumes:

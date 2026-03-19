@@ -1,0 +1,24 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: production.Dockerfile
+    ports:
+      - "3001:3000"
+    env_file:
+      - .env
+    environment:
+      # Keep CPU/memory usage low by using a single Puma worker.
+      WEB_CONCURRENCY: "1"
+    restart: unless-stopped
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - >
+          ruby -r net/http -r uri -e
+          "u=URI('http://127.0.0.1:3000/'); r=Net::HTTP.get_response(u); exit((r.code.to_i < 400) ? 0 : 1)"
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+
