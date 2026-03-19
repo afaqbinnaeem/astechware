@@ -6,11 +6,13 @@ services:
       - .:/usr/src/app
       - bundle:/usr/local/bundle
     ports:
-      - "3001:3000"
+      - "3000:3000"
     env_file:
       - .env
     environment:
       - HISTFILE=/usr/src/app/log/.bash_history
+      # Ensure the app can render without a working database.
+      - SKIP_DB=true
 
 volumes:
   bundle:
