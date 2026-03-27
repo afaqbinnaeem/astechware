@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 SitemapGenerator::Sitemap.default_host = 'https://astechware.com'
+SitemapGenerator::Sitemap.compress = false
 
 SitemapGenerator::Sitemap.create do
   add '/', priority: 1.0, changefreq: 'weekly'
@@ -23,9 +24,33 @@ SitemapGenerator::Sitemap.create do
   add '/blogs', priority: 0.8, changefreq: 'weekly'
   add '/about', priority: 0.7, changefreq: 'monthly'
   add '/contact', priority: 0.8, changefreq: 'monthly'
+  add '/clients', priority: 0.7, changefreq: 'monthly'
+  add '/projects', priority: 0.8, changefreq: 'monthly'
+  add '/privacy-policy', priority: 0.5, changefreq: 'monthly'
+  add '/terms-of-service', priority: 0.5, changefreq: 'monthly'
 
-  # Auto-include blog posts if there is a Post or Blog model
-  # Post.find_each do |post|
-  #   add "/blogs/#{post.slug}", lastmod: post.updated_at, priority: 0.7, changefreq: 'monthly'
-  # end
+  # Case study detail pages
+  %w[
+    medical-voice-ai
+    athenahealth-sync
+    ai-medical-scribe
+    legal-contract-ai
+    legal-affidavit-engine
+    shoreline-waste-logistics
+    red-dragon-hvac
+    vestra-payments
+    zofi-cash-fintech
+    instashowing-real-estate
+    golfpay360-saas
+    word-of-mouth-modernization
+    restaurant-resource-rescue
+    eventvesta-ai-marketing
+  ].each do |slug|
+    add "/case-studies/#{slug}", priority: 0.7, changefreq: 'monthly'
+  end
+
+  # All blog post pages (same source as ApplicationHelper#blog_articles_list)
+  Object.new.extend(ApplicationHelper).blog_articles_list.each do |article|
+    add "/blogs/#{article[:slug]}", priority: 0.7, changefreq: 'monthly'
+  end
 end

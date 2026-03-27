@@ -45,6 +45,7 @@ class HomeController < ApplicationController
       'zofi-cash-fintech' => { title: 'Liquidity-as-a-Service & Automated Payroll Settlement Engine' },
       'golfpay360-saas' => { title: 'Multi-Tenant Hospitality Orchestration & POS Engine' },
       'red-dragon-hvac' => { title: 'Automated Field-Proof Marketing & Local SEO Engine' },
+      'eventvesta-ai-marketing' => { title: 'AI Marketing OS for Event Promoters' },
       'instashowing-real-estate' => { title: 'Real Estate Transaction Coordination & Availability Engine' },
       'athenahealth-sync' => { title: 'Multi-Clinic Patient Lifecycle & EHR Bridge' },
       'ai-medical-scribe' => { title: 'Ambient Clinical Documentation & SMART on FHIR Integration' },
