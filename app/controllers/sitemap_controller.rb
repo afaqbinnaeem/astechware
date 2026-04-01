@@ -43,6 +43,26 @@ class SitemapController < ApplicationController
     urls << { loc: "#{base}#{api_integrations_path}", priority: "0.8", changefreq: "monthly" }
     urls << { loc: "#{base}#{devops_engineering_path}", priority: "0.8", changefreq: "monthly" }
 
+    # Case study detail pages
+    %w[
+      medical-voice-ai
+      athenahealth-sync
+      ai-medical-scribe
+      legal-contract-ai
+      legal-affidavit-engine
+      shoreline-waste-logistics
+      red-dragon-hvac
+      vestra-payments
+      zofi-cash-fintech
+      instashowing-real-estate
+      golfpay360-saas
+      word-of-mouth-modernization
+      restaurant-resource-rescue
+      eventvesta-ai-marketing
+    ].each do |slug|
+      urls << { loc: "#{base}#{case_study_path(slug)}", priority: "0.7", changefreq: "monthly" }
+    end
+
     # Industry / solution pages
     urls << { loc: "#{base}#{industry_healthcare_path}", priority: "0.7", changefreq: "monthly" }
     urls << { loc: "#{base}#{industry_legal_path}", priority: "0.7", changefreq: "monthly" }

@@ -6,6 +6,8 @@ test:
   adapter: test
 
 production:
-  adapter: redis
-  url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
+  # If Redis isn't configured, fall back to the async adapter so we don't
+  # require a redis container in production.
+  adapter: <%= ENV['REDIS_URL'].present? || (ENV['REDIS_HOST'].present? && ENV['REDIS_PORT'].present?) ? 'redis' : 'async' %>
+  url: <%= ENV['REDIS_URL'] || "redis://#{ENV.fetch('REDIS_HOST', 'localhost')}:#{ENV.fetch('REDIS_PORT', '6379')}/1" %>
   channel_prefix: railsondocker_production

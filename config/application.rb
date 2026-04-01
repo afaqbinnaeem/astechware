@@ -26,6 +26,12 @@ module Railsondocker
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
+    # When running in "static/no-DB" mode, avoid any ActiveRecord checks that
+    # require a working database connection (pending migrations, etc.).
+    if ENV["SKIP_DB"] == "true"
+      config.active_record.migration_error = false
+    end
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
@@ -35,7 +41,13 @@ module Railsondocker
     # config.eager_load_paths << Rails.root.join("extras")
     config.exceptions_app = self.routes
 
+    # Rails 7 Host Authorization blocks requests with unexpected Host headers.
+    # Allow your real domain(s) in production/static mode.
     config.hosts << "db956e321597.ngrok.app"
+    ["astechware.com", "www.astechware.com"].each { |h| config.hosts << h }
+    (ENV["ALLOWED_HOSTS"]&.split(",") || []).map(&:strip).reject(&:empty?).each do |h|
+      config.hosts << h
+    end
 
   end
 end
