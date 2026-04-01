@@ -6,10 +6,6 @@ import { application } from "controllers/application"
 import { eagerLoadControllersFrom } from "@hotwired/stimulus-loading"
 eagerLoadControllersFrom("controllers", application)
 
-// Manually import chat controller to ensure it loads
-import ChatController from "./chat_controller"
-application.register("chat", ChatController)
-
 // Manually import the new chatbot controller so it loads when feature-flagged
 import ChatbotNewController from "./chatbot_new_controller"
 application.register("chatbot-new", ChatbotNewController)
