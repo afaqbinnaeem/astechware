@@ -10,6 +10,10 @@ eagerLoadControllersFrom("controllers", application)
 import ChatController from "./chat_controller"
 application.register("chat", ChatController)
 
+// Manually import the new chatbot controller so it loads when feature-flagged
+import ChatbotNewController from "./chatbot_new_controller"
+application.register("chatbot-new", ChatbotNewController)
+
 // Lazy load controllers as they appear in the DOM (remember not to preload controllers in import map!)
 // import { lazyLoadControllersFrom } from "@hotwired/stimulus-loading"
 // lazyLoadControllersFrom("controllers", application)

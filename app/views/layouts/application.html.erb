@@ -370,7 +370,11 @@
   </script>
 
     <%= yield :footer_script %>
-    <%= render 'shared/chat_widget' %>
+    <% if ENV["CHATBOT_NEW"].to_s.downcase == "true" %>
+      <%= render 'shared/chat_widget_new' %>
+    <% else %>
+      <%= render 'shared/chat_widget' %>
+    <% end %>
     <script>
     // Fallback toggle handler in case Stimulus doesn't load
     document.addEventListener('DOMContentLoaded', function() {

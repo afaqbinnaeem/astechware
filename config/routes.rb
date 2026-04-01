@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   match "/500", to: "errors#internal_server_error", via: :all
   post 'submit_form', to: 'home#submit_form'
   post 'chat/message', to: 'chat#message'
+  post 'chat/message_new', to: 'chatbot_new#message'
+  post 'chat/lead_new', to: 'chatbot_new#lead'
+  get  'chat/history_new', to: 'chatbot_new#history'
   get '/ai-agents', to: 'home#ai_agents', as: 'ai_agents'
   get '/services/ai-agent-development', to: 'home#ai_agent_development', as: 'ai_agent_development'
   get '/services/machine-learning', to: 'home#machine_learning', as: 'machine_learning'

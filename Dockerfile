@@ -8,6 +8,8 @@ RUN apt-get update -qq && apt-get install -yq --no-install-recommends \
     libpq-dev \
     postgresql-client \
     libvips42 \
+    python3 \
+    python3-pip \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ENV LANG=C.UTF-8 \
@@ -17,6 +19,9 @@ ENV LANG=C.UTF-8 \
 RUN gem install bundler
 
 WORKDIR /usr/src/app
+
+# Python deps for `cursor-final-pipeline1-1.py`
+RUN pip3 install --no-cache-dir openai supabase python-dotenv
 
 # Copy Gemfile and Gemfile.lock for dependency installation
 COPY Gemfile Gemfile.lock ./
