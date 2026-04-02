@@ -133,7 +133,10 @@ export default class extends Controller {
                 </svg>
               </button>
             </div>
-            <div style="text-align: center; margin-top: 10px; font-size: 11px; color: rgba(255,255,255,0.2);">
+            <div style="text-align: center; margin-top: 10px; font-size: 11px; color: rgba(255,255,255,0.38); line-height: 1.35;">
+              A'sTechware AI Consultant can make mistakes. Check important info.
+            </div>
+            <div style="text-align: center; margin-top: 8px; font-size: 11px; color: rgba(255,255,255,0.2);">
               Powered by <span style="color:#6ee7b7;font-weight:600;">A'sTechware</span> · AI & Platform Engineering
             </div>
           </div>
