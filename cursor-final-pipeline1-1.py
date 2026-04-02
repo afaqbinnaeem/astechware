@@ -581,7 +581,6 @@ def route_query(user_input: str) -> dict:
         response = openai_client.chat.completions.create(
             model=CHAT_BOT_OPENAI_MODEL,
             messages=[{"role": "user", "content": prompt}],
-            temperature=0,
             response_format={"type": "json_object"}
         )
         log_timing(
@@ -880,7 +879,6 @@ Extracted website text:
         resp = openai_client.chat.completions.create(
             model=CHAT_BOT_OPENAI_MODEL,
             messages=[{"role": "user", "content": prompt}],
-            temperature=0,
             response_format={"type": "json_object"},
         )
         data = json.loads(resp.choices[0].message.content)
@@ -957,7 +955,6 @@ Extracted website text (may be partial):
         resp = openai_client.chat.completions.create(
             model=CHAT_BOT_OPENAI_MODEL,
             messages=[{"role": "user", "content": prompt}],
-            temperature=0,
             response_format={"type": "json_object"},
         )
         return json.loads(resp.choices[0].message.content)
@@ -1138,7 +1135,6 @@ Category guidance:
         response = openai_client.chat.completions.create(
             model=CHAT_BOT_OPENAI_MODEL,
             messages=[{"role": "user", "content": prompt}],
-            temperature=0,
             response_format={"type": "json_object"}
         )
         log_timing(
@@ -1785,8 +1781,9 @@ YOUR JOB
 - If evidence is partial but useful, give the best supported answer instead of dodging.
 
 CORE RULES
-- Refer to A'sTechware in third person: use "A'sTechware ...", not "we or they...".
-- Never invent case studies, client names, certifications, regulatory expertise, pricing, or delivery guarantees.
+- Refer to A'sTechware in third person: use "A'sTechware or we...(must)", not "they..".
+- Never invent case studies, client names, certifications, regulatory expertise, pricing, delivery guarantees or irrelevant information.
+- Don't use "Based on given information..", Answer properly like a senior technial assitant of A'stechware 
 - CRITICAL: NEVER put citation IDs, chunk IDs, source IDs, raw URLs, or markdown links 
   inside answer_markdown. This means NEVER write things like [home-about-summary], 
   [home-company-overview], or any [bracket-text] inside the answer body.
@@ -1953,8 +1950,7 @@ Return ONLY this JSON structure, nothing else:
                 {"role": "system", "content": SYSTEM_PROMPT},
                 {"role": "user", "content": user_prompt}
             ],
-            response_format={"type": "json_object"},
-            temperature=0.3
+            response_format={"type": "json_object"}
         )
         log_timing(
             "openai_chat",
