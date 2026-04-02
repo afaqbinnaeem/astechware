@@ -39,6 +39,7 @@ import re
 import json
 import time
 import sys
+from contextlib import contextmanager
 from typing import List, Dict, Any, Optional
 
 from dotenv import load_dotenv
@@ -59,6 +60,43 @@ def log(*args, **kwargs):
 
 
 # ─────────────────────────────────────────────────────────────
+# TIMING (stderr only — stdout stays JSON for Rails)
+# ─────────────────────────────────────────────────────────────
+_PIPELINE_T0: Optional[float] = None
+
+
+def pipeline_timer_reset() -> None:
+    """Call once at process entry (CLI) to anchor cumulative ms."""
+    global _PIPELINE_T0
+    _PIPELINE_T0 = time.perf_counter()
+
+
+def pipeline_elapsed_ms() -> float:
+    if _PIPELINE_T0 is None:
+        return 0.0
+    return (time.perf_counter() - _PIPELINE_T0) * 1000.0
+
+
+def log_timing(step: str, detail: str = "", step_ms: Optional[float] = None) -> None:
+    """step_ms: duration of just this segment (e.g. one OpenAI call)."""
+    extra = f" | {detail}" if detail else ""
+    if step_ms is not None:
+        log(
+            f"[pipeline_timing] +{pipeline_elapsed_ms():.1f}ms cumulative | {step}{extra} | step={step_ms:.1f}ms"
+        )
+    else:
+        log(f"[pipeline_timing] +{pipeline_elapsed_ms():.1f}ms cumulative | {step}{extra}")
+
+
+@contextmanager
+def time_block(label: str, detail: str = ""):
+    t0 = time.perf_counter()
+    yield
+    ms = (time.perf_counter() - t0) * 1000.0
+    log_timing(label, detail=detail, step_ms=ms)
+
+
+# ─────────────────────────────────────────────────────────────
 # ENV LOADING
 # ─────────────────────────────────────────────────────────────
 load_dotenv()
@@ -67,6 +105,7 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 SUPABASE_URL   = os.getenv("SUPABASE_URL")
 SUPABASE_KEY   = os.getenv("SUPABASE_KEY")
 JSON_FILE      = os.getenv("JSON_FILE")
+CHAT_BOT_OPENAI_MODEL = os.getenv("CHAT_BOT_OPENAI_MODEL") or "gpt-4.1-nano"
 
 
 def require_env(name: str, value: Optional[str]) -> str:
@@ -510,116 +549,45 @@ VALID_ROUTES = {
 
 def build_router_prompt(user_input: str) -> str:
     return f"""
-You are a lightweight router for the A'sTechware website assistant.
+You are a router for A'sTechware — an AI & product engineering company.
+They build: AI agents, custom SaaS, platform modernization, integrations, and marketing automation.
+Industries: b2b-saas, healthcare, fintech, legal, education, professional-services.
 
-Your ONLY job is to decide how this user message should be handled.
-
-A'sTechware is an AI and product engineering company that builds:
-- AI agents, copilots, and automation systems (including AI marketing OS,
-  ad automation, social media scheduling, and content generation workflows)
-- Custom SaaS platforms and internal tools
-- Platform modernization and scaling (engineering rescues, zero-downtime improvements, CI/CD, observability, database optimization)
-- Integrations and API engineering (CRMs, billing, EHR; idempotency, DLQs, circuit breakers, webhooks; HL7/FHIR, EDI, legacy adapters)
-
-They serve industries including:
-  {", ".join(ROUTER_ALLOWED_INDUSTRIES)}
-
-Choose exactly one route:
-
-1. greeting
-   - greetings, thanks, bye, casual smalltalk
-   - examples: hi, hello, how are you, thanks, bye
-
-2. out_of_scope
-   - unrelated to A'sTechware, software services, product engineering, website/company analysis, or project fit
-   - examples: sports, weather, jokes, unrelated personal chat
-
-3. rag_only
-   - the user is asking about A'sTechware’s services, capabilities, industries, case studies, delivery model, pricing approach, ownership, handoff, support, compliance, trustworthiness, company credibility, founder/team, project fit, technical fit, AI safety, governance, responsibility, risk controls, or what happens in production
-   - use rag_only for any in-scope buyer question about whether A'sTechware is credible, safe, experienced, or a fit
-   - no external website analysis required
-   - use rag_only for martech, ad automation, or social media scheduling questions
-     (A'sTechware built an AI Marketing OS for EventVesta covering Meta/Google Ads automation)"
-   - also use rag_only for any question that matches a blog topic A'sTechware has published on: 
-      AI chatbot degradation, AI cost control, prompt injection, RAG implementation, 
-      agentic AI governance, fine-tuning vs prompting, HIPAA-compliant AI, 
-      LangGraph agent architecture, AI testing, production vs prototype AI, 
-      context windows, vendor/partner evaluation, or fractional engineering teams
-
-4. rag_plus_web
-   - the user references an external website, app, company, or URL
-   - use this whenever a URL is present and the request is even partially related to:
-     - whether A'sTechware can build something similar
-     - whether A'sTechware can improve, modernize, or add AI to it
-     - which A'sTechware service or case study is the closest fit
-     - whether A'sTechware is a good fit for this product or workflow
-   - IMPORTANT: the assistant is not a free website-audit or free market-research tool
-   - if a URL is shared, use it only to understand context, then pivot back to what A'sTechware can build, improve, or de-risk
+Return ONLY JSON with "route" as one of:
+- "greeting"     → pure smalltalk (hi, thanks, bye)
+- "out_of_scope" → unrelated to software/AI/engineering
+- "rag_only"     → questions about A'sTechware services, case studies, pricing, team, fit
+- "rag_plus_web" → user shares a URL and wants A'sTechware to assess/compare it
 
 Rules:
-- If the user includes a URL and wants A'sTechware to compare against it, assess whether A'sTechware can build it, improve it, rebuild it, modernize it, add AI to it, or map it to services/case studies, choose rag_plus_web. This includes phrasing like: "can you build something like this", "I want something like this", "similar to this", "what service fits this", "can A'sTechware do this", "review this and tell me if you're a fit", "how would you rebuild this", "can you add AI to something like this"
-- If the user asks about A'sTechware only, with no need for external web analysis → choose rag_only
-- If the question is clearly about A'sTechware but lacks enough detail to answer well (for example: "can you do this?", "how much would this cost?", "is this possible?"), still choose rag_only and set needs_clarification=true instead of routing out_of_scope
-- Company questions about A'sTechware (who started it, who runs it, team, where based, company size, years in business, legitimacy/credibility) → choose rag_only (query_type: company)
-- Subjective proof-of-work questions are ALWAYS in-scope and should route to rag_only with query_type=case_study. This includes: "Best thing you've ever built", "what have you built", "your best project", "biggest win", "most impressive work", "proof/results", "what are you best at", "what's your strongest case study", "show me something impressive", "what worked best for clients"
-- Trust, governance, and risk questions are ALWAYS in-scope and should route to rag_only with query_type=trust_risk, not out_of_scope or greeting. Examples: "Who is responsible if AI is wrong?", "How do you stop hallucinations?", "How do you prevent bad decisions?", "What happens when the AI fails?", "Why should I trust this in production?"
-- Casual or skeptical buyer questions are still in-scope if they are about A'sTechware's credibility, legitimacy, safety, delivery, ownership, support, or results. Examples: "Are you legit?", "Why should I trust you?", "What if this breaks?", "Are you a real company?", "What happens after launch?", "Do you disappear after delivery?" → choose rag_only
-- greeting is ONLY for pure smalltalk with no business intent. If the message contains any substantive question about A'sTechware's services, credibility, founder/team, pricing approach, delivery, case studies, trust, risk, support, or project fit — even if it starts with "hi", "hello", "hey", or "thanks" — do NOT choose greeting
-- IMPORTANT: questions like "What's the best thing you've ever built?" are NOT out_of_scope. They are requests for proof/case studies → rag_only.
-- Greetings / thanks / bye should be greeting
-- Unrelated questions should be out_of_scope
-- If the user shares a URL or asks to review a website, do NOT treat the assistant as a generic website-audit or free consulting tool. If the request is even partially about what A'sTechware can build, improve, modernize, add AI to, or how A'sTechware would approach it, choose rag_plus_web.
-- Requests like "check my website", "scrape my site", "summarize this product", or "review this company" should still go to rag_plus_web if the user is evaluating fit, improvements, AI opportunities, modernization, or technical direction.
-- Niche or specialized workflow questions are still in-scope if they ask whether A'sTechware has experience, capability, or a relevant fit in a supported domain, even when the exact specialty is not explicitly listed. Examples: M&A due diligence, prompt injection, AI cost spikes, HVAC field operations, property maintenance workflows, PCI-sensitive payment flows. These should route to rag_only unless a URL is involved.
+- Any business question (even starting with "hi") → rag_only, NOT greeting
+- URL present + asking about fit/build/improve → rag_plus_web
+- Vague but in-scope → rag_only with needs_clarification=true
+- Trust/credibility/risk questions → rag_only
 
+Return ONLY:
+{{"route":"...", "greeting_message":"", "query_type":"...", "topics":[], "industries":[], "has_url":false, "needs_clarification":false, "reason":""}}
 
-Return ONLY valid JSON with this schema:
-{{
-  "route": "greeting|out_of_scope|rag_only|rag_plus_web",
-  "greeting_message": "",
-  "query_type": "smalltalk|company|service_capability|industry_fit|case_study|comparison|external_reference|website_analysis|project_fit|pricing|compliance|technical_review|trust_risk",
-  "topics": [],
-  "industries": [],
-  "has_url": false,
-  "needs_clarification": false,
-  "reason": ""
-}}
+If route=="greeting", set greeting_message to 1-2 sentence welcome mentioning A'sTechware.
 
-If and only if route == "greeting", set "greeting_message" to a senior-consultant-style reply:
-- Maximum 2 sentences. Confident, not chatty.
-- First sentence: anchor what A'sTechware does in concrete terms.
-  Use this exact framing: "A'sTechware builds [X] for [Y]." 
-  Fill X with 2-3 of: AI agents, automation systems, custom SaaS platforms, 
-  platform modernization, API integrations.
-  Fill Y with: businesses that need production-grade software without a full in-house team.
-- Second sentence: one focused question that moves the conversation forward.
-  Examples: "What are you looking to build?", "Which industry are you in?", 
-  "Are you exploring AI agents, a platform build, or something else?"
-- NEVER use filler phrases like "dedicated to", "committed to", "passionate about", 
-  "here to help", "How can I assist you today?"
-- NEVER sound like a generic chatbot.
-- Do NOT mention JSON, routing, or internal steps.
-
-Allowed industries only:
-{ROUTER_ALLOWED_INDUSTRIES}
-
-Allowed topics only:
-{ROUTER_ALLOWED_TOPICS}
-
-User message:
-{user_input}
+User: {user_input}
 """.strip()
-
 
 def route_query(user_input: str) -> dict:
     prompt = build_router_prompt(user_input)
 
     try:
+        t_ai = time.perf_counter()
         response = openai_client.chat.completions.create(
-            model="gpt-4o-mini",
+            model=CHAT_BOT_OPENAI_MODEL,
             messages=[{"role": "user", "content": prompt}],
             temperature=0,
             response_format={"type": "json_object"}
+        )
+        log_timing(
+            "openai_chat",
+            detail="router model=gpt-4.1-nano",
+            step_ms=(time.perf_counter() - t_ai) * 1000.0,
         )
 
         data = json.loads(response.choices[0].message.content)
@@ -639,7 +607,7 @@ def route_query(user_input: str) -> dict:
         }
 
     except Exception as e:
-        print(f"  → Router failed, defaulting to rag_only: {e}")
+        log(f"  → Router failed, defaulting to rag_only: {e}")
         return {
             "route": "rag_only",
             "greeting_message": "",
@@ -910,7 +878,7 @@ Extracted website text:
 
     try:
         resp = openai_client.chat.completions.create(
-            model="gpt-4o-mini",
+            model=CHAT_BOT_OPENAI_MODEL,
             messages=[{"role": "user", "content": prompt}],
             temperature=0,
             response_format={"type": "json_object"},
@@ -987,7 +955,7 @@ Extracted website text (may be partial):
 
     try:
         resp = openai_client.chat.completions.create(
-            model="gpt-4o-mini",
+            model=CHAT_BOT_OPENAI_MODEL,
             messages=[{"role": "user", "content": prompt}],
             temperature=0,
             response_format={"type": "json_object"},
@@ -1166,11 +1134,17 @@ Category guidance:
 """
 
     try:
+        t_ai = time.perf_counter()
         response = openai_client.chat.completions.create(
-            model="gpt-4o-mini",
+            model=CHAT_BOT_OPENAI_MODEL,
             messages=[{"role": "user", "content": prompt}],
             temperature=0,
             response_format={"type": "json_object"}
+        )
+        log_timing(
+            "openai_chat",
+            detail="classify_question model=gpt-4.1-nano",
+            step_ms=(time.perf_counter() - t_ai) * 1000.0,
         )
         parsed = json.loads(response.choices[0].message.content)
 
@@ -1352,9 +1326,15 @@ def build_filters(classification: dict) -> dict:
 
 def embed_text(text: str) -> list:
     try:
+        t_ai = time.perf_counter()
         response = openai_client.embeddings.create(
             model="text-embedding-3-small",
             input=text.replace("\n", " ").strip()
+        )
+        log_timing(
+            "openai_embeddings",
+            detail="model=text-embedding-3-small",
+            step_ms=(time.perf_counter() - t_ai) * 1000.0,
         )
         return response.data[0].embedding
     except Exception as e:
@@ -1397,6 +1377,7 @@ def search_supabase_vector(question_embedding: list, filters: dict) -> list:
     topics = filters.get("topics")
 
     try:
+        t_rpc = time.perf_counter()
         results = run_search(cats=categories, topics=topics)
 
         if not results and topics:
@@ -1407,6 +1388,11 @@ def search_supabase_vector(question_embedding: list, filters: dict) -> list:
             print("  → vector category-filtered search empty, retrying full scoped search")
             results = run_search(cats=None, topics=None)
 
+        log_timing(
+            "supabase_rpc_match_chunks_vector",
+            detail=f"rows={len(results)}",
+            step_ms=(time.perf_counter() - t_rpc) * 1000.0,
+        )
         return results
     except Exception as e:
         print(f"  → Vector search failed: {e}")
@@ -1441,6 +1427,7 @@ def search_supabase_fts(query_text: str, filters: dict) -> list:
     topics = filters.get("topics")
 
     try:
+        t_rpc = time.perf_counter()
         results = run_search(cats=categories, topics=topics)
 
         if not results and topics:
@@ -1451,6 +1438,11 @@ def search_supabase_fts(query_text: str, filters: dict) -> list:
             print("  → FTS category-filtered search empty, retrying full scoped search")
             results = run_search(cats=None, topics=None)
 
+        log_timing(
+            "supabase_rpc_match_chunks_fts",
+            detail=f"rows={len(results)}",
+            step_ms=(time.perf_counter() - t_rpc) * 1000.0,
+        )
         return results
     except Exception as e:
         print(f"  → FTS search failed: {e}")
@@ -1954,14 +1946,20 @@ Return ONLY this JSON structure, nothing else:
 """
 
     try:
+        t_ai = time.perf_counter()
         response = openai_client.chat.completions.create(
-            model="gpt-4o",
+            model=CHAT_BOT_OPENAI_MODEL,
             messages=[
                 {"role": "system", "content": SYSTEM_PROMPT},
                 {"role": "user", "content": user_prompt}
             ],
             response_format={"type": "json_object"},
             temperature=0.3
+        )
+        log_timing(
+            "openai_chat",
+            detail="generate_answer model=gpt-4.1-nano",
+            step_ms=(time.perf_counter() - t_ai) * 1000.0,
         )
         return json.loads(response.choices[0].message.content)
     except Exception as e:
@@ -2240,9 +2238,11 @@ def build_scope_note(classification: dict) -> str:
 # ═══════════════════════════════════════════════════════════════
 
 def run_rag_pipeline(user_question: str, verbose: bool = True, router_result: Optional[dict] = None) -> dict:
+    log_timing("run_rag_pipeline_enter")
     # Step 1: Classify
     print("\n  Step 1 → Classifying...")
-    classification = classify_question(user_question)
+    with time_block("run_rag_step1_classify_question"):
+        classification = classify_question(user_question)
 
     if verbose:
         print(f"    category  : {classification['primary_category']}")
@@ -2256,33 +2256,38 @@ def run_rag_pipeline(user_question: str, verbose: bool = True, router_result: Op
     # Fully out-of-scope only
     if classification.get("is_out_of_scope"):
         print("  → Out of scope, returning fallback")
+        log_timing("run_rag_pipeline_exit", detail="fallback_out_of_scope")
         return handle_fallback(user_question, classification)
 
     # Step 2: Filters
     print("\n  Step 2 → Building filters...")
-    filters = build_filters(classification)
+    with time_block("run_rag_step2_build_filters"):
+        filters = build_filters(classification)
     if verbose:
         print(f"    filters   : {filters}")
 
-    # Step 3: Embed
+    # Step 3: Embed (timing inside embed_text → openai_embeddings)
     print("\n  Step 3 → Embedding question...")
     search_text = classification.get("reformulated", user_question)
     embedding = embed_text(search_text)
     if verbose:
         print(f"    dims      : {len(embedding)}")
 
-    # Step 4: Hybrid Search
+    # Step 4: Hybrid Search (timing inside search_supabase_vector / _fts)
     print("\n  Step 4 → Hybrid search (Vector + FTS)...")
-    raw_results = search_hybrid(search_text, embedding, filters)
+    with time_block("run_rag_step4_search_hybrid"):
+        raw_results = search_hybrid(search_text, embedding, filters)
     print(f"    found     : {len(raw_results)} raw fused matches")
 
     if not raw_results:
         print("  → No matches anywhere, returning fallback")
+        log_timing("run_rag_pipeline_exit", detail="fallback_no_hybrid_matches")
         return handle_fallback(user_question, classification)
 
     # Step 5: Re-rank
     print("\n  Step 5 → Re-ranking...")
-    ranked = rerank_results(raw_results, classification)
+    with time_block("run_rag_step5_rerank_results"):
+        ranked = rerank_results(raw_results, classification)
 
     proof_query = is_proof_query(user_question)
 
@@ -2291,11 +2296,12 @@ def run_rag_pipeline(user_question: str, verbose: bool = True, router_result: Op
         forced_filters = dict(filters)
         forced_filters["categories"] = ["case_study", "service_capability"]
 
-        retry_results = search_hybrid(search_text, embedding, forced_filters)
-        if retry_results:
-            retry_ranked = rerank_results(retry_results, classification)
-            if has_case_study_in_top(retry_ranked, 5):
-                ranked = retry_ranked
+        with time_block("run_rag_proof_query_retry_hybrid_rerank"):
+            retry_results = search_hybrid(search_text, embedding, forced_filters)
+            if retry_results:
+                retry_ranked = rerank_results(retry_results, classification)
+                if has_case_study_in_top(retry_ranked, 5):
+                    ranked = retry_ranked
 
     top_score = ranked[0]["final_score"] if ranked else 0.0
     confidence_score = compute_confidence_score(ranked, classification)
@@ -2316,12 +2322,14 @@ def run_rag_pipeline(user_question: str, verbose: bool = True, router_result: Op
     # Do NOT compare it to LOW_CONFIDENCE (0.40). Use a small threshold.
     if top_score < 0.02:
         print(f"  → Top score {top_score:.3f} below hybrid threshold, returning fallback")
+        log_timing("run_rag_pipeline_exit", detail="fallback_low_top_score")
         return handle_fallback(user_question, classification)
 
     # Step 6: Context
     print("\n  Step 6 → Building context...")
-    related = fetch_related_chunks(ranked)
-    context = build_context(ranked, related, classification)
+    with time_block("run_rag_step6_fetch_related_and_build_context"):
+        related = fetch_related_chunks(ranked)
+        context = build_context(ranked, related, classification)
 
     if verbose:
         print(f"    direct chunks  : {min(len(ranked), TOP_K)}")
@@ -2348,9 +2356,10 @@ def run_rag_pipeline(user_question: str, verbose: bool = True, router_result: Op
         print(f"  LOW_CONFIDENCE   : {LOW_CONFIDENCE}")
         print(f"  level            : {'HIGH' if confidence_score >= HIGH_CONFIDENCE else 'MEDIUM' if confidence_score >= MEDIUM_CONFIDENCE else 'LOW'}")
 
-    # Step 7: Generate
+    # Step 7: Generate (timing inside generate_answer → openai_chat gpt-4o)
     print("\n  Step 7 → Generating answer...")
-    answer = generate_answer(user_question, context, classification, confidence_score)
+    with time_block("run_rag_step7_generate_answer_total"):
+        answer = generate_answer(user_question, context, classification, confidence_score)
 
     # Always trust Python confidence, not model confidence
     answer["confidence"] = confidence_score
@@ -2364,15 +2373,18 @@ def run_rag_pipeline(user_question: str, verbose: bool = True, router_result: Op
 
     # Step 8: Enrich citations
     print("\n  Step 8 → Enriching citations...")
-    answer = enrich_citations(answer, ranked, related)
+    with time_block("run_rag_step8_enrich_citations"):
+        answer = enrich_citations(answer, ranked, related)
 
     # Step 9: Validate
     print("\n  Step 9 → Validating...")
-    validation = validate_answer(answer)
+    with time_block("run_rag_step9_validate_answer"):
+        validation = validate_answer(answer)
 
     if not validation["valid"]:
         print(f"  → Validation failed: {validation['reason']} — regenerating once")
-        answer = generate_answer(user_question, context, classification, confidence_score)
+        with time_block("run_rag_step7_generate_answer_retry"):
+            answer = generate_answer(user_question, context, classification, confidence_score)
 
         # Re-apply Python confidence after regeneration
         answer["confidence"] = confidence_score
@@ -2384,17 +2396,21 @@ def run_rag_pipeline(user_question: str, verbose: bool = True, router_result: Op
             if answer.get("answer_style") == "direct":
                 answer["answer_style"] = "clarifying"
 
-        answer = enrich_citations(answer, ranked, related)
-        validation = validate_answer(answer)
+        with time_block("run_rag_step8_enrich_citations_retry"):
+            answer = enrich_citations(answer, ranked, related)
+        with time_block("run_rag_step9_validate_answer_retry"):
+            validation = validate_answer(answer)
 
         if not validation["valid"]:
             print("  → Still failed after retry, returning fallback")
+            log_timing("run_rag_pipeline_exit", detail="fallback_validation_failed")
             return handle_fallback(user_question, classification)
 
     final = validation["answer"]
 
     print(f"\n  ✓ Answer ready | style: {final['answer_style']} | confidence: {final['confidence']}")
     print(f"\n  ANSWER PREVIEW:\n  {final['answer_markdown'][:300]}...")
+    log_timing("run_rag_pipeline_exit_ok")
 
     return final
 
@@ -2405,6 +2421,14 @@ def run_rag_pipeline(user_question: str, verbose: bool = True, router_result: Op
 # ═══════════════════════════════════════════════════════════════
 
 def run_pipeline(user_question: str, verbose: bool = True) -> dict:
+    log_timing("run_pipeline_enter")
+    try:
+        return _run_pipeline_impl(user_question, verbose=verbose)
+    finally:
+        log_timing("run_pipeline_exit")
+
+
+def _run_pipeline_impl(user_question: str, verbose: bool = True) -> dict:
     print(f"\n{'═' * 60}")
     print(f"  Q: {user_question}")
     print(f"{'═' * 60}")
@@ -2414,10 +2438,11 @@ def run_pipeline(user_question: str, verbose: bool = True) -> dict:
     # --------------------------------------------------
     if should_escalate_long_input(user_question):
         print("  → Long input detected (>500 words), recommending technical call")
+        log_timing("run_pipeline_return", detail="stage0_long_input")
         return handle_long_input_escalation()
 
     # --------------------------------------------------
-    # STAGE 1: AI Router
+    # STAGE 1: AI Router (OpenAI timing logged inside route_query)
     # --------------------------------------------------
     print("\n  Stage 1 → Routing...")
     router_result = route_query(user_question)
@@ -2432,10 +2457,12 @@ def run_pipeline(user_question: str, verbose: bool = True) -> dict:
     # --------------------------------------------------
     if route == "greeting":
         print("  → Greeting route")
+        log_timing("run_pipeline_return", detail="stage2_greeting")
         return handle_greeting_route(router_result)
 
     if route == "out_of_scope":
         print("  → Out-of-scope route")
+        log_timing("run_pipeline_return", detail="stage2_out_of_scope")
         return handle_out_of_scope_route()
 
     # --------------------------------------------------
@@ -2443,6 +2470,7 @@ def run_pipeline(user_question: str, verbose: bool = True) -> dict:
     # --------------------------------------------------
     if route == "rag_only":
         print("  → RAG-only route")
+        log_timing("run_pipeline_branch", detail="stage3a_rag_only_entering_run_rag")
         return run_rag_pipeline(user_question, verbose=verbose, router_result=router_result)
 
     # --------------------------------------------------
@@ -2455,6 +2483,7 @@ def run_pipeline(user_question: str, verbose: bool = True) -> dict:
 
         if not urls:
             print("  → Router chose rag_plus_web but no URL found, falling back to RAG")
+            log_timing("run_pipeline_branch", detail="stage3c_rag_plus_web_no_url_fallback_rag")
             return run_rag_pipeline(user_question, verbose=verbose, router_result=router_result)
 
         web_context = fetch_external_website_context(urls, user_input=user_question)
@@ -2475,6 +2504,7 @@ def run_pipeline(user_question: str, verbose: bool = True) -> dict:
 
         rag_result = run_rag_pipeline(derived_query, verbose=verbose, router_result=router_result)
 
+        log_timing("run_pipeline_return", detail="stage3c_rag_plus_web_combined")
         return generate_combined_answer_with_web_and_rag(
             user_input=user_question,
             router_result=router_result,
@@ -2485,6 +2515,7 @@ def run_pipeline(user_question: str, verbose: bool = True) -> dict:
 
     # Safety fallback
     print("  → Unknown route, defaulting to RAG")
+    log_timing("run_pipeline_branch", detail="stage3_unknown_route_fallback_rag")
     return run_rag_pipeline(user_question, verbose=verbose, router_result=router_result)
 
 
@@ -2502,6 +2533,10 @@ if __name__ == "__main__":
 
     import argparse
     import contextlib
+
+    # Anchor cumulative timings from the moment the interpreter enters this script path.
+    pipeline_timer_reset()
+    log_timing("python_cli_entry", detail="__main__ started")
 
     TEST_QUESTION = "what about implementing google ads?"
 
@@ -2522,12 +2557,16 @@ if __name__ == "__main__":
     if not question:
         question = TEST_QUESTION
 
+    q_preview = question if len(question) <= 100 else question[:97] + "..."
+    log_timing("python_cli_question_ready", detail=f"len={len(question)} q={q_preview!r}")
+
     try:
         # Redirect all existing prints (debug logs) to stderr so docker logs can show them,
         # while keeping stdout reserved for final JSON (Rails parses stdout).
         with contextlib.redirect_stdout(sys.stderr):
             result = run_pipeline(question, verbose=True)
 
+        log_timing("python_cli_before_stdout_json", detail="about to write JSON to stdout")
         sys.stdout.write(json.dumps(result, ensure_ascii=False) + "\n")
     except Exception as e:
         # Always emit JSON on stdout for the caller.
