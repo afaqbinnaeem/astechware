@@ -13,7 +13,10 @@ export default class extends Controller {
 
   connect() {
     this.isMobile = this.isMobileDevice()
-    this.isOpen = !this.isMobile // match old behavior: minimized on mobile
+
+    // Persist chat open/close state across page navigation
+    const savedState = window.localStorage.getItem("astw_chatbot_open")
+    this.isOpen = savedState === null ? true : savedState === "true"
 
     this.defaultWelcomeMessages = [
       {
@@ -36,13 +39,17 @@ export default class extends Controller {
     this.recaptchaWidgetId = null
     this.hasSentFirstMessage = false
 
-    this.render()
-    this.updateVisibility()
-    this.scrollToBottom()
-    this.renderSuggestedPromptsIfNeeded()
-    this.loadPersistedHistory()
-
-    this.initRecaptchaIfNeeded()
+    // Load after page render
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        this.render()
+        this.updateVisibility()
+        this.scrollToBottom()
+        this.renderSuggestedPromptsIfNeeded()
+        this.loadPersistedHistory()
+        this.initRecaptchaIfNeeded()
+      })
+    })
   }
 
   isMobileDevice() {
@@ -59,7 +66,7 @@ export default class extends Controller {
 
   render() {
     this.element.innerHTML = `
-      <div style="font-family: 'DM Sans', sans-serif; width: 100%; max-width: 440px; height: min(680px, 92vh); margin: 0 auto;">
+      <div style="font-family: 'DM Sans', sans-serif; width: 100%; max-width: 440px; margin: 0 auto;">
         <button
           type="button"
           id="astw-chatbot-bubble"
@@ -179,10 +186,13 @@ export default class extends Controller {
 
     this.bubbleEl?.addEventListener("click", () => {
       this.isOpen = true
+      window.localStorage.setItem("astw_chatbot_open", "true")
       this.updateVisibility()
     })
+    
     this.closeBtnEl?.addEventListener("click", () => {
       this.isOpen = false
+      window.localStorage.setItem("astw_chatbot_open", "false")
       this.updateVisibility()
     })
 
@@ -816,6 +826,13 @@ export default class extends Controller {
     if (!el) return
     el.textContent = ""
     el.style.display = "none"
+  }
+
+  disconnect() {
+    if (this.pendingLeadTimer) {
+      clearTimeout(this.pendingLeadTimer)
+      this.pendingLeadTimer = null
+    }
   }
 }
 
