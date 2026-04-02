@@ -42,12 +42,14 @@ export default class extends Controller {
     // Load after page render
     requestAnimationFrame(() => {
       requestAnimationFrame(() => {
-        this.render()
-        this.updateVisibility()
-        this.scrollToBottom()
-        this.renderSuggestedPromptsIfNeeded()
-        this.loadPersistedHistory()
-        this.initRecaptchaIfNeeded()
+        setTimeout(() => {
+          this.render()
+          this.updateVisibility()
+          this.scrollToBottom()
+          this.renderSuggestedPromptsIfNeeded()
+          this.loadPersistedHistory()
+          this.initRecaptchaIfNeeded()
+        }, 800)
       })
     })
   }
