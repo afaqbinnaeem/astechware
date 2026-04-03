@@ -15,14 +15,14 @@ services:
     depends_on:
       - db
       - redis
+
   db:
     image: postgres:15
-    ports:
-      - "5433:5432"
-    environment:
-      - POSTGRES_PASSWORD=changeme
+    env_file:
+      - .env
     volumes:
       - pg_data:/var/lib/postgresql/data
+
   redis:
     image: redis
     volumes:
