@@ -462,7 +462,7 @@ def should_escalate_long_input(text: str) -> bool:
 
 def handle_long_input_escalation() -> dict:
     message = (
-        "This looks like a detailed project brief rather than a simple site question. "
+        "This looks like a detailed project brief rather than a simple site question. A'sTechware likely can help, but "
         "For something this detailed, the best next step is usually a 30-minute technical call "
         "so A'sTechware can give useful guidance without missing important context.\n\n"
         "If you want, I can still help in chat by answering one focused question about it — for example:\n"
@@ -559,16 +559,17 @@ Return ONLY JSON with "route" as one of:
 - "rag_only"     → questions about A'sTechware services, case studies, pricing, team, fit
 - "rag_plus_web" → user shares a URL and wants A'sTechware to assess/compare it
 
-Rules:
-- Any business question (even starting with "hi") → rag_only, NOT greeting
-- URL present + asking about fit/build/improve → rag_plus_web
+Routing rules:
+- Any business question (even if it starts with "hi") → rag_only, NOT greeting
+- URL present + asking about fit/build/improve/assess/compare → rag_plus_web
+- Trust, credibility, compliance, pricing, case study, or delivery questions → rag_only
 - Vague but in-scope → rag_only with needs_clarification=true
-- Trust/credibility/risk questions → rag_only
+- Prefer rag_only unless clearly out-of-scope
 
 Return ONLY:
 {{"route":"...", "greeting_message":"", "query_type":"...", "topics":[], "industries":[], "has_url":false, "needs_clarification":false, "reason":""}}
 
-If route=="greeting", set greeting_message to 1-2 sentence welcome mentioning A'sTechware.
+If route=="greeting", set greeting_message to 1-2 short sentences mentioning A'sTechware.
 
 User: {user_input}
 """.strip()
@@ -755,6 +756,18 @@ def _safe_trim_text(s: str, limit: int) -> str:
     return s[:limit]
 
 
+def _trim_at_word_boundary(s: str, limit: int) -> str:
+    """Trim to at most `limit` chars at a word boundary (no mid-word cuts, no …)."""
+    s = re.sub(r"\s+", " ", (s or "").strip())
+    if len(s) <= limit:
+        return s
+    cut = s[:limit]
+    last_space = cut.rfind(" ")
+    if last_space >= max(24, limit // 5):
+        return cut[:last_space].rstrip(".,;:")
+    return cut.rstrip(".,;:")
+
+
 def fetch_external_website_context(urls: List[str], user_input: str = "") -> dict:
     """
     Web-search powered context. No Python fetching/scraping.
@@ -793,7 +806,7 @@ URLs (if any):
     # Try OpenAI Responses API web search tool (if available in this environment/account).
     try:
         resp = openai_client.responses.create(
-            model="gpt-5",
+            model="gpt-5-mini",
             input=prompt,
             tools=[{"type": "web_search"}],
         )
@@ -856,17 +869,21 @@ def summarize_external_website(user_input: str, web_context: dict) -> dict:
         }
 
     prompt = f"""
-You are helping a commercial A'sTechware website assistant understand an external product only enough to map it back to A'sTechware services, fit, technical opportunities, and likely implementation direction.
+You are helping A'sTechware's assistant briefly understand an external site for lead qualification — not a long write-up.
 
 Return ONLY valid JSON:
 {{
-  "summary": "3-6 bullet points in plain text (no URLs)",
-  "product_type": "short label (e.g., SaaS platform, marketplace, scheduling app, support tool, fintech product)",
+  "summary": "1-2 short lines: what the product/site does (plain text, no URLs)",
+  "product_type": "short label",
   "likely_industry": "one short label",
-  "core_features": ["5-10 concrete features inferred from the text"],
-  "tech_hints": ["any visible hints like integrations, auth, payments, HIPAA, etc."],
-  "derived_rag_query": "a concise query to search A'sTechware knowledge base for similar work/services/case studies"
+  "core_features": ["at most 2 short items"],
+  "tech_hints": ["at most 2 short hints if visible"],
+  "derived_rag_query": "one concise KB query for similar A'sTechware work"
 }}
+
+Rules:
+- Minimal text. No mini consulting report.
+- No raw URLs in values.
 
 User request:
 {user_input}
@@ -917,28 +934,15 @@ def build_ai_implementation_brief(user_input: str, website_summary: dict, web_co
 
     site_summary = website_summary or {}
     prompt = f"""
-You are a senior AI product engineer.
-Given an external website snapshot and a user's request, produce a practical AI implementation brief.
+You help A'sTechware qualify a lead from a website URL. Lead capture only — no roadmap, no phased rollout, no risk register.
 
-Constraints:
-- Use only the provided website text/summary. If info is missing, say "unknown" and recommend what to check.
-- Be concrete (features, data, integrations, risks, rollout).
-- Do NOT include raw URLs.
-- This is not a free full product strategy or generic consulting exercise.
-- Use the website only to infer what the prospect may need.
-- Prioritize recommendations that map back to A'sTechware's public service lines: AI agents/automation, custom platforms, platform modernization, integrations/API engineering.
-- Prefer commercial-fit framing over exhaustive analysis.
+Use only the provided website text/summary. If missing, say "unknown".
 
-Return ONLY valid JSON:
+Return ONLY valid JSON with exactly these keys:
 {{
-  "ai_use_cases": ["3-8 prioritized use cases tailored to this site"],
-  "recommended_features": ["specific AI features (e.g., semantic search, listing quality scoring, fraud detection, support automation)"],
-  "data_requirements": ["what data is needed and where it comes from"],
-  "integration_points": ["where to integrate in the product (search, listing creation, moderation, chat, support, analytics)"],
-  "risks_and_controls": ["prompt injection, privacy, abuse, hallucinations, evals, monitoring, human-in-loop"],
-  "phased_rollout": ["Phase 1/2/3 with outcomes"],
-  "success_metrics": ["KPIs to measure impact"],
-  "derived_rag_query": "a concise query to find A'sTechware evidence of doing similar work (services + case studies + blog + integrations)"
+  "ai_use_cases": ["2 or 3 short bullets max — how AI/product help could apply to THIS site"],
+  "recommended_features": ["exactly 2 short bullets — concrete AI/product angles only"],
+  "derived_rag_query": "one line to find similar A'sTechware evidence"
 }}
 
 User request:
@@ -957,83 +961,111 @@ Extracted website text (may be partial):
             messages=[{"role": "user", "content": prompt}],
             response_format={"type": "json_object"},
         )
-        return json.loads(resp.choices[0].message.content)
+        raw = json.loads(resp.choices[0].message.content)
+        return _normalize_implementation_brief(raw, user_input)
     except Exception as e:
         return {
             "ai_use_cases": [],
             "recommended_features": [],
-            "data_requirements": [],
-            "integration_points": [],
-            "risks_and_controls": [],
-            "phased_rollout": [],
-            "success_metrics": [],
             "derived_rag_query": user_input,
             "error": str(e),
         }
+
+
+def _build_rag_plus_web_evidence_block(
+    website_summary: dict,
+    implementation_brief: dict,
+    web_context: dict,
+) -> str:
+    """Prepends to RAG context so the model sees site + brief + web text alongside chunks."""
+    ws = json.dumps(website_summary or {}, ensure_ascii=False)
+    br = json.dumps(implementation_brief or {}, ensure_ascii=False)
+    wt = (web_context or {}).get("raw_text") or ""
+    if len(wt) > 8000:
+        wt = _trim_at_word_boundary(wt, 8000)
+    parts = [
+        "=== INTERNAL WEB CONTEXT (do NOT use this text as a citation source_id; cite only chunk ids from the KNOWLEDGE BASE section below) ===",
+        "The user shared a URL. Use this together with the knowledge-base chunks below.",
+        f"Website summary (JSON): {ws}",
+        f"Implementation brief from site (JSON): {br}",
+    ]
+    if wt.strip():
+        parts.append(f"Extracted / synthesized web text (may be partial):\n{wt}")
+    return "\n\n".join(parts)
+
+
+def _normalize_implementation_brief(data: Any, fallback_query: str) -> dict:
+    """Only ai_use_cases, recommended_features, derived_rag_query; cap list lengths."""
+    if not isinstance(data, dict):
+        data = {}
+    uc = data.get("ai_use_cases") or []
+    rf = data.get("recommended_features") or []
+    if not isinstance(uc, list):
+        uc = []
+    if not isinstance(rf, list):
+        rf = []
+    drq = (data.get("derived_rag_query") or "").strip() or fallback_query
+    return {
+        "ai_use_cases": [str(x).strip() for x in uc[:3] if str(x).strip()],
+        "recommended_features": [str(x).strip() for x in rf[:2] if str(x).strip()],
+        "derived_rag_query": drq,
+    }
+
+
+def clean_answer_markdown_prose(text: str) -> str:
+    """Strip internal chunk keys, raw URLs, and meeting links from answer body (CTAs live in suggestions)."""
+    if not text:
+        return ""
+    s = text
+
+    def _md_link_repl(m: re.Match) -> str:
+        label, url = (m.group(1) or "").strip(), (m.group(2) or "").strip()
+        if "calendly.com" in url.lower():
+            return ""
+        return label
+
+    s = re.sub(r"\[([^\]]*)\]\((https?://[^)]+)\)", _md_link_repl, s)
+    s = re.sub(r"https?://[^\s\)\]<>\"']+", "", s)
+    # Internal RAG / page placeholder keys shown to the model in evidence
+    s = re.sub(r"\[home-[^\]]+\]", "", s, flags=re.IGNORECASE)
+    s = re.sub(r"\[(?:chunk|source|page|section|nav)-[^\]]+\]", "", s, flags=re.IGNORECASE)
+    # Kebab-slug placeholders like [foo-bar-baz] (chunk ids), not single words
+    s = re.sub(r"\[[a-z0-9]+(?:-[a-z0-9]+){1,}\]", "", s, flags=re.IGNORECASE)
+    s = re.sub(r"[ \t]{2,}", " ", s)
+    s = re.sub(r"\n{3,}", "\n\n", s)
+    s = re.sub(r"(\n|^)[ \t]*[\.,;:][ \t]*(\n|$)", "\n", s)
+    return s.strip()
+
 
 def generate_combined_answer_with_web_and_rag(
     user_input: str,
     router_result: dict,
     website_summary: dict,
     implementation_brief: dict,
-    rag_result: dict
+    rag_result: dict,
 ) -> dict:
-    fetched = website_summary.get("fetched", False)
-    summary = website_summary.get("summary") or ""
-    if isinstance(summary, list):
-        summary = "\n".join([f"- {b}" for b in summary])
-
-    product_type = (website_summary.get("product_type") or "").strip()
-    likely_industry = (website_summary.get("likely_industry") or "").strip()
-    features = website_summary.get("core_features") or []
-    if isinstance(features, list) and features:
-        features_md = "\n".join([f"- {f}" for f in features[:10]])
-    else:
-        features_md = ""
-
-    header_parts = []
-    if fetched:
-        header_parts.append("## External website snapshot")
-        if product_type or likely_industry:
-            header_parts.append(f"- Product type: {product_type or 'N/A'}")
-            header_parts.append(f"- Likely industry: {likely_industry or 'N/A'}")
-        if summary:
-            header_parts.append("\n".join([summary]) if summary.startswith("- ") else summary)
-        if features_md:
-            header_parts.append("\nCore features I inferred:\n" + features_md)
-        header = "\n".join([p for p in header_parts if p]).strip()
-    else:
-        header = "## External website snapshot\nI wasn’t able to fetch enough readable site text, so I’ll base the mapping on your request and the URL only."
-
-    brief = implementation_brief or {}
-    use_cases = brief.get("ai_use_cases") or []
-    features2 = brief.get("recommended_features") or []
-    rollout = brief.get("phased_rollout") or []
-    risks = brief.get("risks_and_controls") or []
-
-    def _list_md(items: list, max_n: int = 5) -> str:
-        if not isinstance(items, list) or not items:
-            return ""
-        return "\n".join([f"- {x}" for x in items[:max_n]])
-
-    brief_parts = []
-    if use_cases or features2 or rollout or risks:
-        brief_parts.append("## AI opportunities & implementation approach")
-        if use_cases:
-            brief_parts.append("Prioritized use cases:\n" + _list_md(use_cases, 8))
-        if features2:
-            brief_parts.append("Recommended AI features:\n" + _list_md(features2, 8))
-        if rollout:
-            brief_parts.append("Phased rollout:\n" + _list_md(rollout, 6))
-        if risks:
-            brief_parts.append("Key risks & controls:\n" + _list_md(risks, 8))
-    brief_md = "\n\n".join([p for p in brief_parts if p]).strip()
-
-    rag_answer = (rag_result or {}).get("answer_markdown", "")
-    combined = f"{header}\n\n{brief_md}\n\n## How this maps to A'sTechware\n{rag_answer}".strip()
-
+    """Post-process RAG+web result: answer text comes from generate_answer only (prompt-driven)."""
     out = dict(rag_result or {})
-    out["answer_markdown"] = combined
+    out["answer_markdown"] = clean_answer_markdown_prose((out.get("answer_markdown") or "").strip())
+    out["answer_style"] = "direct"
+
+    sug = list(out.get("suggestions") or [])
+    if not any((isinstance(s, dict) and s.get("type") == "meeting") for s in sug):
+        sug.insert(
+            0,
+            {
+                "type": "meeting",
+                "label": "Book a 30-min discovery call",
+                "taxonomy_key": None,
+            },
+        )
+    out["suggestions"] = sug[:5]
+    cf = out.get("commercial_flags") or {}
+    if isinstance(cf, dict):
+        cf["meeting_recommended"] = True
+        cf["reason"] = "rag_plus_web_lead_focus"
+        out["commercial_flags"] = cf
+
     return out
 
 
@@ -1769,71 +1801,62 @@ def build_context(top_results: list, related: list, classification: dict) -> str
 # ═══════════════════════════════════════════════════════════════
 
 SYSTEM_PROMPT = """
-You are A'sTechware's technical assistant on their public website.
+You are A'sTechware's website AI assistant.
 
-A'sTechware builds production-ready AI systems, SaaS platforms, automation, platform modernization, and integrations for businesses.
+PRIMARY GOAL:
+- Help qualify and convert inbound leads.
+- Show capability first.
+- Keep answers concise by default.
+- Use suggestions for the meeting CTA when the user appears to have project intent.
+- Preserve the pipeline's existing source/citation behavior.
 
-YOUR JOB
-- Answer questions about A'sTechware's services, case studies, methodology, industries, delivery model, founder/company credibility, ownership, support after launch, AI safeguards, and getting started.
-- Use ONLY the provided evidence chunks.
-- Sound like a senior solutions engineer: calm, direct, technically sharp, not salesy.
-- Answer the user's actual question directly first, then add only the most useful supporting detail.
-- If evidence is partial but useful, give the best supported answer instead of dodging.
+DEFAULT RESPONSE STYLE:
+- Be short, skimmable, and point-to-point.
+- Usually 2-5 short bullets or short paragraphs max.
+- Do NOT go deep by default.
+- Only go deeper if the user explicitly asks for details, architecture, step-by-step, deep dive, or technical explanation.
+- Avoid long consulting-style answers unless explicitly requested.
 
-CORE RULES
-- Refer to A'sTechware in third person: use "A'sTechware or we...(must)", not "they..".
-- Never invent case studies, client names, certifications, regulatory expertise, pricing, delivery guarantees or irrelevant information.
-- Don't use "Based on given information..", Answer properly like a senior technial assitant of A'stechware 
-- CRITICAL: NEVER put citation IDs, chunk IDs, source IDs, raw URLs, or markdown links 
-  inside answer_markdown. This means NEVER write things like [home-about-summary], 
-  [home-company-overview], or any [bracket-text] inside the answer body.
-- Citations belong ONLY in the citations array. The answer_markdown must be clean prose.
-- Suggest a call only when the user is clearly asking for scoping, pricing, or next steps.
-- CITATIONS: Never list the same source URL or page title more than once in the citations array. 
-  If multiple chunks come from the same source page, merge them into a single citation entry.
+COMMERCIAL BEHAVIOR:
+- If the user asks whether A'sTechware can build, integrate, automate, modernize, migrate, or support something, optimize for confidence + capability + proof.
+- If the user appears to have an active project or buying intent, the answer should naturally support a meeting suggestion in the suggestions list (not forced inside answer_markdown).
+- If exact public proof is limited, mention the closest visible fit instead of over-explaining the limitation.
 
+SPECIFIC SCENARIOS:
+1) "What do you guys do?"
+- Answer precisely with the industries and service lines A'sTechware works in.
+- Keep it short.
+- Let citations/sources provide proof and links.
 
-HONESTY / SCOPE
-- If the exact workflow, niche, or regulation is not explicitly supported by the evidence, say so briefly and pivot to the closest relevant capability, adjacent industry, or technical pattern.
-- Prefer phrasing like:
-  - "based on the public material"
-  - "the closest visible fit is"
-  - "A'sTechware could likely approach this through"
-  - "if this is in scope, the likely approach would be"
-- Do NOT use generic deflections for valid in-scope questions if the evidence supports a useful answer.
+2) HIPAA / FHIR / HL7 / compliance questions
+- Start with a direct yes-style answer if supported by relevant evidence.
+- Mention 1-2 relevant project or capability headings.
+- Keep the total body brief (around 4-5 short lines or equivalent).
+- Let citations/sources carry the case study proof.
+- Do not turn it into a compliance essay.
 
-SPECIAL HANDLING
-- Trust / safety / hallucination / failure questions:
-  Frame around risk reduction, safeguards, human approval, monitoring, staged autonomy, testing, and escalation.
-  Do NOT make legal accountability claims or say A'sTechware "takes responsibility."
+3) Website / URL review (RAG + Web)
+- Give only 1-2 concise observations from the website.
+- Then state 1-2 likely A'sTechware fit points.
+- Do NOT provide a full audit, roadmap, or free strategy doc by default.
+- Deeper analysis should be left for follow-up / meeting suggestion flow.
 
-- Compliance / legal / regulatory questions:
-  Distinguish between "built to support compliant workflows" and "certified/compliant by itself."
-  Never imply A'sTechware is certified, licensed, or formally approved unless the evidence explicitly says so.
-  Never invent enforcement dates, agencies, or exact legal obligations.
+4) General capability / fit questions
+- Focus on what A'sTechware is capable of.
+- Avoid unnecessary implementation detail.
+- Be commercially useful, not academically exhaustive.
 
-- Subjective proof questions ("best thing you've built", "most impressive work", "why choose you"):
-  Do not pretend there is one objective answer unless the evidence clearly supports it.
-  Choose the strongest 1–2 evidence-backed examples and explain why they matter.
+IMPORTANT:
+- Keep the existing response schema intact.
+- Keep sources/citations intact and do not suppress them.
+- Do NOT force meeting language into answer_markdown unless it is already naturally appropriate.
+- Prefer short, confident, useful answers that move the lead forward.
+- In answer_markdown: never paste internal evidence keys like [home-about-summary], [home-company-overview], [home-services-overview], or any similar [bracket-label] placeholders; use citations for sources.
+- Never put Calendly or other booking URLs in answer_markdown (no raw https links and no markdown links); use a meeting-type suggestion for booking instead.
 
-- Timeline / pricing / cost questions:
-  Use approximate, non-guaranteed language.
-  Prefer phrases like "Usually...", "A typical range is...", and "The exact timeline depends on scope, integrations, approvals, and system complexity."
-
-SUGGESTION RULES
-- Suggestions are secondary to the answer.
-- Prefer a relevant follow-up question or case study over a meeting CTA unless the user is clearly asking for pricing, scope, or next steps.
-- Use broad mapping only:
-  - AI / automation / copilots → ai_agents_automation
-  - SaaS / platform / product builds → custom_platform_development
-  - legacy / rescue / modernization → platform_modernization_scaling
-  - APIs / integrations / webhooks / data sync → integrations_api_engineering
-
-DEPTH
-- Use the strongest relevant evidence first, not every chunk.
-- Surface named clients, metrics, and concrete numbers when present.
-- If the user asks multiple meaningful questions, answer all of them in a clear order.
-- Keep simple questions short. Use more detail only when complexity justifies it.
+CITATIONS (strict):
+- Each citations[].source_id MUST be an exact chunk id from the evidence chunk labels (format `[chunk-id | trust:...]`). Never invent ids, never use section headers, preambles like "URL / WEBSITE", JSON keys, or free text as source_id.
+- If nothing qualifies, use an empty citations array []. Never add citations with empty url or title "Untitled" (the server drops invalid entries).
 """
 
 
@@ -1845,7 +1868,14 @@ def has_case_study_in_top(results: list, n: int = 5) -> bool:
     return False
 
 
-def generate_answer(question: str, context: str, classification: dict, confidence_score: float) -> dict:
+def generate_answer(
+    question: str,
+    context: str,
+    classification: dict,
+    confidence_score: float,
+    *,
+    rag_plus_web_generation: bool = False,
+) -> dict:
     if confidence_score >= HIGH_CONFIDENCE:
         confidence_note = "You have strong evidence. Answer confidently and cite sources."
     elif confidence_score >= MEDIUM_CONFIDENCE:
@@ -1859,6 +1889,30 @@ def generate_answer(question: str, context: str, classification: dict, confidenc
             "This is a challenging or skeptical buyer question. Acknowledge the concern calmly, "
             "answer it directly with evidence, avoid defensiveness, avoid over-claiming, and do not deflect."
         )
+
+    if rag_plus_web_generation:
+        structure_and_length = """
+<url_review_mode>
+The user shared a URL and wants fit / how A'sTechware could help. Evidence includes WEBSITE SUMMARY + IMPLEMENTATION BRIEF + KNOWLEDGE-BASE CHUNKS.
+This mode overrides the generic 3–5 sentence / brevity_mode rules elsewhere in this prompt.
+
+Write the full reply in answer_markdown yourself (no Python templating). Rules:
+- Do NOT use # or ## markdown headings.
+- Start with one natural sentence that you checked the site or URL they gave (or that the link did not yield much text).
+- Briefly reflect what the site/product does in plain language (short).
+- Merge "can we help" and concrete angles into one flowing section: confirm fit, then bullets or short sentences for how A'sTechware could help — not separate titled blocks like "Site snapshot" or "AI angles".
+- Ground proof and credibility in the knowledge-base chunks; cite via citations only using source_id values copied from chunk labels `[chunk-id | ...]` in the KNOWLEDGE BASE part of evidence — never cite the INTERNAL WEB CONTEXT preamble.
+- Do not paste internal bracket keys like [home-...] into the prose.
+- End with a light next-step line if appropriate (no Calendly/markdown links in the body; use a meeting suggestion).
+- Aim for roughly 6–14 short lines unless the user asked for depth.
+</url_review_mode>
+"""
+    else:
+        structure_and_length = """
+<brevity_mode_instruction>
+- Unless the user explicitly asks for deep explanation or how something works, keep answer_markdown to 3–5 concise lines. Use a heading + 1–2 project name mentions + 1 short paragraph. Always add a meeting CTA to suggestions if the question implies a potential project.
+</brevity_mode_instruction>
+"""
 
     user_prompt = f"""
 <evidence>
@@ -1886,6 +1940,8 @@ Answer the user's actual question directly using the strongest supported evidenc
 - Use the strongest supported answer, but avoid legal or absolute wording unless the evidence explicitly supports it.
 - For responsibility, liability, ownership, or risk questions, prefer phrasing like: "A'sTechware reduces risk by...", "A'sTechware is designed to lower the chance of...", "For sensitive workflows, A'sTechware uses...", or "Exact responsibility depends on how the system is scoped..."
 - Avoid phrasing like: "A'sTechware takes responsibility for all errors", "A'sTechware guarantees no failures", or any blanket ownership/liability statement unless explicitly supported by evidence.
+- Keep the answer to 3–5 sentences. Depth is only unlocked when the user explicitly asks for details.
+- Do not paste bracketed context keys (e.g. [home-...]) into answer_markdown. Do not add Calendly or any URL as a markdown link; add a `meeting` suggestion instead.
 </answer_policy>
 
 <estimate_policy>
@@ -1906,7 +1962,10 @@ Answer the user's actual question directly using the strongest supported evidenc
 - Do not use suggestions as a substitute for answering the question.
 - Prefer zero or one highly relevant suggestion over multiple generic suggestions.
 - For trust, founder, company credibility, or governance questions, avoid pushing a meeting CTA unless the user is explicitly asking for next steps or scoping.
+- Always include a meeting suggestion whenever the user's question implies a business need, a specific project, a compliance question, or a technology fit question. Only skip the meeting CTA for pure educational/conceptual questions
 </suggestion_policy>
+
+{structure_and_length}
 
 Choose answer_style like this:
 - "direct" for clear evidence-backed answers, including trust/governance answers that can be answered with safeguards and operating model
@@ -1916,12 +1975,14 @@ Choose answer_style like this:
 
 Set needs_clarification=true only when a direct answer would be misleading because the user's request is too vague or missing essential scope. Do not ask for clarification if a useful evidence-backed answer can still be given.
 
+Citations: each source_id must match a chunk id from the evidence (see `[chunk-id | trust:...]` lines). Never use labels like "URL / WEBSITE", section titles, or sentences. Use [] if none apply.
+
 Return ONLY this JSON structure, nothing else:
 {{
   "answer_markdown": "your answer in markdown",
   "answer_style": "direct|advisory|clarifying|low_confidence",
   "citations": [
-    {{"source_id": "chunk-id"}}
+    {{"source_id": "exact-id-from-evidence-chunk-label"}}
   ],
   "suggestions": [
     {{
@@ -1957,7 +2018,10 @@ Return ONLY this JSON structure, nothing else:
             detail="generate_answer model=gpt-4.1-nano",
             step_ms=(time.perf_counter() - t_ai) * 1000.0,
         )
-        return json.loads(response.choices[0].message.content)
+        data = json.loads(response.choices[0].message.content)
+        if isinstance(data, dict) and "answer_markdown" in data:
+            data["answer_markdown"] = clean_answer_markdown_prose(data.get("answer_markdown") or "")
+        return data
     except Exception as e:
         print(f"  → Answer generation failed: {e}")
         return {
@@ -1990,6 +2054,41 @@ def clean_url(url: str) -> str:
     return url.strip()
 
 
+def _humanize_chunk_id_for_title(source_id: str) -> str:
+    parts = [p for p in re.split(r"[-_\s]+", (source_id or "").strip()) if p]
+    if not parts:
+        return "Source"
+    return " ".join(p.capitalize() for p in parts)
+
+
+def _looks_like_non_chunk_source_id(source_id: str) -> bool:
+    """True if model echoed evidence preamble / headers instead of a real chunk_id."""
+    s = (source_id or "").strip()
+    if not s or len(s) > 120:
+        return True
+    low = s.lower()
+    needles = (
+        "url / website",
+        "url/website",
+        "=== ",
+        "for this turn",
+        "internal_web",
+        "internal web",
+        "do not cite",
+        "rag_plus_web",
+        "website (json)",
+        "implementation brief",
+        "extracted / synthesized",
+        "http://",
+        "https://",
+    )
+    if any(n in low for n in needles):
+        return True
+    if s.startswith("[") or s.startswith("("):
+        return True
+    return False
+
+
 def enrich_citations(answer: dict, ranked: list, related: list) -> dict:
     all_chunks = ranked[:TOP_K] + related
 
@@ -2001,44 +2100,49 @@ def enrich_citations(answer: dict, ranked: list, related: list) -> dict:
 
     enriched = []
     seen_ids = set()
-    seen_urls = set()  # ← ADD THIS
+    seen_urls = set()
 
     for c in answer.get("citations", []):
-        source_id = c.get("source_id")
+        source_id = (c.get("source_id") or "").strip()
         if not source_id or source_id in seen_ids:
+            continue
+        if _looks_like_non_chunk_source_id(source_id):
             continue
 
         seen_ids.add(source_id)
         chunk = chunk_map.get(source_id)
-        metadata = (chunk or {}).get("metadata", {}) or {}
+        if not chunk:
+            continue
 
-        title = (
+        metadata = chunk.get("metadata", {}) or {}
+
+        raw_title = (
             metadata.get("citation_title")
             or metadata.get("section_title")
             or metadata.get("source_page")
             or metadata.get("title")
-            or "Untitled"
-        )
-
-        url = (
-            metadata.get("source_url")
-            or metadata.get("url")
             or ""
         )
+        title = (raw_title or "").strip()
+        if not title or title.lower() == "untitled":
+            title = _humanize_chunk_id_for_title(source_id)
 
+        url = metadata.get("source_url") or metadata.get("url") or ""
         url = clean_url(url)
-
-        # ← SKIP if we've already included this URL
-        if url and url in seen_urls:
+        if not url:
             continue
-        if url:
-            seen_urls.add(url)
 
-        enriched.append({
-            "source_id": source_id,
-            "title": title,
-            "url": url
-        })
+        if url in seen_urls:
+            continue
+        seen_urls.add(url)
+
+        enriched.append(
+            {
+                "source_id": source_id,
+                "title": title,
+                "url": url,
+            }
+        )
 
     answer["citations"] = enriched
     return answer
@@ -2233,7 +2337,15 @@ def build_scope_note(classification: dict) -> str:
 # This keeps your retrieval core intact.
 # ═══════════════════════════════════════════════════════════════
 
-def run_rag_pipeline(user_question: str, verbose: bool = True, router_result: Optional[dict] = None) -> dict:
+def run_rag_pipeline(
+    user_question: str,
+    verbose: bool = True,
+    router_result: Optional[dict] = None,
+    *,
+    generate_answer_question: Optional[str] = None,
+    rag_extra_context: Optional[str] = None,
+    rag_plus_web_generation: bool = False,
+) -> dict:
     log_timing("run_rag_pipeline_enter")
     # Step 1: Classify
     print("\n  Step 1 → Classifying...")
@@ -2326,6 +2438,8 @@ def run_rag_pipeline(user_question: str, verbose: bool = True, router_result: Op
     with time_block("run_rag_step6_fetch_related_and_build_context"):
         related = fetch_related_chunks(ranked)
         context = build_context(ranked, related, classification)
+        if rag_extra_context:
+            context = rag_extra_context.strip() + "\n\n" + context
 
     if verbose:
         print(f"    direct chunks  : {min(len(ranked), TOP_K)}")
@@ -2354,8 +2468,15 @@ def run_rag_pipeline(user_question: str, verbose: bool = True, router_result: Op
 
     # Step 7: Generate (timing inside generate_answer → openai_chat gpt-4o)
     print("\n  Step 7 → Generating answer...")
+    q_for_answer = (generate_answer_question or "").strip() or user_question
     with time_block("run_rag_step7_generate_answer_total"):
-        answer = generate_answer(user_question, context, classification, confidence_score)
+        answer = generate_answer(
+            q_for_answer,
+            context,
+            classification,
+            confidence_score,
+            rag_plus_web_generation=rag_plus_web_generation,
+        )
 
     # Always trust Python confidence, not model confidence
     answer["confidence"] = confidence_score
@@ -2380,7 +2501,13 @@ def run_rag_pipeline(user_question: str, verbose: bool = True, router_result: Op
     if not validation["valid"]:
         print(f"  → Validation failed: {validation['reason']} — regenerating once")
         with time_block("run_rag_step7_generate_answer_retry"):
-            answer = generate_answer(user_question, context, classification, confidence_score)
+            answer = generate_answer(
+                q_for_answer,
+                context,
+                classification,
+                confidence_score,
+                rag_plus_web_generation=rag_plus_web_generation,
+            )
 
         # Re-apply Python confidence after regeneration
         answer["confidence"] = confidence_score
@@ -2498,7 +2625,20 @@ def _run_pipeline_impl(user_question: str, verbose: bool = True) -> dict:
             or user_question
         )
 
-        rag_result = run_rag_pipeline(derived_query, verbose=verbose, router_result=router_result)
+        rag_extra = _build_rag_plus_web_evidence_block(
+            website_summary,
+            implementation_brief,
+            web_context,
+        )
+
+        rag_result = run_rag_pipeline(
+            derived_query,
+            verbose=verbose,
+            router_result=router_result,
+            generate_answer_question=user_question,
+            rag_extra_context=rag_extra,
+            rag_plus_web_generation=True,
+        )
 
         log_timing("run_pipeline_return", detail="stage3c_rag_plus_web_combined")
         return generate_combined_answer_with_web_and_rag(
@@ -2506,7 +2646,7 @@ def _run_pipeline_impl(user_question: str, verbose: bool = True) -> dict:
             router_result=router_result,
             website_summary=website_summary,
             implementation_brief=implementation_brief,
-            rag_result=rag_result
+            rag_result=rag_result,
         )
 
     # Safety fallback
