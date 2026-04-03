@@ -69,14 +69,19 @@ export default class extends Controller {
   render() {
     this.element.innerHTML = `
       <div style="font-family: 'DM Sans', sans-serif; width: 100%; max-width: 440px; margin: 0 auto;">
-        <button
-          type="button"
-          id="astw-chatbot-bubble"
-          style="display: ${this.isOpen ? "none" : "flex"}; position: fixed; bottom: 24px; right: 24px; z-index: 9999; width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, #10b981, #059669); border: none; cursor: pointer; box-shadow: 0 8px 32px rgba(16,185,129,0.4), 0 2px 8px rgba(0,0,0,0.3); align-items: center; justify-content: center; transition: transform 0.2s, box-shadow 0.2s;">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#022c22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-          </svg>
-        </button>
+        <div
+          id="astw-chatbot-launcher"
+          style="display: ${this.isOpen ? "none" : "flex"}; justify-content: flex-end; position: fixed; bottom: 24px; right: 24px; z-index: 9999; max-width: min(280px, calc(100vw - 48px));"
+        >
+          <button
+            type="button"
+            id="astw-chatbot-bubble"
+            aria-label="Open A'sTechware AI Consultant chat"
+            style="font-family: inherit; font-size: 13px; font-weight: 700; color: #022c22; background: linear-gradient(135deg, #10b981, #059669); border: none; border-radius: 999px; padding: 12px 18px; cursor: pointer; box-shadow: 0 8px 28px rgba(16,185,129,0.45), 0 2px 8px rgba(0,0,0,0.25); line-height: 1.25; text-align: center; letter-spacing: -0.02em; transition: transform 0.2s, box-shadow 0.2s;"
+          >
+            A'sTechware AI Consultant
+          </button>
+        </div>
 
         <div id="astw-chatbot-panel" style="display: ${this.isOpen ? "flex" : "none"}; flex-direction: column; background: linear-gradient(180deg, #041f17 0%, #071f16 50%, #0a251b 100%); border-radius: 20px; border: 1px solid rgba(16,185,129,0.15); box-shadow: 0 24px 80px rgba(0,0,0,0.5), 0 0 60px rgba(16,185,129,0.08); overflow: hidden; position: fixed; bottom: 20px; right: 20px; z-index: 9999; width: calc(100vw - 40px); max-width: 440px; height: min(680px, calc(100vh - 40px));">
           <div style="padding: 18px 20px; background: linear-gradient(135deg, rgba(16,185,129,0.12) 0%, rgba(5,150,105,0.06) 100%); border-bottom: 1px solid rgba(16,185,129,0.12); display: flex; align-items: center; gap: 14px; flex-shrink: 0;">
@@ -136,8 +141,9 @@ export default class extends Controller {
               </button>
             </div>
             <div style="text-align: center; margin-top: 10px; font-size: 11px; color: rgba(255,255,255,0.38); line-height: 1.35;">
-              A'sTechware AI Consultant can make mistakes. Check important info.
-            </div>
+              A'sTechware AI Consultant can make mistakes. For important info,
+              <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" style="color:#6ee7b7;text-decoration:underline;">schedule a meeting</a>.
+             </div>
             <div style="text-align: center; margin-top: 8px; font-size: 11px; color: rgba(255,255,255,0.2);">
               Powered by <span style="color:#6ee7b7;font-weight:600;">A'sTechware</span> · AI & Platform Engineering
             </div>
@@ -173,6 +179,7 @@ export default class extends Controller {
       </style>
     `
 
+    this.launcherEl = this.element.querySelector("#astw-chatbot-launcher")
     this.bubbleEl = this.element.querySelector("#astw-chatbot-bubble")
     this.panelEl = this.element.querySelector("#astw-chatbot-panel")
     this.closeBtnEl = this.element.querySelector("#astw-chatbot-close")
@@ -446,8 +453,12 @@ export default class extends Controller {
   // ---- UI state updates ----
 
   updateVisibility() {
-    if (!this.bubbleEl || !this.panelEl) return
-    this.bubbleEl.style.display = this.isOpen ? "none" : "flex"
+    if (!this.panelEl) return
+    if (this.launcherEl) {
+      this.launcherEl.style.display = this.isOpen ? "none" : "flex"
+    } else if (this.bubbleEl) {
+      this.bubbleEl.style.display = this.isOpen ? "none" : "flex"
+    }
     this.panelEl.style.display = this.isOpen ? "flex" : "none"
     if (this.isOpen) {
       this.inputEl?.focus()
