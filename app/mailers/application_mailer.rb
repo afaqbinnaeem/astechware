@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "ahmad@astechware.com" # verified sender
-  layout 'mailer'
+  default from: ENV.fetch("GOOGLE_WORKSPACE_SMTP_USER", "ahmad@astechwareaiagency.com")
+  layout "mailer"
 end

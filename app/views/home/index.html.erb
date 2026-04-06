@@ -1368,12 +1368,14 @@
 </div>
 
 <style>
+   /* Fixed bottom-right, above chat + reCAPTCHA; slides in from the right. */
    .flash-alert-popup {
       position: fixed;
-      bottom: 20px;
+      left: auto;
       right: 20px;
-      z-index: 9999;
-      max-width: 380px;
+      bottom: 80px;
+      max-width: min(380px, calc(100vw - 40px));
+      z-index: 10050;
       opacity: 0;
       transform: translateX(100%);
       transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -1428,10 +1430,10 @@
 
    @media (max-width: 768px) {
       .flash-alert-popup {
-         max-width: calc(100% - 40px);
-         bottom: 15px;
-         right: 15px;
-         left: 15px;
+         left: auto;
+         right: 16px;
+         bottom: 120px;
+         max-width: min(380px, calc(100vw - 32px));
       }
    }
 </style>
