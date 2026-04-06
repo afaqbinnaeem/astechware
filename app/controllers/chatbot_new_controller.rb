@@ -108,7 +108,11 @@ class ChatbotNewController < ApplicationController
 
     if recaptcha_enabled_for_chat? && !session[:chatbot_new_recaptcha_passed]
       recaptcha_token = params[:recaptcha_token] || params["g-recaptcha-response"]
-      verification = RecaptchaVerificationService.verify(recaptcha_token, request.remote_ip)
+      verification = RecaptchaVerificationService.verify(
+        recaptcha_token,
+        request.remote_ip,
+        expected_action: 'chat'
+      )
       unless verification[:success]
         render json: { error: "reCAPTCHA verification failed. Please try again." }, status: :unprocessable_entity
         return

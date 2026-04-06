@@ -70,7 +70,11 @@ class HomeController < ApplicationController
     # Verify reCAPTCHA if enabled
     if recaptcha_enabled?
       recaptcha_token = params['g-recaptcha-response']
-      verification_result = RecaptchaVerificationService.verify(recaptcha_token, request.remote_ip)
+      verification_result = RecaptchaVerificationService.verify(
+        recaptcha_token,
+        request.remote_ip,
+        expected_action: 'contact'
+      )
       
       unless verification_result[:success]
         redirect_path = request.referer&.include?('/contact') ? contact_path : root_path

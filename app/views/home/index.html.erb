@@ -1304,9 +1304,7 @@
                   <%= f.text_area :cover_letter, class: "form-control", placeholder: "Message*", required: true, rows: 5 %>
                </div>
                <% if recaptcha_site_key.present? %>
-               <div class="col-12 mb-4">
-                  <div class="g-recaptcha" data-sitekey="<%= recaptcha_site_key %>"></div>
-               </div>
+               <%= hidden_field_tag 'g-recaptcha-response', '', id: 'g-recaptcha-response-home' %>
                <% end %>
                <div class="row">
                   <div class="col-9">

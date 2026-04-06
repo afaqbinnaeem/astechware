@@ -34,10 +34,7 @@ export default class extends Controller {
     this.suppressScroll = false
 
     this.recaptchaEnabled = !!(this.recaptchaSiteKeyValue && this.recaptchaSiteKeyValue.trim())
-    this.recaptchaVerified = false
-    this.recaptchaVerifiedOnce = false
-    this.recaptchaWidgetId = null
-    this.hasSentFirstMessage = false
+    this.chatRecaptchaPassed = false
 
     // Load after page render
     requestAnimationFrame(() => {
@@ -48,7 +45,6 @@ export default class extends Controller {
           this.scrollToBottom()
           this.renderSuggestedPromptsIfNeeded()
           this.loadPersistedHistory()
-          this.initRecaptchaIfNeeded()
         }, 800)
       })
     })
@@ -71,7 +67,7 @@ export default class extends Controller {
       <div style="font-family: 'DM Sans', sans-serif; width: 100%; max-width: 440px; margin: 0 auto;">
         <div
           id="astw-chatbot-launcher"
-          style="display: ${this.isOpen ? "none" : "flex"}; justify-content: flex-end; position: fixed; bottom: 24px; right: 24px; z-index: 9999; max-width: min(280px, calc(100vw - 48px));"
+          style="display: ${this.isOpen ? "none" : "flex"}; justify-content: flex-end; position: fixed; bottom: 24px; right: 96px; z-index: 9999; max-width: min(280px, calc(100vw - 148px));"
         >
           <button
             type="button"
@@ -83,7 +79,7 @@ export default class extends Controller {
           </button>
         </div>
 
-        <div id="astw-chatbot-panel" style="display: ${this.isOpen ? "flex" : "none"}; flex-direction: column; background: linear-gradient(180deg, #041f17 0%, #071f16 50%, #0a251b 100%); border-radius: 20px; border: 1px solid rgba(16,185,129,0.15); box-shadow: 0 24px 80px rgba(0,0,0,0.5), 0 0 60px rgba(16,185,129,0.08); overflow: hidden; position: fixed; bottom: 20px; right: 20px; z-index: 9999; width: calc(100vw - 40px); max-width: 440px; height: min(680px, calc(100vh - 40px));">
+        <div id="astw-chatbot-panel" style="display: ${this.isOpen ? "flex" : "none"}; flex-direction: column; background: linear-gradient(180deg, #041f17 0%, #071f16 50%, #0a251b 100%); border-radius: 20px; border: 1px solid rgba(16,185,129,0.15); box-shadow: 0 24px 80px rgba(0,0,0,0.5), 0 0 60px rgba(16,185,129,0.08); overflow: hidden; position: fixed; bottom: 20px; right: 96px; z-index: 9999; width: min(440px, calc(100vw - 148px)); height: min(680px, calc(100vh - 40px));">
           <div style="padding: 18px 20px; background: linear-gradient(135deg, rgba(16,185,129,0.12) 0%, rgba(5,150,105,0.06) 100%); border-bottom: 1px solid rgba(16,185,129,0.12); display: flex; align-items: center; gap: 14px; flex-shrink: 0;">
             <div style="width: 42px; height: 42px; border-radius: 12px; background: linear-gradient(135deg, #10b981, #059669); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800; color: #022c22; flex-shrink: 0;">
               A'
@@ -120,13 +116,7 @@ export default class extends Controller {
           </div>
 
           <div style="padding: 12px 16px 16px; border-top: 1px solid rgba(255,255,255,0.06); background: rgba(0,0,0,0.2); flex-shrink: 0;">
-            <div id="astw-recaptcha-wrap" style="display:none; padding: 10px 0 12px;">
-              <div style="font-size: 12px; color: rgba(255,255,255,0.55); margin-bottom: 10px;">
-                Please verify you’re human to start the chat.
-              </div>
-              <div id="astw-recaptcha"></div>
-              <div id="astw-recaptcha-error" style="display:none; margin-top: 8px; font-size: 12px; color: #fca5a5;"></div>
-            </div>
+            <div id="astw-recaptcha-error" style="display:none; margin-bottom: 10px; font-size: 12px; color: #fca5a5;"></div>
             <div style="display: flex; gap: 8px; align-items: flex-end;">
               <textarea
                 id="astw-chatbot-input"
@@ -462,11 +452,15 @@ export default class extends Controller {
     this.panelEl.style.display = this.isOpen ? "flex" : "none"
     if (this.isOpen) {
       this.inputEl?.focus()
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => this.scrollToBottom({ behavior: "auto" }))
+      })
     }
   }
 
-  scrollToBottom() {
-    this.endEl?.scrollIntoView({ behavior: "smooth", block: "end" })
+  scrollToBottom(opts = {}) {
+    const behavior = opts.behavior || "smooth"
+    this.endEl?.scrollIntoView({ behavior, block: "end" })
   }
 
   scrollElementIntoView(el, opts = {}) {
@@ -480,8 +474,7 @@ export default class extends Controller {
 
   onInputChange() {
     const val = this.inputEl.value || ""
-    const gated = this.recaptchaEnabled && !this.recaptchaVerifiedOnce
-    this.sendBtnEl.disabled = !val.trim() || this.isLoading || gated
+    this.sendBtnEl.disabled = !val.trim() || this.isLoading
     this.sendBtnEl.style.cursor = !val.trim() || this.isLoading ? "default" : "pointer"
     this.sendBtnEl.style.background =
       !val.trim() || this.isLoading ? "rgba(255,255,255,0.06)" : "linear-gradient(135deg, #10b981, #059669)"
@@ -684,11 +677,13 @@ export default class extends Controller {
     const text = (rawText || "").trim()
     if (!text || this.isLoading) return
 
-    // Gate only until the first successful verification in this page session.
-    if (this.recaptchaEnabled && !this.recaptchaVerifiedOnce) {
-      this.showRecaptchaError("Please complete reCAPTCHA to start the chat.")
-      this.showRecaptchaWrap(true)
-      return
+    let recaptchaToken = null
+    if (this.recaptchaEnabled && !this.chatRecaptchaPassed) {
+      recaptchaToken = await this.getRecaptchaV3Token()
+      if (!recaptchaToken) {
+        this.showRecaptchaError("Could not verify. Please try again.")
+        return
+      }
     }
 
     this.isLoading = true
@@ -710,7 +705,6 @@ export default class extends Controller {
     this.messageCount += 1
 
     try {
-      const recaptchaToken = this.getRecaptchaToken()
       const response = await fetch("/chat/message_new", {
         method: "POST",
         headers: {
@@ -725,7 +719,16 @@ export default class extends Controller {
       })
 
       const data = await response.json()
-      if (!response.ok || data.error) throw new Error(data.error || "AI request failed")
+      if (!response.ok || data.error) {
+        if (response.status === 422) {
+          this.messages.pop()
+          if (userWrapper?.parentNode) userWrapper.remove()
+          this.messageCount -= 1
+          this.showRecaptchaError(data.error || "Verification failed.")
+          return
+        }
+        throw new Error(data.error || "AI request failed")
+      }
 
       const assistantMsg = {
         role: "assistant",
@@ -745,9 +748,8 @@ export default class extends Controller {
 
       this.maybeShowLeadForm()
 
-      // After the first successful message, never show/require reCAPTCHA again this session.
-      this.hasSentFirstMessage = true
-      this.showRecaptchaWrap(false)
+      this.chatRecaptchaPassed = true
+      this.hideRecaptchaError()
     } catch (_err) {
       const assistantMsg = {
         role: "assistant",
@@ -765,69 +767,21 @@ export default class extends Controller {
     }
   }
 
-  initRecaptchaIfNeeded() {
-    if (!this.recaptchaEnabled) return
-
-    // Require only before the first message; if server session already passed, we can skip later.
-    // We don't know server state here, so we gate until user verifies once in the browser.
-    this.showRecaptchaWrap(true)
-
-    const tryRender = () => {
-      const container = this.element.querySelector("#astw-recaptcha")
-      if (!container) return false
-      if (!window.grecaptcha || typeof window.grecaptcha.render !== "function") return false
-
-      // Avoid rendering multiple times
-      if (this.recaptchaWidgetId !== null) return true
-
-      this.recaptchaWidgetId = window.grecaptcha.render(container, {
-        sitekey: this.recaptchaSiteKeyValue,
-        callback: () => {
-          this.recaptchaVerified = true
-          this.recaptchaVerifiedOnce = true
-          this.hideRecaptchaError()
-          this.showRecaptchaWrap(false)
-          this.onInputChange()
-        },
-        "expired-callback": () => {
-          // If the user already verified once, never bother them again.
-          if (this.recaptchaVerifiedOnce) return
-          this.recaptchaVerified = false
-          this.showRecaptchaWrap(true)
-          this.onInputChange()
-        },
-        "error-callback": () => {
-          // If the user already verified once, ignore errors/expiry noise.
-          if (this.recaptchaVerifiedOnce) return
-          this.recaptchaVerified = false
-          this.showRecaptchaError("reCAPTCHA error. Please try again.")
-          this.showRecaptchaWrap(true)
-          this.onInputChange()
-        },
-      })
-      return true
-    }
-
-    // Try immediately, otherwise poll briefly until the script loads.
-    if (tryRender()) return
-    let attempts = 0
-    const timer = setInterval(() => {
-      attempts += 1
-      if (tryRender() || attempts > 30) clearInterval(timer)
-    }, 250)
-  }
-
-  getRecaptchaToken() {
+  async getRecaptchaV3Token() {
     if (!this.recaptchaEnabled) return null
-    if (this.recaptchaWidgetId === null) return null
-    if (!window.grecaptcha || typeof window.grecaptcha.getResponse !== "function") return null
-    return window.grecaptcha.getResponse(this.recaptchaWidgetId)
-  }
+    if (!this.recaptchaSiteKeyValue) return null
+    if (!window.grecaptcha || typeof window.grecaptcha.execute !== "function") return null
 
-  showRecaptchaWrap(show) {
-    const wrap = this.element.querySelector("#astw-recaptcha-wrap")
-    if (!wrap) return
-    wrap.style.display = show ? "block" : "none"
+    return new Promise((resolve) => {
+      window.grecaptcha.ready(async () => {
+        try {
+          const token = await window.grecaptcha.execute(this.recaptchaSiteKeyValue, { action: "chat" })
+          resolve(token || null)
+        } catch (_e) {
+          resolve(null)
+        }
+      })
+    })
   }
 
   showRecaptchaError(msg) {

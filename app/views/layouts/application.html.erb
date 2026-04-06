@@ -61,9 +61,12 @@
       gtag('config', 'G-FKTRX5XQV8');
     </script>
 
-    <%# Google reCAPTCHA v2 %>
+    <%# Google reCAPTCHA v3 %>
     <% if recaptcha_site_key.present? %>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+      window.__RECAPTCHA_SITE_KEY__ = "<%= j recaptcha_site_key %>";
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js?render=<%= recaptcha_site_key %>" async defer></script>
     <% end %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
@@ -303,71 +306,75 @@
       } %>
     </script>
 
-    <%# Loader %>
+    <%# Loader: scoped IIFE so Turbo re-running this script does not redeclare const at global scope %>
     <script>
-      const quoteArr = [
-        {
-          quote: "Dream big, start small, act now.", 
-          by: "~ A'sTechware"
-        },
-        {
-          quote: "Solve problems, create value, change lives.", 
-          by: "~ A'sTechware"
-        },
-        {
-          quote: "Innovate or die - disrupt or be disrupted.", 
-          by: "~ A'sTechware"
-        },
-        {
-          quote: "Think big, act fast, learn constantly.", 
-          by: "~ A'sTechware"
-        },
-        {
-          quote: "Don't wait for opportunities, create them.", 
-          by: "~ A'sTechware"
-        },
-        {
-          quote: "Fail often, fail fast, fail forward." , 
-          by: "~ A'sTechware"
-        },
-        {
-          quote: "Make something people want and need.", 
-          by: "~ A'sTechware"
-        },
-        {
-          quote: "Stay focused, stay hungry, stay humble.", 
-          by: "~ A'sTechware"
-        },
-        {
-          quote: "Start where you are, use what you have.", 
-          by: "~ A'sTechware"
-        },
-        {
-          quote: "Be the change you want to see." , 
-          by: "~ A'sTechware"
-        },
-      ]
-      document.onreadystatechange = function() {
-          if (document.readyState !== "complete") {
-            document.querySelector("#loader").style.visibility = "visible";
-            var randomNumber = Math.floor(Math.random() * 10) + 1;
-            $('#quoteText').find('blockquote').html(quoteArr[randomNumber].quote)
-            $('#quoteText').find('cite').html(quoteArr[randomNumber].by)
-
-          } else {
-            document.querySelector("#loader").style.display = "none";
-            document.querySelector("#wrapper").classList.remove('d-none');
+      (function () {
+        const quoteArr = [
+          {
+            quote: "Dream big, start small, act now.",
+            by: "~ A'sTechware"
+          },
+          {
+            quote: "Solve problems, create value, change lives.",
+            by: "~ A'sTechware"
+          },
+          {
+            quote: "Innovate or die - disrupt or be disrupted.",
+            by: "~ A'sTechware"
+          },
+          {
+            quote: "Think big, act fast, learn constantly.",
+            by: "~ A'sTechware"
+          },
+          {
+            quote: "Don't wait for opportunities, create them.",
+            by: "~ A'sTechware"
+          },
+          {
+            quote: "Fail often, fail fast, fail forward.",
+            by: "~ A'sTechware"
+          },
+          {
+            quote: "Make something people want and need.",
+            by: "~ A'sTechware"
+          },
+          {
+            quote: "Stay focused, stay hungry, stay humble.",
+            by: "~ A'sTechware"
+          },
+          {
+            quote: "Start where you are, use what you have.",
+            by: "~ A'sTechware"
+          },
+          {
+            quote: "Be the change you want to see.",
+            by: "~ A'sTechware"
           }
-      };
+        ]
+        document.onreadystatechange = function () {
+          if (document.readyState !== "complete") {
+            document.querySelector("#loader").style.visibility = "visible"
+            var randomNumber = Math.floor(Math.random() * quoteArr.length)
+            $("#quoteText").find("blockquote").html(quoteArr[randomNumber].quote)
+            $("#quoteText").find("cite").html(quoteArr[randomNumber].by)
+          } else {
+            document.querySelector("#loader").style.display = "none"
+            document.querySelector("#wrapper").classList.remove("d-none")
+          }
+        }
+      })()
       // After Turbo Drive navigations there is no full page load, so readystatechange
-      // doesn't run again. Hide loader and show content on every turbo:load.
-      document.addEventListener('turbo:load', function() {
-        var loader = document.querySelector("#loader");
-        var wrapper = document.querySelector("#wrapper");
-        if (loader) loader.style.display = "none";
-        if (wrapper) wrapper.classList.remove('d-none');
-      });
-  </script>
+      // doesn't run again. One listener only — inline script may run again on each visit.
+      if (!window.__astwLoaderTurboLoadBound) {
+        window.__astwLoaderTurboLoadBound = true
+        document.addEventListener("turbo:load", function () {
+          var loader = document.querySelector("#loader")
+          var wrapper = document.querySelector("#wrapper")
+          if (loader) loader.style.display = "none"
+          if (wrapper) wrapper.classList.remove("d-none")
+        })
+      }
+    </script>
 
     <%= yield :footer_script %>
     <% if ENV["CHATBOT_NEW"].to_s.downcase == "true" %>
