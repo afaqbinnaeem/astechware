@@ -7,6 +7,7 @@ PIPELINE V2 FLOW:
   User Question
     → Stage 0: Long-input guard (>500 words → recommend technical call)
     → Stage 1: AI Router (greeting / out_of_scope / rag_only / web_only / rag_plus_web)
+    → Stage 1b: Contact info shortcut (Ahmad email / phone → direct answer, overrides router)
     → Stage 2: Route handling
        - greeting      → direct response
        - out_of_scope  → direct redirect response
@@ -563,6 +564,7 @@ Routing rules:
 - Any business question (even if it starts with "hi") → rag_only, NOT greeting
 - URL present + asking about fit/build/improve/assess/compare → rag_plus_web
 - Trust, credibility, compliance, pricing, case study, or delivery questions → rag_only
+- Questions asking for Ahmad’s email, A'sTechware contact email, phone number, WhatsApp, how to reach the founder, or general contact info → rag_only (NOT out_of_scope)
 - Vague but in-scope → rag_only with needs_clarification=true
 - Prefer rag_only unless clearly out-of-scope
 
@@ -689,6 +691,113 @@ def handle_out_of_scope_route() -> dict:
         "clarifying_question": None,
         "commercial_flags": {}
     }
+
+
+# Public contact details (must match site / RAG). Used when users ask for email or phone directly.
+PUBLIC_CONTACT_EMAIL = "ahmad@astechware.com"
+PUBLIC_CONTACT_PHONE_DISPLAY = "(888) 348-8752"
+PUBLIC_CONTACT_PHONE_RAW = "8883488752"
+
+
+def contact_info_intent(user_input: str) -> Optional[str]:
+    """
+    Returns 'email', 'phone', or 'both' when the user is asking for Ahmad / A'sTechware
+    contact details — not technical topics like 'email integration'.
+    """
+    t = (user_input or "").strip().lower()
+    if not t:
+        return None
+
+    if re.search(r"\bemail\s+(integration|notifications?|ingestion|workflow|parser|routing)\b", t):
+        return None
+
+    email_hit = bool(
+        re.search(r"\b(e-?mail|email)\s+(of|for)\s+ahmad\b", t)
+        or (re.search(r"\bahmad\b", t) and re.search(r"\b(e-?mail|email)\b", t))
+        or re.search(r"\b(send|give|share)\b.{0,40}\b(e-?mail|email)\b.{0,40}\bahmad\b", t)
+        or re.search(r"\bahmad\b.{0,40}\b(e-?mail|email)\b", t)
+        or re.search(r"\b(your|company|contact)\s+(e-?mail|email)\b", t)
+        or (
+            re.search(r"\b(e-?mail|email)\s+address\b", t)
+            and re.search(r"\b(ahmad|astechware|founder)\b", t)
+        )
+    )
+
+    phone_hit = bool(
+        re.search(r"\bcontact\s+number\b", t)
+        or (
+            re.search(r"\b(phone|mobile|whatsapp|telephone)\b", t)
+            and re.search(r"\b(ahmad|astechware|founder|your|you|company|contact)\b", t)
+        )
+        or (
+            re.search(r"\b(number)\b", t)
+            and re.search(r"\b(phone|call|reach|contact)\b", t)
+            and re.search(r"\b(ahmad|astechware|your|you|company)\b", t)
+        )
+    )
+
+    general_contact = bool(
+        re.search(
+            r"\b(how\s+to\s+contact|contact\s+(info|information|details)|reach\s+(ahmad|you)|get\s+in\s+touch)\b",
+            t,
+        )
+    )
+
+    if email_hit and phone_hit:
+        return "both"
+    if email_hit:
+        return "email"
+    if phone_hit:
+        return "phone"
+    if general_contact:
+        return "both"
+    return None
+
+
+def handle_contact_info_route(kind: str) -> dict:
+    """Direct answer for public email/phone + meeting CTA (no RAG)."""
+    meeting = {
+        "type": "meeting",
+        "label": "Book a 30-Min Technical Call",
+        "taxonomy_key": None,
+    }
+    q_next = {
+        "type": "question",
+        "label": "What services does A'sTechware offer?",
+        "taxonomy_key": None,
+    }
+
+    if kind == "email":
+        body = (
+            f"You can reach Ahmad at **{PUBLIC_CONTACT_EMAIL}**.\n\n"
+            "For a focused conversation about your project, the best next step is usually a short technical "
+            "call — use **Book a 30-Min Technical Call** below when you’re ready."
+        )
+    elif kind == "phone":
+        body = (
+            f"For phone inquiries, you can reach us at **{PUBLIC_CONTACT_PHONE_DISPLAY}** "
+            f"(or **{PUBLIC_CONTACT_PHONE_RAW}**).\n\n"
+            "We still recommend booking a **30-minute technical call** so we can understand scope and fit — "
+            "use the button below."
+        )
+    else:
+        body = (
+            f"**Email:** {PUBLIC_CONTACT_EMAIL}  \n"
+            f"**Phone:** {PUBLIC_CONTACT_PHONE_DISPLAY} ({PUBLIC_CONTACT_PHONE_RAW})\n\n"
+            "For scoping or a tailored conversation, booking a short technical call is the fastest path."
+        )
+
+    return {
+        "answer_markdown": body,
+        "answer_style": "direct",
+        "citations": [],
+        "suggestions": [meeting, q_next],
+        "confidence": 0.99,
+        "needs_clarification": False,
+        "clarifying_question": None,
+        "commercial_flags": {"contact_details_shared": True},
+    }
+
 
 def handle_in_scope_weak_evidence(question: str, classification: dict = None) -> dict:
     classification = classification or {}
@@ -1846,6 +1955,11 @@ SPECIFIC SCENARIOS:
 - Avoid unnecessary implementation detail.
 - Be commercially useful, not academically exhaustive.
 
+5) Contact: email, phone, WhatsApp, or how to reach Ahmad / A'sTechware
+- Answer directly if the user asks for contact details: public email is ahmad@astechware.com; phone (888) 348-8752 (8883488752).
+- Always recommend a short technical call as the best next step for project scoping; add a `meeting` suggestion (not a raw Calendly URL in markdown).
+- This is in-scope — never answer with a generic “I can only help with services” deflection.
+
 IMPORTANT:
 - Keep the existing response schema intact.
 - Keep sources/citations intact and do not suppress them.
@@ -2574,6 +2688,15 @@ def _run_pipeline_impl(user_question: str, verbose: bool = True) -> dict:
     if verbose:
         print(f"    route     : {route}")
         print(f"    router    : {json.dumps(router_result, ensure_ascii=False)}")
+
+    # --------------------------------------------------
+    # STAGE 1b: Public contact (email / phone) — deterministic, overrides router
+    # --------------------------------------------------
+    ckind = contact_info_intent(user_question)
+    if ckind:
+        print(f"  → Contact info shortcut ({ckind})")
+        log_timing("run_pipeline_return", detail="stage1b_contact_info")
+        return handle_contact_info_route(ckind)
 
     # --------------------------------------------------
     # STAGE 2: Route handling
