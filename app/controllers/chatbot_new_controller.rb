@@ -347,7 +347,11 @@ class ChatbotNewController < ApplicationController
         user_message.to_s
       end
 
-    stdin_payload = { question: question }.to_json
+    stdin_payload = {
+      question: question,
+      # Pipeline long-input guard counts words on this only (not conversation + history prefix).
+      current_user_message: user_message.to_s
+    }.to_json
 
     python_cmds = []
     explicit = ENV["CHATBOT_NEW_PYTHON_CMD"].to_s.strip
