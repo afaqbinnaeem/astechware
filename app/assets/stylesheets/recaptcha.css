@@ -1,0 +1,4 @@
+/* reCAPTCHA v3 badge above the chat widget (chat uses z-index 9000). */
+.grecaptcha-badge {
+  z-index: 2147483647 !important;
+}

@@ -30,12 +30,13 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
+  # Google Workspace SMTP
   config.action_mailer.smtp_settings = {
-    address: 'smtp.sendgrid.net',
-    port: 2525,
+    address: 'smtp.gmail.com',
+    port: 587,
     domain: 'astechware.com',
-    user_name: 'apikey',
-    password: ENV['SENDGRID_API_KEY'],
+    user_name: ENV['GOOGLE_WORKSPACE_SMTP_USER'],
+    password: ENV['GOOGLE_WORKSPACE_SMTP_PASSWORD'],
     authentication: :plain,
     enable_starttls_auto: true
   }
