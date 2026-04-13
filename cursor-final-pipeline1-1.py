@@ -5,7 +5,8 @@ A'sTechware — Production RAG Pipeline V2 (A'sTechware Site-wide)
 
 PIPELINE V2 FLOW:
   User Question
-    → Stage 0: Long-input guard (>500 words → recommend technical call)
+    → Stage 0: Long-input guard (>500 words on the current user message → recommend technical call;
+      full conversation may be appended separately — guard does not sum prior turns)
     → Stage 1: AI Router (greeting / out_of_scope / rag_only / web_only / rag_plus_web)
     → Stage 1b: Contact info shortcut (Ahmad email / phone → direct answer, overrides router)
     → Stage 2: Route handling
@@ -562,6 +563,8 @@ Return ONLY JSON with "route" as one of:
 
 Routing rules:
 - Any business question (even if it starts with "hi") → rag_only, NOT greeting
+- If the input includes a "Conversation so far:" transcript, route from the **latest** user intent (follow-ups,
+  topic changes like healthcare → fintech, typo corrections) → almost always rag_only, not out_of_scope
 - URL present + asking about fit/build/improve/assess/compare → rag_plus_web
 - Trust, credibility, compliance, pricing, case study, or delivery questions → rag_only
 - Questions asking for Ahmad’s email, A'sTechware contact email, phone number, WhatsApp, how to reach the founder, or general contact info → rag_only (NOT out_of_scope)
@@ -703,6 +706,7 @@ def contact_info_intent(user_input: str) -> Optional[str]:
     """
     Returns 'email', 'phone', or 'both' when the user is asking for Ahmad / A'sTechware
     contact details — not technical topics like 'email integration'.
+
     """
     t = (user_input or "").strip().lower()
     if not t:
@@ -1234,6 +1238,16 @@ Your job:
   mark it as partially in scope
 - Keep only the relevant topics in "topics"
 - Put obvious unrelated terms in "out_of_scope_terms"
+
+MULTI-TURN TRANSCRIPTS (critical):
+- The Question field may begin with "Conversation so far:" and lines like "user: ..." / "assistant: ..." (recent turns),
+  then "User question:" and the *latest* user message only.
+- Use the full transcript to interpret follow-ups, typos, and corrections. Example: after a healthcare discussion,
+  "let's talk about fintech" or "no fintech" (correcting "funtech") means the user wants **fintech** — not contact info,
+  not a random fragment in isolation.
+- The "reformulated" field must be one **standalone retrieval query** that encodes the user’s *current* intent **in context**
+  (industry, problem, capabilities). Do not set reformulated to a vague two-word fragment alone when the transcript
+  defines the real topic (e.g. reformulate toward "A'sTechware fintech payments compliance AI financial services" when they pivot to fintech).
 
 "evaluate" intent = user wants proof, evidence, results, examples, case studies, or how something was solved
 "learn" intent = user wants to understand a concept, capability, or delivery approach
@@ -1926,6 +1940,11 @@ DEFAULT RESPONSE STYLE:
 - Only go deeper if the user explicitly asks for details, architecture, step-by-step, deep dive, or technical explanation.
 - Avoid long consulting-style answers unless explicitly requested.
 
+MULTI-TURN CHAT:
+- When the question includes "Conversation so far:" and "User question:", use prior turns so follow-ups, corrections,
+  and topic switches (e.g. healthcare then fintech) are understood. Answer the latest user message in that context;
+  do not treat a short follow-up as if it were the opening message.
+
 COMMERCIAL BEHAVIOR:
 - If the user asks whether A'sTechware can build, integrate, automate, modernize, migrate, or support something, optimize for confidence + capability + proof.
 - If the user appears to have an active project or buying intent, the answer should naturally support a meeting suggestion in the suggestions list (not forced inside answer_markdown).
@@ -2040,6 +2059,13 @@ Write the full reply in answer_markdown yourself (no Python templating). Rules:
 <topline_behavior>
 Answer the user's actual question directly using the strongest supported evidence. Prefer qualified, natural wording over absolute claims. Do not dodge valid in-scope questions.
 </topline_behavior>
+
+<multi_turn_conversation>
+The <question> block may include "Conversation so far:" (recent user/assistant turns, typically up to 5 messages)
+and then "User question:" with the newest user message. Use the prior turns to resolve typos, corrections ("no fintech"
+after "funtech"), topic pivots, and pronouns. If the user switches industry or topic (e.g. from a clinic use case to
+fintech), answer for the **new** topic using evidence; a one-line bridge from earlier context is optional if helpful.
+</multi_turn_conversation>
 
 <classification>
 {json.dumps(classification, ensure_ascii=False)}
@@ -2657,24 +2683,39 @@ def run_rag_pipeline(
 # New orchestration layer
 # ═══════════════════════════════════════════════════════════════
 
-def run_pipeline(user_question: str, verbose: bool = True) -> dict:
+def run_pipeline(
+    user_question: str,
+    verbose: bool = True,
+    *,
+    current_user_message: Optional[str] = None,
+) -> dict:
     log_timing("run_pipeline_enter")
     try:
-        return _run_pipeline_impl(user_question, verbose=verbose)
+        return _run_pipeline_impl(
+            user_question,
+            verbose=verbose,
+            current_user_message=current_user_message,
+        )
     finally:
         log_timing("run_pipeline_exit")
 
 
-def _run_pipeline_impl(user_question: str, verbose: bool = True) -> dict:
+def _run_pipeline_impl(
+    user_question: str,
+    verbose: bool = True,
+    *,
+    current_user_message: Optional[str] = None,
+) -> dict:
     print(f"\n{'═' * 60}")
     print(f"  Q: {user_question}")
     print(f"{'═' * 60}")
 
     # --------------------------------------------------
-    # STAGE 0: Long input guard
+    # STAGE 0: Long input guard (single turn only when current_user_message is set)
     # --------------------------------------------------
-    if should_escalate_long_input(user_question):
-        print("  → Long input detected (>500 words), recommending technical call")
+    long_input_text = (current_user_message or "").strip() or user_question
+    if should_escalate_long_input(long_input_text):
+        print("  → Long input detected (>500 words on this message), recommending technical call")
         log_timing("run_pipeline_return", detail="stage0_long_input")
         return handle_long_input_escalation()
 
@@ -2691,8 +2732,11 @@ def _run_pipeline_impl(user_question: str, verbose: bool = True) -> dict:
 
     # --------------------------------------------------
     # STAGE 1b: Public contact (email / phone) — deterministic, overrides router
+    # Use the same single-turn text as the long-input guard (not user_question with history):
+    # e.g. prior replies may say "phone tag" + "A'sTechware" and wrongly satisfy phone_hit.
     # --------------------------------------------------
-    ckind = contact_info_intent(user_question)
+    contact_probe = (current_user_message or "").strip() or user_question
+    ckind = contact_info_intent(contact_probe)
     if ckind:
         print(f"  → Contact info shortcut ({ckind})")
         log_timing("run_pipeline_return", detail="stage1b_contact_info")
@@ -2804,12 +2848,16 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     question = (args.question or "").strip()
+    current_user_message: Optional[str] = None
     if not question:
         raw = sys.stdin.read().strip()
         if raw:
             try:
                 payload = json.loads(raw)
                 question = (payload.get("question") or payload.get("message") or "").strip()
+                cu = (payload.get("current_user_message") or "").strip()
+                if cu:
+                    current_user_message = cu
             except Exception:
                 question = ""
 
@@ -2823,7 +2871,11 @@ if __name__ == "__main__":
         # Redirect all existing prints (debug logs) to stderr so docker logs can show them,
         # while keeping stdout reserved for final JSON (Rails parses stdout).
         with contextlib.redirect_stdout(sys.stderr):
-            result = run_pipeline(question, verbose=True)
+            result = run_pipeline(
+                question,
+                verbose=True,
+                current_user_message=current_user_message,
+            )
 
         log_timing("python_cli_before_stdout_json", detail="about to write JSON to stdout")
         sys.stdout.write(json.dumps(result, ensure_ascii=False) + "\n")

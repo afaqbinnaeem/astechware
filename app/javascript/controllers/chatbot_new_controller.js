@@ -664,7 +664,6 @@ export default class extends Controller {
   }
 
   getApiHistory() {
-    // Keep only user/assistant and last 10 messages to bound token usage.
     const filtered = this.messages
       .filter((m) => m.role === "user" || m.role === "assistant")
       .map((m) => ({ role: m.role, content: m.content }))
