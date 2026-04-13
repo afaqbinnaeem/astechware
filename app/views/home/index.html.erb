@@ -1,9 +1,9 @@
 <% content_for :head do %>
    <%# Title (page part only; layout adds " | A'sTechware"). Description unique per spec. %>
    <% set_meta_tags(
-     title: "AI-Powered SaaS & Generative AI Systems for for Regulated, Operational, and High-Growth Industries",
-     description: "A'sTechware builds production-grade AI agents, custom software, and platform modernization for B2B SaaS and regulated industries. Milestone-based delivery. Book a free technical call.",
-     keywords: "AI development, production AI, platform engineering, custom software, AI governance"
+     title: "AI-Powered SaaS & Generative AI Systems for Regulated, Operational, and High-Growth Industries",
+     description: "Privacy-first AI automations and integrations for healthcare, legal, and regulated operations. Production-grade agents and software without casually routing sensitive data to third-party AI. Book a technical call.",
+     keywords: "AI development, production AI, platform engineering, custom software, AI governance, privacy-first AI, confidential AI integration"
    ) %>
    <%# Homepage-only JSON-LD: WebSite, ProfessionalService, FAQPage, AggregateRating + Reviews %>
    <% home_base = Rails.env.production? ? "https://astechware.com" : root_url.chomp("/") %>
@@ -13,7 +13,7 @@
      "@type" => "WebSite",
      "name" => "A'sTechware",
      "url" => home_base,
-     "description" => "Production-grade AI and platform engineering. AI agents, custom software, and platform modernization for B2B SaaS and regulated industries.",
+     "description" => "Privacy-first AI automations and platform engineering. AI agents, custom software, and modernization for B2B SaaS and regulated industries.",
      "publisher" => { "@type" => "Organization", "name" => "A'sTechware", "url" => home_base }
    }.to_json) %>
    </script>
@@ -23,7 +23,7 @@
      "@type" => "ProfessionalService",
      "name" => "A'sTechware",
      "url" => home_base,
-     "description" => "Production-grade AI agents, custom software, platform modernization, API integrations, and DevOps. Milestone-based delivery, weekly demos, full code ownership.",
+     "description" => "Privacy-first AI agents, custom software, platform modernization, API integrations, and DevOps. Milestone-based delivery, weekly demos, full code ownership.",
      "priceRange" => "$$",
      "areaServed" => "Worldwide",
     "knowsAbout" => ["AI Agents & Automation", "Custom Platform Development", "Platform Modernization & Scaling", "Integrations & API Engineering"],
@@ -76,8 +76,11 @@
             <h1 class="display-4 fw-bold mb-5" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;">
             AI-Powered SaaS & Generative AI Systems for Regulated, Operational, and High-Growth Industries
             </h1>
-            <p class="lead mb-4" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.6; max-width: 950px; margin-left: auto; margin-right: auto;">
+            <p class="lead mb-3" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.6; max-width: 950px; margin-left: auto; margin-right: auto;">
             We build AI systems, autonomous workflows, and scalable SaaS platforms that handle real customers, real data, and real operational pressure, so your business runs smarter and scales faster.
+            </p>
+            <p class="mb-4 text-white-50" style="font-size: clamp(15px, 1.9vw, 18px); line-height: 1.55; max-width: 880px; margin-left: auto; margin-right: auto;">
+            Privacy-first by design: automations and integrations are architected so healthcare, legal, and other sensitive data is not blindly sent to third-party AI—and we apply the same discipline to AI-assisted delivery when your policies require it.
             </p>
             <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center align-items-center">
             <a href="https://calendly.com/ahmadkamran/new-meeting"
