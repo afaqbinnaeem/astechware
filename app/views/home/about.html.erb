@@ -2,8 +2,8 @@
 <% content_for :head do %>
   <% set_meta_tags(
     title: "About A'sTechware | AI & Product Engineering Team",
-    description: "A'sTechware is a focused AI and product engineering team with 10+ years of experience, 50+ projects delivered, and a 98% client retention rate.",
-    keywords: "A'sTechware, production AI, platform engineering, custom software development, AI governance"
+    description: "A'sTechware is a focused AI and product engineering team with a privacy-first approach to automations, integrations, and delivery. 10+ years, 50+ projects, 98% client retention.",
+    keywords: "A'sTechware, production AI, platform engineering, custom software development, AI governance, privacy-first AI"
   ) %>
   <% about_base = Rails.env.production? ? "https://astechware.com" : root_url.chomp("/") %>
   <script type="application/ld+json">
@@ -49,6 +49,9 @@
           </p>
           <p class="large-para mb-4">
             We chose to specialize in AI and platform engineering because that&apos;s where the biggest leverage is. When we get it right, our clients don&apos;t just get a project delivered; they get systems that scale, comply, and deliver measurable results. We&apos;re here to build those systems with discipline, transparency, and a commitment to outcomes you can actually see.
+          </p>
+          <p class="large-para mb-4">
+            We default to privacy-first AI: integrations and automations are designed so regulated and confidential data is not casually piped to external models, and we align delivery—including AI-assisted development where it applies—with your policies and risk tolerance.
           </p>
 
           <div class="about-mission-box p-4 mb-4">
