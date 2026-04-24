@@ -46,7 +46,6 @@ class SitemapController < ApplicationController
     # Case study detail pages
     %w[
       medical-voice-ai
-      legal-affidavit-engine
       shoreline-waste-logistics
       red-dragon-hvac
       vestra-payments

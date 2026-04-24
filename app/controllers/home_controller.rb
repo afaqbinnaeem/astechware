@@ -50,7 +50,6 @@ class HomeController < ApplicationController
       'instashowing-real-estate' => { title: 'Real Estate Transaction Coordination & Availability Engine' },
       'word-of-mouth-modernization' => { title: 'Enterprise Legacy-to-Cloud Marketplace Transformation' },
       'restaurant-resource-rescue' => { title: 'High-Performance Search & Inventory Recovery' },
-      'legal-affidavit-engine' => { title: 'Automated Legal Affidavit Engine' }
     }
 
     case_study = case_studies[slug]
