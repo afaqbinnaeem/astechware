@@ -3,13 +3,13 @@
     <div class="row align-items-center min-vh-50">
       <div class="col-12 col-lg-10 mx-auto text-center">
         <h1 class="display-5 fw-bold mb-3" style="font-size: clamp(28px, 4.5vw, 52px); line-height: 1.15;">
-          Automated Litigation Support &amp; Document Synthesis
+          Automated Legal Affidavit Engine
         </h1>
         <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.3vw, 22px); line-height: 1.5; max-width: 980px; margin-left: auto; margin-right: auto;">
-          Legal AI Affidavit &amp; PDF Assembly Engine
+          GPS Evidence + DocuSign Workflow That Generates Court-Ready Sworn Affidavits from Field Logs
         </p>
         <p class="mb-0" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.7; max-width: 980px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
-          An AI document synthesis platform that ingests case folders, extracts evidence, and generates a structured, court-compliant affidavit draft with attorney-in-the-loop validation.
+          Process server logs an attempt on their phone. Admin reviews it. The system generates a court-ready sworn affidavit, routes it through DocuSign for two signatures, and emails it to the law firm, automatically.
         </p>
       </div>
     </div>
@@ -23,22 +23,18 @@
         <div class="col-12 col-lg-7">
           <h2 class="heading-border heading-center heading-left mb-4 pb-3 d-inline-block">The Challenge</h2>
           <p class="large-para mb-3">
-            Drafting an affidavit is one of the most time-consuming tasks in litigation. Attorneys must manually cross-reference evidence, depositions, and exhibits to construct a factual
-            narrative—often unbillable and slow.
+            Process serving companies are legally required to provide sworn affidavits of service to courts and law firms. These documents must meet strict formatting requirements, include specific evidence (GPS, timestamp, server identity, method of service), and be signed by both the process server and a commissioner of oaths.
           </p>
           <p class="large-para mb-0">
-            The firm needed a tool that can ingest a case folder and produce a structured, court-compliant draft quickly while still enforcing formatting rules (FRCP/state constraints) and
-            keeping attorneys in control. Evidence is messy (scans, handwritten notes, photos), so extraction and chronology had to be robust.
+            Generating these documents manually took 30-45 minutes per case: pulling field notes from email threads, formatting them into a Word template, exporting to PDF, emailing for signatures, tracking signature status, and emailing the final document to the firm. Errors in affidavit format caused rejection by courts, requiring the entire process to restart.
           </p>
         </div>
         <div class="col-12 col-lg-5">
           <div class="workflow-card p-4">
             <h3 class="h6 text-uppercase text-muted mb-3">Quick Stats</h3>
             <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
-              <li><strong>Inputs:</strong> PDFs, photos, handwritten notes</li>
-              <li><strong>Outputs:</strong> Court-formatted PDF</li>
-              <li><strong>Security:</strong> Zero-retention + encryption</li>
-              <li><strong>Impact:</strong> 10h → 2h; +30% case capacity</li>
+              <li><strong>Tech:</strong> WeasyPrint, DocuSign API, Gemini Pro (narrative generation), PostgreSQL (case data source), Mailgun (delivery), AWS S3 (document storage)</li>
+              <li><strong>Result:</strong> Affidavit generation time reduced from 45 minutes to under 2 minutes. Zero formatting rejections. Complete signing audit trail captured in DocuSign. Law firms receive signed documents within minutes of service confirmation.</li>
             </ul>
           </div>
         </div>
@@ -51,12 +47,10 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">The Solution</h2>
         <p class="large-para mb-3">
-          We developed an AI document synthesis platform that performs multi-file analysis of case evidence and generates a chronological, cited affidavit draft—complete with signature blocks
-          and exhibit references.
+          An automated affidavit pipeline integrated directly into the case lifecycle. When service is confirmed, the system generates a legally-formatted sworn affidavit from a WeasyPrint HTML/CSS template, pre-populated entirely from structured case data: server identity, license number, case details, service target, date/time/GPS of each attempt, method of service, and the specific documents served. No manual entry. No copy-paste.
         </p>
         <p class="large-para mb-0">
-          Drafting is treated as a governed pipeline: extract → normalize → cross-reference → synthesize → format → attorney validation. AI accelerates synthesis, while strict formatting rules
-          and review gates prevent unsupported statements or layout drift from reaching filings.
+          The document routes through DocuSign in the legally required signing order: process server signs first, then commissioner of oaths signs. Once both signatures are captured, the signed PDF is automatically emailed to the law firm. When service fails, the AI generates a formal non-service narrative for court submission, structured legal language derived from the server's informal field notes.
         </p>
       </div>
     </div>
@@ -67,8 +61,8 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Technical Approach</h2>
         <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
-          <li><strong>Multi-modal evidence extraction:</strong> OCR pulls text from handwritten notes and photos into a temporal evidence database.</li>
-          <li><strong>Rule-based formatting:</strong> Strict PDF generation enforces court-mandated margins, fonts, and layout constraints.</li>
+          <li><strong>Template-driven affidavit generation:</strong> WeasyPrint renders court-ready PDFs from HTML/CSS templates, pre-populated entirely from structured case data.</li>
+          <li><strong>Legally ordered signature workflow:</strong> DocuSign enforces process server → commissioner signing order and captures an audit-ready signing trail.</li>
         </ul>
       </div>
     </div>
@@ -82,25 +76,25 @@
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">Architecture</h3>
-              <p class="mb-0 small">React → Python (FastAPI) → ReportLab (PDF Engine)</p>
+              <p class="mb-0 small">PostgreSQL (case data) → FastAPI (affidavit pipeline) → WeasyPrint (HTML/CSS → PDF) → DocuSign (signing order + audit trail) → Mailgun (delivery) → AWS S3 (storage)</p>
             </div>
           </div>
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">Integrations</h3>
-              <p class="mb-0 small">Dropbox/OneDrive for ingestion; DocuSign API.</p>
+              <p class="mb-0 small">DocuSign API for signature workflow; Mailgun for outbound delivery; AWS S3 for signed document storage.</p>
             </div>
           </div>
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">Security</h3>
-              <p class="mb-0 small">Client-side encryption; zero-data-retention options; private AI instance support; attorney-in-the-loop validation for every generation.</p>
+              <p class="mb-0 small">Immutable signing audit trail in DocuSign; deterministic document generation from structured case data; delivery logs captured on send.</p>
             </div>
           </div>
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">AI Features</h3>
-              <p class="mb-0 small">Evidence cross-referencing flags contradictions across witness statements and drafts a cited statement of facts.</p>
+              <p class="mb-0 small">Gemini Pro generates formal non-service narratives for court submission, derived from field attempt logs when service fails.</p>
             </div>
           </div>
         </div>
@@ -113,9 +107,10 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Results &amp; Impact</h2>
         <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
-          <li><strong>10 hours → 2 hours</strong> drafting time reduction per affidavit.</li>
-          <li><strong>100% formatting compliance</strong> with court-mandated layout constraints.</li>
-          <li><strong>Increased case load:</strong> the firm handles 30% more litigation with existing headcount.</li>
+          <li>Affidavit generation time reduced from 45 minutes to under 2 minutes.</li>
+          <li>Zero formatting rejections.</li>
+          <li>Complete signing audit trail captured in DocuSign.</li>
+          <li>Law firms receive signed documents within minutes of service confirmation.</li>
         </ul>
       </div>
     </div>

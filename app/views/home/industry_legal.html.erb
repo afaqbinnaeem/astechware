@@ -427,36 +427,36 @@
       <div class="row g-4">
         <div class="col-12 col-lg-6">
           <div class="workflow-card p-4 p-lg-5 h-100">
-            <h4 class="h5 mb-3">Private AI Pipeline for Contract Discovery</h4>
-            <p class="small text-muted mb-2">Corporate Law / M&amp;A</p>
+            <h4 class="h5 mb-3">A Canadian Process Serving Company: Multi-Tenant Process Serving SaaS</h4>
+            <p class="small text-muted mb-2">Legal Operations / Court Services</p>
             <h5 class="h6 mt-3 mb-1">Challenge</h5>
-            <p class="small mb-2">Manual review of massive contract volumes was slow and prone to human error. The firm needed a solution that would not "leak" data to public AI models.</p>
+            <p class="small mb-2">Gmail + Drive + Sheets + thousands of lines of Apps Script created intake errors, unprofessional field notes, and billing disputes. None of it scaled to multi-tenant operations.</p>
             <h5 class="h6 mb-1">Solution</h5>
-            <p class="small mb-2">Engineered a Private AI Pipeline (Azure OpenAI) that extracts specific terms and compares them against the firm's digital Playbook. AI flags risks as Red/Amber/Green, allowing lawyers to skip the manual reading and focus only on high-risk issues.</p>
+            <p class="small mb-2">Built a multi-tenant SaaS that automates intake, server dispatch, GPS evidence logging, affidavit generation, and invoicing—end-to-end.</p>
             <h5 class="h6 mb-1">Results</h5>
             <ul class="small mb-0 ps-3" style="line-height: 1.6;">
-              <li>75% reduction in initial review time</li>
-              <li>100% data privacy (zero training on client data)</li>
-              <li>Consistent application of "Gold Standard" rules across all documents</li>
+              <li>100% automated intake and affidavit generation</li>
+              <li>Affidavit time reduced from 45 minutes to under 2 minutes</li>
+              <li>Tenant isolation enforced via PostgreSQL Row Level Security</li>
             </ul>
-            <%= link_to "Read case studies →", case_studies_path, class: "d-inline-block mt-3 fw-semibold small" %>
+            <%= link_to "Read full case study →", case_study_path('flss-legal-process-serving'), class: "d-inline-block mt-3 fw-semibold small ajax" %>
           </div>
         </div>
         <div class="col-12 col-lg-6">
           <div class="workflow-card p-4 p-lg-5 h-100">
-            <h4 class="h5 mb-3">AI-Powered Affidavit Generation</h4>
-            <p class="small text-muted mb-2">Litigation / Family Law / Immigration</p>
+            <h4 class="h5 mb-3">Automated Legal Affidavit Engine</h4>
+            <p class="small text-muted mb-2">Court-Ready PDFs with GPS Evidence + DocuSign Audit Trail</p>
             <h5 class="h6 mt-3 mb-1">Challenge</h5>
-            <p class="small mb-2">Attorneys spent hours manually drafting affidavits from raw evidence and notes, leading to significant non-billable "pajama time."</p>
+            <p class="small mb-2">Manual affidavit drafting took 30-45 minutes per case and errors caused court rejections—forcing restarts and delaying delivery to law firms.</p>
             <h5 class="h6 mb-1">Solution</h5>
-            <p class="small mb-2">Developed an AI PDF Creation engine that ingests case notes and evidence to draft structured, professional affidavits. The system ensures consistent legal formatting and allows for rapid attorney review and final PDF generation.</p>
+            <p class="small mb-2">Automated pipeline: generate sworn affidavits from structured case data via WeasyPrint, route signatures in DocuSign (server → commissioner), and auto-email signed PDFs to the firm.</p>
             <h5 class="h6 mb-1">Results</h5>
             <ul class="small mb-0 ps-3" style="line-height: 1.6;">
-              <li>Document drafting time reduced from hours to minutes</li>
-              <li>Increased case capacity for the firm</li>
-              <li>High-quality, consistent court-ready PDFs generated instantly</li>
+              <li>45 minutes → under 2 minutes per affidavit</li>
+              <li>Zero formatting rejections</li>
+              <li>Complete signing audit trail captured in DocuSign</li>
             </ul>
-            <%= link_to "Read case studies →", case_studies_path, class: "d-inline-block mt-3 fw-semibold small" %>
+            <%= link_to "Read full case study →", case_study_path('legal-affidavit-engine'), class: "d-inline-block mt-3 fw-semibold small ajax" %>
           </div>
         </div>
       </div>

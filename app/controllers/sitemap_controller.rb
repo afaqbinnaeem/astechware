@@ -46,9 +46,6 @@ class SitemapController < ApplicationController
     # Case study detail pages
     %w[
       medical-voice-ai
-      athenahealth-sync
-      ai-medical-scribe
-      legal-contract-ai
       legal-affidavit-engine
       shoreline-waste-logistics
       red-dragon-hvac
@@ -59,6 +56,8 @@ class SitemapController < ApplicationController
       word-of-mouth-modernization
       restaurant-resource-rescue
       eventvesta-ai-marketing
+      flss-legal-process-serving
+      ai-deal-analyzer
     ].each do |slug|
       urls << { loc: "#{base}#{case_study_path(slug)}", priority: "0.7", changefreq: "monthly" }
     end

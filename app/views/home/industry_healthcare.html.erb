@@ -399,53 +399,53 @@
       <div class="row g-4">
         <div class="col-12 col-lg-4">
           <div class="workflow-card p-4 p-lg-5 h-100">
-            <h4 class="h5 mb-3">Enterprise Patient Intake &amp; Athenahealth Sync</h4>
-            <p class="small text-muted mb-2">Multi-location Medical Group</p>
+            <h4 class="h5 mb-3">Healthcare AI Platform, Voice, Scribe &amp; EHR</h4>
+            <p class="small text-muted mb-2">Multi-location clinics / HIPAA + athenahealth</p>
             <h5 class="h6 mt-3 mb-1">Challenge</h5>
-            <p class="small mb-2">High administrative overhead due to disconnected intake forms and manual data entry into the EHR, causing patient data fragmentation across locations.</p>
+            <p class="small mb-2">High no-show rates, after-hours call backlog, and disconnected scheduling/doc workflows created operational bottlenecks and provider burnout.</p>
             <h5 class="h6 mb-1">Solution</h5>
-            <p class="small mb-2">Developed a unified, HIPAA-compliant booking and intake flow. Engineered a real-time Athenahealth bi-directional sync and a centralized admin panel for multi-location management and patient tracking.</p>
+            <p class="small mb-2">Built one platform for web + voice booking, real-time athenahealth sync, audit-logged status updates, and an AI medical scribe with strict hallucination prevention.</p>
             <h5 class="h6 mb-1">Results</h5>
             <ul class="small mb-0 ps-3" style="line-height: 1.6;">
-              <li>100% automated data entry into the EHR</li>
-              <li>40% reduction in front-desk administrative time</li>
-              <li>Seamless patient transition between clinic locations</li>
+              <li>35% → 6% no-show reduction</li>
+              <li>$28,000/month recovered revenue</li>
+              <li>70% less daily SOAP documentation time</li>
             </ul>
-            <%= link_to "Read case studies →", case_studies_path, class: "d-inline-block mt-3 fw-semibold small" %>
+            <%= link_to "Read full case study →", case_study_path('medical-voice-ai'), class: "d-inline-block mt-3 fw-semibold small ajax" %>
           </div>
         </div>
         <div class="col-12 col-lg-4">
           <div class="workflow-card p-4 p-lg-5 h-100">
-            <h4 class="h5 mb-3">Voice AI Patient Booking &amp; Triage System</h4>
-            <p class="small text-muted mb-2">High-Volume Clinical Operations</p>
+            <h4 class="h5 mb-3">Voice Booking Agent (Sub-2s Latency)</h4>
+            <p class="small text-muted mb-2">After-hours booking + warm transfers</p>
             <h5 class="h6 mt-3 mb-1">Challenge</h5>
-            <p class="small mb-2">Managing after-hours bookings, clinical triage, and billing inquiries without increasing headcount or compromising security standards.</p>
+            <p class="small mb-2">After-hours calls hit voicemail, reschedules are slow, and staff can’t respond while a motivated patient is on the phone.</p>
             <h5 class="h6 mb-1">Solution</h5>
-            <p class="small mb-2">Built a sophisticated Voice AI Agent with a specialized billing voice flow and clinical triage logic. Implemented mission-critical features including "Break Glass" protocols, USCDI export, SMART on FHIR, and HL7v2 messaging. Conducted rigorous load testing and synthetic test harnesses for 99.9% reliability.</p>
+            <p class="small mb-2">Twilio streams audio to Deepgram Nova-2 for real-time transcription; intent runs through a PHI de-identification pipeline before Claude; responses are spoken via ElevenLabs TTS. The agent handles booking, rescheduling, cancellations, and general inquiries, with warm transfer on request and after-hours calls routed to a callback queue.</p>
             <h5 class="h6 mb-1">Results</h5>
             <ul class="small mb-0 ps-3" style="line-height: 1.6;">
-              <li>24/7 automated patient handling</li>
-              <li>Full compliance with modern data retention and breach workflows</li>
-              <li>Scalable infrastructure capable of handling 5x peak call volume</li>
+              <li>Sub-2-second round-trip response time in production</li>
+              <li>Fewer abandoned calls via immediate voice rescheduling</li>
+              <li>Staff gets context-rich warm transfers when needed</li>
             </ul>
-            <%= link_to "Read case studies →", case_studies_path, class: "d-inline-block mt-3 fw-semibold small" %>
+            <%= link_to "Read full case study →", case_study_path('medical-voice-ai'), class: "d-inline-block mt-3 fw-semibold small ajax" %>
           </div>
         </div>
         <div class="col-12 col-lg-4">
           <div class="workflow-card p-4 p-lg-5 h-100">
-            <h4 class="h5 mb-3">Ambient AI Scribe for Clinical Documentation</h4>
-            <p class="small text-muted mb-2">Provider Productivity Tool</p>
+            <h4 class="h5 mb-3">AI Medical Scribe (SOAP in Seconds)</h4>
+            <p class="small text-muted mb-2">No-audio-storage + no-fabrication guardrails</p>
             <h5 class="h6 mt-3 mb-1">Challenge</h5>
-            <p class="small mb-2">"Pajama Time" – providers spending hours after work finishing SOAP notes, leading to burnout and reduced patient face-time.</p>
+            <p class="small mb-2">Providers lose 1–2 hours/day to after-visit SOAP notes (“pajama time”). Any fabricated detail is a clinical safety risk.</p>
             <h5 class="h6 mb-1">Solution</h5>
-            <p class="small mb-2">Developed a streamlined, mobile-first AI scribe. The provider records the patient encounter, and the system automatically generates a structured SOAP note ready for immediate copy-paste into any EHR.</p>
+            <p class="small mb-2">Deepgram diarization separates provider vs patient speech. Claude generates a SOAP note with strict rules: never fabricate findings, mark gaps as [Not discussed], mark uncertain items as [VERIFY], and suggest ICD-10 codes validated against CMS before display. Providers approve before pushing to athenahealth via FHIR. Audio is never stored—only encrypted transcript persists.</p>
             <h5 class="h6 mb-1">Results</h5>
             <ul class="small mb-0 ps-3" style="line-height: 1.6;">
-              <li>70% reduction in documentation time per patient</li>
-              <li>Immediate provider relief from manual note-taking</li>
-              <li>Zero-friction adoption requiring no complex EHR integration</li>
+              <li>70% reduction in daily SOAP documentation time</li>
+              <li>Provider-in-the-loop approval before EHR write-back</li>
+              <li>Encrypted transcript persistence with full audit logging</li>
             </ul>
-            <%= link_to "Read case studies →", case_studies_path, class: "d-inline-block mt-3 fw-semibold small" %>
+            <%= link_to "Read full case study →", case_study_path('medical-voice-ai'), class: "d-inline-block mt-3 fw-semibold small ajax" %>
           </div>
         </div>
       </div>

@@ -1,0 +1,216 @@
+<div class="hero-section py-5 service-page-hero">
+  <div class="container">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-12 col-lg-10 mx-auto text-center">
+        <h1 class="display-5 fw-bold mb-3" style="font-size: clamp(28px, 4.5vw, 52px); line-height: 1.15;">
+          AI Real Estate Deal Analyzer, From Address to Investment Decision in 90 Seconds
+        </h1>
+        <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.3vw, 22px); line-height: 1.5; max-width: 980px; margin-left: auto; margin-right: auto;">
+          Turning a 45-Minute Manual Underwriting Process into an Instant, Acquisitions-Manager-Grade Analysis
+        </p>
+        <p class="mb-0" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.7; max-width: 980px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
+          Feed it a property address. Get ARV, four exit strategies, a recommended offer price, and a plain-English explanation, the way a senior acquisitions manager would explain it, in under 90 seconds.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="inner-sections">
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="row g-4 align-items-start">
+        <div class="col-12 col-lg-7">
+          <h2 class="heading-border heading-center heading-left mb-4 pb-3 d-inline-block">The Challenge</h2>
+          <p class="large-para mb-3">
+            Real estate wholesalers and investors live and die by deal volume. The more properties they can analyze, the more deals they find. But accurate underwriting takes time, a senior acquisitions manager spends 30-45 minutes on every property just to answer one question: is this worth making an offer on?
+          </p>
+          <p class="large-para mb-3">
+            That means most investors analyze 10-15 deals a week at best. The ones who win analyze 50+.
+          </p>
+          <p class="large-para mb-3">
+            The bottleneck isn't finding properties. It's the analysis. Pulling the right comparable sales, calculating ARV correctly, running the numbers for multiple exit strategies, and deciding on an offer price, all of it requires experience, judgment, and time that most investors don't have enough of.
+          </p>
+          <p class="large-para mb-0">
+            Junior analysts get the comps wrong. Spreadsheets don't explain their reasoning. And when a motivated seller is on the phone right now, there's no time to go run numbers for 45 minutes before responding.
+          </p>
+        </div>
+        <div class="col-12 col-lg-5">
+          <div class="workflow-card p-4">
+            <h3 class="h6 text-uppercase text-muted mb-3">Quick Stats</h3>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li><strong>Analysis time before:</strong> 30-45 minutes per deal</li>
+              <li><strong>Analysis time after:</strong> Under 90 seconds</li>
+              <li><strong>Exit strategies calculated simultaneously:</strong> 4 (Wholesale, Fix &amp; Flip, Subject To, Seller Finance)</li>
+              <li><strong>Output quality:</strong> Acquisitions manager level explanation, not a spreadsheet dump</li>
+              <li><strong>Architecture:</strong> Deterministic Python calculations + Claude explanation layer (no hallucinated numbers)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">The Solution</h2>
+        <p class="large-para mb-3">
+          An AI deal analyzer that takes a property address and structured data as input and outputs a complete investment analysis, ARV calculation with comp justification, four exit strategy projections, recommended offer price, profit potential, risk level, and a plain-English explanation written the way an experienced acquisitions manager would explain it to a client.
+        </p>
+        <p class="large-para mb-0">
+          Not a calculator. Not a spreadsheet. An analyst that works in 90 seconds and never gets tired.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">How It Works, Step by Step</h2>
+        <div class="row g-4">
+          <div class="col-12">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">Step 1, Property Data Ingestion</h3>
+              <p class="mb-0 small">
+                The investor provides the property address and basic condition notes. The system pulls public records, tax history, and comparable sales data automatically via ATTOM Data API. No manual data entry beyond the address.
+              </p>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">Step 2, ARV Calculation with Justified Comp Selection</h3>
+              <p class="mb-0 small">
+                The AI selects comparable sales using the same criteria an experienced appraiser applies: within a defined radius, similar square footage, same bedroom and bathroom count, sold within the last 6 months, adjusted for condition differences. It explains exactly which comps it chose, why it included them, and why it excluded others. The investor sees the reasoning, not just the number. This is where most automated tools fail, they pull the nearest sales without judgment. A 5-bedroom comp next door is not comparable to a 2-bedroom subject property. The system knows the difference and explains it.
+              </p>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">Step 3, Four Exit Strategies Run Simultaneously</h3>
+              <p class="mb-3 small"><strong>Wholesale (MAO):</strong> Maximum Allowable Offer calculation based on ARV minus rehab estimate minus wholesale fee minus minimum investor profit margin. Output: the exact number to put in the contract if assigning it to another investor.</p>
+              <p class="mb-3 small"><strong>Fix and Flip:</strong> Purchase price plus rehab plus carrying costs plus selling costs subtracted from ARV. Output: profit projection, ROI percentage, and a risk flag if margins fall below the investor's threshold.</p>
+              <p class="mb-3 small"><strong>Subject To:</strong> Analysis of taking over the seller's existing mortgage, remaining balance, monthly payment, equity position, and whether the numbers make sense given the seller's situation and the investor's exit timeline.</p>
+              <p class="mb-0 small"><strong>Seller Finance:</strong> Modeling the deal as a seller-financed purchase, negotiated interest rate, monthly payment, cash flow projection, and total cost of capital over the hold period.</p>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">Step 4, Recommendation in Plain English</h3>
+              <p class="mb-3 small">
+                The system recommends the strongest exit strategy for this specific deal, flags risk level (Low / Medium / High), and outputs a summary in natural language:
+              </p>
+              <p class="mb-3 small">
+                "This property has strong wholesale potential at a MAO of $187,000. ARV is supported by three recent sales within 0.3 miles averaging $312 per square foot. The fix and flip margin is tight at 11% due to the estimated $45,000 rehab, below your 15% threshold. Best play here is a quick wholesale assignment. Recommend opening at $175,000 and walking at $192,000."
+              </p>
+              <p class="mb-0 small">
+                That is what a good acquisitions manager says. The AI says it in 90 seconds.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Technical Architecture</h2>
+        <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
+          <li><strong>Backend:</strong> FastAPI (Python)</li>
+          <li><strong>AI reasoning layer:</strong> Claude (ARV justification, comp narrative, exit strategy explanation, offer recommendation)</li>
+          <li><strong>Financial calculations:</strong> Deterministic Python logic, MAO, flip margins, cash flow, ROI (not AI-generated numbers)</li>
+          <li><strong>Comparable sales data:</strong> ATTOM Data API</li>
+          <li><strong>Public records:</strong> County assessor APIs + ATTOM</li>
+          <li><strong>Frontend:</strong> Next.js dashboard with deal history, saved analyses, and investor-specific parameter configuration</li>
+          <li><strong>Output:</strong> Structured JSON + human-readable report, exportable to PDF</li>
+          <li><strong>Investor configuration:</strong> Custom thresholds per user (minimum flip margin, minimum wholesale fee, target cash-on-cash return)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Engineering Deep Dive</h2>
+        <div class="row g-4">
+          <div class="col-12 col-md-6">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">Why Deterministic Math Is Non-Negotiable</h3>
+              <p class="mb-0 small">
+                The temptation with a deal analyzer is to let AI do everything including the arithmetic. We explicitly separated the two layers: Python calculates every number using fixed, auditable formulas, and Claude receives those pre-calculated numbers and generates the explanation and recommendation. If Claude produces a poor sentence, the investor rewrites it. If it hallucinated an offer price, an investor makes a $50,000 mistake. The architecture makes that impossible. Every number on screen traces back to a deterministic calculation, not a model output.
+              </p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">Comp Selection as a Scored Filtering System</h3>
+              <p class="mb-0 small">
+                Our comparable sales selection applies a weighted scoring system before any comp reaches the AI: distance weight, recency weight, size similarity weight, and condition adjustment factor. Comps that pass the threshold are passed to Claude for narrative justification. Comps that are technically nearby but meaningfully different are excluded with a logged reason the investor can review. This gives investors the transparency of an appraisal-grade comp selection process at the speed of an API call.
+              </p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">Investor-Specific Configuration</h3>
+              <p class="mb-0 small">
+                Every investor has different thresholds. One requires 20% flip margins, another operates at 15%. One wholesales exclusively, another holds rentals. The system accepts investor-specific parameters stored per user: minimum wholesale fee, minimum flip ROI, preferred hold period, target cash-on-cash return, maximum rehab budget. The analysis is calibrated to their criteria. The recommendation reflects their strategy, not a generic industry default.
+              </p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">Explainability as a Trust Layer</h3>
+              <p class="mb-0 small">
+                Real estate investors do not trust black boxes. If the system says the MAO is $187,000 they need to know why, which comps, which formula, which assumptions. Every output screen shows the full reasoning chain: comps selected and why, formula applied, assumption used, and confidence level. Investors can override any input and rerun the analysis instantly. The AI is a first draft they can interrogate, not a verdict they have to accept.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Results &amp; Impact</h2>
+        <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
+          <li>Deal analysis time reduced from 30-45 minutes to under 90 seconds</li>
+          <li>Investors analyze 4-5x more deals per week without adding headcount</li>
+          <li>Junior team members produce senior-quality underwriting output from day one</li>
+          <li>Fewer deals lost to slow response, investors give sellers an answer while still on the phone</li>
+          <li>Offer accuracy improved, fewer overbids on marginal deals, fewer good deals passed on due to under-analysis</li>
+          <li>Acquisitions managers focus on negotiation and relationships instead of running spreadsheets</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Who This Is For</h2>
+        <p class="large-para mb-0">
+          Real estate wholesalers and investors who analyze more than 5 deals per week, have junior staff making underwriting decisions without enough experience, lose deals because analysis takes too long when a motivated seller needs an answer now, or want to scale deal volume without scaling headcount proportionally.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto text-center">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Ready to build something similar?</h2>
+        <p class="lead mb-4">We’ll design a governed pipeline with deterministic math, explainable AI, and investor-specific controls from day one.</p>
+        <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5 me-2 mb-2">
+          Schedule a Technical Discovery Call
+        </a>
+        <%= link_to "View our Services", root_path(anchor: "services"), class: "btn btn-outline-primary btn-lg rounded-pill px-5 mb-2 ajax" %>
+      </div>
+    </div>
+  </section>
+</div>

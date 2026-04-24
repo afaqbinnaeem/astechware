@@ -38,8 +38,9 @@ class HomeController < ApplicationController
     slug = params[:slug].to_s
 
     case_studies = {
-      'medical-voice-ai' => { title: 'Autonomous Patient Engagement & Triage System' },
-      'legal-contract-ai' => { title: 'Enterprise Legal Discovery & Playbook Compliance Engine' },
+      'medical-voice-ai' => { title: 'AI-Powered Healthcare Platform, Voice Scheduling, Clinical AI & EHR Sync' },
+      'flss-legal-process-serving' => { title: 'A Canadian Process Serving Company, AI-Powered Legal Process Serving Platform' },
+      'ai-deal-analyzer' => { title: 'AI Real Estate Deal Analyzer, From Address to Investment Decision in 90 Seconds' },
       'shoreline-waste-logistics' => { title: 'Geospatial Logistics & Fleet Orchestration Platform' },
       'vestra-payments' => { title: 'Automated Payment Settlement & Escrow Engine' },
       'zofi-cash-fintech' => { title: 'Liquidity-as-a-Service & Automated Payroll Settlement Engine' },
@@ -47,11 +48,9 @@ class HomeController < ApplicationController
       'red-dragon-hvac' => { title: 'Automated Field-Proof Marketing & Local SEO Engine' },
       'eventvesta-ai-marketing' => { title: 'AI Marketing OS for Event Promoters' },
       'instashowing-real-estate' => { title: 'Real Estate Transaction Coordination & Availability Engine' },
-      'athenahealth-sync' => { title: 'Multi-Clinic Patient Lifecycle & EHR Bridge' },
-      'ai-medical-scribe' => { title: 'Ambient Clinical Documentation & SMART on FHIR Integration' },
       'word-of-mouth-modernization' => { title: 'Enterprise Legacy-to-Cloud Marketplace Transformation' },
       'restaurant-resource-rescue' => { title: 'High-Performance Search & Inventory Recovery' },
-      'legal-affidavit-engine' => { title: 'Automated Litigation Support & Document Synthesis' }
+      'legal-affidavit-engine' => { title: 'Automated Legal Affidavit Engine' }
     }
 
     case_study = case_studies[slug]

@@ -1,0 +1,251 @@
+<div class="hero-section py-5 service-page-hero">
+  <div class="container">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-12 col-lg-10 mx-auto text-center">
+        <h1 class="display-5 fw-bold mb-3" style="font-size: clamp(28px, 4.5vw, 52px); line-height: 1.15;">
+          A Canadian Process Serving Company, AI-Powered Legal Process Serving Platform
+        </h1>
+        <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.3vw, 22px); line-height: 1.5; max-width: 980px; margin-left: auto; margin-right: auto;">
+          Multi-Tenant SaaS That Replaces Gmail + Sheets + Apps Script for Process Serving Companies
+        </p>
+        <p class="mb-0" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.7; max-width: 980px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
+          From law firm email to GPS-tracked delivery to signed affidavit to invoice, fully automated, legally defensible, and white-labelled for any process serving company in Canada.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="inner-sections">
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="row g-4 align-items-start">
+        <div class="col-12 col-lg-7">
+          <h2 class="heading-border heading-center heading-left mb-4 pb-3 d-inline-block">The Challenge</h2>
+          <p class="large-para mb-3">
+            A Canadian legal process serving company runs a regulated business where court documents must be physically delivered to individuals named in lawsuits, divorce filings, and eviction orders. Law firms hire them to do this.
+          </p>
+          <p class="large-para mb-3">
+            Their entire operation ran on Gmail, Google Drive, Google Sheets, and 3,500 lines of Google Apps Script held together with manual workarounds. Every intake was manual: read the email, open the PDF, copy 30+ fields into a spreadsheet, create a folder in Drive. Assigning servers, tracking attempts, generating affidavits, and calculating invoices were all done by hand.
+          </p>
+          <p class="large-para mb-0">
+            The problems were compounding: missed fields on intake caused wrong addresses. Informal server notes ("couldn't find him") were unprofessional and legally risky in affidavits. Invoice errors caused billing disputes. And none of it scaled, adding a second company meant duplicating the entire spreadsheet mess.
+          </p>
+          <p class="large-para mt-3 mb-0">
+            What he needed was a single platform to replace all of it, built for the legal standard of evidence required by Canadian courts, and multi-tenant from day one so any process serving company could run their business on it.
+          </p>
+        </div>
+        <div class="col-12 col-lg-5">
+          <div class="workflow-card p-4">
+            <h3 class="h6 text-uppercase text-muted mb-3">Quick Stats</h3>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li><strong>Industry:</strong> Legal / Court Services</li>
+              <li><strong>Compliance:</strong> Jurisdiction-aware (Ontario HST, Quebec GST, US tax rules)</li>
+              <li><strong>AI:</strong> Gemini Flash (classification) + Gemini Pro (document parsing)</li>
+              <li><strong>Multi-tenant:</strong> PostgreSQL Row Level Security (DB-level isolation)</li>
+              <li><strong>Result:</strong> 100% automated intake, affidavit generation, and invoice calculation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">The Solution</h2>
+        <p class="large-para mb-3">
+          We replaced the entire Gmail + Sheets + Drive stack with a production-grade multi-tenant SaaS platform that manages the complete lifecycle of a process serving case, from the moment a law firm sends an email to the moment a signed affidavit lands in their inbox.
+        </p>
+        <p class="large-para mb-0">
+          The platform has five distinct user roles operating in sequence: the law firm (email sender), the admin (case manager and quality gate), the process server (field operative on mobile), the commissioner (DocuSign affidavit signer), and the platform owner (who manages all tenants and earns subscription revenue).
+        </p>
+        <p class="large-para mt-3 mb-0">
+          Each role has purpose-built screens. Law firms don't need accounts, they just email documents the way they always have. Everything else happens inside the platform.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">How It Works, The Full Lifecycle</h2>
+        <div class="row g-4">
+          <div class="col-12">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">Step 1, AI Document Intake</h3>
+              <p class="mb-0 small">
+                A law firm emails court documents to an inbound email address. The system receives the email, extracts all attachments, and runs Gemini Pro over the PDFs to extract 30+ structured fields: firm name, file number, court name, court date, plaintiff, defendant, service type, target names, target addresses, documents to serve, and rush flag. The AI creates a complete draft case file in seconds. No human touches it until the review step.
+              </p>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">Step 2, Admin Split-Screen Review</h3>
+              <p class="mb-0 small">
+                The admin opens the case in a split-screen view: original PDF on the left, extracted fields on the right. They verify the AI's work, correct anything the model missed or misread, and approve the case with one click. This is the human-in-the-loop gate before any field work begins.
+              </p>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">Step 3, Server Assignment and Mobile Dispatch</h3>
+              <p class="mb-0 small">
+                The admin assigns one or more process servers to each target address. The server opens the app on their phone, sees a list of their active assignments with the target's name, address, and documents attached. They drive to the address.
+              </p>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">Step 4, Attempt Logging with GPS Evidence</h3>
+              <p class="mb-3 small">
+                At each address, the server logs what happened: "served personally, confirmed identity" or "no answer, lights off, vehicle absent." Every log entry captures GPS coordinates, timestamp, and optional photo. This creates the legally required evidence chain for affidavit generation.
+              </p>
+              <p class="mb-0 small">
+                Every log entry goes into an approval queue before it reaches the law firm. The admin reviews the server's notes because servers sometimes write informal or legally risky language. The admin either approves the note or asks for a revision. Nothing unprofessional leaves the platform.
+              </p>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">Step 5, Affidavit Generation and DocuSign</h3>
+              <p class="mb-3 small">
+                When service is confirmed, the system generates a sworn legal affidavit from HTML/CSS templates using WeasyPrint, pre-populated with all case data, attempt logs, server details, and GPS/timestamp evidence. The affidavit is sent through DocuSign: the process server signs first, then the commissioner signs. The signed PDF is emailed directly to the law firm.
+              </p>
+              <p class="mb-0 small">
+                When service fails after the required number of attempts, the AI generates a formal legal non-service narrative from the attempt logs, structured for court submission, with proper legal language replacing the server's informal notes.
+              </p>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">Step 6, AI-Powered Invoice Generation</h3>
+              <p class="mb-0 small">
+                After each case closes, the system calculates the invoice: base service fee, mileage pulled from Google Maps (actual route driven, not straight-line), photocopy charges per document, rush surcharges if applicable, and jurisdiction-aware tax (Ontario 13% HST, Quebec 5% GST, USA 0%). The invoice is generated and emailed to the law firm.
+              </p>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">Step 7, Financial Dashboard</h3>
+              <p class="mb-0 small">
+                The owner sees aged receivables, revenue by law firm, HST/GST collected for government reporting, and outstanding balances. No more spreadsheet reconciliation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">What Makes It Multi-Tenant SaaS</h2>
+        <p class="large-para mb-3">
+          Any process serving company can sign up and get their own isolated workspace. Tenant isolation is enforced at the PostgreSQL database layer using Row Level Security, not just application-level filtering. Tenant A cannot query, read, or accidentally see Tenant B's cases, servers, or financials under any circumstances, including bugs or edge cases in the application layer.
+        </p>
+        <p class="large-para mb-0">
+          Each tenant gets their own: pricing configuration, document templates, knowledge base for AI prompts, branding, team members, and Stripe billing. The platform owner earns subscription revenue from each tenant and is building toward a marketplace connecting law firms with process servers across Canada.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Technical Architecture</h2>
+        <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
+          <li><strong>Backend:</strong> FastAPI (Python)</li>
+          <li><strong>Frontend:</strong> Next.js (React)</li>
+          <li><strong>Database:</strong> PostgreSQL with Row Level Security (multi-tenant isolation at DB layer)</li>
+          <li><strong>AI Document Parsing:</strong> Gemini Pro (30+ field extraction from court PDFs)</li>
+          <li><strong>AI Classification:</strong> Gemini Flash (email triage, document type detection)</li>
+          <li><strong>AI Narrative Generation:</strong> Gemini Pro (non-service court narratives from attempt logs)</li>
+          <li><strong>AI Invoice Calculation:</strong> Gemini Pro (fee calculation with jurisdiction rules)</li>
+          <li><strong>PDF Generation:</strong> WeasyPrint (HTML/CSS to court-ready affidavit PDFs)</li>
+          <li><strong>E-Signatures:</strong> DocuSign API (server sign → commissioner sign → auto-send to firm)</li>
+          <li><strong>Email Intake:</strong> Mailgun (inbound email parsing + attachment extraction)</li>
+          <li><strong>Document Storage:</strong> AWS S3 (court documents, photos, signed affidavits)</li>
+          <li><strong>Payments:</strong> Stripe Connect (tenant billing + platform revenue)</li>
+          <li><strong>Mileage:</strong> Google Maps API (actual route distance for invoice calculation)</li>
+          <li><strong>Mobile:</strong> Progressive web app optimized for field server use on phone</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Engineering Deep Dive</h2>
+        <div class="row g-4">
+          <div class="col-12 col-md-6">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">AI Document Parsing at Legal Standard</h3>
+              <p class="mb-0 small">
+                Court documents are not clean PDFs. They include scanned handwriting, complex table layouts, multi-page exhibits, and jurisdiction-specific formatting that varies by province and court level. We fine-tuned Gemini Pro prompts specifically for Canadian court document formats, with fallback field detection for missing or ambiguous values. Every extracted field is surfaced to the admin for review, the AI is a first draft, not a final authority. The split-screen review UI was designed specifically so admins can catch errors faster than re-reading the original document.
+              </p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">Affidavit Generation at Legal Standard</h3>
+              <p class="mb-0 small">
+                Canadian courts have strict requirements for sworn affidavit format. WeasyPrint generates pixel-perfect PDFs from HTML/CSS templates that meet Ontario and Quebec court standards. Each affidavit is pre-populated from the case database, no manual copy-paste, no formatting errors. GPS coordinates, timestamps, and attempt narratives are included verbatim from the logged field data. The DocuSign workflow enforces the correct signing order (server → commissioner) and blocks delivery until both signatures are captured.
+              </p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">Multi-Tenant Isolation Architecture</h3>
+              <p class="mb-0 small">
+                PostgreSQL Row Level Security policies are applied at the database level, not the application layer. Every table has a tenant_id column. RLS policies use a session-level variable set at authentication time to automatically filter all queries to the current tenant's data. This means even if there is an application bug, a misconfigured query, or a future developer error, it is architecturally impossible for one tenant to read another tenant's data. This was a non-negotiable requirement given the legally sensitive nature of the documents.
+              </p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 text-uppercase text-muted mb-3">Approval Queue as Legal Risk Control</h3>
+              <p class="mb-0 small">
+                Process servers are field operatives, not legal writers. Their notes are often informal, abbreviation-heavy, or legally imprecise. Before any server note becomes part of the official case record or is included in an affidavit, it passes through an admin approval queue. The admin sees the raw note, the expected legal standard for that note type, and a one-click approve or revision-request action. This single feature eliminated the most common compliance risk in the old spreadsheet workflow.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Results &amp; Impact</h2>
+        <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
+          <li>100% automated case intake: zero manual field copying from PDFs</li>
+          <li>Affidavit generation time reduced from 45 minutes to under 2 minutes per case</li>
+          <li>Invoice errors eliminated: mileage and fees calculated deterministically from Google Maps + case data</li>
+          <li>Legal risk reduced: every server note reviewed before entering the official record</li>
+          <li>Multi-tenant ready: any process serving company in Canada can onboard and run their full operation</li>
+          <li>Marketplace foundation built: the platform is structured to connect law firms with process servers as a network business</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto text-center">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Ready to build something similar?</h2>
+        <p class="lead mb-4">We’ll design a private pipeline with governance, auditability, and source-verified outputs from day one.</p>
+        <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5 me-2 mb-2">
+          Schedule a Technical Discovery Call
+        </a>
+        <%= link_to "View our Services", root_path(anchor: "services"), class: "btn btn-outline-primary btn-lg rounded-pill px-5 mb-2 ajax" %>
+      </div>
+    </div>
+  </section>
+</div>

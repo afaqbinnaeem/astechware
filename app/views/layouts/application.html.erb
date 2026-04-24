@@ -98,7 +98,7 @@
         'image:type' => 'image/png',
         'image:width' => 1200,
         'image:height' => 630,
-        'image:alt' => "A'sTechware — AI and Platform Engineering. Built for Production."
+        'image:alt' => "A'sTechware, AI and Platform Engineering. Built for Production."
       },
       twitter: {
         card: 'summary_large_image',
@@ -143,11 +143,11 @@
               <div class="flip-container">
                 <div class="flipper">
                   <div class="album-cover-container front">
-                      <%= image_tag 'astechware-transparent-logo.webp', alt: "A'sTechware Logo — AI & Platform Engineering" %>
+                      <%= image_tag 'astechware-transparent-logo.webp', alt: "A'sTechware Logo, AI & Platform Engineering" %>
                   </div>
                   <div class="back">
                     <div class="album-cover-container front">
-                      <%= image_tag 'astechware-transparent-logo.webp', alt: "A'sTechware Logo — AI & Platform Engineering" %>
+                      <%= image_tag 'astechware-transparent-logo.webp', alt: "A'sTechware Logo, AI & Platform Engineering" %>
                     </div>
                   </div>
                 </div>
@@ -364,7 +364,7 @@
         }
       })()
       // After Turbo Drive navigations there is no full page load, so readystatechange
-      // doesn't run again. One listener only — inline script may run again on each visit.
+      // doesn't run again. One listener only, inline script may run again on each visit.
       if (!window.__astwLoaderTurboLoadBound) {
         window.__astwLoaderTurboLoadBound = true
         document.addEventListener("turbo:load", function () {

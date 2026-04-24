@@ -88,7 +88,7 @@ export default class extends Controller {
               <div style="font-size: 15px; font-weight: 700; color: #f0fdf4; letter-spacing: -0.01em; line-height: 1.15; margin-bottom: 2px;">A'sTechware AI Consultant</div>
               <div style="font-size: 12px; color: #6ee7b7; margin-top: 6px; display: flex; align-items: center; gap: 5px; line-height: 1.2;">
                 <span style="width: 6px; height: 6px; border-radius: 50%; background: #10b981; display: inline-block;"></span>
-                Online — AI & Automation Expert
+                Online, AI & Automation Expert
               </div>
             </div>
             <button type="button" id="astw-chatbot-close" style="background: none; border: none; color: rgba(255,255,255,0.4); cursor: pointer; padding: 4px; font-size: 20px; line-height: 1;">✕</button>
@@ -401,7 +401,7 @@ export default class extends Controller {
           link.href = "https://calendly.com/ahmadkamran/new-meeting"
           link.target = "_blank"
           link.rel = "noopener noreferrer"
-          link.textContent = label || "Book a Technical Call"
+          link.textContent = label || "Book a Strategy Call"
           link.style.cssText = "padding: 8px 12px; border-radius: 12px; background: rgba(16,185,129,0.18); border: 1px solid rgba(16,185,129,0.35); color: #6ee7b7; font-size: 12px; font-weight: 700; text-decoration:none;"
           sugWrap.appendChild(link)
           return
@@ -516,7 +516,7 @@ export default class extends Controller {
     `
 
     const prompts = [
-      "We're a clinic with 3,000+ patient calls/month — where can AI help?",
+      "We're a clinic with 3,000+ patient calls/month, where can AI help?",
       "I run a SaaS platform and want to add AI features",
       "Our team spends 20+ hrs/week on manual data entry",
       "How do you typically approach an AI project?",
@@ -562,7 +562,7 @@ export default class extends Controller {
 
     this.leadMountEl.innerHTML = `
       <div style="background: linear-gradient(135deg, #0a2a1f 0%, #0d3327 100%); border: 1px solid #1a4a38; border-radius: 16px; padding: 20px 22px; display: flex; flex-direction: column; gap: 10;">
-        <div style="font-size: 14px; color: #6ee7b7; font-weight: 700; margin-bottom: 2px;">Leave your info — Ahmad will follow up personally</div>
+        <div style="font-size: 14px; color: #6ee7b7; font-weight: 700; margin-bottom: 2px;">Leave your info, Ahmad will follow up personally</div>
         <div style="display:flex; flex-direction:column; gap: 10;">
           <input id="astw-lead-name" placeholder="Your name *" style="${this.leadInputStyle("name")}"/>
           <div id="astw-lead-name-err" style="color:#f87171;font-size:12px;margin-top:-6px;display:none;"></div>
@@ -753,7 +753,7 @@ export default class extends Controller {
       const assistantMsg = {
         role: "assistant",
         content:
-          "Looks like I'm having a connection issue. No worries — you can reach Ahmad directly at **ahmad@astechware.com** or [book a 30-min call here](https://calendly.com/ahmadkamran/new-meeting).",
+          "Looks like I'm having a connection issue. No worries, you can reach Ahmad directly at **ahmad@astechware.com** or [book a 30-min call here](https://calendly.com/ahmadkamran/new-meeting).",
       }
       this.messages.push(assistantMsg)
       this.appendMessageBubble(assistantMsg)
