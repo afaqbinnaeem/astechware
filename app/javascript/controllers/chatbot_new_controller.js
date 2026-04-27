@@ -67,7 +67,7 @@ export default class extends Controller {
       <div style="font-family: 'DM Sans', sans-serif; width: 100%; max-width: 440px; margin: 0 auto;">
         <div
           id="astw-chatbot-launcher"
-          style="display: ${this.isOpen ? "none" : "flex"}; justify-content: flex-end; position: fixed; bottom: 24px; right: 96px; z-index: 9999; max-width: min(280px, calc(100vw - 148px));"
+          style="display: ${this.isOpen ? "none" : "flex"}; justify-content: flex-end; position: fixed; bottom: 24px; right: 20px; z-index: 9999; max-width: min(280px, calc(100vw - 40px));"
         >
           <button
             type="button"
@@ -79,7 +79,7 @@ export default class extends Controller {
           </button>
         </div>
 
-        <div id="astw-chatbot-panel" style="display: ${this.isOpen ? "flex" : "none"}; flex-direction: column; background: linear-gradient(180deg, #041f17 0%, #071f16 50%, #0a251b 100%); border-radius: 20px; border: 1px solid rgba(16,185,129,0.15); box-shadow: 0 24px 80px rgba(0,0,0,0.5), 0 0 60px rgba(16,185,129,0.08); overflow: hidden; position: fixed; bottom: 20px; right: 96px; z-index: 9999; width: min(440px, calc(100vw - 148px)); height: min(680px, calc(100vh - 40px));">
+        <div id="astw-chatbot-panel" style="display: ${this.isOpen ? "flex" : "none"}; flex-direction: column; background: linear-gradient(180deg, #041f17 0%, #071f16 50%, #0a251b 100%); border-radius: 20px; border: 1px solid rgba(16,185,129,0.15); box-shadow: 0 24px 80px rgba(0,0,0,0.5), 0 0 60px rgba(16,185,129,0.08); overflow: hidden; position: fixed; bottom: 20px; right: 20px; z-index: 9999; width: min(440px, calc(100vw - 40px)); height: min(680px, calc(100vh - 40px));">
           <div style="padding: 18px 20px; background: linear-gradient(135deg, rgba(16,185,129,0.12) 0%, rgba(5,150,105,0.06) 100%); border-bottom: 1px solid rgba(16,185,129,0.12); display: flex; align-items: center; gap: 14px; flex-shrink: 0;">
             <div style="width: 42px; height: 42px; border-radius: 12px; background: linear-gradient(135deg, #10b981, #059669); display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800; color: #022c22; flex-shrink: 0;">
               A'
@@ -121,7 +121,7 @@ export default class extends Controller {
               <textarea
                 id="astw-chatbot-input"
                 rows="1"
-                style="flex: 1; padding: 12px 16px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; color: #e2e8f0; font-size: 14px; font-family: inherit; resize: none; line-height: 1.5; transition: border-color 0.2s, box-shadow 0.2s; overflow: hidden;"
+                style="flex: 1; padding: 12px 16px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; color: #e2e8f0; font-size: 14px; font-family: inherit; resize: none; line-height: 1.5; transition: border-color 0.2s, box-shadow 0.2s; overflow: hidden; min-height: 44px; box-sizing: border-box;"
                 placeholder="Describe your business or ask anything..."></textarea>
               <button id="astw-chatbot-send" type="button" disabled style="width: 44px; height: 44px; border-radius: 14px; background: rgba(255,255,255,0.06); border: none; cursor: default; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -165,6 +165,24 @@ export default class extends Controller {
         }
         #astw-chatbot-messages::-webkit-scrollbar-thumb:hover {
           background: rgba(110,231,183,0.4);
+        }
+
+        #astw-chatbot-input::placeholder {
+          color: rgba(226,232,240,0.45);
+        }
+
+        @media (max-width: 576px) {
+          #astw-chatbot-input {
+            padding: 10px 12px !important;
+            font-size: 13px !important;
+            line-height: 1.4 !important;
+            min-height: 40px !important;
+          }
+          #astw-chatbot-send {
+            width: 40px !important;
+            height: 40px !important;
+            border-radius: 12px !important;
+          }
         }
       </style>
     `
