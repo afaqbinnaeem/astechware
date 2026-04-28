@@ -6,10 +6,10 @@
           AI-Powered Healthcare Platform, Voice Scheduling, Clinical AI &amp; EHR Sync
         </h1>
         <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.3vw, 22px); line-height: 1.5; max-width: 980px; margin-left: auto; margin-right: auto;">
-          Complete Clinic Operating System Built in 8 Weeks, HIPAA-Compliant, Multi-Tenant, athenahealth-Integrated
+          Complete Clinic Operating System Delivered in Milestones, HIPAA-Compliant, Multi-Tenant, athenahealth-Integrated
         </p>
         <p class="mb-0" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.7; max-width: 980px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
-          A dental clinic calls a number and a patient books by voice. The provider sees it in their dashboard. athenahealth syncs in real time. The provider records the visit and gets a SOAP note in seconds. One platform. Eight weeks. Production-ready.
+          A dental clinic calls a number and a patient books by voice. The provider sees it in their dashboard. athenahealth syncs in real time. The provider records the visit and gets a draft SOAP note quickly with provider approval before EHR write-back. One platform. Production-ready.
         </p>
       </div>
     </div>
@@ -26,7 +26,7 @@
             Multi-location dental clinics face a tripling problem: front desk staff overwhelmed by scheduling calls, providers drowning in post-visit documentation, and patient data siloed across spreadsheets and an EHR that doesn't talk to anything.
           </p>
           <p class="large-para mb-3">
-            The specific pain points: a 35% appointment no-show rate driven by friction in booking and no automated reminders. Providers spending 1-2 hours per day after hours writing SOAP notes, what clinicians call "pajama time." Scheduling happening outside the EHR, causing sync failures and double-bookings. And a front desk that couldn't handle after-hours calls at all, sending urgent patient inquiries to voicemail.
+            The specific pain points: high no-show rates driven by friction in booking and inconsistent reminders. Providers spending significant after-hours time writing SOAP notes, what clinicians call "pajama time." Scheduling happening outside the EHR, causing sync failures and double-bookings. And a front desk that couldn't handle after-hours calls at all, sending urgent patient inquiries to voicemail.
           </p>
           <p class="large-para mb-0">
             The client needed a single platform that handled scheduling (web + voice), clinical documentation, EHR integration, and HIPAA compliance across multiple clinic locations, built to a standard where a compliance auditor could review every control.
@@ -39,10 +39,10 @@
               <li><strong>Compliance:</strong> HIPAA / HITECH, FHIR R4, SMART on FHIR</li>
               <li><strong>Voice stack:</strong> Twilio + Deepgram Nova-2 + ElevenLabs + Claude</li>
               <li><strong>EHR:</strong> athenahealth FHIR R4 (real-time bi-directional sync)</li>
-              <li><strong>Timeline:</strong> 8 weeks, 2 developers using Cursor</li>
-              <li><strong>Result 1:</strong> No-show rate 35% → 6%</li>
-              <li><strong>Result 2:</strong> $28,000/month in recovered revenue</li>
-              <li><strong>Result 3:</strong> 70% reduction in daily SOAP note documentation time</li>
+              <li><strong>Timeline:</strong> Delivered in focused milestones with weekly demos</li>
+              <li><strong>Outcome 1:</strong> Reduces no-shows via AI scheduling, reminders, and waitlist automation</li>
+              <li><strong>Outcome 2:</strong> Improves revenue capture through fewer missed appointments and smoother booking/billing workflows</li>
+              <li><strong>Outcome 3:</strong> Cuts clinician documentation time via ambient scribing with provider-in-the-loop review</li>
             </ul>
           </div>
         </div>
@@ -81,7 +81,7 @@
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">Voice Booking Agent</h3>
               <p class="mb-0 small">
-                Patients call the clinic's phone number and speak naturally. Twilio streams the audio to Deepgram Nova-2 for real-time transcription. A state machine dialogue manager processes the transcript, runs intent detection through the same Claude PHI de-id pipeline used by the web booking, queries available slots, and responds via ElevenLabs TTS. The agent handles booking, rescheduling, cancellations, and general inquiries (hours, location, insurance). At any point, the patient can say "speak to a person" and get a warm transfer with full context summary. After-hours calls route to a callback queue visible to staff the next morning. The target was under 2 seconds round-trip latency; the production system achieved sub-2-second response time.
+                Patients call the clinic's phone number and speak naturally. Twilio streams the audio to Deepgram Nova-2 for real-time transcription. A state machine dialogue manager processes the transcript, runs intent detection through the same Claude PHI de-id pipeline used by the web booking, queries available slots, and responds via ElevenLabs TTS. The agent handles booking, rescheduling, cancellations, and general inquiries (hours, location, insurance). At any point, the patient can say "speak to a person" and get a warm transfer with full context summary. After-hours calls route to a callback queue visible to staff the next morning. The system is designed for low-latency, natural conversation and safe fallbacks.
               </p>
             </div>
           </div>
@@ -134,7 +134,7 @@
                 <li>Audit log is append-only (no UPDATE or DELETE permissions)</li>
                 <li>Audio non-persistence: scribe audio chunks stream to Deepgram and are discarded; only text persists</li>
                 <li>BAA-covered infrastructure for Twilio, Deepgram, ElevenLabs, and hosting provider</li>
-                <li>Break Glass emergency access: elevated access requires mandatory reason entry, auto-revokes after 1 hour, immediately alerts admin, fully audit-trailed</li>
+                <li>Break Glass emergency access: elevated access requires mandatory reason entry, auto-revokes automatically, immediately alerts admin, fully audit-trailed</li>
               </ul>
             </div>
           </div>
@@ -182,7 +182,7 @@
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">Voice Agent Latency Architecture</h3>
               <p class="mb-0 small">
-                The original requirement was under 2 seconds round-trip for a natural conversation feel. The production system achieved this through four specific decisions: streaming Deepgram interim transcripts for early intent detection before the caller finishes speaking; keeping a warm connection to Claude rather than cold-starting per request; pre-caching responses for the five most common intents (hours, location, insurance, "I want to book", "I want to cancel") so they never hit Claude at all; and routing simple queries (hours, location, general info) to tenant configuration data directly, bypassing the AI pipeline entirely. Barge-in detection was implemented so the agent stops speaking if the caller interrupts, critical for natural conversation feel.
+                The original requirement was low-latency response for a natural conversation feel. The system achieves this through four specific decisions: streaming Deepgram interim transcripts for early intent detection before the caller finishes speaking; keeping a warm connection to Claude rather than cold-starting per request; pre-caching responses for the most common intents (hours, location, insurance, booking, cancellation) so they can bypass Claude; and routing simple queries (hours, location, general info) to tenant configuration data directly, bypassing the AI pipeline entirely. Barge-in detection was implemented so the agent stops speaking if the caller interrupts, critical for natural conversation feel.
               </p>
             </div>
           </div>
@@ -198,7 +198,7 @@
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">AI Medical Scribe Hallucination Prevention</h3>
               <p class="mb-0 small">
-                A SOAP note that fabricates findings that were not said in the conversation is a clinical safety risk. The Claude prompt for the scribe includes explicit fabrication prohibition: mark missing information as [Not discussed], mark uncertain items as [VERIFY], never infer clinical findings from context. ICD-10 suggestions are validated against the CMS local lookup table before display, invalid codes are stripped before the provider sees them. Every generated note displays a persistent "AI-Generated, Please Review Before Saving" banner. Provider approval is required before any note goes to athenahealth. The system was accuracy-tested against 15+ real recordings targeting 90%+ completeness and zero fabrication.
+                A SOAP note that fabricates findings that were not said in the conversation is a clinical safety risk. The Claude prompt for the scribe includes explicit fabrication prohibition: mark missing information as [Not discussed], mark uncertain items as [VERIFY], never infer clinical findings from context. ICD-10 suggestions are validated against the CMS local lookup table before display, invalid codes are stripped before the provider sees them. Every generated note displays a persistent "AI-Generated, Please Review Before Saving" banner. Provider approval is required before any note goes to athenahealth. The scribe was validated against real recordings with strict completeness checks and a zero-fabrication standard.
               </p>
             </div>
           </div>
@@ -212,11 +212,11 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Results &amp; Impact</h2>
         <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
-          <li>No-show rate reduced from 35% to 6% through automated reminders and frictionless voice rescheduling</li>
-          <li>$28,000 per month in recovered revenue from calls that previously went to voicemail or were abandoned</li>
-          <li>70% reduction in daily SOAP note documentation time, providers describe eliminating "pajama time" entirely</li>
-          <li>5,127 patient interactions resolved autonomously in the first 90 days</li>
-          <li>Athenahealth sync working across 15+ clinical locations with zero-latency appointment data flow</li>
+          <li>Reduces no-shows through automated reminders, two-way confirmations, and frictionless voice rescheduling</li>
+          <li>Improves revenue capture by reducing missed appointments and converting after-hours calls into booked/rescheduled visits</li>
+          <li>Significantly reduces daily SOAP note documentation time; providers reported less after-hours "pajama time"</li>
+          <li>Automates a high volume of patient interactions with safe escalation to staff when needed</li>
+          <li>Athenahealth sync designed for multi-location workflows with near-real-time appointment data flow</li>
           <li>HIPAA compliance architecture documented and ready for formal audit</li>
           <li>Platform is vertical-agnostic: the core (auth, scheduling, voice pipeline, PHI de-id, multi-tenancy) can be adapted to any medical specialty with new call flow YAML configs and PMS adapter</li>
         </ul>

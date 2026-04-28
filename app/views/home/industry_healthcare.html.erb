@@ -243,21 +243,21 @@
           <div class="build-system-card p-4 h-100">
             <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-user-md" aria-hidden="true"></i></div></div>
             <h4 class="h5 mb-2">Reduced Administrative Burden</h4>
-            <p class="mb-0 small">Automate 60–80% of repetitive administrative tasks. Free staff to focus on patient care and experience. 10–15 hours saved per staff member weekly. Reduce overtime and staffing costs without reducing service quality.</p>
+            <p class="mb-0 small">Automates repetitive administrative tasks so staff can focus on patient care and experience. Reduce overtime pressure and staffing strain without compromising service quality.</p>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
           <div class="build-system-card p-4 h-100">
             <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-heart" aria-hidden="true"></i></div></div>
             <h4 class="h5 mb-2">Improved Patient Satisfaction</h4>
-            <p class="mb-0 small">24/7 self-service scheduling, patients book when it's convenient for them, not just during office hours. Faster response times through AI-assisted communications. Convenient digital interactions across SMS, email, phone, and portal. Typical patient satisfaction score improvement of 15–25%.</p>
+            <p class="mb-0 small">Self-service scheduling so patients can book when it’s convenient, not just during office hours. Faster responses through AI-assisted communications and consistent digital interactions across SMS, email, phone, and portal.</p>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
           <div class="build-system-card p-4 h-100">
             <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-calendar-check-o" aria-hidden="true"></i></div></div>
             <h4 class="h5 mb-2">Better No-Show Management</h4>
-            <p class="mb-0 small">Automated multi-channel reminders reduce no-shows by 60–80%. Real-world result: 35% → 6% no-show rate for a multi-location wellness practice. Automated waitlist management fills cancelled slots without staff intervention. Recovered revenue directly hits the bottom line, one client recovered $28K/month.</p>
+            <p class="mb-0 small">Reduces no-shows through automated multi-channel reminders, two-way confirmations, and intelligent waitlist management that fills cancellations without staff intervention. Improves revenue capture by keeping schedules full and reducing leakage.</p>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
@@ -271,7 +271,7 @@
           <div class="build-system-card p-4 h-100">
             <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-money" aria-hidden="true"></i></div></div>
             <h4 class="h5 mb-2">Increased Revenue</h4>
-            <p class="mb-0 small">Fill more appointment slots through reduced no-shows and automated waitlist management. Faster revenue cycle with automated eligibility verification and claim submission. Reduce claim denials by 40–60% through front-end verification and clean claim submission. Increase patient volume without proportionally adding staff.</p>
+            <p class="mb-0 small">Fill more appointment slots through better no-show prevention and waitlist management. Accelerate revenue cycle performance with eligibility verification, clean claim submission, and denial workflows. Increase patient volume without proportionally adding staff.</p>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
@@ -407,16 +407,16 @@
             <p class="small mb-2">Built one platform for web + voice booking, real-time athenahealth sync, audit-logged status updates, and an AI medical scribe with strict hallucination prevention.</p>
             <h5 class="h6 mb-1">Results</h5>
             <ul class="small mb-0 ps-3" style="line-height: 1.6;">
-              <li>35% → 6% no-show reduction</li>
-              <li>$28,000/month recovered revenue</li>
-              <li>70% less daily SOAP documentation time</li>
+              <li>Reduces no-shows through AI scheduling, reminders, and waitlist automation</li>
+              <li>Improves revenue capture via fewer missed appointments and cleaner booking/billing workflows</li>
+              <li>Cuts clinician documentation time via an ambient AI scribe with provider-in-the-loop review</li>
             </ul>
             <%= link_to "Read full case study →", case_study_path('medical-voice-ai'), class: "d-inline-block mt-3 fw-semibold small ajax" %>
           </div>
         </div>
         <div class="col-12 col-lg-4">
           <div class="workflow-card p-4 p-lg-5 h-100">
-            <h4 class="h5 mb-3">Voice Booking Agent (Sub-2s Latency)</h4>
+            <h4 class="h5 mb-3">Voice Booking Agent (Low Latency)</h4>
             <p class="small text-muted mb-2">After-hours booking + warm transfers</p>
             <h5 class="h6 mt-3 mb-1">Challenge</h5>
             <p class="small mb-2">After-hours calls hit voicemail, reschedules are slow, and staff can’t respond while a motivated patient is on the phone.</p>
@@ -424,7 +424,7 @@
             <p class="small mb-2">Twilio streams audio to Deepgram Nova-2 for real-time transcription; intent runs through a PHI de-identification pipeline before Claude; responses are spoken via ElevenLabs TTS. The agent handles booking, rescheduling, cancellations, and general inquiries, with warm transfer on request and after-hours calls routed to a callback queue.</p>
             <h5 class="h6 mb-1">Results</h5>
             <ul class="small mb-0 ps-3" style="line-height: 1.6;">
-              <li>Sub-2-second round-trip response time in production</li>
+              <li>Fast, natural voice interactions with real-time transcription and low-latency responses</li>
               <li>Fewer abandoned calls via immediate voice rescheduling</li>
               <li>Staff gets context-rich warm transfers when needed</li>
             </ul>
@@ -433,15 +433,15 @@
         </div>
         <div class="col-12 col-lg-4">
           <div class="workflow-card p-4 p-lg-5 h-100">
-            <h4 class="h5 mb-3">AI Medical Scribe (SOAP in Seconds)</h4>
+            <h4 class="h5 mb-3">AI Medical Scribe (Faster SOAP Notes)</h4>
             <p class="small text-muted mb-2">No-audio-storage + no-fabrication guardrails</p>
             <h5 class="h6 mt-3 mb-1">Challenge</h5>
-            <p class="small mb-2">Providers lose 1–2 hours/day to after-visit SOAP notes (“pajama time”). Any fabricated detail is a clinical safety risk.</p>
+            <p class="small mb-2">Providers lose significant time to after-visit SOAP notes (“pajama time”). Any fabricated detail is a clinical safety risk.</p>
             <h5 class="h6 mb-1">Solution</h5>
             <p class="small mb-2">Deepgram diarization separates provider vs patient speech. Claude generates a SOAP note with strict rules: never fabricate findings, mark gaps as [Not discussed], mark uncertain items as [VERIFY], and suggest ICD-10 codes validated against CMS before display. Providers approve before pushing to athenahealth via FHIR. Audio is never stored—only encrypted transcript persists.</p>
             <h5 class="h6 mb-1">Results</h5>
             <ul class="small mb-0 ps-3" style="line-height: 1.6;">
-              <li>70% reduction in daily SOAP documentation time</li>
+              <li>Cuts SOAP documentation time with provider-in-the-loop review before EHR write-back</li>
               <li>Provider-in-the-loop approval before EHR write-back</li>
               <li>Encrypted transcript persistence with full audit logging</li>
             </ul>
@@ -540,7 +540,7 @@
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hcind6" aria-expanded="false" aria-controls="hcind6">What about elderly patients who aren't tech-savvy?</button>
               </h3>
               <div id="hcind6" class="accordion-collapse collapse" data-bs-parent="#healthcareIndustryFaq">
-                <div class="accordion-body">We design for all patient demographics. Interfaces are simple and intuitive with large text, clear navigation, and phone support. We maintain traditional channels (phone, in-person) while offering digital options. Many practices see 70%+ adoption even among elderly populations.</div>
+                <div class="accordion-body">We design for all patient demographics. Interfaces are simple and intuitive with large text, clear navigation, and phone support. We maintain traditional channels (phone, in-person) while offering digital options, then drive adoption with onboarding, reminders, and staff-friendly workflows.</div>
               </div>
             </div>
             <div class="accordion-item border rounded mb-2">
@@ -564,7 +564,7 @@
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hcind10" aria-expanded="false" aria-controls="hcind10">How do you measure success in healthcare projects?</button>
               </h3>
               <div id="hcind10" class="accordion-collapse collapse" data-bs-parent="#healthcareIndustryFaq">
-                <div class="accordion-body">We focus on measurable outcomes: no-show rate reduction, staff time savings, patient satisfaction improvement, revenue recovery, appointment volume increase, and clinical efficiency gains. We establish baseline metrics during discovery and track improvements post-launch.</div>
+                <div class="accordion-body">We focus on measurable outcomes: no-show reduction, staff time saved, patient satisfaction improvements, revenue capture, appointment volume, and clinical workflow efficiency. We establish baselines during discovery and measure improvements post-launch.</div>
               </div>
             </div>
           </div>
