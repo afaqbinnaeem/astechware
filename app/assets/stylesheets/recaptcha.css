@@ -1,4 +1,10 @@
-/* reCAPTCHA v3 badge above the chat widget (chat uses z-index 9000). */
 .grecaptcha-badge {
-  z-index: 2147483647 !important;
+  z-index: 9998 !important;
+  bottom: 92px !important;
+}
+
+@media (max-width: 576px) {
+  .grecaptcha-badge {
+    bottom: 80px !important;
+  }
 }

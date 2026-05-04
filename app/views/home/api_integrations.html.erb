@@ -175,7 +175,7 @@
               <li>No more copy-pasting data</li>
               <li>Automatic synchronization</li>
               <li>Real-time updates across systems</li>
-              <li>10–20 hours saved weekly per team</li>
+              <li>Less manual reconciliation and back-office busywork</li>
             </ul>
           </div>
         </div>
@@ -455,7 +455,7 @@
             <p class="small mb-2"><strong>Systems connected:</strong> PMS + Clover POS + Custom SaaS + SMS Gateway</p>
             <p class="small mb-2"><strong>Challenge:</strong> Disconnected booking and payment data led to manual reconciliation nightmares and double-bookings.</p>
             <p class="small mb-2"><strong>Solution:</strong> Built a bi-directional sync engine using Webhooks and <strong>idempotent API patterns</strong>. One booking instantly updates the POS, locks the calendar, and triggers a confirmation SMS.</p>
-            <p class="small mb-0"><strong>Result:</strong> 100% data consistency; 120+ hours of manual reconciliation saved monthly.</p>
+            <p class="small mb-0"><strong>Result:</strong> Improved data consistency and reduced manual reconciliation through idempotent syncing and monitoring.</p>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
@@ -464,7 +464,7 @@
             <p class="small mb-2"><strong>Systems connected:</strong> Route Planner + Mobile Driver App + Billing System + GPS Fleet Engine</p>
             <p class="small mb-2"><strong>Challenge:</strong> Routes created in the office weren’t reaching drivers in real-time, and completed jobs weren’t triggering invoices.</p>
             <p class="small mb-2"><strong>Solution:</strong> Engineered a real-time event bridge. When a route is optimized, it pushes to the driver’s handset; when a driver snaps a proof-of-work photo, the billing system automatically generates an invoice.</p>
-            <p class="small mb-0"><strong>Result:</strong> Zero-latency dispatching; 95% reduction in billing delays.</p>
+            <p class="small mb-0"><strong>Result:</strong> Near-real-time dispatching and faster billing workflows through event-driven automation.</p>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
@@ -473,7 +473,7 @@
             <p class="small mb-2"><strong>Systems connected:</strong> Bank (ACH/Plaid) + Stripe Connect + Property Management Database</p>
             <p class="small mb-2"><strong>Challenge:</strong> Moving money between tenants, owners, and admins required manual calculation and risked compliance errors.</p>
             <p class="small mb-2"><strong>Solution:</strong> Built a custom ledger &amp; settlement engine on top of Stripe’s API. Automated the split-logic at the point of transaction, ensuring funds are routed correctly and instantly to three different stakeholders.</p>
-            <p class="small mb-0"><strong>Result:</strong> 100% automated fee distribution; eliminated all manual accounting errors.</p>
+            <p class="small mb-0"><strong>Result:</strong> Automated fee distribution with ledger-first reconciliation, auditability, and operational visibility.</p>
           </div>
         </div>
       </div>
