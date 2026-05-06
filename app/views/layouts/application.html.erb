@@ -1,3 +1,5 @@
+<%# Render the page first so set_meta_tags/content_for(:head) are available in <head> %>
+<% body_content = yield %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -168,7 +170,7 @@
     <div id="wrapper" class="d-none site-wrapper">
       <%= render 'layouts/header' %>
       <main id="main-content">
-        <%= yield %>
+        <%= body_content %>
       </main>
       <%= render 'layouts/footer' %>
     </div>
