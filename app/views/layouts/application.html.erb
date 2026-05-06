@@ -84,22 +84,26 @@
     <% if asset_path('astechware-transparent-logo.webp').present? %>
     <link rel="preload" as="image" href="<%= asset_path('astechware-transparent-logo.webp') %>" />
     <% end %>
-    <%# Open Graph and Twitter (full set). OG image: 1200x630 at /og-image.png %>
+    <%# Open Graph and Twitter (full set). Prefer /og-image.png; fallback to /favicon.svg %>
     <% og_image_url = seo_og_image_url %>
+    <% og_image_type = seo_og_image_type %>
+    <% og_image_dims = seo_og_image_dimensions %>
+    <% og_meta = {
+      type: 'website',
+      site_name: "A'sTechware",
+      url: canonical_url,
+      image: og_image_url,
+      'image:secure_url' => og_image_url,
+      'image:type' => og_image_type,
+      'image:alt' => "A'sTechware, AI and Platform Engineering. Built for Production."
+    } %>
+    <% if og_image_dims[:width].present? && og_image_dims[:height].present? %>
+      <% og_meta.merge!('image:width' => og_image_dims[:width], 'image:height' => og_image_dims[:height]) %>
+    <% end %>
     <%= display_meta_tags(
       reverse: true,
       site: content_for?(:meta_site) ? content_for(:meta_site).to_s : "A'sTechware",
-      og: {
-        type: 'website',
-        site_name: "A'sTechware",
-        url: canonical_url,
-        image: og_image_url,
-        'image:secure_url' => og_image_url,
-        'image:type' => 'image/png',
-        'image:width' => 1200,
-        'image:height' => 630,
-        'image:alt' => "A'sTechware, AI and Platform Engineering. Built for Production."
-      },
+      og: og_meta,
       twitter: {
         card: 'summary_large_image',
         site: '@astechware',

@@ -3,7 +3,7 @@
 module ApplicationHelper
   # Safely get image URL for Open Graph meta tags
   # Returns absolute URL or nil if asset doesn't exist (prevents 500 errors)
-  def safe_og_image_url(image_name = 'logo-colored.png')
+  def safe_og_image_url(image_name = 'favicon.svg')
     url = image_url(image_name)
     # Ensure absolute URL for Open Graph (required by LinkedIn, Facebook, etc.)
     if url.present? && !url.start_with?('http')
@@ -51,7 +51,25 @@ module ApplicationHelper
   # Full URL for OG image (1200x630). Use public/og-image.png in production.
   def seo_og_image_url
     base = Rails.env.production? ? "https://astechware.com" : "#{request.protocol}#{request.host_with_port}"
-    "#{base}/og-image.png"
+    if Rails.public_path.join("og-image.png").exist?
+      "#{base}/og-image.png"
+    else
+      "#{base}/favicon.svg"
+    end
+  end
+
+  def seo_og_image_type
+    if Rails.public_path.join("og-image.png").exist?
+      "image/png"
+    else
+      "image/svg+xml"
+    end
+  end
+
+  def seo_og_image_dimensions
+    return { width: 1200, height: 630 } if Rails.public_path.join("og-image.png").exist?
+
+    {}
   end
 
   # Get reCAPTCHA site key for frontend
