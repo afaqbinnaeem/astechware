@@ -1,15 +1,16 @@
-<%# Render the page first so set_meta_tags/content_for(:head) are available in <head> %>
+<%# Set defaults first; views can override via set_meta_tags %>
+<% set_meta_tags(
+  title: "AI-Enabled Systems for Legal, Healthcare & Operational Workflows",
+  description: "Privacy-first AI automations and integrations for regulated industries. Production-grade agents and custom software without casually exposing sensitive data. Milestone-based delivery.",
+  keywords: "AI development, production AI, platform engineering, custom software, AI governance, privacy-first AI"
+) %>
+
+<%# Render the page early so set_meta_tags/content_for(:head) are available in <head> %>
 <% body_content = yield %>
 <!DOCTYPE html>
 <html>
   <head>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%# Default SEO meta (overridden by set_meta_tags in views). Title is page part only; layout adds site with reverse: true. %>
-    <% set_meta_tags(
-      title: "AI Agent Development & Custom Software Engineering",
-      description: "Privacy-first AI automations and integrations for regulated industries. Production-grade agents and custom software without casually exposing sensitive data. Milestone-based delivery.",
-      keywords: "AI development, production AI, platform engineering, custom software, AI governance, privacy-first AI"
-    ) %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%# Favicon and Site Icon for Google Search Results %>
