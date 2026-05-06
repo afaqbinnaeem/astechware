@@ -32,10 +32,6 @@ SitemapGenerator::Sitemap.create do
   # Case study detail pages
   %w[
     medical-voice-ai
-    athenahealth-sync
-    ai-medical-scribe
-    legal-contract-ai
-    legal-affidavit-engine
     shoreline-waste-logistics
     red-dragon-hvac
     vestra-payments
@@ -45,6 +41,8 @@ SitemapGenerator::Sitemap.create do
     word-of-mouth-modernization
     restaurant-resource-rescue
     eventvesta-ai-marketing
+    flss-legal-process-serving
+    ai-deal-analyzer
   ].each do |slug|
     add "/case-studies/#{slug}", priority: 0.7, changefreq: 'monthly'
   end
