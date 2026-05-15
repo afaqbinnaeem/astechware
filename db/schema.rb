@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_06_165912) do
+ActiveRecord::Schema[7.0].define(version: 2026_03_31_110907) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -101,6 +101,34 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_165912) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "chat_messages", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.bigint "chat_session_id", null: false
+    t.string "role", null: false
+    t.text "content", null: false
+    t.string "provider"
+    t.string "model"
+    t.string "request_id"
+    t.integer "latency_ms"
+    t.jsonb "meta", default: {}, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chat_session_id", "created_at"], name: "index_chat_messages_on_chat_session_id_and_created_at"
+    t.index ["chat_session_id"], name: "index_chat_messages_on_chat_session_id"
+    t.index ["provider"], name: "index_chat_messages_on_provider"
+    t.index ["role"], name: "index_chat_messages_on_role"
+  end
+
+  create_table "chat_sessions", force: :cascade do |t|
+    t.string "visitor_id", null: false
+    t.datetime "last_message_at"
+    t.string "status", default: "open", null: false
+    t.jsonb "metadata", default: {}, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["last_message_at"], name: "index_chat_sessions_on_last_message_at"
+    t.index ["visitor_id"], name: "index_chat_sessions_on_visitor_id", unique: true
+  end
+
   create_table "comments", force: :cascade do |t|
     t.bigint "article_id", null: false
     t.text "content"
@@ -123,5 +151,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_06_165912) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "chat_messages", "chat_sessions"
   add_foreign_key "comments", "articles"
 end

@@ -1,570 +1,283 @@
 <% content_for :head do %>
   <% set_meta_tags(
-    title: "Healthcare & Medical Clinic AI Solutions",
-    description: "HIPAA-compliant automation for private clinics and multi-location practices: AI patient intake, scheduling, and secure EHR integrations. Reduce admin burnout with regulatory precision.",
-    keywords: "healthcare AI solutions, HIPAA compliant AI, medical clinic automation, AI patient intake, EHR integration, multi-location medical practice"
+    title: "Healthcare AI — HIPAA-Ready Voice, Scribe & EHR",
+    description: "Healthcare AI built for HIPAA review: voice booking, AI medical scribes, FHIR EHR sync, and architecture reviews. PHI de-identification, append-only audit logs, BAAs in place.",
+    keywords: "healthcare AI, HIPAA compliant AI, AI medical scribe, voice AI healthcare, FHIR EHR integration, HIPAA architecture review, PHI de-identification"
   ) %>
   <script type="application/ld+json">
   <%= raw({
     "@context" => "https://schema.org",
     "@type" => "Service",
-    "name" => "Healthcare & Medical Clinic AI Solutions",
+    "name" => "Healthcare AI Solutions",
     "url" => industry_healthcare_url,
-    "description" => "HIPAA-compliant automation for private clinics and multi-location practices: AI agents, EHR integrations, and clinical workflow automation.",
+    "description" => "Healthcare AI for digital health teams: voice patient interaction, AI medical scribes, FHIR EHR integrations, and HIPAA architecture reviews.",
     "provider" => { "@type" => "Organization", "name" => "A'sTechware" },
-    "areaServed" => "Worldwide",
-    "serviceType" => "Healthcare & Medical Clinic AI Solutions",
+    "areaServed" => "United States",
+    "serviceType" => "Healthcare AI Solutions",
     "category" => "Healthcare Technology"
   }.to_json) %>
   </script>
 <% end %>
 
-<!-- Hero Section -->
 <div class="hero-section py-5 service-page-hero healthcare-hero industry-landing-hero">
   <div class="container">
     <div class="row align-items-center min-vh-50">
-      <div class="col-12 col-lg-8 mx-auto text-center">
+      <div class="col-12 col-lg-9 mx-auto text-center">
         <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;">
-          Healthcare &amp; Medical Clinic AI Solutions
+          Healthcare AI, built to a standard a compliance auditor would respect.
         </h1>
-        <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.4; max-width: 720px; margin-left: auto; margin-right: auto;">
-          HIPAA-Compliant Automation for Modern Medical Practices
-        </p>
         <p class="mb-4" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
-          We build production-ready AI agents and clinical platforms for private clinics and multi-location medical groups. From 24/7 AI patient intake to secure EHR integrations, we ensure your technology reduces administrative burnout while maintaining the highest standards of regulatory precision. AI and integrations are scoped so PHI is not casually sent to external models without governance you approve.
+          We help digital health teams and clinical operators ship AI systems that survive a HIPAA review, a security questionnaire, and a year in production.
         </p>
         <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
-          Schedule Free Healthcare Consultation
+          Start with a discovery sprint &rarr;
         </a>
       </div>
     </div>
-    <%# Optional hero image: add image to app/assets/images/healthcare-hero.jpg and uncomment %>
-    <%# <div class="row mt-5"><div class="col-12 col-lg-10 mx-auto text-center"><%= image_tag 'healthcare-hero.jpg', class: 'img-fluid rounded shadow', alt: 'Medical professional using tablet in clinical setting', loading: 'lazy' %><%# </div></div> %>
   </div>
 </div>
 
 <div class="inner-sections healthcare-industry-page">
 
-  <!-- Overview -->
-  <section class="py-5 bg-white" id="overview">
+  <section class="py-5 bg-white" id="what-we-do">
     <div class="container">
       <div class="row">
         <div class="col-12 col-lg-10 mx-auto">
-          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Transforming Healthcare Through Technology</h2>
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">What we actually do</h2>
           <p class="large-para mb-4">
-            The healthcare industry is under more pressure than ever: staff shortages, administrative burden, rising costs, and patients who expect the same digital convenience from their doctor's office that they get from every other service in their life.
+            Most healthcare AI work falls apart at one of three places: a data flow that quietly sends PHI to a model that shouldn&rsquo;t see it, an audit log the application can edit, or an integration with the EHR that double-books patients or drops sync. We build systems where none of those failures are possible by design, not by policy.
           </p>
+          <p class="large-para mb-5">
+            We focus on a narrow slice of healthcare AI work where we have shipped production systems and where the architectural decisions matter most:
+          </p>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6">
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h3 class="h5 mb-3">Voice AI for patient interaction</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">
+              Booking, rescheduling, cancellations, after-hours triage, and warm transfers. Built on HIPAA-eligible telephony and transcription with BAAs in place, and a PHI de-identification layer between the transcript and any LLM so the model never sees a patient identifier.
+            </p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h3 class="h5 mb-3">AI medical scribes</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">
+              Provider-patient conversation to draft SOAP note in seconds, with structural safeguards against fabricated findings, ICD-10 codes validated locally before display, no audio storage, and provider approval required before any note reaches the EHR.
+            </p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h3 class="h5 mb-3">EHR integrations</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">
+              Bi-directional FHIR R4 sync, proven with athenahealth, extensible to other FHIR-capable EHRs through an adapter pattern. Real-time push plus reconciliation sync, conflict detection, and full audit trail on every record touched.
+            </p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h3 class="h5 mb-3">HIPAA architecture review for teams mid-build</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">
+              A focused two-week engagement for digital health teams who have an AI product in development and need a senior team to audit the data flow, identify compliance gaps, and produce a remediation plan they can hand to their engineers. Useful before a security review, before a BAA negotiation, or before a launch.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-12 col-lg-10 mx-auto">
+          <p class="large-para mb-0 text-muted">
+            If your build doesn&rsquo;t fit one of these, we will tell you on the first call. We have turned down more healthcare engagements than we have taken.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey" id="principles">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">How we think about healthcare AI builds</h2>
+        <p class="text-muted mb-0">A few principles that show up in every system we ship.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">PHI never reaches an LLM that doesn&rsquo;t need it</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">The default architecture for AI products is to send conversation text to a model and let it figure out what to do. In healthcare, that default is a violation waiting to be discovered. We design data flows so that patient identifiers are stripped before any text leaves controlled infrastructure, and re-associated server-side after. This is provable from the API logs.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Audit logs are enforced at the database, not the application</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">A logging table the application can write to is also a logging table the application can be tricked into modifying. We use append-only database permissions so the worst a compromised credential can do is add false entries, never remove real ones.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Vendor BAAs are required before any data flows</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">&ldquo;HIPAA-compliant&rdquo; with no signed BAA is not a thing. We will not integrate a vendor into a healthcare build without a BAA in writing naming the specific service.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Audio is not stored unless there is a clinical reason</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">Every byte of PHI stored is a byte that has to be defended in an audit and disclosed in a breach. The right question before storing anything is &ldquo;do we actually need this?&rdquo; In most AI scribe builds, the answer is no.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Scheduling concurrency is handled at the database layer</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">Double-booking is the most embarrassing failure mode for a clinical scheduling system and the most commonly skipped fix. Row-level database locks on the slot, tested on every deploy with concurrent booking scripts.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Clinical AI is provider-in-the-loop, always</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">Any AI-generated content that touches the EHR requires explicit provider approval. No auto-push, no background sync, no &ldquo;approve all.&rdquo; Every clinical note is a conscious decision.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white" id="standards">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Standards, frameworks, and controls</h2>
           <p class="large-para mb-4">
-            Healthcare technology isn't about digitizing paper forms and calling it innovation. It's about understanding how a clinic actually operates, the morning huddle, the chaotic 3 PM med refill rush, the front desk juggling six phone lines, and building systems that remove friction from those real moments.
+            The platforms we build are designed against an insider threat model: any single compromised application credential cannot exfiltrate or modify the audit log, and no LLM provider receives identifiable patient data.
           </p>
+          <div class="workflow-card p-4 p-lg-5">
+            <ul class="mb-0 ps-3" style="line-height: 2;">
+              <li><strong>HIPAA Security Rule:</strong> administrative, physical, and technical safeguards across 45 CFR &sect;164.308, &sect;164.310, &sect;164.312</li>
+              <li><strong>HIPAA Privacy Rule:</strong> minimum necessary access enforced via RBAC at the API layer</li>
+              <li><strong>HITECH breach notification:</strong> audit trail sufficient to identify scope of any PHI exposure within the 60-day notification window</li>
+              <li><strong>FHIR R4</strong> with SMART on FHIR authorization, proven with athenahealth, adapter pattern for other FHIR-capable EHRs</li>
+              <li><strong>PHI de-identification</strong> before any data reaches the LLM, re-identification handled server-side under the covered entity&rsquo;s control</li>
+              <li><strong>BAAs executed</strong> with telephony, transcription, voice synthesis, hosting, and EHR integration vendors</li>
+              <li><strong>Encryption:</strong> TLS 1.2+ in transit, AES-256 at rest via field-level encryption on PHI columns</li>
+              <li><strong>Access control:</strong> TOTP-based MFA, short-lived JWT access tokens, RBAC enforced in middleware, session inactivity timeout</li>
+              <li><strong>Audit logging:</strong> append-only at the database permission level, covering every PHI access event with actor, timestamp, resource, action, IP, and result</li>
+              <li><strong>Multi-tenant isolation:</strong> PostgreSQL Row Level Security enforced at the database layer</li>
+              <li><strong>Data residency:</strong> US-region infrastructure only</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey" id="baa">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">BAA and security posture</h2>
+          <p class="large-para mb-4">For covered entities and business associates evaluating us as a sub-processor:</p>
+          <div class="workflow-card p-4 p-lg-5">
+            <ul class="mb-4 ps-3" style="line-height: 2;">
+              <li>We sign Business Associate Agreements before any PHI flows. No exceptions.</li>
+              <li>All sub-processors in our healthcare stack (telephony, transcription, voice synthesis, hosting, EHR integration) operate under executed BAAs. We provide the BAA chain on request.</li>
+              <li>Data residency is US-region only for healthcare engagements. No cross-border data flows.</li>
+              <li>We maintain a written information security program covering access control, encryption, audit logging, incident response, vendor management, and employee security training.</li>
+              <li>Security questionnaires (SIG, CAIQ, HECVAT) completed within 5&ndash;10 business days of receipt during active procurement.</li>
+            </ul>
+            <p class="mb-0 small text-muted">
+              If your security team needs to review our posture before a build conversation, contact <a href="mailto:ahmad@astechware.com" class="text-decoration-none">ahmad@astechware.com</a> and we will send the relevant documentation under NDA.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white" id="case-study">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Case study</h2>
+          <div class="workflow-card p-4 p-lg-5">
+            <h3 class="h5 mb-3">Voice booking and AI scribe platform for a US multi-location dental group</h3>
+            <p class="mb-0" style="line-height: 1.7;">
+              One platform handling voice booking, web booking, provider dashboard, AI medical scribe, and bi-directional athenahealth FHIR sync. Built so the LLM never sees a patient identifier, the audit log cannot be edited, and audio is never stored. Delivered in eight weeks across two phases.
+            </p>
+            <%= link_to "Read the full case study &rarr;".html_safe, case_study_path("medical-voice-ai"), class: "d-inline-block mt-4 fw-semibold ajax" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey" id="engage">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">How we engage</h2>
           <p class="large-para mb-4">
-            We build healthcare platforms with a deep understanding of clinical workflows, federal and state compliance requirements, and the operational realities of medical practices. From solo practitioners to multi-location healthcare systems, our solutions reduce administrative burden, improve patient experiences, and ensure regulatory compliance is architected into the foundation, not treated as a checklist item at the end.
+            We start every healthcare engagement with a paid one-week discovery sprint. You get a written deliverable you own whether or not you continue with us:
           </p>
-          <p class="large-para mb-0">
-            Our healthcare expertise spans primary care, specialty practices, urgent care, wellness clinics, mental health services, and multi-specialty medical groups. Every healthcare organization has unique workflows shaped by their specialty, patient population, state regulations, and payer mix. Our solutions are customized to fit those specifics while maintaining the highest standards of security and compliance.
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <ul class="mb-0 ps-3" style="line-height: 2;">
+              <li>A data flow map of your proposed or existing system, with every PHI touchpoint identified</li>
+              <li>A compliance risk register covering HIPAA Security Rule, HITECH, and relevant state requirements</li>
+              <li>An architecture recommendation with vendor selection, BAA requirements, and integration approach</li>
+              <li>A phased build plan with milestones and pricing</li>
+            </ul>
+          </div>
+          <p class="large-para mb-4">
+            Most teams find this is the cheapest way to know what they actually need before committing to a full build. It also gives both sides a low-risk way to see if we work well together before signing a larger engagement.
           </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Challenges (8 cards) -->
-  <section class="py-5 bg-light-grey" id="challenges">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Challenges Healthcare Organizations Face</h2>
-      </div>
-      <div class="row g-3">
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="workflow-card p-4 h-100">
-            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">1</span>
-            <h4 class="h6 mb-2">Front-Desk Bottlenecks</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
-              <li>Manual appointment scheduling consuming hours daily</li>
-              <li>Phone tag with patients for scheduling and confirmations</li>
-              <li>Repetitive questions eating up time that should be spent on patient experience</li>
-              <li>AI agents handling the 3 PM refill rush and insurance verification so your staff can focus on the patients in the room</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="workflow-card p-4 h-100">
-            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">2</span>
-            <h4 class="h6 mb-2">Patient No-Shows &amp; Cancellations</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
-              <li>15–30% no-show rates are the industry average, but that number hides real money: a 10-provider practice with a 25% no-show rate loses $500K–$1M annually in unfilled slots</li>
-              <li>Manual reminder calls are time-consuming and inconsistent</li>
-              <li>Waitlists exist on sticky notes</li>
-              <li>Cancelled slots go unfilled because there's no automated way to offer them to the next patient in line</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="workflow-card p-4 h-100">
-            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">3</span>
-            <h4 class="h6 mb-2">HIPAA &amp; Regulatory Compliance Complexity</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
-              <li>HIPAA is just the starting point. Healthcare organizations must also navigate the HITECH Act (breach notification requirements), and 42 CFR Part 2 (extra protections for substance use disorder records, with key compliance deadlines in February 2026)</li>
-              <li>Regulations change constantly, penalties are severe (up to $2M per violation category for willful neglect), and most technology vendors don't understand the full picture</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="workflow-card p-4 h-100">
-            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">4</span>
-            <h4 class="h6 mb-2">Poor Patient Experience</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
-              <li>Long hold times on the phone</li>
-              <li>No self-service options outside business hours</li>
-              <li>Inconvenient communication that requires patients to call during work hours</li>
-              <li>Fragmented messaging, one system for appointments, another for lab results, a third for billing. Patients don't compare your office to other clinics; they compare it to every other digital experience they have</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="workflow-card p-4 h-100">
-            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">5</span>
-            <h4 class="h6 mb-2">Manual Documentation &amp; Data Entry</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
-              <li>Duplicate data entry across disconnected systems</li>
-              <li>Paper forms requiring manual transcription into the EHR</li>
-              <li>Clinical documentation eating into face time with patients, providers spending two hours on documentation for every one hour of patient care</li>
-              <li>Every manual entry is a potential error, and in healthcare, errors have clinical consequences</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="workflow-card p-4 h-100">
-            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">6</span>
-            <h4 class="h6 mb-2">EHR Integration Challenges</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
-              <li>Disconnected systems requiring duplicate work</li>
-              <li>Expensive and complex EHR integration</li>
-              <li>Data silos preventing holistic patient view</li>
-              <li>Legacy systems that won’t modernize</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="workflow-card p-4 h-100">
-            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">7</span>
-            <h4 class="h6 mb-2">Staff Burnout &amp; Turnover</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
-              <li>Repetitive administrative tasks causing burnout in clinical and front-office staff alike</li>
-              <li>High turnover increasing training costs and reducing care continuity</li>
-              <li>Difficulty finding qualified replacements in a tight labor market</li>
-              <li>Clinical staff spending more time on screens than with patients, which isn't why they went into healthcare</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="workflow-card p-4 h-100">
-            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">8</span>
-            <h4 class="h6 mb-2">Telehealth &amp; Remote Care Gaps</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
-              <li>Basic video conferencing slapped onto existing workflows without integration</li>
-              <li>No digital intake for virtual visits, so patients still fill out paper forms for a video appointment</li>
-              <li>Difficulty documenting and prescribing during remote visits</li>
-              <li>Poor patient engagement between visits, the 99% of time a patient isn't in your office is where chronic disease management actually happens</li>
-            </ul>
+          <div class="text-center">
+            <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+              Start a discovery sprint &rarr;
+            </a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Our Healthcare Solutions (compact grid) -->
-  <section class="py-5 bg-white" id="solutions">
+  <section class="py-5 bg-white" id="faq">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Our Healthcare Solutions</h2>
-      </div>
-      <div class="row g-4">
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h3 class="h5 mb-2">1. 24/7 AI Patient Intake &amp; Scheduling</h3>
-            <p class="mb-0 small">24/7 AI scheduling that handles booking, rescheduling, and cancellations through natural language, phone, text, or web. Our AI agents handle booking, rescheduling, and cancellations via natural language phone and text, syncing directly with your EHR (Epic, Athena, eClinicalWorks). Automated reminders via SMS, email, and voice based on patient preference. Digital intake with e-signatures that flow directly into the EHR, no transcription. Intelligent waitlist management that automatically offers cancelled slots to the next eligible patient. Insurance eligibility verification before the visit, not at check-in. Built for private clinics and multi-location practices.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h3 class="h5 mb-2">2. HIPAA-Compliant Patient Communication</h3>
-            <p class="mb-0 small">Secure messaging that patients actually use, not a clunky portal they forget the password to. Appointment reminders, lab and prescription notifications, satisfaction surveys, and follow-up communications. End-to-end encryption with complete audit trails. PHI-safe design: sensitive content stays behind authentication, never exposed in SMS or email body text. Multi-language support. Medication adherence reminders, preventive care outreach, and chronic care communication programs that keep patients engaged between visits.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h3 class="h5 mb-2">3. Zero-Hallucination Clinical Automation</h3>
-            <p class="mb-0 small">Automated pre-visit chart prep that pulls relevant history before the provider opens the chart. AI-assisted documentation designed as transparent clinical decision support (CDS) to stay within FDA enforcement discretion guidelines. Prescription refill workflows, lab and imaging order tracking, referral management, and prior authorization automation. Voice-to-text, e-prescribe integration, and EHR data synchronization. Cuts documentation burden and directly supports value-based care metrics.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h3 class="h5 mb-2">4. Telehealth &amp; Remote Patient Monitoring</h3>
-            <p class="mb-0 small">HIPAA-compliant video visits with integrated scheduling, intake, and documentation, not a separate video tool. Remote monitoring dashboards for blood pressure, glucose, weight, and pulse oximetry with configurable alert thresholds. Virtual waiting rooms, symptom collection before the visit, and seamless handoff to in-person care when needed. Device integration with major consumer and clinical-grade monitors. Purpose-built for post-surgical follow-up, chronic disease management, behavioral health, and rural or underserved populations where access is the barrier.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h3 class="h5 mb-2">5. Patient Portal &amp; Mobile Apps</h3>
-            <p class="mb-0 small">Web portals and native iOS/Android apps that give patients real self-service: medical records access, self-scheduling, secure messaging, bill pay, lab results, refill requests, intake forms, and wearable device data sync. Designed to actually reduce call volume, not just add another channel. Supports Meaningful Use / Promoting Interoperability requirements.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h3 class="h5 mb-2">6. Revenue Cycle &amp; Billing Automation</h3>
-            <p class="mb-0 small">Real-time insurance eligibility verification, automated claim submission, patient payment processing, denial management workflows, and patient statement generation. EDI integration (X12 837/835/276/277), payment plan management, and practice management system synchronization. Fewer denials, faster collections, less billing staff workload, and better visibility into revenue performance.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h3 class="h5 mb-2">7. Practice Analytics &amp; Reporting</h3>
-            <p class="mb-0 small">Operational dashboards that show what's actually happening, not just what happened last month. Provider productivity, patient volume trends, population health metrics, HEDIS and MIPS quality measures, financial performance, and predictive risk stratification. Supports value-based contract performance tracking, quality reporting submissions, and data-driven operational decisions.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h3 class="h5 mb-2">8. Multi-Location Practice Management</h3>
-            <p class="mb-0 small">Centralized scheduling with real-time cross-location availability, a patient calling Location A can be offered an earlier slot at Location B. Unified patient records, provider credentialing management, inventory tracking, staff scheduling optimization, and location-level compliance configuration. Consolidated reporting with the ability to drill down by location, provider, or service line. Built for medical groups, urgent care chains, specialty networks, and physician management companies.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Healthcare-Specific Benefits (6 cards) -->
-  <section class="py-5 bg-light-grey" id="benefits">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Healthcare-Specific Benefits</h2>
-      </div>
-      <div class="row g-4">
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="build-system-card p-4 h-100">
-            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-user-md" aria-hidden="true"></i></div></div>
-            <h4 class="h5 mb-2">Reduced Administrative Burden</h4>
-            <p class="mb-0 small">Automates repetitive administrative tasks so staff can focus on patient care and experience. Reduce overtime pressure and staffing strain without compromising service quality.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="build-system-card p-4 h-100">
-            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-heart" aria-hidden="true"></i></div></div>
-            <h4 class="h5 mb-2">Improved Patient Satisfaction</h4>
-            <p class="mb-0 small">Self-service scheduling so patients can book when it’s convenient, not just during office hours. Faster responses through AI-assisted communications and consistent digital interactions across SMS, email, phone, and portal.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="build-system-card p-4 h-100">
-            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-calendar-check-o" aria-hidden="true"></i></div></div>
-            <h4 class="h5 mb-2">Better No-Show Management</h4>
-            <p class="mb-0 small">Reduces no-shows through automated multi-channel reminders, two-way confirmations, and intelligent waitlist management that fills cancellations without staff intervention. Improves revenue capture by keeping schedules full and reducing leakage.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="build-system-card p-4 h-100">
-            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-shield" aria-hidden="true"></i></div></div>
-            <h4 class="h5 mb-2">HIPAA &amp; Regulatory Compliance Assurance</h4>
-            <p class="mb-0 small">Built-in security controls and encryption, not add-ons. Complete audit trails for all PHI access with immutable logging. Compliance architecture that covers HIPAA, HITECH, 42 CFR Part 2, and state-specific privacy requirements. Regular security assessments and penetration testing. Business Associate Agreements included for all data processing components, no gaps in the BAA chain.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="build-system-card p-4 h-100">
-            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-money" aria-hidden="true"></i></div></div>
-            <h4 class="h5 mb-2">Increased Revenue</h4>
-            <p class="mb-0 small">Fill more appointment slots through better no-show prevention and waitlist management. Accelerate revenue cycle performance with eligibility verification, clean claim submission, and denial workflows. Increase patient volume without proportionally adding staff.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="build-system-card p-4 h-100">
-            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-users" aria-hidden="true"></i></div></div>
-            <h4 class="h5 mb-2">Clinical Staff Satisfaction</h4>
-            <p class="mb-0 small">Reduce documentation burden so providers spend more time with patients. Eliminate repetitive administrative tasks that cause burnout. Streamline workflows so clinical staff can work at the top of their license. Lower turnover and reduce the recruiting costs that come with it.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Technology Stack -->
-  <section class="py-5 bg-white" id="technology">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Technology Stack for Healthcare</h2>
-      </div>
-      <div class="row g-4">
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-3">Healthcare-Specific</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
-              <li>HL7 FHIR R4 for interoperability</li>
-              <li>Integration engines: Redox / Mirth Connect</li>
-              <li>AWS HealthLake</li>
-              <li>HIPAA-compliant cloud infrastructure (AWS with BAA, Azure Health, GCP Healthcare API)</li>
-              <li>Secure messaging and telehealth (Zoom Healthcare, Doxy.me, custom)</li>
-              <li>Direct Secure Messaging, CommonWell, and Carequality network participation support</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-3">AI &amp; Automation</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
-              <li>Natural language processing for patient triage and scheduling</li>
-              <li>AI scheduling optimization with provider preference learning</li>
-              <li>Ambient AI scribes (HIPAA-compliant), designed as transparent CDS within FDA enforcement discretion guidelines</li>
-              <li>Predictive no-show modeling</li>
-              <li>Automated coding assistance (ICD-10, CPT) with clinician review</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-3">Security &amp; Compliance</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
-              <li>End-to-end encryption (AES-256 at rest, TLS 1.2+ in transit)</li>
-              <li>Multi-factor authentication and role-based access control at the database level</li>
-              <li>Immutable audit logging with hash-chain integrity verification</li>
-              <li>SOC 2 Type II readiness. HIPAA Security Rule compliance including the proposed 2025 Security Rule updates</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-3">Integration &amp; Interoperability</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
-              <li>HL7 v2 messaging and FHIR R4 RESTful APIs</li>
-              <li>Direct Secure Messaging for provider-to-provider communication</li>
-              <li>CommonWell and Carequality network connectivity</li>
-              <li>Redox and Mirth Connect integration engines</li>
-              <li>EDI for billing (X12 837, 835, 276, 277). 21st Century Cures Act information blocking compliance</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Compliance & Standards -->
-  <section class="py-5 bg-light-grey" id="compliance">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Compliance &amp; Standards</h2>
-      </div>
-      <div class="row g-4">
-        <div class="col-12 col-md-4">
-          <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-3">Regulations We Build For</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
-              <li>HIPAA Privacy Rule and Security Rule (including proposed 2025 Security Rule updates)</li>
-              <li>HITECH Act, breach detection, notification, and response</li>
-              <li>42 CFR Part 2, substance use disorder record protections (compliance required February 2026, enforced by OCR)</li>
-              <li>FDA SaMD guidance, all clinical decision support features designed as transparent CDS to maintain enforcement discretion exemption</li>
-              <li>State privacy laws, configurable compliance for California (CCPA/CMIA), New York (proposed NYHIPA), and other state-specific requirements</li>
-              <li>DEA EPCS requirements for electronic controlled substance prescribing</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-3">Healthcare Standards</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
-              <li>HL7 FHIR R4, CDA/C-CDA for document exchange</li>
-              <li>ICD-10, CPT, LOINC, RxNorm, NDC for clinical and pharmaceutical coding</li>
-              <li>USCDI (United States Core Data for Interoperability) alignment</li>
-              <li>Meaningful Use / Promoting Interoperability program support</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-3">Quality &amp; Accreditation</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
-              <li>HEDIS quality measure reporting</li>
-              <li>MIPS/QPP quality reporting support</li>
-              <li>CMS Conditions of Participation alignment</li>
-              <li>Joint Commission documentation standards</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Case Study Spotlights (3) -->
-  <section class="py-5 bg-white" id="case-studies">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Case Study Spotlights</h2>
-      </div>
-      <div class="row g-4">
-        <div class="col-12 col-lg-4">
-          <div class="workflow-card p-4 p-lg-5 h-100">
-            <h4 class="h5 mb-3">Healthcare AI Platform, Voice, Scribe &amp; EHR</h4>
-            <p class="small text-muted mb-2">Multi-location clinics / HIPAA + athenahealth</p>
-            <h5 class="h6 mt-3 mb-1">Challenge</h5>
-            <p class="small mb-2">High no-show rates, after-hours call backlog, and disconnected scheduling/doc workflows created operational bottlenecks and provider burnout.</p>
-            <h5 class="h6 mb-1">Solution</h5>
-            <p class="small mb-2">Built one platform for web + voice booking, real-time athenahealth sync, audit-logged status updates, and an AI medical scribe with strict hallucination prevention.</p>
-            <h5 class="h6 mb-1">Results</h5>
-            <ul class="small mb-0 ps-3" style="line-height: 1.6;">
-              <li>Reduces no-shows through AI scheduling, reminders, and waitlist automation</li>
-              <li>Improves revenue capture via fewer missed appointments and cleaner booking/billing workflows</li>
-              <li>Cuts clinician documentation time via an ambient AI scribe with provider-in-the-loop review</li>
-            </ul>
-            <%= link_to "Read full case study →", case_study_path('medical-voice-ai'), class: "d-inline-block mt-3 fw-semibold small ajax" %>
-          </div>
-        </div>
-        <div class="col-12 col-lg-4">
-          <div class="workflow-card p-4 p-lg-5 h-100">
-            <h4 class="h5 mb-3">Voice Booking Agent (Low Latency)</h4>
-            <p class="small text-muted mb-2">After-hours booking + warm transfers</p>
-            <h5 class="h6 mt-3 mb-1">Challenge</h5>
-            <p class="small mb-2">After-hours calls hit voicemail, reschedules are slow, and staff can’t respond while a motivated patient is on the phone.</p>
-            <h5 class="h6 mb-1">Solution</h5>
-            <p class="small mb-2">Twilio streams audio to Deepgram Nova-2 for real-time transcription; intent runs through a PHI de-identification pipeline before Claude; responses are spoken via ElevenLabs TTS. The agent handles booking, rescheduling, cancellations, and general inquiries, with warm transfer on request and after-hours calls routed to a callback queue.</p>
-            <h5 class="h6 mb-1">Results</h5>
-            <ul class="small mb-0 ps-3" style="line-height: 1.6;">
-              <li>Fast, natural voice interactions with real-time transcription and low-latency responses</li>
-              <li>Fewer abandoned calls via immediate voice rescheduling</li>
-              <li>Staff gets context-rich warm transfers when needed</li>
-            </ul>
-            <%= link_to "Read full case study →", case_study_path('medical-voice-ai'), class: "d-inline-block mt-3 fw-semibold small ajax" %>
-          </div>
-        </div>
-        <div class="col-12 col-lg-4">
-          <div class="workflow-card p-4 p-lg-5 h-100">
-            <h4 class="h5 mb-3">AI Medical Scribe (Faster SOAP Notes)</h4>
-            <p class="small text-muted mb-2">No-audio-storage + no-fabrication guardrails</p>
-            <h5 class="h6 mt-3 mb-1">Challenge</h5>
-            <p class="small mb-2">Providers lose significant time to after-visit SOAP notes (“pajama time”). Any fabricated detail is a clinical safety risk.</p>
-            <h5 class="h6 mb-1">Solution</h5>
-            <p class="small mb-2">Deepgram diarization separates provider vs patient speech. Claude generates a SOAP note with strict rules: never fabricate findings, mark gaps as [Not discussed], mark uncertain items as [VERIFY], and suggest ICD-10 codes validated against CMS before display. Providers approve before pushing to athenahealth via FHIR. Audio is never stored—only encrypted transcript persists.</p>
-            <h5 class="h6 mb-1">Results</h5>
-            <ul class="small mb-0 ps-3" style="line-height: 1.6;">
-              <li>Cuts SOAP documentation time with provider-in-the-loop review before EHR write-back</li>
-              <li>Provider-in-the-loop approval before EHR write-back</li>
-              <li>Encrypted transcript persistence with full audit logging</li>
-            </ul>
-            <%= link_to "Read full case study →", case_study_path('medical-voice-ai'), class: "d-inline-block mt-3 fw-semibold small ajax" %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Who We Serve -->
-  <section class="py-5 bg-white" id="who-we-serve">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Who We Serve</h2>
-      </div>
-      <div class="row g-4">
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-2">Primary Care &amp; Family Medicine</h4>
-            <p class="mb-0 small">Solo practitioners. Small group practices (2–10 providers). Large medical groups (10+ providers). Federally Qualified Health Centers (FQHCs). Concierge and direct primary care practices.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-2">Specialty Practices</h4>
-            <p class="mb-0 small">Cardiology. Orthopedics and sports medicine. Dermatology. Gastroenterology. OB/GYN. Pediatrics. Mental health, psychiatry, and behavioral health (including 42 CFR Part 2 compliant substance use disorder programs).</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-2">Urgent &amp; Immediate Care</h4>
-            <p class="mb-0 small">Urgent care centers and chains. Walk-in clinics. Occupational health. Travel medicine. Retail health clinics.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-2">Wellness &amp; Alternative Medicine</h4>
-            <p class="mb-0 small">Functional and integrative medicine. Chiropractic. Acupuncture. IV therapy and wellness centers. Medspas with clinical services.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-2">Multi-Location Networks &amp; Management Companies</h4>
-            <p class="mb-0 small">Medical groups with multiple offices. Urgent care chains. Hospital-owned physician practices. Accountable Care Organizations (ACOs). Independent Practice Associations (IPAs). Physician management companies needing consolidated operations across their portfolio.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="py-5 bg-light-grey" id="faq">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Frequently Asked Questions</h2>
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">FAQ</h2>
       </div>
       <div class="row">
         <div class="col-12 col-lg-10 mx-auto">
           <div class="accordion healthcare-industry-faq" id="healthcareIndustryFaq">
             <div class="accordion-item border rounded mb-2">
               <h3 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hcind1" aria-expanded="false" aria-controls="hcind1">How do you ensure HIPAA compliance?</button>
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hcfaq1" aria-expanded="false" aria-controls="hcfaq1">How do you handle PHI when using LLMs like Claude or GPT?</button>
               </h3>
-              <div id="hcind1" class="accordion-collapse collapse" data-bs-parent="#healthcareIndustryFaq">
-                <div class="accordion-body">We build HIPAA compliance into the architecture from day one: end-to-end encryption, role-based access controls, complete audit logging, secure authentication (MFA), and regular security assessments. We provide a Business Associate Agreement (BAA) and compliance documentation for your records.</div>
+              <div id="hcfaq1" class="accordion-collapse collapse" data-bs-parent="#healthcareIndustryFaq">
+                <div class="accordion-body">We de-identify patient text before it leaves our infrastructure. Names, dates of birth, MRNs, phone numbers, addresses, and other identifiers are replaced with opaque tokens. The LLM receives only de-identified text. Tokens are re-associated server-side after the model responds. Every LLM API call is logged and auditable. This is provable to a compliance reviewer from the logs alone.</div>
               </div>
             </div>
             <div class="accordion-item border rounded mb-2">
               <h3 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hcind2" aria-expanded="false" aria-controls="hcind2">Can you integrate with our EHR system?</button>
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hcfaq2" aria-expanded="false" aria-controls="hcfaq2">Which EHRs have you integrated with?</button>
               </h3>
-              <div id="hcind2" class="accordion-collapse collapse" data-bs-parent="#healthcareIndustryFaq">
-                <div class="accordion-body">Yes. We have experience with Epic, Cerner, Athenahealth, eClinicalWorks, AllScripts, Practice Fusion, and more. We use standard HL7 and FHIR protocols. For proprietary or legacy systems, we can build custom integrations.</div>
+              <div id="hcfaq2" class="accordion-collapse collapse" data-bs-parent="#healthcareIndustryFaq">
+                <div class="accordion-body">We have shipped production bi-directional FHIR R4 sync with athenahealth. Our integration layer uses an adapter pattern, so adding Epic, Cerner, eClinicalWorks, or any other FHIR-capable EHR is an adapter implementation, not a rebuild.</div>
               </div>
             </div>
             <div class="accordion-item border rounded mb-2">
               <h3 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hcind3" aria-expanded="false" aria-controls="hcind3">What happens if there's a security breach or HIPAA violation?</button>
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hcfaq3" aria-expanded="false" aria-controls="hcfaq3">Do you offer ongoing maintenance and support?</button>
               </h3>
-              <div id="hcind3" class="accordion-collapse collapse" data-bs-parent="#healthcareIndustryFaq">
-                <div class="accordion-body">We design systems with multiple layers of security to prevent breaches. In the unlikely event of an incident, we have documented incident response procedures, breach notification protocols, and forensic analysis capabilities. We work with you to meet HHS breach notification requirements.</div>
+              <div id="hcfaq3" class="accordion-collapse collapse" data-bs-parent="#healthcareIndustryFaq">
+                <div class="accordion-body">Yes. Most healthcare clients move to a monthly retainer after the initial build for monitoring, compliance updates, vendor BAA renewals, and feature work. We do not take on healthcare builds without a clear post-launch support plan.</div>
               </div>
             </div>
             <div class="accordion-item border rounded mb-2">
               <h3 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hcind5" aria-expanded="false" aria-controls="hcind5">Can patients access the system on mobile devices?</button>
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hcfaq4" aria-expanded="false" aria-controls="hcfaq4">What if we&rsquo;re already mid-build and need help?</button>
               </h3>
-              <div id="hcind5" class="accordion-collapse collapse" data-bs-parent="#healthcareIndustryFaq">
-                <div class="accordion-body">Yes. All our solutions are mobile-responsive and work on smartphones and tablets. We can also build native iOS and Android apps. Patients can schedule, message providers, view lab results, and pay bills from their devices.</div>
-              </div>
-            </div>
-            <div class="accordion-item border rounded mb-2">
-              <h3 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hcind6" aria-expanded="false" aria-controls="hcind6">What about elderly patients who aren't tech-savvy?</button>
-              </h3>
-              <div id="hcind6" class="accordion-collapse collapse" data-bs-parent="#healthcareIndustryFaq">
-                <div class="accordion-body">We design for all patient demographics. Interfaces are simple and intuitive with large text, clear navigation, and phone support. We maintain traditional channels (phone, in-person) while offering digital options, then drive adoption with onboarding, reminders, and staff-friendly workflows.</div>
-              </div>
-            </div>
-            <div class="accordion-item border rounded mb-2">
-              <h3 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hcind8" aria-expanded="false" aria-controls="hcind8">Do you provide ongoing support and maintenance?</button>
-              </h3>
-              <div id="hcind8" class="accordion-collapse collapse" data-bs-parent="#healthcareIndustryFaq">
-                <div class="accordion-body">Yes. We offer ongoing support including software updates, security patches, compliance monitoring, technical support, and feature enhancements. We provide training for new staff and can manage the system on your behalf if desired.</div>
-              </div>
-            </div>
-            <div class="accordion-item border rounded mb-2">
-              <h3 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hcind9" aria-expanded="false" aria-controls="hcind9">Can you help us migrate data from our old system?</button>
-              </h3>
-              <div id="hcind9" class="accordion-collapse collapse" data-bs-parent="#healthcareIndustryFaq">
-                <div class="accordion-body">Yes. We provide data migration for patient records, appointment history, clinical data, and financial information. We ensure data integrity, map data properly, and perform thorough testing before go-live. We can run systems in parallel during transition if needed.</div>
-              </div>
-            </div>
-            <div class="accordion-item border rounded mb-2">
-              <h3 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hcind10" aria-expanded="false" aria-controls="hcind10">How do you measure success in healthcare projects?</button>
-              </h3>
-              <div id="hcind10" class="accordion-collapse collapse" data-bs-parent="#healthcareIndustryFaq">
-                <div class="accordion-body">We focus on measurable outcomes: no-show reduction, staff time saved, patient satisfaction improvements, revenue capture, appointment volume, and clinical workflow efficiency. We establish baselines during discovery and measure improvements post-launch.</div>
+              <div id="hcfaq4" class="accordion-collapse collapse" data-bs-parent="#healthcareIndustryFaq">
+                <div class="accordion-body">Our two-week HIPAA architecture review is designed for exactly this. We audit your existing system, identify compliance and architectural gaps, and produce a remediation plan you can hand to your team. About a third of these engagements expand into us doing the remediation work; the other two-thirds get a written plan and run it internally.</div>
               </div>
             </div>
           </div>
@@ -573,57 +286,4 @@
     </div>
   </section>
 
-  <!-- Related Services -->
-  <section class="py-5 bg-white" id="related">
-    <div class="container">
-      <div class="text-center mb-4">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Related Services</h2>
-      </div>
-      <div class="row g-3 justify-content-center">
-        <div class="col-6 col-md-4 col-lg-2">
-          <%= link_to ai_agent_development_path, class: "btn btn-outline-primary w-100 py-3 small" do %>AI Agent Development<% end %>
-        </div>
-        <div class="col-6 col-md-4 col-lg-2">
-          <%= link_to custom_software_path, class: "btn btn-outline-primary w-100 py-3 small" do %>Custom Software<% end %>
-        </div>
-        <div class="col-6 col-md-4 col-lg-2">
-          <%= link_to api_integrations_path, class: "btn btn-outline-primary w-100 py-3 small" do %>API Integrations<% end %>
-        </div>
-        <div class="col-6 col-md-4 col-lg-2">
-          <%= link_to machine_learning_path, class: "btn btn-outline-primary w-100 py-3 small" do %>Machine Learning<% end %>
-        </div>
-        <div class="col-6 col-md-4 col-lg-2">
-          <%= link_to devops_engineering_path, class: "btn btn-outline-primary w-100 py-3 small" do %>DevOps Engineering<% end %>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="py-5 bg-light-grey" id="cta">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-lg-10 mx-auto">
-          <div class="workflow-card p-5 p-lg-5 text-center">
-            <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Ready to Transform Your Healthcare Practice?</h2>
-            <p class="lead mb-4">Whether you're drowning in administrative work, struggling with no-shows, or looking to improve patient satisfaction, we're here to help.</p>
-            <h4 class="h6 mb-3">Free Healthcare Technology Assessment Includes:</h4>
-            <ul class="list-unstyled mb-4" style="line-height: 2;">
-              <li>60-minute consultation with healthcare tech experts</li>
-              <li>Practice workflow analysis</li>
-              <li>HIPAA compliance review</li>
-              <li>Technology recommendations and roadmap</li>
-              <li>ROI projections and timeline</li>
-              <li>Transparent pricing and approach</li>
-            </ul>
-            <div class="d-flex flex-wrap gap-3 justify-content-center mb-4">
-              <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">Schedule Free Healthcare Consultation</a>
-              <%= link_to "View Healthcare Case Studies", case_studies_path, class: "btn btn-outline-primary btn-lg rounded-pill px-4" %>
-            </div>
-            <p class="mb-0 small text-muted">Email: <a href="mailto:ahmad@astechware.com" class="text-decoration-none">ahmad@astechware.com</a> • Book a call: <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="text-decoration-none">Calendly</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 </div>

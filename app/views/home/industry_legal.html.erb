@@ -1,569 +1,276 @@
 <% content_for :head do %>
   <% set_meta_tags(
-    title: "Legal Technology & AI Solutions",
-    description: "Zero-hallucination AI for law firms: private LLM pipelines, playbook-driven contract review, and source-verified research. Secure workflows with audit trails and encryption.",
-    keywords: "legal AI software, private LLM, playbook contract review, contract risk scoring, source-verified legal research, law firm automation"
+    title: "Legal Operations Platforms — Court-Grade Software",
+    description: "Production software for legal-adjacent operations: multi-tenant SaaS, AI document parsing with human review, evidence chains, and audit-grade data flows. Built to hold up in court.",
+    keywords: "legal operations software, legal tech SaaS, process serving platform, AI document parsing legal, multi-tenant legal SaaS, evidence chain of custody, legal audit logging"
   ) %>
   <script type="application/ld+json">
   <%= raw({
     "@context" => "https://schema.org",
     "@type" => "Service",
-    "name" => "Legal Technology & AI Solutions",
+    "name" => "Legal Operations Platform Development",
     "url" => industry_legal_url,
-    "description" => "Secure, private AI systems for law firms: playbook-driven contract review, source-verified research, and private workflows.",
+    "description" => "Production-grade software for companies serving the legal industry: multi-tenant SaaS, AI document parsing, evidence chains, and court-grade audit defensibility.",
     "provider" => { "@type" => "Organization", "name" => "A'sTechware" },
     "areaServed" => "Worldwide",
-    "serviceType" => "Legal Tech AI Solutions",
+    "serviceType" => "Legal Operations Software",
     "category" => "Legal Technology"
   }.to_json) %>
   </script>
 <% end %>
 
-<!-- Hero Section -->
 <div class="hero-section py-5 service-page-hero legal-tech-hero industry-landing-hero">
   <div class="container">
     <div class="row align-items-center min-vh-50">
-      <div class="col-12 col-lg-8 mx-auto text-center">
+      <div class="col-12 col-lg-9 mx-auto text-center">
         <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;">
-          Legal Technology &amp; AI Solutions
+          Legal operations platforms, built to a standard that holds up in court.
         </h1>
-        <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.4; max-width: 720px; margin-left: auto; margin-right: auto;">
-          Zero-Hallucination AI for Contract Discovery and Automated Legal Drafting
-        </p>
         <p class="mb-4" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
-          We build private, secure AI systems for law firms that require absolute accuracy. From automated "Gold Standard" contract reviews to AI-driven affidavit generation, we ensure your firm’s data remains private while your workflows move faster with clear guardrails. Boundaries for third-party models and AI-assisted tooling are explicit—confidential matter data is never implicitly routed to generic AI services.
+          We build production-grade software for companies that serve the legal industry: process servers, court reporters, e-filing services, paralegal companies, records retrieval, and other operations where every digital artifact has to survive being entered as evidence or audited by a regulator.
         </p>
         <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
-          Schedule Free Legal Tech Consultation
+          Start with a discovery sprint &rarr;
         </a>
       </div>
     </div>
-    <%# Optional hero image: add image to app/assets/images/legal-hero.jpg and uncomment %>
-    <%# <div class="row mt-5"><div class="col-12 col-lg-10 mx-auto text-center"><%= image_tag 'legal-hero.jpg', class: 'img-fluid rounded shadow', alt: 'Modern law office with technology integration', loading: 'lazy' %><%# </div></div> %>
   </div>
 </div>
 
 <div class="inner-sections legal-industry-page">
 
-  <!-- Overview -->
-  <section class="py-5 bg-white" id="overview">
+  <section class="py-5 bg-white" id="what-we-do">
     <div class="container">
       <div class="row">
         <div class="col-12 col-lg-10 mx-auto">
-          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Transforming Legal Practice Through Technology</h2>
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">What we actually do</h2>
           <p class="large-para mb-4">
-            The legal profession is at an inflection point. Clients demand faster turnaround, transparent pricing, and modern communication, while lawyers are buried in document review, legal research, and administrative tasks. Legal technology isn’t about replacing lawyers; it’s about multiplying their effectiveness and letting them focus on high-value strategic work.
+            Most software for legal-adjacent operations falls apart at one of three places: a data flow that lets the wrong tenant see the wrong matter, an AI feature that quietly modifies the legal record, or an evidence chain that breaks the first time it&rsquo;s contested. We build systems where none of those failures are possible by design, not by policy.
           </p>
+          <p class="large-para mb-5">
+            We focus on a narrow slice of legal operations work where we have shipped production systems and where the architectural decisions matter most:
+          </p>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6">
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h3 class="h5 mb-3">Multi-tenant SaaS for legal services companies</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">
+              Platforms where multiple operating companies share infrastructure but cannot, under any circumstances, see each other&rsquo;s matters, clients, or financials. Tenant isolation enforced at the database layer with PostgreSQL Row Level Security, not application-level filtering.
+            </p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h3 class="h5 mb-3">AI document parsing with human-in-the-loop review</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">
+              Court documents, intake forms, service requests, contracts, and other unstructured legal inputs converted into structured case data through an AI pipeline that drafts and a human approves. No AI-generated content ever reaches the legal record without explicit human sign-off.
+            </p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h3 class="h5 mb-3">Evidence chains and audit-grade data flows</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">
+              GPS, timestamps, photos, signatures, and chain of custody captured at the source, timestamped by the database, and stored in a way that makes after-the-fact modification impossible. Audit logs enforced as append-only at the database permission level.
+            </p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h3 class="h5 mb-3">AI-assisted document generation with strict guardrails</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">
+              Affidavits, non-service narratives, intake summaries, and other legal documents generated from structured case data using templated rendering, not free-form AI output. Where AI is used for language refinement, the raw observation is always preserved alongside the refined version with full audit trail.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-12 col-lg-10 mx-auto">
+          <p class="large-para mb-0 text-muted">
+            If your build doesn&rsquo;t fit one of these, we will tell you on the first call. We have turned down more legal-tech engagements than we have taken.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey" id="principles">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">How we think about legal operations builds</h2>
+        <p class="text-muted mb-0">A few principles that show up in every system we ship.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">AI is good for unstructured-to-structured work and bad for deterministic calculation</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">We use AI to parse messy court documents, extract fields from intake forms, and suggest legally appropriate language. We do not use AI for jurisdiction logic, tax calculation, fee computation, or any other deterministic path where the correct answer is knowable from rules. Code handles deterministic. AI handles ambiguity.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">The AI never has the final word</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">Every AI-generated output passes through a human approval step before it enters the official record. Document parsing surfaces extracted fields for review. Language refinement preserves the raw observation. Generated affidavits require human sign-off. The audit log records both the AI draft and the human-approved version.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Tenant isolation is enforced by the database, not the application</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">Application-level filtering plus tests plus code review will eventually fail, and the cost of one failure in a legal-tech context is too high. PostgreSQL Row Level Security with policies tied to a tenant context variable makes cross-tenant data access architecturally impossible, not just procedurally prevented.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Evidence is captured at the source and timestamped by the database</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">GPS coordinates captured at the moment of logging, not retroactively. Timestamps recorded server-side, not from device clocks that can drift or be manipulated. Photos uploaded with metadata intact and immutable after capture. Every piece of evidence has to answer four questions: who created it, when, who changed it, and when.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Audit logs are append-only at the database permission level</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">A logging table the application can write to is also a logging table the application can be tricked into modifying. We use database permissions to make modification structurally impossible: the application&rsquo;s database role has INSERT only, no UPDATE, no DELETE, no TRUNCATE.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Field operatives are not legal writers</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">When server notes, intake observations, or other field-collected data flow into the legal record, they pass through an approval queue first. Raw observations are preserved. Legal language is reviewed by someone accountable for it. This single feature is the highest-value compliance control in any legal operations platform we have built.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white" id="standards">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Standards, architecture, and controls</h2>
           <p class="large-para mb-4">
-            We build legal technology solutions with a deep understanding of legal workflows, ethical obligations, and the importance of accuracy and citation discipline. From solo practitioners to large law firms, our solutions are designed to increase billable hours, reduce errors, enhance client service, and maintain professional standards.
+            The platforms we build are designed against three failure modes specific to legal operations: cross-tenant data exposure, AI-introduced fabrication in the legal record, and after-the-fact modification of evidence.
+          </p>
+          <div class="workflow-card p-4 p-lg-5">
+            <ul class="mb-0 ps-3" style="line-height: 2;">
+              <li><strong>Multi-tenant isolation:</strong> PostgreSQL Row Level Security enforced at the database layer, not the application</li>
+              <li><strong>AI document parsing</strong> with human review before any data enters the case record</li>
+              <li><strong>Approval queues</strong> for any field-captured content before it becomes legal evidence</li>
+              <li><strong>Server-side timestamps</strong> on all evidence logs; device clocks recorded for reference only</li>
+              <li><strong>GPS capture</strong> required at the moment of logging; retroactive entry blocked</li>
+              <li><strong>Court-grade document generation</strong> from HTML/CSS templates with deterministic rendering</li>
+              <li><strong>Enforced signing workflows</strong> via DocuSign with audit trail on signing order and timing</li>
+              <li><strong>Deterministic calculation paths</strong> for jurisdiction-aware tax, mileage, and fee logic</li>
+              <li><strong>Audit logging</strong> on every state change with actor, timestamp, action, and prior value</li>
+              <li><strong>Document storage</strong> on encrypted S3 with tenant-scoped access control</li>
+              <li><strong>Append-only audit logs</strong> at the database permission level</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey" id="case-study">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Case study</h2>
+          <div class="workflow-card p-4 p-lg-5">
+            <h3 class="h5 mb-3">Multi-tenant process serving platform for a Canadian legal services company</h3>
+            <p class="mb-0" style="line-height: 1.7;">
+              Replaced a Gmail-and-spreadsheets operation with a production SaaS handling AI document intake, server dispatch with GPS evidence logging, admin approval queues, court-grade affidavit generation, DocuSign signing workflows, and jurisdiction-aware invoicing. Built so tenants cannot see each other&rsquo;s data through any application bug, AI cannot modify the legal record without human approval, and every piece of evidence is traceable from source to affidavit.
+            </p>
+            <%= link_to "Read the full case study &rarr;".html_safe, case_study_path("flss-legal-process-serving"), class: "d-inline-block mt-4 fw-semibold ajax" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white" id="engage">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">How we engage</h2>
+          <p class="large-para mb-4">
+            We start every legal-tech engagement with a paid one-week discovery sprint. You get a written deliverable you own whether or not you continue with us:
+          </p>
+          <div class="workflow-card p-4 p-lg-5 mb-4">
+            <ul class="mb-0 ps-3" style="line-height: 2;">
+              <li>A data flow map of your proposed or existing system, with every legal-sensitive touchpoint identified</li>
+              <li>A risk register covering tenant isolation, AI failure modes, evidence integrity, and audit defensibility</li>
+              <li>An architecture recommendation with vendor selection, integration approach, and AI scoping</li>
+              <li>A phased build plan with milestones and pricing</li>
+            </ul>
+          </div>
+          <p class="large-para mb-4">
+            Most teams find this is the cheapest way to know what they actually need before committing to a full build. It also gives both sides a low-risk way to see if we work well together before signing a larger engagement.
+          </p>
+          <div class="text-center">
+            <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+              Start a discovery sprint &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey" id="who-we-work-with">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Who we work with</h2>
+          <p class="large-para mb-4">
+            We work with founders and operators running legal-adjacent companies: process servers, court reporters, e-filing services, records retrieval, paralegal services, IP filing services, and other operations where the legal industry is the customer.
           </p>
           <p class="large-para mb-0">
-            Our legal tech expertise spans litigation support, contract management, legal research automation, document analysis, practice management, and client communication. We understand that every practice area has unique needs, corporate law, litigation, family law, immigration, real estate, intellectual property, and our solutions adapt to your specific workflows.
+            We do not currently take on engagements directly inside law firms. The work is meaningfully different from legal operations, the buyer expectations and ethical requirements differ, and we believe in being honest about where our shipped experience is.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Challenges (8 cards) -->
-  <section class="py-5 bg-light-grey" id="challenges">
+  <section class="py-5 bg-white" id="faq">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Challenges Legal Professionals Face</h2>
-      </div>
-      <div class="row g-3">
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="workflow-card p-4 h-100">
-            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">1</span>
-            <h4 class="h6 mb-2">Manual Playbook Compliance</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
-              <li>Manual contract analysis that slows turnaround and creates inconsistency across reviewers</li>
-              <li>Inconsistent review standards across attorneys</li>
-              <li>The risk of associates deviating from the firm's "Gold Standard" clauses during high-volume discovery or M&amp;A</li>
-              <li>Risk of missing critical clauses or issues</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="workflow-card p-4 h-100">
-            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">2</span>
-            <h4 class="h6 mb-2">Legal Research Takes Too Long</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
-              <li>Research and drafting cycles that consume hours and require careful citation discipline</li>
-              <li>Expensive research databases (Westlaw, LexisNexis)</li>
-              <li>Citation checking tedious but critical</li>
-              <li>Difficulty keeping up with case law developments</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="workflow-card p-4 h-100">
-            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">3</span>
-            <h4 class="h6 mb-2">Administrative Burden</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
-              <li>Partners spending substantial time on non-billable work</li>
-              <li>Manual time tracking and billing</li>
-              <li>Client intake and conflict checks</li>
-              <li>Non-billable "Pajama Time" spent on manual document formatting and administrative filing</li>
-              <li>Calendar management and court deadlines</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="workflow-card p-4 h-100">
-            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">4</span>
-            <h4 class="h6 mb-2">Document Management Chaos</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
-              <li>Version control nightmares</li>
-              <li>Difficulty finding precedents and templates</li>
-              <li>No centralized document repository</li>
-              <li>Security and privilege concerns with file sharing</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="workflow-card p-4 h-100">
-            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">5</span>
-            <h4 class="h6 mb-2">Client Communication Gaps</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
-              <li>Clients demanding faster responses and updates</li>
-              <li>Manual status updates consuming time</li>
-              <li>Lack of client self-service portal</li>
-              <li>Difficulty managing client expectations</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="workflow-card p-4 h-100">
-            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">6</span>
-            <h4 class="h6 mb-2">High Client Acquisition Costs</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
-              <li>Traditional marketing channels expensive and ineffective</li>
-              <li>Difficulty differentiating from competitors</li>
-              <li>No online presence or client reviews</li>
-              <li>Referral networks not scalable</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="workflow-card p-4 h-100">
-            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">7</span>
-            <h4 class="h6 mb-2">Billing &amp; Collections Challenges</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
-              <li>Delayed billing leading to write-downs</li>
-              <li>Manual invoice generation and tracking</li>
-              <li>Difficulty collecting on outstanding invoices</li>
-              <li>No alternative fee arrangements (AFAs)</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="workflow-card p-4 h-100">
-            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">8</span>
-            <h4 class="h6 mb-2">Case &amp; Matter Management</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
-              <li>Spreadsheets and sticky notes not scalable</li>
-              <li>Missed deadlines and court dates</li>
-              <li>Poor task delegation and follow-up</li>
-              <li>No visibility into matter status and profitability</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Our Legal Technology Solutions (compact grid) -->
-  <section class="py-5 bg-white" id="solutions">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Our Legal Technology Solutions</h2>
-      </div>
-      <div class="row g-4">
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h3 class="h5 mb-2">1. Private AI Contract Review &amp; Playbook Automation</h3>
-            <p class="mb-0 small">We build private AI pipelines (Azure OpenAI / AWS Bedrock) that extract terms and compare them against your firm's digital Playbook. AI flags risks as Red/Amber/Green so lawyers can focus only on high-risk issues.</p>
-          </div>
-        </div>
-
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h3 class="h5 mb-2">2. Source-Verified Legal Research</h3>
-            <p class="mb-0 small">AI research assistants that provide summaries with mandatory citations, ensuring every output is grounded in your firm’s verified precedent library.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h3 class="h5 mb-2">3. Practice Management &amp; Case Tracking</h3>
-            <p class="mb-0 small">Matter and case tracking, calendar and deadlines, tasks, time and billing, document integration. Court deadline automation, conflict checking, client portal. Solo to large firms; litigation, transactional, PI, family law.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h3 class="h5 mb-2">4. Client Intake &amp; CRM</h3>
-            <p class="mb-0 small">Online intake, consultation scheduling, lead tracking, conflict checks, engagement letters. E-signature, lead scoring, referral tracking. PI, family law, estate planning, corporate, immigration onboarding.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h3 class="h5 mb-2">5. Document Automation &amp; Templates</h3>
-            <p class="mb-0 small">Automated drafting of complex legal documents from raw case data, ensuring consistent formatting and professional standards. Template systems, conditional logic, e-signature (DocuSign, Adobe Sign), and document assembly for affidavits, pleadings, and matter-specific workflows.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h3 class="h5 mb-2">6. Litigation Support &amp; E-Discovery</h3>
-            <p class="mb-0 small">E-discovery, document review and coding, trial prep, evidence and chronology. AI-assisted review, privilege and redaction, Relativity/Concordance integration. Commercial litigation, class actions, regulatory investigations.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h3 class="h5 mb-2">7. Client Communication &amp; Portals</h3>
-            <p class="mb-0 small">Secure portals, messaging, document sharing, e-signature, payments, case status, scheduling. 2FA, mobile app, automated updates. Fewer status calls, transparent billing, modern client experience.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h3 class="h5 mb-2">8. Legal Billing &amp; Accounting</h3>
-            <p class="mb-0 small">Time and expense, invoicing, trust (IOLTA), collections, AFA management. Timer apps, auto time from email/calendar, hourly/flat/contingency, LEDES, online payment. Matter profitability and reporting.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Legal-Specific Benefits (6 cards) -->
-  <section class="py-5 bg-light-grey" id="benefits">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Legal-Specific Benefits</h2>
-      </div>
-      <div class="row g-4">
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="build-system-card p-4 h-100">
-            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div></div>
-            <h4 class="h5 mb-2">Increased Billable Hours</h4>
-            <p class="mb-0 small">Automate non-billable work like intake, summaries, drafting scaffolds, and document organization—so attorneys spend more time on substantive work and billing capture improves.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="build-system-card p-4 h-100">
-            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-check-circle" aria-hidden="true"></i></div></div>
-            <h4 class="h5 mb-2">Enhanced Accuracy &amp; Quality</h4>
-            <p class="mb-0 small">Consistent document review standards; AI catches clauses and risks humans miss; citation verification prevents errors; reduced malpractice risk from missed deadlines or errors.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="build-system-card p-4 h-100">
-            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-bolt" aria-hidden="true"></i></div></div>
-            <h4 class="h5 mb-2">Faster Client Service</h4>
-            <p class="mb-0 small">Faster contract review and research cycles through structured extraction, playbooks, and source-verified outputs—with proactive updates and clear human review points.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="build-system-card p-4 h-100">
-            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-users" aria-hidden="true"></i></div></div>
-            <h4 class="h5 mb-2">Improved Client Satisfaction</h4>
-            <p class="mb-0 small">Modern, transparent communication; client self-service portal; predictable timelines and costs; professional, technology-forward image.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="build-system-card p-4 h-100">
-            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-money" aria-hidden="true"></i></div></div>
-            <h4 class="h5 mb-2">Better Financial Performance</h4>
-            <p class="mb-0 small">Higher realization rates; faster collections with online payment; ability to offer competitive flat fees; matter profitability visibility.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="build-system-card p-4 h-100">
-            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-trophy" aria-hidden="true"></i></div></div>
-            <h4 class="h5 mb-2">Competitive Differentiation</h4>
-            <p class="mb-0 small">Modern law firm image attracts better clients; technology enables AFAs; scale practice without hiring proportionally; handle more complex matters efficiently.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Technology Stack -->
-  <section class="py-5 bg-white" id="technology">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Technology Stack for Legal</h2>
-      </div>
-      <div class="row g-4">
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-3">Legal-Specific AI &amp; NLP</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
-              <li>Fine-tuned legal language models</li>
-              <li>Named entity recognition (parties, dates, amounts, obligations)</li>
-              <li>Contract clause classification</li>
-              <li>Legal citation extraction and verification</li>
-              <li>Document similarity and comparison</li>
-              <li>Redaction and anonymization</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-3">Document Processing</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
-              <li>OCR for scanned documents</li>
-              <li>PDF text extraction and processing</li>
-              <li>Document versioning and comparison</li>
-              <li>Metadata extraction and management</li>
-              <li>Full-text search (Elasticsearch)</li>
-              <li>Document assembly and generation</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-3">Practice Management Integration</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
-              <li>Clio, MyCase, PracticePanther, Smokeball</li>
-              <li>LawToolBox for calendaring</li>
-              <li>QuickBooks for accounting</li>
-              <li>Westlaw, LexisNexis, Fastcase</li>
-              <li>Relativity, Everlaw for e-discovery</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-3">Security &amp; Ethics</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
-              <li>Attorney-client privilege protection</li>
-              <li>Ethical walls and conflict screening</li>
-              <li>Audit trails for all document access</li>
-              <li>End-to-end encryption; RBAC</li>
-              <li>State bar ethics compliance</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-3">E-Signature &amp; Workflow</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
-              <li>DocuSign, Adobe Sign, HelloSign</li>
-              <li>Document routing and approval workflows</li>
-              <li>Client intake and engagement automation</li>
-              <li>Court filing (e-filing systems)</li>
-              <li>LawPay, trust accounting</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Compliance & Professional Standards -->
-  <section class="py-5 bg-light-grey" id="compliance">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Compliance &amp; Professional Standards</h2>
-      </div>
-      <div class="row g-4">
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-3">Legal Ethics &amp; Professional Responsibility</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
-              <li>Attorney-client privilege; work product</li>
-              <li>Confidentiality (ABA Model Rule 1.6)</li>
-              <li>Conflicts (Rule 1.7, 1.9); automated conflict checking</li>
-              <li>Competence &amp; diligence (Rule 1.1, 1.3)</li>
-              <li>Supervision of AI and junior attorney work</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-3">Data Security &amp; Privacy</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
-              <li>ABA Formal Opinion 477R</li>
-              <li>State-specific security requirements</li>
-              <li>Cloud ethics opinions compliance</li>
-              <li>Data breach notification</li>
-              <li>E-discovery and spoliation avoidance</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-3">Trust Accounting &amp; IOLTA</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
-              <li>State bar trust accounting rules</li>
-              <li>IOLTA compliance</li>
-              <li>Three-way reconciliation</li>
-              <li>Audit trails and reporting</li>
-              <li>Separate operating and trust accounts</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-3">Court Rules &amp; E-Filing</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
-              <li>Federal and state e-filing requirements</li>
-              <li>E-discovery rules (FRCP 26, 34)</li>
-              <li>Metadata concerns and ethics</li>
-              <li>Electronic service of process</li>
-              <li>Redaction for public filings</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Case Study Spotlights (2) -->
-  <section class="py-5 bg-white" id="case-studies">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Case Study Spotlights</h2>
-      </div>
-      <div class="row g-4">
-        <div class="col-12 col-lg-6">
-          <div class="workflow-card p-4 p-lg-5 h-100">
-            <h4 class="h5 mb-3">A Canadian Process Serving Company: Multi-Tenant Process Serving SaaS</h4>
-            <p class="small text-muted mb-2">Legal Operations / Court Services</p>
-            <h5 class="h6 mt-3 mb-1">Challenge</h5>
-            <p class="small mb-2">Gmail + Drive + Sheets + thousands of lines of Apps Script created intake errors, unprofessional field notes, and billing disputes. None of it scaled to multi-tenant operations.</p>
-            <h5 class="h6 mb-1">Solution</h5>
-            <p class="small mb-2">Built a multi-tenant SaaS that automates intake, server dispatch, GPS evidence logging, affidavit generation, and invoicing—end-to-end.</p>
-            <h5 class="h6 mb-1">Results</h5>
-            <ul class="small mb-0 ps-3" style="line-height: 1.6;">
-              <li>Automated intake and affidavit generation with approval steps and audit trails</li>
-              <li>Faster affidavit turnaround through structured data capture and templated generation</li>
-              <li>Tenant isolation enforced via PostgreSQL Row Level Security</li>
-            </ul>
-            <%= link_to "Read full case study →", case_study_path('flss-legal-process-serving'), class: "d-inline-block mt-3 fw-semibold small ajax" %>
-          </div>
-        </div>
-        <div class="col-12 col-lg-6">
-          <div class="workflow-card p-4 p-lg-5 h-100">
-            <h4 class="h5 mb-3">AI-Powered Affidavit Generation (Within Process Serving)</h4>
-            <p class="small text-muted mb-2">GPS evidence + DocuSign signing order, built into the case lifecycle</p>
-            <h5 class="h6 mt-3 mb-1">Challenge</h5>
-            <p class="small mb-2">Manual affidavit drafting and signature chasing slowed delivery and increased formatting risk.</p>
-            <h5 class="h6 mb-1">Solution</h5>
-            <p class="small mb-2">Generated affidavits from structured case data, routed signatures server → commissioner in DocuSign, and auto-emailed signed PDFs to the firm.</p>
-            <h5 class="h6 mb-1">Results</h5>
-            <ul class="small mb-0 ps-3" style="line-height: 1.6;">
-              <li>Faster affidavit drafting through structured case data and automation</li>
-              <li>Legally defensible evidence chain (GPS + timestamps)</li>
-              <li>Professional notes enforced via approval queue</li>
-            </ul>
-            <%= link_to "Read full case study →", case_study_path('flss-legal-process-serving'), class: "d-inline-block mt-3 fw-semibold small ajax" %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Who We Serve -->
-  <section class="py-5 bg-white" id="who-we-serve">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Who We Serve</h2>
-      </div>
-      <div class="row g-4">
-        <div class="col-12 col-md-4">
-          <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-2">Law Firm Sizes</h4>
-            <p class="mb-0 small">Solo practitioners; small firms (2–10 attorneys); mid-size (11–50); large firms (50+); virtual law firms and distributed teams.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-2">Practice Areas</h4>
-            <p class="mb-0 small">Corporate and transactional; litigation (commercial, employment, PI); real estate; estate planning and elder law; family law; immigration; IP; employment and labor; criminal defense.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-2">Client Types</h4>
-            <p class="mb-0 small">Law firms seeking competitive advantage; firms in rapid growth; high document volume practices; attorneys transitioning from large to small firm; new grads starting practice; in-house legal departments.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="py-5 bg-light-grey" id="faq">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Frequently Asked Questions</h2>
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">FAQ</h2>
       </div>
       <div class="row">
         <div class="col-12 col-lg-10 mx-auto">
           <div class="accordion legal-industry-faq" id="legalIndustryFaq">
             <div class="accordion-item border rounded mb-2">
               <h3 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#legind1" aria-expanded="false" aria-controls="legind1">Can AI really review legal documents accurately?</button>
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#legfaq1" aria-expanded="false" aria-controls="legfaq1">How do you handle AI accuracy in a legal context?</button>
               </h3>
-              <div id="legind1" class="accordion-collapse collapse" data-bs-parent="#legalIndustryFaq">
-                <div class="accordion-body">AI is a powerful tool for document analysis, but it should augment, not replace, attorney judgment. Our systems flag clauses, identify risks, and extract key terms; attorneys review the AI’s output and make final decisions. Think of it as a highly efficient first-pass reviewer that never gets tired.</div>
+              <div id="legfaq1" class="accordion-collapse collapse" data-bs-parent="#legalIndustryFaq">
+                <div class="accordion-body">We treat every AI output as a draft, never as an authority. Document parsing extracts fields for human review in a split-screen UI. Language refinement preserves the raw observation alongside the refined version. Document generation uses deterministic templates rendered from structured data, not free-form AI output. The audit log records both the AI draft and the human-approved version. A reviewer evaluating the system can trace any record back to its source observation.</div>
               </div>
             </div>
             <div class="accordion-item border rounded mb-2">
               <h3 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#legind2" aria-expanded="false" aria-controls="legind2">How do you ensure attorney-client privilege is protected?</button>
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#legfaq2" aria-expanded="false" aria-controls="legfaq2">How do you ensure tenant isolation in multi-tenant builds?</button>
               </h3>
-              <div id="legind2" class="accordion-collapse collapse" data-bs-parent="#legalIndustryFaq">
-                <div class="accordion-body">We build privilege protection into the architecture: encrypted communications, access controls limiting who sees what, complete audit trails, and secure cloud infrastructure. We also help you establish proper IT policies and train staff on privilege considerations with technology.</div>
+              <div id="legfaq2" class="accordion-collapse collapse" data-bs-parent="#legalIndustryFaq">
+                <div class="accordion-body">PostgreSQL Row Level Security enforced at the database layer. Every table has a tenant_id column. RLS policies use a session-level variable set at authentication time to filter all queries automatically. Even if an application query forgets a tenant filter, or a SQL injection bypasses the application layer, the database refuses to return cross-tenant data. The isolation is structural, not procedural.</div>
               </div>
             </div>
             <div class="accordion-item border rounded mb-2">
               <h3 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#legind3" aria-expanded="false" aria-controls="legind3">What if the AI makes a mistake or misses something critical?</button>
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#legfaq3" aria-expanded="false" aria-controls="legfaq3">Do you offer ongoing maintenance and support?</button>
               </h3>
-              <div id="legind3" class="accordion-collapse collapse" data-bs-parent="#legalIndustryFaq">
-                <div class="accordion-body">AI is not perfect, and we’re transparent about that. Attorney review is always required for critical decisions. Our systems include confidence scores, highlighting uncertain analysis for closer human review. We maintain liability insurance and work with you to establish proper review protocols.</div>
+              <div id="legfaq3" class="accordion-collapse collapse" data-bs-parent="#legalIndustryFaq">
+                <div class="accordion-body">Yes. Most legal-tech clients move to a monthly retainer after the initial build for monitoring, vendor management, feature work, and compliance updates as regulations evolve. We do not take on builds without a clear post-launch support plan.</div>
               </div>
             </div>
             <div class="accordion-item border rounded mb-2">
               <h3 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#legind4" aria-expanded="false" aria-controls="legind4">Can you integrate with our existing legal research platforms?</button>
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#legfaq4" aria-expanded="false" aria-controls="legfaq4">What if we&rsquo;re already mid-build and need help?</button>
               </h3>
-              <div id="legind4" class="accordion-collapse collapse" data-bs-parent="#legalIndustryFaq">
-                <div class="accordion-body">Yes. We integrate with Westlaw, LexisNexis, Fastcase, Casetext, and other legal research platforms. We can pull research results, citations, and case law into our tools. For proprietary platforms, we can build custom integrations.</div>
-              </div>
-            </div>
-            <div class="accordion-item border rounded mb-2">
-              <h3 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#legind6" aria-expanded="false" aria-controls="legind6">Do we need to change how we practice law?</button>
-              </h3>
-              <div id="legind6" class="accordion-collapse collapse" data-bs-parent="#legalIndustryFaq">
-                <div class="accordion-body">Not drastically. We design technology to fit your existing workflows. However, technology may reveal better ways of doing things, faster document review, better client communication, more efficient matter management. We work collaboratively to adopt technology at your pace.</div>
-              </div>
-            </div>
-            <div class="accordion-item border rounded mb-2">
-              <h3 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#legind7" aria-expanded="false" aria-controls="legind7">What about ethics and bar association approval?</button>
-              </h3>
-              <div id="legind7" class="accordion-collapse collapse" data-bs-parent="#legalIndustryFaq">
-                <div class="accordion-body">We stay current on ABA ethics opinions and state bar guidance on legal technology, cloud computing, AI, and confidentiality. We help you review applicable ethics rules and implement technology in compliance with professional responsibility obligations. Most state bars encourage technology adoption when done properly.</div>
-              </div>
-            </div>
-            <div class="accordion-item border rounded mb-2">
-              <h3 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#legind8" aria-expanded="false" aria-controls="legind8">Can technology help us offer alternative fee arrangements?</button>
-              </h3>
-              <div id="legind8" class="accordion-collapse collapse" data-bs-parent="#legalIndustryFaq">
-                <div class="accordion-body">Yes. Technology reduces time spent on commodity tasks, making flat fees and other AFAs more profitable. Better matter budgeting and tracking help you predict costs accurately. Many firms use technology to become more cost-competitive while maintaining or increasing profitability.</div>
-              </div>
-            </div>
-            <div class="accordion-item border rounded mb-2">
-              <h3 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#legind10" aria-expanded="false" aria-controls="legind10">Do you provide ongoing support after implementation?</button>
-              </h3>
-              <div id="legind10" class="accordion-collapse collapse" data-bs-parent="#legalIndustryFaq">
-                <div class="accordion-body">Yes. We offer ongoing support including software updates, bug fixes, technical support, ethics compliance monitoring, and feature enhancements. We provide training for new attorneys and staff, and can manage systems on your behalf if desired.</div>
+              <div id="legfaq4" class="accordion-collapse collapse" data-bs-parent="#legalIndustryFaq">
+                <div class="accordion-body">We offer a two-week architecture review for teams who have an in-progress legal operations build and need senior eyes on the data flow, AI scoping, and audit defensibility. We audit the existing system, identify risks, and produce a remediation plan you can hand to your team. About a third of these engagements expand into us doing the remediation work; the others get a written plan and run it internally.</div>
               </div>
             </div>
           </div>
@@ -572,57 +279,4 @@
     </div>
   </section>
 
-  <!-- Related Services -->
-  <section class="py-5 bg-white" id="related">
-    <div class="container">
-      <div class="text-center mb-4">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Related Services</h2>
-      </div>
-      <div class="row g-3 justify-content-center">
-        <div class="col-6 col-md-4 col-lg-2">
-          <%= link_to ai_agent_development_path, class: "btn btn-outline-primary w-100 py-3 small" do %>AI Agent Development<% end %>
-        </div>
-        <div class="col-6 col-md-4 col-lg-2">
-          <%= link_to custom_software_path, class: "btn btn-outline-primary w-100 py-3 small" do %>Custom Software<% end %>
-        </div>
-        <div class="col-6 col-md-4 col-lg-2">
-          <%= link_to api_integrations_path, class: "btn btn-outline-primary w-100 py-3 small" do %>API Integrations<% end %>
-        </div>
-        <div class="col-6 col-md-4 col-lg-2">
-          <%= link_to custom_software_path, class: "btn btn-outline-primary w-100 py-3 small" do %>Document Processing &amp; Automation<% end %>
-        </div>
-        <div class="col-6 col-md-4 col-lg-2">
-          <%= link_to machine_learning_path, class: "btn btn-outline-primary w-100 py-3 small" do %>Machine Learning<% end %>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="py-5 bg-light-grey" id="cta">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-lg-10 mx-auto">
-          <div class="workflow-card p-5 p-lg-5 text-center">
-            <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Ready to Multiply Your Legal Practice's Effectiveness?</h2>
-            <p class="lead mb-4">Whether you're drowning in document review, losing billable hours to administrative tasks, or looking to differentiate your practice, we're here to help.</p>
-            <h4 class="h6 mb-3">Free Legal Technology Assessment Includes:</h4>
-            <ul class="list-unstyled mb-4" style="line-height: 2;">
-              <li>60-minute consultation with legal tech experts</li>
-              <li>Practice workflow analysis</li>
-              <li>Technology recommendations tailored to your practice area</li>
-              <li>ROI projections and timeline</li>
-              <li>Ethics and compliance review</li>
-              <li>Transparent pricing and phased approach</li>
-            </ul>
-            <div class="d-flex flex-wrap gap-3 justify-content-center mb-4">
-              <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">Schedule Free Legal Tech Consultation</a>
-              <%= link_to "View Legal Case Studies", case_studies_path, class: "btn btn-outline-primary btn-lg rounded-pill px-4" %>
-            </div>
-            <p class="mb-0 small text-muted">Email: <a href="mailto:ahmad@astechware.com" class="text-decoration-none">ahmad@astechware.com</a> • Book a call: <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="text-decoration-none">Calendly</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 </div>

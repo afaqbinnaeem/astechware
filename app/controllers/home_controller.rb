@@ -38,8 +38,8 @@ class HomeController < ApplicationController
     slug = params[:slug].to_s
 
     case_studies = {
-      'medical-voice-ai' => { title: 'AI-Powered Healthcare Platform, Voice Scheduling, Clinical AI & EHR Sync' },
-      'flss-legal-process-serving' => { title: 'A Canadian Process Serving Company, AI-Powered Legal Process Serving Platform' },
+      'medical-voice-ai' => { title: 'HIPAA Voice Booking & AI Scribe — LLM Never Sees Patient Names' },
+      'flss-legal-process-serving' => { title: 'Process Serving Platform — Court-Defensible Multi-Tenant SaaS' },
       'ai-deal-analyzer' => { title: 'AI Real Estate Deal Analyzer, From Address to Investment Decision in 90 Seconds' },
       'shoreline-waste-logistics' => { title: 'Geospatial Logistics & Fleet Orchestration Platform' },
       'vestra-payments' => { title: 'Automated Payment Settlement & Escrow Engine' },
