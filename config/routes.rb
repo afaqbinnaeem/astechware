@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get '/services/devops-engineering', to: 'home#devops_engineering', as: 'devops_engineering'
   get '/clients', to: 'home#clients', as: 'clients'
   get '/about', to: 'home#about', as: 'about'
+  get '/services', to: 'home#services', as: 'services'
   get '/case-studies', to: 'home#portfolio', as: 'case_studies'
   get '/case-studies/:slug', to: 'home#case_study', as: 'case_study'
   get '/projects', to: 'home#projects', as: 'projects'

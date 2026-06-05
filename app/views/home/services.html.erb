@@ -1,0 +1,58 @@
+<% content_for :meta_site do %><% end %>
+<% content_for :head do %>
+  <% set_meta_tags(
+    title: "AI & Software Engineering Services | A'sTechware",
+    description: "Production-ready AI agents, custom platform development, platform modernization, and API integrations for healthcare, legal, and operations-heavy teams.",
+    keywords: "AI agent development, custom software, platform modernization, API integrations, production AI services"
+  ) %>
+  <% services_base = Rails.env.production? ? "https://astechware.com" : root_url.chomp("/") %>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "CollectionPage",
+    "name" => "Services",
+    "url" => "#{services_base}/services",
+    "description" => "End-to-end AI, ML, automation, and engineering capabilities for production-ready systems.",
+    "mainEntity" => {
+      "@type" => "ItemList",
+      "itemListElement" => core_services_list.each_with_index.map do |service, index|
+        path = public_send(service[:path])
+        url = path.start_with?("http") ? path : "#{services_base}#{path}"
+        {
+          "@type" => "ListItem",
+          "position" => index + 1,
+          "name" => service[:title],
+          "url" => url
+        }
+      end
+    }
+  }.to_json) %>
+  </script>
+  <script type="application/ld+json">
+  <%= raw(breadcrumb_list_json_ld) %>
+  </script>
+<% end %>
+
+<div class="hero-section py-5">
+  <div class="container">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-12 col-lg-9 mx-auto text-center">
+        <h1 class="display-4 fw-bold mb-4" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;">
+          Our Services
+        </h1>
+        <p class="lead mb-0" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.6; max-width: 820px; margin-left: auto; margin-right: auto;">
+          End-to-end AI, ML, automation, and engineering capabilities for production-ready systems.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="expertise-section py-5" id="services">
+  <div class="container">
+    <%= render "home/services_grid" %>
+    <div class="text-center mt-5">
+      <%= link_to "Book a 30-Min Strategy Call", "https://calendly.com/ahmadkamran/new-meeting", target: "_blank", rel: "noopener noreferrer", class: "btn btn-primary rounded-pill px-4" %>
+    </div>
+  </div>
+</div>

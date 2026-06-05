@@ -5,6 +5,7 @@ SitemapGenerator::Sitemap.compress = false
 
 SitemapGenerator::Sitemap.create do
   add '/', priority: 1.0, changefreq: 'weekly'
+  add '/services', priority: 0.9, changefreq: 'monthly'
   add '/services/ai-agent-development', priority: 0.9, changefreq: 'monthly'
   add '/services/machine-learning', priority: 0.9, changefreq: 'monthly'
   add '/services/platform-modernization', priority: 0.9, changefreq: 'monthly'

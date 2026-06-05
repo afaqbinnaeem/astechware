@@ -6,6 +6,7 @@
         <%= image_tag "logo.png", width: "120", class: "img-fluid", alt: "A'sTechware Logo", loading: "lazy" %>
       <% end %>
       <ul class="enterprise-nav-menu list-unstyled m-0 d-flex align-items-center flex-wrap">
+        <li class="enterprise-nav-item"><%= link_to "Services", services_path, class: "enterprise-nav-link ajax" %></li>
         <li class="enterprise-nav-item dropdown">
           <a class="enterprise-nav-link dropdown-toggle" href="#" id="navSolutions" role="button" data-bs-toggle="dropdown" aria-expanded="false">Solutions</a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navSolutions">
@@ -71,6 +72,7 @@
         <div class="sliding-menu-wrapper">
           <ul class="menu-panel-root list-unstyled m-0 p-0">
             <li class="menu-item"><%= link_to "Home", root_path, class: "ajax" %></li>
+            <li class="menu-item"><%= link_to "Services", services_path, class: "ajax" %></li>
             <li class="menu-item menu-item-has-children">
               <span class="menu-item-label">Solutions</span>
               <ul class="sub-menu list-unstyled m-0 ps-3">

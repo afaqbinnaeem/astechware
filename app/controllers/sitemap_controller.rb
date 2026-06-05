@@ -25,6 +25,7 @@ class SitemapController < ApplicationController
     # Homepage and main pages (use base for root so production has no trailing slash)
     urls << { loc: base, priority: "1.0", changefreq: "weekly" }
     urls << { loc: "#{base}#{about_path}", priority: "0.7", changefreq: "monthly" }
+    urls << { loc: "#{base}#{services_path}", priority: "0.9", changefreq: "monthly" }
     urls << { loc: "#{base}#{contact_path}", priority: "0.8", changefreq: "monthly" }
     urls << { loc: "#{base}#{case_studies_path}", priority: "0.9", changefreq: "weekly" }
     urls << { loc: "#{base}#{clients_path}", priority: "0.7", changefreq: "monthly" }

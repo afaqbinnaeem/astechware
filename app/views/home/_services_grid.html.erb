@@ -1,0 +1,14 @@
+<div class="row g-4">
+  <% core_services_list.each do |service| %>
+    <div class="col-12 col-sm-6 col-lg-6">
+      <div class="service-card h-100">
+        <div class="service-card-icon">
+          <i class="fa <%= service[:icon] %>" aria-hidden="true"></i>
+        </div>
+        <h5 class="service-card-title"><%= service[:title] %></h5>
+        <p class="service-card-desc"><%= service[:description] %></p>
+        <%= link_to "Learn More →", public_send(service[:path]), class: "service-card-link ajax" %>
+      </div>
+    </div>
+  <% end %>
+</div>

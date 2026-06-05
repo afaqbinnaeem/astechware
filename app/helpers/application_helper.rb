@@ -113,6 +113,35 @@ module ApplicationHelper
     blog_articles_list.first
   end
 
+  def core_services_list
+    [
+      {
+        title: "AI & ML Agents & Automation",
+        description: "We build autonomous agents that actually finish tasks. From HIPAA-compliant medical intake to 24/7 HVAC dispatching, our systems include human-in-the-loop protocols and audit trails so high-stakes workflows stay accurate, reviewable, and safe.",
+        icon: "fa-cogs",
+        path: :ai_agent_development_path
+      },
+      {
+        title: "Custom Platform Development",
+        description: "End-to-end software built for specialized workflows. We develop Legal Discovery portals, Logistics management dashboards, and B2B SaaS infrastructure. We don't just write code; we build the backbone of your digital operation.",
+        icon: "fa-code",
+        path: :custom_software_path
+      },
+      {
+        title: "Platform Modernization & Scaling",
+        description: "Legacy systems shouldn't stop innovation. We rescue and modernize aging platforms in Logistics and Real Estate, upgrading infrastructure and APIs so your business is ready to leverage modern AI capabilities without starting from scratch.",
+        icon: "fa-refresh",
+        path: :platform_modernization_path
+      },
+      {
+        title: "Integrations & API Engineering",
+        description: "We sync your AI with the tools you already use, CRMs, EHRs, PMS, Dispatch software, and Billing systems. We build the 'glue' that allows data to flow seamlessly between your AI agents and your core business operations.",
+        icon: "fa-plug",
+        path: :api_integrations_path
+      }
+    ]
+  end
+
   # BreadcrumbList JSON-LD for inner pages (services, solutions, about, contact, etc.)
   def breadcrumb_list_json_ld
     base = Rails.env.production? ? "https://astechware.com" : base_url
