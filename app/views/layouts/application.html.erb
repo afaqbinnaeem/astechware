@@ -87,11 +87,13 @@
     <% if asset_path('astechware-transparent-logo.webp').present? %>
     <link rel="preload" as="image" href="<%= asset_path('astechware-transparent-logo.webp') %>" />
     <% end %>
-    <%# Open Graph and Twitter (full set). Prefer /og-image.png; fallback to /favicon.svg %>
+    <%# Open Graph and Twitter (full set). Prefer /og-image.png for LinkedIn/social previews %>
     <% og_image_url = seo_og_image_url %>
     <% og_image_type = seo_og_image_type %>
     <% og_image_dims = seo_og_image_dimensions %>
     <% og_meta = {
+      title: :title,
+      description: :description,
       type: 'website',
       site_name: "A'sTechware",
       url: canonical_url,
