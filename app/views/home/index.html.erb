@@ -1,10 +1,9 @@
+<% set_meta_tags(
+  title: "AI-Enabled Systems for Legal, Healthcare & Operational Workflows",
+  description: "Privacy-first AI automations and integrations for healthcare, legal, and regulated operations. Production-grade agents and software without casually routing sensitive data to third-party AI. Book a technical call.",
+  keywords: "AI development, production AI, platform engineering, custom software, AI governance, privacy-first AI, confidential AI integration"
+) %>
 <% content_for :head do %>
-   <%# Title (page part only; layout adds " | A'sTechware"). Description unique per spec. %>
-   <% set_meta_tags(
-     title: "AI-Enabled Systems for Legal, Healthcare & Operational Workflows",
-     description: "Privacy-first AI automations and integrations for healthcare, legal, and regulated operations. Production-grade agents and software without casually routing sensitive data to third-party AI. Book a technical call.",
-     keywords: "AI development, production AI, platform engineering, custom software, AI governance, privacy-first AI, confidential AI integration"
-   ) %>
    <%# Homepage-only JSON-LD: WebSite, ProfessionalService, FAQPage, AggregateRating + Reviews %>
    <% home_base = Rails.env.production? ? "https://astechware.com" : root_url.chomp("/") %>
    <script type="application/ld+json">

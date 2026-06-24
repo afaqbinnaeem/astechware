@@ -51,13 +51,15 @@ module ApplicationHelper
   # Full URL for OG image. LinkedIn requires PNG/JPG (not SVG). Prefer public/og-image.png.
   def seo_og_image_url
     base = Rails.env.production? ? "https://astechware.com" : "#{request.protocol}#{request.host_with_port}"
-    if Rails.public_path.join("og-image.png").exist?
-      "#{base}/og-image.png"
-    elsif Rails.public_path.join("web-app-manifest-512x512.png").exist?
-      "#{base}/web-app-manifest-512x512.png"
-    else
-      "#{base}/favicon-96x96.png"
-    end
+    image_path =
+      if Rails.public_path.join("og-image.png").exist?
+        "/og-image.png?v=2"
+      elsif Rails.public_path.join("web-app-manifest-512x512.png").exist?
+        "/web-app-manifest-512x512.png?v=2"
+      else
+        "/favicon-96x96.png"
+      end
+    "#{base}#{image_path}"
   end
 
   def seo_og_image_type
