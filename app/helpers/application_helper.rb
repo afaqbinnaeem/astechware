@@ -48,28 +48,32 @@ module ApplicationHelper
     root_url
   end
 
-  # Full URL for OG image (1200x630). Use public/og-image.png in production.
+  # Full URL for OG image. LinkedIn requires PNG/JPG (not SVG). Prefer public/og-image.png.
   def seo_og_image_url
     base = Rails.env.production? ? "https://astechware.com" : "#{request.protocol}#{request.host_with_port}"
-    if Rails.public_path.join("og-image.png").exist?
-      "#{base}/og-image.png"
-    else
-      "#{base}/favicon.svg"
-    end
+    image_path =
+      if Rails.public_path.join("og-image.png").exist?
+        "/og-image.png?v=2"
+      elsif Rails.public_path.join("web-app-manifest-512x512.png").exist?
+        "/web-app-manifest-512x512.png?v=2"
+      else
+        "/favicon-96x96.png"
+      end
+    "#{base}#{image_path}"
   end
 
   def seo_og_image_type
-    if Rails.public_path.join("og-image.png").exist?
-      "image/png"
-    else
-      "image/svg+xml"
-    end
+    "image/png"
   end
 
   def seo_og_image_dimensions
-    return { width: 1200, height: 630 } if Rails.public_path.join("og-image.png").exist?
-
-    {}
+    if Rails.public_path.join("og-image.png").exist?
+      { width: 512, height: 512 }
+    elsif Rails.public_path.join("web-app-manifest-512x512.png").exist?
+      { width: 512, height: 512 }
+    else
+      { width: 96, height: 96 }
+    end
   end
 
   # Get reCAPTCHA site key for frontend
