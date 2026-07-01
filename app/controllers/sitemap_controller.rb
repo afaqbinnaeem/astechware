@@ -30,6 +30,7 @@ class SitemapController < ApplicationController
     urls << { loc: "#{base}#{case_studies_path}", priority: "0.9", changefreq: "weekly" }
     urls << { loc: "#{base}#{clients_path}", priority: "0.7", changefreq: "monthly" }
     urls << { loc: "#{base}#{methodology_path}", priority: "0.7", changefreq: "monthly" }
+    urls << { loc: "#{base}#{gcc_path}", priority: "0.8", changefreq: "monthly" }
     urls << { loc: "#{base}#{derisk_projects_path}", priority: "0.7", changefreq: "monthly" }
     urls << { loc: "#{base}#{blogs_path}", priority: "0.8", changefreq: "weekly" }
     urls << { loc: "#{base}#{privacy_policy_path}", priority: "0.5", changefreq: "monthly" }

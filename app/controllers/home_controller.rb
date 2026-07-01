@@ -126,6 +126,9 @@ class HomeController < ApplicationController
   def methodology
   end
 
+  def gcc
+  end
+
   def industry_healthcare
   end
 

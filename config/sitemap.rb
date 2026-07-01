@@ -21,6 +21,7 @@ SitemapGenerator::Sitemap.create do
   add '/solutions/professional-services', priority: 0.8, changefreq: 'monthly'
   add '/solutions/education-technology', priority: 0.8, changefreq: 'monthly'
   add '/methodology', priority: 0.7, changefreq: 'monthly'
+  add '/gcc', priority: 0.8, changefreq: 'monthly'
   add '/case-studies', priority: 0.9, changefreq: 'weekly'
   add '/blogs', priority: 0.8, changefreq: 'weekly'
   add '/about', priority: 0.7, changefreq: 'monthly'
