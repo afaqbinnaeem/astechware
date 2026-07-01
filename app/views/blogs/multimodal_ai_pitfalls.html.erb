@@ -1,11 +1,11 @@
 <% article = blog_article_for_path(request.path) %>
 <% content_for :head do %>
   <% set_meta_tags(
-    title: "Multi-Modal AI Pitfalls: Vision + Language in Production | A'sTechware",
-    description: "Your AI can 'see' images but keeps missing the invoice total. Preprocessing, OCR-first pipelines, and structured output that work.",
-    keywords: "multi-modal AI, vision language models, GPT-4 Vision, invoice processing",
-    og: { title: "Multi-Modal AI Pitfalls: Lessons from Vision + Language Deployments", description: "Why vision+language fails and how to fix it.", url: safe_request_url, type: "article", site_name: "A'sTechware" },
-    twitter: { card: "summary_large_image", title: "Multi-Modal AI Pitfalls", description: "Deploy vision + language models reliably." }
+    title: "Multi Modal AI Pitfalls: Vision + Language in Production | A'sTechware",
+    description: "Your AI can 'see' images but keeps missing the invoice total. Preprocessing, OCR first pipelines, and structured output that work.",
+    keywords: "multi modal AI, vision language models, GPT 4 Vision, invoice processing",
+    og: { title: "Multi Modal AI Pitfalls: Lessons from Vision + Language Deployments", description: "Why vision+language fails and how to fix it.", url: safe_request_url, type: "article", site_name: "A'sTechware" },
+    twitter: { card: "summary_large_image", title: "Multi Modal AI Pitfalls", description: "Deploy vision + language models reliably." }
   ) %>
   <script type="application/ld+json">
   <%= raw({
@@ -13,7 +13,7 @@
     "@type" => "Article",
     "headline" => article[:title],
     "description" => article[:excerpt_long],
-    "datePublished" => "2025-02-01",
+    "datePublished" => "2025 02 01",
     "author" => { "@type" => "Organization", "name" => article[:author_name] }
   }.to_json) %>
   </script>
@@ -22,18 +22,18 @@
   <p class="lead">Your AI can "see" images. So why does it keep missing the invoice total? Lessons from vision + language in production.</p>
 
   <h2>Common Use Cases</h2>
-  <p>Invoice and receipt processing, ID verification, product catalog (image + description), medical image analysis, visual Q&A. Multi-modal models (GPT-4V, Claude 3, Gemini) promise one model for all of it—but deployment often fails without the right pipeline.</p>
+  <p>Invoice and receipt processing, ID verification, product catalog (image + description), medical image analysis, visual Q&A. Multi modal models (GPT 4V, Claude 3, Gemini) promise one model for all of it, but deployment often fails without the right pipeline.</p>
 
-  <h2>Why Multi-Modal Fails</h2>
+  <h2>Why Multi Modal Fails</h2>
   <ul>
-    <li><strong>Image quality</strong>—too small, blurry, or rotated.</li>
-    <li><strong>OCR is better</strong>—for text-heavy images, use Tesseract or AWS Textract first.</li>
-    <li><strong>Model limits</strong>—small text, complex layouts.</li>
-    <li><strong>No structured output</strong>—model returns prose instead of JSON; hard to integrate.</li>
-    <li><strong>Cost</strong>—images consume many tokens; resolution drives cost.</li>
-    <li><strong>No fallback</strong>—when vision fails, the whole process fails.</li>
+    <li><strong>Image quality</strong>, too small, blurry, or rotated.</li>
+    <li><strong>OCR is better</strong>, for text heavy images, use Tesseract or AWS Textract first.</li>
+    <li><strong>Model limits</strong>, small text, complex layouts.</li>
+    <li><strong>No structured output</strong>, model returns prose instead of JSON; hard to integrate.</li>
+    <li><strong>Cost</strong>, images consume many tokens; resolution drives cost.</li>
+    <li><strong>No fallback</strong>, when vision fails, the whole process fails.</li>
   </ul>
 
   <h2>Best Practices</h2>
-  <p>Preprocess images (resize, rotate, contrast). For text-heavy docs: OCR first, then use vision for validation or extraction. Prompt for structured output (JSON schema). Handle vision failures (retry, fallback to OCR-only, or human review). Resize to optimal resolution for cost. Real examples: invoice processing with OCR + GPT-4V at 95% accuracy; ID verification with vision + validation rules; medical imaging with vision + human review. We'll add code for preprocessing, OCR+LLM pipeline, and structured output. <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer">Schedule multi-modal implementation support</a>.</p>
+  <p>Preprocess images (resize, rotate, contrast). For text heavy docs: OCR first, then use vision for validation or extraction. Prompt for structured output (JSON schema). Handle vision failures (retry, fallback to OCR only, or human review). Resize to optimal resolution for cost. Real examples: invoice processing with OCR + GPT 4V at 95% accuracy; ID verification with vision + validation rules; medical imaging with vision + human review. We'll add code for preprocessing, OCR+LLM pipeline, and structured output. <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer">Schedule multi modal implementation support</a>.</p>
 <% end %>

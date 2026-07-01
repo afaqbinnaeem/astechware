@@ -41,19 +41,19 @@ class HomeController < ApplicationController
     slug = params[:slug].to_s
 
     case_studies = {
-      'medical-voice-ai' => { title: 'HIPAA Voice Booking & AI Scribe — LLM Never Sees Patient Names' },
-      'flss-legal-process-serving' => { title: 'Process Serving Platform — Court-Defensible Multi-Tenant SaaS' },
+      'medical-voice-ai' => { title: 'HIPAA Voice Booking & AI Scribe, LLM Never Sees Patient Names' },
+      'flss-legal-process-serving' => { title: 'Process Serving Platform, Court Defensible Multi Tenant SaaS' },
       'ai-deal-analyzer' => { title: 'AI Real Estate Deal Analyzer, From Address to Investment Decision in 90 Seconds' },
       'shoreline-waste-logistics' => { title: 'Geospatial Logistics & Fleet Orchestration Platform' },
       'vestra-payments' => { title: 'Automated Payment Settlement & Escrow Engine' },
-      'zofi-cash-fintech' => { title: 'Liquidity-as-a-Service & Automated Payroll Settlement Engine' },
-      'golfpay360-saas' => { title: 'Multi-Tenant Hospitality Orchestration & POS Engine' },
-      'red-dragon-hvac' => { title: 'Automated Field-Proof Marketing & Local SEO Engine' },
+      'zofi-cash-fintech' => { title: 'Liquidity as a Service & Automated Payroll Settlement Engine' },
+      'golfpay360-saas' => { title: 'Multi Tenant Hospitality Orchestration & POS Engine' },
+      'red-dragon-hvac' => { title: 'Automated Field Proof Marketing & Local SEO Engine' },
       'eventvesta-ai-marketing' => { title: 'AI Marketing OS for Event Promoters' },
       'instashowing-real-estate' => { title: 'Real Estate Transaction Coordination & Availability Engine' },
-      'word-of-mouth-modernization' => { title: 'Enterprise Legacy-to-Cloud Marketplace Transformation' },
-      'restaurant-resource-rescue' => { title: 'High-Performance Search & Inventory Recovery' },
-      'construction-management-platform' => { title: 'Multi-Company Construction Management Platform: Traceable Estimates to QuickBooks' },
+      'word-of-mouth-modernization' => { title: 'Enterprise Legacy to Cloud Marketplace Transformation' },
+      'restaurant-resource-rescue' => { title: 'High Performance Search & Inventory Recovery' },
+      'construction-management-platform' => { title: 'Multi Company Construction Management Platform: Traceable Estimates to QuickBooks' },
     }
 
     case_study = case_studies[slug]

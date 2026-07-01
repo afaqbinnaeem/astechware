@@ -3,7 +3,7 @@
   <% set_meta_tags(
     title: "AI Cost Explosion: Mistakes That Burn $50K/Month | A'sTechware",
     description: "Your AI feature costs $50K/month. It should cost $8K. Model tiering, caching, and token optimization that cut costs without sacrificing quality.",
-    keywords: "AI cost optimization, LLM costs, GPT-4 optimization, semantic caching",
+    keywords: "AI cost optimization, LLM costs, GPT 4 optimization, semantic caching",
     og: { title: "AI Cost Explosion: The Mistakes Burning $50K/Month", description: "Where AI costs come from and 8 strategies to optimize.", url: safe_request_url, type: "article", site_name: "A'sTechware" },
     twitter: { card: "summary_large_image", title: "AI Cost Explosion", description: "Cut AI costs with smart routing and caching." }
   ) %>
@@ -13,7 +13,7 @@
     "@type" => "Article",
     "headline" => article[:title],
     "description" => article[:excerpt_long],
-    "datePublished" => "2025-02-01",
+    "datePublished" => "2025 02 01",
     "author" => { "@type" => "Organization", "name" => article[:author_name] }
   }.to_json) %>
   </script>
@@ -22,25 +22,25 @@
   <p class="lead">Your AI feature costs $50K/month. It should cost $8K. Here's where the money goes and how to fix it.</p>
 
   <h2>Where AI Costs Come From</h2>
-  <p>Model selection (GPT-4 vs GPT-3.5 vs Claude can mean a 60x price difference), token usage (input + output), request frequency, and paying for the same queries repeatedly when there's no caching. We break down the math: total cost = tokens × price × requests.</p>
+  <p>Model selection (GPT 4 vs GPT 3.5 vs Claude can mean a 60x price difference), token usage (input + output), request frequency, and paying for the same queries repeatedly when there's no caching. We break down the math: total cost = tokens × price × requests.</p>
 
   <h2>Real Case: Legal Tech $40K → $16K</h2>
-  <p>One legal tech company was sending full documents to GPT-4 for every summarization. With model tiering, prompt compression, and semantic caching, we cut their bill by more than half while keeping quality.</p>
+  <p>One legal tech company was sending full documents to GPT 4 for every summarization. With model tiering, prompt compression, and semantic caching, we cut their bill by more than half while keeping quality.</p>
 
   <h2>Eight Cost Optimization Strategies</h2>
   <ol>
-    <li><strong>Model tiering</strong>—use cheaper models for simple tasks (e.g. GPT-3.5 for 70% of workloads).</li>
-    <li><strong>Prompt optimization</strong>—reduce from 2,000 tokens to 400 where possible.</li>
-    <li><strong>Aggressive caching</strong>—40%+ fewer API calls with semantic caching.</li>
-    <li><strong>Response streaming</strong>—stop early when the answer is sufficient.</li>
-    <li><strong>Batch processing</strong>—10 docs in one call instead of 10 calls.</li>
-    <li><strong>Embeddings for RAG</strong>—don't send full docs to GPT-4; retrieve then summarize.</li>
-    <li><strong>Rate limiting</strong>—prevent runaway costs per user or feature.</li>
-    <li><strong>Monitoring dashboard</strong>—cost per user, per feature, so you see spikes before the bill.</li>
+    <li><strong>Model tiering</strong>, use cheaper models for simple tasks (e.g. GPT 3.5 for 70% of workloads).</li>
+    <li><strong>Prompt optimization</strong>, reduce from 2,000 tokens to 400 where possible.</li>
+    <li><strong>Aggressive caching</strong>, 40%+ fewer API calls with semantic caching.</li>
+    <li><strong>Response streaming</strong>, stop early when the answer is sufficient.</li>
+    <li><strong>Batch processing</strong>, 10 docs in one call instead of 10 calls.</li>
+    <li><strong>Embeddings for RAG</strong>, don't send full docs to GPT 4; retrieve then summarize.</li>
+    <li><strong>Rate limiting</strong>, prevent runaway costs per user or feature.</li>
+    <li><strong>Monitoring dashboard</strong>, cost per user, per feature, so you see spikes before the bill.</li>
   </ol>
 
   <h2>Red Flags in Your AI Bill</h2>
-  <p>Watch for: same query repeated thousands of times, GPT-4 used for classification, no caching on RAG, and no attribution by feature. Tools like LangSmith and Helicone help. When fine-tuning is worth it: specialized tasks can see 95% cost reduction.</p>
+  <p>Watch for: same query repeated thousands of times, GPT 4 used for classification, no caching on RAG, and no attribution by feature. Tools like LangSmith and Helicone help. When fine tuning is worth it: specialized tasks can see 95% cost reduction.</p>
 
   <p><strong>Coming soon:</strong> Full math, code examples, and cost monitoring setup. <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer">Schedule an AI cost audit</a>.</p>
 <% end %>

@@ -2,7 +2,7 @@
 <% content_for :head do %>
   <% set_meta_tags(
     title: "Prompt Injection: How Hackers Hijack Your AI | A'sTechware",
-    description: "Your AI agent can be tricked into leaking data or executing unwanted actions. What prompt injection is and defense-in-depth strategies that work.",
+    description: "Your AI agent can be tricked into leaking data or executing unwanted actions. What prompt injection is and defense in depth strategies that work.",
     keywords: "prompt injection, AI security, LLM security vulnerabilities, adversarial inputs",
     og: { title: "Prompt Injection: How Hackers Hijack Your AI (And How to Stop Them)", description: "Types of prompt injection and defense strategies.", url: safe_request_url, type: "article", site_name: "A'sTechware" },
     twitter: { card: "summary_large_image", title: "Prompt Injection Security", description: "Defend your AI from prompt injection." }
@@ -13,7 +13,7 @@
     "@type" => "Article",
     "headline" => article[:title],
     "description" => article[:excerpt_long],
-    "datePublished" => "2025-02-01",
+    "datePublished" => "2025 02 01",
     "author" => { "@type" => "Organization", "name" => article[:author_name] }
   }.to_json) %>
   </script>
@@ -32,17 +32,17 @@
   </ul>
 
   <h2>Types of Attacks</h2>
-  <p><strong>Direct injection</strong>—malicious user input. <strong>Indirect injection</strong>—poisoned documents the model reads. <strong>Jailbreaking</strong>—bypassing safety. <strong>Goal hijacking</strong>—changing the task the model performs. All rely on the model treating attacker text as authoritative.</p>
+  <p><strong>Direct injection</strong>, malicious user input. <strong>Indirect injection</strong>, poisoned documents the model reads. <strong>Jailbreaking</strong>, bypassing safety. <strong>Goal hijacking</strong>, changing the task the model performs. All rely on the model treating attacker text as authoritative.</p>
 
   <h2>Defense Strategies</h2>
   <ol>
-    <li><strong>Input validation</strong>—detect suspicious patterns (e.g. "ignore previous instructions").</li>
-    <li><strong>Prompt sandboxing</strong>—keep system prompt and user content clearly separated; don't mix in one blob.</li>
-    <li><strong>Output filtering</strong>—check for credentials, SQL, PII before returning to user.</li>
-    <li><strong>Privilege separation</strong>—agents can't access everything; scope permissions.</li>
-    <li><strong>Human-in-the-loop</strong>—critical actions require approval.</li>
-    <li><strong>Rate limiting</strong>—per user to slow down probing.</li>
-    <li><strong>Monitoring</strong>—anomaly detection on inputs and outputs.</li>
+    <li><strong>Input validation</strong>, detect suspicious patterns (e.g. "ignore previous instructions").</li>
+    <li><strong>Prompt sandboxing</strong>, keep system prompt and user content clearly separated; don't mix in one blob.</li>
+    <li><strong>Output filtering</strong>, check for credentials, SQL, PII before returning to user.</li>
+    <li><strong>Privilege separation</strong>, agents can't access everything; scope permissions.</li>
+    <li><strong>Human in the loop</strong>, critical actions require approval.</li>
+    <li><strong>Rate limiting</strong>, per user to slow down probing.</li>
+    <li><strong>Monitoring</strong>, anomaly detection on inputs and outputs.</li>
   </ol>
 
   <p>Real incident: a healthcare AI leaked PHI via indirect injection from a poisoned document. Red team your own AI before someone else does. <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer">Schedule an AI security audit</a>.</p>

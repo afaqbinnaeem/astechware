@@ -1,10 +1,10 @@
 <% content_for :blog_key_takeaways do %>
   <ul>
-    <li>Naive RAG fails due to bad chunking, wrong embeddings, no re-ranking, and no "I don't know" when retrieval is weak.</li>
-    <li>Good RAG: semantic chunking, domain embeddings, hybrid search, re-ranking, and confidence-based answering.</li>
-    <li>Legal RAG went from 60% to 92% accuracy with chunking, legal-tuned embeddings, hybrid search, and confidence filtering.</li>
-    <li>Pipeline order: chunk → embed → index → retrieve top-k → re-rank → prompt with top chunks → generate.</li>
-    <li>If retrieval score is below threshold, don't answer—escalate or say "I don't have a confident answer."</li>
+    <li>Naive RAG fails due to bad chunking, wrong embeddings, no re ranking, and no "I don't know" when retrieval is weak.</li>
+    <li>Good RAG: semantic chunking, domain embeddings, hybrid search, re ranking, and confidence based answering.</li>
+    <li>Legal RAG went from 60% to 92% accuracy with chunking, legal tuned embeddings, hybrid search, and confidence filtering.</li>
+    <li>Pipeline order: chunk → embed → index → retrieve top k → re rank → prompt with top chunks → generate.</li>
+    <li>If retrieval score is below threshold, don't answer, escalate or say "I don't have a confident answer."</li>
     <li>Measure precision, recall, F1, and run evals on adversarial (unanswerable) questions.</li>
   </ul>
 <% end %>
@@ -23,29 +23,29 @@
 
 <h2 id="why-naive-rag-fails">Why Naive RAG Fails</h2>
 <ul>
-  <li><strong>Bad chunking</strong>—splitting on character count breaks context and splits key information across chunks.</li>
-  <li><strong>Wrong embedding model</strong>—trained on the wrong domain; retrieval quality suffers.</li>
-  <li><strong>Low retrieval precision</strong>—wrong docs in the top-k.</li>
-  <li><strong>No re-ranking</strong>—the best chunk isn't first; the LLM focuses on the wrong one.</li>
-  <li><strong>Poor prompt engineering</strong>—the model ignores or underweights the retrieved context.</li>
-  <li><strong>No "I don't know"</strong>—when retrieval score is low, the model answers anyway and hallucinates.</li>
+  <li><strong>Bad chunking</strong>, splitting on character count breaks context and splits key information across chunks.</li>
+  <li><strong>Wrong embedding model</strong>, trained on the wrong domain; retrieval quality suffers.</li>
+  <li><strong>Low retrieval precision</strong>, wrong docs in the top k.</li>
+  <li><strong>No re ranking</strong>, the best chunk isn't first; the LLM focuses on the wrong one.</li>
+  <li><strong>Poor prompt engineering</strong>, the model ignores or underweights the retrieved context.</li>
+  <li><strong>No "I don't know"</strong>, when retrieval score is low, the model answers anyway and hallucinates.</li>
 </ul>
-<p>Real-world scenario: A support RAG was chunking by 512 characters with no overlap. Questions about "return policy for international orders" often pulled a chunk that had "return" and "policy" but not "international," so the model filled in from its training and gave a wrong answer. After switching to section-based chunking (one chunk per FAQ or policy section) and adding hybrid search (keyword + semantic), retrieval precision on held-out questions improved from 54% to 87%, and end-to-end accuracy followed.</p>
+<p>Real world scenario: A support RAG was chunking by 512 characters with no overlap. Questions about "return policy for international orders" often pulled a chunk that had "return" and "policy" but not "international," so the model filled in from its training and gave a wrong answer. After switching to section based chunking (one chunk per FAQ or policy section) and adding hybrid search (keyword + semantic), retrieval precision on held out questions improved from 54% to 87%, and end to end accuracy followed.</p>
 
 <blockquote class="blockquote border-start border-4 border-primary ps-3 my-4 pull-quote">
   <p class="mb-0">"The biggest win was confidence filtering: when the retrieval score was below 0.7, the system said 'I don't have a confident answer' and escalated instead of hallucinating."</p>
 </blockquote>
 
 <h2 id="the-anatomy-of-good-rag">The Anatomy of Good RAG</h2>
-<p><strong>Chunking:</strong> Semantic chunking with overlap so meaning isn't split—e.g. by section or paragraph, not by 500 characters. <strong>Embeddings:</strong> Domain-specific or fine-tuned for your content so "force majeure" and "act of God" land near each other in legal docs. <strong>Vector DB:</strong> pgvector, Pinecone, or Qdrant with proper indexing and filters (e.g. by doc type or date). <strong>Hybrid search:</strong> Semantic + BM25 keyword so you don't miss exact terms like product codes or IDs. <strong>Re-ranking:</strong> Cross-encoder over top-k to put the best chunk on top; the first chunk often gets the most weight from the LLM. <strong>Prompt:</strong> Clear template that says "answer only from context; if not found say so." <strong>Confidence:</strong> If retrieval score is below threshold, don't answer—escalate or say "I don't know."</p>
-<p>Pipeline order matters: chunk → embed → index → at query time: embed query → retrieve top-k → re-rank → build prompt with top chunks → generate. Skipping re-ranking or confidence checks is where many teams lose accuracy.</p>
+<p><strong>Chunking:</strong> Semantic chunking with overlap so meaning isn't split, e.g. by section or paragraph, not by 500 characters. <strong>Embeddings:</strong> Domain specific or fine tuned for your content so "force majeure" and "act of God" land near each other in legal docs. <strong>Vector DB:</strong> pgvector, Pinecone, or Qdrant with proper indexing and filters (e.g. by doc type or date). <strong>Hybrid search:</strong> Semantic + BM25 keyword so you don't miss exact terms like product codes or IDs. <strong>Re ranking:</strong> Cross encoder over top k to put the best chunk on top; the first chunk often gets the most weight from the LLM. <strong>Prompt:</strong> Clear template that says "answer only from context; if not found say so." <strong>Confidence:</strong> If retrieval score is below threshold, don't answer, escalate or say "I don't know."</p>
+<p>Pipeline order matters: chunk → embed → index → at query time: embed query → retrieve top k → re rank → build prompt with top chunks → generate. Skipping re ranking or confidence checks is where many teams lose accuracy.</p>
 
 <h2 id="real-example-legal-rag">Real Example: Legal RAG 60% → 92%</h2>
-<p>Fixing chunking, switching to a legal-tuned embedding, adding hybrid search and re-ranking, and a strict "don't guess" prompt took accuracy from 60% to 92%. The biggest win was confidence filtering: when the retrieval score was below 0.7, the system said "I don't have a confident answer" and escalated instead of hallucinating. We'll cover code for semantic chunking, hybrid search, and confidence-based answering in the full article.</p>
-<p>Concretely, the client had been using a general-purpose embedding and fixed 400-token chunks. We switched to a legal-domain embedding, chunked by "section" (clause or numbered paragraph), and added a cross-encoder re-ranker over the top 10 retrieved chunks. The prompt was updated to: "Answer only using the following context. If the context does not contain enough information, respond with 'I don't have a confident answer' and do not guess." Evals on 200 held-out questions showed precision at 0.7 threshold went from 61% to 91%; recall improved because we were no longer counting wrong answers as "answers."</p>
+<p>Fixing chunking, switching to a legal tuned embedding, adding hybrid search and re ranking, and a strict "don't guess" prompt took accuracy from 60% to 92%. The biggest win was confidence filtering: when the retrieval score was below 0.7, the system said "I don't have a confident answer" and escalated instead of hallucinating. We'll cover code for semantic chunking, hybrid search, and confidence based answering in the full article.</p>
+<p>Concretely, the client had been using a general purpose embedding and fixed 400 token chunks. We switched to a legal domain embedding, chunked by "section" (clause or numbered paragraph), and added a cross encoder re ranker over the top 10 retrieved chunks. The prompt was updated to: "Answer only using the following context. If the context does not contain enough information, respond with 'I don't have a confident answer' and do not guess." Evals on 200 held out questions showed precision at 0.7 threshold went from 61% to 91%; recall improved because we were no longer counting wrong answers as "answers."</p>
 
 <h2 id="pipeline-and-confidence">Pipeline and Confidence</h2>
-<p>Your retrieval step should return a score (e.g. cosine similarity or cross-encoder score). Define a threshold below which you will not call the LLM—instead, you respond "I don't have a confident answer" or route to human. Example logic in pseudocode:</p>
+<p>Your retrieval step should return a score (e.g. cosine similarity or cross encoder score). Define a threshold below which you will not call the LLM, instead, you respond "I don't have a confident answer" or route to human. Example logic in pseudocode:</p>
 <pre><code class="language-text">chunks, scores = retrieve(query, top_k=5)
 max_score = max(scores)
 if max_score < CONFIDENCE_THRESHOLD:
@@ -53,10 +53,10 @@ if max_score < CONFIDENCE_THRESHOLD:
 context = format(chunks)
 response = llm.generate(system_prompt + context + query)
 return response</code></pre>
-<p>Tune the threshold on a held-out set: too high and you'll say "I don't know" too often; too low and you'll hallucinate. We've seen 0.65–0.75 work well for many document Q&A systems.</p>
+<p>Tune the threshold on a held out set: too high and you'll say "I don't know" too often; too low and you'll hallucinate. We've seen 0.65 to 0.75 work well for many document Q&A systems.</p>
 
 <h2 id="when-rag-isnt-enough">When RAG Isn't Enough</h2>
-<p>For highly specialized, consistent tasks, fine-tuning may beat RAG. Always measure: precision, recall, and F1 on a held-out set, plus real user feedback. Run evals on "known good" questions and on adversarial cases (questions that shouldn't be answerable from your docs). If the model answers those anyway, tighten your confidence threshold and your prompt. Many systems use both: RAG for up-to-date knowledge, and a fine-tuned or prompted model for tone and structure.</p>
+<p>For highly specialized, consistent tasks, fine tuning may beat RAG. Always measure: precision, recall, and F1 on a held out set, plus real user feedback. Run evals on "known good" questions and on adversarial cases (questions that shouldn't be answerable from your docs). If the model answers those anyway, tighten your confidence threshold and your prompt. Many systems use both: RAG for up to date knowledge, and a fine tuned or prompted model for tone and structure.</p>
 
 <h2 id="what-to-do-next">What to Do Next</h2>
-<p>Audit your pipeline: chunking strategy, embedding model, whether you have hybrid search and re-ranking, and whether you gate on retrieval confidence. <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer">Schedule a RAG system audit</a> and we can pinpoint where your pipeline is leaking accuracy. For production RAG and AI systems, our <a href="<%= ai_agent_development_path %>">AI Agent Development</a> practice includes RAG design, evals, and confidence-based answering so your system stays reliable at scale.</p>
+<p>Audit your pipeline: chunking strategy, embedding model, whether you have hybrid search and re ranking, and whether you gate on retrieval confidence. <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer">Schedule a RAG system audit</a> and we can pinpoint where your pipeline is leaking accuracy. For production RAG and AI systems, our <a href="<%= ai_agent_development_path %>">AI Agent Development</a> practice includes RAG design, evals, and confidence based answering so your system stays reliable at scale.</p>

@@ -3,13 +3,13 @@
     <div class="row align-items-center min-vh-50">
       <div class="col-12 col-lg-10 mx-auto text-center">
         <h1 class="display-5 fw-bold mb-3" style="font-size: clamp(28px, 4.5vw, 52px); line-height: 1.15;">
-          High-Performance Search &amp; Inventory Recovery
+          High Performance Search &amp; Inventory Recovery
         </h1>
         <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.3vw, 22px); line-height: 1.5; max-width: 980px; margin-left: auto; margin-right: auto;">
           Restaurant Resource Database Rescue
         </p>
         <p class="mb-0" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.7; max-width: 980px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
-          An emergency performance audit and search rebuild for a large supplier platform—designed to handle complex part numbers, special characters, and real-time inventory updates.
+          An emergency performance audit and search rebuild for a large supplier platform, designed to handle complex part numbers, special characters, and real time inventory updates.
         </p>
       </div>
     </div>
@@ -28,7 +28,7 @@
           </p>
           <p class="large-para mb-0">
             The instability wasn’t isolated to search: background processing leaked memory, the admin experience degraded under load, and the platform crashed predictably. The rescue required
-            a foundation-first approach: stabilize runtime behavior, fix query patterns, then rebuild search as a dedicated system.
+            a foundation first approach: stabilize runtime behavior, fix query patterns, then rebuild search as a dedicated system.
           </p>
         </div>
         <div class="col-12 col-lg-5">
@@ -36,7 +36,7 @@
             <h3 class="h6 text-uppercase text-muted mb-3">Quick Stats</h3>
             <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
               <li><strong>Catalog:</strong> Large SKU catalog</li>
-              <li><strong>Search:</strong> Meilisearch (typo-tolerant)</li>
+              <li><strong>Search:</strong> Meilisearch (typo tolerant)</li>
               <li><strong>Ops:</strong> Sidekiq stabilization</li>
               <li><strong>Impact:</strong> Faster search and improved stability through performance and queue hardening</li>
             </ul>
@@ -51,11 +51,11 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">The Solution</h2>
         <p class="large-para mb-3">
-          We performed an emergency performance audit and replaced the legacy SQL LIKE search with a dedicated in-memory search engine. We also refactored the ingestion pipeline to support
-          real-time inventory updates from multiple supplier feeds.
+          We performed an emergency performance audit and replaced the legacy SQL LIKE search with a dedicated in memory search engine. We also refactored the ingestion pipeline to support
+          real time inventory updates from multiple supplier feeds.
         </p>
         <p class="large-para mb-0">
-          The outcome was a stable, fast platform: sub-second part lookup even with typos and colloquial terms, predictable background processing, and an admin workflow that no longer degrades
+          The outcome was a stable, fast platform: sub second part lookup even with typos and colloquial terms, predictable background processing, and an admin workflow that no longer degrades
           during daily operational peaks.
         </p>
       </div>
@@ -67,7 +67,7 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Technical Approach</h2>
         <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
-          <li><strong>In-memory indexing:</strong> Migrated search to Meilisearch for ultra-low latency and typo tolerance.</li>
+          <li><strong>In memory indexing:</strong> Migrated search to Meilisearch for ultra low latency and typo tolerance.</li>
           <li><strong>Memory management:</strong> Fixed leaks in background processing that were crashing servers on a predictable cadence.</li>
         </ul>
       </div>
@@ -94,7 +94,7 @@
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">Security</h3>
-              <p class="mb-0 small">Secure API gateway; daily encrypted backups (30-day retention); RBAC admin dashboard.</p>
+              <p class="mb-0 small">Secure API gateway; daily encrypted backups (30 day retention); RBAC admin dashboard.</p>
             </div>
           </div>
           <div class="col-12 col-md-6">
@@ -113,7 +113,7 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Results &amp; Impact</h2>
         <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
-          <li><strong>Faster search results</strong> through dedicated indexing and typo-tolerant lookup.</li>
+          <li><strong>Faster search results</strong> through dedicated indexing and typo tolerant lookup.</li>
           <li><strong>Improved uptime</strong> through platform stabilization and safer background processing.</li>
           <li><strong>Faster admin workflows</strong> for order processing and internal operations.</li>
         </ul>

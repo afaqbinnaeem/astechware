@@ -3,10 +3,10 @@
     <div class="row align-items-center min-vh-50">
       <div class="col-12 col-lg-10 mx-auto text-center">
         <h1 class="display-5 fw-bold mb-3" style="font-size: clamp(26px, 4vw, 48px); line-height: 1.15;">
-          How we built a HIPAA-compliant voice booking and AI scribe platform without letting an LLM ever see a patient&rsquo;s name
+          How we built a HIPAA compliant voice booking and AI scribe platform without letting an LLM ever see a patient&rsquo;s name
         </h1>
         <p class="mb-0" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.7; max-width: 900px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
-          A US multi-location dental group came to us with a simple ask: let patients book appointments by voice, and give providers an AI scribe so they stop writing SOAP notes at 10pm.
+          A US multi location dental group came to us with a simple ask: let patients book appointments by voice, and give providers an AI scribe so they stop writing SOAP notes at 10pm.
         </p>
       </div>
     </div>
@@ -19,7 +19,7 @@
     <div class="container">
       <div class="col-12 col-lg-10 mx-auto">
         <p class="large-para mb-4">
-          The simple ask hid a serious problem. The moment a patient speaks their name into a phone, that audio becomes Protected Health Information. The moment we transcribe it, the transcript is PHI. The moment we send the transcript to a large language model to figure out what the patient wants, we have a regulated entity sending PHI to a third-party AI provider. One leaked transcript, one logged prompt, one cached response on the wrong server, and the clinic loses its HIPAA standing. Not a fine. The actual ability to operate.
+          The simple ask hid a serious problem. The moment a patient speaks their name into a phone, that audio becomes Protected Health Information. The moment we transcribe it, the transcript is PHI. The moment we send the transcript to a large language model to figure out what the patient wants, we have a regulated entity sending PHI to a third party AI provider. One leaked transcript, one logged prompt, one cached response on the wrong server, and the clinic loses its HIPAA standing. Not a fine. The actual ability to operate.
         </p>
         <p class="large-para mb-4">
           This case study is about the decisions we made so that never happened. It is not a feature list. It is the set of architectural calls that determine whether a system like this is safe to put in production or quietly dangerous.
@@ -34,13 +34,13 @@
         <div class="col-12 col-lg-7">
           <h2 class="heading-border heading-center heading-left mb-4 pb-3 d-inline-block">Who this was for and why it was hard</h2>
           <p class="large-para mb-3">
-            The client operates several dental clinics in the US. Like most multi-location practices, they were drowning in three problems at once: a front desk that could not handle call volume during business hours and went dark after hours, providers spending an hour or more every evening writing SOAP notes from memory, and scheduling data scattered between spreadsheets, the EHR, and the front desk&rsquo;s heads.
+            The client operates several dental clinics in the US. Like most multi location practices, they were drowning in three problems at once: a front desk that could not handle call volume during business hours and went dark after hours, providers spending an hour or more every evening writing SOAP notes from memory, and scheduling data scattered between spreadsheets, the EHR, and the front desk&rsquo;s heads.
           </p>
           <p class="large-para mb-3">
-            They had tried point solutions. A booking widget that did not sync to their EHR. An answering service that took messages but could not book. A scribe tool that was not HIPAA-eligible. Each one solved one slice and created two new sync problems.
+            They had tried point solutions. A booking widget that did not sync to their EHR. An answering service that took messages but could not book. A scribe tool that was not HIPAA eligible. Each one solved one slice and created two new sync problems.
           </p>
           <p class="large-para mb-3">
-            What they wanted was one system. Voice booking, web booking, provider dashboard, AI scribe, EHR sync, all in one place, all HIPAA-compliant, all auditable. What they needed was a partner who would not get them sued.
+            What they wanted was one system. Voice booking, web booking, provider dashboard, AI scribe, EHR sync, all in one place, all HIPAA compliant, all auditable. What they needed was a partner who would not get them sued.
           </p>
           <p class="large-para mb-0">
             We delivered the platform in two phases over eight weeks. This case study walks through the five decisions that mattered most.
@@ -50,11 +50,11 @@
           <div class="workflow-card p-4">
             <h3 class="h6 text-uppercase text-muted mb-3">At a glance</h3>
             <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
-              <li><strong>Client:</strong> US multi-location dental group</li>
+              <li><strong>Client:</strong> US multi location dental group</li>
               <li><strong>Timeline:</strong> Eight weeks, two phases</li>
-              <li><strong>EHR:</strong> athenahealth FHIR R4 (bi-directional)</li>
-              <li><strong>Voice:</strong> Twilio + Deepgram + ElevenLabs + Claude (de-identified)</li>
-              <li><strong>Stack:</strong> FastAPI, PostgreSQL, Next.js on BAA-covered US infrastructure</li>
+              <li><strong>EHR:</strong> athenahealth FHIR R4 (bi directional)</li>
+              <li><strong>Voice:</strong> Twilio + Deepgram + ElevenLabs + Claude (de identified)</li>
+              <li><strong>Stack:</strong> FastAPI, PostgreSQL, Next.js on BAA covered US infrastructure</li>
             </ul>
           </div>
         </div>
@@ -74,16 +74,16 @@
         </p>
         <p class="large-para mb-4">We considered three approaches.</p>
         <p class="large-para mb-3">
-          The first was to use only HIPAA-eligible vendors with signed Business Associate Agreements at every step. This is the standard playbook. It works for transcription (Deepgram offers a BAA) and telephony (Twilio offers a BAA). It does not work cleanly for general-purpose LLMs in the way most teams assume. Even with an enterprise agreement, sending raw PHI to a model adds a regulated data flow that has to be documented, audited, and defended in a compliance review. We did not want to add that surface area.
+          The first was to use only HIPAA eligible vendors with signed Business Associate Agreements at every step. This is the standard playbook. It works for transcription (Deepgram offers a BAA) and telephony (Twilio offers a BAA). It does not work cleanly for general purpose LLMs in the way most teams assume. Even with an enterprise agreement, sending raw PHI to a model adds a regulated data flow that has to be documented, audited, and defended in a compliance review. We did not want to add that surface area.
         </p>
         <p class="large-para mb-3">
           The second approach was to skip the LLM entirely and build the voice agent as a deterministic dialogue tree. Safer, but it gives up the natural conversation that was the entire point. Patients calling a dental clinic do not say &ldquo;book appointment, provider Patel, Tuesday, 2pm.&rdquo; They say &ldquo;I think I cracked a tooth and I really need to see someone before the weekend.&rdquo; A dialogue tree handles the first sentence and falls apart on the second.
         </p>
         <p class="large-para mb-3">
-          The third approach, the one we shipped, was a PHI de-identification layer that sits between transcription and the LLM. Every transcript is scanned for patient identifiers, names matched against the patient database, dates of birth, phone numbers, addresses, MRNs, before any text leaves our infrastructure. Each identifier is replaced with an opaque token. The LLM sees &ldquo;[PATIENT-A] called about a cracked tooth and wants an appointment before Friday.&rdquo; The LLM returns structured intent. Our server re-associates the tokens after the response comes back. The mapping is stored in an encrypted server-side session and never leaves the building.
+          The third approach, the one we shipped, was a PHI de identification layer that sits between transcription and the LLM. Every transcript is scanned for patient identifiers, names matched against the patient database, dates of birth, phone numbers, addresses, MRNs, before any text leaves our infrastructure. Each identifier is replaced with an opaque token. The LLM sees &ldquo;[PATIENT A] called about a cracked tooth and wants an appointment before Friday.&rdquo; The LLM returns structured intent. Our server re associates the tokens after the response comes back. The mapping is stored in an encrypted server side session and never leaves the building.
         </p>
         <p class="large-para mb-4">
-          The compliance posture this gives us is simple to explain to an auditor: we can produce an API log for every LLM call ever made by the system, and prove that no patient identifier was in any of them. The de-identification module is intentionally aggressive. A false positive (stripping a word that turned out not to be PHI) is harmless. A false negative is a violation. We tuned every threshold toward the conservative side.
+          The compliance posture this gives us is simple to explain to an auditor: we can produce an API log for every LLM call ever made by the system, and prove that no patient identifier was in any of them. The de identification module is intentionally aggressive. A false positive (stripping a word that turned out not to be PHI) is harmless. A false negative is a violation. We tuned every threshold toward the conservative side.
         </p>
         <p class="large-para mb-0 fw-semibold">
           This single decision is what makes the rest of the platform defensible.
@@ -97,13 +97,13 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Decision 2: Audio is never stored</h2>
         <p class="large-para mb-4">
-          The AI scribe records the provider-patient visit, transcribes it, and generates a draft SOAP note. The obvious implementation is: record audio, save it, transcribe later, generate note, keep the audio in case the provider wants to re-listen.
+          The AI scribe records the provider patient visit, transcribes it, and generates a draft SOAP note. The obvious implementation is: record audio, save it, transcribe later, generate note, keep the audio in case the provider wants to re listen.
         </p>
         <p class="large-para mb-4">
           We do not do this. Audio chunks stream to the transcription service in real time and are discarded the moment the text comes back. We keep the transcript, encrypted, and the SOAP note, encrypted. We do not keep the audio.
         </p>
         <p class="large-para mb-4">
-          The reason is breach math. The blast radius of a leaked transcript is the words spoken in a visit. The blast radius of a leaked audio file is the words spoken in a visit plus the voiceprint of the patient and the provider. Voice biometric data is a separate, escalating category of risk under emerging US state privacy laws. Storing it created liability with no clinical upside, providers were not going to re-listen to 200 visits a week.
+          The reason is breach math. The blast radius of a leaked transcript is the words spoken in a visit. The blast radius of a leaked audio file is the words spoken in a visit plus the voiceprint of the patient and the provider. Voice biometric data is a separate, escalating category of risk under emerging US state privacy laws. Storing it created liability with no clinical upside, providers were not going to re listen to 200 visits a week.
         </p>
         <p class="large-para mb-0">
           A founder reading this might think we are being paranoid. The right framing is: every byte of PHI we store is a byte we have to defend in an audit and a byte that could end up in a breach disclosure letter. Asking &ldquo;do we actually need this?&rdquo; before storing anything is the difference between a platform that scales and a platform that becomes a liability.
@@ -130,10 +130,10 @@
           The other was to write the system prompt and the review workflow to make fabrication structurally hard, not just discouraged. This is what we shipped.
         </p>
         <p class="large-para mb-3">
-          The prompt the model receives is explicit: extract a SOAP note from the conversation, never infer clinical findings that were not stated, mark missing sections as &ldquo;Not discussed,&rdquo; mark anything uncertain as &ldquo;VERIFY.&rdquo; The output is parsed and any section flagged &ldquo;VERIFY&rdquo; is highlighted in the provider&rsquo;s review screen in a different color. Suggested ICD-10 codes are validated against the CMS code table locally before they are displayed, so the provider never sees a hallucinated code.
+          The prompt the model receives is explicit: extract a SOAP note from the conversation, never infer clinical findings that were not stated, mark missing sections as &ldquo;Not discussed,&rdquo; mark anything uncertain as &ldquo;VERIFY.&rdquo; The output is parsed and any section flagged &ldquo;VERIFY&rdquo; is highlighted in the provider&rsquo;s review screen in a different color. Suggested ICD 10 codes are validated against the CMS code table locally before they are displayed, so the provider never sees a hallucinated code.
         </p>
         <p class="large-para mb-3">
-          The interface is the other half of the defense. Every generated note carries a persistent banner: &ldquo;AI-generated. Review before saving.&rdquo; The note does not go to the EHR until the provider clicks approve. There is no auto-push, no background sync, no &ldquo;approve all.&rdquo; Every note is a conscious decision.
+          The interface is the other half of the defense. Every generated note carries a persistent banner: &ldquo;AI generated. Review before saving.&rdquo; The note does not go to the EHR until the provider clicks approve. There is no auto push, no background sync, no &ldquo;approve all.&rdquo; Every note is a conscious decision.
         </p>
         <p class="large-para mb-0">
           What this means for the clinic is that the scribe accelerates documentation without ever being the final word on what happened in the room. The provider stays the author. The AI is a fast first draft.
@@ -147,19 +147,19 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Decision 4: Scheduling is locked at the database, not the application</h2>
         <p class="large-para mb-4">
-          Double-booking is the single most embarrassing failure mode for a scheduling system. Two patients arrive at the same time, both with confirmation emails, and the front desk has to explain that the software lied.
+          Double booking is the single most embarrassing failure mode for a scheduling system. Two patients arrive at the same time, both with confirmation emails, and the front desk has to explain that the software lied.
         </p>
         <p class="large-para mb-4">
-          In high-volume systems this happens for a specific reason: two booking requests for the same slot arrive within milliseconds of each other, both check availability and see the slot is free, both write a booking, both succeed. The application code thinks the slot was available because it was, right up until the other request committed.
+          In high volume systems this happens for a specific reason: two booking requests for the same slot arrive within milliseconds of each other, both check availability and see the slot is free, both write a booking, both succeed. The application code thinks the slot was available because it was, right up until the other request committed.
         </p>
         <p class="large-para mb-4">
-          The fix is to lock the slot at the database, not the application. When a booking starts, the system places a row-level lock on the slot. Any other request trying to book that same slot has to wait until the first transaction either commits or rolls back. Only one can win. This sounds obvious in writing and is one of the most commonly skipped steps in scheduling systems we have audited.
+          The fix is to lock the slot at the database, not the application. When a booking starts, the system places a row level lock on the slot. Any other request trying to book that same slot has to wait until the first transaction either commits or rolls back. Only one can win. This sounds obvious in writing and is one of the most commonly skipped steps in scheduling systems we have audited.
         </p>
         <p class="large-para mb-4">
-          We test this explicitly with a script that fires ten concurrent booking requests for the same slot. Nine must fail with a clean &ldquo;slot unavailable&rdquo; message. One must succeed. We re-run this test on every deploy.
+          We test this explicitly with a script that fires ten concurrent booking requests for the same slot. Nine must fail with a clean &ldquo;slot unavailable&rdquo; message. One must succeed. We re run this test on every deploy.
         </p>
         <p class="large-para mb-0">
-          The reason this matters for a founder is not the technical detail. It is that a scheduling system that double-books once a month erodes trust faster than almost any other failure. Patients remember being told to come back tomorrow. Providers remember the awkward conversation. The front desk remembers being blamed. The cost of getting this wrong is paid in churn, not in code.
+          The reason this matters for a founder is not the technical detail. It is that a scheduling system that double books once a month erodes trust faster than almost any other failure. Patients remember being told to come back tomorrow. Providers remember the awkward conversation. The front desk remembers being blamed. The cost of getting this wrong is paid in churn, not in code.
         </p>
       </div>
     </div>
@@ -173,10 +173,10 @@
           HIPAA requires that you can produce, on demand, a record of who accessed which patient&rsquo;s data, when, and what they did. Most systems implement this as a logging table that the application writes to. This is almost good enough. The gap is that if the application can write to the table, the application can also be tricked or compromised into modifying or deleting from it. An audit log you can edit is not an audit log.
         </p>
         <p class="large-para mb-4">
-          We built the audit log as append-only at the database permission level. The application&rsquo;s database role has INSERT permission on the audit table and nothing else. No UPDATE. No DELETE. No TRUNCATE. Even if an attacker compromised the application, the worst they could do is add fake entries, not remove real ones.
+          We built the audit log as append only at the database permission level. The application&rsquo;s database role has INSERT permission on the audit table and nothing else. No UPDATE. No DELETE. No TRUNCATE. Even if an attacker compromised the application, the worst they could do is add fake entries, not remove real ones.
         </p>
         <p class="large-para mb-4">
-          The Break Glass emergency access feature uses the same principle. A staff member who needs elevated access to a record they would not normally see (a covering provider in an emergency, an admin investigating a billing issue) must enter a written reason. The elevated access auto-revokes after a short window. The admin gets an immediate alert. Every minute of the elevated session is logged. The reason field is required, and the audit entry cannot be edited after the fact.
+          The Break Glass emergency access feature uses the same principle. A staff member who needs elevated access to a record they would not normally see (a covering provider in an emergency, an admin investigating a billing issue) must enter a written reason. The elevated access auto revokes after a short window. The admin gets an immediate alert. Every minute of the elevated session is logged. The reason field is required, and the audit entry cannot be edited after the fact.
         </p>
         <p class="large-para mb-0">
           When the clinic eventually goes through a formal HIPAA audit, this is the kind of architecture that lets them answer &ldquo;yes&rdquo; to every control question without preparation. The controls are not policies. They are enforced by the database.
@@ -196,15 +196,15 @@
           <ul class="mb-0 ps-3" style="line-height: 2;">
             <li><strong>HIPAA Security Rule:</strong> administrative, physical, and technical safeguards across 45 CFR &sect;164.308, &sect;164.310, &sect;164.312</li>
             <li><strong>HIPAA Privacy Rule:</strong> minimum necessary access enforced via RBAC at the API layer</li>
-            <li><strong>HITECH breach notification:</strong> audit trail sufficient to identify scope of any PHI exposure within the 60-day notification window</li>
-            <li><strong>FHIR R4:</strong> bi-directional sync with athenahealth via SMART on FHIR authorization</li>
-            <li><strong>PHI handling:</strong> de-identification before any data reaches the LLM, with re-identification handled server-side under the covered entity&rsquo;s control</li>
+            <li><strong>HITECH breach notification:</strong> audit trail sufficient to identify scope of any PHI exposure within the 60 day notification window</li>
+            <li><strong>FHIR R4:</strong> bi directional sync with athenahealth via SMART on FHIR authorization</li>
+            <li><strong>PHI handling:</strong> de identification before any data reaches the LLM, with re identification handled server side under the covered entity&rsquo;s control</li>
             <li><strong>BAAs executed</strong> with telephony, transcription, voice synthesis, hosting, and EHR integration vendors</li>
-            <li><strong>Encryption:</strong> TLS 1.2+ in transit, AES-256 at rest via pgcrypto field-level encryption on PHI columns</li>
-            <li><strong>Access control:</strong> TOTP-based MFA, short-lived JWT access tokens, RBAC enforced in middleware, session inactivity timeout</li>
-            <li><strong>Audit logging:</strong> append-only at the database permission level, covering every PHI access event with actor, timestamp, resource, action, IP, and result</li>
-            <li><strong>Multi-tenant isolation:</strong> PostgreSQL Row Level Security policies enforced at the database layer</li>
-            <li><strong>Data residency:</strong> US-region infrastructure only</li>
+            <li><strong>Encryption:</strong> TLS 1.2+ in transit, AES 256 at rest via pgcrypto field level encryption on PHI columns</li>
+            <li><strong>Access control:</strong> TOTP based MFA, short lived JWT access tokens, RBAC enforced in middleware, session inactivity timeout</li>
+            <li><strong>Audit logging:</strong> append only at the database permission level, covering every PHI access event with actor, timestamp, resource, action, IP, and result</li>
+            <li><strong>Multi tenant isolation:</strong> PostgreSQL Row Level Security policies enforced at the database layer</li>
+            <li><strong>Data residency:</strong> US region infrastructure only</li>
           </ul>
         </div>
       </div>
@@ -216,16 +216,16 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">What the platform looks like in production</h2>
         <p class="large-para mb-4">
-          Patients call the clinic&rsquo;s phone number and speak to a voice agent that handles booking, rescheduling, cancellation, and general inquiries. After hours, calls drop into a queue that staff see the next morning, with full transcripts and intent summaries. Patients can also book through a web portal with multi-factor authentication, and a chat interface for natural-language requests.
+          Patients call the clinic&rsquo;s phone number and speak to a voice agent that handles booking, rescheduling, cancellation, and general inquiries. After hours, calls drop into a queue that staff see the next morning, with full transcripts and intent summaries. Patients can also book through a web portal with multi factor authentication, and a chat interface for natural language requests.
         </p>
         <p class="large-para mb-4">
-          Providers see a daily timeline of appointments synced bi-directionally with athenahealth. They tap to update status, manage availability, and open the scribe interface for documentation. The scribe records the visit, transcribes it, generates a draft SOAP note in seconds, and pushes the approved note to athenahealth via FHIR.
+          Providers see a daily timeline of appointments synced bi directionally with athenahealth. They tap to update status, manage availability, and open the scribe interface for documentation. The scribe records the visit, transcribes it, generates a draft SOAP note in seconds, and pushes the approved note to athenahealth via FHIR.
         </p>
         <p class="large-para mb-4">
-          Admins see clinic configuration, user management, audit log viewer, call analytics, and integration health. Everything is multi-tenant and isolated at the database layer with Row Level Security, so adding the next clinic location is a configuration change, not a deployment.
+          Admins see clinic configuration, user management, audit log viewer, call analytics, and integration health. Everything is multi tenant and isolated at the database layer with Row Level Security, so adding the next clinic location is a configuration change, not a deployment.
         </p>
         <p class="large-para mb-0">
-          The core stack: FastAPI and PostgreSQL on the backend, Next.js on the frontend, Twilio for telephony, Deepgram for transcription, ElevenLabs for voice synthesis, Claude for reasoning, athenahealth FHIR R4 for EHR integration. All hosted on BAA-covered infrastructure in US regions.
+          The core stack: FastAPI and PostgreSQL on the backend, Next.js on the frontend, Twilio for telephony, Deepgram for transcription, ElevenLabs for voice synthesis, Claude for reasoning, athenahealth FHIR R4 for EHR integration. All hosted on BAA covered infrastructure in US regions.
         </p>
       </div>
     </div>
@@ -239,10 +239,10 @@
         <div class="workflow-card p-4 p-lg-5">
           <ul class="mb-0 ps-3" style="line-height: 2;">
             <li>The hardest part of a healthcare AI build is not the AI. It is the data flow. Spend the first week mapping every place patient data moves, and assume each one is a potential violation. The AI is the easy part once the data flow is clean.</li>
-            <li>Vendors will tell you they are HIPAA-compliant. What you need is a signed BAA, in writing, naming the specific service you are using. &ldquo;HIPAA-compliant&rdquo; with no BAA is not a thing. We have seen launches delayed by weeks because a vendor&rsquo;s sales team promised something their legal team would not sign.</li>
+            <li>Vendors will tell you they are HIPAA compliant. What you need is a signed BAA, in writing, naming the specific service you are using. &ldquo;HIPAA compliant&rdquo; with no BAA is not a thing. We have seen launches delayed by weeks because a vendor&rsquo;s sales team promised something their legal team would not sign.</li>
             <li>Build the audit log on day one, not week six. Retrofitting auditability into a system that was not designed for it is more work than starting over.</li>
-            <li>Providers do not want a perfect AI scribe. They want a fast first draft they can edit. The product win is not accuracy, it is reducing the blank-page problem. Aim for &ldquo;good enough that the provider would rather edit than start from scratch,&rdquo; not &ldquo;good enough to use without review.&rdquo;</li>
-            <li>Voice latency matters more than voice quality. A patient will tolerate a slightly robotic voice. They will hang up on a one-second pause. Optimize the latency path before the voice path.</li>
+            <li>Providers do not want a perfect AI scribe. They want a fast first draft they can edit. The product win is not accuracy, it is reducing the blank page problem. Aim for &ldquo;good enough that the provider would rather edit than start from scratch,&rdquo; not &ldquo;good enough to use without review.&rdquo;</li>
+            <li>Voice latency matters more than voice quality. A patient will tolerate a slightly robotic voice. They will hang up on a one second pause. Optimize the latency path before the voice path.</li>
           </ul>
         </div>
       </div>
@@ -254,7 +254,7 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">How to talk to us about a build like this</h2>
         <p class="large-para mb-4">
-          If you are running a clinic, a digital health company, or a healthcare-adjacent platform, and you are trying to figure out whether to build something like this or buy it: we offer a paid one-week discovery sprint that produces an architecture document, a compliance risk map, and a build plan you own whether or not you continue with us. Most teams find this is the cheapest way to know what they actually need before committing to a build.
+          If you are running a clinic, a digital health company, or a healthcare adjacent platform, and you are trying to figure out whether to build something like this or buy it: we offer a paid one week discovery sprint that produces an architecture document, a compliance risk map, and a build plan you own whether or not you continue with us. Most teams find this is the cheapest way to know what they actually need before committing to a build.
         </p>
         <div class="workflow-card p-4 p-lg-5 text-center">
           <p class="mb-1 fw-semibold">Ahmad Kamran, founder, A&rsquo;sTechware</p>

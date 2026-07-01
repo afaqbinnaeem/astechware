@@ -2,9 +2,9 @@
 <% content_for :head do %>
   <% set_meta_tags(
     title: "Testing AI Systems: The Framework Traditional QA Misses | A'sTechware",
-    description: "Your AI passed all tests but then told a customer to 'go away.' Non-determinism, adversarial testing, and production monitoring as testing.",
+    description: "Your AI passed all tests but then told a customer to 'go away.' Non determinism, adversarial testing, and production monitoring as testing.",
     keywords: "AI testing, LLM testing, AI quality assurance, testing AI agents",
-    og: { title: "Testing AI Systems: The Framework Traditional QA Misses", description: "AI-specific testing strategies that catch real failures.", url: safe_request_url, type: "article", site_name: "A'sTechware" },
+    og: { title: "Testing AI Systems: The Framework Traditional QA Misses", description: "AI specific testing strategies that catch real failures.", url: safe_request_url, type: "article", site_name: "A'sTechware" },
     twitter: { card: "summary_large_image", title: "Testing AI Systems", description: "QA that works for AI." }
   ) %>
   <script type="application/ld+json">
@@ -13,25 +13,25 @@
     "@type" => "Article",
     "headline" => article[:title],
     "description" => article[:excerpt_long],
-    "datePublished" => "2025-02-01",
+    "datePublished" => "2025 02 01",
     "author" => { "@type" => "Organization", "name" => article[:author_name] }
   }.to_json) %>
   </script>
 <% end %>
 <%= render layout: 'blogs/blog_post_layout', locals: { article: article } do %>
-  <p class="lead">Your AI passed all tests. Then it told a customer to "go away." Traditional testing doesn't work for AI—here's what does.</p>
+  <p class="lead">Your AI passed all tests. Then it told a customer to "go away." Traditional testing doesn't work for AI, here's what does.</p>
 
   <h2>Why Traditional Testing Fails</h2>
-  <p>Non-deterministic (same input → different outputs), no clear pass/fail (subjective quality), infinite edge cases, and behavior changes with model updates. You need a different framework.</p>
+  <p>Non deterministic (same input → different outputs), no clear pass/fail (subjective quality), infinite edge cases, and behavior changes with model updates. You need a different framework.</p>
 
   <h2>The AI Testing Framework</h2>
   <ol>
-    <li><strong>Prompt regression testing</strong>—golden dataset of inputs and expected outputs; test every prompt change against it; version control prompts.</li>
-    <li><strong>Adversarial testing</strong>—jailbreak attempts, prompt injection, malicious and edge-case inputs (empty, very long, special chars).</li>
-    <li><strong>Evaluation metrics</strong>—accuracy vs golden answers, relevance (semantic similarity), safety (harmful output detection), consistency (similar outputs for same input), latency (P50, P95, P99).</li>
-    <li><strong>A/B testing in production</strong>—compare prompt versions; measure satisfaction and business metrics.</li>
-    <li><strong>Human evaluation</strong>—sample reviews, thumbs up/down, red team exercises.</li>
-    <li><strong>Monitoring as testing</strong>—confidence scores, escalation rates, satisfaction, anomaly detection. Ongoing production signals are part of the test suite.</li>
+    <li><strong>Prompt regression testing</strong>, golden dataset of inputs and expected outputs; test every prompt change against it; version control prompts.</li>
+    <li><strong>Adversarial testing</strong>, jailbreak attempts, prompt injection, malicious and edge case inputs (empty, very long, special chars).</li>
+    <li><strong>Evaluation metrics</strong>, accuracy vs golden answers, relevance (semantic similarity), safety (harmful output detection), consistency (similar outputs for same input), latency (P50, P95, P99).</li>
+    <li><strong>A/B testing in production</strong>, compare prompt versions; measure satisfaction and business metrics.</li>
+    <li><strong>Human evaluation</strong>, sample reviews, thumbs up/down, red team exercises.</li>
+    <li><strong>Monitoring as testing</strong>, confidence scores, escalation rates, satisfaction, anomaly detection. Ongoing production signals are part of the test suite.</li>
   </ol>
 
   <h2>Real Examples and Tools</h2>

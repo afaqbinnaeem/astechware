@@ -1,9 +1,9 @@
 <% content_for :blog_key_takeaways do %>
   <ul>
-    <li>If your AI processes PHI, HIPAA applies—you need BAAs with vendors, minimum necessary access, and audit trails.</li>
+    <li>If your AI processes PHI, HIPAA applies, you need BAAs with vendors, minimum necessary access, and audit trails.</li>
     <li>HIPAA AI software design: encrypt in transit and at rest, control access by role, and log every access and use of PHI.</li>
-    <li>RAG and agents that touch PHI must not leak data across tenants or into prompts sent to non-BAA vendors.</li>
-    <li>Common gaps: no BAA with the LLM/embedding provider, logging that omits PHI access, and over-permissive agent permissions.</li>
+    <li>RAG and agents that touch PHI must not leak data across tenants or into prompts sent to non BAA vendors.</li>
+    <li>Common gaps: no BAA with the LLM/embedding provider, logging that omits PHI access, and over permissive agent permissions.</li>
     <li>Build compliance in from the start; retrofitting HIPAA onto an existing AI system is costly and risky.</li>
   </ul>
 <% end %>
@@ -22,30 +22,30 @@
 <p class="lead">Healthcare companies using AI on patient or member data need HIPAA compliant AI. Here's what you need: BAAs, minimum necessary access, audit trails, and how to build HIPAA AI software that fits the rules.</p>
 
 <h2 id="when-hipaa-applies">When HIPAA Applies to AI</h2>
-<p>If your system creates, receives, maintains, or transmits protected health information (PHI), HIPAA applies. That includes AI: chatbots that handle patient questions, RAG over clinical or administrative documents, agents that schedule or triage, and any model or pipeline that processes identifiable health information. So HIPAA AI software isn't optional for healthcare—it's the baseline. The good news is that HIPAA is about safeguards (administrative, physical, technical), not about banning AI. You can build and buy HIPAA compliant AI if you design for it.</p>
+<p>If your system creates, receives, maintains, or transmits protected health information (PHI), HIPAA applies. That includes AI: chatbots that handle patient questions, RAG over clinical or administrative documents, agents that schedule or triage, and any model or pipeline that processes identifiable health information. So HIPAA AI software isn't optional for healthcare, it's the baseline. The good news is that HIPAA is about safeguards (administrative, physical, technical), not about banning AI. You can build and buy HIPAA compliant AI if you design for it.</p>
 
 <h2 id="baa-and-vendors">BAA and Vendors</h2>
-<p>When you use a vendor that touches PHI—cloud, LLM API, embedding API, database—you need a Business Associate Agreement (BAA). Not all vendors offer BAAs; many LLM and embedding providers do not. So your first filter for HIPAA AI software is: does every component that sees PHI have a BAA in place? If you send PHI to an LLM that won't sign a BAA, you're exposed. Options: use a BAA-covered LLM (e.g. certain enterprise or on-prem offerings), or architect so PHI never leaves your controlled environment (e.g. on-prem models, or strict de-identification before any external call).</p>
+<p>When you use a vendor that touches PHI, cloud, LLM API, embedding API, database, you need a Business Associate Agreement (BAA). Not all vendors offer BAAs; many LLM and embedding providers do not. So your first filter for HIPAA AI software is: does every component that sees PHI have a BAA in place? If you send PHI to an LLM that won't sign a BAA, you're exposed. Options: use a BAA covered LLM (e.g. certain enterprise or on prem offerings), or architect so PHI never leaves your controlled environment (e.g. on prem models, or strict de identification before any external call).</p>
 
 <blockquote class="blockquote border-start border-4 border-primary ps-3 my-4 pull-quote">
   <p class="mb-0">"HIPAA compliant AI starts with the vendor list: every party that touches PHI must have a BAA and appropriate safeguards."</p>
 </blockquote>
 
 <h2 id="minimum-necessary-and-access">Minimum Necessary and Access Control</h2>
-<p>HIPAA's minimum necessary rule says use and disclosure of PHI should be limited to what's needed for the purpose. For HIPAA AI software that means: scope the data the AI can access (e.g. only the patient in context, only the fields needed for the task), and enforce access control so only authorized users and systems can run the AI on that data. Role-based access and clear boundaries (e.g. this agent can only read this patient's record for this session) keep you within minimum necessary and reduce the blast radius of a misconfiguration.</p>
+<p>HIPAA's minimum necessary rule says use and disclosure of PHI should be limited to what's needed for the purpose. For HIPAA AI software that means: scope the data the AI can access (e.g. only the patient in context, only the fields needed for the task), and enforce access control so only authorized users and systems can run the AI on that data. Role based access and clear boundaries (e.g. this agent can only read this patient's record for this session) keep you within minimum necessary and reduce the blast radius of a misconfiguration.</p>
 
 <h2 id="audit-logging">Audit Logging</h2>
-<p>You must be able to show who (or what) accessed PHI, when, and for what purpose. So every access to PHI by your AI—every query, every retrieval, every prompt that contained PHI—should be logged in an audit trail. Logs should be tamper-resistant and retained according to your policy. That way you can support investigations, breach analysis, and compliance reviews. Logging is also how you detect misuse or over-permissive agent behavior before it becomes an incident.</p>
+<p>You must be able to show who (or what) accessed PHI, when, and for what purpose. So every access to PHI by your AI, every query, every retrieval, every prompt that contained PHI, should be logged in an audit trail. Logs should be tamper resistant and retained according to your policy. That way you can support investigations, breach analysis, and compliance reviews. Logging is also how you detect misuse or over permissive agent behavior before it becomes an incident.</p>
 
 <h2 id="designing-hipaa-ai-software">Designing HIPAA AI Software</h2>
-<p>Design with PHI in mind from the start. Encrypt PHI in transit and at rest. Don't send PHI to services that don't have a BAA. In RAG, ensure retrieval is scoped (e.g. by patient or encounter) and that you're not leaking PHI into prompts sent to non-BAA endpoints. For agents, scope permissions: the agent shouldn't have broad read/write across all records. Prefer human-in-the-loop for high-impact or sensitive actions. Document your data flows, where PHI lives, and how you satisfy the Security Rule (access control, audit, integrity, transmission security).</p>
+<p>Design with PHI in mind from the start. Encrypt PHI in transit and at rest. Don't send PHI to services that don't have a BAA. In RAG, ensure retrieval is scoped (e.g. by patient or encounter) and that you're not leaking PHI into prompts sent to non BAA endpoints. For agents, scope permissions: the agent shouldn't have broad read/write across all records. Prefer human in the loop for high impact or sensitive actions. Document your data flows, where PHI lives, and how you satisfy the Security Rule (access control, audit, integrity, transmission security).</p>
 
 <h2 id="common-gaps">Common Gaps and How to Avoid Them</h2>
 <ul>
-  <li><strong>No BAA with the LLM or embedding provider</strong>—resolve this before going live; use a BAA-covered vendor or keep PHI out of their scope.</li>
-  <li><strong>Incomplete audit logging</strong>—log every PHI access and use; don't assume "the cloud provider logs" is enough.</li>
-  <li><strong>Over-permissive agents</strong>—agents that can query any patient or any field violate minimum necessary; scope by user and task.</li>
-  <li><strong>Retrofitting compliance later</strong>—adding BAAs and logging after launch is harder and riskier; build HIPAA in from day one.</li>
+  <li><strong>No BAA with the LLM or embedding provider</strong>, resolve this before going live; use a BAA covered vendor or keep PHI out of their scope.</li>
+  <li><strong>Incomplete audit logging</strong>, log every PHI access and use; don't assume "the cloud provider logs" is enough.</li>
+  <li><strong>Over permissive agents</strong>, agents that can query any patient or any field violate minimum necessary; scope by user and task.</li>
+  <li><strong>Retrofitting compliance later</strong>, adding BAAs and logging after launch is harder and riskier; build HIPAA in from day one.</li>
 </ul>
 
 <h2 id="what-to-do-next">What to Do Next</h2>

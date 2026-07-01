@@ -6,7 +6,7 @@
           How we built a process serving platform where every digital artifact has to survive being entered as evidence
         </h1>
         <p class="mb-0" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.7; max-width: 900px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
-          A Canadian process serving company asked us to replace their Gmail-and-spreadsheets operation with a real platform.
+          A Canadian process serving company asked us to replace their Gmail and spreadsheets operation with a real platform.
         </p>
       </div>
     </div>
@@ -19,7 +19,7 @@
     <div class="container">
       <div class="col-12 col-lg-10 mx-auto">
         <p class="large-para mb-4">
-          The simple version of the brief: automate intake, dispatch, affidavit generation, and invoicing for a multi-tenant SaaS that any process serving company in Canada could run their business on.
+          The simple version of the brief: automate intake, dispatch, affidavit generation, and invoicing for a multi tenant SaaS that any process serving company in Canada could run their business on.
         </p>
         <p class="large-para mb-4">
           The version that actually mattered: every digital artifact this system produces has to be defensible if it ends up in court. A GPS coordinate that drifts. A timestamp that gets rewritten. An affidavit with a fabricated detail. A server note that uses informal language a defense lawyer can exploit. Any one of these turns a routine service into a contested service, and a contested service turns into billable hours for the law firm that hired us, and a damaged reputation for the company we built this for.
@@ -43,10 +43,10 @@
             Their entire operation ran on Gmail for intake, Google Sheets for case tracking, Google Drive for documents, and 3,500 lines of Google Apps Script holding it together. The compounding problems were predictable: fields missed during manual PDF transcription, informal server notes that read badly when reproduced in affidavits, invoice errors that triggered disputes with law firms, and zero scalability for adding a second company to the same platform.
           </p>
           <p class="large-para mb-3">
-            The brief was to replace all of it with a multi-tenant SaaS so any process serving company in Canada could run their business on the same platform. The harder requirement, never stated this way but implicit in every conversation, was that the system had to be more legally defensible than the manual process it was replacing. Otherwise the upgrade would have been a downgrade.
+            The brief was to replace all of it with a multi tenant SaaS so any process serving company in Canada could run their business on the same platform. The harder requirement, never stated this way but implicit in every conversation, was that the system had to be more legally defensible than the manual process it was replacing. Otherwise the upgrade would have been a downgrade.
           </p>
           <p class="large-para mb-0">
-            We delivered the platform over a focused engagement. Five user roles, full lifecycle from law firm email to signed affidavit to invoice, multi-tenant from day one. This case study walks through the five decisions that mattered most.
+            We delivered the platform over a focused engagement. Five user roles, full lifecycle from law firm email to signed affidavit to invoice, multi tenant from day one. This case study walks through the five decisions that mattered most.
           </p>
         </div>
         <div class="col-12 col-lg-5">
@@ -54,9 +54,9 @@
             <h3 class="h6 text-uppercase text-muted mb-3">At a glance</h3>
             <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
               <li><strong>Client:</strong> Canadian process serving company</li>
-              <li><strong>Scope:</strong> Multi-tenant SaaS, five user roles</li>
+              <li><strong>Scope:</strong> Multi tenant SaaS, five user roles</li>
               <li><strong>AI:</strong> Gemini Pro document parsing (human review required)</li>
-              <li><strong>Evidence:</strong> GPS, server-side timestamps, encrypted photos</li>
+              <li><strong>Evidence:</strong> GPS, server side timestamps, encrypted photos</li>
               <li><strong>Stack:</strong> PostgreSQL RLS, WeasyPrint affidavits, DocuSign, encrypted S3</li>
             </ul>
           </div>
@@ -70,23 +70,23 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Decision 1: Tenant isolation lives in the database, not the application</h2>
         <p class="large-para mb-4">
-          The platform is multi-tenant: many process serving companies share the same infrastructure, each one seeing only their own cases, servers, financials, and clients.
+          The platform is multi tenant: many process serving companies share the same infrastructure, each one seeing only their own cases, servers, financials, and clients.
         </p>
         <p class="large-para mb-4">
-          The standard way to implement this is application-level filtering. Every query the application writes includes a &ldquo;WHERE tenant_id = X&rdquo; clause. The application is responsible for never forgetting that clause. This works until it doesn&rsquo;t.
+          The standard way to implement this is application level filtering. Every query the application writes includes a &ldquo;WHERE tenant_id = X&rdquo; clause. The application is responsible for never forgetting that clause. This works until it doesn&rsquo;t.
         </p>
         <p class="large-para mb-4">
-          The failure mode is specific and well-documented across the industry. A developer adds a new feature, forgets the tenant filter on one query, and suddenly Tenant A can see Tenant B&rsquo;s cases. In a normal SaaS this is a serious bug. In a SaaS where Tenant B&rsquo;s cases include court documents naming individuals in divorce filings, eviction orders, and lawsuits, this is a catastrophic compliance event. Process serving data isn&rsquo;t just business data, it&rsquo;s pre-trial evidence linked to identifiable individuals.
+          The failure mode is specific and well documented across the industry. A developer adds a new feature, forgets the tenant filter on one query, and suddenly Tenant A can see Tenant B&rsquo;s cases. In a normal SaaS this is a serious bug. In a SaaS where Tenant B&rsquo;s cases include court documents naming individuals in divorce filings, eviction orders, and lawsuits, this is a catastrophic compliance event. Process serving data isn&rsquo;t just business data, it&rsquo;s pre trial evidence linked to identifiable individuals.
         </p>
         <p class="large-para mb-4">We considered two approaches.</p>
         <p class="large-para mb-3">
-          The first was application-level filtering with code review discipline and integration tests checking tenant boundaries. Standard practice. The problem is that it relies on every developer, every code review, and every future migration getting it right. The cost of one mistake is too high for that to be the only line of defense.
+          The first was application level filtering with code review discipline and integration tests checking tenant boundaries. Standard practice. The problem is that it relies on every developer, every code review, and every future migration getting it right. The cost of one mistake is too high for that to be the only line of defense.
         </p>
         <p class="large-para mb-3">
-          The second was PostgreSQL Row Level Security with policies enforced at the database level. The application sets a tenant context variable at authentication time. Every query, including ones the application didn&rsquo;t write correctly, is automatically filtered by the database. A developer can write &ldquo;SELECT * FROM cases&rdquo; with no WHERE clause and the database will silently restrict it to the current tenant. Even a SQL injection that bypasses the application layer cannot read another tenant&rsquo;s data without first re-authenticating.
+          The second was PostgreSQL Row Level Security with policies enforced at the database level. The application sets a tenant context variable at authentication time. Every query, including ones the application didn&rsquo;t write correctly, is automatically filtered by the database. A developer can write &ldquo;SELECT * FROM cases&rdquo; with no WHERE clause and the database will silently restrict it to the current tenant. Even a SQL injection that bypasses the application layer cannot read another tenant&rsquo;s data without first re authenticating.
         </p>
         <p class="large-para mb-3">
-          We shipped the second approach. The architectural claim we can make to a legal-tech buyer evaluating the platform is precise: it is not possible, by design, for one tenant to read another tenant&rsquo;s data through any application bug, misconfigured query, or developer error. The isolation is enforced by the database, not by discipline.
+          We shipped the second approach. The architectural claim we can make to a legal tech buyer evaluating the platform is precise: it is not possible, by design, for one tenant to read another tenant&rsquo;s data through any application bug, misconfigured query, or developer error. The isolation is enforced by the database, not by discipline.
         </p>
         <p class="large-para mb-0">
           For a system holding court documents, this is the difference between &ldquo;we have controls in place&rdquo; and &ldquo;the data flow makes the failure impossible.&rdquo;
@@ -100,16 +100,16 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Decision 2: The AI never has the final word on a case</h2>
         <p class="large-para mb-4">
-          Court documents are not clean PDFs. They include scanned handwriting, multi-page exhibits, inconsistent layouts across provinces, and jurisdiction-specific formatting. Manually transcribing 30+ fields from each one was the original bottleneck.
+          Court documents are not clean PDFs. They include scanned handwriting, multi page exhibits, inconsistent layouts across provinces, and jurisdiction specific formatting. Manually transcribing 30+ fields from each one was the original bottleneck.
         </p>
         <p class="large-para mb-4">
           We use Gemini Pro to extract structured data from incoming court documents: firm name, file number, court name, court date, plaintiff, defendant, service type, target names, target addresses, documents to serve, and rush flag. The AI builds a complete draft case file in seconds. This is the obvious automation play and the easy part to get wrong.
         </p>
         <p class="large-para mb-4">
-          The wrong way to ship this is to let the extracted fields flow directly into the case record. AI document extraction is improving but it is not court-grade. A misread address sends a server to the wrong house. A misread file number gets a case affiliated with the wrong matter. A misread defendant name puts the wrong person on an affidavit. These are not edge cases, they are weekly occurrences in any AI document parsing pipeline running over real-world court documents.
+          The wrong way to ship this is to let the extracted fields flow directly into the case record. AI document extraction is improving but it is not court grade. A misread address sends a server to the wrong house. A misread file number gets a case affiliated with the wrong matter. A misread defendant name puts the wrong person on an affidavit. These are not edge cases, they are weekly occurrences in any AI document parsing pipeline running over real world court documents.
         </p>
         <p class="large-para mb-4">
-          The right way to ship this is to treat the AI as a first draft and design the human review step to be faster than re-reading the original document. We built a split-screen review UI: the original PDF on the left, the extracted fields on the right, every field editable in place. The admin reviews the AI&rsquo;s work, corrects what&rsquo;s wrong, and approves the case with one click. Nothing flows to dispatch, affidavit generation, or invoice calculation until the admin has signed off.
+          The right way to ship this is to treat the AI as a first draft and design the human review step to be faster than re reading the original document. We built a split screen review UI: the original PDF on the left, the extracted fields on the right, every field editable in place. The admin reviews the AI&rsquo;s work, corrects what&rsquo;s wrong, and approves the case with one click. Nothing flows to dispatch, affidavit generation, or invoice calculation until the admin has signed off.
         </p>
         <p class="large-para mb-0">
           The principle behind this decision shows up in every AI feature in the platform: AI generates, humans approve, the audit log records both. The AI is a productivity tool, never an authority on the legal record.
@@ -123,10 +123,10 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Decision 3: Server notes pass through an approval queue before they become legal evidence</h2>
         <p class="large-para mb-4">
-          This was the decision that surprised the client most, and the one that turned out to be the highest-value compliance feature in the platform.
+          This was the decision that surprised the client most, and the one that turned out to be the highest value compliance feature in the platform.
         </p>
         <p class="large-para mb-4">
-          Process servers are field operatives, not legal writers. When they log an attempt, they write the way they talk: &ldquo;lights off, dog barking, didn&rsquo;t answer the door, looked like nobody home,&rdquo; or &ldquo;guy answered, said it wasn&rsquo;t him, definitely was, served.&rdquo; These notes get incorporated into affidavits and non-service narratives that go to courts.
+          Process servers are field operatives, not legal writers. When they log an attempt, they write the way they talk: &ldquo;lights off, dog barking, didn&rsquo;t answer the door, looked like nobody home,&rdquo; or &ldquo;guy answered, said it wasn&rsquo;t him, definitely was, served.&rdquo; These notes get incorporated into affidavits and non service narratives that go to courts.
         </p>
         <p class="large-para mb-4">
           The old workflow took those notes verbatim. The new workflow runs every note through an admin approval queue before it enters the official case record. The admin sees the raw note, knows the legal standard expected for that note type (personal service, substitute service, attempted service), and either approves the note, edits it, or requests a revision from the server.
@@ -136,7 +136,7 @@
           The first was to skip the approval step and let server notes flow directly to the affidavit. Faster, but it preserves the exact legal risk that made the manual workflow problematic.
         </p>
         <p class="large-para mb-3">
-          The second was to use AI to rewrite server notes into formal legal language automatically. Faster than human review, but it introduces a new failure mode: an AI-rewritten note that subtly changes the factual content of what the server observed. In a process serving context, that is fabrication, and fabrication on an affidavit is a serious offense in Canadian courts.
+          The second was to use AI to rewrite server notes into formal legal language automatically. Faster than human review, but it introduces a new failure mode: an AI rewritten note that subtly changes the factual content of what the server observed. In a process serving context, that is fabrication, and fabrication on an affidavit is a serious offense in Canadian courts.
         </p>
         <p class="large-para mb-3">
           The third was an admin approval queue with AI as an assistant, not a rewriter. The admin sees the raw note, the AI suggests a legally appropriate rephrasing for that note type, and the admin decides. The server&rsquo;s factual observation never changes. Only the language used to record it gets cleaned up, by a human who is accountable for it.
@@ -156,7 +156,7 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Decision 4: Evidence is captured at the source and timestamped by the database, not the device</h2>
         <p class="large-para mb-4">
-          Every attempt logged by a process server captures GPS coordinates, server-side timestamp, and optional photo. These three pieces of data are what make an affidavit defensible: they prove the server was at the address, at the time claimed, with evidence of the conditions observed.
+          Every attempt logged by a process server captures GPS coordinates, server side timestamp, and optional photo. These three pieces of data are what make an affidavit defensible: they prove the server was at the address, at the time claimed, with evidence of the conditions observed.
         </p>
         <p class="large-para mb-4">
           The naive implementation is to let the mobile device capture all three and submit them to the server. This is wrong for a specific reason: a device&rsquo;s GPS and clock can be manipulated, accidentally or deliberately. A process server with an incentive to close cases faster could, in theory, log attempts they never made. A device with the clock set wrong could record attempts at incorrect timestamps. In either case the affidavit is technically false.
@@ -166,13 +166,13 @@
           GPS coordinates are captured by the device at the moment the server logs the attempt, not later. The mobile interface requires location permission and refuses to log an attempt if location is unavailable. This prevents retroactive logging from a desk.
         </p>
         <p class="large-para mb-3">
-          Timestamps are recorded server-side, not device-side. When the attempt log reaches the backend, the database records the timestamp. The device&rsquo;s clock is captured separately for reference, but it is the database timestamp that goes into the affidavit. A device with a wrong clock cannot produce wrong evidence.
+          Timestamps are recorded server side, not device side. When the attempt log reaches the backend, the database records the timestamp. The device&rsquo;s clock is captured separately for reference, but it is the database timestamp that goes into the affidavit. A device with a wrong clock cannot produce wrong evidence.
         </p>
         <p class="large-para mb-3">
           Photos, when captured, are uploaded directly to encrypted storage with their metadata intact. The server cannot edit or replace the photo after upload.
         </p>
         <p class="large-para mb-0">
-          For a legal-tech buyer evaluating this kind of system, the questions to ask are always: where is each piece of evidence captured, who can change it after capture, and is there an audit trail of any changes? In this platform, the answers are: at the source, no one, yes.
+          For a legal tech buyer evaluating this kind of system, the questions to ask are always: where is each piece of evidence captured, who can change it after capture, and is there an audit trail of any changes? In this platform, the answers are: at the source, no one, yes.
         </p>
       </div>
     </div>
@@ -183,19 +183,19 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Decision 5: Jurisdiction logic is deterministic, not inferred</h2>
         <p class="large-para mb-4">
-          Canadian process serving spans multiple tax jurisdictions: Ontario charges 13% HST, Quebec charges 5% GST plus provincial sales tax, other provinces have their own rules, and US-based law firms are taxed at 0%. An invoice that applies the wrong tax rule is a billing dispute and, in some cases, a compliance issue with the Canada Revenue Agency.
+          Canadian process serving spans multiple tax jurisdictions: Ontario charges 13% HST, Quebec charges 5% GST plus provincial sales tax, other provinces have their own rules, and US based law firms are taxed at 0%. An invoice that applies the wrong tax rule is a billing dispute and, in some cases, a compliance issue with the Canada Revenue Agency.
         </p>
         <p class="large-para mb-4">
           The shortcut would have been to ask an AI model to calculate the invoice from case data. AI is good at this kind of structured task right up until it isn&rsquo;t, and when it isn&rsquo;t, the failure mode is silent: a miscalculated tax line that nobody notices until a law firm flags it or an audit catches it.
         </p>
         <p class="large-para mb-4">
-          We took the opposite approach. Jurisdiction logic is deterministic Python code, not an AI call. Tax rates are encoded as rules tied to the law firm&rsquo;s billing address and the province where service was performed. Mileage is calculated from Google Maps&rsquo; actual driving route between the server&rsquo;s start point and the target address, not straight-line distance. Photocopy charges are calculated per document from the case file. Rush surcharges are applied based on flags set at intake.
+          We took the opposite approach. Jurisdiction logic is deterministic Python code, not an AI call. Tax rates are encoded as rules tied to the law firm&rsquo;s billing address and the province where service was performed. Mileage is calculated from Google Maps&rsquo; actual driving route between the server&rsquo;s start point and the target address, not straight line distance. Photocopy charges are calculated per document from the case file. Rush surcharges are applied based on flags set at intake.
         </p>
         <p class="large-para mb-4">
           The AI&rsquo;s role in the invoice flow is bounded: it can suggest line items based on case data when the admin is reviewing the invoice, but it cannot change a tax rate, modify a calculated charge, or push the invoice to the law firm. Calculation is code, AI is a suggestion layer, human approval is required before any invoice is sent.
         </p>
         <p class="large-para mb-0">
-          The principle is the same one that runs through every decision in this build: AI is good for unstructured-to-structured (parsing documents, drafting language) and bad for deterministic calculation. Use it where it has an edge and replace it with code where it doesn&rsquo;t.
+          The principle is the same one that runs through every decision in this build: AI is good for unstructured to structured (parsing documents, drafting language) and bad for deterministic calculation. Use it where it has an edge and replace it with code where it doesn&rsquo;t.
         </p>
       </div>
     </div>
@@ -206,10 +206,10 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">What the platform looks like in production</h2>
         <p class="large-para mb-4">
-          A law firm emails court documents to an inbound address. The system parses the email, extracts attachments, and runs AI document parsing over the PDFs to build a draft case file in seconds. The admin reviews the case in a split-screen UI, corrects anything wrong, and approves. The admin assigns process servers to target addresses. Servers see their assignments on a mobile interface, drive to the address, and log attempts with GPS, timestamp, and optional photo. Every server note passes through the admin approval queue before entering the official record.
+          A law firm emails court documents to an inbound address. The system parses the email, extracts attachments, and runs AI document parsing over the PDFs to build a draft case file in seconds. The admin reviews the case in a split screen UI, corrects anything wrong, and approves. The admin assigns process servers to target addresses. Servers see their assignments on a mobile interface, drive to the address, and log attempts with GPS, timestamp, and optional photo. Every server note passes through the admin approval queue before entering the official record.
         </p>
         <p class="large-para mb-4">
-          When service is confirmed, the system generates a sworn affidavit from court-grade templates, pre-populated with case data, attempt logs, and evidence. The affidavit goes through DocuSign in enforced order: server signs first, then commissioner. The signed PDF is emailed to the law firm. When service fails after the required number of attempts, the system generates a formal legal non-service narrative from the approved attempt logs.
+          When service is confirmed, the system generates a sworn affidavit from court grade templates, pre populated with case data, attempt logs, and evidence. The affidavit goes through DocuSign in enforced order: server signs first, then commissioner. The signed PDF is emailed to the law firm. When service fails after the required number of attempts, the system generates a formal legal non service narrative from the approved attempt logs.
         </p>
         <p class="large-para mb-4">
           The case closes, the invoice generates from deterministic calculation, and the financial dashboard updates. Aged receivables, revenue by law firm, HST and GST collected for government reporting, all visible to the owner without spreadsheet reconciliation.
@@ -227,14 +227,14 @@
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Standards, architecture, and controls</h2>
         <div class="workflow-card p-4 p-lg-5">
           <ul class="mb-0 ps-3" style="line-height: 2;">
-            <li><strong>Multi-tenant isolation:</strong> PostgreSQL Row Level Security enforced at the database layer, not the application</li>
-            <li><strong>AI document parsing</strong> with human-in-the-loop review before any data enters the case record</li>
+            <li><strong>Multi tenant isolation:</strong> PostgreSQL Row Level Security enforced at the database layer, not the application</li>
+            <li><strong>AI document parsing</strong> with human in the loop review before any data enters the case record</li>
             <li><strong>Approval queue</strong> for all server notes before they become legal evidence</li>
-            <li><strong>Server-side timestamps</strong> on all attempt logs, device clocks recorded for reference only</li>
+            <li><strong>Server side timestamps</strong> on all attempt logs, device clocks recorded for reference only</li>
             <li><strong>GPS capture</strong> required at moment of logging, retroactive entry blocked</li>
-            <li><strong>Court-grade affidavit generation</strong> from HTML/CSS templates via WeasyPrint</li>
+            <li><strong>Court grade affidavit generation</strong> from HTML/CSS templates via WeasyPrint</li>
             <li><strong>Enforced DocuSign signing order:</strong> server then commissioner, with audit trail</li>
-            <li><strong>Deterministic invoice calculation:</strong> jurisdiction-aware tax rules, actual route mileage from Google Maps, no AI in the calculation path</li>
+            <li><strong>Deterministic invoice calculation:</strong> jurisdiction aware tax rules, actual route mileage from Google Maps, no AI in the calculation path</li>
             <li><strong>Audit logging</strong> on every state change with actor, timestamp, action, and prior value</li>
             <li><strong>Document storage</strong> on encrypted S3 with access controlled by tenant context</li>
           </ul>
@@ -250,9 +250,9 @@
         <p class="large-para mb-4">A few things we learned that are not obvious until you ship.</p>
         <div class="workflow-card p-4 p-lg-5">
           <ul class="mb-0 ps-3" style="line-height: 2;">
-            <li>AI is best for unstructured-to-structured work (parsing documents, drafting language) and worst for deterministic calculation. Use it where it has an edge and replace it with code where it doesn&rsquo;t. Most legaltech bugs we have seen in other systems come from using AI in the deterministic path.</li>
-            <li>Every digital artifact in a legal workflow has to be traceable. Who created it, when, who changed it, when. If you cannot answer those four questions for any record in your system, your system is not court-grade. Build the audit log first.</li>
-            <li>Tenant isolation cannot be a discipline. It has to be enforced by infrastructure. Application-level filtering plus tests plus code review will eventually fail. The cost of that failure in a legaltech context is too high.</li>
+            <li>AI is best for unstructured to structured work (parsing documents, drafting language) and worst for deterministic calculation. Use it where it has an edge and replace it with code where it doesn&rsquo;t. Most legaltech bugs we have seen in other systems come from using AI in the deterministic path.</li>
+            <li>Every digital artifact in a legal workflow has to be traceable. Who created it, when, who changed it, when. If you cannot answer those four questions for any record in your system, your system is not court grade. Build the audit log first.</li>
+            <li>Tenant isolation cannot be a discipline. It has to be enforced by infrastructure. Application level filtering plus tests plus code review will eventually fail. The cost of that failure in a legaltech context is too high.</li>
             <li>Field operatives are not legal writers. Build the approval queue between them and the legal record. This is the single most valuable compliance control in any legaltech operations platform we have built.</li>
             <li>Jurisdiction logic is the most boring part of the system and the most expensive part to get wrong. Encode it as deterministic rules, not AI prompts, and version it the way you would version any other regulated logic.</li>
           </ul>
@@ -266,7 +266,7 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">How to talk to us about a build like this</h2>
         <p class="large-para mb-4">
-          If you are building a legaltech operations platform, modernizing a regulated workflow off Gmail and spreadsheets, or evaluating where AI fits safely in a legal data flow: we offer a paid one-week discovery sprint that produces an architecture document, a compliance and audit map, and a build plan you own whether or not you continue with us.
+          If you are building a legaltech operations platform, modernizing a regulated workflow off Gmail and spreadsheets, or evaluating where AI fits safely in a legal data flow: we offer a paid one week discovery sprint that produces an architecture document, a compliance and audit map, and a build plan you own whether or not you continue with us.
         </p>
         <p class="large-para mb-4">
           Most teams find this is the cheapest way to know what they actually need before committing to a build.

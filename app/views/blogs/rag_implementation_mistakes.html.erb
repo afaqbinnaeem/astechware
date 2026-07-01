@@ -2,7 +2,7 @@
 <% content_for :head do %>
   <% set_meta_tags(
     title: "RAG Mistakes That Kill Accuracy (And How to Fix Them) | A'sTechware",
-    description: "You gave your AI all your docs but it still hallucinates. Bad chunking, wrong embeddings, no re-ranking—and the RAG design that fixes it.",
+    description: "You gave your AI all your docs but it still hallucinates. Bad chunking, wrong embeddings, no re ranking, and the RAG design that fixes it.",
     keywords: "RAG problems, retrieval augmented generation, AI hallucination, semantic chunking",
     og: { title: "RAG Implementation Mistakes That Kill Accuracy", description: "Why naive RAG fails and how to fix it.", url: safe_request_url, type: "article", site_name: "A'sTechware" },
     twitter: { card: "summary_large_image", title: "RAG Implementation Mistakes", description: "Fix RAG accuracy with better chunking and retrieval." }
@@ -13,7 +13,7 @@
     "@type" => "Article",
     "headline" => article[:title],
     "description" => article[:excerpt_long],
-    "datePublished" => "2025-02-01",
+    "datePublished" => "2025 02 01",
     "author" => { "@type" => "Organization", "name" => article[:author_name] }
   }.to_json) %>
   </script>
@@ -23,19 +23,19 @@
 
   <h2>Why Naive RAG Fails</h2>
   <ul>
-    <li><strong>Bad chunking</strong>—splitting on character count breaks context and splits key information across chunks.</li>
-    <li><strong>Wrong embedding model</strong>—trained on the wrong domain; retrieval quality suffers.</li>
-    <li><strong>Low retrieval precision</strong>—wrong docs in the top-k.</li>
-    <li><strong>No re-ranking</strong>—the best chunk isn't first; the LLM focuses on the wrong one.</li>
-    <li><strong>Poor prompt engineering</strong>—the model ignores or underweights the retrieved context.</li>
-    <li><strong>No "I don't know"</strong>—when retrieval score is low, the model answers anyway and hallucinates.</li>
+    <li><strong>Bad chunking</strong>, splitting on character count breaks context and splits key information across chunks.</li>
+    <li><strong>Wrong embedding model</strong>, trained on the wrong domain; retrieval quality suffers.</li>
+    <li><strong>Low retrieval precision</strong>, wrong docs in the top k.</li>
+    <li><strong>No re ranking</strong>, the best chunk isn't first; the LLM focuses on the wrong one.</li>
+    <li><strong>Poor prompt engineering</strong>, the model ignores or underweights the retrieved context.</li>
+    <li><strong>No "I don't know"</strong>, when retrieval score is low, the model answers anyway and hallucinates.</li>
   </ul>
 
   <h2>The Anatomy of Good RAG</h2>
-  <p><strong>Chunking:</strong> Semantic chunking with overlap so meaning isn't split. <strong>Embeddings:</strong> Domain-specific or fine-tuned for your content. <strong>Vector DB:</strong> pgvector, Pinecone, or Qdrant with proper indexing. <strong>Hybrid search:</strong> Semantic + BM25 keyword so you don't miss exact terms. <strong>Re-ranking:</strong> Cross-encoder over top-k to put the best chunk on top. <strong>Prompt:</strong> Clear template that says "answer only from context; if not found say so." <strong>Confidence:</strong> If retrieval score is below threshold, don't answer—escalate or say "I don't know."</p>
+  <p><strong>Chunking:</strong> Semantic chunking with overlap so meaning isn't split. <strong>Embeddings:</strong> Domain specific or fine tuned for your content. <strong>Vector DB:</strong> pgvector, Pinecone, or Qdrant with proper indexing. <strong>Hybrid search:</strong> Semantic + BM25 keyword so you don't miss exact terms. <strong>Re ranking:</strong> Cross encoder over top k to put the best chunk on top. <strong>Prompt:</strong> Clear template that says "answer only from context; if not found say so." <strong>Confidence:</strong> If retrieval score is below threshold, don't answer, escalate or say "I don't know."</p>
 
   <h2>Real Example: Legal RAG 60% → 92%</h2>
-  <p>Fixing chunking, switching to a legal-tuned embedding, adding hybrid search and re-ranking, and a strict "don't guess" prompt took accuracy from 60% to 92%. We'll cover code for semantic chunking, hybrid search, and confidence-based answering in the full article.</p>
+  <p>Fixing chunking, switching to a legal tuned embedding, adding hybrid search and re ranking, and a strict "don't guess" prompt took accuracy from 60% to 92%. We'll cover code for semantic chunking, hybrid search, and confidence based answering in the full article.</p>
 
-  <p>When RAG isn't enough: for highly specialized, consistent tasks, fine-tuning may beat RAG. Evaluation metrics: precision, recall, F1 on a held-out set. <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer">Schedule a RAG system audit</a>.</p>
+  <p>When RAG isn't enough: for highly specialized, consistent tasks, fine tuning may beat RAG. Evaluation metrics: precision, recall, F1 on a held out set. <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer">Schedule a RAG system audit</a>.</p>
 <% end %>

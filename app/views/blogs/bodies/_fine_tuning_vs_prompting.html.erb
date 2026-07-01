@@ -1,43 +1,43 @@
 <% content_for :blog_key_takeaways do %>
   <ul>
     <li>Use prompting when: general tasks, low volume, need flexibility, or no training data yet.</li>
-    <li>Use fine-tuning when: domain language, high volume, accuracy plateau, sensitive data, or cost/latency matters.</li>
-    <li>ROI example: $10K/month prompting vs $80K upfront + $2K/month fine-tuning; break-even ~month 9, 5x savings year two.</li>
-    <li>Data: 1,000–10,000 high-quality examples; quality beats quantity.</li>
-    <li>LoRA vs full fine-tuning: LoRA cheaper/faster; full for max control. Many systems use RAG + fine-tuning together.</li>
-    <li>Real cases: customer support (fine-tuned GPT-3.5 &gt; base GPT-4), medical coding 95% vs 70%, legal 10x cost reduction.</li>
+    <li>Use fine tuning when: domain language, high volume, accuracy plateau, sensitive data, or cost/latency matters.</li>
+    <li>ROI example: $10K/month prompting vs $80K upfront + $2K/month fine tuning; break even ~month 9, 5x savings year two.</li>
+    <li>Data: 1,000 to 10,000 high quality examples; quality beats quantity.</li>
+    <li>LoRA vs full fine tuning: LoRA cheaper/faster; full for max control. Many systems use RAG + fine tuning together.</li>
+    <li>Real cases: customer support (fine tuned GPT 3.5 &gt; base GPT 4), medical coding 95% vs 70%, legal 10x cost reduction.</li>
   </ul>
 <% end %>
 <% content_for :blog_toc do %>
   <ul class="list-unstyled mb-0">
     <li><a href="#when-prompting-is-enough">When Prompting Is Enough</a></li>
-    <li><a href="#when-fine-tuning-wins">When Fine-Tuning Wins</a></li>
+    <li><a href="#when-fine-tuning-wins">When Fine Tuning Wins</a></li>
     <li><a href="#the-roi-calculation">The ROI Calculation</a></li>
     <li><a href="#data-and-strategy">Data and Strategy</a></li>
     <li><a href="#what-to-do-next">What to Do Next</a></li>
   </ul>
 <% end %>
 
-<p class="lead">Your legal AI costs $15K/month in API calls. A $80K fine-tuned model would pay for itself in 6 months. Here's when and why.</p>
+<p class="lead">Your legal AI costs $15K/month in API calls. A $80K fine tuned model would pay for itself in 6 months. Here's when and why.</p>
 
 <h2 id="when-prompting-is-enough">When Prompting Is Enough</h2>
-<p>General tasks (summarization, Q&A), low volume (under ~100K requests/month), need for flexibility (change behavior quickly), or no training data—prompting is the right default. If you're still iterating on product and prompts, stay with APIs; you can switch to fine-tuning once usage and requirements stabilize. Prompting also wins when you need to support many use cases with one model: you'd need separate fine-tuned models per task, which increases ops and cost. Use APIs until you have a clear, stable task and enough labeled data to justify the investment.</p>
-<p>Real-world scenario: A product team needed a single model to handle summarization, classification, and short Q&A across three product areas. Volume was ~50K requests/month. They stayed with prompting and a shared GPT-4 endpoint; when they tried to fine-tune, they would have needed three separate models and a routing layer, which didn't pay off at that scale. Once one use case (contract clause extraction) grew to 400K requests/month and accuracy plateaued at 78%, they fine-tuned for that task only and left the rest on prompts.</p>
+<p>General tasks (summarization, Q&A), low volume (under ~100K requests/month), need for flexibility (change behavior quickly), or no training data, prompting is the right default. If you're still iterating on product and prompts, stay with APIs; you can switch to fine tuning once usage and requirements stabilize. Prompting also wins when you need to support many use cases with one model: you'd need separate fine tuned models per task, which increases ops and cost. Use APIs until you have a clear, stable task and enough labeled data to justify the investment.</p>
+<p>Real world scenario: A product team needed a single model to handle summarization, classification, and short Q&A across three product areas. Volume was ~50K requests/month. They stayed with prompting and a shared GPT 4 endpoint; when they tried to fine tune, they would have needed three separate models and a routing layer, which didn't pay off at that scale. Once one use case (contract clause extraction) grew to 400K requests/month and accuracy plateaued at 78%, they fine tuned for that task only and left the rest on prompts.</p>
 
 <blockquote class="blockquote border-start border-4 border-primary ps-3 my-4 pull-quote">
-  <p class="mb-0">"Year two and beyond: ~$24K vs $120K—about 5x savings once fine-tuning is in place."</p>
+  <p class="mb-0">"Year two and beyond: ~$24K vs $120K, about 5x savings once fine tuning is in place."</p>
 </blockquote>
 
-<h2 id="when-fine-tuning-wins">When Fine-Tuning Wins</h2>
-<p>Domain-specific language (legal, medical, finance), high volume (over ~1M requests/month), accuracy plateaus with prompting (e.g. stuck at 80%), sensitive data you can't send to the OpenAI API, need for lower latency (smaller model), or cost optimization—fine-tuning can deliver 95% cost reduction and better accuracy.</p>
-<p>We've seen customer support with a fine-tuned GPT-3.5 beat base GPT-4 on brand-specific tone and intent; medical coding go from 70% to 95% with a domain model; and legal contract analysis achieve 10x cost reduction by moving from GPT-4 API to a fine-tuned smaller model. In each case, the task was stable, volume was high, and labeled data was available. Fine-tuning locked in the gains and cut ongoing API cost dramatically.</p>
+<h2 id="when-fine-tuning-wins">When Fine Tuning Wins</h2>
+<p>Domain specific language (legal, medical, finance), high volume (over ~1M requests/month), accuracy plateaus with prompting (e.g. stuck at 80%), sensitive data you can't send to the OpenAI API, need for lower latency (smaller model), or cost optimization, fine tuning can deliver 95% cost reduction and better accuracy.</p>
+<p>We've seen customer support with a fine tuned GPT 3.5 beat base GPT 4 on brand specific tone and intent; medical coding go from 70% to 95% with a domain model; and legal contract analysis achieve 10x cost reduction by moving from GPT 4 API to a fine tuned smaller model. In each case, the task was stable, volume was high, and labeled data was available. Fine tuning locked in the gains and cut ongoing API cost dramatically.</p>
 
 <h2 id="the-roi-calculation">The ROI Calculation</h2>
-<p>Prompting: $10K/month = $120K/year. Fine-tuning: $80K upfront + $2K/month = $104K year one; break-even around month 9. Year two and beyond: ~$24K vs $120K—about 5x savings. We'll include real examples: customer support (fine-tuned GPT-3.5 beating base GPT-4), medical coding (95% vs 70%), legal contract analysis (10x cost reduction).</p>
-<p>Run your own numbers: estimate monthly API cost at current volume, then compare to one-time fine-tuning cost (data prep, training, eval) plus inference (e.g. self-hosted or dedicated endpoint). For many workloads above 500K–1M requests/month, fine-tuning pays back within 6–12 months and then delivers large ongoing savings.</p>
+<p>Prompting: $10K/month = $120K/year. Fine tuning: $80K upfront + $2K/month = $104K year one; break even around month 9. Year two and beyond: ~$24K vs $120K, about 5x savings. We'll include real examples: customer support (fine tuned GPT 3.5 beating base GPT 4), medical coding (95% vs 70%), legal contract analysis (10x cost reduction).</p>
+<p>Run your own numbers: estimate monthly API cost at current volume, then compare to one time fine tuning cost (data prep, training, eval) plus inference (e.g. self hosted or dedicated endpoint). For many workloads above 500K to 1M requests/month, fine tuning pays back within 6 to 12 months and then delivers large ongoing savings.</p>
 
 <h2 id="data-and-strategy">Data and Strategy</h2>
-<p>Data requirements: typically 1,000–10,000 high-quality examples. Fewer can work for narrow tasks; more helps for broad domain coverage. Quality beats quantity: clean, consistent labels and representative inputs matter more than raw volume. Strategies: LoRA vs full fine-tuning (LoRA is cheaper and faster; full fine-tuning for maximum control); evaluation on a hold-out set and A/B in production so you measure real impact. When to fine-tune vs use RAG vs both: use RAG when knowledge changes often; add fine-tuning when you have stable, high-volume tasks and enough labeled data. Many systems use both—RAG for up-to-date knowledge, fine-tuned model for tone and task structure.</p>
+<p>Data requirements: typically 1,000 to 10,000 high quality examples. Fewer can work for narrow tasks; more helps for broad domain coverage. Quality beats quantity: clean, consistent labels and representative inputs matter more than raw volume. Strategies: LoRA vs full fine tuning (LoRA is cheaper and faster; full fine tuning for maximum control); evaluation on a hold out set and A/B in production so you measure real impact. When to fine tune vs use RAG vs both: use RAG when knowledge changes often; add fine tuning when you have stable, high volume tasks and enough labeled data. Many systems use both, RAG for up to date knowledge, fine tuned model for tone and task structure.</p>
 
 <h2 id="what-to-do-next">What to Do Next</h2>
-<p>If you're at scale and accuracy or cost is a concern, run a fine-tuning ROI analysis: current API spend, target accuracy, and data availability. <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer">Schedule a fine-tuning ROI analysis</a> and we can help you model the break-even and design the data pipeline. For production AI that needs to stay accurate and cost-effective at scale, our <a href="<%= ai_agent_development_path %>">AI Agent Development</a> and ML practice includes fine-tuning strategy, data prep, and ongoing optimization.</p>
+<p>If you're at scale and accuracy or cost is a concern, run a fine tuning ROI analysis: current API spend, target accuracy, and data availability. <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer">Schedule a fine tuning ROI analysis</a> and we can help you model the break even and design the data pipeline. For production AI that needs to stay accurate and cost effective at scale, our <a href="<%= ai_agent_development_path %>">AI Agent Development</a> and ML practice includes fine tuning strategy, data prep, and ongoing optimization.</p>

@@ -6,7 +6,7 @@
   <%# 1. Hero Image %>
   <div class="case-detail-hero mb-4">
     <% if cs[:hero_image].present? %>
-      <%= image_tag cs[:hero_image], class: 'case-detail-hero-img img-fluid w-100', alt: "#{cs[:title]} – project", loading: 'lazy' %>
+      <%= image_tag cs[:hero_image], class: 'case-detail-hero-img img-fluid w-100', alt: "#{cs[:title]}: project", loading: 'lazy' %>
     <% else %>
       <div class="case-detail-hero-placeholder">
         <i class="fa <%= cs[:hero_icon].presence || 'fa-folder-open' %>" aria-hidden="true"></i>
@@ -149,11 +149,11 @@
         <div class="accordion case-detail-accordion" id="case-detail-tech-<%= slug.parameterize %>">
           <div class="accordion-item border rounded">
             <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#case-detail-tech-body-<%= slug.parameterize %>" aria-expanded="false" aria-controls="case-detail-tech-body-<%= slug.parameterize %>">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#case-detail-tech-body-<%= slug.parameterize %>" aria expanded="false" aria controls="case detail tech body-<%= slug.parameterize %>">
                 Technical details (architecture, features, integrations, security)
               </button>
             </h2>
-            <div id="case-detail-tech-body-<%= slug.parameterize %>" class="accordion-collapse collapse" data-bs-parent="#case-detail-tech-<%= slug.parameterize %>">
+            <div id="case-detail-tech-body-<%= slug.parameterize %>" class="accordion collapse collapse" data bs parent="#case detail tech-<%= slug.parameterize %>">
               <div class="accordion-body">
                 <% if cs[:technical_details][:architecture].present? %>
                   <h4 class="h6 mb-2">Architecture overview</h4>

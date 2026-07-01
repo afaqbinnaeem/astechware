@@ -3,13 +3,13 @@
     <div class="row align-items-center min-vh-50">
       <div class="col-12 col-lg-10 mx-auto text-center">
         <h1 class="display-5 fw-bold mb-3" style="font-size: clamp(28px, 4.5vw, 52px); line-height: 1.15;">
-          Liquidity-as-a-Service &amp; Automated Payroll Settlement Engine
+          Liquidity as a Service &amp; Automated Payroll Settlement Engine
         </h1>
         <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.3vw, 22px); line-height: 1.5; max-width: 980px; margin-left: auto; margin-right: auto;">
           Zofi Cash Salary Advance (EWA) Platform
         </p>
         <p class="mb-0" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.7; max-width: 980px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
-          A full-stack EWA ecosystem that calculates “earned but unpaid” wages in real time and settles advances automatically—built for payroll correctness and bank-grade security.
+          A full stack EWA ecosystem that calculates “earned but unpaid” wages in real time and settles advances automatically, built for payroll correctness and bank grade security.
         </p>
       </div>
     </div>
@@ -23,11 +23,11 @@
         <div class="col-12 col-lg-7">
           <h2 class="heading-border heading-center heading-left mb-4 pb-3 d-inline-block">The Challenge</h2>
           <p class="large-para mb-3">
-            In emerging markets, <strong>70% of the workforce</strong> faces high-interest predatory lending between pay cycles. Employers needed a way to offer Earned Wage Access (EWA)
+            In emerging markets, <strong>70% of the workforce</strong> faces high interest predatory lending between pay cycles. Employers needed a way to offer Earned Wage Access (EWA)
             without impacting their own cash flow or creating manual accounting overhead.
           </p>
           <p class="large-para mb-0">
-            The technical hurdle was building a real-time accrual engine that can calculate “unpaid but earned” wages across disparate payroll systems with varying tax brackets—while staying
+            The technical hurdle was building a real time accrual engine that can calculate “unpaid but earned” wages across disparate payroll systems with varying tax brackets, while staying
             correct under edge cases (time corrections, partial periods, and payout failures) and keeping HR out of the loop.
           </p>
         </div>
@@ -37,7 +37,7 @@
             <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
               <li><strong>Compliance:</strong> KYC / AML</li>
               <li><strong>Payments:</strong> Mobile Money + Bank rails</li>
-              <li><strong>Security:</strong> AES-256 + MFA</li>
+              <li><strong>Security:</strong> AES 256 + MFA</li>
               <li><strong>Impact:</strong> Built for high adoption with automated repayment controls and reconciliation</li>
             </ul>
           </div>
@@ -51,12 +51,12 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">The Solution</h2>
         <p class="large-para mb-3">
-          A full-stack FinTech ecosystem that enables instant wage withdrawals. We engineered a proprietary accrual logic layer that syncs with employer attendance data to compute a
-          “Safe-to-Withdraw” limit—preventing over-drafting and payroll discrepancies.
+          A full stack FinTech ecosystem that enables instant wage withdrawals. We engineered a proprietary accrual logic layer that syncs with employer attendance data to compute a
+          “Safe to Withdraw” limit, preventing over drafting and payroll discrepancies.
         </p>
         <p class="large-para mb-0">
           The platform is designed to be operationally invisible: advances are calculated deterministically (net of taxes and contributions), disbursements are handled through integrated payout
-          rails, and settlement is automated via bank/ERP-compatible files so HR and payroll do not reconcile transactions manually.
+          rails, and settlement is automated via bank/ERP compatible files so HR and payroll do not reconcile transactions manually.
         </p>
       </div>
     </div>
@@ -67,8 +67,8 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Technical Approach</h2>
         <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
-          <li><strong>Deterministic accrual logic:</strong> Formula-based engine calculates net pay (after taxes/social contributions) on a per-diem basis.</li>
-          <li><strong>Automated batch settlement:</strong> Middleware generates ISO 20022-compliant settlement files for employer banking at month-end.</li>
+          <li><strong>Deterministic accrual logic:</strong> Formula based engine calculates net pay (after taxes/social contributions) on a per diem basis.</li>
+          <li><strong>Automated batch settlement:</strong> Middleware generates ISO 20022 compliant settlement files for employer banking at month end.</li>
         </ul>
       </div>
     </div>
@@ -82,25 +82,25 @@
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">Architecture</h3>
-              <p class="mb-0 small">Flutter (Mobile) → Node.js (Microservices) → PostgreSQL (High-Availability RDS)</p>
+              <p class="mb-0 small">Flutter (Mobile) → Node.js (Microservices) → PostgreSQL (High Availability RDS)</p>
             </div>
           </div>
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">Integrations</h3>
-              <p class="mb-0 small">Plaid/Okra (bank verification), M-Pesa/Airtel Money (disbursement), SAP/Oracle ERP connectors.</p>
+              <p class="mb-0 small">Plaid/Okra (bank verification), M Pesa/Airtel Money (disbursement), SAP/Oracle ERP connectors.</p>
             </div>
           </div>
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">Security</h3>
-              <p class="mb-0 small">KYC/AML screening via Jumio, AES-256 encryption, and multi-factor authentication (MFA).</p>
+              <p class="mb-0 small">KYC/AML screening via Jumio, AES 256 encryption, and multi factor authentication (MFA).</p>
             </div>
           </div>
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">AI Features</h3>
-              <p class="mb-0 small">Repayment predictor adjusts risk-based withdrawal limits using attendance and withdrawal frequency signals.</p>
+              <p class="mb-0 small">Repayment predictor adjusts risk based withdrawal limits using attendance and withdrawal frequency signals.</p>
             </div>
           </div>
         </div>
@@ -114,8 +114,8 @@
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Results &amp; Impact</h2>
         <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
           <li><strong>High adoption</strong> supported by a reliable withdrawal and settlement experience.</li>
-          <li><strong>Strong repayment</strong> through at-source payroll deductions and configurable risk controls.</li>
-          <li><strong>Zero manual HR work</strong> across the advance-to-repayment lifecycle.</li>
+          <li><strong>Strong repayment</strong> through at source payroll deductions and configurable risk controls.</li>
+          <li><strong>Zero manual HR work</strong> across the advance to repayment lifecycle.</li>
         </ul>
       </div>
     </div>

@@ -2,9 +2,9 @@
 <% content_for :head do %>
   <% set_meta_tags(
     title: "Lost in the Middle: Why Large Context Windows Aren't Enough | A'sTechware",
-    description: "You have a 128K context window but your AI still misses key info. The lost-in-the-middle effect and when RAG beats long context.",
+    description: "You have a 128K context window but your AI still misses key info. The lost in the middle effect and when RAG beats long context.",
     keywords: "context window, LLM context, lost in the middle, RAG vs long context",
-    og: { title: "Lost in the Middle: Why Large Context Windows Don't Solve Everything", description: "The lost-in-the-middle problem and hybrid strategies.", url: safe_request_url, type: "article", site_name: "A'sTechware" },
+    og: { title: "Lost in the Middle: Why Large Context Windows Don't Solve Everything", description: "The lost in the middle problem and hybrid strategies.", url: safe_request_url, type: "article", site_name: "A'sTechware" },
     twitter: { card: "summary_large_image", title: "Lost in the Middle", description: "Why long context isn't always the answer." }
   ) %>
   <script type="application/ld+json">
@@ -13,7 +13,7 @@
     "@type" => "Article",
     "headline" => article[:title],
     "description" => article[:excerpt_long],
-    "datePublished" => "2025-02-01",
+    "datePublished" => "2025 02 01",
     "author" => { "@type" => "Organization", "name" => article[:author_name] }
   }.to_json) %>
   </script>
@@ -22,14 +22,14 @@
   <p class="lead">You have a 128K context window. Your AI still misses key info buried in the middle. Here's why and what to do.</p>
 
   <h2>The "Lost in the Middle" Problem</h2>
-  <p>Research shows LLMs perform worse on information in the middle of the context—attention favors start and end. Performance degrades as context length grows. In experiments, accuracy can be ~95% at start/end and drop to ~60% in the middle.</p>
+  <p>Research shows LLMs perform worse on information in the middle of the context, attention favors start and end. Performance degrades as context length grows. In experiments, accuracy can be ~95% at start/end and drop to ~60% in the middle.</p>
 
   <h2>When Long Context Helps</h2>
-  <p>Code generation (full file in context), single-document analysis, meeting transcripts in order. When you need the whole thing in one call, long context is the right tool.</p>
+  <p>Code generation (full file in context), single document analysis, meeting transcripts in order. When you need the whole thing in one call, long context is the right tool.</p>
 
   <h2>When RAG Is Better</h2>
-  <p>Large knowledge bases (too big for context), need for precise retrieval (specific facts), cost-sensitive (context tokens are expensive), latency-sensitive (smaller context = faster). RAG retrieves only what's relevant and keeps context short.</p>
+  <p>Large knowledge bases (too big for context), need for precise retrieval (specific facts), cost sensitive (context tokens are expensive), latency sensitive (smaller context = faster). RAG retrieves only what's relevant and keeps context short.</p>
 
   <h2>The Hybrid Approach</h2>
-  <p>Use RAG to get relevant chunks, then feed those chunks in a long(er) context; re-rank so the most relevant is first (and optionally last). Best practices: put critical info at start and end, use structure (e.g. XML), and explicit instructions to "search the entire context." We'll include cost and latency comparison and code for hybrid RAG + long context. <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer">Schedule a context strategy consultation</a>.</p>
+  <p>Use RAG to get relevant chunks, then feed those chunks in a long(er) context; re rank so the most relevant is first (and optionally last). Best practices: put critical info at start and end, use structure (e.g. XML), and explicit instructions to "search the entire context." We'll include cost and latency comparison and code for hybrid RAG + long context. <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer">Schedule a context strategy consultation</a>.</p>
 <% end %>

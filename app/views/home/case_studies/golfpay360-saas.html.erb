@@ -3,13 +3,13 @@
     <div class="row align-items-center min-vh-50">
       <div class="col-12 col-lg-10 mx-auto text-center">
         <h1 class="display-5 fw-bold mb-3" style="font-size: clamp(28px, 4.5vw, 52px); line-height: 1.15;">
-          Multi-Tenant Hospitality Orchestration &amp; POS Engine
+          Multi Tenant Hospitality Orchestration &amp; POS Engine
         </h1>
         <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.3vw, 22px); line-height: 1.5; max-width: 980px; margin-left: auto; margin-right: auto;">
-          GolfPay360 High-Concurrency Booking
+          GolfPay360 High Concurrency Booking
         </p>
         <p class="mb-0" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.7; max-width: 980px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
-          A serverless-first booking platform built for “tee time drops” with strict tenant isolation, distributed locking, and POS/payment integrations that survive peak traffic.
+          A serverless first booking platform built for “tee time drops” with strict tenant isolation, distributed locking, and POS/payment integrations that survive peak traffic.
         </p>
       </div>
     </div>
@@ -23,11 +23,11 @@
         <div class="col-12 col-lg-7">
           <h2 class="heading-border heading-center heading-left mb-4 pb-3 d-inline-block">The Challenge</h2>
           <p class="large-para mb-3">
-            Public and private golf courses face extreme traffic bursts (e.g., 7:00 AM “tee time drops”). Legacy monolithic platforms suffered race conditions, resulting in double-bookings
+            Public and private golf courses face extreme traffic bursts (e.g., 7:00 AM “tee time drops”). Legacy monolithic platforms suffered race conditions, resulting in double bookings
             and lost revenue.
           </p>
           <p class="large-para mb-0">
-            The platform required a multi-tenant architecture that could scale to hundreds of courses while maintaining strict data isolation for each course’s financial records.
+            The platform required a multi tenant architecture that could scale to hundreds of courses while maintaining strict data isolation for each course’s financial records.
             Under peak traffic, the system must guarantee atomic bookings without degrading UX through heavy database locks.
           </p>
         </div>
@@ -35,8 +35,8 @@
           <div class="workflow-card p-4">
             <h3 class="h6 text-uppercase text-muted mb-3">Quick Stats</h3>
             <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
-              <li><strong>Scale:</strong> Multi-tenant (hundreds of courses)</li>
-              <li><strong>Payments:</strong> PCI / online + card-present</li>
+              <li><strong>Scale:</strong> Multi tenant (hundreds of courses)</li>
+              <li><strong>Payments:</strong> PCI / online + card present</li>
               <li><strong>Concurrency:</strong> Distributed locking (Redlock)</li>
               <li><strong>Impact:</strong> Higher digital adoption and fewer booking collisions under peak load</li>
             </ul>
@@ -51,11 +51,11 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">The Solution</h2>
         <p class="large-para mb-3">
-          We architected a serverless-first booking platform designed for high-concurrency event handling. By moving away from a traditional database-locking model and toward event-sourced
+          We architected a serverless first booking platform designed for high concurrency event handling. By moving away from a traditional database locking model and toward event sourced
           patterns, we eliminated collision errors during peak traffic.
         </p>
         <p class="large-para mb-0">
-          The system separates browse from commit: availability is edge-optimized for low-latency reads, while booking writes are protected by distributed locks and idempotent retries.
+          The system separates browse from commit: availability is edge optimized for low latency reads, while booking writes are protected by distributed locks and idempotent retries.
           This keeps the tee sheet fast worldwide while guaranteeing atomic bookings at the point of transaction.
         </p>
       </div>
@@ -67,8 +67,8 @@
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Technical Approach</h2>
         <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
-          <li><strong>Distributed locking:</strong> Redis-based Redlock ensures atomic booking operations across multiple server instances.</li>
-          <li><strong>Edge-optimized availability:</strong> CloudFront Functions serve tee-sheet availability from the nearest edge location, reducing latency globally.</li>
+          <li><strong>Distributed locking:</strong> Redis based Redlock ensures atomic booking operations across multiple server instances.</li>
+          <li><strong>Edge optimized availability:</strong> CloudFront Functions serve tee sheet availability from the nearest edge location, reducing latency globally.</li>
         </ul>
       </div>
     </div>
@@ -82,25 +82,25 @@
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">Architecture</h3>
-              <p class="mb-0 small">Next.js (Frontend) → AWS Lambda → DynamoDB (NoSQL for sub-millisecond lookups)</p>
+              <p class="mb-0 small">Next.js (Frontend) → AWS Lambda → DynamoDB (NoSQL for sub millisecond lookups)</p>
             </div>
           </div>
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">Integrations</h3>
-              <p class="mb-0 small">Clover/Square POS SDKs; Stripe Terminal for card-present transactions; Twilio Programmable Messaging.</p>
+              <p class="mb-0 small">Clover/Square POS SDKs; Stripe Terminal for card present transactions; Twilio Programmable Messaging.</p>
             </div>
           </div>
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">Security</h3>
-              <p class="mb-0 small">PCI-DSS Level 1 compliance; strict per-tenant isolation; JWT-based RBAC.</p>
+              <p class="mb-0 small">PCI DSS Level 1 compliance; strict per tenant isolation; JWT based RBAC.</p>
             </div>
           </div>
           <div class="col-12 col-md-6">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 text-uppercase text-muted mb-3">AI Features</h3>
-              <p class="mb-0 small">Dynamic yield management suggests real-time price surges/discounts using weather data and historical no-show rates.</p>
+              <p class="mb-0 small">Dynamic yield management suggests real time price surges/discounts using weather data and historical no show rates.</p>
             </div>
           </div>
         </div>
@@ -114,8 +114,8 @@
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Results &amp; Impact</h2>
         <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
           <li><strong>Higher digital adoption:</strong> shifted the majority of bookings from phone to web/app.</li>
-          <li><strong>Prevents double-bookings:</strong> distributed locking + idempotent retries protect commit paths under load.</li>
-          <li><strong>Reduced administrative overhead:</strong> automated check-ins and self-service rescheduling cut manual work.</li>
+          <li><strong>Prevents double bookings:</strong> distributed locking + idempotent retries protect commit paths under load.</li>
+          <li><strong>Reduced administrative overhead:</strong> automated check ins and self service rescheduling cut manual work.</li>
         </ul>
       </div>
     </div>

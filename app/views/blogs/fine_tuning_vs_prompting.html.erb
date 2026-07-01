@@ -1,11 +1,11 @@
 <% article = blog_article_for_path(request.path) %>
 <% content_for :head do %>
   <% set_meta_tags(
-    title: "Fine-Tuning vs Prompting: When Custom Models Beat Prompts | A'sTechware",
-    description: "Your legal AI costs $15K/month in API calls. A fine-tuned model could pay for itself in 6 months. When and how to decide.",
-    keywords: "fine-tuning LLMs, custom AI models, prompt engineering vs fine-tuning, ROI",
-    og: { title: "The Fine-Tuning Decision: When Custom Models Beat Prompt Engineering", description: "When to fine-tune vs prompt—ROI and data requirements.", url: safe_request_url, type: "article", site_name: "A'sTechware" },
-    twitter: { card: "summary_large_image", title: "Fine-Tuning vs Prompting", description: "When custom models beat prompt engineering." }
+    title: "Fine Tuning vs Prompting: When Custom Models Beat Prompts | A'sTechware",
+    description: "Your legal AI costs $15K/month in API calls. A fine tuned model could pay for itself in 6 months. When and how to decide.",
+    keywords: "fine tuning LLMs, custom AI models, prompt engineering vs fine tuning, ROI",
+    og: { title: "The Fine Tuning Decision: When Custom Models Beat Prompt Engineering", description: "When to fine tune vs prompt, ROI and data requirements.", url: safe_request_url, type: "article", site_name: "A'sTechware" },
+    twitter: { card: "summary_large_image", title: "Fine Tuning vs Prompting", description: "When custom models beat prompt engineering." }
   ) %>
   <script type="application/ld+json">
   <%= raw({
@@ -13,23 +13,23 @@
     "@type" => "Article",
     "headline" => article[:title],
     "description" => article[:excerpt_long],
-    "datePublished" => "2025-02-01",
+    "datePublished" => "2025 02 01",
     "author" => { "@type" => "Organization", "name" => article[:author_name] }
   }.to_json) %>
   </script>
 <% end %>
 <%= render layout: 'blogs/blog_post_layout', locals: { article: article } do %>
-  <p class="lead">Your legal AI costs $15K/month in API calls. A $80K fine-tuned model would pay for itself in 6 months. Here's when and why.</p>
+  <p class="lead">Your legal AI costs $15K/month in API calls. A $80K fine tuned model would pay for itself in 6 months. Here's when and why.</p>
 
   <h2>When Prompting Is Enough</h2>
-  <p>General tasks (summarization, Q&A), low volume (under ~100K requests/month), need for flexibility (change behavior quickly), or no training data—prompting is the right default.</p>
+  <p>General tasks (summarization, Q&A), low volume (under ~100K requests/month), need for flexibility (change behavior quickly), or no training data, prompting is the right default.</p>
 
-  <h2>When Fine-Tuning Wins</h2>
-  <p>Domain-specific language (legal, medical, finance), high volume (over ~1M requests/month), accuracy plateaus with prompting (e.g. stuck at 80%), sensitive data you can't send to the OpenAI API, need for lower latency (smaller model), or cost optimization—fine-tuning can deliver 95% cost reduction and better accuracy.</p>
+  <h2>When Fine Tuning Wins</h2>
+  <p>Domain specific language (legal, medical, finance), high volume (over ~1M requests/month), accuracy plateaus with prompting (e.g. stuck at 80%), sensitive data you can't send to the OpenAI API, need for lower latency (smaller model), or cost optimization, fine tuning can deliver 95% cost reduction and better accuracy.</p>
 
   <h2>The ROI Calculation</h2>
-  <p>Prompting: $10K/month = $120K/year. Fine-tuning: $80K upfront + $2K/month = $104K year one; break-even around month 9. Year two and beyond: ~$24K vs $120K—about 5x savings. We'll include real examples: customer support (fine-tuned GPT-3.5 beating base GPT-4), medical coding (95% vs 70%), legal contract analysis (10x cost reduction).</p>
+  <p>Prompting: $10K/month = $120K/year. Fine tuning: $80K upfront + $2K/month = $104K year one; break even around month 9. Year two and beyond: ~$24K vs $120K, about 5x savings. We'll include real examples: customer support (fine tuned GPT 3.5 beating base GPT 4), medical coding (95% vs 70%), legal contract analysis (10x cost reduction).</p>
 
   <h2>Data and Strategy</h2>
-  <p>Data requirements: typically 1,000–10,000 high-quality examples. Strategies: LoRA vs full fine-tuning; evaluation on a hold-out set and A/B in production. When to fine-tune vs use RAG vs both—we'll cover the decision framework. <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer">Schedule a fine-tuning ROI analysis</a>.</p>
+  <p>Data requirements: typically 1,000 to 10,000 high quality examples. Strategies: LoRA vs full fine tuning; evaluation on a hold out set and A/B in production. When to fine tune vs use RAG vs both, we'll cover the decision framework. <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer">Schedule a fine tuning ROI analysis</a>.</p>
 <% end %>

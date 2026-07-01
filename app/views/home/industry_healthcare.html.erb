@@ -1,8 +1,8 @@
 <% content_for :head do %>
   <% set_meta_tags(
-    title: "Healthcare AI — HIPAA-Ready Voice, Scribe & EHR",
-    description: "Healthcare AI built for HIPAA review: voice booking, AI medical scribes, FHIR EHR sync, and architecture reviews. PHI de-identification, append-only audit logs, BAAs in place.",
-    keywords: "healthcare AI, HIPAA compliant AI, AI medical scribe, voice AI healthcare, FHIR EHR integration, HIPAA architecture review, PHI de-identification"
+    title: "Healthcare AI, HIPAA Ready Voice, Scribe & EHR",
+    description: "Healthcare AI built for HIPAA review: voice booking, AI medical scribes, FHIR EHR sync, and architecture reviews. PHI de identification, append only audit logs, BAAs in place.",
+    keywords: "healthcare AI, HIPAA compliant AI, AI medical scribe, voice AI healthcare, FHIR EHR integration, HIPAA architecture review, PHI de identification"
   ) %>
   <script type="application/ld+json">
   <%= raw({
@@ -45,7 +45,7 @@
         <div class="col-12 col-lg-10 mx-auto">
           <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">What we actually do</h2>
           <p class="large-para mb-4">
-            Most healthcare AI work falls apart at one of three places: a data flow that quietly sends PHI to a model that shouldn&rsquo;t see it, an audit log the application can edit, or an integration with the EHR that double-books patients or drops sync. We build systems where none of those failures are possible by design, not by policy.
+            Most healthcare AI work falls apart at one of three places: a data flow that quietly sends PHI to a model that shouldn&rsquo;t see it, an audit log the application can edit, or an integration with the EHR that double books patients or drops sync. We build systems where none of those failures are possible by design, not by policy.
           </p>
           <p class="large-para mb-5">
             We focus on a narrow slice of healthcare AI work where we have shipped production systems and where the architectural decisions matter most:
@@ -57,7 +57,7 @@
           <div class="workflow-card p-4 p-lg-5 h-100">
             <h3 class="h5 mb-3">Voice AI for patient interaction</h3>
             <p class="mb-0 small" style="line-height: 1.7;">
-              Booking, rescheduling, cancellations, after-hours triage, and warm transfers. Built on HIPAA-eligible telephony and transcription with BAAs in place, and a PHI de-identification layer between the transcript and any LLM so the model never sees a patient identifier.
+              Booking, rescheduling, cancellations, after hours triage, and warm transfers. Built on HIPAA eligible telephony and transcription with BAAs in place, and a PHI de identification layer between the transcript and any LLM so the model never sees a patient identifier.
             </p>
           </div>
         </div>
@@ -65,7 +65,7 @@
           <div class="workflow-card p-4 p-lg-5 h-100">
             <h3 class="h5 mb-3">AI medical scribes</h3>
             <p class="mb-0 small" style="line-height: 1.7;">
-              Provider-patient conversation to draft SOAP note in seconds, with structural safeguards against fabricated findings, ICD-10 codes validated locally before display, no audio storage, and provider approval required before any note reaches the EHR.
+              Provider patient conversation to draft SOAP note in seconds, with structural safeguards against fabricated findings, ICD 10 codes validated locally before display, no audio storage, and provider approval required before any note reaches the EHR.
             </p>
           </div>
         </div>
@@ -73,15 +73,15 @@
           <div class="workflow-card p-4 p-lg-5 h-100">
             <h3 class="h5 mb-3">EHR integrations</h3>
             <p class="mb-0 small" style="line-height: 1.7;">
-              Bi-directional FHIR R4 sync, proven with athenahealth, extensible to other FHIR-capable EHRs through an adapter pattern. Real-time push plus reconciliation sync, conflict detection, and full audit trail on every record touched.
+              Bi directional FHIR R4 sync, proven with athenahealth, extensible to other FHIR capable EHRs through an adapter pattern. Real time push plus reconciliation sync, conflict detection, and full audit trail on every record touched.
             </p>
           </div>
         </div>
         <div class="col-12 col-md-6">
           <div class="workflow-card p-4 p-lg-5 h-100">
-            <h3 class="h5 mb-3">HIPAA architecture review for teams mid-build</h3>
+            <h3 class="h5 mb-3">HIPAA architecture review for teams mid build</h3>
             <p class="mb-0 small" style="line-height: 1.7;">
-              A focused two-week engagement for digital health teams who have an AI product in development and need a senior team to audit the data flow, identify compliance gaps, and produce a remediation plan they can hand to their engineers. Useful before a security review, before a BAA negotiation, or before a launch.
+              A focused two week engagement for digital health teams who have an AI product in development and need a senior team to audit the data flow, identify compliance gaps, and produce a remediation plan they can hand to their engineers. Useful before a security review, before a BAA negotiation, or before a launch.
             </p>
           </div>
         </div>
@@ -106,19 +106,19 @@
         <div class="col-12 col-md-6 col-lg-4">
           <div class="workflow-card p-4 h-100">
             <h3 class="h6 mb-2">PHI never reaches an LLM that doesn&rsquo;t need it</h3>
-            <p class="mb-0 small" style="line-height: 1.7;">The default architecture for AI products is to send conversation text to a model and let it figure out what to do. In healthcare, that default is a violation waiting to be discovered. We design data flows so that patient identifiers are stripped before any text leaves controlled infrastructure, and re-associated server-side after. This is provable from the API logs.</p>
+            <p class="mb-0 small" style="line-height: 1.7;">The default architecture for AI products is to send conversation text to a model and let it figure out what to do. In healthcare, that default is a violation waiting to be discovered. We design data flows so that patient identifiers are stripped before any text leaves controlled infrastructure, and re associated server side after. This is provable from the API logs.</p>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
           <div class="workflow-card p-4 h-100">
             <h3 class="h6 mb-2">Audit logs are enforced at the database, not the application</h3>
-            <p class="mb-0 small" style="line-height: 1.7;">A logging table the application can write to is also a logging table the application can be tricked into modifying. We use append-only database permissions so the worst a compromised credential can do is add false entries, never remove real ones.</p>
+            <p class="mb-0 small" style="line-height: 1.7;">A logging table the application can write to is also a logging table the application can be tricked into modifying. We use append only database permissions so the worst a compromised credential can do is add false entries, never remove real ones.</p>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
           <div class="workflow-card p-4 h-100">
             <h3 class="h6 mb-2">Vendor BAAs are required before any data flows</h3>
-            <p class="mb-0 small" style="line-height: 1.7;">&ldquo;HIPAA-compliant&rdquo; with no signed BAA is not a thing. We will not integrate a vendor into a healthcare build without a BAA in writing naming the specific service.</p>
+            <p class="mb-0 small" style="line-height: 1.7;">&ldquo;HIPAA compliant&rdquo; with no signed BAA is not a thing. We will not integrate a vendor into a healthcare build without a BAA in writing naming the specific service.</p>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
@@ -130,13 +130,13 @@
         <div class="col-12 col-md-6 col-lg-4">
           <div class="workflow-card p-4 h-100">
             <h3 class="h6 mb-2">Scheduling concurrency is handled at the database layer</h3>
-            <p class="mb-0 small" style="line-height: 1.7;">Double-booking is the most embarrassing failure mode for a clinical scheduling system and the most commonly skipped fix. Row-level database locks on the slot, tested on every deploy with concurrent booking scripts.</p>
+            <p class="mb-0 small" style="line-height: 1.7;">Double booking is the most embarrassing failure mode for a clinical scheduling system and the most commonly skipped fix. Row level database locks on the slot, tested on every deploy with concurrent booking scripts.</p>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
           <div class="workflow-card p-4 h-100">
-            <h3 class="h6 mb-2">Clinical AI is provider-in-the-loop, always</h3>
-            <p class="mb-0 small" style="line-height: 1.7;">Any AI-generated content that touches the EHR requires explicit provider approval. No auto-push, no background sync, no &ldquo;approve all.&rdquo; Every clinical note is a conscious decision.</p>
+            <h3 class="h6 mb-2">Clinical AI is provider in the loop, always</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">Any AI generated content that touches the EHR requires explicit provider approval. No auto push, no background sync, no &ldquo;approve all.&rdquo; Every clinical note is a conscious decision.</p>
           </div>
         </div>
       </div>
@@ -155,15 +155,15 @@
             <ul class="mb-0 ps-3" style="line-height: 2;">
               <li><strong>HIPAA Security Rule:</strong> administrative, physical, and technical safeguards across 45 CFR &sect;164.308, &sect;164.310, &sect;164.312</li>
               <li><strong>HIPAA Privacy Rule:</strong> minimum necessary access enforced via RBAC at the API layer</li>
-              <li><strong>HITECH breach notification:</strong> audit trail sufficient to identify scope of any PHI exposure within the 60-day notification window</li>
-              <li><strong>FHIR R4</strong> with SMART on FHIR authorization, proven with athenahealth, adapter pattern for other FHIR-capable EHRs</li>
-              <li><strong>PHI de-identification</strong> before any data reaches the LLM, re-identification handled server-side under the covered entity&rsquo;s control</li>
+              <li><strong>HITECH breach notification:</strong> audit trail sufficient to identify scope of any PHI exposure within the 60 day notification window</li>
+              <li><strong>FHIR R4</strong> with SMART on FHIR authorization, proven with athenahealth, adapter pattern for other FHIR capable EHRs</li>
+              <li><strong>PHI de identification</strong> before any data reaches the LLM, re identification handled server side under the covered entity&rsquo;s control</li>
               <li><strong>BAAs executed</strong> with telephony, transcription, voice synthesis, hosting, and EHR integration vendors</li>
-              <li><strong>Encryption:</strong> TLS 1.2+ in transit, AES-256 at rest via field-level encryption on PHI columns</li>
-              <li><strong>Access control:</strong> TOTP-based MFA, short-lived JWT access tokens, RBAC enforced in middleware, session inactivity timeout</li>
-              <li><strong>Audit logging:</strong> append-only at the database permission level, covering every PHI access event with actor, timestamp, resource, action, IP, and result</li>
-              <li><strong>Multi-tenant isolation:</strong> PostgreSQL Row Level Security enforced at the database layer</li>
-              <li><strong>Data residency:</strong> US-region infrastructure only</li>
+              <li><strong>Encryption:</strong> TLS 1.2+ in transit, AES 256 at rest via field level encryption on PHI columns</li>
+              <li><strong>Access control:</strong> TOTP based MFA, short lived JWT access tokens, RBAC enforced in middleware, session inactivity timeout</li>
+              <li><strong>Audit logging:</strong> append only at the database permission level, covering every PHI access event with actor, timestamp, resource, action, IP, and result</li>
+              <li><strong>Multi tenant isolation:</strong> PostgreSQL Row Level Security enforced at the database layer</li>
+              <li><strong>Data residency:</strong> US region infrastructure only</li>
             </ul>
           </div>
         </div>
@@ -176,12 +176,12 @@
       <div class="row">
         <div class="col-12 col-lg-10 mx-auto">
           <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">BAA and security posture</h2>
-          <p class="large-para mb-4">For covered entities and business associates evaluating us as a sub-processor:</p>
+          <p class="large-para mb-4">For covered entities and business associates evaluating us as a sub processor:</p>
           <div class="workflow-card p-4 p-lg-5">
             <ul class="mb-4 ps-3" style="line-height: 2;">
               <li>We sign Business Associate Agreements before any PHI flows. No exceptions.</li>
-              <li>All sub-processors in our healthcare stack (telephony, transcription, voice synthesis, hosting, EHR integration) operate under executed BAAs. We provide the BAA chain on request.</li>
-              <li>Data residency is US-region only for healthcare engagements. No cross-border data flows.</li>
+              <li>All sub processors in our healthcare stack (telephony, transcription, voice synthesis, hosting, EHR integration) operate under executed BAAs. We provide the BAA chain on request.</li>
+              <li>Data residency is US region only for healthcare engagements. No cross border data flows.</li>
               <li>We maintain a written information security program covering access control, encryption, audit logging, incident response, vendor management, and employee security training.</li>
               <li>Security questionnaires (SIG, CAIQ, HECVAT) completed within 5&ndash;10 business days of receipt during active procurement.</li>
             </ul>
@@ -200,9 +200,9 @@
         <div class="col-12 col-lg-10 mx-auto">
           <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Case study</h2>
           <div class="workflow-card p-4 p-lg-5">
-            <h3 class="h5 mb-3">Voice booking and AI scribe platform for a US multi-location dental group</h3>
+            <h3 class="h5 mb-3">Voice booking and AI scribe platform for a US multi location dental group</h3>
             <p class="mb-0" style="line-height: 1.7;">
-              One platform handling voice booking, web booking, provider dashboard, AI medical scribe, and bi-directional athenahealth FHIR sync. Built so the LLM never sees a patient identifier, the audit log cannot be edited, and audio is never stored. Delivered in eight weeks across two phases.
+              One platform handling voice booking, web booking, provider dashboard, AI medical scribe, and bi directional athenahealth FHIR sync. Built so the LLM never sees a patient identifier, the audit log cannot be edited, and audio is never stored. Delivered in eight weeks across two phases.
             </p>
             <%= link_to "Read the full case study &rarr;".html_safe, case_study_path("medical-voice-ai"), class: "d-inline-block mt-4 fw-semibold ajax" %>
           </div>
@@ -217,7 +217,7 @@
         <div class="col-12 col-lg-10 mx-auto">
           <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">How we engage</h2>
           <p class="large-para mb-4">
-            We start every healthcare engagement with a paid one-week discovery sprint. You get a written deliverable you own whether or not you continue with us:
+            We start every healthcare engagement with a paid one week discovery sprint. You get a written deliverable you own whether or not you continue with us:
           </p>
           <div class="workflow-card p-4 p-lg-5 mb-4">
             <ul class="mb-0 ps-3" style="line-height: 2;">
@@ -228,7 +228,7 @@
             </ul>
           </div>
           <p class="large-para mb-4">
-            Most teams find this is the cheapest way to know what they actually need before committing to a full build. It also gives both sides a low-risk way to see if we work well together before signing a larger engagement.
+            Most teams find this is the cheapest way to know what they actually need before committing to a full build. It also gives both sides a low risk way to see if we work well together before signing a larger engagement.
           </p>
           <div class="text-center">
             <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
@@ -253,7 +253,7 @@
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hcfaq1" aria-expanded="false" aria-controls="hcfaq1">How do you handle PHI when using LLMs like Claude or GPT?</button>
               </h3>
               <div id="hcfaq1" class="accordion-collapse collapse" data-bs-parent="#healthcareIndustryFaq">
-                <div class="accordion-body">We de-identify patient text before it leaves our infrastructure. Names, dates of birth, MRNs, phone numbers, addresses, and other identifiers are replaced with opaque tokens. The LLM receives only de-identified text. Tokens are re-associated server-side after the model responds. Every LLM API call is logged and auditable. This is provable to a compliance reviewer from the logs alone.</div>
+                <div class="accordion-body">We de identify patient text before it leaves our infrastructure. Names, dates of birth, MRNs, phone numbers, addresses, and other identifiers are replaced with opaque tokens. The LLM receives only de identified text. Tokens are re associated server side after the model responds. Every LLM API call is logged and auditable. This is provable to a compliance reviewer from the logs alone.</div>
               </div>
             </div>
             <div class="accordion-item border rounded mb-2">
@@ -261,7 +261,7 @@
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hcfaq2" aria-expanded="false" aria-controls="hcfaq2">Which EHRs have you integrated with?</button>
               </h3>
               <div id="hcfaq2" class="accordion-collapse collapse" data-bs-parent="#healthcareIndustryFaq">
-                <div class="accordion-body">We have shipped production bi-directional FHIR R4 sync with athenahealth. Our integration layer uses an adapter pattern, so adding Epic, Cerner, eClinicalWorks, or any other FHIR-capable EHR is an adapter implementation, not a rebuild.</div>
+                <div class="accordion-body">We have shipped production bi directional FHIR R4 sync with athenahealth. Our integration layer uses an adapter pattern, so adding Epic, Cerner, eClinicalWorks, or any other FHIR capable EHR is an adapter implementation, not a rebuild.</div>
               </div>
             </div>
             <div class="accordion-item border rounded mb-2">
@@ -269,15 +269,15 @@
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hcfaq3" aria-expanded="false" aria-controls="hcfaq3">Do you offer ongoing maintenance and support?</button>
               </h3>
               <div id="hcfaq3" class="accordion-collapse collapse" data-bs-parent="#healthcareIndustryFaq">
-                <div class="accordion-body">Yes. Most healthcare clients move to a monthly retainer after the initial build for monitoring, compliance updates, vendor BAA renewals, and feature work. We do not take on healthcare builds without a clear post-launch support plan.</div>
+                <div class="accordion-body">Yes. Most healthcare clients move to a monthly retainer after the initial build for monitoring, compliance updates, vendor BAA renewals, and feature work. We do not take on healthcare builds without a clear post launch support plan.</div>
               </div>
             </div>
             <div class="accordion-item border rounded mb-2">
               <h3 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hcfaq4" aria-expanded="false" aria-controls="hcfaq4">What if we&rsquo;re already mid-build and need help?</button>
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hcfaq4" aria-expanded="false" aria-controls="hcfaq4">What if we&rsquo;re already mid build and need help?</button>
               </h3>
               <div id="hcfaq4" class="accordion-collapse collapse" data-bs-parent="#healthcareIndustryFaq">
-                <div class="accordion-body">Our two-week HIPAA architecture review is designed for exactly this. We audit your existing system, identify compliance and architectural gaps, and produce a remediation plan you can hand to your team. About a third of these engagements expand into us doing the remediation work; the other two-thirds get a written plan and run it internally.</div>
+                <div class="accordion-body">Our two week HIPAA architecture review is designed for exactly this. We audit your existing system, identify compliance and architectural gaps, and produce a remediation plan you can hand to your team. About a third of these engagements expand into us doing the remediation work; the other two thirds get a written plan and run it internally.</div>
               </div>
             </div>
           </div>

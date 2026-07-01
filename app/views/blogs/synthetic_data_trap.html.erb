@@ -1,8 +1,8 @@
 <% article = blog_article_for_path(request.path) %>
 <% content_for :head do %>
   <% set_meta_tags(
-    title: "The Synthetic Data Trap: Training AI on AI-Generated Data | A'sTechware",
-    description: "You trained your model on AI-generated data. Now it's worse. Model collapse, when synthetic helps, and mixing strategies that work.",
+    title: "The Synthetic Data Trap: Training AI on AI Generated Data | A'sTechware",
+    description: "You trained your model on AI generated data. Now it's worse. Model collapse, when synthetic helps, and mixing strategies that work.",
     keywords: "synthetic data, AI training data, model collapse, data augmentation",
     og: { title: "Training AI on AI: The Synthetic Data Trap (And How to Avoid It)", description: "When synthetic data helps and when it backfires.", url: safe_request_url, type: "article", site_name: "A'sTechware" },
     twitter: { card: "summary_large_image", title: "The Synthetic Data Trap", description: "Avoid model collapse with synthetic data." }
@@ -13,26 +13,26 @@
     "@type" => "Article",
     "headline" => article[:title],
     "description" => article[:excerpt_long],
-    "datePublished" => "2025-02-01",
+    "datePublished" => "2025 02 01",
     "author" => { "@type" => "Organization", "name" => article[:author_name] }
   }.to_json) %>
   </script>
 <% end %>
 <%= render layout: 'blogs/blog_post_layout', locals: { article: article } do %>
-  <p class="lead">You trained your model on AI-generated data. Now it's worse than before. Here's why and how to use synthetic data safely.</p>
+  <p class="lead">You trained your model on AI generated data. Now it's worse than before. Here's why and how to use synthetic data safely.</p>
 
   <h2>The Promise of Synthetic Data</h2>
-  <p>Cheap (no human labeling), scalable (millions of examples), privacy-preserving (no real data), and useful for rare-case augmentation. But replacing real data with synthetic can backfire.</p>
+  <p>Cheap (no human labeling), scalable (millions of examples), privacy preserving (no real data), and useful for rare case augmentation. But replacing real data with synthetic can backfire.</p>
 
   <h2>The Trap: Model Collapse</h2>
-  <p>Training on AI output can degrade the model—errors compound, diversity drops. Example: GPT-3 trained on GPT-3 output. The model collapses toward narrow, often worse, behavior.</p>
+  <p>Training on AI output can degrade the model, errors compound, diversity drops. Example: GPT 3 trained on GPT 3 output. The model collapses toward narrow, often worse, behavior.</p>
 
   <h2>When Synthetic Data Works</h2>
-  <p>Data augmentation (add to real data, don't replace), rare cases (generate edge cases you're missing), structured data (forms, tables), privacy-sensitive domains (healthcare, finance) where real data can't be used. Always validate and mix carefully.</p>
+  <p>Data augmentation (add to real data, don't replace), rare cases (generate edge cases you're missing), structured data (forms, tables), privacy sensitive domains (healthcare, finance) where real data can't be used. Always validate and mix carefully.</p>
 
   <h2>When It Fails</h2>
-  <p>Replacing real data entirely, no validation, poor generation prompts, low-quality or repetitive generation. The model learns the generator's biases and errors.</p>
+  <p>Replacing real data entirely, no validation, poor generation prompts, low quality or repetitive generation. The model learns the generator's biases and errors.</p>
 
   <h2>Best Practices</h2>
-  <p>Mix ratio: e.g. 90% real, 10% synthetic. Validate synthetic examples (human review or automated checks). Use for augmentation, not replacement. Generate diverse examples (vary prompts). Monitor for degradation (hold-out set, production metrics). We'll add a case study: customer support improved rare-case handling with synthetic; image generation degraded with synthetic faces. Code: generation + validation pipeline. <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer">Schedule a data strategy consultation</a>.</p>
+  <p>Mix ratio: e.g. 90% real, 10% synthetic. Validate synthetic examples (human review or automated checks). Use for augmentation, not replacement. Generate diverse examples (vary prompts). Monitor for degradation (hold out set, production metrics). We'll add a case study: customer support improved rare case handling with synthetic; image generation degraded with synthetic faces. Code: generation + validation pipeline. <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer">Schedule a data strategy consultation</a>.</p>
 <% end %>

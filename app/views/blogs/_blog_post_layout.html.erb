@@ -74,7 +74,7 @@
             <div class="rounded-circle bg-secondary bg-opacity-25 d-flex align-items-center justify-content-center text-secondary fw-semibold flex-shrink-0" style="width: 56px; height: 56px;"><%= (article[:author_name].to_s[0] || "A") %></div>
             <div>
               <strong><%= article[:author_name] %></strong>
-              <p class="small text-muted mb-0 mt-1">A'sTechware designs and builds production-grade AI automations and custom platforms so businesses can run faster without adding headcount. We focus on systems that survive production: governance, human-in-the-loop, and complete audit trails.</p>
+              <p class="small text-muted mb-0 mt-1">A'sTechware designs and builds production grade AI automations and custom platforms so businesses can run faster without adding headcount. We focus on systems that survive production: governance, human in the loop, and complete audit trails.</p>
             </div>
           </div>
         </div>
@@ -94,10 +94,10 @@
 
         <%# CTA: Book a 30-Min Technical Call %>
         <div class="text-center mt-4">
-          <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary rounded-pill px-4">Book a 30-Min Strategy Call</a>
+          <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary rounded-pill px-4">Book a 30 Min Strategy Call</a>
         </div>
 
-        <%# Related Articles (3–4) %>
+        <%# Related Articles (3 to 4) %>
         <% related = (article.present? && article[:path].present?) ? blog_related_articles(article[:path].call, limit: 4) : [] %>
         <% if related.any? %>
           <section class="blog-related mt-5" aria-label="Related articles">
@@ -120,10 +120,10 @@
 </div>
 <script>
 (function() {
-  var btn = document.querySelector('.blog-share-copy');
+  var btn = document.querySelector('.blog share copy');
   if (btn) {
     btn.addEventListener('click', function() {
-      var url = this.getAttribute('data-blog-url') || window.location.href;
+      var url = this.getAttribute('data blog url') || window.location.href;
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(url).then(function() { btn.setAttribute('title', 'Copied!'); });
       } else {
