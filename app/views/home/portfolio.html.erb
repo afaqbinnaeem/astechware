@@ -43,6 +43,24 @@
 
           <div class="row g-4" id="caseStudiesGrid">
             <!-- Logistics & Operations -->
+            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="logistics">
+              <%= link_to case_study_path('construction-management-platform'), class: "text-decoration-none text-dark d-block h-100" do %>
+              <div class="case-study-tile-card p-4 h-100">
+                <div class="d-flex align-items-start justify-content-between gap-3 mb-2">
+                  <h3 class="h5 mb-0">Las Vegas General Contractor</h3>
+                  <span class="badge bg-primary-soft">Construction</span>
+                </div>
+                <p class="small text-muted mb-2">Multi-company estimating, subcontracts, invoicing, and payments from one login.</p>
+                <p class="mb-3 small"><strong>The Win:</strong> Three legal entities, one platform — per-company QuickBooks sync, atomic numbering, Decimal money, and AI estimate skeletons with human review.</p>
+                <div class="d-flex flex-wrap gap-2">
+                  <span class="badge rounded-pill text-bg-light">Logistics &amp; Operations</span>
+                  <span class="badge rounded-pill text-bg-light">QuickBooks</span>
+                  <span class="badge rounded-pill text-bg-light">Multi-Company</span>
+                </div>
+              </div>
+              <% end %>
+            </div>
+
             <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="logistics fintech_saas">
               <%= link_to case_study_path('shoreline-waste-logistics'), class: "text-decoration-none text-dark d-block h-100" do %>
               <div class="case-study-tile-card p-4 h-100">

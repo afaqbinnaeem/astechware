@@ -53,6 +53,7 @@ class HomeController < ApplicationController
       'instashowing-real-estate' => { title: 'Real Estate Transaction Coordination & Availability Engine' },
       'word-of-mouth-modernization' => { title: 'Enterprise Legacy-to-Cloud Marketplace Transformation' },
       'restaurant-resource-rescue' => { title: 'High-Performance Search & Inventory Recovery' },
+      'construction-management-platform' => { title: 'Multi-Company Construction Management Platform — Traceable Estimates to QuickBooks' },
     }
 
     case_study = case_studies[slug]

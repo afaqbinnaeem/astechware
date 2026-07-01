@@ -44,6 +44,7 @@ SitemapGenerator::Sitemap.create do
     eventvesta-ai-marketing
     flss-legal-process-serving
     ai-deal-analyzer
+    construction-management-platform
   ].each do |slug|
     add "/case-studies/#{slug}", priority: 0.7, changefreq: 'monthly'
   end

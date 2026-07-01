@@ -1,0 +1,301 @@
+<div class="hero-section py-5 service-page-hero">
+  <div class="container">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-12 col-lg-10 mx-auto text-center">
+        <h1 class="display-5 fw-bold mb-3" style="font-size: clamp(26px, 4vw, 48px); line-height: 1.15;">
+          How we built a construction management platform where every estimate, contract, and payment has to be traceable across three companies from one login
+        </h1>
+        <p class="mb-0" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.7; max-width: 900px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
+          A Las Vegas general contractor asked us to replace his disconnected tools with a single platform for estimating, subcontracting, invoicing, and paying subcontractors across three separate construction companies.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="inner-sections construction-case-study">
+
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <p class="large-para mb-4">
+          The simple version of the brief: automate estimate creation from plan documents, generate legal subcontracts from estimate line items, track invoices and payments, and sync everything to QuickBooks Online.
+        </p>
+        <p class="large-para mb-4">
+          The version that actually mattered: three legally separate companies share one login and toggle between them in a header dropdown. Every number that leaves the system &mdash; a job number, an estimate total, a subcontract value, an invoice, a payment &mdash; has to land in the right company&rsquo;s QuickBooks with no duplicates, no cross-contamination, and no rounding errors. A cost code that drifts between the system and QuickBooks turns into a job-costing report that says the wrong thing, and a job-costing report that says the wrong thing means the contractor doesn&rsquo;t know if he made money on the project. In construction, that&rsquo;s how companies go under.
+        </p>
+        <p class="large-para mb-0">
+          This case study covers the architectural decisions that made the platform safe to run a real construction business on. It is the set of calls that separate a production tool from a prototype.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey" id="context">
+    <div class="container">
+      <div class="row g-4 align-items-start">
+        <div class="col-12 col-lg-7">
+          <h2 class="heading-border heading-center heading-left mb-4 pb-3 d-inline-block">Who this was for and why it was hard</h2>
+          <p class="large-para mb-3">
+            The client is a Las Vegas general contractor operating three companies: a general contracting firm (commercial and residential), a metal fabrication shop, and a new residential custom homes company. One person, one estimator, three different business entities with different estimate formats, different contract templates, different QuickBooks accounts, and different insurance requirements.
+          </p>
+          <p class="large-para mb-3">
+            Their entire operation ran on a mix of PDF templates, an existing project management tool they&rsquo;d outgrown, QuickBooks, Outlook inboxes, and an AI note-taking app for site walks. The compounding problems were predictable: invoice and subcontract numbers duplicating across companies and confusing QuickBooks, cost codes multiplying into hundreds of near-duplicates with nobody picking the right one, manual PDF generation for every contract, no connection between the estimate that won the job and the subcontracts that executed it, and zero visibility into which line items had been assigned to which subcontractor.
+          </p>
+          <p class="large-para mb-3">
+            The brief was to build a platform where the entire lifecycle &mdash; from a site walk to a paid subcontractor &mdash; runs through one system, with each company&rsquo;s data fully isolated and its own numbers, branding, and legal terms applied automatically. The harder requirement, stated plainly by the client on day one, was that the system had to prevent the numbering and cost-code chaos that had plagued every other tool they had tried. Simple, he said, is better.
+          </p>
+          <p class="large-para mb-0">
+            We delivered the platform over a focused 35-day build with a 5-day testing buffer. Three companies, five modules (estimator, subcontracts, invoices, payments, photos), integrations with QuickBooks Online and Microsoft Outlook, and an AI-powered estimator that reads construction plans and site-walk notes.
+          </p>
+        </div>
+        <div class="col-12 col-lg-5">
+          <div class="workflow-card p-4">
+            <h3 class="h6 text-uppercase text-muted mb-3">At a glance</h3>
+            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+              <li><strong>Client:</strong> Las Vegas general contractor, three companies</li>
+              <li><strong>Scope:</strong> Multi-company construction management platform, company toggle</li>
+              <li><strong>AI:</strong> Claude / Gemini &mdash; plan extraction and estimate skeleton generation (human review required)</li>
+              <li><strong>Evidence:</strong> Per-company atomic numbering, Decimal money, audit trail on every financial action</li>
+              <li><strong>Stack:</strong> Next.js, NestJS, PostgreSQL with Prisma, BullMQ workers, Puppeteer PDFs, Stripe Connect, S3</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white" id="decision-1">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Decision 1: Three companies in one login, isolated at the database layer</h2>
+        <p class="large-para mb-4">
+          The platform serves three legally separate companies from one interface. A dropdown in the header toggles between them. Every module &mdash; estimates, subcontracts, invoices, payments, photos &mdash; switches to that company&rsquo;s data instantly.
+        </p>
+        <p class="large-para mb-4">
+          The standard way to implement this is application-level filtering. Every query includes a company filter. The application is responsible for never forgetting that filter. This works until a developer adds a feature, forgets the filter on one query, and an estimate from Company A shows up in Company B&rsquo;s list. In a normal SaaS this is a bug. When Company A and Company B are separate legal entities filing separate tax returns with separate contractor licenses, it is a compliance event.
+        </p>
+        <p class="large-para mb-4">
+          We had been burned by this failure mode on a previous multi-tenant build. The same email address used across two tenants caused data leakage because the application assumed email uniqueness was global when it should have been per-tenant. We were not going to repeat that.
+        </p>
+        <p class="large-para mb-4">We shipped two layers of isolation.</p>
+        <p class="large-para mb-3">
+          The first is a Prisma client extension that automatically injects the active company ID into every database query &mdash; reads, writes, counts, deletes. A developer cannot write a query against a tenant-owned table without the company filter. It is injected by the framework, not by memory. The extension also auto-filters soft-deleted records on every read, closing another class of accidental data exposure.
+        </p>
+        <p class="large-para mb-3">
+          The second is PostgreSQL Row Level Security on every tenant-owned table. Even if the application layer fails, the database refuses to return rows that don&rsquo;t belong to the authenticated company. The two layers are redundant by design: either one alone would prevent the leak, both together make it structurally impossible.
+        </p>
+        <p class="large-para mb-3">
+          Company access is verified on every authenticated request against live database membership, not the JWT payload. If a user&rsquo;s access to a company is revoked, their existing token cannot access that company&rsquo;s data on the very next request.
+        </p>
+        <p class="large-para mb-0 fw-semibold">
+          For a contractor running three legal entities, the architectural claim is precise: toggling between companies changes everything you see, and it is not possible for data from one company to appear in another through any application bug, query mistake, or stale authentication state.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey" id="decision-2">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Decision 2: The AI builds the estimate skeleton, the estimator sets the prices</h2>
+        <p class="large-para mb-4">
+          Construction estimating is not a data-entry problem. It is a judgment problem. A general contractor walks a site, takes notes, reviews plans, talks to subcontractors, and produces a division-by-division cost estimate from experience. No document the contractor uploads contains the prices. The plans show what the building needs. The sub bids show what the trades will charge. The contractor&rsquo;s experience fills in the rest.
+        </p>
+        <p class="large-para mb-4">
+          The original spec described an AI estimator that would scan architectural drawings and generate cost estimates from Las Vegas market rates. After studying the client&rsquo;s actual estimates, site-walk notes, and plan sets, we realized this was the wrong product. The prices are not in the documents. They are in the contractor&rsquo;s head and in the sub bids that come in over email. An AI that guesses prices produces estimates the contractor cannot trust.
+        </p>
+        <p class="large-para mb-4">
+          We built the AI to do what it is actually good at: turning messy, unstructured input into a structured estimate skeleton.
+        </p>
+        <p class="large-para mb-4">
+          The contractor uploads whatever he has &mdash; site-walk notes from an AI transcription app, a rough floor-plan sketch, or a full 60-page architectural plan set. The system extracts text from digital PDFs, detects scanned documents and routes them through OCR, scores every page on data density using structural signals, and distills the kept pages down to schedule tables, area calculations, and quantity takeoffs. The distilled data goes to a capable AI model in token-budgeted batches &mdash; small enough that the model stays accurate on each chunk, merged afterward with deduplication.
+        </p>
+        <p class="large-para mb-4">
+          The AI produces grouped line items with descriptions, scope narratives written in professional estimating language, quantities pulled from the documents where clearly stated, and cost-code tags from a controlled master list. It never guesses a quantity it cannot find. It never generates a price. Every line lands in a review step where the estimator confirms or corrects before entering the pricing grid.
+        </p>
+        <p class="large-para mb-4">
+          Three companies use the same engine, but each company&rsquo;s estimate renders differently. The GC&rsquo;s estimates group by construction division. The fabricator&rsquo;s estimates group by scope item. The system detects which company is active and applies the correct structure, branding, contract terms, and proposal format automatically.
+        </p>
+        <p class="large-para mb-0">
+          The principle: AI is best for unstructured-to-structured work and worst for authoritative numbers. Use it where it has an edge and replace it with human judgment where it doesn&rsquo;t.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white" id="decision-3">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Decision 3: One cost-code list, picked not typed, QuickBooks authoritative</h2>
+        <p class="large-para mb-4">
+          The client&rsquo;s single biggest pain point, stated in his own words: &ldquo;The issue we have currently is making sure the invoice, subcontract, and job numbers don&rsquo;t duplicate or confuse QB. Cost codes start to double and repeat between QB and the system, leaving hundreds of bad ones and no one picks the right ones.&rdquo;
+        </p>
+        <p class="large-para mb-4">
+          This is the most common failure mode in construction software. Every tool maintains its own cost-code list. QuickBooks maintains another. They drift. Nobody knows which is canonical. Job-costing reports pull from the wrong codes and show meaningless numbers.
+        </p>
+        <p class="large-para mb-4">We made three calls to prevent this.</p>
+        <p class="large-para mb-3">
+          One shared master list across all three companies. A company can add a code, but it joins the shared list &mdash; there are no per-company copies that can drift independently.
+        </p>
+        <p class="large-para mb-3">
+          Pick-only input. Cost codes are always selected from a searchable picker, never free-typed. A user cannot create three different spellings of the same code.
+        </p>
+        <p class="large-para mb-3">
+          QuickBooks as source of truth. The platform maintains a local mirror of QB&rsquo;s Item list via Change Data Capture. Pushes match by ID, never auto-create near-duplicates. Unmatched items are flagged for human mapping.
+        </p>
+        <p class="large-para mb-0 fw-semibold">
+          The architectural result: cost codes cannot multiply. They are controlled at the source, enforced at the input, and matched by ID on sync.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey" id="decision-4">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Decision 4: Estimate line items lock to one subcontract, and no payment goes out without a signed contract and current insurance</h2>
+        <p class="large-para mb-4">
+          Construction money flows through a specific chain: an estimate wins the job, line items become subcontracts for each trade, subs do the work and submit invoices, and the contractor pays the subs. Every link has a rule that, if violated, creates a real business or legal problem.
+        </p>
+        <p class="large-para mb-3">
+          <strong>Cost, not markup.</strong> The subcontract value comes from the estimate&rsquo;s cost column, never the marked-up client price. The markup gap is the contractor&rsquo;s profit margin. The system enforces this in code &mdash; the markup percentage is never exposed in any subcontract-facing output.
+        </p>
+        <p class="large-para mb-3">
+          <strong>One line, one sub.</strong> A line item can only be assigned to one subcontract. Assigned lines are struck-through and disabled in the picker. Voiding a subcontract releases the lines. The estimate detail shows assignment progress.
+        </p>
+        <p class="large-para mb-4">
+          <strong>Signed and insured before payment.</strong> The client requested this mid-build: no payment goes out unless the subcontract is signed (EXECUTED status) and the sub&rsquo;s insurance certificate is on file and not expired. The payment guard runs at invoice approval and again at payment initiation. Insurance that expires mid-project holds all pending payments until a current certificate is uploaded.
+        </p>
+        <p class="large-para mb-0">
+          These are not edge cases. They are the rules that protect a contractor from paying for uncontracted work, from liability exposure when a sub&rsquo;s insurance lapses, and from accidentally revealing profit margins.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white" id="decision-5">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Decision 5: Per-company atomic numbering that QuickBooks can trust</h2>
+        <p class="large-para mb-4">
+          The client flagged this on day one. Invoice numbers, subcontract numbers, and job numbers were duplicating across his three companies and confusing QuickBooks.
+        </p>
+        <p class="large-para mb-4">
+          We built a NumberSequence table with atomic per-company counters for every entity type: jobs, estimates, subcontracts, invoices, and payments. Each company&rsquo;s sequence is independent. Number assignment runs inside a database transaction with row-level locking. Two users creating invoices at the same second cannot receive the same number.
+        </p>
+        <p class="large-para mb-4">
+          Before launch, the client provides the starting numbers from his existing systems. The sequences pick up where the old system left off. Every number that reaches QuickBooks carries the platform&rsquo;s ID alongside it, and the platform stores QuickBooks&rsquo; internal ID back &mdash; a one-to-one binding that prevents sync duplicates.
+        </p>
+        <p class="large-para mb-0 fw-semibold">
+          The architectural claim: it is not possible for two records in the same company to receive the same number, for a number from one company to appear in another&rsquo;s QuickBooks, or for a sync to create a duplicate entry.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey" id="decision-6">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Decision 6: Money is Decimal, never floating point, everywhere</h2>
+        <p class="large-para mb-4">
+          Construction estimates routinely reach six and seven figures. A $642,274 restaurant buildout broken into 40 line items with per-line markup, project-level overhead, profit, contingency, and bond percentages applied in layers, then retainage held on subcontractor payments &mdash; the math compounds. A floating-point rounding error on one line propagates through every calculation downstream.
+        </p>
+        <p class="large-para mb-4">
+          Every money field in the database is Prisma Decimal with 12 digits of precision and 2 decimal places. Every calculation goes through a single money helper module that uses Decimal arithmetic with banker&rsquo;s rounding. The frontend never performs money math &mdash; it displays numbers from the backend, which recomputes authoritatively on every change.
+        </p>
+        <p class="large-para mb-0">
+          The principle: money math happens in one place, in one type, with one rounding rule. If you can grep the codebase for native arithmetic on currency and find zero hits, the system is safe.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white" id="production">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">What the platform looks like in production</h2>
+        <p class="large-para mb-4">
+          The contractor logs in and sees a dashboard: active projects, estimates needing attention, subcontracts pending signature, overdue invoices, insurance certificates expiring within 30 days. A company toggle in the header switches the entire view.
+        </p>
+        <p class="large-para mb-4">
+          He opens a new estimate, drops in his site-walk notes and the plan set, optionally tells the AI to focus on a specific scope, and clicks Generate. A background worker scores, filters, and batches the documents, then produces a grouped estimate skeleton with scope descriptions and quantities. He reviews the AI&rsquo;s work, corrects what is wrong, and moves to the pricing grid.
+        </p>
+        <p class="large-para mb-4">
+          He generates a professional proposal PDF &mdash; his company&rsquo;s branding, his terms, his format &mdash; and sends it to the client. The client approves. He selects line items from the approved estimate, picks a vendor, and creates a subcontract. The assigned line items are struck through on the estimate. The system generates a multi-page legal contract PDF. He sends the contract link to the subcontractor. The sub signs on screen, and the signature is embedded into the contract PDF.
+        </p>
+        <p class="large-para mb-4">
+          The sub uploads an insurance certificate. When the sub submits an invoice, the contractor approves it &mdash; but only if the contract is signed and the insurance is current. He schedules the payment, confirms it, and the subcontractor&rsquo;s paid amount and invoice status update automatically. The same flow runs independently on all three companies. Different branding, different numbers, different QuickBooks accounts, same login.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey" id="standards">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Standards, architecture, and controls</h2>
+        <div class="workflow-card p-4 p-lg-5">
+          <ul class="mb-0 ps-3" style="line-height: 2;">
+            <li><strong>Multi-company isolation:</strong> Prisma extension + PostgreSQL RLS + live membership verification</li>
+            <li><strong>AI document extraction</strong> with human-in-the-loop review before data enters the estimate</li>
+            <li><strong>Hybrid extraction pipeline:</strong> rule-based structural scoring + token-budgeted batching + OCR for scanned documents</li>
+            <li><strong>Cost-code governance:</strong> one shared list, pick-only, QB source of truth via local mirror and CDC</li>
+            <li><strong>Per-company atomic numbering:</strong> transaction-locked sequences for all entity types</li>
+            <li><strong>Decimal money:</strong> Prisma Decimal(12,2), one money helper, banker&rsquo;s rounding, no float in financial path</li>
+            <li><strong>Payment guard:</strong> signed contract + current insurance required at approval and payment</li>
+            <li><strong>Line-item tracking:</strong> one estimate line to one subcontract, struck-through and locked, released on void</li>
+            <li><strong>Audit logging:</strong> every financial state change with actor, timestamp, action, entity reference</li>
+            <li><strong>Soft deletes:</strong> estimates, subcontracts, invoices never hard-deleted</li>
+            <li><strong>Idempotency:</strong> unique keys on payments, Request-Id headers on QB writes</li>
+            <li><strong>E-signature:</strong> canvas capture, IP logging, timestamp, embedded in contract PDF</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white" id="lessons">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">What we would tell the next team building a construction management platform</h2>
+        <p class="large-para mb-4">A few things we learned that are not obvious until you build for a real contractor.</p>
+        <div class="workflow-card p-4 p-lg-5">
+          <ul class="mb-0 ps-3" style="line-height: 2;">
+            <li>The estimator is not a calculator. It is a document-to-structure tool. The AI&rsquo;s job is to turn messy inputs into a grouped skeleton. The prices come from the contractor. Every team that tries to build an AI that generates prices ships a tool the contractor does not trust.</li>
+            <li>Cost-code chaos is the silent killer. It doesn&rsquo;t crash or throw errors. It slowly makes every report meaningless. The fix is a controlled list with pick-only input and one source of truth.</li>
+            <li>Multi-company is not multi-tenant with different logos. Each company has its own estimate structure, contract templates, QB connection, numbering, and insurance requirements. Build this from day one or rebuild everything later.</li>
+            <li>The payment guard is the feature the contractor didn&rsquo;t know he needed. No payment without signed contract and current insurance. Once he has it, every other tool feels reckless.</li>
+            <li>Construction plans vary wildly. A restaurant comes with 60-page D-size sets. A bar remodel comes with walk notes and a sketch. Build a good-enough extractor with a great review step, not a universal parser.</li>
+            <li>Money math is not optional to get right. A contractor&rsquo;s profit margin lives in the gap between sub cost and client price. A float error shifts that gap invisibly. Use Decimal from day one.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey" id="cta">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">How to talk to us about a build like this</h2>
+        <p class="large-para mb-4">
+          If you are a general contractor, subcontractor, or construction technology company replacing disconnected tools with a platform that ties estimating to subcontracting to invoicing to payment &mdash; or if you are evaluating where AI fits safely in a construction workflow &mdash; we offer a paid discovery engagement that produces an architecture document, an integration map for your QuickBooks and Outlook setup, and a build plan you own whether or not you continue with us.
+        </p>
+        <p class="large-para mb-4">
+          We have shipped multi-tenant construction platforms, AI document extraction pipelines for plan sets ranging from 6 to 66 pages, and QuickBooks integrations that solve the cost-code duplication problem structurally rather than with sync rules. The discovery engagement is the fastest way to know what your platform actually needs before committing to a build.
+        </p>
+        <div class="workflow-card p-4 p-lg-5 text-center">
+          <p class="mb-1 fw-semibold">Ahmad Kamran, founder, A&rsquo;sTechware</p>
+          <p class="mb-4">
+            <a href="mailto:ahmad@astechware.com" class="text-decoration-none">ahmad@astechware.com</a>
+          </p>
+          <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5 me-2 mb-2">
+            Start a discovery engagement &rarr;
+          </a>
+          <%= link_to "Custom software", custom_software_path, class: "btn btn-outline-primary btn-lg rounded-pill px-5 mb-2 ajax" %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>

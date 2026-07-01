@@ -58,6 +58,7 @@ class SitemapController < ApplicationController
       eventvesta-ai-marketing
       flss-legal-process-serving
       ai-deal-analyzer
+      construction-management-platform
     ].each do |slug|
       urls << { loc: "#{base}#{case_study_path(slug)}", priority: "0.7", changefreq: "monthly" }
     end
