@@ -42,6 +42,7 @@
           <a class="enterprise-nav-link dropdown-toggle" href="#" id="navCompany" role="button" data-bs-toggle="dropdown" aria-expanded="false">Company</a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navCompany">
             <li><%= link_to "About Us", about_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "Reviews", reviews_path, class: "dropdown-item ajax" %></li>
             <li><%= link_to "Contact", contact_path, class: "dropdown-item ajax" %></li>
           </ul>
         </li>
@@ -108,6 +109,7 @@
               <span class="menu-item-label">Company</span>
               <ul class="sub-menu list-unstyled m-0 ps-3">
                 <li><%= link_to "About Us", about_path, class: "ajax" %></li>
+                <li><%= link_to "Reviews", reviews_path, class: "ajax" %></li>
                 <li><%= link_to "Contact", contact_path, class: "ajax" %></li>
               </ul>
             </li>

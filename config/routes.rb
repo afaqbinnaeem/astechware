@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get '/services/api-integrations', to: 'home#api_integrations', as: 'api_integrations'
   get '/services/devops-engineering', to: 'home#devops_engineering', as: 'devops_engineering'
   get '/clients', to: 'home#clients', as: 'clients'
+  get '/reviews', to: 'home#reviews', as: 'reviews'
   get '/about', to: 'home#about', as: 'about'
   get '/services', to: 'home#services', as: 'services'
   get '/case-studies', to: 'home#portfolio', as: 'case_studies'

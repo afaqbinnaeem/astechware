@@ -1,0 +1,226 @@
+<%
+reviews = [
+  { name: "Nathan", role: "Founder at Vestra Software", location: "United States",
+    image: "ahmad/clients/nathan.jpeg", image_alt: "Nathan, Founder at Vestra Software",
+    text: "Working with Ahmad has been an incredible experience. They have demonstrated deep technical expertise, clear communication, and a commitment to delivering a high-quality product to our team.",
+    source: "Upwork", source_url: "https://www.upwork.com/freelancers/ahmadkamrans" },
+  { name: "FKA Novara", role: "Startup Founder", location: "Germany",
+    image: "ahmad/clients/Screenshot_1.png", image_alt: "FKA Novara, A'sTechware client",
+    text: "We came to meet Ahmad in 2020 as a startup looking for a developer who could finalize a mockup based on Ruby on Rails. With Ahmad and A'sTechware's help, we brought our application into production, achieving excellent stability and fully meeting customer requirements.",
+    source: "LinkedIn", source_url: "https://www.linkedin.com/in/engr-ahmad-kamran" },
+  { name: "Joseph Chiavatti", role: "Technology Founder & REALTOR®", location: "United States",
+    image: "ahmad/clients/joseph.jpeg", image_alt: "Joseph Chiavatti, A'sTechware client",
+    text: "Ahmad have helped us with several projects in our company. They are fantastic communicators and do great work. They care about making sure the project is completed the correct way and are quick to communicate on the channels we use.",
+    source: "LinkedIn", source_url: "https://www.linkedin.com/services/page/994512312108a6b17b" },
+  { name: "Sven-Volker Nowarra", role: "In-A-Gadda-Da-Vida", location: "Germany",
+    image: "ahmad/clients/sven.jpeg", image_alt: "Sven-Volker Nowarra, A'sTechware client",
+    text: "Working with Ahmad for more than a year, we are highly confident with the work and consider the results delivered production ready. We are happy to continue our work with Ahmad and A'sTechware and are highly confident with their work.",
+    source: "LinkedIn", source_url: "https://www.linkedin.com/services/page/994512312108a6b17b" },
+  { name: "William Schoeffler", role: "Co-Founder and Product @ Hitch", location: "United States",
+    image: "ahmad/clients/william.jpeg", image_alt: "William Schoeffler, A'sTechware client",
+    text: "Ahmad is one of the hardest working engineers I've met. They worked endlessly and around the clock to make incredibly quick progress and took responsibility before deployment by doing detailed testing.",
+    source: "LinkedIn", source_url: "https://www.linkedin.com/services/page/994512312108a6b17b" },
+  { name: "Anthony Barry", role: "MBA | Investor", location: "Australia",
+    image: "ahmad/clients/IMG_9811.png", image_alt: "Anthony Barry, A'sTechware client",
+    text: "Its been a pleasure to work with since they joined the team. They are cooperative, responsive, and will go the extra yard to meet time-sensitive priorities.",
+    source: "LinkedIn", source_url: "https://www.linkedin.com/in/engr-ahmad-kamran" },
+  { name: "Ben Selland", role: "Principal at Selland Technologies", location: "United States",
+    image: "ahmad/clients/ben-selland.jpeg", image_alt: "Ben Sellard, Principal at Selland Technologies",
+    text: "Ahmad is an excellent engineer with a strong eye for details. I enjoy working with Ahmad day to day and our team members do as well.",
+    source: "LinkedIn", source_url: "https://www.linkedin.com/in/engr-ahmad-kamran" },
+  { name: "Dale Merritt", role: "Golfpay CEO | The '1 Golf' Company", location: "United States",
+    image: "ahmad/clients/golf.jpeg", image_alt: "Dale Merritt, CEO at Golfpay",
+    text: "Been working with Ahmad for almost two years, and he's been great to work with. One of the most reliable developers I've had the pleasure to work with. He's always getting better too.",
+    source: "LinkedIn", source_url: "https://www.linkedin.com/in/engr-ahmad-kamran" },
+  { name: "Ania Dergachev", role: "Head, Product Design Studio", location: "Canada",
+    image: "ahmad/clients/ania.png", image_alt: "Ania Dergachev, A'sTechware client",
+    text: "Ahmad consistently demonstrate reliability and are great team players. They tackle complex problems with a positive attitude and strong determination to find the best solution.",
+    source: "LinkedIn", source_url: "https://www.linkedin.com/in/engr-ahmad-kamran" },
+  { name: "Zach Marion", role: "Founder at Shoreline Waste Solution", location: "United States",
+    image: "ahmad/clients/zach.jpg", image_alt: "Zach Marion, Founder at Shoreline Waste Solution",
+    text: "A'sTechware have been outstanding partners. They are responsive, detail-oriented, and focused on delivering quality results. I highly recommend them for any project. Looking forward to working with them again in the future.",
+    source: "Upwork", source_url: "https://www.upwork.com/freelancers/~01eb09bb74c3e6d04b" },
+  { name: "Brianne Harvey", role: "Founder at Restaurant Resource", location: "United States",
+    image: "ahmad/clients/Brianne.jpeg", image_alt: "Brianne Harvey, Founder at Restaurant Resource",
+    text: "Ahmad has been an exceptional contractor, and we feel incredibly fortunate to have found him. He brings deep technical knowledge to the table, offers thoughtful feedback, and consistently recommends smarter, more efficient solutions.",
+    source: "Upwork", source_url: "https://www.upwork.com/freelancers/ahmadkamrans" },
+  { name: "Leilani", role: "Source Medicine Tech", location: "Upwork",
+    image: nil,
+    text: "Very keen to do the job; regular meetings and clarification of tasks. This job was large and more complex than originally understood so it was technically challenging. Good at asking when unclear about things. Eager to sort out any difficulties along the way.",
+    source: "Upwork", source_url: "https://www.upwork.com/freelancers/~01eb09bb74c3e6d04b" },
+  { name: "Dale", role: "Golfpay", location: "Upwork",
+    image: nil,
+    text: "Saba was able to handle a somewhat complex feature for us, and did a really good job, within the estimated time range. We look forward to working with her again!",
+    source: "Upwork", source_url: "https://www.upwork.com/freelancers/~01eb09bb74c3e6d04b" },
+  { name: "Jack", role: "Upwork Client", location: "Upwork",
+    image: nil,
+    text: "They created a great back end system and a mobile app for my drivers that will change how my business operations work. Their communication was always quick and responsive, making the process much easier. Highly recommend.",
+    source: "Upwork", source_url: "https://www.upwork.com/freelancers/~01eb09bb74c3e6d04b" }
+]
+%>
+
+<% content_for :head do %>
+  <% set_meta_tags(
+    title: "Client Reviews & Testimonials | A'sTechware",
+    description: "Read verified 5-star reviews of A'sTechware from founders and teams across the US, Germany, Canada, and Australia. AI agents, custom platforms, and integrations, rated on Upwork and LinkedIn.",
+    keywords: "A'sTechware reviews, client testimonials, Upwork reviews, software development reviews, AI development agency reviews, custom software testimonials",
+    og: { title: "Client Reviews & Testimonials | A'sTechware", description: "Verified 5-star feedback from founders and teams we've partnered with, across SaaS, healthcare, fintech, real estate, and logistics.", url: safe_request_url, type: 'website', site_name: "A'sTechware" },
+    twitter: { card: 'summary', title: "Client Reviews & Testimonials | A'sTechware", description: "Verified 5-star feedback from founders and teams we've partnered with." }
+  ) %>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "Organization",
+    "@id" => "#{base_url}/#organization",
+    "name" => "A'sTechware",
+    "url" => base_url,
+    "aggregateRating" => {
+      "@type" => "AggregateRating",
+      "ratingValue" => "5.0",
+      "bestRating" => "5",
+      "worstRating" => "1",
+      "reviewCount" => reviews.length.to_s
+    },
+    "review" => reviews.map do |r|
+      {
+        "@type" => "Review",
+        "author" => { "@type" => "Person", "name" => r[:name] },
+        "reviewBody" => r[:text],
+        "reviewRating" => { "@type" => "Rating", "ratingValue" => "5", "bestRating" => "5", "worstRating" => "1" }
+      }
+    end
+  }.to_json) %>
+  </script>
+<% end %>
+
+<!-- Hero Section -->
+<div class="hero-section py-5">
+  <div class="container">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-12 col-lg-8 mx-auto text-center">
+        <h1 class="display-4 fw-bold mb-4"
+            style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;">
+          Client Reviews &amp; Testimonials
+        </h1>
+        <p class="lead mb-4"
+           style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto;">
+          Verified feedback from founders and teams we&apos;ve partnered with, across SaaS, marketplaces, healthcare, fintech, real estate, and logistics.
+        </p>
+        <div class="d-flex flex-wrap justify-content-center align-items-center gap-3">
+          <span class="fs-4 text-warning" role="img" aria-label="Rated 5 out of 5 stars">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+          </span>
+          <span class="text-muted fw-semibold">5.0 average &middot; <%= reviews.length %>+ verified reviews on Upwork &amp; LinkedIn</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Reviews Grid -->
+<div class="py-5 bg-light" id="client_reviews">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">What Clients Say</h2>
+      <p class="large-para mb-0">Every review below is from a real engagement, verifiable on Upwork or LinkedIn.</p>
+    </div>
+    <div class="row g-4">
+      <% reviews.each do |review| %>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body d-flex flex-column">
+              <div class="d-flex align-items-center justify-content-between mb-3">
+                <div class="d-flex align-items-center">
+                  <% if review[:image].present? %>
+                    <%= image_tag review[:image], class: 'rounded-circle me-3', alt: review[:image_alt], style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
+                  <% else %>
+                    <div class="rounded-circle me-3 d-flex align-items-center justify-content-center bg-secondary text-white flex-shrink-0" style="width:64px;height:64px;" aria-hidden="true"><i class="fa fa-user fa-2x"></i></div>
+                  <% end %>
+                  <div>
+                    <h3 class="h5 mb-0"><%= review[:name] %></h3>
+                    <small class="text-muted"><%= review[:role] %></small>
+                  </div>
+                </div>
+                <span class="badge bg-light text-dark border"><%= review[:location] %></span>
+              </div>
+              <div class="text-warning mb-2" role="img" aria-label="5 out of 5 stars">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+              </div>
+              <p class="mb-3 flex-grow-1"><%= review[:text] %></p>
+              <p class="mb-0 mt-auto pt-2 border-top small text-muted">
+                <a href="<%= review[:source_url] %>" target="_blank" rel="noopener noreferrer" class="service-card-link">Verified on <%= review[:source] %></a>
+              </p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<!-- Where to verify -->
+<div class="py-5 bg-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-8 mx-auto text-center">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Verified on Independent Platforms</h2>
+        <p class="large-para mb-4">
+          Don&apos;t take our word for it. Our reviews live on independent platforms where feedback can&apos;t be edited or curated by us.
+        </p>
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+          <a href="https://www.upwork.com/freelancers/~01eb09bb74c3e6d04b" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary rounded-pill px-4">
+            Read reviews on Upwork
+          </a>
+          <a href="https://www.linkedin.com/company/astechware" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary rounded-pill px-4">
+            Read recommendations on LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Related reading for internal linking / SEO -->
+<div class="py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-10 mx-auto text-center">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">The Work Behind the Reviews</h2>
+        <p class="large-para mb-4">
+          These reviews come from real production engagements. Explore the case studies to see exactly what we built and how it performed.
+        </p>
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+          <%= link_to "View Case Studies", case_studies_path, class: "btn btn-primary rounded-pill px-4 ajax" %>
+          <%= link_to "Our Methodology", methodology_path, class: "btn btn-outline-primary rounded-pill px-4 ajax" %>
+          <%= link_to "Our Services", services_path, class: "btn btn-outline-primary rounded-pill px-4 ajax" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="py-5 bg-light-grey">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-8 mx-auto text-center">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Get Results Like These</h2>
+        <p class="large-para mb-4">
+          Ready to become our next 5-star review? Start with a discovery call, we&apos;ll map your goals and outline how we can help.
+        </p>
+        <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5 me-2 mb-2">
+          Schedule Discovery Call
+        </a>
+        <%= link_to "Contact Us", contact_path, class: "btn btn-outline-primary btn-lg rounded-pill px-5 mb-2" %>
+      </div>
+    </div>
+  </div>
+</div>

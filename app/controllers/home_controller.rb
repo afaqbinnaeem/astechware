@@ -16,6 +16,9 @@ class HomeController < ApplicationController
   def clients
   end
 
+  def reviews
+  end
+
   def ai_agents
   end
 
