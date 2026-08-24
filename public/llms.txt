@@ -1,6 +1,14 @@
 # A'sTechware
 
-A'sTechware builds production-grade AI and platforms for businesses that need systems that actually work. We specialize in AI agent development, machine learning, platform modernization, custom software, API integrations, and DevOps. Milestone-based delivery, weekly demos, full code ownership, and natural exit points.
+A'sTechware is an AI and software engineering partner for businesses that need production systems that actually work. We specialize in AI agent development, workflow automation, machine learning, platform modernization, custom software, API integrations, and DevOps. Milestone-based delivery, weekly demos, full code ownership, and natural exit points.
+
+## Hiring & Engagement
+
+- Hire software engineers: dedicated backend, frontend, and full-stack engineers
+- Fractional engineering team: extend capacity without full-time hires
+- Forward deployed engineering: engineers embedded in operational context
+- Engineering consultant engagements for architecture and automation scoping
+- Engineering partner for legal, healthcare, construction, logistics, trucking, and real estate
 
 ## Founder
 
@@ -11,12 +19,12 @@ Calendly: https://calendly.com/ahmadkamran/new-meeting
 
 ## Experience
 
-10+ years delivering production systems. 50+ projects across industries. 98% client retention rate. Industries served: healthcare, legal, financial, B2B SaaS, professional services, education technology.
+10+ years delivering production systems. 50+ projects across industries. 98% client retention rate. Industries served: healthcare, legal, financial, B2B SaaS, professional services, construction, logistics, trucking, real estate, education technology.
 
 ## Services (with URLs)
 
-- AI Agent Development: https://astechware.com/services/ai-agent-development
-- Machine Learning & ML Engineering: https://astechware.com/services/machine-learning
+- AI Agent Development & Workflow Automation: https://astechware.com/services/ai-agent-development
+- Machine Learning Engineering: https://astechware.com/services/machine-learning
 - Platform Modernization: https://astechware.com/services/platform-modernization
 - Custom Software Development: https://astechware.com/services/custom-software
 - API & System Integrations: https://astechware.com/services/api-integrations
@@ -24,16 +32,20 @@ Calendly: https://calendly.com/ahmadkamran/new-meeting
 
 ## Industries / Solutions (with URLs)
 
-- Healthcare: https://astechware.com/solutions/healthcare
-- Legal: https://astechware.com/solutions/legal
-- Financial: https://astechware.com/solutions/financial
+- Healthcare AI Engineering: https://astechware.com/solutions/healthcare
+- Legal Tech Engineering: https://astechware.com/solutions/legal
+- Construction, Logistics, Trucking & Real Estate: https://astechware.com/solutions/professional-services
+- Financial / Fintech: https://astechware.com/solutions/financial
 - B2B SaaS: https://astechware.com/solutions/b2b-saas
-- Professional Services: https://astechware.com/solutions/professional-services
 - Education Technology: https://astechware.com/solutions/education-technology
 
-## Technology Stack
+## Technology Stack & Roles
 
-LangGraph, LangChain, OpenAI, Anthropic, Python, Ruby on Rails, React, TypeScript, AWS, GCP, Docker, Kubernetes, CI/CD, Stripe, Twilio, healthcare and compliance integrations.
+Backend: Python (FastAPI), Node.js, Ruby on Rails
+Frontend: React, Next.js, TypeScript, Flutter
+AI/ML: LangGraph, LangChain, OpenAI, Anthropic, pgvector
+Infrastructure: AWS, GCP, Docker, Kubernetes, Terraform, CI/CD
+Integrations: Stripe, Twilio, FHIR/HL7, healthcare and compliance systems
 
 ## Key Differentiators
 
@@ -46,3 +58,4 @@ Case Studies: https://astechware.com/case-studies
 Methodology: https://astechware.com/methodology
 How We De-Risk Projects: https://astechware.com/how-we-derisk-projects
 Blog: https://astechware.com/blogs
+Reviews: https://astechware.com/reviews

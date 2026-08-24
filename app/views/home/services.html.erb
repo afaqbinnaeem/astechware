@@ -1,11 +1,19 @@
 <% content_for :meta_site do %><% end %>
 <% content_for :head do %>
   <% set_meta_tags(
-    title: "AI & Software Engineering Services | A'sTechware",
-    description: "Production ready AI agents, custom platform development, platform modernization, and API integrations for healthcare, legal, and operations heavy teams.",
-    keywords: "AI agent development, custom software, platform modernization, API integrations, production AI services"
+    title: "AI, Automation & Software Engineering Services | A'sTechware",
+    description: "AI agents, workflow automation, custom platforms, API integrations, ML, and DevOps. Engineering partner for teams that need production systems, not prototypes.",
+    keywords: "AI agent development, workflow automation, custom software, platform modernization, API integrations, machine learning, DevOps engineering, hire software engineers, AI engineering partner, production AI services"
   ) %>
   <% services_base = Rails.env.production? ? "https://astechware.com" : root_url.chomp("/") %>
+  <% services_list_items = core_services_list.each_with_index.map do |service, index|
+       path = public_send(service[:path])
+       url = path.start_with?("http") ? path : "#{services_base}#{path}"
+       { "@type" => "ListItem", "position" => index + 1, "name" => service[:title], "url" => url }
+     end + [
+       { "@type" => "ListItem", "position" => 5, "name" => "Machine Learning Engineering", "url" => "#{services_base}/services/machine-learning" },
+       { "@type" => "ListItem", "position" => 6, "name" => "DevOps & Cloud Engineering", "url" => "#{services_base}/services/devops-engineering" }
+     ] %>
   <script type="application/ld+json">
   <%= raw({
     "@context" => "https://schema.org",
@@ -15,16 +23,7 @@
     "description" => "End to end AI, ML, automation, and engineering capabilities for production ready systems.",
     "mainEntity" => {
       "@type" => "ItemList",
-      "itemListElement" => core_services_list.each_with_index.map do |service, index|
-        path = public_send(service[:path])
-        url = path.start_with?("http") ? path : "#{services_base}#{path}"
-        {
-          "@type" => "ListItem",
-          "position" => index + 1,
-          "name" => service[:title],
-          "url" => url
-        }
-      end
+      "itemListElement" => services_list_items
     }
   }.to_json) %>
   </script>

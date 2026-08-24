@@ -210,4 +210,51 @@ module ApplicationHelper
     norm = current_str.to_s.sub(/\Ahttps?:\/\/[^\/]+/, "").split("?").first
     blog_articles_list.reject { |a| a[:path].call.to_s.sub(/\Ahttps?:\/\/[^\/]+/, "").split("?").first == norm }.first(limit)
   end
+
+  # Per-slug SEO keywords for blog posts
+  def blog_seo_keywords(slug)
+    keywords_by_slug = {
+      "what-to-look-for-hiring-fractional-engineering-team" => "fractional engineering team, hire software engineers, dedicated developers, engineering partner, extended engineering team",
+      "a-laymans-guide-for-hiring-a-top-software-company-in-pakistan" => "hire software development partner, outsourcing engineering team, top software company, software engineering partner",
+      "how-to-evaluate-ai-agent-development-company-2026" => "AI development company, AI engineering partner, production AI, best AI agent company, AI agent development partner",
+      "hipaa-compliant-ai-healthcare-companies-guide" => "healthcare AI engineering partner, HIPAA compliant AI, hire healthcare software engineers, healthcare AI automation",
+      "building-production-ai-agents-langgraph-complete-guide" => "LangGraph development, production AI agents, AI automation systems, workflow automation, AI engineering partner",
+      "reduced-customer-support-tickets-90-percent-ai-agents" => "AI customer support automation, workflow automation, AI agents, support ticket automation",
+      "production-ai-vs-prototype-ai-why-projects-fail" => "production AI development, AI engineering partner, workflow automation, custom automation software",
+      "modular-ai-agents-case-study" => "AI automation, modular AI agents, workflow automation, healthcare AI, real estate automation",
+      "vestra-app-case-study" => "real estate software, property management automation, real estate operations software",
+      "whatsapp-voice-ai-agent-demo" => "healthcare AI, voice AI automation, AI agents, HIPAA compliant AI"
+    }
+    keywords_by_slug[slug.to_s] || "A'sTechware, production AI, platform engineering, AI engineering partner, workflow automation, custom software development"
+  end
+
+  # Per-slug SEO description override for blog posts (falls back to excerpt_short)
+  def blog_seo_description(article)
+    slug = article[:slug].to_s
+    descriptions = {
+      "what-to-look-for-hiring-fractional-engineering-team" => "What to look for when hiring a fractional engineering team: ownership, communication, production outcomes, and how to structure the engagement.",
+      "a-laymans-guide-for-hiring-a-top-software-company-in-pakistan" => "A practical guide for hiring a top software development partner: evaluating technical teams, proposals, and avoiding common outsourcing pitfalls.",
+      "how-to-evaluate-ai-agent-development-company-2026" => "How to evaluate an AI agent development company in 2026: production track record, governance, cost at scale, and red flags to avoid.",
+      "hipaa-compliant-ai-healthcare-companies-guide" => "HIPAA compliant AI guide for healthcare companies: BAA requirements, PHI handling, audit trails, and building AI that fits compliance.",
+      "building-production-ai-agents-langgraph-complete-guide" => "Complete guide to building production AI agents with LangGraph: state graphs, checkpoints, human-in-the-loop, and shipping beyond tutorials."
+    }
+    descriptions[slug] || article[:excerpt_short].to_s.truncate(155)
+  end
+
+  # JSON-LD for case study detail pages
+  def case_study_article_json_ld(seo)
+    base = Rails.env.production? ? "https://astechware.com" : base_url
+    slug = seo[:slug].to_s
+    {
+      "@context" => "https://schema.org",
+      "@type" => "Article",
+      "headline" => seo[:title],
+      "description" => seo[:description],
+      "keywords" => seo[:keywords],
+      "url" => "#{base}/case-studies/#{slug}",
+      "author" => { "@type" => "Organization", "name" => "A'sTechware", "url" => base },
+      "publisher" => { "@type" => "Organization", "name" => "A'sTechware", "url" => base },
+      "about" => seo[:keywords].to_s.split(",").first(3).map(&:strip)
+    }
+  end
 end

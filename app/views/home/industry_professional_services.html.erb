@@ -1,20 +1,31 @@
 <% content_for :head do %>
   <% set_meta_tags(
-    title: "Logistics, HVAC & Real Estate Technology",
-    description: "AI driven dispatching, route optimization, and field service automation for logistics, HVAC, and real estate operations. Production ready platforms for asset heavy businesses.",
-    keywords: "logistics software development, route optimization, dispatch automation, field service software, HVAC automation, real estate operations software, proof of service, Stripe Connect, Plaid"
+    title: "Construction, Logistics, Trucking & Real Estate Software | A'sTechware",
+    description: "Engineering partner for construction management platforms, trucking dispatch automation, logistics route optimization, HVAC field ops, and real estate operations software.",
+    keywords: "construction software development, trucking dispatch automation, logistics route optimization, real estate operations software, HVAC field service automation, operations heavy software, logistics software development, dispatch automation, field service software, proof of service"
   ) %>
   <script type="application/ld+json">
   <%= raw({
     "@context" => "https://schema.org",
     "@type" => "Service",
-    "name" => "Logistics, HVAC & Real Estate Technology",
+    "name" => "Construction, Logistics, Trucking & Real Estate Software",
     "url" => industry_professional_services_url,
-    "description" => "AI driven dispatching, route optimization, and field operations platforms for logistics, HVAC, and real estate operations.",
+    "description" => "Engineering partner for construction management, trucking dispatch automation, logistics route optimization, HVAC field ops, and real estate operations software.",
     "provider" => { "@type" => "Organization", "name" => "A'sTechware" },
     "areaServed" => "Worldwide",
     "serviceType" => "Field Operations & Dispatch Automation",
     "category" => "Operational Technology"
+  }.to_json) %>
+  </script>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "FAQPage",
+    "mainEntity" => [
+      { "@type" => "Question", "name" => "Do you build construction management software?", "acceptedAnswer" => { "@type" => "Answer", "text" => "Yes. We build construction management platforms for estimating, subcontracting, invoicing, and multi-company operations with traceable workflows and QuickBooks integration." } },
+      { "@type" => "Question", "name" => "Can you automate trucking dispatch and route optimization?", "acceptedAnswer" => { "@type" => "Answer", "text" => "Yes. We build dispatch automation, route optimization, and fleet orchestration platforms for logistics and trucking operations." } },
+      { "@type" => "Question", "name" => "Do you develop real estate operations platforms?", "acceptedAnswer" => { "@type" => "Answer", "text" => "Yes. We build real estate scheduling, transaction coordination, property management payments, and investment analysis automation platforms." } }
+    ]
   }.to_json) %>
   </script>
 <% end %>

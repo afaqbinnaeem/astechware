@@ -4,7 +4,6 @@ SitemapGenerator::Sitemap.default_host = 'https://astechware.com'
 SitemapGenerator::Sitemap.compress = false
 
 SitemapGenerator::Sitemap.create do
-  add '/', priority: 1.0, changefreq: 'weekly'
   add '/services', priority: 0.9, changefreq: 'monthly'
   add '/services/ai-agent-development', priority: 0.9, changefreq: 'monthly'
   add '/services/machine-learning', priority: 0.9, changefreq: 'monthly'
@@ -27,6 +26,7 @@ SitemapGenerator::Sitemap.create do
   add '/about', priority: 0.7, changefreq: 'monthly'
   add '/contact', priority: 0.8, changefreq: 'monthly'
   add '/clients', priority: 0.7, changefreq: 'monthly'
+  add '/reviews', priority: 0.7, changefreq: 'monthly'
   add '/projects', priority: 0.8, changefreq: 'monthly'
   add '/privacy-policy', priority: 0.5, changefreq: 'monthly'
   add '/terms-of-service', priority: 0.5, changefreq: 'monthly'

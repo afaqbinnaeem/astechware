@@ -1,9 +1,22 @@
 <% content_for :head do %>
   <% set_meta_tags(
-    title: "AI & ML Agent Development",
-    description: "Privacy first AI and ML workflow agents with enterprise governance. Human in the loop, role based access, audit trails, observability, and careful data routing for regulated workloads.",
-    keywords: "AI agents, ML agents, workflow agents, production AI, enterprise AI automation, AI governance, LangGraph, CrewAI, LangChain, LangSmith, private AI agents"
+    title: "AI Automation Systems & Operational Agents | A'sTechware",
+    description: "AI automation systems for multi-step operational workflows — dispatch, support triage, document processing, and back-office automation with enterprise governance and human-in-the-loop.",
+    keywords: "AI automation, custom automation software, operational workflow automation, AI agents, ML agents, workflow agents, production AI, enterprise AI automation, AI governance, LangGraph, private AI agents"
   ) %>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "Service",
+    "name" => "AI Automation Systems & Operational Agents",
+    "url" => ai_agents_url,
+    "description" => "AI automation systems for multi-step operational workflows including dispatch, support triage, document processing, and back-office automation.",
+    "provider" => { "@type" => "Organization", "name" => "A'sTechware" },
+    "areaServed" => "Worldwide",
+    "serviceType" => "AI Automation Systems",
+    "category" => "AI & Software Development"
+  }.to_json) %>
+  </script>
 <% end %>
 
 <!-- Hero Section -->

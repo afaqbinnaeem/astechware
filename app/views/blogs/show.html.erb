@@ -3,8 +3,8 @@
     <% canonical_url = blog_show_url(@article[:slug]) rescue request.original_url %>
     <% set_meta_tags(
       title: @article[:title].to_s,
-      description: @article[:excerpt_short].to_s.truncate(155),
-      keywords: [@article[:category], "A'sTechware", "production AI", "platform engineering", "AI governance", "enterprise AI"].join(", ")
+      description: blog_seo_description(@article),
+      keywords: blog_seo_keywords(@article[:slug])
     ) %>
     <% logo_url = safe_og_image_url("logo-colored.png") %>
     <script type="application/ld+json">

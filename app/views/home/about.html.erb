@@ -1,9 +1,9 @@
 <% content_for :meta_site do %><% end %>
 <% content_for :head do %>
   <% set_meta_tags(
-    title: "About A'sTechware | AI & Product Engineering Team",
-    description: "A'sTechware is a focused AI and product engineering team with a privacy first approach to automations, integrations, and delivery. 10+ years, 50+ projects, 98% client retention.",
-    keywords: "A'sTechware, production AI, platform engineering, custom software development, AI governance, privacy first AI"
+    title: "About A'sTechware | AI & Software Engineering Partner",
+    description: "Fractional and dedicated software engineers for AI, automation, and platform builds. Engineering partner for legal, healthcare, construction, logistics, and trucking. 10+ years, 50+ projects, 98% client retention.",
+    keywords: "AI engineering partner, hire software engineers, fractional engineering team, dedicated backend engineer, dedicated frontend engineer, forward deployed engineering, engineering consultant, legal tech partner, healthcare AI partner, A'sTechware, production AI, platform engineering, custom software development, AI governance"
   ) %>
   <% about_base = Rails.env.production? ? "https://astechware.com" : root_url.chomp("/") %>
   <script type="application/ld+json">
@@ -14,7 +14,7 @@
     "url" => "#{about_base}/about",
     "jobTitle" => "Founder & CEO",
     "worksFor" => { "@type" => "Organization", "name" => "A'sTechware", "url" => about_base },
-    "knowsAbout" => ["AI Agent Development", "Platform Engineering", "Custom Software", "Production AI", "AI Governance"],
+    "knowsAbout" => ["AI Agent Development", "Platform Engineering", "Custom Software", "Production AI", "AI Governance", "Python Development", "FastAPI", "Node.js Development", "React", "Next.js", "Legal Tech Engineering", "Healthcare AI", "Construction Software", "Logistics Automation", "Trucking Dispatch", "Workflow Automation"],
     "sameAs" => ["https://www.linkedin.com/in/ahmadkamran/"]
   }.to_json) %>
   </script>
