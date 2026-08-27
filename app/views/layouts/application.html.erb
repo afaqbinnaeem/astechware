@@ -1,11 +1,6 @@
-<%# Set defaults first; views can override via set_meta_tags %>
-<% set_meta_tags(
-  title: "AI-Enabled Systems for Legal, Healthcare & Operational Workflows",
-  description: "AI engineering partner for legal, healthcare, construction, logistics, and operations-heavy teams. Production AI agents, workflow automation, custom software, and dedicated Python, Node.js, and full-stack engineers. Milestone-based delivery, full code ownership.",
-  keywords: "AI engineering partner, AI development company, hire software engineers, workflow automation, Python development, Node.js development, legal tech software, healthcare AI, construction software, logistics automation, trucking dispatch software, fractional engineering team, forward deployed engineering, custom automation systems, production AI, platform engineering, AI governance, privacy-first AI"
-) %>
-
-<%# Render the page early so set_meta_tags/content_for(:head) are available in <head> %>
+<%# Rails renders the view BEFORE the layout. Do NOT call set_meta_tags here for defaults —
+    that would overwrite page-specific tags set in views. Pass defaults to display_meta_tags
+    instead (view set_meta_tags always wins). Capture body so content_for(:head) is available. %>
 <% body_content = yield %>
 <!DOCTYPE html>
 <html>
@@ -13,7 +8,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%# Page-specific meta (set_meta_tags in views) and JSON-LD must run before social tags %>
+    <%# Page-specific JSON-LD / extras from views (set_meta_tags already ran during view render) %>
     <%= yield :head %>
     <% if @case_study_seo.present? %>
     <script type="application/ld+json">
@@ -40,6 +35,9 @@
     <%= display_meta_tags(
       reverse: true,
       site: content_for?(:meta_site) ? content_for(:meta_site).to_s : "A'sTechware",
+      title: "AI-Enabled Systems for Legal, Healthcare & Operational Workflows",
+      description: "AI engineering partner for legal, healthcare, construction, logistics, and operations-heavy teams. Production AI agents, workflow automation, custom software, and dedicated Python, Node.js, and full-stack engineers. Milestone-based delivery, full code ownership.",
+      keywords: "AI engineering partner, AI development company, hire software engineers, workflow automation, Python development, Node.js development, legal tech software, healthcare AI, construction software, logistics automation, trucking dispatch software, fractional engineering team, forward deployed engineering, custom automation systems, production AI, platform engineering, AI governance, privacy-first AI",
       og: og_meta,
       twitter: {
         card: 'summary_large_image',
