@@ -1,25 +1,22 @@
 <% content_for :head do %>
   <% set_meta_tags(
-    title: "AI, Automation & Software Engineering Services",
-    description: "AI agents, workflow automation, custom platforms, API integrations, ML, and DevOps. Engineering partner for teams that need production systems, not prototypes.",
-    keywords: "AI agent development, workflow automation, custom software, platform modernization, API integrations, machine learning, DevOps engineering, hire software engineers, AI engineering partner, production AI services"
+    title: "Software Development & Automation Services",
+    description: "Custom software, automation, AI agents, integrations and modernization for teams in the US, Canada and Australia. Milestone delivery, full code ownership.",
+    keywords: "software development services, automation services, AI agent development, custom software, platform modernization, API integrations, machine learning, DevOps"
   ) %>
   <% services_base = Rails.env.production? ? "https://astechware.com" : root_url.chomp("/") %>
   <% services_list_items = core_services_list.each_with_index.map do |service, index|
        path = public_send(service[:path])
        url = path.start_with?("http") ? path : "#{services_base}#{path}"
        { "@type" => "ListItem", "position" => index + 1, "name" => service[:title], "url" => url }
-     end + [
-       { "@type" => "ListItem", "position" => 5, "name" => "Machine Learning Engineering", "url" => "#{services_base}/services/machine-learning" },
-       { "@type" => "ListItem", "position" => 6, "name" => "DevOps & Cloud Engineering", "url" => "#{services_base}/services/devops-engineering" }
-     ] %>
+     end %>
   <script type="application/ld+json">
   <%= raw({
     "@context" => "https://schema.org",
     "@type" => "CollectionPage",
-    "name" => "Services",
+    "name" => "Software Development & Automation Services",
     "url" => "#{services_base}/services",
-    "description" => "End to end AI, ML, automation, and engineering capabilities for production ready systems.",
+    "description" => "Custom software, automation, AI agents, integrations and modernization for teams in the US, Canada and Australia.",
     "mainEntity" => {
       "@type" => "ItemList",
       "itemListElement" => services_list_items
@@ -36,10 +33,10 @@
     <div class="row align-items-center min-vh-50">
       <div class="col-12 col-lg-9 mx-auto text-center">
         <h1 class="display-4 fw-bold mb-4" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;" data-page-h1>
-          Our Services
+          Software, automation and AI services
         </h1>
         <p class="lead mb-0" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.6; max-width: 820px; margin-left: auto; margin-right: auto;">
-          End to end AI, ML, automation, and engineering capabilities for production ready systems.
+          We build the software, automation and integrations behind legal, healthcare, construction and logistics teams.
         </p>
       </div>
     </div>
@@ -49,8 +46,74 @@
 <div class="expertise-section py-5" id="services">
   <div class="container">
     <%= render "home/services_grid" %>
-    <div class="text-center mt-5">
-      <%= link_to "Book a 30-Min Strategy Call", "https://calendly.com/ahmadkamran/new-meeting", target: "_blank", rel: "noopener noreferrer", class: "btn btn-primary rounded-pill px-4" %>
-    </div>
   </div>
 </div>
+
+<section class="py-5 bg-light-grey" id="two-ways">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Two ways to work with us</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-12 col-md-6">
+        <div class="workflow-card p-4 h-100">
+          <h3 class="h5 mb-3">Build it with our team</h3>
+          <p class="mb-3">We scope it, design it, build it and put it into production. You get weekly demos, milestone-based payments and full code ownership.</p>
+          <%= link_to "See our services", services_path, class: "service-card-link ajax" %>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="workflow-card p-4 h-100">
+          <h3 class="h5 mb-3">Add an engineer to your team</h3>
+          <p class="mb-3">A dedicated AI, Python, React or Node.js engineer who works in your tools, backed by our senior team for code review and cover.</p>
+          <% if route_helper_defined?(:hire_dedicated_developers_path) %>
+            <%= link_to "Hire an engineer", hire_dedicated_developers_path, class: "service-card-link ajax" %>
+          <% else %>
+            <%= link_to "Book a 30-min call", "https://calendly.com/ahmadkamran/new-meeting", target: "_blank", rel: "noopener noreferrer", class: "service-card-link" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%= render "home/tech_stack" %>
+
+<section class="py-5 bg-light-grey" id="industries">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Industries we build for</h2>
+      <p class="large-para mb-0">We work where manual work, scattered tools and strict rules slow teams down.</p>
+    </div>
+    <div class="row g-3 justify-content-center">
+      <div class="col-6 col-md-4 col-lg-3"><%= link_to "Legal", industry_legal_path, class: "workflow-card p-3 d-block text-center text-decoration-none ajax" %></div>
+      <div class="col-6 col-md-4 col-lg-3"><%= link_to "Healthcare", industry_healthcare_path, class: "workflow-card p-3 d-block text-center text-decoration-none ajax" %></div>
+      <% if route_helper_defined?(:industry_private_clinics_path) %>
+        <div class="col-6 col-md-4 col-lg-3"><%= link_to "Private Clinics", industry_private_clinics_path, class: "workflow-card p-3 d-block text-center text-decoration-none ajax" %></div>
+      <% end %>
+      <% if route_helper_defined?(:industry_construction_path) %>
+        <div class="col-6 col-md-4 col-lg-3"><%= link_to "Construction", industry_construction_path, class: "workflow-card p-3 d-block text-center text-decoration-none ajax" %></div>
+      <% end %>
+      <% if route_helper_defined?(:industry_logistics_path) %>
+        <div class="col-6 col-md-4 col-lg-3"><%= link_to "Logistics", industry_logistics_path, class: "workflow-card p-3 d-block text-center text-decoration-none ajax" %></div>
+      <% end %>
+      <% if route_helper_defined?(:industry_home_services_path) %>
+        <div class="col-6 col-md-4 col-lg-3"><%= link_to "HVAC & Home Services", industry_home_services_path, class: "workflow-card p-3 d-block text-center text-decoration-none ajax" %></div>
+      <% end %>
+      <% if route_helper_defined?(:industry_real_estate_path) %>
+        <div class="col-6 col-md-4 col-lg-3"><%= link_to "Real Estate", industry_real_estate_path, class: "workflow-card p-3 d-block text-center text-decoration-none ajax" %></div>
+      <% end %>
+      <div class="col-6 col-md-4 col-lg-3"><%= link_to "Fintech", industry_financial_path, class: "workflow-card p-3 d-block text-center text-decoration-none ajax" %></div>
+      <div class="col-6 col-md-4 col-lg-3"><%= link_to "B2B SaaS", industry_b2b_saas_path, class: "workflow-card p-3 d-block text-center text-decoration-none ajax" %></div>
+      <div class="col-6 col-md-4 col-lg-3"><%= link_to "EdTech", industry_edtech_path, class: "workflow-card p-3 d-block text-center text-decoration-none ajax" %></div>
+      <div class="col-6 col-md-4 col-lg-3"><%= link_to "Field operations hub", industry_professional_services_path, class: "workflow-card p-3 d-block text-center text-decoration-none ajax" %></div>
+      <div class="col-6 col-md-4 col-lg-3"><%= link_to "GCC", gcc_path, class: "workflow-card p-3 d-block text-center text-decoration-none ajax" %></div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container text-center">
+    <%= link_to "Book a 30-min call", "https://calendly.com/ahmadkamran/new-meeting", target: "_blank", rel: "noopener noreferrer", class: "btn btn-primary rounded-pill px-4" %>
+  </div>
+</section>
