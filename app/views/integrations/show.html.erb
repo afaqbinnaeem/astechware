@@ -1,0 +1,197 @@
+<% entry = @integration %>
+<% page_title = entry[:title] %>
+<% meta_description = entry[:meta_description] %>
+<% faqs = Array(entry[:faqs]) %>
+
+<% content_for :head do %>
+  <% set_meta_tags(
+    title: page_title,
+    description: meta_description,
+    keywords: "#{entry[:name]}, integration engineering, #{page_title}"
+  ) %>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "Service",
+    "name" => page_title,
+    "url" => integration_url(@slug),
+    "description" => meta_description,
+    "provider" => { "@id" => "https://astechware.com/#organization" },
+    "areaServed" => ["United States", "Canada", "Australia"],
+    "serviceType" => "#{entry[:name]} Integration Engineering",
+    "category" => "Software Integration"
+  }.to_json) %>
+  </script>
+  <% if faqs.any? %>
+    <script type="application/ld+json">
+    <%= raw({
+      "@context" => "https://schema.org",
+      "@type" => "FAQPage",
+      "mainEntity" => faqs.map { |item|
+        {
+          "@type" => "Question",
+          "name" => item[:q],
+          "acceptedAnswer" => { "@type" => "Answer", "text" => item[:a] }
+        }
+      }
+    }.to_json) %>
+    </script>
+  <% end %>
+<% end %>
+
+<div class="hero-section py-5 service-page-hero">
+  <div class="container">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-12 col-lg-10 mx-auto text-center">
+        <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(30px, 4.5vw, 52px); line-height: 1.2;" data-page-h1>
+          <%= page_title %>
+        </h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="inner-sections">
+  <section class="py-5 bg-white" id="intro">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <% Array(entry[:intro]).each do |paragraph| %>
+          <p class="large-para <%= paragraph == Array(entry[:intro]).last ? 'mb-0' : 'mb-4' %>"><%= paragraph %></p>
+        <% end %>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey" id="use-cases">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Common use cases</h2>
+        <ul class="mb-0 ps-3 large-para" style="line-height: 2;">
+          <% Array(entry[:use_cases]).each do |item| %>
+            <li><%= item %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white" id="what-we-build">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">What we build</h2>
+        <ul class="mb-0 ps-3 large-para" style="line-height: 2;">
+          <% Array(entry[:what_we_build]).each do |item| %>
+            <li><%= item %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <% if entry[:case_study_slugs].present? %>
+    <section class="py-5 bg-light-grey" id="case-studies">
+      <div class="container">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Related case studies</h2>
+          <div class="row g-4">
+            <% entry[:case_study_slugs].each do |cs_slug| %>
+              <% cs = CaseStudyCatalog.find(cs_slug) %>
+              <% next if cs.blank? %>
+              <div class="col-12 <%= entry[:case_study_slugs].size > 1 ? 'col-md-6' : '' %>">
+                <div class="workflow-card p-4 p-lg-5 h-100">
+                  <h3 class="h5 mb-3"><%= cs[:title] %></h3>
+                  <p class="mb-0 small" style="line-height: 1.7;"><%= cs[:description] %></p>
+                  <%= link_to "Read the full case study &rarr;".html_safe, case_study_path(cs_slug), class: "d-inline-block mt-4 fw-semibold ajax" %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </section>
+  <% end %>
+
+  <% industry_helper = entry[:industry_path] %>
+  <% if industry_helper.present? && route_helper_defined?(industry_helper) %>
+    <section class="py-4 bg-white">
+      <div class="container text-center">
+        <%= link_to "#{entry[:industry_label]} &rarr;".html_safe, public_send(industry_helper), class: "service-card-link ajax" %>
+      </div>
+    </section>
+  <% end %>
+
+  <% if route_helper_defined?(:hire_ai_engineers_path) || route_helper_defined?(:hire_dedicated_developers_path) %>
+    <section class="py-5 bg-white" id="hire">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Add integration engineers</h2>
+        </div>
+        <div class="row g-4">
+          <div class="col-12 col-md-6">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h5 mb-3">Build it with our team</h3>
+              <p class="mb-3">We scope the integration map, implement adapters and monitoring, and hand off runbooks your team can extend.</p>
+              <%= link_to "See our services", services_path, class: "service-card-link ajax" %>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h5 mb-3">Embed an engineer</h3>
+              <p class="mb-3">A dedicated engineer in your repo, backed by our senior team for reviews on money, compliance, and reliability paths.</p>
+              <% if route_helper_defined?(:hire_ai_engineers_path) %>
+                <%= link_to "Hire AI engineers", hire_ai_engineers_path, class: "service-card-link ajax" %>
+              <% elsif route_helper_defined?(:hire_dedicated_developers_path) %>
+                <%= link_to "Hire dedicated developers", hire_dedicated_developers_path, class: "service-card-link ajax" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  <% end %>
+
+  <% if faqs.any? %>
+    <section class="py-5 bg-light-grey" id="faq">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">FAQ</h2>
+        </div>
+        <div class="row">
+          <div class="col-12 col-lg-10 mx-auto">
+            <div class="accordion integration-faq-accordion" id="integrationFaq<%= @slug.parameterize(separator: '_') %>">
+              <% faqs.each_with_index do |item, idx| %>
+                <div class="accordion-item border rounded mb-2">
+                  <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#intfaq-<%= @slug %>-<%= idx %>" aria-expanded="false" aria-controls="intfaq-<%= @slug %>-<%= idx %>"><%= item[:q] %></button>
+                  </h3>
+                  <div id="intfaq-<%= @slug %>-<%= idx %>" class="accordion-collapse collapse" data-bs-parent="#integrationFaq<%= @slug.parameterize(separator: '_') %>">
+                    <div class="accordion-body"><%= item[:a] %></div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  <% end %>
+
+  <section class="py-5 bg-white" id="cta">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-8 mx-auto text-center">
+          <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Discuss this integration</h2>
+          <p class="lead mb-4">Tell us which systems need to connect. We&rsquo;ll map data flows, failure modes, and a milestone plan you can ship without silent sync breakage.</p>
+          <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+            Book a 30-min call
+          </a>
+          <p class="mt-4 mb-0">
+            <%= link_to "All integrations", integrations_path, class: "service-card-link ajax" %>
+            &nbsp;&middot;&nbsp;
+            <%= link_to "API integration services", api_integrations_path, class: "service-card-link ajax" %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

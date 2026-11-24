@@ -559,6 +559,21 @@
     </div>
   </section>
 
+  <!-- Integration hub -->
+  <% if route_helper_defined?(:integrations_path) %>
+    <section class="py-5 bg-white" id="integration-pages">
+      <div class="container">
+        <div class="col-12 col-lg-10 mx-auto text-center">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Integrations we&rsquo;ve shipped</h2>
+          <p class="large-para mb-4" style="max-width: 720px; margin-left: auto; margin-right: auto;">
+            Deep dives on QuickBooks, Stripe, Twilio, Outlook, DocuSign, FHIR, MLS, and other production connectors—each tied to case studies we have actually run in production.
+          </p>
+          <%= link_to "Browse integration pages &rarr;".html_safe, integrations_path, class: "btn btn-outline-primary rounded-pill px-4 ajax" %>
+        </div>
+      </div>
+    </section>
+  <% end %>
+
   <!-- Related Services -->
   <section class="py-5 bg-light-grey" id="related">
     <div class="container">

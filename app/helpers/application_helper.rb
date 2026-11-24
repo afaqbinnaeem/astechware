@@ -204,6 +204,7 @@ module ApplicationHelper
       "platform-modernization" => "Platform Modernization",
       "custom-software" => "Custom Software",
       "api-integrations" => "API & Integrations",
+      "integrations" => "Integrations",
       "devops-engineering" => "DevOps Engineering",
       "ai-agents" => "AI Agents",
       "healthcare" => "Healthcare",
@@ -215,6 +216,11 @@ module ApplicationHelper
       "privacy-policy" => "Privacy Policy",
       "terms-of-service" => "Terms of Service"
     }
+    if index.positive? && all_segments[index - 1] == "integrations" && defined?(IntegrationCatalog)
+      entry = IntegrationCatalog.find(segment)
+      return entry[:title] if entry.present?
+    end
+
     names[segment] || segment.humanize
   end
 

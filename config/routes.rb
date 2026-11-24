@@ -29,6 +29,8 @@ Rails.application.routes.draw do
   get '/services', to: 'home#services', as: 'services'
   get '/case-studies', to: 'home#portfolio', as: 'case_studies'
   get '/case-studies/:slug', to: 'home#case_study', as: 'case_study'
+  get '/integrations', to: 'integrations#index', as: 'integrations'
+  get '/integrations/:slug', to: 'integrations#show', as: 'integration'
   get '/projects', to: redirect('/case-studies', status: 301), as: 'projects'
   get '/contact', to: 'home#contact', as: 'contact'
   get '/how-we-derisk-projects', to: 'home#derisk_projects', as: 'derisk_projects'
