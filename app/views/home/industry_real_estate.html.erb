@@ -1,0 +1,245 @@
+<% content_for :head do %>
+  <% set_meta_tags(
+    title: "Real Estate Software Development",
+    description: "Showing and offer management, MLS data and AI deal analysis for investors, built for brokerages, agent teams, investors and proptech founders.",
+    keywords: "real estate software development, showing scheduling software, MLS integration, RESO Web API, real estate offer management, AI deal analyzer, proptech development"
+  ) %>
+  <% real_estate_faq = [
+       { q: "Do you integrate with MLS data?", a: "On InstaShowing we integrated RESO Web API for listing data. Adapter patterns apply for other MLS feeds when your board exposes RESO or a documented API." },
+       { q: "How does AI fit into underwriting?", a: "On the deal analyzer build, Python calculates ARV, exit strategies, and offer math with fixed formulas. Claude explains the output in plain language. Offer prices are not hallucinated." },
+       { q: "Can you integrate with property management tools?", a: "We can integrate with AppFolio, Buildium, and similar platforms when their APIs expose the customers, units, and ledger data your workflow needs." },
+       { q: "Who is this for?", a: "Brokerages and agent teams improving showings and offers, investors speeding analysis, and proptech founders shipping a first product in the US, Canada, or Australia." }
+     ] %>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "Service",
+    "name" => "Real Estate Software Development",
+    "url" => industry_real_estate_url,
+    "description" => "Showing and offer management, MLS data and AI deal analysis for investors, built for brokerages, agent teams, investors and proptech founders.",
+    "provider" => { "@id" => "https://astechware.com/#organization" },
+    "areaServed" => ["United States", "Canada", "Australia"],
+    "serviceType" => "Real Estate Software Development",
+    "category" => "Real Estate Technology"
+  }.to_json) %>
+  </script>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "FAQPage",
+    "mainEntity" => real_estate_faq.map { |item|
+      {
+        "@type" => "Question",
+        "name" => item[:q],
+        "acceptedAnswer" => { "@type" => "Answer", "text" => item[:a] }
+      }
+    }
+  }.to_json) %>
+  </script>
+<% end %>
+
+<div class="hero-section py-5 service-page-hero professional-services-hero industry-landing-hero">
+  <div class="container">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-12 col-lg-9 mx-auto text-center">
+        <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;" data-page-h1>
+          Real estate software development
+        </h1>
+        <p class="text-white fw-semibold mb-3" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.4; max-width: 720px; margin-left: auto; margin-right: auto;">
+          Showings, offers, and deal math&nbsp;&mdash; one system of record for the listing.
+        </p>
+        <p class="mb-4" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
+          We build real estate operations software for brokerages, agent teams, investors, and proptech founders in the US, Canada, and Australia&nbsp;&mdash; especially where showing coordination, offer handling, and MLS-backed analysis have to stay fast in the field and auditable after the fact.
+        </p>
+        <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+          Start with a discovery sprint &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="inner-sections real-estate-industry-page">
+
+  <section class="py-5 bg-white" id="problems">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto mb-5">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Problems we solve</h2>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Showings scattered across SMS and email</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">Buyers, sellers, and agents coordinate in threads nobody can reconstruct when feedback or offers arrive late.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Offers without a tamper-resistant ledger</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">Spreadsheets and shared drives cannot answer who viewed which offer version when a negotiation heats up.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Calendar availability that is never true</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">Agents run Google, Outlook, and iCloud calendars that never agree. Double-booked showings waste everyone&rsquo;s time.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Investor underwriting as a bottleneck</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">Pulling comps, running exit strategies, and deciding on an offer price takes experienced time that does not scale with lead volume.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">MLS and public record data hard to use</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">Listing feeds and assessor data need normalization before agents or models can reason about them reliably.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey" id="what-we-build">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto mb-5">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">What we build</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.9;">
+            <li><strong>Showing scheduling</strong> with multi-calendar sync and automated request-to-approval workflows.</li>
+            <li><strong>Offer management ledgers</strong> with DocuSign, encrypted attachments, and audit logs on every view.</li>
+            <li><strong>MLS-backed listing data</strong> via RESO Web API and adapter patterns for other feeds.</li>
+            <li><strong>AI deal analysis</strong> with ATTOM and assessor data, deterministic financial math, and plain-English explanations.</li>
+            <li><strong>Showing feedback capture</strong> with SMS prompts and structured sentiment rollups for listing strategy.</li>
+            <li><strong>Agent and investor dashboards</strong> built for phone-first use in the field.</li>
+            <li><strong>Proptech MVPs</strong> with milestone delivery and code ownership in your accounts.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white" id="case-study">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-12 col-lg-6">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Featured work</h2>
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <h3 class="h5 mb-3">InstaShowing: showings and offer ledger</h3>
+            <p class="mb-0" style="line-height: 1.7;">
+              Centralized showing scheduling and a tamper-resistant offer ledger with MLS data, DocuSign, and SMS alerts&nbsp;&mdash; built as the system of record for the listing.
+            </p>
+            <%= link_to "Read the case study &rarr;".html_safe, case_study_path("instashowing-real-estate"), class: "d-inline-block mt-4 fw-semibold ajax" %>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6">
+          <div class="workflow-card p-4 p-lg-5 h-100 mt-lg-5 pt-lg-0">
+            <h3 class="h5 mb-3">AI deal analyzer for investors</h3>
+            <p class="mb-0" style="line-height: 1.7;">
+              Address in, analysis out: ARV with justified comps, four exit strategies, recommended offer, and an acquisitions-style narrative&nbsp;&mdash; with Python owning every number.
+            </p>
+            <%= link_to "Read the case study &rarr;".html_safe, case_study_path("ai-deal-analyzer"), class: "d-inline-block mt-4 fw-semibold ajax" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey" id="tools">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-12 col-md-6">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Tools we build with</h2>
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <ul class="mb-0 ps-3" style="line-height: 2;">
+              <li>RESO Web API</li>
+              <li>DocuSign</li>
+              <li>Twilio</li>
+              <li>ATTOM</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">We can integrate with</h2>
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <p class="mb-3 small" style="line-height: 1.7;">We can integrate with property operations platforms you already run:</p>
+            <ul class="mb-0 ps-3" style="line-height: 2;">
+              <li>AppFolio</li>
+              <li>Buildium</li>
+            </ul>
+            <p class="mb-0 mt-3 small text-muted">[[AHMAD: include Hostaway only if live]]</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white" id="two-ways">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Two ways to work with us</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h5 mb-3">Build it with our team</h3>
+            <p class="mb-3">We scope it, design it, build it, and put it into production. You get weekly demos, milestone-based payments, and full code ownership.</p>
+            <%= link_to "See our services", services_path, class: "service-card-link ajax" %>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h5 mb-3">Add an engineer to your team</h3>
+            <p class="mb-3">A dedicated engineer who works in your tools, backed by our senior team for code review and cover.</p>
+            <% if route_helper_defined?(:hire_dedicated_developers_path) %>
+              <%= link_to "Hire an engineer", hire_dedicated_developers_path, class: "service-card-link ajax" %>
+            <% else %>
+              <%= link_to "Book a 30-min call", "https://calendly.com/ahmadkamran/new-meeting", target: "_blank", rel: "noopener noreferrer", class: "service-card-link" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey" id="faq">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">FAQ</h2>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="accordion real-estate-industry-faq" id="realEstateIndustryFaq">
+            <% real_estate_faq.each_with_index do |item, idx| %>
+              <% collapse_id = "refaq#{idx + 1}" %>
+              <div class="accordion-item border rounded mb-2">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#<%= collapse_id %>" aria-expanded="false" aria-controls="<%= collapse_id %>"><%= item[:q] %></button>
+                </h3>
+                <div id="<%= collapse_id %>" class="accordion-collapse collapse" data-bs-parent="#realEstateIndustryFaq">
+                  <div class="accordion-body"><%= item[:a] %></div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white">
+    <div class="container text-center">
+      <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+        Book a discovery call &rarr;
+      </a>
+    </div>
+  </section>
+
+</div>
