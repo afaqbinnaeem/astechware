@@ -7,10 +7,11 @@
       <% end %>
       <ul class="enterprise-nav-menu list-unstyled m-0 d-flex align-items-center flex-wrap">
         <li class="enterprise-nav-item dropdown">
-          <a class="enterprise-nav-link dropdown-toggle" href="#" id="navServices" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+          <button type="button" class="enterprise-nav-link dropdown-toggle" id="navServices" data-bs-toggle="dropdown" aria-expanded="false">Services</button>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navServices">
             <li><%= link_to "AI Agents & Automation", ai_agent_development_path, class: "dropdown-item ajax" %></li>
-            <li><%= link_to "Custom Software", custom_software_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "Custom Software, Web & Mobile", custom_software_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "MVP Development", mvp_development_path, class: "dropdown-item ajax" %></li>
             <li><%= link_to "Platform Modernization", platform_modernization_path, class: "dropdown-item ajax" %></li>
             <li><%= link_to "Integrations & APIs", api_integrations_path, class: "dropdown-item ajax" %></li>
             <li><%= link_to "Machine Learning", machine_learning_path, class: "dropdown-item ajax" %></li>
@@ -20,7 +21,7 @@
           </ul>
         </li>
         <li class="enterprise-nav-item dropdown">
-          <a class="enterprise-nav-link dropdown-toggle" href="#" id="navIndustries" role="button" data-bs-toggle="dropdown" aria-expanded="false">Industries</a>
+          <button type="button" class="enterprise-nav-link dropdown-toggle" id="navIndustries" data-bs-toggle="dropdown" aria-expanded="false">Industries</button>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navIndustries">
             <li><%= link_to "Legal", industry_legal_path, class: "dropdown-item ajax" %></li>
             <li><%= link_to "Healthcare", industry_healthcare_path, class: "dropdown-item ajax" %></li>
@@ -45,12 +46,11 @@
             <% if route_helper_defined?(:industry_fitness_studios_path) %>
               <li><%= link_to "Fitness Studios", industry_fitness_studios_path, class: "dropdown-item ajax" %></li>
             <% end %>
-            <li><%= link_to "GCC", gcc_path, class: "dropdown-item ajax" %></li>
           </ul>
         </li>
         <% if route_helper_defined?(:hire_ai_engineers_path) || route_helper_defined?(:hire_dedicated_developers_path) %>
           <li class="enterprise-nav-item dropdown">
-            <a class="enterprise-nav-link dropdown-toggle" href="#" id="navHire" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hire Engineers</a>
+            <button type="button" class="enterprise-nav-link dropdown-toggle" id="navHire" data-bs-toggle="dropdown" aria-expanded="false">Hire Engineers</button>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navHire">
               <% if route_helper_defined?(:hire_ai_engineers_path) %>
                 <li><%= link_to "Hire AI Engineers", hire_ai_engineers_path, class: "dropdown-item ajax" %></li>
@@ -66,7 +66,7 @@
           <li class="enterprise-nav-item"><%= link_to "Integrations", integrations_path, class: "enterprise-nav-link ajax" %></li>
         <% end %>
         <li class="enterprise-nav-item dropdown">
-          <a class="enterprise-nav-link dropdown-toggle" href="#" id="navResources" role="button" data-bs-toggle="dropdown" aria-expanded="false">Resources</a>
+          <button type="button" class="enterprise-nav-link dropdown-toggle" id="navResources" data-bs-toggle="dropdown" aria-expanded="false">Resources</button>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navResources">
             <li><%= link_to "Blog", blogs_path, class: "dropdown-item ajax" %></li>
             <li><%= link_to "Our Methodology", methodology_path, class: "dropdown-item ajax" %></li>
@@ -74,18 +74,13 @@
           </ul>
         </li>
         <li class="enterprise-nav-item dropdown">
-          <a class="enterprise-nav-link dropdown-toggle" href="#" id="navCompany" role="button" data-bs-toggle="dropdown" aria-expanded="false">Company</a>
+          <button type="button" class="enterprise-nav-link dropdown-toggle" id="navCompany" data-bs-toggle="dropdown" aria-expanded="false">Company</button>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navCompany">
             <li><%= link_to "About", about_path, class: "dropdown-item ajax" %></li>
             <li><%= link_to "Client Reviews", reviews_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "GCC", gcc_path, class: "dropdown-item ajax" %></li>
             <li><%= link_to "Contact", contact_path, class: "dropdown-item ajax" %></li>
           </ul>
-        </li>
-        <li class="enterprise-nav-item enterprise-nav-youtube">
-          <a href="https://www.youtube.com/@ahmadkamran518" target="_blank" rel="noopener noreferrer" class="enterprise-youtube-link">
-            <i class="fa fa-youtube" aria-hidden="true"></i>
-            Watch on YouTube
-          </a>
         </li>
         <li class="enterprise-nav-item enterprise-nav-cta">
           <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary rounded-pill px-4 enterprise-cta-btn">
@@ -113,7 +108,8 @@
               <span class="menu-item-label">Services</span>
               <ul class="sub-menu list-unstyled m-0 ps-3">
                 <li><%= link_to "AI Agents & Automation", ai_agent_development_path, class: "ajax" %></li>
-                <li><%= link_to "Custom Software", custom_software_path, class: "ajax" %></li>
+                <li><%= link_to "Custom Software, Web & Mobile", custom_software_path, class: "ajax" %></li>
+                <li><%= link_to "MVP Development", mvp_development_path, class: "ajax" %></li>
                 <li><%= link_to "Platform Modernization", platform_modernization_path, class: "ajax" %></li>
                 <li><%= link_to "Integrations & APIs", api_integrations_path, class: "ajax" %></li>
                 <li><%= link_to "Machine Learning", machine_learning_path, class: "ajax" %></li>
@@ -147,7 +143,6 @@
                 <% if route_helper_defined?(:industry_fitness_studios_path) %>
                   <li><%= link_to "Fitness Studios", industry_fitness_studios_path, class: "ajax" %></li>
                 <% end %>
-                <li><%= link_to "GCC", gcc_path, class: "ajax" %></li>
               </ul>
             </li>
             <% if route_helper_defined?(:hire_ai_engineers_path) || route_helper_defined?(:hire_dedicated_developers_path) %>
@@ -180,6 +175,7 @@
               <ul class="sub-menu list-unstyled m-0 ps-3">
                 <li><%= link_to "About", about_path, class: "ajax" %></li>
                 <li><%= link_to "Client Reviews", reviews_path, class: "ajax" %></li>
+                <li><%= link_to "GCC", gcc_path, class: "ajax" %></li>
                 <li><%= link_to "Contact", contact_path, class: "ajax" %></li>
               </ul>
             </li>
@@ -227,11 +223,11 @@
   </div>
 </div>
 
-<a href="https://www.youtube.com/@ahmadkamran518" target="_blank" rel="noopener noreferrer" class="share-btn d-lg-none" aria-label="Watch on YouTube">
+<a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="share-btn d-lg-none" aria-label="Book a 30-min call">
   <div class="d-flex align-items-center justify-content-center h-100">
     <div class="text-center">
-      <i class="fa fa-youtube d-block" aria-hidden="true"></i>
-      <span class="menu-button-text">YouTube</span>
+      <i class="fa fa-calendar d-block" aria-hidden="true"></i>
+      <span class="menu-button-text">Book a call</span>
     </div>
   </div>
 </a>

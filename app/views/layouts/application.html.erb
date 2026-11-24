@@ -79,7 +79,7 @@
     <% end %>
 
     <!-- Google font Link -->
-    <link href="https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- FontAwesome 4 CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -138,7 +138,7 @@
 
   </head>
 
-  <body>
+  <body class="<%= "case-study-page" if request.path.start_with?("/case-studies/") %>">
     <div id="wrapper" class="site-wrapper">
       <%= render 'layouts/header' %>
       <main id="main-content">
