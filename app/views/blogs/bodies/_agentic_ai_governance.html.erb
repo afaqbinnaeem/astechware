@@ -20,11 +20,11 @@
 
 <p class="lead">Your AI agent just deleted 10,000 records because a user said "clean this up." Here's how to prevent it.</p>
 
-<h2 id="the-promise-and-risk">The Promise and Risk of Agentic AI</h2>
+<h2 id="the-promise-and-risk">The promise and risk of agentic AI</h2>
 <p>Agents that automate tasks end to end are powerful, and dangerous if they have broad permissions, no approval step, and no audit trail. Misinterpretation, permission abuse, cascading failures, and no undo create real incidents. The same flexibility that lets an agent "just do it" also lets it do the wrong thing at scale.</p>
 <p>Production agents that can read mail, update CRMs, send messages, or run queries are increasingly common. The risk isn't that the model is "bad", it's that natural language is ambiguous and the agent has real power. "Clean this up" might mean delete old drafts to one user and delete all records to another. Without governance, one misinterpretation can cause irreversible damage. The fix is to constrain what the agent can do, require confirmation for high impact actions, and log everything so you can audit and roll back.</p>
 
-<h2 id="real-agent-failures">Real Agent Failures</h2>
+<h2 id="real-agent-failures">Real agent failures</h2>
 <ul>
   <li>Refund agent approved a $50K refund when the user meant $50, no cap, no approval step, and the agent parsed "50k" as 50,000.</li>
   <li>Calendar agent deleted all meetings after a vague "clear my calendar" request, user meant "clear this afternoon"; the agent had delete all permission.</li>
@@ -36,7 +36,7 @@
   <p class="mb-0">"Implement dry run and approval gates before you give agents write access to production data."</p>
 </blockquote>
 
-<h2 id="the-governance-framework">The Governance Framework</h2>
+<h2 id="the-governance-framework">The governance framework</h2>
 <ol>
   <li><strong>Scoped permissions</strong>, read only vs write; data level access (e.g. this tenant only).</li>
   <li><strong>Human in the loop</strong>, critical actions require approval (refunds, bulk deletes, external sends).</li>
@@ -49,7 +49,7 @@
 </ol>
 <p>Compliance: SOC 2, HIPAA, and GDPR all expect access control, audit trails, and least privilege. Implement dry run and approval gates before you give agents write access to production data.</p>
 
-<h2 id="implementing-governance-in-code">Implementing Governance in Code</h2>
+<h2 id="implementing-governance-in-code">Implementing governance in code</h2>
 <p>In code, that usually means: an action registry (allowed tools and max scope), a policy layer that checks "is this action allowed for this user/tenant?", and an execution layer that either runs in dry run (return planned actions) or waits for approval before calling the tool. Example: before executing any tool call, check against a policy and optionally require approval for high impact actions.</p>
 <pre><code class="language-text"># Pseudocode: governance check before execution
 def execute_action(agent, action, user_id):
@@ -61,5 +61,5 @@ def execute_action(agent, action, user_id):
   return run(action)</code></pre>
 <p>We'll cover architecture for a safe agentic system and a full governance wrapper in a follow up. The key is that every action goes through the same pipeline: policy check → approval (if required) → audit → execute.</p>
 
-<h2 id="what-to-do-next">What to Do Next</h2>
+<h2 id="what-to-do-next">What to do next</h2>
 <p>Before shipping an agent with write access, add an action registry, scope permissions by tenant or role, and require approval or dry run for refunds, bulk deletes, and external sends. Log every action and decision so you can audit and roll back. <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer">Schedule an AI agent governance review</a> and we'll map your current design to a concrete governance layer. Our <a href="<%= ai_agent_development_path %>">AI agent development</a> practice and <a href="<%= industry_legal_path %>">legal industry solutions</a> build governance, human in the loop, and audit trails into every agent from day one.</p>
