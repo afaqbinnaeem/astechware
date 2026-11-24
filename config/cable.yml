@@ -1,6 +1,6 @@
 development:
-  adapter: redis
-  url: redis://redis:6379/1
+  adapter: <%= ENV['REDIS_URL'].present? || ENV['CABLE_ADAPTER'] == 'redis' ? 'redis' : 'async' %>
+  url: <%= ENV.fetch('REDIS_URL', 'redis://redis:6379/1') %>
 
 test:
   adapter: test

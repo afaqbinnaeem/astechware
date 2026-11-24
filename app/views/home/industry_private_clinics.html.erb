@@ -1,15 +1,16 @@
+<% private_clinics_faq = [
+       { q: "Does patient data go to the AI model?", a: "No. We de-identify text before any LLM call and re-associate tokens server side after the model responds. The architecture is designed so patient identifiers are not present in model prompts." },
+       { q: "Is the platform HIPAA compliant?", a: "We build HIPAA-ready systems with BAAs, audit logging, and access controls appropriate to your role as covered entity or business associate. We do not claim HIPAA compliance on your behalf without your operational controls in place." },
+       { q: "What did you ship for private clinics?", a: "Voice booking, web booking, provider dashboard, AI medical scribe, and bi-directional athenahealth FHIR sync for a US multi-location private clinic group." },
+       { q: "Do you store call or visit audio?", a: "On the shipped scribe path, audio streams to transcription in real time and is not retained. Transcripts and draft notes are encrypted; providers approve before anything reaches the EHR." }
+     ] %>
+
 <% content_for :head do %>
   <% set_meta_tags(
     title: "AI Receptionist & Scribe for Private Clinics",
     description: "An AI receptionist that answers calls and books patients, plus an AI scribe that drafts clinical notes, for private clinics. Patient data never reaches an AI model.",
     keywords: "AI receptionist private clinic, AI medical scribe, private clinic software, HIPAA-ready healthcare AI, clinic voice booking, patient scheduling automation"
   ) %>
-  <% private_clinics_faq = [
-       { q: "Does patient data go to the AI model?", a: "No. We de-identify text before any LLM call and re-associate tokens server side after the model responds. The architecture is designed so patient identifiers are not present in model prompts." },
-       { q: "Is the platform HIPAA compliant?", a: "We build HIPAA-ready systems with BAAs, audit logging, and access controls appropriate to your role as covered entity or business associate. We do not claim HIPAA compliance on your behalf without your operational controls in place." },
-       { q: "What did you ship for private clinics?", a: "Voice booking, web booking, provider dashboard, AI medical scribe, and bi-directional athenahealth FHIR sync for a US multi-location private clinic group." },
-       { q: "Do you store call or visit audio?", a: "On the shipped scribe path, audio streams to transcription in real time and is not retained. Transcripts and draft notes are encrypted; providers approve before anything reaches the EHR." }
-     ] %>
   <script type="application/ld+json">
   <%= raw({
     "@context" => "https://schema.org",

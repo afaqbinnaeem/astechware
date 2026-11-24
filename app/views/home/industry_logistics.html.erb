@@ -1,15 +1,16 @@
+<% logistics_faq = [
+       { q: "Do drivers need to learn a complex app?", a: "On the Shoreline Waste build, drivers use a mobile workflow built for field execution: routes update in real time, photo capture triggers inside a geofence, and completion events can drive billing without a separate back-office step." },
+       { q: "How do you prove service actually happened?", a: "GPS-verified geofences gate photo capture so proof is tied to the customer location polygon, with server-side timestamps and audit trails rather than editable device clocks." },
+       { q: "Which maps and routing engines do you use?", a: "We have shipped with Google Maps Fleet Engine for constraint-aware routing and PostGIS for service territories and polygons." },
+       { q: "Can you connect our existing telematics?", a: "We can integrate with telematics platforms when their APIs expose the vehicle and diagnostic data you need. Samsara and Geotab are listed under can-integrate until a live production connection is confirmed on your fleet." }
+     ] %>
+
 <% content_for :head do %>
   <% set_meta_tags(
     title: "Logistics & Dispatch Software Development",
     description: "Route planning, driver apps with photo proof, automatic billing and customer texting for haulers, route-based service fleets and local delivery companies.",
     keywords: "logistics software development, dispatch software, route optimization, proof of service, fleet management software, waste hauling software, delivery dispatch app"
   ) %>
-  <% logistics_faq = [
-       { q: "Do drivers need to learn a complex app?", a: "On the Shoreline Waste build, drivers use a mobile workflow built for field execution: routes update in real time, photo capture triggers inside a geofence, and completion events can drive billing without a separate back-office step." },
-       { q: "How do you prove service actually happened?", a: "GPS-verified geofences gate photo capture so proof is tied to the customer location polygon, with server-side timestamps and audit trails rather than editable device clocks." },
-       { q: "Which maps and routing engines do you use?", a: "We have shipped with Google Maps Fleet Engine for constraint-aware routing and PostGIS for service territories and polygons." },
-       { q: "Can you connect our existing telematics?", a: "We can integrate with telematics platforms when their APIs expose the vehicle and diagnostic data you need. Samsara and Geotab are listed under can-integrate until a live production connection is confirmed on your fleet." }
-     ] %>
   <script type="application/ld+json">
   <%= raw({
     "@context" => "https://schema.org",

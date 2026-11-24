@@ -1,15 +1,16 @@
+<% fitness_faq = [
+       { q: "What is ATP?", a: "ATP is a fitness studio platform we built for studio operators. The product is built and launching soon." },
+       { q: "Do you only build for one studio brand?", a: "No. ATP is our shipped fitness studio platform. We also build custom membership, scheduling, and member experience systems for other studio and boutique gym operators." },
+       { q: "Is ATP live yet?", a: "ATP is built and launching soon. Talk to us if you want an early conversation about studio software or a similar build." },
+       { q: "Who is this for?", a: "Fitness studio owners, boutique gym operators, and founders building studio software in the US, Canada, Australia, and the UK." }
+     ] %>
+
 <% content_for :head do %>
   <% set_meta_tags(
     title: "Fitness Studio Software",
     description: "Custom software for fitness studios and boutique gyms. We built ATP, a fitness studio platform that is built and launching soon. Membership, scheduling, and member experience systems.",
     keywords: "fitness studio software, boutique gym software, fitness studio platform, studio membership software, ATP fitness app, class booking software"
   ) %>
-  <% fitness_faq = [
-       { q: "What is ATP?", a: "ATP is a fitness studio platform we built for studio operators. The product is built and launching soon." },
-       { q: "Do you only build for one studio brand?", a: "No. ATP is our shipped fitness studio platform. We also build custom membership, scheduling, and member experience systems for other studio and boutique gym operators." },
-       { q: "Is ATP live yet?", a: "ATP is built and launching soon. Talk to us if you want an early conversation about studio software or a similar build." },
-       { q: "Who is this for?", a: "Fitness studio owners, boutique gym operators, and founders building studio software in the US, Canada, Australia, and the UK." }
-     ] %>
   <script type="application/ld+json">
   <%= raw({
     "@context" => "https://schema.org",

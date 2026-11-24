@@ -1,15 +1,16 @@
+<% home_services_faq = [
+       { q: "Do technicians need to install an app to post job photos?", a: "On the Red Dragon HVAC build, technicians text photos via MMS. The pipeline strips metadata, enriches location context, drafts captions with Vision AI, and management approves before anything publishes." },
+       { q: "Which platforms can you publish to?", a: "We have shipped publishing to Google Business Profile and Meta (Facebook and Instagram) with human approval before posts go live." },
+       { q: "Can you work alongside ServiceTitan or Jobber?", a: "We can integrate with field service platforms you already use when their APIs expose customers, jobs, and scheduling data. We describe that as integration capability, not a guarantee every endpoint exists on your plan." },
+       { q: "Do you build route and dispatch software too?", a: "Yes for teams that run trucks on fixed routes. Our logistics page covers dispatch, proof of service, and billing for route-based fleets." }
+     ] %>
+
 <% content_for :head do %>
   <% set_meta_tags(
     title: "HVAC & Home Services Software",
     description: "Job photos turned into Google Business Profile posts, customer texting and portals for HVAC, plumbing, roofing, electrical and other home service businesses.",
     keywords: "HVAC software development, home services software, field service automation, Google Business Profile API, home service customer portal, ServiceTitan integration"
   ) %>
-  <% home_services_faq = [
-       { q: "Do technicians need to install an app to post job photos?", a: "On the Red Dragon HVAC build, technicians text photos via MMS. The pipeline strips metadata, enriches location context, drafts captions with Vision AI, and management approves before anything publishes." },
-       { q: "Which platforms can you publish to?", a: "We have shipped publishing to Google Business Profile and Meta (Facebook and Instagram) with human approval before posts go live." },
-       { q: "Can you work alongside ServiceTitan or Jobber?", a: "We can integrate with field service platforms you already use when their APIs expose customers, jobs, and scheduling data. We describe that as integration capability, not a guarantee every endpoint exists on your plan." },
-       { q: "Do you build route and dispatch software too?", a: "Yes for teams that run trucks on fixed routes. Our logistics page covers dispatch, proof of service, and billing for route-based fleets." }
-     ] %>
   <script type="application/ld+json">
   <%= raw({
     "@context" => "https://schema.org",

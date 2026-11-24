@@ -1,15 +1,16 @@
+<% construction_faq = [
+       { q: "Does your AI estimator set prices from plan PDFs?", a: "No. We use AI to turn site walk notes and plan PDFs into a structured estimate skeleton with scope narratives and quantities where they are clearly stated. The estimator sets every price. Guessed prices are not trustworthy in production job costing." },
+       { q: "Can one login run multiple construction companies?", a: "Yes on the platform we shipped: multiple legally separate companies share one login with a header toggle, database-level isolation, and independent QuickBooks sync and numbering per company." },
+       { q: "Which accounting systems do you integrate with?", a: "We have shipped QuickBooks Online sync with per-company job numbers, cost codes, invoices, and payments kept aligned with the system of record." },
+       { q: "Can you integrate with Procore or Buildertrend?", a: "We can integrate with tools you already use when their APIs support the data you need. We have not published a Procore or Buildertrend case study." }
+     ] %>
+
 <% content_for :head do %>
   <% set_meta_tags(
     title: "Construction Software & AI Estimating",
     description: "Estimates drafted from plan PDFs, subcontracts, vendor bills from email and QuickBooks sync for general and specialty contractors in the US, Canada, Australia and the UK.",
     keywords: "construction software development, AI construction estimating, contractor management software, QuickBooks construction integration, subcontract management, construction estimating software"
   ) %>
-  <% construction_faq = [
-       { q: "Does your AI estimator set prices from plan PDFs?", a: "No. We use AI to turn site walk notes and plan PDFs into a structured estimate skeleton with scope narratives and quantities where they are clearly stated. The estimator sets every price. Guessed prices are not trustworthy in production job costing." },
-       { q: "Can one login run multiple construction companies?", a: "Yes on the platform we shipped: multiple legally separate companies share one login with a header toggle, database-level isolation, and independent QuickBooks sync and numbering per company." },
-       { q: "Which accounting systems do you integrate with?", a: "We have shipped QuickBooks Online sync with per-company job numbers, cost codes, invoices, and payments kept aligned with the system of record." },
-       { q: "Can you integrate with Procore or Buildertrend?", a: "We can integrate with tools you already use when their APIs support the data you need. We have not published a Procore or Buildertrend case study." }
-     ] %>
   <script type="application/ld+json">
   <%= raw({
     "@context" => "https://schema.org",
