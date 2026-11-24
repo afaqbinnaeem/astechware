@@ -44,10 +44,6 @@ gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
-gem 'pry', '~> 0.14.2'
-
-gem 'letter_opener', '~> 1.8', '>= 1.8.1'
-
 gem 'ahoy_matey'
 gem "geocoder"
 gem "maxminddb"
@@ -62,9 +58,8 @@ gem "brakeman"
 gem "bundler-audit"
 gem "rubocop-rails"
 
-gem "devise" 
+gem "devise"
 gem "meta-tags"
-gem "sitemap_generator"
 
 # OpenAI API client for chatbot
 gem "ruby-openai"
@@ -84,6 +79,9 @@ group :development do
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   gem "rack-mini-profiler"
+
+  gem "pry", "~> 0.14.2"
+  gem "letter_opener", "~> 1.8", ">= 1.8.1"
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
