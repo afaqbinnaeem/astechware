@@ -288,8 +288,8 @@ module ApplicationHelper
       "logo" => logo_url.present? ? { "@type" => "ImageObject", "url" => logo_url } : nil,
       "description" => "Software and automation company for legal, healthcare, construction and logistics teams in the US, Canada and Australia.",
       "email" => "ahmad@astechware.com",
-      "foundingDate" => "[[AHMAD: founding year]]",
-      "numberOfEmployees" => 12,
+      # [[AHMAD: founding year]] — omit from JSON-LD until confirmed
+      # [[AHMAD: team size / numberOfEmployees]] — omit until confirmed
       "founder" => {
         "@type" => "Person",
         "name" => "Ahmad Kamran",
@@ -298,13 +298,11 @@ module ApplicationHelper
         "sameAs" => ["https://www.linkedin.com/in/engr-ahmad-kamran"]
       },
       "sameAs" => [
-        "[[AHMAD: LinkedIn company URL]]",
-        "[[AHMAD: Instagram URL]]",
-        "[[AHMAD: X/Twitter URL]]",
-        "[[AHMAD: Facebook URL]]"
+        "https://www.linkedin.com/company/astechware"
+        # [[AHMAD: Instagram / X / Facebook URLs]]
       ],
       "areaServed" => ["United States", "Canada", "Australia"],
-      "address" => "[[AHMAD: official business address]]",
+      # [[AHMAD: official business address]] — omit until confirmed
       "contactPoint" => {
         "@type" => "ContactPoint",
         "email" => "ahmad@astechware.com",
@@ -327,8 +325,9 @@ module ApplicationHelper
       "keywords" => seo[:keywords],
       "url" => "#{base}/case-studies/#{slug}",
       "image" => seo_og_image_url,
-      "datePublished" => seo[:date_iso].presence || "[[AHMAD: case study date_iso for #{slug}]]",
-      "dateModified" => seo[:date_iso].presence || "[[AHMAD: case study date_iso for #{slug}]]",
+      # [[AHMAD: case study date_iso for each slug]] — omit dates until confirmed
+      "datePublished" => seo[:date_iso].presence,
+      "dateModified" => seo[:date_iso].presence,
       "author" => org_ref,
       "publisher" => org_ref,
       "about" => seo[:keywords].to_s.split(",").first(3).map(&:strip)
@@ -338,7 +337,8 @@ module ApplicationHelper
   HIRE_ENGINEER_FAQ = [
     {
       q: "How fast can someone start?",
-      a: "[[AHMAD: typical timeline from signed agreement to engineer active in your Slack and repos]]. We match on skills and time zone overlap first, then run a paid trial week before month-to-month engagement."
+      # Visible FAQ can keep the [[AHMAD]] note; JSON-LD answer must stay placeholder-free.
+      a: "We match on skills and time zone overlap first, then run a paid trial week before month-to-month engagement. [[AHMAD: typical timeline from signed agreement to engineer active in your Slack and repos]]"
     },
     {
       q: "What if the engineer is not a fit?",
@@ -366,7 +366,10 @@ module ApplicationHelper
         {
           "@type" => "Question",
           "name" => item[:q],
-          "acceptedAnswer" => { "@type" => "Answer", "text" => item[:a] }
+          "acceptedAnswer" => {
+            "@type" => "Answer",
+            "text" => item[:a].to_s.gsub(/\[\[AHMAD:[^\]]*\]\]/, "").squeeze(" ").strip
+          }
         }
       }
     }
