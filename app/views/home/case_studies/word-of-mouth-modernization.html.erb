@@ -3,13 +3,10 @@
     <div class="row align-items-center min-vh-50">
       <div class="col-12 col-lg-10 mx-auto text-center">
         <h1 class="display-5 fw-bold mb-3" style="font-size: clamp(28px, 4.5vw, 52px); line-height: 1.15;" data-page-h1>
-          Enterprise Legacy to Cloud Marketplace Transformation
+          Modernizing a legacy platform without downtime
         </h1>
-        <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.3vw, 22px); line-height: 1.5; max-width: 980px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.92)">
-          Word of Mouth Marketplace Rescue
-        </p>
         <p class="mb-0" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.7; max-width: 980px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
-          A “live heart transplant” modernization: decouple a legacy PHP/jQuery marketplace into a headless React/Node ecosystem with business continuity preserved end to end.
+          A &ldquo;live heart transplant&rdquo; modernization: decouple a legacy PHP/jQuery marketplace into a headless React/Node ecosystem with business continuity preserved end to end.
         </p>
       </div>
     </div>
@@ -17,39 +14,38 @@
 </div>
 
 <div class="inner-sections">
-  <section class="py-5 bg-white">
+
+  <section class="py-5 bg-white" id="problem">
     <div class="container">
       <div class="row g-4 align-items-start">
         <div class="col-12 col-lg-7">
-          <h2 class="heading-border heading-center heading-left mb-4 pb-3 d-inline-block">The Challenge</h2>
+          <h2 class="heading-border heading-center heading-left mb-4 pb-3 d-inline-block">The problem</h2>
           <p class="large-para mb-3">
             A national scale marketplace (Word of Mouth) was operating on a technical debt heavy legacy stack (PHP/jQuery). The system suffered 503 errors during peak traffic, and new feature
             deployment took weeks.
           </p>
           <p class="large-para mb-0">
-            This was a live heart transplant: modernize the core architecture while preserving business continuity for a large active user base. That required incremental cutovers, safe routing between
+            This was a live heart transplant: modernize the core architecture while preserving business continuity throughout the migration. That required incremental cutovers, safe routing between
             old and new systems, and continuous verification that performance and search stayed stable throughout the migration.
           </p>
         </div>
         <div class="col-12 col-lg-5">
-          <div class="workflow-card p-4">
-            <h3 class="h6 text-uppercase text-muted mb-3">Quick Stats</h3>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
-              <li><strong>Modernization:</strong> Strangler Fig</li>
-              <li><strong>Search:</strong> PostgreSQL + Elasticsearch</li>
-              <li><strong>Edge:</strong> WAF/CDN hardening</li>
-              <li><strong>Impact:</strong> Improved delivery cadence, faster performance, and safer releases through incremental modernization</li>
-            </ul>
-          </div>
+          <%= render "home/case_studies/at_a_glance",
+            industry: "Marketplace",
+            client: "Word of Mouth",
+            country: "[[AHMAD: country]]",
+            what_we_built: "Strangler Fig modernization to headless React/Node marketplace",
+            integrations: "Stripe Connect (payouts), AWS S3 (media), Cloudflare (WAF/CDN)",
+            stack: "Next.js (SSG/ISR), NestJS microservices, PostgreSQL + Elasticsearch" %>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="py-5 bg-light-grey">
+  <section class="py-5 bg-light-grey" id="what-we-built">
     <div class="container">
       <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">The Solution</h2>
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">What we built</h2>
         <p class="large-para mb-3">
           We implemented the Strangler Fig pattern, gradually wrapping the legacy monolith in a modern React/Node ecosystem. By decoupling the frontend from the backend, we moved to a headless
           architecture that allowed independent scaling of services.
@@ -62,56 +58,26 @@
     </div>
   </section>
 
-  <section class="py-5 bg-white">
+  <section class="py-5 bg-white" id="how-it-works">
     <div class="container">
       <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Technical Approach</h2>
-        <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">How it works</h2>
+        <ul class="service-page-list mb-4" style="font-size: 1.05rem; line-height: 1.8;">
           <li><strong>Database normalization &amp; indexing:</strong> Optimized a large production SQL database, improving query performance through indexing and better query patterns.</li>
           <li><strong>CI/CD automation:</strong> GitHub Actions + automated staging environments to enforce regression testing before production pushes.</li>
+          <li><strong>Architecture:</strong> Next.js (SSG/ISR) &rarr; NestJS (Microservices) &rarr; PostgreSQL + Elasticsearch.</li>
+          <li><strong>Integrations:</strong> Stripe Connect (payouts), AWS S3 (media), Cloudflare (WAF/CDN).</li>
+          <li><strong>Security:</strong> OIDC/OAuth 2.0 modernization; rate limiting; SQL injection protection at the API gateway level.</li>
+          <li><strong>AI features:</strong> Automated content moderation (&ldquo;Review Guardian&rdquo;) flags fraudulent/non compliant reviews before publish.</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section class="py-5 bg-light-grey">
+  <section class="py-5 bg-light-grey" id="results">
     <div class="container">
       <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Technical Details</h2>
-        <div class="row g-4">
-          <div class="col-12 col-md-6">
-            <div class="workflow-card p-4 h-100">
-              <h3 class="h6 text-uppercase text-muted mb-3">Architecture</h3>
-              <p class="mb-0 small">Next.js (SSG/ISR) → NestJS (Microservices) → PostgreSQL + Elasticsearch</p>
-            </div>
-          </div>
-          <div class="col-12 col-md-6">
-            <div class="workflow-card p-4 h-100">
-              <h3 class="h6 text-uppercase text-muted mb-3">Integrations</h3>
-              <p class="mb-0 small">Stripe Connect (payouts), AWS S3 (media), Cloudflare (WAF/CDN).</p>
-            </div>
-          </div>
-          <div class="col-12 col-md-6">
-            <div class="workflow-card p-4 h-100">
-              <h3 class="h6 text-uppercase text-muted mb-3">Security</h3>
-              <p class="mb-0 small">OIDC/OAuth 2.0 modernization; rate limiting; SQL injection protection at the API gateway level.</p>
-            </div>
-          </div>
-          <div class="col-12 col-md-6">
-            <div class="workflow-card p-4 h-100">
-              <h3 class="h6 text-uppercase text-muted mb-3">AI Features</h3>
-              <p class="mb-0 small">Automated content moderation (“Review Guardian”) flags fraudulent/non compliant reviews before publish.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-5 bg-white">
-    <div class="container">
-      <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Results &amp; Impact</h2>
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Results</h2>
         <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
           <li><strong>Improved developer velocity:</strong> safer releases and faster iteration through CI/CD and clearer architecture boundaries.</li>
           <li><strong>Better performance:</strong> improved Core Web Vitals through frontend and backend performance engineering.</li>
@@ -120,5 +86,15 @@
       </div>
     </div>
   </section>
-</div>
 
+  <%= render "home/case_studies/gallery", slug: "word-of-mouth-modernization" %>
+  <%= render "home/case_studies/client_quote", slug: "word-of-mouth-modernization" %>
+  <%= render "home/case_studies/cta", blurb: "We&rsquo;ll map incremental cutovers, routing boundaries, and rollback paths so modernization ships without downtime." %>
+
+  <section class="py-4 bg-white">
+    <div class="container text-center">
+      <%= link_to "B2B SaaS →", industry_b2b_saas_path, class: "service-card-link ajax" %>
+    </div>
+  </section>
+
+</div>

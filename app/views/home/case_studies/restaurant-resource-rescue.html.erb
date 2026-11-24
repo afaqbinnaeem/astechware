@@ -3,11 +3,8 @@
     <div class="row align-items-center min-vh-50">
       <div class="col-12 col-lg-10 mx-auto text-center">
         <h1 class="display-5 fw-bold mb-3" style="font-size: clamp(28px, 4.5vw, 52px); line-height: 1.15;" data-page-h1>
-          High Performance Search &amp; Inventory Recovery
+          Rescuing a restaurant supply marketplace&rsquo;s search and stability
         </h1>
-        <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.3vw, 22px); line-height: 1.5; max-width: 980px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.92)">
-          Restaurant Resource Database Rescue
-        </p>
         <p class="mb-0" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.7; max-width: 980px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
           An emergency performance audit and search rebuild for a large supplier platform, designed to handle complex part numbers, special characters, and real time inventory updates.
         </p>
@@ -17,39 +14,38 @@
 </div>
 
 <div class="inner-sections">
-  <section class="py-5 bg-white">
+
+  <section class="py-5 bg-white" id="problem">
     <div class="container">
       <div class="row g-4 align-items-start">
         <div class="col-12 col-lg-7">
-          <h2 class="heading-border heading-center heading-left mb-4 pb-3 d-inline-block">The Challenge</h2>
+          <h2 class="heading-border heading-center heading-left mb-4 pb-3 d-inline-block">The problem</h2>
           <p class="large-para mb-3">
-            A B2B industrial restaurant supplier’s search engine was effectively broken. With a large catalog, searching for a specific part took too long,
+            A B2B industrial restaurant supplier&rsquo;s search engine was effectively broken. With a large catalog, searching for a specific part took too long,
             driving massive cart abandonment. A previous vendor failed to implement a search architecture that could handle complex part numbers with special characters.
           </p>
           <p class="large-para mb-0">
-            The instability wasn’t isolated to search: background processing leaked memory, the admin experience degraded under load, and the platform crashed predictably. The rescue required
+            The instability wasn&rsquo;t isolated to search: background processing leaked memory, the admin experience degraded under load, and the platform crashed predictably. The rescue required
             a foundation first approach: stabilize runtime behavior, fix query patterns, then rebuild search as a dedicated system.
           </p>
         </div>
         <div class="col-12 col-lg-5">
-          <div class="workflow-card p-4">
-            <h3 class="h6 text-uppercase text-muted mb-3">Quick Stats</h3>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
-              <li><strong>Catalog:</strong> Large SKU catalog</li>
-              <li><strong>Search:</strong> Meilisearch (typo tolerant)</li>
-              <li><strong>Ops:</strong> Sidekiq stabilization</li>
-              <li><strong>Impact:</strong> Faster search and improved stability through performance and queue hardening</li>
-            </ul>
-          </div>
+          <%= render "home/case_studies/at_a_glance",
+            industry: "B2B restaurant supply",
+            client: "Restaurant Resource",
+            country: "[[AHMAD: country]]",
+            what_we_built: "Meilisearch rebuild, Sidekiq stabilization, and real-time inventory ingestion",
+            integrations: "Inventory management API + custom vendor feeds (CSV/XML)",
+            stack: "Ruby on Rails, Sidekiq, Meilisearch" %>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="py-5 bg-light-grey">
+  <section class="py-5 bg-light-grey" id="what-we-built">
     <div class="container">
       <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">The Solution</h2>
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">What we built</h2>
         <p class="large-para mb-3">
           We performed an emergency performance audit and replaced the legacy SQL LIKE search with a dedicated in memory search engine. We also refactored the ingestion pipeline to support
           real time inventory updates from multiple supplier feeds.
@@ -62,56 +58,26 @@
     </div>
   </section>
 
-  <section class="py-5 bg-white">
+  <section class="py-5 bg-white" id="how-it-works">
     <div class="container">
       <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Technical Approach</h2>
-        <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">How it works</h2>
+        <ul class="service-page-list mb-4" style="font-size: 1.05rem; line-height: 1.8;">
           <li><strong>In memory indexing:</strong> Migrated search to Meilisearch for ultra low latency and typo tolerance.</li>
           <li><strong>Memory management:</strong> Fixed leaks in background processing that were crashing servers on a predictable cadence.</li>
+          <li><strong>Architecture:</strong> Ruby on Rails &rarr; Sidekiq &rarr; Meilisearch.</li>
+          <li><strong>Integrations:</strong> Inventory management API + custom vendor feeds (CSV/XML).</li>
+          <li><strong>Security:</strong> Secure API gateway; daily encrypted backups (30 day retention); RBAC admin dashboard.</li>
+          <li><strong>AI features:</strong> Semantic matching maps colloquial searches to the correct technical part and suggests compatible items.</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section class="py-5 bg-light-grey">
+  <section class="py-5 bg-light-grey" id="results">
     <div class="container">
       <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Technical Details</h2>
-        <div class="row g-4">
-          <div class="col-12 col-md-6">
-            <div class="workflow-card p-4 h-100">
-              <h3 class="h6 text-uppercase text-muted mb-3">Architecture</h3>
-              <p class="mb-0 small">Ruby on Rails → Sidekiq → Meilisearch</p>
-            </div>
-          </div>
-          <div class="col-12 col-md-6">
-            <div class="workflow-card p-4 h-100">
-              <h3 class="h6 text-uppercase text-muted mb-3">Integrations</h3>
-              <p class="mb-0 small">Inventory management API + custom vendor feeds (CSV/XML).</p>
-            </div>
-          </div>
-          <div class="col-12 col-md-6">
-            <div class="workflow-card p-4 h-100">
-              <h3 class="h6 text-uppercase text-muted mb-3">Security</h3>
-              <p class="mb-0 small">Secure API gateway; daily encrypted backups (30 day retention); RBAC admin dashboard.</p>
-            </div>
-          </div>
-          <div class="col-12 col-md-6">
-            <div class="workflow-card p-4 h-100">
-              <h3 class="h6 text-uppercase text-muted mb-3">AI Features</h3>
-              <p class="mb-0 small">Semantic matching maps colloquial searches to the correct technical part and suggests compatible items.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-5 bg-white">
-    <div class="container">
-      <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Results &amp; Impact</h2>
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Results</h2>
         <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
           <li><strong>Faster search results</strong> through dedicated indexing and typo tolerant lookup.</li>
           <li><strong>Improved uptime</strong> through platform stabilization and safer background processing.</li>
@@ -120,5 +86,15 @@
       </div>
     </div>
   </section>
-</div>
 
+  <%= render "home/case_studies/gallery", slug: "restaurant-resource-rescue" %>
+  <%= render "home/case_studies/client_quote", slug: "restaurant-resource-rescue" %>
+  <%= render "home/case_studies/cta", blurb: "We&rsquo;ll stabilize runtime behavior, fix query patterns, then rebuild search as a dedicated system that survives real catalog scale." %>
+
+  <section class="py-4 bg-white">
+    <div class="container text-center">
+      <%= link_to "B2B SaaS →", industry_b2b_saas_path, class: "service-card-link ajax" %>
+    </div>
+  </section>
+
+</div>
