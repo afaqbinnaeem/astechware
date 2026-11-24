@@ -444,49 +444,27 @@
       <div class="text-center mb-4">
         <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Case Study Spotlight</h2>
       </div>
+      <p class="text-center small text-muted mb-4">[[AHMAD: confirm the old unnamed DevOps spotlights were real; until then we show named production work]]</p>
       <div class="row g-4">
-        <div class="col-12 col-lg-6">
-          <div class="workflow-card p-4 p-lg-5 h-100">
-            <h4 class="h5 mb-3">B2B SaaS Platform DevOps Overhaul</h4>
-            <div class="mb-3">
-              <h5 class="h6 text-uppercase text-muted mb-2">Challenge</h5>
-              <p class="mb-0 small">2 hour manual deployments, frequent downtime, no monitoring, releases were risky and slow.</p>
-            </div>
-            <div class="mb-3">
-              <h5 class="h6 text-uppercase text-muted mb-2">Solution</h5>
-              <p class="mb-0 small">Automated CI/CD, Kubernetes orchestration, and comprehensive monitoring and alerting.</p>
-            </div>
-            <div class="mb-0">
-              <h5 class="h6 text-uppercase text-muted mb-2">Results</h5>
-              <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
-                <li>Automated deployments with safer release gates</li>
-                <li>Improved uptime through monitoring and incident response playbooks</li>
-                <li>Lower cloud spend through right sizing and governance</li>
-              </ul>
-            </div>
-            <%= link_to "Read case studies →", case_studies_path, class: "d-inline-block mt-3 fw-semibold small" %>
+        <div class="col-12 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h5 mb-3">Word of Mouth</h4>
+            <p class="small mb-2">CI/CD, Cloudflare, and a zero-downtime migration for a live multi-tenant marketplace.</p>
+            <%= link_to "Read the case study →", case_study_path("word-of-mouth-modernization"), class: "service-card-link ajax" %>
           </div>
         </div>
-        <div class="col-12 col-lg-6">
-          <div class="workflow-card p-4 p-lg-5 h-100">
-            <h4 class="h5 mb-3">Multi Region E commerce Infrastructure</h4>
-            <div class="mb-3">
-              <h5 class="h6 text-uppercase text-muted mb-2">Challenge</h5>
-              <p class="mb-0 small">Couldn’t handle Black Friday traffic; manual scaling, no disaster recovery plan.</p>
-            </div>
-            <div class="mb-3">
-              <h5 class="h6 text-uppercase text-muted mb-2">Solution</h5>
-              <p class="mb-0 small">Auto scaling Kubernetes, multi region deployment, automated backups and failover.</p>
-            </div>
-            <div class="mb-0">
-              <h5 class="h6 text-uppercase text-muted mb-2">Results</h5>
-              <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
-                <li>Handled major traffic spikes with resilient scaling and safe deployment practices</li>
-                <li>Geographic redundancy</li>
-                <li>Automated DR tested and documented</li>
-              </ul>
-            </div>
-            <%= link_to "Read case studies →", case_studies_path, class: "d-inline-block mt-3 fw-semibold small" %>
+        <div class="col-12 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h5 mb-3">Restaurant Resource</h4>
+            <p class="small mb-2">Stabilization and queue work so search and inventory stayed up under load.</p>
+            <%= link_to "Read the case study →", case_study_path("restaurant-resource-rescue"), class: "service-card-link ajax" %>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h5 mb-3">GolfPay360</h4>
+            <p class="small mb-2">Puma and memory tuning on a live Rails booking and payments app.</p>
+            <%= link_to "Read the case study →", case_study_path("golfpay360-saas"), class: "service-card-link ajax" %>
           </div>
         </div>
       </div>

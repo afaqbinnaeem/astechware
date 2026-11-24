@@ -451,11 +451,11 @@
       <div class="row g-4">
         <div class="col-12 col-md-6 col-lg-4">
           <div class="workflow-card p-4 h-100">
-            <h4 class="h6 text-primary mb-2">Medical Interoperability Layer (GolfPay360 / Health Tech)</h4>
-            <p class="small mb-2"><strong>Systems connected:</strong> PMS + Clover POS + Custom SaaS + SMS Gateway</p>
-            <p class="small mb-2"><strong>Challenge:</strong> Disconnected booking and payment data led to manual reconciliation nightmares and double bookings.</p>
-            <p class="small mb-2"><strong>Solution:</strong> Built a bi directional sync engine using Webhooks and <strong>idempotent API patterns</strong>. One booking instantly updates the POS, locks the calendar, and triggers a confirmation SMS.</p>
-            <p class="small mb-0"><strong>Result:</strong> Improved data consistency and reduced manual reconciliation through idempotent syncing and monitoring.</p>
+            <h4 class="h6 text-primary mb-2">Booking + POS sync (GolfPay360)</h4>
+            <p class="small mb-2"><strong>Systems connected:</strong> Booking system + Clover POS + Custom SaaS + SMS Gateway</p>
+            <p class="small mb-2"><strong>Challenge:</strong> Disconnected booking and payment data led to manual reconciliation and double bookings.</p>
+            <p class="small mb-2"><strong>Solution:</strong> Built a bi-directional sync engine using webhooks and idempotent API patterns. One booking updates the POS, locks the calendar, and triggers a confirmation SMS.</p>
+            <p class="small mb-0"><strong>Result:</strong> Improved data consistency and less manual reconciliation.</p>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
@@ -469,11 +469,11 @@
         </div>
         <div class="col-12 col-md-6 col-lg-4">
           <div class="workflow-card p-4 h-100">
-            <h4 class="h6 text-primary mb-2">FinTech Multi Party Split (Vestra)</h4>
-            <p class="small mb-2"><strong>Systems connected:</strong> Bank (ACH/Plaid) + Stripe Connect + Property Management Database</p>
-            <p class="small mb-2"><strong>Challenge:</strong> Moving money between tenants, owners, and admins required manual calculation and risked compliance errors.</p>
-            <p class="small mb-2"><strong>Solution:</strong> Built a custom ledger &amp; settlement engine on top of Stripe’s API. Automated the split logic at the point of transaction, ensuring funds are routed correctly and instantly to three different stakeholders.</p>
-            <p class="small mb-0"><strong>Result:</strong> Automated fee distribution with ledger first reconciliation, auditability, and operational visibility.</p>
+            <h4 class="h6 text-primary mb-2">Construction platform (QuickBooks + Outlook)</h4>
+            <p class="small mb-2"><strong>Systems connected:</strong> QuickBooks Online (per company) + Microsoft 365 shared mailboxes</p>
+            <p class="small mb-2"><strong>Challenge:</strong> Estimates, subcontracts, vendor bills and accounting lived in separate tools across three companies.</p>
+            <p class="small mb-2"><strong>Solution:</strong> One platform with two-way QuickBooks Online sync per company, plus email inboxes that read vendor invoices and match them to subcontracts.</p>
+            <p class="small mb-0"><strong>Result:</strong> Job costing stays in the right books; vendor bills stop being retyped from email.</p>
           </div>
         </div>
       </div>

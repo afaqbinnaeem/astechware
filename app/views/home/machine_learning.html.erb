@@ -383,30 +383,21 @@
     <div class="container">
       <div class="text-center mb-4">
         <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Case Study Spotlight</h2>
-        <p class="lead mb-0">Retail Demand Forecasting</p>
+        <p class="lead mb-0">Real ML work from production systems</p>
       </div>
-      <div class="row">
-        <div class="col-12 col-lg-10 mx-auto">
-          <div class="workflow-card p-4 p-lg-5">
-            <div class="row g-4">
-              <div class="col-12 col-md-4">
-                <h4 class="h6 text-uppercase text-muted mb-2">Challenge</h4>
-                <p class="mb-0 small">Overstocking and stockouts created material margin pressure. Manual forecasting couldn’t keep up with seasonality and location level demand.</p>
-              </div>
-              <div class="col-12 col-md-4">
-                <h4 class="h6 text-uppercase text-muted mb-2">Solution</h4>
-                <p class="mb-0 small">ML model predicting demand by product, location, and season, integrated with inventory and replenishment systems. Automated retraining on new sales data.</p>
-              </div>
-              <div class="col-12 col-md-4">
-                <h4 class="h6 text-uppercase text-muted mb-2">Results</h4>
-                <ul class="mb-0 ps-3 small" style="line-height: 1.7;">
-                  <li><strong>Fewer stockouts</strong> through better forecasting and replenishment timing</li>
-                  <li><strong>Less overstock</strong> through tighter inventory planning by location and season</li>
-                  <li><strong>Measurable savings</strong> through reduced waste and better availability</li>
-                </ul>
-              </div>
-            </div>
-            <p class="mt-4 pt-4 border-top mb-0 small text-muted">Representative of production ML outcomes we deliver. Full case studies available on request.</p>
+      <div class="row g-4">
+        <div class="col-12 col-lg-6">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-primary mb-2">AI Deal Analyzer</h4>
+            <p class="small mb-2">Comp selection and scoring for real estate investors: address in, property records and comps out, with reasoning in plain English and all math in code.</p>
+            <%= link_to "Read the case study →", case_study_path("ai-deal-analyzer"), class: "service-card-link ajax" %>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6">
+          <div class="workflow-card p-4 h-100">
+            <h4 class="h6 text-primary mb-2">Construction estimator</h4>
+            <p class="small mb-2">Reads drawing PDFs, including tables, with vision; drafts estimate line items for the estimator to price and approve.</p>
+            <%= link_to "Read the case study →", case_study_path("construction-management-platform"), class: "service-card-link ajax" %>
           </div>
         </div>
       </div>
