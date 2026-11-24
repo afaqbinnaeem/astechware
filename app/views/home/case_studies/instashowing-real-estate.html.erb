@@ -3,11 +3,8 @@
     <div class="row align-items-center min-vh-50">
       <div class="col-12 col-lg-10 mx-auto text-center">
         <h1 class="display-5 fw-bold mb-3" style="font-size: clamp(28px, 4.5vw, 52px); line-height: 1.15;" data-page-h1>
-          Real Estate Transaction Coordination &amp; Availability Engine
+          Showing scheduling and offer management for real estate agents
         </h1>
-        <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.3vw, 22px); line-height: 1.5; max-width: 980px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.92)">
-          InstaShowing Orchestration &amp; Offer Ledger
-        </p>
         <p class="mb-0" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.7; max-width: 980px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
           A centralized scheduling and offer ledger that acts as the system of record for the listing, optimized for fast field use with auditability and automation built in.
         </p>
@@ -17,13 +14,14 @@
 </div>
 
 <div class="inner-sections">
-  <section class="py-5 bg-white">
+
+  <section class="py-5 bg-white" id="problem">
     <div class="container">
       <div class="row g-4 align-items-start">
         <div class="col-12 col-lg-7">
-          <h2 class="heading-border heading-center heading-left mb-4 pb-3 d-inline-block">The Challenge</h2>
+          <h2 class="heading-border heading-center heading-left mb-4 pb-3 d-inline-block">The problem</h2>
           <p class="large-para mb-3">
-            The residential “showing to offer” loop is notoriously fragmented. Agents, sellers, and buyers coordinate across SMS, email, and calls, leading to missed feedback and opaque
+            The residential &ldquo;showing to offer&rdquo; loop is notoriously fragmented. Agents, sellers, and buyers coordinate across SMS, email, and calls, leading to missed feedback and opaque
             offer negotiations.
           </p>
           <p class="large-para mb-0">
@@ -32,86 +30,54 @@
           </p>
         </div>
         <div class="col-12 col-lg-5">
-          <div class="workflow-card p-4">
-            <h3 class="h6 text-uppercase text-muted mb-3">Quick Stats</h3>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
-              <li><strong>Integrations:</strong> RESO Web API + DocuSign</li>
-              <li><strong>Comms:</strong> Twilio alerts</li>
-              <li><strong>Security:</strong> AES 256 + audit logs + 2FA</li>
-              <li><strong>Impact:</strong> Less coordination friction; stronger agent satisfaction</li>
-            </ul>
-          </div>
+          <%= render "home/case_studies/at_a_glance",
+            industry: "Real estate",
+            client: "InstaShowing",
+            country: "[[AHMAD: country]]",
+            what_we_built: "Centralized showing scheduling and tamper-resistant offer ledger",
+            integrations: "RESO Web API (MLS), DocuSign (offers), Twilio (SMS alerts)",
+            stack: "React, Ruby on Rails, PostgreSQL" %>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="py-5 bg-light-grey">
+  <section class="py-5 bg-light-grey" id="what-we-built">
     <div class="container">
       <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">The Solution</h2>
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">What we built</h2>
         <p class="large-para mb-3">
           We engineered a centralized scheduling and offer ledger that acts as the operating system for the listing. The platform automates the handshake between showing requests and seller
           approvals, then tracks every offer in a tamper resistant digital ledger.
         </p>
         <p class="large-para mb-0">
-          The result is a single workflow: showings move from request → approval → notifications automatically, feedback is collected consistently, and offers are stored, compared, and progressed
+          The result is a single workflow: showings move from request &rarr; approval &rarr; notifications automatically, feedback is collected consistently, and offers are stored, compared, and progressed
           with strict audit trails, reducing coordination noise and accelerating time to contract.
         </p>
       </div>
     </div>
   </section>
 
-  <section class="py-5 bg-white">
+  <section class="py-5 bg-white" id="how-it-works">
     <div class="container">
       <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Technical Approach</h2>
-        <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">How it works</h2>
+        <ul class="service-page-list mb-4" style="font-size: 1.05rem; line-height: 1.8;">
           <li><strong>Calendar universal sync:</strong> Multi provider sync (Google/Outlook/iCloud) to compute true availability in real time.</li>
           <li><strong>Event driven feedback loop:</strong> Automated showing to feedback transition (including geofenced triggers) to drive higher response rates.</li>
+          <li><strong>Architecture:</strong> React &rarr; Ruby on Rails &rarr; PostgreSQL.</li>
+          <li><strong>Integrations:</strong> RESO Web API (MLS), DocuSign (offers), Twilio (SMS alerts).</li>
+          <li><strong>Security:</strong> AES 256 encryption for offer docs; SOC 2 aligned handling; strict audit logs for every offer view; 2FA for agents.</li>
+          <li><strong>AI features:</strong> Sentiment aggregator scans agent feedback and produces a &ldquo;market sentiment report&rdquo; highlighting recurring concerns.</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section class="py-5 bg-light-grey">
+  <section class="py-5 bg-light-grey" id="results">
     <div class="container">
       <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Technical Details</h2>
-        <div class="row g-4">
-          <div class="col-12 col-md-6">
-            <div class="workflow-card p-4 h-100">
-              <h3 class="h6 text-uppercase text-muted mb-3">Architecture</h3>
-              <p class="mb-0 small">React → Ruby on Rails → PostgreSQL</p>
-            </div>
-          </div>
-          <div class="col-12 col-md-6">
-            <div class="workflow-card p-4 h-100">
-              <h3 class="h6 text-uppercase text-muted mb-3">Integrations</h3>
-              <p class="mb-0 small">RESO Web API (MLS), DocuSign (offers), Twilio (SMS alerts).</p>
-            </div>
-          </div>
-          <div class="col-12 col-md-6">
-            <div class="workflow-card p-4 h-100">
-              <h3 class="h6 text-uppercase text-muted mb-3">Security</h3>
-              <p class="mb-0 small">AES 256 encryption for offer docs; SOC 2 aligned handling; strict audit logs for every offer view; 2FA for agents.</p>
-            </div>
-          </div>
-          <div class="col-12 col-md-6">
-            <div class="workflow-card p-4 h-100">
-              <h3 class="h6 text-uppercase text-muted mb-3">AI Features</h3>
-              <p class="mb-0 small">Sentiment aggregator scans agent feedback and produces a “market sentiment report” highlighting recurring concerns.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-5 bg-white">
-    <div class="container">
-      <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Results &amp; Impact</h2>
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Results</h2>
         <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
           <li><strong>Less friction</strong> in the showing request lifecycle through a single workflow and clear approvals.</li>
           <li><strong>Faster offer to contract cycles</strong> through centralized offer management and consistent follow up.</li>
@@ -121,17 +87,14 @@
     </div>
   </section>
 
-  <section class="py-5 bg-light-grey">
-    <div class="container">
-      <div class="col-12 col-lg-10 mx-auto text-center">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Ready to build something similar?</h2>
-        <p class="lead mb-4">We’ll design your scheduling + document workflows with auditability and safe automation baked in.</p>
-        <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5 me-2 mb-2">
-          Schedule a Technical Discovery Call
-        </a>
-        <%= link_to "View our Services", root_path(anchor: "services"), class: "btn btn-outline-primary btn-lg rounded-pill px-5 mb-2 ajax" %>
-      </div>
+  <%= render "home/case_studies/gallery", slug: "instashowing-real-estate" %>
+  <%= render "home/case_studies/client_quote", slug: "instashowing-real-estate" %>
+  <%= render "home/case_studies/cta", blurb: "We&rsquo;ll design your scheduling + document workflows with auditability and safe automation baked in." %>
+
+  <section class="py-4 bg-white">
+    <div class="container text-center">
+      <%= link_to "Operations-heavy software →", industry_professional_services_path, class: "service-card-link ajax" %>
     </div>
   </section>
-</div>
 
+</div>
