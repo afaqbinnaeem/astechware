@@ -2,39 +2,27 @@
   <% set_meta_tags(
     title: "Software for Operations-Heavy Businesses",
     description: "An overview of the software we build for businesses whose work happens in the field and on job sites, with links to each of the industries we serve.",
-    keywords: "construction software development, trucking dispatch automation, logistics route optimization, real estate operations software, HVAC field service automation, operations heavy software, logistics software development, dispatch automation, field service software, proof of service"
+    keywords: "construction software development, trucking dispatch automation, logistics route optimization, real estate operations software, HVAC field service automation, operations heavy software, field service software"
   ) %>
   <script type="application/ld+json">
   <%= raw({
     "@context" => "https://schema.org",
     "@type" => "Service",
-    "name" => "Construction, Logistics, Trucking & Real Estate Software",
+    "name" => "Software for Field and Operations-Heavy Businesses",
     "url" => industry_professional_services_url,
-    "description" => "Engineering partner for construction management, trucking dispatch automation, logistics route optimization, HVAC field ops, and real estate operations software.",
+    "description" => "An overview of the software we build for businesses whose work happens in the field and on job sites.",
     "provider" => { "@id" => "https://astechware.com/#organization" },
     "areaServed" => ["United States", "Canada", "Australia"],
     "serviceType" => "Field Operations & Dispatch Automation",
     "category" => "Operational Technology"
   }.to_json) %>
   </script>
-  <script type="application/ld+json">
-  <%= raw({
-    "@context" => "https://schema.org",
-    "@type" => "FAQPage",
-    "mainEntity" => [
-      { "@type" => "Question", "name" => "Do you build construction management software?", "acceptedAnswer" => { "@type" => "Answer", "text" => "Yes. We build construction management platforms for estimating, subcontracting, invoicing, and multi-company operations with traceable workflows and QuickBooks integration." } },
-      { "@type" => "Question", "name" => "Can you automate trucking dispatch and route optimization?", "acceptedAnswer" => { "@type" => "Answer", "text" => "Yes. We build dispatch automation, route optimization, and fleet orchestration platforms for logistics and trucking operations." } },
-      { "@type" => "Question", "name" => "Do you develop real estate operations platforms?", "acceptedAnswer" => { "@type" => "Answer", "text" => "Yes. We build real estate scheduling, transaction coordination, property management payments, and investment analysis automation platforms." } }
-    ]
-  }.to_json) %>
-  </script>
 <% end %>
 
-<!-- Hero Section -->
 <div class="hero-section py-5 service-page-hero professional-services-hero industry-landing-hero">
   <div class="container">
     <div class="row align-items-center min-vh-50">
-      <div class="col-12 col-lg-8 mx-auto text-center">
+      <div class="col-12 col-lg-9 mx-auto text-center">
         <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;" data-page-h1>
           Software for field and operations-heavy businesses
         </h1>
@@ -49,533 +37,135 @@
         </a>
       </div>
     </div>
-    <%# Optional hero image: add image to app/assets/images/professional-services-hero.jpg and uncomment %>
-    <%# <div class="row mt-5"><div class="col-12 col-lg-10 mx-auto text-center"><%= image_tag 'professional-services-hero.jpg', class: 'img-fluid rounded shadow', alt: 'Modern professional services office with technology integration', loading: 'lazy' %><%# </div></div> %>
   </div>
 </div>
 
 <div class="inner-sections professional-services-industry-page">
 
-  <!-- Overview -->
-  <section class="py-5 bg-white" id="overview">
+  <section class="py-5 bg-white" id="industries">
     <div class="container">
       <div class="row">
-        <div class="col-12 col-lg-10 mx-auto">
-          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Operational Technology for Asset Heavy Businesses</h2>
-          <p class="large-para mb-4">
-            Logistics operators, HVAC companies, and real estate teams don't lose margin in spreadsheets, they lose it in the field: dead miles, missed pickups, no proof of service, and manual follow ups that don't scale.
-          </p>
-          <p class="large-para mb-4">
-            We build platforms that connect dispatch, drivers and technicians, customer communication, and payments into one operational system. That means real time visibility, automated workflows, and reliable data you can trust when you're scaling routes, properties, or service volume.
-          </p>
+        <div class="col-12 col-lg-10 mx-auto mb-5">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Industries we serve</h2>
           <p class="large-para mb-0">
-            Whether you're running a hauling fleet, managing properties, or dispatching field technicians, we help you move beyond disconnected tools and into production ready systems built for daily operational pressure.
+            Software for businesses whose work happens in the field and on job sites. Each card opens the dedicated industry page when it ships.
           </p>
         </div>
       </div>
-    </div>
-  </section>
+      <div class="row g-4">
+        <% if route_helper_defined?(:industry_construction_path) %>
+          <div class="col-12 col-md-6">
+            <%= link_to industry_construction_path, class: "workflow-card p-4 p-lg-5 h-100 d-block text-decoration-none text-dark ajax" do %>
+              <h3 class="h5 mb-3">Construction</h3>
+              <p class="mb-0 small" style="line-height: 1.7;">Estimating, subcontracting, invoicing, and multi-company job site operations.</p>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="col-12 col-md-6">
+            <div class="workflow-card p-4 p-lg-5 h-100">
+              <h3 class="h5 mb-3">Construction</h3>
+              <p class="mb-0 small" style="line-height: 1.7;">Estimating, subcontracting, invoicing, and multi-company job site operations.</p>
+            </div>
+          </div>
+        <% end %>
 
-  <!-- Challenges (8 cards) -->
-  <section class="py-5 bg-light-grey" id="challenges">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Core Challenges We Solve</h2>
-      </div>
-      <div class="row g-3">
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="workflow-card p-4 h-100">
-            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">1</span>
-            <h4 class="h6 mb-2">Inefficient Dispatching &amp; Routing</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
-              <li>Manual scheduling leading to high fuel costs and dead miles</li>
-              <li>Routes built by tribal knowledge instead of data</li>
-              <li>Same day changes causing chaos and missed stops</li>
-              <li>No way to optimize across drivers, vehicles, and constraints</li>
-            </ul>
+        <% if route_helper_defined?(:industry_logistics_path) %>
+          <div class="col-12 col-md-6">
+            <%= link_to industry_logistics_path, class: "workflow-card p-4 p-lg-5 h-100 d-block text-decoration-none text-dark ajax" do %>
+              <h3 class="h5 mb-3">Logistics</h3>
+              <p class="mb-0 small" style="line-height: 1.7;">Route optimization, dispatch, and fleet orchestration for hauling and delivery ops.</p>
+            <% end %>
           </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="workflow-card p-4 h-100">
-            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">2</span>
-            <h4 class="h6 mb-2">Field Visibility Gaps</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
-              <li>No real time proof of work (photos/logs) from the field</li>
-              <li>Disputes with “it wasn’t done” and no audit trail</li>
-              <li>No GPS backed timestamps for service verification</li>
-              <li>Managers blind to route and job status until end of day</li>
-            </ul>
+        <% else %>
+          <div class="col-12 col-md-6">
+            <div class="workflow-card p-4 p-lg-5 h-100">
+              <h3 class="h5 mb-3">Logistics</h3>
+              <p class="mb-0 small" style="line-height: 1.7;">Route optimization, dispatch, and fleet orchestration for hauling and delivery ops.</p>
+            </div>
           </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="workflow-card p-4 h-100">
-            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">3</span>
-            <h4 class="h6 mb-2">Customer Communication Friction</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
-              <li>Tenants and homeowners left waiting with no ETA</li>
-              <li>No automated updates for delays or reschedules</li>
-              <li>Missed calls create churn and negative reviews</li>
-              <li>Disjointed SMS/email/phone tools with no context</li>
-            </ul>
+        <% end %>
+
+        <% if route_helper_defined?(:industry_home_services_path) %>
+          <div class="col-12 col-md-6">
+            <%= link_to industry_home_services_path, class: "workflow-card p-4 p-lg-5 h-100 d-block text-decoration-none text-dark ajax" do %>
+              <h3 class="h5 mb-3">Home services</h3>
+              <p class="mb-0 small" style="line-height: 1.7;">HVAC and field service automation, photo to post workflows, and job site proof.</p>
+            <% end %>
           </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="workflow-card p-4 h-100">
-            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">4</span>
-            <h4 class="h6 mb-2">Manual Billing &amp; Payment Leakage</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
-              <li>Recurring pickups, service calls, and invoices don’t reconcile cleanly</li>
-              <li>Split payments and owner/admin fees create accounting drift</li>
-              <li>Failed payments discovered late</li>
-              <li>No unified view from job completed → invoice sent → payment settled</li>
-            </ul>
+        <% else %>
+          <div class="col-12 col-md-6">
+            <div class="workflow-card p-4 p-lg-5 h-100">
+              <h3 class="h5 mb-3">Home services</h3>
+              <p class="mb-0 small" style="line-height: 1.7;">HVAC and field service automation, photo to post workflows, and job site proof.</p>
+            </div>
           </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="workflow-card p-4 h-100">
-            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">5</span>
-            <h4 class="h6 mb-2">Operational Data Silos</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
-              <li>Dispatch, billing, and field apps not talking to each other</li>
-              <li>Duplicate data entry across systems</li>
-              <li>Inconsistent customer, job, and property records</li>
-              <li>No single source of truth for operations reporting</li>
-            </ul>
+        <% end %>
+
+        <% if route_helper_defined?(:industry_real_estate_path) %>
+          <div class="col-12 col-md-6">
+            <%= link_to industry_real_estate_path, class: "workflow-card p-4 p-lg-5 h-100 d-block text-decoration-none text-dark ajax" do %>
+              <h3 class="h5 mb-3">Real estate</h3>
+              <p class="mb-0 small" style="line-height: 1.7;">Showing schedules, transaction coordination, and property operations software.</p>
+            <% end %>
           </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="workflow-card p-4 h-100">
-            <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">6</span>
-            <h4 class="h6 mb-2">Scaling Asset Heavy Ops</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.6;">
-              <li>Adding new routes or properties requires massive admin hiring</li>
-              <li>Manual processes don’t survive growth</li>
-              <li>No standardized workflows across locations and crews</li>
-              <li>Operational complexity increases faster than revenue</li>
-            </ul>
+        <% else %>
+          <div class="col-12 col-md-6">
+            <div class="workflow-card p-4 p-lg-5 h-100">
+              <h3 class="h5 mb-3">Real estate</h3>
+              <p class="mb-0 small" style="line-height: 1.7;">Showing schedules, transaction coordination, and property operations software.</p>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
     </div>
   </section>
 
-<!-- Our Logistics & Ops Solutions (compact grid) -->
-  <section class="py-5 bg-white" id="solutions">
+  <section class="py-5 bg-light-grey" id="spotlights">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Our Solutions</h2>
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Featured work</h2>
+        <p class="text-muted mb-0">Short teasers. Full stories live on the case study pages and, once they ship, the child industry pages.</p>
       </div>
       <div class="row g-4">
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-lg-4">
           <div class="workflow-card p-4 h-100">
-            <h3 class="h5 mb-2">1. AI Route Planning &amp; Dispatch</h3>
-            <p class="mb-0 small">Automated route creation and real time adjustments for trucking and hauling fleets. Constraint aware dispatching that reduces dead miles and adapts to day of changes without chaos.</p>
+            <h3 class="h5 mb-3">Shoreline waste logistics</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">Route and dispatch automation for waste hauling operations.</p>
+            <%= link_to "Read the case study &rarr;".html_safe, case_study_path("shoreline-waste-logistics"), class: "d-inline-block mt-3 fw-semibold small ajax" %>
           </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-lg-4">
           <div class="workflow-card p-4 h-100">
-            <h3 class="h5 mb-2">2. Field Tech &amp; Driver Apps</h3>
-            <p class="mb-0 small">Mobile tools for job management, GPS tracking, and photo proof completion (MMS / image capture). Real time status updates and audit trails that make disputes easy to resolve.</p>
+            <h3 class="h5 mb-3">Construction management platform</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">AI estimating, subcontracts, invoicing, and QuickBooks sync for a multi-company builder.</p>
+            <%= link_to "Read the case study &rarr;".html_safe, case_study_path("construction-management-platform"), class: "d-inline-block mt-3 fw-semibold small ajax" %>
           </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-lg-4">
           <div class="workflow-card p-4 h-100">
-            <h3 class="h5 mb-2">3. Automated Property Management</h3>
-            <p class="mb-0 small">Rent collection, split payments, and automated tenant communication. Reduce payment leakage with unified billing, reconciliation, and transparent owner/admin fee distribution.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h3 class="h5 mb-2">4. Real Estate Scheduling &amp; Offer Management</h3>
-            <p class="mb-0 small">24/7 automated showing schedules and centralized offer tracking. Keep agents, owners, and buyers aligned with a single workflow and clear status visibility.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h3 class="h5 mb-2">5. AI Social Proof &amp; Marketing</h3>
-            <p class="mb-0 small">Automated social posting from the field. Convert job site photos into Google/Meta posts instantly, with lightweight human review to protect brand quality.</p>
+            <h3 class="h5 mb-3">InstaShowing real estate</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">Showing schedules and real estate operations automation.</p>
+            <%= link_to "Read the case study &rarr;".html_safe, case_study_path("instashowing-real-estate"), class: "d-inline-block mt-3 fw-semibold small ajax" %>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-    <!-- Professional Services Specific Benefits (6 cards) -->
-  <section class="py-5 bg-light-grey" id="benefits">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Professional Services Specific Benefits</h2>
-      </div>
-      <div class="row g-4">
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="build-system-card p-4 h-100">
-            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div></div>
-            <h4 class="h5 mb-2">Increased Billable Utilization</h4>
-            <p class="mb-0 small">Improve billable utilization through better time capture, clearer resourcing, and workflow automation. Reduce leakage with accurate tracking, smarter staffing, and cleaner handoffs.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="build-system-card p-4 h-100">
-            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-line-chart" aria-hidden="true"></i></div></div>
-            <h4 class="h5 mb-2">Improved Project Profitability</h4>
-            <p class="mb-0 small">Improve project profitability with real time budget vs actual, tighter scope controls, and better estimating from historical delivery data.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="build-system-card p-4 h-100">
-            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-money" aria-hidden="true"></i></div></div>
-            <h4 class="h5 mb-2">Faster Revenue Collection</h4>
-            <p class="mb-0 small">Accelerate collections with automated billing, online payments, and retainer tracking to reduce under billing and improve cash flow visibility.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="build-system-card p-4 h-100">
-            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-cogs" aria-hidden="true"></i></div></div>
-            <h4 class="h5 mb-2">Reduced Administrative Burden</h4>
-            <p class="mb-0 small">Reduce administrative burden with automation for time entry, expenses, approvals, and status updates, so teams spend more time on client work and delivery.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="build-system-card p-4 h-100">
-            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-users" aria-hidden="true"></i></div></div>
-            <h4 class="h5 mb-2">Better Client Satisfaction</h4>
-            <p class="mb-0 small">Improve client satisfaction through transparent progress, proactive communication, and professional client portals.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="build-system-card p-4 h-100">
-            <div class="build-icon-wrapper mb-3"><div class="build-icon"><i class="fa fa-heart" aria-hidden="true"></i></div></div>
-            <h4 class="h5 mb-2">Enhanced Talent Retention</h4>
-            <p class="mb-0 small">Improve retention by removing tedious admin work, clarifying ownership, and providing better visibility into staffing and skills development.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Technology Stack -->
-  <section class="py-5 bg-white" id="technology">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Technology Stack for Logistics &amp; Ops</h2>
-      </div>
-      <div class="row g-4">
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-3">Mapping / GIS</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
-              <li>Google Maps API</li>
-              <li>Mapbox</li>
-              <li>Leaflet</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-3">Real Time Data</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
-              <li>WebSockets</li>
-              <li>MQTT</li>
-              <li>Firebase</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-3">Payments</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
-              <li>Stripe Connect</li>
-              <li>Plaid</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-3">AI / ML</h4>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
-              <li>Custom route optimization algorithms</li>
-              <li>GPT 4 for automated field content generation</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Case Study Spotlights (4) -->
-  <section class="py-5 bg-white" id="case-studies">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Case Study Spotlights</h2>
-      </div>
-      <div class="row g-4">
-        <div class="col-12 col-lg-3">
-          <div class="workflow-card p-4 p-lg-5 h-100">
-            <h4 class="h5 mb-3">Shoreline Waste: AI Logistics &amp; Routing</h4>
-            <p class="small text-muted mb-2">Logistics &amp; Trash Hauling (Shoreline Waste)</p>
-            <h5 class="h6 mt-3 mb-1">Challenge</h5>
-            <p class="small mb-2">Manual route creation and lack of proof of service led to missed pick ups and inefficient fuel consumption.</p>
-            <h5 class="h6 mb-1">Solution</h5>
-            <p class="small mb-2">Built a web and mobile platform with an AI Route Planner. Developed a custom driver app for job management, photo proof completion, and instant route adjustments.</p>
-            <h5 class="h6 mb-1">Results</h5>
-            <ul class="small mb-0 ps-3" style="line-height: 1.6;">
-              <li>Optimized fuel efficiency</li>
-              <li>Service verification via photo logs and audit trails</li>
-              <li>Seamless customer booking and payment management</li>
-            </ul>
-            <%= link_to "Read full case study →", case_study_path('shoreline-waste-logistics'), class: "d-inline-block mt-3 fw-semibold small ajax" %>
-          </div>
-        </div>
-        <div class="col-12 col-lg-3">
-          <div class="workflow-card p-4 p-lg-5 h-100">
-            <h4 class="h5 mb-3">Red Dragon: AI Social Proof Engine</h4>
-            <p class="small text-muted mb-2">HVAC Field Marketing (Red Dragon)</p>
-            <h5 class="h6 mt-3 mb-1">Challenge</h5>
-            <p class="small mb-2">HVAC techs were too busy to post updates, missing out on local social proof and Google Business Profile rankings.</p>
-            <h5 class="h6 mb-1">Solution</h5>
-            <p class="small mb-2">Built an MMS to Social AI pipeline. Techs send a photo of the repair/install; AI generates the caption, optimizes for SEO, and schedules it for Google and Facebook after a quick human review.</p>
-            <h5 class="h6 mb-1">Results</h5>
-            <ul class="small mb-0 ps-3" style="line-height: 1.6;">
-              <li>Consistent daily social presence without tech effort</li>
-              <li>Improved local SEO rankings</li>
-              <li>Higher organic lead generation</li>
-            </ul>
-            <%= link_to "Read full case study →", case_study_path('red-dragon-hvac'), class: "d-inline-block mt-3 fw-semibold small ajax" %>
-          </div>
-        </div>
-        <div class="col-12 col-lg-3">
-          <div class="workflow-card p-4 p-lg-5 h-100">
-            <h4 class="h5 mb-3">InstaShowing: Real Estate Management</h4>
-            <p class="small text-muted mb-2">Real Estate Operations (InstaShowing)</p>
-            <h5 class="h6 mt-3 mb-1">Challenge</h5>
-            <p class="small mb-2">Fragmented communication between agents, owners, and buyers during the showing and offer process.</p>
-            <h5 class="h6 mb-1">Solution</h5>
-            <p class="small mb-2">Developed an end to end Scheduling and Offer Management platform. Automated the showing request flow and centralized offer tracking for real estate teams.</p>
-            <h5 class="h6 mb-1">Results</h5>
-            <ul class="small mb-0 ps-3" style="line-height: 1.6;">
-              <li>Reduced manual scheduling time through automation and clearer workflows</li>
-              <li>Faster offer turnaround times</li>
-              <li>Improved transparency for property owners</li>
-            </ul>
-            <%= link_to "Read full case study →", case_study_path('instashowing-real-estate'), class: "d-inline-block mt-3 fw-semibold small ajax" %>
-          </div>
-        </div>
-        <div class="col-12 col-lg-3">
-          <div class="workflow-card p-4 p-lg-5 h-100">
-            <h4 class="h5 mb-3">Vestra: Automated Rent &amp; Split Payments</h4>
-            <p class="small text-muted mb-2">FinTech for PropTech (Vestra)</p>
-            <h5 class="h6 mt-3 mb-1">Challenge</h5>
-            <p class="small mb-2">Managing roommate rent splits and distributing fees to owners and admins was a manual accounting nightmare.</p>
-            <h5 class="h6 mb-1">Solution</h5>
-            <p class="small mb-2">Engineered a payment engine supporting Card/ACH with Automated Split Payment logic. Funds are automatically routed to owners and system admins with instant withdrawal capabilities.</p>
-            <h5 class="h6 mb-1">Results</h5>
-            <ul class="small mb-0 ps-3" style="line-height: 1.6;">
-              <li>Zero manual reconciliation</li>
-              <li>Automated fee distribution with auditable settlement</li>
-              <li>Secure, transparent payment infrastructure</li>
-            </ul>
-            <%= link_to "Read full case study →", case_study_path('vestra-payments'), class: "d-inline-block mt-3 fw-semibold small ajax" %>
-          </div>
-        </div>
-        <div class="col-12 col-lg-3">
-          <div class="workflow-card p-4 p-lg-5 h-100">
-            <h4 class="h5 mb-3">AI Real Estate Deal Analyzer</h4>
-            <p class="small text-muted mb-2">Investor Underwriting / Deal Volume Scaling</p>
-            <h5 class="h6 mt-3 mb-1">Challenge</h5>
-            <p class="small mb-2">Senior grade underwriting takes 30 to 45 minutes per deal, so teams lose deals when they can’t respond while the seller is on the phone.</p>
-            <h5 class="h6 mb-1">Solution</h5>
-            <p class="small mb-2">Deterministic Python runs ARV and four exit strategies; Claude explains comp selection and the recommendation in plain English, no hallucinated numbers.</p>
-            <h5 class="h6 mb-1">Results</h5>
-            <ul class="small mb-0 ps-3" style="line-height: 1.6;">
-              <li>Faster, repeatable underwriting with deterministic math and explainable comps</li>
-              <li>Four exit strategies analyzed side by side</li>
-              <li>Acquisitions manager grade explanation</li>
-            </ul>
-            <%= link_to "Read full case study →", case_study_path('ai-deal-analyzer'), class: "d-inline-block mt-3 fw-semibold small ajax" %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Who We Serve -->
-  <section class="py-5 bg-white" id="who-we-serve">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Who We Serve</h2>
-      </div>
-      <div class="row g-4">
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-2">Management &amp; Strategy Consulting</h4>
-            <p class="mb-0 small">Boutique strategy; management consulting; operations; HR and org; technology and digital transformation.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-2">Accounting &amp; Financial Services</h4>
-            <p class="mb-0 small">Public accounting (audit, tax, advisory); bookkeeping; fractional CFO; financial planning; valuation and forensic.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-2">Creative &amp; Marketing Agencies</h4>
-            <p class="mb-0 small">Digital marketing; advertising; design and branding; PR; social and content.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-2">Architecture &amp; Engineering</h4>
-            <p class="mb-0 small">Architecture; civil and structural; MEP; environmental; land surveying and planning.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-2">Legal &amp; Compliance</h4>
-            <p class="mb-0 small">Law firms; compliance consulting; regulatory affairs; internal audit; risk management.</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4">
-          <div class="workflow-card p-4 h-100">
-            <h4 class="h6 mb-2">Technology Services</h4>
-            <p class="mb-0 small">IT consulting; software agencies; MSPs; cybersecurity; cloud and DevOps.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="py-5 bg-light-grey" id="faq">
-    <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Frequently Asked Questions</h2>
-      </div>
-      <div class="row">
-        <div class="col-12 col-lg-10 mx-auto">
-          <div class="accordion professional-services-faq" id="professionalServicesFaq">
-            <div class="accordion-item border rounded mb-2">
-              <h3 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#psind2" aria-expanded="false" aria-controls="psind2">Will people actually use it? We've tried other systems that failed.</button>
-              </h3>
-              <div id="psind2" class="accordion-collapse collapse" data-bs-parent="#professionalServicesFaq">
-                <div class="accordion-body">Adoption is critical. We: (1) Design workflows to match how your firm works, (2) Make time entry and tasks as easy as possible (mobile, one click, automation), (3) Provide training and change management, (4) Get leadership buy in, (5) Show quick wins to build momentum.</div>
-              </div>
-            </div>
-            <div class="accordion-item border rounded mb-2">
-              <h3 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#psind3" aria-expanded="false" aria-controls="psind3">Can you integrate with our accounting system?</button>
-              </h3>
-              <div id="psind3" class="accordion-collapse collapse" data-bs-parent="#professionalServicesFaq">
-                <div class="accordion-body">Yes. We integrate with QuickBooks Online, Xero, NetSuite, Sage Intacct, and others. We sync clients, projects, time, expenses, invoices, payments. For custom or legacy systems we build custom integrations.</div>
-              </div>
-            </div>
-            <div class="accordion-item border rounded mb-2">
-              <h3 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#psind5" aria-expanded="false" aria-controls="psind5">How do you measure success and ROI?</button>
-              </h3>
-              <div id="psind5" class="accordion-collapse collapse" data-bs-parent="#professionalServicesFaq">
-                <div class="accordion-body">We track: billable utilization, project profitability, time capture, collections performance (DSO), admin time reduced, and client satisfaction. We set baselines during discovery and measure improvements post launch.</div>
-              </div>
-            </div>
-            <div class="accordion-item border rounded mb-2">
-              <h3 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#psind6" aria-expanded="false" aria-controls="psind6">Can we customize it for our unique workflows?</button>
-              </h3>
-              <div id="psind6" class="accordion-collapse collapse" data-bs-parent="#professionalServicesFaq">
-                <div class="accordion-body">Yes. We build flexible platforms for your processes, billing models, deliverables, and client needs. Customization is expected for success.</div>
-              </div>
-            </div>
-            <div class="accordion-item border rounded mb-2">
-              <h3 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#psind7" aria-expanded="false" aria-controls="psind7">What happens to our historical project and financial data?</button>
-              </h3>
-              <div id="psind7" class="accordion-collapse collapse" data-bs-parent="#professionalServicesFaq">
-                <div class="accordion-body">We migrate historical clients, projects, time, invoices, and financial data. This preserves reporting and provides baselines. Migration is validated for accuracy.</div>
-              </div>
-            </div>
-            <div class="accordion-item border rounded mb-2">
-              <h3 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#psind8" aria-expanded="false" aria-controls="psind8">Do you provide training for our team?</button>
-              </h3>
-              <div id="psind8" class="accordion-collapse collapse" data-bs-parent="#professionalServicesFaq">
-                <div class="accordion-body">Yes. We provide admin and super user training, end user sessions (live and recorded), documentation and help, ongoing support during rollout, and refresher training for new hires. Training is tailored by role (partners, PMs, consultants, admin).</div>
-              </div>
-            </div>
-            <div class="accordion-item border rounded mb-2">
-              <h3 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#psind9" aria-expanded="false" aria-controls="psind9">Can we start with just time tracking and add features later?</button>
-              </h3>
-              <div id="psind9" class="accordion-collapse collapse" data-bs-parent="#professionalServicesFaq">
-                <div class="accordion-body">Absolutely. We recommend phased: start with time tracking and basic project management for quick wins, then add resource planning, billing, client portals, and analytics. This spreads cost and reduces change risk.</div>
-              </div>
-            </div>
-            <div class="accordion-item border rounded mb-2">
-              <h3 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#psind10" aria-expanded="false" aria-controls="psind10">What ongoing support do you provide?</button>
-              </h3>
-              <div id="psind10" class="accordion-collapse collapse" data-bs-parent="#professionalServicesFaq">
-                <div class="accordion-body">We offer support packages: technical support, software updates, new hire training, process optimization, integration maintenance, reporting and analytics. Support can be full service or train your team.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Related Services -->
-  <section class="py-5 bg-white" id="related">
-    <div class="container">
-      <div class="text-center mb-4">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Related Services</h2>
-      </div>
-      <div class="row g-3 justify-content-center">
-        <div class="col-6 col-md-4 col-lg-2">
-          <%= link_to ai_agent_development_path, class: "btn btn-outline-primary w-100 py-3 small" do %>AI Agent Development<% end %>
-        </div>
-        <div class="col-6 col-md-4 col-lg-2">
-          <%= link_to custom_software_path, class: "btn btn-outline-primary w-100 py-3 small" do %>Custom Software<% end %>
-        </div>
-        <div class="col-6 col-md-4 col-lg-2">
-          <%= link_to api_integrations_path, class: "btn btn-outline-primary w-100 py-3 small" do %>API Integrations<% end %>
-        </div>
-        <div class="col-6 col-md-4 col-lg-2">
-          <%= link_to industry_financial_path, class: "btn btn-outline-primary w-100 py-3 small" do %>Financial Operations<% end %>
-        </div>
-        <div class="col-6 col-md-4 col-lg-2">
-          <%= link_to machine_learning_path, class: "btn btn-outline-primary w-100 py-3 small" do %>Machine Learning<% end %>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="py-5 bg-light-grey" id="cta">
+  <section class="py-5 bg-white" id="engage">
     <div class="container">
       <div class="row">
-        <div class="col-12 col-lg-10 mx-auto">
-          <div class="workflow-card p-5 p-lg-5 text-center">
-            <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Ready to Transform Your Professional Services Firm?</h2>
-            <p class="lead mb-4">Whether you're struggling with low utilization, project profitability, or administrative burden, we're here to help you build technology that drives growth and efficiency.</p>
-            <h4 class="h6 mb-3">Free Professional Services Technology Assessment Includes:</h4>
-            <ul class="list-unstyled mb-4" style="line-height: 2;">
-              <li>60 minute consultation with professional services tech experts</li>
-              <li>Current state analysis (utilization, profitability, admin burden)</li>
-              <li>Process improvement recommendations</li>
-              <li>Technology roadmap tailored to your firm</li>
-              <li>ROI projections with realistic timelines</li>
-              <li>Transparent pricing and phased approach</li>
-            </ul>
-            <div class="d-flex flex-wrap gap-3 justify-content-center mb-4">
-              <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">Schedule Free Consultation</a>
-              <%= link_to "View Professional Services Case Studies", case_studies_path, class: "btn btn-outline-primary btn-lg rounded-pill px-4" %>
-            </div>
-            <p class="mb-0 small text-muted">Email: <a href="mailto:ahmad@astechware.com" class="text-decoration-none">ahmad@astechware.com</a> • Book a call: <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="text-decoration-none">Calendly</a></p>
-          </div>
+        <div class="col-12 col-lg-10 mx-auto text-center">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">How we engage</h2>
+          <p class="large-para mb-4">
+            Start with a paid discovery sprint. We map your field workflows, identify where software actually helps, and give you a phased plan you own.
+          </p>
+          <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+            Start a discovery sprint &rarr;
+          </a>
         </div>
       </div>
     </div>
   </section>
+
 </div>
