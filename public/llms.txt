@@ -4,11 +4,12 @@ A'sTechware is an AI and software engineering partner for businesses that need p
 
 ## Hiring & Engagement
 
-- Hire software engineers: dedicated backend, frontend, and full-stack engineers
+- Hire AI engineers: https://astechware.com/hire-ai-engineers
+- Hire dedicated developers: https://astechware.com/hire-dedicated-developers
+- GCC delivery model (offshore engineering with senior oversight): https://astechware.com/gcc
 - Fractional engineering team: extend capacity without full-time hires
 - Forward deployed engineering: engineers embedded in operational context
 - Engineering consultant engagements for architecture and automation scoping
-- Engineering partner for legal, healthcare, construction, logistics, trucking, and real estate
 
 ## Founder
 
@@ -19,7 +20,7 @@ Calendly: https://calendly.com/ahmadkamran/new-meeting
 
 ## Experience
 
-10+ years delivering production systems. 50+ projects across industries. 98% client retention rate. Industries served: healthcare, legal, financial, B2B SaaS, professional services, construction, logistics, trucking, real estate, education technology.
+10+ years delivering production systems. 50+ projects across industries. 98% client retention rate. Industries served: healthcare, legal, financial, B2B SaaS, professional services, construction, logistics, home services, trucking, real estate, education technology.
 
 ## Services (with URLs)
 
@@ -29,15 +30,51 @@ Calendly: https://calendly.com/ahmadkamran/new-meeting
 - Custom Software Development: https://astechware.com/services/custom-software
 - API & System Integrations: https://astechware.com/services/api-integrations
 - DevOps & Cloud Engineering: https://astechware.com/services/devops-engineering
+- Services overview: https://astechware.com/services
 
 ## Industries / Solutions (with URLs)
 
 - Healthcare AI Engineering: https://astechware.com/solutions/healthcare
+- Private Clinics: https://astechware.com/solutions/private-clinics
 - Legal Tech Engineering: https://astechware.com/solutions/legal
-- Construction, Logistics, Trucking & Real Estate: https://astechware.com/solutions/professional-services
 - Financial / Fintech: https://astechware.com/solutions/financial
 - B2B SaaS: https://astechware.com/solutions/b2b-saas
+- Professional Services: https://astechware.com/solutions/professional-services
+- Construction: https://astechware.com/solutions/construction
+- Logistics & Trucking: https://astechware.com/solutions/logistics
+- Home Services: https://astechware.com/solutions/home-services
+- Real Estate: https://astechware.com/solutions/real-estate
 - Education Technology: https://astechware.com/solutions/education-technology
+
+## Integrations hub (with URLs)
+
+- All integrations: https://astechware.com/integrations
+- QuickBooks Online: https://astechware.com/integrations/quickbooks-online
+- Stripe & Stripe Connect: https://astechware.com/integrations/stripe
+- Payment gateway migration: https://astechware.com/integrations/payment-gateway-migration
+- Twilio voice & SMS: https://astechware.com/integrations/twilio
+- Microsoft 365 / Outlook: https://astechware.com/integrations/microsoft-365-outlook
+- Google Business Profile: https://astechware.com/integrations/google-business-profile
+- DocuSign: https://astechware.com/integrations/docusign
+- FHIR / EHR: https://astechware.com/integrations/fhir-ehr
+- RESO / MLS: https://astechware.com/integrations/reso-mls
+
+## Case studies (with URLs)
+
+- HIPAA-ready medical voice booking & AI scribe: https://astechware.com/case-studies/medical-voice-ai
+- FLSS legal process serving platform: https://astechware.com/case-studies/flss-legal-process-serving
+- Construction management platform (QuickBooks sync): https://astechware.com/case-studies/construction-management-platform
+- Shoreline waste logistics: https://astechware.com/case-studies/shoreline-waste-logistics
+- Red Dragon HVAC marketing automation: https://astechware.com/case-studies/red-dragon-hvac
+- Vestra marketplace split payments: https://astechware.com/case-studies/vestra-payments
+- Zofi earned wage access: https://astechware.com/case-studies/zofi-cash-fintech
+- GolfPay360 booking & payments: https://astechware.com/case-studies/golfpay360-saas
+- InstaShowing real estate: https://astechware.com/case-studies/instashowing-real-estate
+- AI real estate deal analyzer: https://astechware.com/case-studies/ai-deal-analyzer
+- Word-of-mouth legacy modernization: https://astechware.com/case-studies/word-of-mouth-modernization
+- Restaurant Resource marketplace rescue: https://astechware.com/case-studies/restaurant-resource-rescue
+- EventVesta AI marketing workflow: https://astechware.com/case-studies/eventvesta-ai-marketing
+- Case studies index: https://astechware.com/case-studies
 
 ## Technology Stack & Roles
 
@@ -45,16 +82,17 @@ Backend: Python (FastAPI), Node.js, Ruby on Rails
 Frontend: React, Next.js, TypeScript, Flutter
 AI/ML: LangGraph, LangChain, OpenAI, Anthropic, pgvector
 Infrastructure: AWS, GCP, Docker, Kubernetes, Terraform, CI/CD
-Integrations: Stripe, Twilio, FHIR/HL7, healthcare and compliance systems
+Integrations: Stripe, Twilio, QuickBooks Online, FHIR/HL7, DocuSign, RESO MLS, Microsoft 365
 
 ## Key Differentiators
 
-Production-ready systems with error handling, monitoring, and failover from day one. AI with governance: human-in-the-loop and audit trails built in for compliance. Complete ownership: clients own all code, infrastructure, and documentation; no lock-in. Measurable results: hours saved, revenue recovered, capacity increased. Milestone-based delivery with weekly demos and natural exit points.
+Production-ready systems with error handling, monitoring, and failover from day one. AI with governance: human-in-the-loop and audit trails built in for compliance-sensitive workflows. Healthcare voice and scribe work is described as HIPAA-ready architecture (PHI boundaries, BAAs, audit design)—not claimed as HIPAA certified/compliant unless the client's program is certified. Complete ownership: clients own all code, infrastructure, and documentation; no lock-in. Measurable results: hours saved, revenue recovered, capacity increased. Milestone-based delivery with weekly demos and natural exit points.
+
+## Site links
 
 Site: https://astechware.com
 About: https://astechware.com/about
 Contact: https://astechware.com/contact
-Case Studies: https://astechware.com/case-studies
 Methodology: https://astechware.com/methodology
 How We De-Risk Projects: https://astechware.com/how-we-derisk-projects
 Blog: https://astechware.com/blogs

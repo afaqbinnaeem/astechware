@@ -13007,3 +13007,16 @@ nav.nav-inner {
     gap: 0.5rem !important;
   }
 }
+
+/* Core Web Vitals: parallax heroes hurt mobile scroll performance */
+@media (max-width: 767.98px) {
+  .hero-section,
+  .hero-about,
+  .hero-portfolio,
+  .contact-portfolio,
+  .hero-blog,
+  .hero-project,
+  .hero-derisk-projects {
+    background-attachment: scroll !important;
+  }
+}

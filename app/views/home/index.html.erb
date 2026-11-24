@@ -36,6 +36,7 @@
   description: "We build software and automation for legal, healthcare, construction and logistics teams in the US, Canada and Australia. Milestone delivery, full code ownership.",
   keywords: "AI development company, automation agency, custom software, legal tech, healthcare software, construction software, logistics automation, milestone delivery"
 ) %>
+<% content_for :carousel_libraries, "slick" %>
 <% content_for :head do %>
   <% home_base = Rails.env.production? ? "https://astechware.com" : root_url.chomp("/") %>
   <script type="application/ld+json">
