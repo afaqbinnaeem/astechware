@@ -129,46 +129,132 @@ module ApplicationHelper
     blog_articles_list.first
   end
 
-  def core_services_list
+  # Eight offerings shown on homepage "What we build" and /services hub (same order).
+  def what_we_build_list
     [
       {
-        title: "AI Agents & Automation",
-        description: "Agents that read documents, answer calls, sort email and draft work inside your tools, with a person approving what matters.",
+        title: "Web apps",
+        description: "Customer portals, dashboards, internal tools and SaaS platforms.",
+        icon: "fa-desktop",
+        path: :custom_software_path
+      },
+      {
+        title: "Mobile apps",
+        description: "iOS and Android apps for your customers or your field team.",
+        icon: "fa-mobile",
+        path: :custom_software_path
+      },
+      {
+        title: "AI & automation",
+        description: "AI agents and workflows that read documents, answer calls and remove manual work.",
         icon: "fa-cogs",
         path: :ai_agent_development_path
       },
       {
-        title: "Custom Software",
-        description: "Web and mobile platforms, portals and internal tools built around how your business actually runs.",
-        icon: "fa-code",
-        path: :custom_software_path
-      },
-      {
-        title: "Platform Modernization",
-        description: "Rescue slow, fragile platforms and modernize them step by step without downtime.",
-        icon: "fa-refresh",
-        path: :platform_modernization_path
+        title: "MVP development",
+        description: "Take a new product from idea to launch, in milestones.",
+        icon: "fa-rocket",
+        path: :mvp_development_path
       },
       {
         title: "Integrations & APIs",
-        description: "Connect QuickBooks, Stripe, Twilio, Outlook, EHRs and MLS data so nobody re-types anything.",
+        description: "Connect the tools you already use so data flows without retyping.",
         icon: "fa-plug",
         path: :api_integrations_path
       },
       {
-        title: "Machine Learning",
-        description: "Document AI and predictions in your workflows: classification, extraction, matching, with humans reviewing what matters.",
-        icon: "fa-line-chart",
-        path: :machine_learning_path
+        title: "Platform modernization",
+        description: "Fix slow or fragile systems and modernize them without downtime.",
+        icon: "fa-refresh",
+        path: :platform_modernization_path
       },
       {
-        title: "DevOps & Cloud",
-        description: "CI/CD, cloud setup, monitoring and performance tuning on AWS, GCP and Azure.",
+        title: "DevOps, cloud & security",
+        description: "Cloud setup, CI/CD, monitoring, and security reviews and hardening.",
         icon: "fa-cloud",
         path: :devops_engineering_path
+      },
+      {
+        title: "Dedicated engineers",
+        description: "Add AI, web or mobile engineers to your team, backed by ours.",
+        icon: "fa-users",
+        path: :hire_dedicated_developers_path
       }
     ]
   end
+
+  def who_we_work_with_list
+    [
+      {
+        title: "Startups and founders",
+        description: "From first MVP to a product that scales.",
+        icon: "fa-lightbulb-o"
+      },
+      {
+        title: "SaaS companies",
+        description: "New features, AI and rebuilds for products with real customers.",
+        icon: "fa-cubes"
+      },
+      {
+        title: "Growing businesses",
+        description: "Software and automation that remove manual work from daily operations.",
+        icon: "fa-line-chart"
+      },
+      {
+        title: "Agencies",
+        description: "White-label development under your brand and NDA.",
+        icon: "fa-handshake-o"
+      }
+    ]
+  end
+
+  # Eight tool cards for homepage and /services. Same tools, regrouped so cards stay even.
+  def tools_platforms_groups
+    [
+      {
+        title: "AI & machine learning",
+        icon: "fa-magic",
+        tools: ["OpenAI", "Anthropic (Claude)", "Google Gemini", "LangChain", "Deepgram", "ElevenLabs"]
+      },
+      {
+        title: "Payments & finance",
+        icon: "fa-credit-card",
+        tools: ["Stripe", "Stripe Connect", "Plaid", "Square", "Clover", "PayPal", "Authorize.net", "Dwolla", "QuickBooks Online"]
+      },
+      {
+        title: "Communication",
+        icon: "fa-comments",
+        tools: ["Twilio", "Mailgun", "Microsoft 365 / Outlook", "Google Workspace"]
+      },
+      {
+        title: "Business & industry apps",
+        icon: "fa-briefcase",
+        tools: ["DocuSign", "Google Business Profile", "Meta", "athenahealth (FHIR)", "RESO / MLS", "ATTOM", "Make.com"]
+      },
+      {
+        title: "Cloud & DevOps",
+        icon: "fa-cloud",
+        tools: ["AWS", "Google Cloud", "Microsoft Azure", "DigitalOcean", "Cloudflare", "Docker", "GitHub Actions"]
+      },
+      {
+        title: "Web",
+        icon: "fa-code",
+        tools: ["React", "Next.js", "Node.js", "NestJS", "Python / FastAPI", "Ruby on Rails", "Java / Spring Boot", "Vue.js"]
+      },
+      {
+        title: "Mobile & maps",
+        icon: "fa-mobile",
+        tools: ["React Native", "Flutter", "Google Maps", "PostGIS"]
+      },
+      {
+        title: "Data & search",
+        icon: "fa-database",
+        tools: ["PostgreSQL", "Redis", "MongoDB", "DynamoDB", "Elasticsearch", "Meilisearch"]
+      }
+    ]
+  end
+
+  alias_method :core_services_list, :what_we_build_list
 
   # BreadcrumbList JSON-LD for inner pages (services, solutions, about, contact, etc.)
   def breadcrumb_list_json_ld
@@ -198,7 +284,8 @@ module ApplicationHelper
       "ai-agent-development" => "AI Agent Development",
       "machine-learning" => "Machine Learning",
       "platform-modernization" => "Platform Modernization",
-      "custom-software" => "Custom Software",
+      "custom-software" => "Custom Software, Web & Mobile",
+      "mvp-development" => "MVP Development",
       "api-integrations" => "API & Integrations",
       "integrations" => "Integrations",
       "devops-engineering" => "DevOps Engineering",
@@ -264,11 +351,24 @@ module ApplicationHelper
     descriptions = {
       "what-to-look-for-hiring-fractional-engineering-team" => "What to look for when hiring a fractional engineering team: ownership, communication, production outcomes, and how to structure the engagement.",
       "a-laymans-guide-for-hiring-a-top-software-company-in-pakistan" => "A practical guide for hiring a top software development partner: evaluating technical teams, proposals, and avoiding common outsourcing pitfalls.",
-      "how-to-evaluate-ai-agent-development-company-2026" => "How to evaluate an AI agent development company in 2026: production track record, governance, cost at scale, and red flags to avoid.",
-      "hipaa-compliant-ai-healthcare-companies-guide" => "HIPAA-ready AI guide for healthcare teams: BAA requirements, PHI handling, audit trails, and building AI that fits healthcare rules.",
-      "building-production-ai-agents-langgraph-complete-guide" => "Complete guide to building production AI agents with LangGraph: state graphs, checkpoints, human-in-the-loop, and shipping beyond tutorials."
+      "how-to-evaluate-ai-agent-development-company-2026" => "How to evaluate an AI agent development company in 2026: production track record, governance, cost at scale, and the red flags to avoid before you hire.",
+      "hipaa-compliant-ai-healthcare-companies-guide" => "HIPAA-ready AI guide for healthcare teams: BAA requirements, PHI handling, audit trails, and building AI that fits healthcare rules without shortcuts.",
+      "building-production-ai-agents-langgraph-complete-guide" => "Complete guide to building production AI agents with LangGraph: state graphs, checkpoints, human-in-the-loop, and shipping beyond tutorials.",
+      "ai-cost-explosion" => "Your AI feature costs too much to run. Smart model routing, caching and token optimization that cut spend without sacrificing answer quality in production.",
+      "prompt-injection-security" => "What prompt injection is, how attackers abuse agents, and defense-in-depth that works: input checks, output filters and least-privilege tool access.",
+      "rag-implementation-mistakes" => "You gave your AI access to all your docs and it still makes things up. Bad chunking, wrong embeddings, missing re-ranking, and how to fix each one.",
+      "fine-tuning-vs-prompting" => "When prompting is enough and when fine-tuning wins for domain AI: cost, accuracy plateaus, data needs, and a practical way to decide for your stack.",
+      "multimodal-ai-pitfalls" => "Why vision models miss invoice totals and form fields: preprocessing, OCR-first pipelines, structured output, and when not to send raw images.",
+      "synthetic-data-trap" => "You trained on AI-generated data and quality got worse. Model collapse explained, when synthetic data helps, and mix strategies that actually work.",
+      "testing-ai-systems" => "Your AI passed every test, then failed with a customer. Non-determinism, adversarial testing, and production monitoring treated as ongoing testing.",
+      "reduced-customer-support-tickets-90-percent-ai-agents" => "AI customer support automation that actually reduces tickets: triage, deflection and human handoff, with confidence thresholds that keep users happy.",
+      "production-ai-vs-prototype-ai-why-projects-fail" => "Production AI development is different from demos. Why most AI projects fail after the pilot, and what it takes to ship systems that last in ops.",
+      "modular-ai-agents-case-study" => "Production-ready AI agents for support, voice and sales outreach, built to plug into your stack with human handoff and full customization options.",
+      "whatsapp-voice-ai-agent-demo" => "Real-time AI agents for WhatsApp and voice that triage, book appointments and escalate to humans when needed, with guardrails for service teams."
     }
-    descriptions[slug] || article[:excerpt_short].to_s.truncate(155)
+    text = descriptions[slug].presence || article[:excerpt_short].to_s
+    text = text.truncate(165)
+    text
   end
 
   # Single Organization JSON-LD for the whole site (rendered once in the layout).
@@ -280,10 +380,11 @@ module ApplicationHelper
       "@type" => "Organization",
       "@id" => "https://astechware.com/#organization",
       "name" => "A'sTechware",
+      # [[AHMAD: exact registered name, e.g. "Astechware LLC"]] — keep AsTechware LLC until confirmed
       "legalName" => "AsTechware LLC",
       "url" => base,
       "logo" => logo_url.present? ? { "@type" => "ImageObject", "url" => logo_url } : nil,
-      "description" => "AsTechware LLC (Wyoming, USA) with an engineering team in Lahore, Pakistan, serving legal, healthcare, construction and logistics teams in the US, Canada, Australia and the UK.",
+      "description" => "AsTechware LLC (Wyoming, USA) with an engineering team in Lahore, Pakistan, serving legal, healthcare, construction and logistics teams in the US, UK, Canada and Australia.",
       "email" => "ahmad@astechware.com",
       "foundingDate" => "2022",
       "numberOfEmployees" => {
@@ -299,17 +400,16 @@ module ApplicationHelper
         "sameAs" => [
           "https://www.linkedin.com/in/engr-ahmad-kamran",
           "https://www.upwork.com/freelancers/ahmadkamrans",
+          "https://www.upwork.com/freelancers/~01eb09bb74c3e6d04b",
           "https://www.youtube.com/@ahmadkamran518"
         ]
       },
       "sameAs" => [
         "https://www.linkedin.com/company/astechware",
         "https://www.youtube.com/@ahmadkamran518",
-        "https://clutch.co/profile/astechware",
-        "https://www.upwork.com/freelancers/ahmadkamrans",
-        "https://www.upwork.com/freelancers/~01eb09bb74c3e6d04b"
+        "https://clutch.co/profile/astechware"
       ],
-      "areaServed" => ["United States", "Canada", "Australia", "United Kingdom"],
+      "areaServed" => ["United States", "United Kingdom", "Canada", "Australia"],
       "address" => {
         "@type" => "PostalAddress",
         "addressRegion" => "WY",

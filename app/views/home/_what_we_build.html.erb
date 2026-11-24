@@ -1,0 +1,29 @@
+<%# Shared "What we build" grid — homepage and /services hub %>
+<section class="<%= local_assigns.fetch(:section_class, "py-5 bg-light-grey") %>" id="<%= local_assigns.fetch(:section_id, "what-we-build") %>">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">What we build</h2>
+      <p class="large-para mb-0" style="max-width: 750px; margin: 0 auto;">
+        For startups, growing businesses and established companies in any industry.
+      </p>
+    </div>
+    <div class="row g-4">
+      <% what_we_build_list.each do |item| %>
+        <div class="col-6 col-md-6 col-lg-3">
+          <%= link_to public_send(item[:path]), class: "text-decoration-none text-dark d-block h-100 ajax what-we-build-card" do %>
+            <div class="build-system-card p-4 h-100">
+              <h3 class="h5 mb-2"><%= item[:title] %></h3>
+              <p class="mb-3 small"><%= item[:description] %></p>
+              <span class="what-we-build-more">See how &rarr;</span>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <% if local_assigns[:show_security_line] %>
+      <p class="text-center text-muted small mt-4 mb-0" style="max-width: 720px; margin-left: auto; margin-right: auto;">
+        Security built in: encryption, role-based access, audit logs, secure cloud setup, and a security review and hardening pass before launch.
+      </p>
+    <% end %>
+  </div>
+</section>

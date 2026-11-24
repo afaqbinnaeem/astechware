@@ -1,14 +1,13 @@
+<%# Kept for any legacy renders; prefer what_we_build_list via home/what_we_build %>
 <div class="row g-4">
-  <% core_services_list.each do |service| %>
-    <div class="col-12 col-sm-6 col-lg-4">
-      <div class="service-card h-100">
-        <div class="service-card-icon">
-          <i class="fa <%= service[:icon] %>" aria-hidden="true"></i>
+  <% what_we_build_list.each do |service| %>
+    <div class="col-12 col-md-6 col-lg-3">
+      <%= link_to public_send(service[:path]), class: "text-decoration-none text-dark d-block h-100 ajax" do %>
+        <div class="build-system-card p-4 h-100">
+          <h3 class="h5 mb-2"><%= service[:title] %></h3>
+          <p class="mb-0 small"><%= service[:description] %></p>
         </div>
-        <h5 class="service-card-title"><%= service[:title] %></h5>
-        <p class="service-card-desc"><%= service[:description] %></p>
-        <%= link_to "Learn More →", public_send(service[:path]), class: "service-card-link ajax" %>
-      </div>
+      <% end %>
     </div>
   <% end %>
 </div>

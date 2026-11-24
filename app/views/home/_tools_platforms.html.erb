@@ -1,0 +1,93 @@
+<%# Shared tools/platforms cards — homepage and /services. %>
+<% section_id = local_assigns.fetch(:section_id, "tools-we-work-with") %>
+<% section_class = local_assigns.fetch(:section_class, "py-5 bg-light-grey") %>
+<section class="<%= section_class %> tools-platforms-section" id="<%= section_id %>">
+  <div class="container">
+    <div class="text-center tools-platforms-heading">
+      <h2 class="heading-border heading-center mb-2 pb-3 d-inline-block">Tools and platforms we work with</h2>
+      <p class="tools-platforms-lead mb-0">We build with, and connect to, the tools you already use.</p>
+    </div>
+
+    <div class="tools-platforms-grid">
+      <% tools_platforms_groups.each do |group| %>
+        <div class="tools-platform-card">
+          <h3 class="tools-platform-card-title">
+            <i class="fa <%= group[:icon] %>" aria-hidden="true"></i>
+            <span><%= group[:title] %></span>
+          </h3>
+          <p class="tools-platform-card-tools mb-0"><%= group[:tools].join(" · ") %></p>
+        </div>
+      <% end %>
+    </div>
+
+    <p class="tools-platforms-note text-center mb-0">
+      We also integrate with Salesforce, HubSpot, GoHighLevel, ServiceTitan, Procore, Clio and Zoho through their APIs.
+    </p>
+  </div>
+</section>
+
+<style>
+  .tools-platforms-heading {
+    margin-bottom: 28px;
+  }
+  .tools-platforms-lead {
+    font-size: 1rem;
+    line-height: 1.4;
+    color: #1a1f2e;
+  }
+  .tools-platforms-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    align-items: stretch;
+  }
+  .tools-platform-card {
+    background: #fff;
+    border: 1px solid #e6e8ec;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: none;
+    height: 100%;
+  }
+  .tools-platform-card-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 8px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.35;
+    color: #1a1f2e;
+  }
+  .tools-platform-card-title .fa {
+    color: var(--site-color);
+    font-size: 16px;
+    width: 1.25em;
+    text-align: center;
+    flex: 0 0 auto;
+  }
+  .tools-platform-card-tools {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #5c6570;
+  }
+  .tools-platforms-note {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #5c6570;
+    max-width: 920px;
+    margin: 28px auto 0;
+  }
+  @media (min-width: 768px) {
+    .tools-platforms-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (min-width: 1200px) {
+    .tools-platforms-grid {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+</style>
