@@ -1,0 +1,233 @@
+<% content_for :head do %>
+  <% set_meta_tags(
+    title: "AI Receptionist & Scribe for Private Clinics",
+    description: "An AI receptionist that answers calls and books patients, plus an AI scribe that drafts clinical notes, for private clinics. Patient data never reaches an AI model.",
+    keywords: "AI receptionist private clinic, AI medical scribe, private clinic software, HIPAA-ready healthcare AI, clinic voice booking, patient scheduling automation"
+  ) %>
+  <% private_clinics_faq = [
+       { q: "Does patient data go to the AI model?", a: "No. We de-identify text before any LLM call and re-associate tokens server side after the model responds. The architecture is designed so patient identifiers are not present in model prompts." },
+       { q: "Is the platform HIPAA compliant?", a: "We build HIPAA-ready systems with BAAs, audit logging, and access controls appropriate to your role as covered entity or business associate. We do not claim HIPAA compliance on your behalf without your operational controls in place." },
+       { q: "What did you ship for private clinics?", a: "Voice booking, web booking, provider dashboard, AI medical scribe, and bi-directional athenahealth FHIR sync for a US multi-location private clinic group." },
+       { q: "Do you store call or visit audio?", a: "On the shipped scribe path, audio streams to transcription in real time and is not retained. Transcripts and draft notes are encrypted; providers approve before anything reaches the EHR." }
+     ] %>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "Service",
+    "name" => "AI Receptionist & Scribe for Private Clinics",
+    "url" => industry_private_clinics_url,
+    "description" => "An AI receptionist that answers calls and books patients, plus an AI scribe that drafts clinical notes, for private clinics. Patient data never reaches an AI model.",
+    "provider" => { "@id" => "https://astechware.com/#organization" },
+    "areaServed" => ["United States", "Canada", "Australia"],
+    "serviceType" => "Healthcare AI for Private Clinics",
+    "category" => "Healthcare Technology"
+  }.to_json) %>
+  </script>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "FAQPage",
+    "mainEntity" => private_clinics_faq.map { |item|
+      {
+        "@type" => "Question",
+        "name" => item[:q],
+        "acceptedAnswer" => { "@type" => "Answer", "text" => item[:a] }
+      }
+    }
+  }.to_json) %>
+  </script>
+<% end %>
+
+<div class="hero-section py-5 service-page-hero healthcare-hero industry-landing-hero">
+  <div class="container">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-12 col-lg-9 mx-auto text-center">
+        <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;" data-page-h1>
+          AI receptionist and AI scribe for private clinics
+        </h1>
+        <p class="text-white fw-semibold mb-3" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.4; max-width: 720px; margin-left: auto; margin-right: auto;">
+          Answer calls, book patients, draft SOAP notes&nbsp;&mdash; HIPAA-ready architecture, not marketing claims.
+        </p>
+        <p class="mb-4" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
+          We build voice booking and AI scribe systems for private clinic owners and small multi-location groups in the US, Canada, and Australia&nbsp;&mdash; operators who need after-hours coverage and faster documentation without sending patient identifiers to a language model.
+        </p>
+        <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+          Start with a discovery sprint &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="inner-sections private-clinics-industry-page">
+
+  <section class="py-5 bg-white" id="problems">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto mb-5">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Problems we solve</h2>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Front desk cannot keep up with call volume</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">Business hours overflow and after-hours calls go to voicemail. Patients book elsewhere while staff chase callbacks.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Providers finish notes after hours</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">SOAP documentation from memory burns an hour or more per provider per day and still misses details patients mentioned in the chair.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Point solutions that do not sync</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">A booking widget here, an answering service there, a scribe trial with no EHR path&nbsp;&mdash; each adds work instead of removing it.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Fear of PHI in AI tools</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">Default voice-agent architectures send transcripts straight to models. That is not acceptable for clinic operators who answer to a compliance reviewer.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Double booking and schedule drift</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">When voice, web, and EHR scheduling are not reconciled, the embarrassing failure mode is two patients booked into the same slot.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey" id="what-we-build">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto mb-5">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">What we build</h2>
+          <p class="large-para mb-4">Patient data never reaches an AI model. Identifiers are stripped before any LLM call and re-associated server side after the response.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.9;">
+            <li><strong>AI receptionist</strong> for booking, rescheduling, cancellations, and warm transfers on HIPAA-eligible telephony.</li>
+            <li><strong>Web booking</strong> sharing the same scheduling rules as voice.</li>
+            <li><strong>AI medical scribe</strong> that drafts SOAP notes with provider approval before the EHR.</li>
+            <li><strong>Provider dashboard</strong> for schedule, visits, and note review in one place.</li>
+            <li><strong>PHI de-identification layer</strong> between transcription and the LLM.</li>
+            <li><strong>EHR scheduling sync</strong> with concurrency handled at the database layer.</li>
+            <li><strong>Append-only audit logging</strong> on PHI access events.</li>
+          </ul>
+          <p class="large-para mt-4 mb-0">
+            <%= link_to "Broader healthcare AI engineering (EHR depth, BAA posture) →", industry_healthcare_path, class: "service-card-link ajax" %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white" id="case-study">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Featured case study</h2>
+          <div class="workflow-card p-4 p-lg-5">
+            <h3 class="h5 mb-3">Voice booking and AI scribe for a US private clinic group</h3>
+            <p class="mb-0" style="line-height: 1.7;">
+              One platform for voice and web booking, provider dashboard, AI scribe, and athenahealth FHIR sync&nbsp;&mdash; built so identifiers do not reach the LLM, audio is not stored, and every clinical note requires provider approval before it touches the EHR.
+            </p>
+            <%= link_to "Read the full case study &rarr;".html_safe, case_study_path("medical-voice-ai"), class: "d-inline-block mt-4 fw-semibold ajax" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey" id="tools">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Tools we build with</h2>
+          <div class="workflow-card p-4 p-lg-5">
+            <p class="mb-3 small text-muted">From the medical-voice-ai case study integrations we shipped:</p>
+            <ul class="mb-0 ps-3" style="line-height: 2;">
+              <li>athenahealth FHIR R4</li>
+              <li>Twilio</li>
+              <li>Deepgram</li>
+              <li>ElevenLabs</li>
+              <li>Claude (de-identified prompts)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white" id="two-ways">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Two ways to work with us</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h5 mb-3">Build it with our team</h3>
+            <p class="mb-3">We scope it, design it, build it, and put it into production. You get weekly demos, milestone-based payments, and full code ownership.</p>
+            <%= link_to "See our services", services_path, class: "service-card-link ajax" %>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h5 mb-3">Add an engineer to your team</h3>
+            <p class="mb-3">A dedicated engineer who works in your tools, backed by our senior team for code review and cover.</p>
+            <% if route_helper_defined?(:hire_ai_engineers_path) %>
+              <%= link_to "Hire an AI engineer", hire_ai_engineers_path, class: "service-card-link ajax" %>
+            <% elsif route_helper_defined?(:hire_dedicated_developers_path) %>
+              <%= link_to "Hire an engineer", hire_dedicated_developers_path, class: "service-card-link ajax" %>
+            <% else %>
+              <%= link_to "Book a 30-min call", "https://calendly.com/ahmadkamran/new-meeting", target: "_blank", rel: "noopener noreferrer", class: "service-card-link" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey" id="faq">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">FAQ</h2>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="accordion private-clinics-industry-faq" id="privateClinicsIndustryFaq">
+            <% private_clinics_faq.each_with_index do |item, idx| %>
+              <% collapse_id = "pcfaq#{idx + 1}" %>
+              <div class="accordion-item border rounded mb-2">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#<%= collapse_id %>" aria-expanded="false" aria-controls="<%= collapse_id %>"><%= item[:q] %></button>
+                </h3>
+                <div id="<%= collapse_id %>" class="accordion-collapse collapse" data-bs-parent="#privateClinicsIndustryFaq">
+                  <div class="accordion-body"><%= item[:a] %></div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white">
+    <div class="container text-center">
+      <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+        Book a discovery call &rarr;
+      </a>
+    </div>
+  </section>
+
+</div>
