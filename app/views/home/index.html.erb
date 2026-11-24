@@ -1,10 +1,10 @@
 <% set_meta_tags(
-  title: "AI Engineering Partner for Legal, Healthcare & Operations | A'sTechware",
+  title: "AI Engineering Partner for Legal, Healthcare & Operations",
   description: "Production AI engineering partner for legal, healthcare, construction, logistics, and ops-heavy teams. AI agents, workflow automation, dedicated Python/Node.js engineers. Milestone delivery, full code ownership.",
   keywords: "AI engineering partner, AI development company, hire software engineers, workflow automation, Python development, Node.js development, legal tech software, healthcare AI, construction software, logistics automation, trucking dispatch software, fractional engineering team, forward deployed engineering, custom automation systems, production AI, platform engineering, AI governance, privacy first AI"
 ) %>
 <% content_for :head do %>
-   <%# Homepage-only JSON-LD: WebSite, ProfessionalService, FAQPage, AggregateRating + Reviews %>
+   <%# Homepage-only JSON-LD: WebSite, ProfessionalService (FAQPage replaced on homepage rebuild) %>
    <% home_base = Rails.env.production? ? "https://astechware.com" : root_url.chomp("/") %>
    <script type="application/ld+json">
    <%= raw({
@@ -13,7 +13,7 @@
      "name" => "A'sTechware",
      "url" => home_base,
      "description" => "Privacy first AI automations and platform engineering. AI agents, custom software, and modernization for B2B SaaS and regulated industries.",
-     "publisher" => { "@type" => "Organization", "name" => "A'sTechware", "url" => home_base }
+     "publisher" => { "@id" => "https://astechware.com/#organization" }
    }.to_json) %>
    </script>
    <script type="application/ld+json">
@@ -23,8 +23,8 @@
      "name" => "A'sTechware",
      "url" => home_base,
      "description" => "Privacy first AI agents, custom software, platform modernization, API integrations, and DevOps. Milestone based delivery, weekly demos, full code ownership.",
-     "priceRange" => "$$",
-     "areaServed" => "Worldwide",
+     "provider" => { "@id" => "https://astechware.com/#organization" },
+     "areaServed" => ["United States", "Canada", "Australia"],
     "knowsAbout" => ["AI Agents & Automation", "Custom Platform Development", "Platform Modernization & Scaling", "Integrations & API Engineering", "Construction Software", "Logistics Automation", "Trucking Dispatch", "Real Estate Operations", "Legal Tech Engineering", "Healthcare AI", "Python Development", "Node.js Development", "React Development"],
     "hasOfferCatalog" => {
       "@type" => "OfferCatalog",
@@ -40,37 +40,7 @@
     }
    }.to_json) %>
    </script>
-   <script type="application/ld+json">
-   <%= raw({
-     "@context" => "https://schema.org",
-     "@type" => "FAQPage",
-     "mainEntity" => [
-       { "@type" => "Question", "name" => "Do you require large upfront payments?", "acceptedAnswer" => { "@type" => "Answer", "text" => "No. Payments are structured per milestone, not for the entire project upfront." } },
-       { "@type" => "Question", "name" => "What if we're not satisfied after a milestone?", "acceptedAnswer" => { "@type" => "Answer", "text" => "You're not obligated to continue. Each milestone stands on its own." } },
-       { "@type" => "Question", "name" => "Who owns the code and system?", "acceptedAnswer" => { "@type" => "Answer", "text" => "You do always." } },
-       { "@type" => "Question", "name" => "Can another team take over later?", "acceptedAnswer" => { "@type" => "Answer", "text" => "Yes. Everything is documented and portable by design." } },
-       { "@type" => "Question", "name" => "Is this approach only for software builds?", "acceptedAnswer" => { "@type" => "Answer", "text" => "No. The same structure applies to automation, AI-assisted systems, and internal tools." } },
-       { "@type" => "Question", "name" => "Can we hire dedicated backend or frontend engineers through you?", "acceptedAnswer" => { "@type" => "Answer", "text" => "Yes. We provide fractional and dedicated software engineers — backend, frontend, and full-stack — embedded in your workflow with milestone-based delivery and full code ownership." } },
-       { "@type" => "Question", "name" => "Do you work as an engineering partner for legal tech and healthcare?", "acceptedAnswer" => { "@type" => "Answer", "text" => "Yes. We build production AI and software for legal operations and healthcare teams with privacy-first architecture, audit trails, and compliance-aware design." } },
-       { "@type" => "Question", "name" => "What industries do you build automation systems for?", "acceptedAnswer" => { "@type" => "Answer", "text" => "Legal, healthcare, construction, logistics, trucking, HVAC, real estate, fintech, and B2B SaaS — especially operations-heavy teams with manual workflows and fragmented systems." } },
-       { "@type" => "Question", "name" => "Do you build production automation, not just AI demos?", "acceptedAnswer" => { "@type" => "Answer", "text" => "Yes. We ship workflow automation, AI agents, and custom systems with monitoring, human-in-the-loop, error handling, and governance built in from day one." } }
-     ]
-   }.to_json) %>
-   </script>
-   <script type="application/ld+json">
-   <%= raw({
-     "@context" => "https://schema.org",
-     "@type" => "Organization",
-     "name" => "A'sTechware",
-     "url" => home_base,
-     "aggregateRating" => { "@type" => "AggregateRating", "ratingValue" => "5.0", "reviewCount" => "11", "bestRating" => "5" },
-     "review" => [
-       { "@type" => "Review", "author" => { "@type" => "Person", "name" => "Nathan Wolf" }, "reviewBody" => "This is a stellar team! I have assigned new contracts to them for several years. A joy to work with. Smart people. Good people. Honest. Hard working. Excellent results.", "reviewRating" => { "@type" => "Rating", "ratingValue" => "5", "bestRating" => "5" } },
-       { "@type" => "Review", "author" => { "@type" => "Person", "name" => "Dale Merritt" }, "reviewBody" => "Been working with Ahmad for almost two years, and they've been great to work with. One of the most reliable developers I've had the pleasure to work with.", "reviewRating" => { "@type" => "Rating", "ratingValue" => "5", "bestRating" => "5" } },
-       { "@type" => "Review", "author" => { "@type" => "Person", "name" => "Brianne Harvey" }, "reviewBody" => "Ahmad has been an exceptional contractor and we feel incredibly fortunate to have found him.", "reviewRating" => { "@type" => "Rating", "ratingValue" => "5", "bestRating" => "5" } }
-     ]
-   }.to_json) %>
-   </script>
+   <%# FAQPage JSON-LD is replaced when the homepage is rebuilt (Homepage section). %>
  <% end %>
  
 <!-- Hero Section -->
@@ -78,7 +48,7 @@
    <div class="container">
       <div class="row align-items-center min-vh-50">
          <div class="col-12 col-lg-11 mx-auto text-center">
-            <h1 class="display-4 fw-bold mb-5" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;">
+            <h1 class="display-4 fw-bold mb-5" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;" data-page-h1>
             AI Enabled Systems for Legal, Healthcare & Operational Workflows
             </h1>
             <p class="lead mb-3" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.6; max-width: 950px; margin-left: auto; margin-right: auto;">
@@ -583,7 +553,7 @@
                </p>
             </div>
           
-            <a href="<%= ai_agents_path %>" class="btn btn-primary btn-lg rounded-3">
+            <a href="<%= ai_agent_development_path %>" class="btn btn-primary btn-lg rounded-3">
                See full AI Agents overview →
             </a>
          </div>

@@ -7,21 +7,29 @@
       keywords: blog_seo_keywords(@article[:slug])
     ) %>
     <% logo_url = safe_og_image_url("logo-colored.png") %>
+    <% article_image = begin
+         image_url(@article[:image]) if @article[:image].present?
+       rescue StandardError
+         logo_url
+       end %>
     <script type="application/ld+json">
     <%= raw({
       "@context" => "https://schema.org",
       "@type" => "Article",
       "headline" => @article[:title],
       "description" => @article[:excerpt_short].to_s.truncate(160),
-      "datePublished" => @article[:date],
+      "datePublished" => @article[:date_iso].presence || @article[:date],
+      "dateModified" => @article[:date_iso].presence || @article[:date],
       "url" => canonical_url,
-      "author" => { "@type" => "Person", "name" => "Ahmad" },
-      "publisher" => {
-        "@type" => "Organization",
-        "name" => "A'sTechware",
-        "logo" => logo_url.present? ? { "@type" => "ImageObject", "url" => logo_url } : nil
-      }.compact
-    }.to_json) %>
+      "mainEntityOfPage" => { "@type" => "WebPage", "@id" => canonical_url },
+      "image" => article_image.presence || logo_url,
+      "author" => {
+        "@type" => "Person",
+        "name" => "Ahmad Kamran",
+        "url" => "https://astechware.com/about"
+      },
+      "publisher" => { "@id" => "https://astechware.com/#organization" }
+    }.compact.to_json) %>
     </script>
     <script type="application/ld+json">
     <%= raw({
