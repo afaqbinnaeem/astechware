@@ -1,0 +1,241 @@
+<% content_for :head do %>
+  <% set_meta_tags(
+    title: "HVAC & Home Services Software",
+    description: "Job photos turned into Google Business Profile posts, customer texting and portals for HVAC, plumbing, roofing, electrical and other home service businesses.",
+    keywords: "HVAC software development, home services software, field service automation, Google Business Profile API, home service customer portal, ServiceTitan integration"
+  ) %>
+  <% home_services_faq = [
+       { q: "Do technicians need to install an app to post job photos?", a: "On the Red Dragon HVAC build, technicians text photos via MMS. The pipeline strips metadata, enriches location context, drafts captions with Vision AI, and management approves before anything publishes." },
+       { q: "Which platforms can you publish to?", a: "We have shipped publishing to Google Business Profile and Meta (Facebook and Instagram) with human approval before posts go live." },
+       { q: "Can you work alongside ServiceTitan or Jobber?", a: "We can integrate with field service platforms you already use when their APIs expose customers, jobs, and scheduling data. We describe that as integration capability, not a guarantee every endpoint exists on your plan." },
+       { q: "Do you build route and dispatch software too?", a: "Yes for teams that run trucks on fixed routes. Our logistics page covers dispatch, proof of service, and billing for route-based fleets." }
+     ] %>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "Service",
+    "name" => "HVAC & Home Services Software",
+    "url" => industry_home_services_url,
+    "description" => "Job photos turned into Google Business Profile posts, customer texting and portals for HVAC, plumbing, roofing, electrical and other home service businesses.",
+    "provider" => { "@id" => "https://astechware.com/#organization" },
+    "areaServed" => ["United States", "Canada", "Australia"],
+    "serviceType" => "Home Services Software Development",
+    "category" => "Field Service Technology"
+  }.to_json) %>
+  </script>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "FAQPage",
+    "mainEntity" => home_services_faq.map { |item|
+      {
+        "@type" => "Question",
+        "name" => item[:q],
+        "acceptedAnswer" => { "@type" => "Answer", "text" => item[:a] }
+      }
+    }
+  }.to_json) %>
+  </script>
+<% end %>
+
+<div class="hero-section py-5 service-page-hero professional-services-hero industry-landing-hero">
+  <div class="container">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-12 col-lg-9 mx-auto text-center">
+        <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;" data-page-h1>
+          Software and automation for HVAC and home service businesses
+        </h1>
+        <p class="text-white fw-semibold mb-3" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.4; max-width: 720px; margin-left: auto; margin-right: auto;">
+          Job-site photos become local SEO content&nbsp;&mdash; without asking techs to write captions.
+        </p>
+        <p class="mb-4" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
+          We build automation for HVAC, plumbing, roofing, electrical, and other home service companies in the US, Canada, and Australia&nbsp;&mdash; owners who need consistent local presence, customer texting, and lightweight portals without adding friction for field crews.
+        </p>
+        <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+          Start with a discovery sprint &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="inner-sections home-services-industry-page">
+
+  <section class="py-5 bg-white" id="problems">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto mb-5">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Problems we solve</h2>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Great work, stale Google presence</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">Technicians complete jobs daily but rarely document them. Map pack rankings suffer when profiles go quiet.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Field staff will not adopt heavy apps</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">Marketing asks for photos; ops asks for speed. If the workflow needs logins, forms, or caption writing, adoption dies on the first hot day.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Unapproved posts create brand risk</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">Auto-publishing without a management kill switch can put the wrong photo or wording on a public profile.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Customer texting scattered across phones</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">Dispatch, techs, and the office each text from personal numbers. There is no shared thread, template, or audit trail for the customer.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Disconnected from the FSM you already pay for</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">Marketing automation and customer portals should respect jobs and customers in ServiceTitan, Jobber, or Housecall Pro instead of duplicating them.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey" id="what-we-build">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto mb-5">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">What we build</h2>
+          <% if route_helper_defined?(:industry_logistics_path) %>
+            <p class="large-para mb-4">
+              <%= link_to "Running routes for hauling or delivery?", industry_logistics_path, class: "service-card-link ajax" %>
+            </p>
+          <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.9;">
+            <li><strong>MMS-to-social pipelines</strong> that turn job photos into draft Google Business Profile and Meta posts.</li>
+            <li><strong>Vision AI captions</strong> with equipment-aware language and management approval before publish.</li>
+            <li><strong>Google Business Profile API</strong> scheduling with observability when posts fail or rate-limit.</li>
+            <li><strong>Customer texting</strong> via Twilio with shared numbers and templates for dispatch and office staff.</li>
+            <li><strong>Customer portals</strong> for appointments, status, and lightweight document exchange.</li>
+            <li><strong>Stripe payment flows</strong> for deposits, invoices, or card-on-file where your ops model needs them.</li>
+            <li><strong>Integration layers</strong> that sync customers and jobs from field service tools instead of re-keying.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white" id="case-study">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Featured case study</h2>
+          <div class="workflow-card p-4 p-lg-5">
+            <h3 class="h5 mb-3">Red Dragon HVAC: MMS photos to Google and Meta posts</h3>
+            <p class="mb-0" style="line-height: 1.7;">
+              Technicians text photos from the truck. The pipeline ingests MMS, drafts localized captions with Vision AI, and waits for management approval before publishing to Google Business Profile and Meta&nbsp;&mdash; no app install and no caption writing in the field.
+            </p>
+            <%= link_to "Read the full case study &rarr;".html_safe, case_study_path("red-dragon-hvac"), class: "d-inline-block mt-4 fw-semibold ajax" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey" id="tools">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-12 col-md-6">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Tools we build with</h2>
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <ul class="mb-0 ps-3" style="line-height: 2;">
+              <li>Google Business Profile API</li>
+              <li>Meta (Facebook / Instagram)</li>
+              <li>Twilio</li>
+              <li>Stripe</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">We can integrate with</h2>
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <p class="mb-3 small" style="line-height: 1.7;">We can integrate with field service platforms you already run:</p>
+            <ul class="mb-0 ps-3" style="line-height: 2;">
+              <li>ServiceTitan</li>
+              <li>Jobber</li>
+              <li>Housecall Pro</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white" id="two-ways">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Two ways to work with us</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h5 mb-3">Build it with our team</h3>
+            <p class="mb-3">We scope it, design it, build it, and put it into production. You get weekly demos, milestone-based payments, and full code ownership.</p>
+            <%= link_to "See our services", services_path, class: "service-card-link ajax" %>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h5 mb-3">Add an engineer to your team</h3>
+            <p class="mb-3">A dedicated engineer who works in your tools, backed by our senior team for code review and cover.</p>
+            <% if route_helper_defined?(:hire_dedicated_developers_path) %>
+              <%= link_to "Hire an engineer", hire_dedicated_developers_path, class: "service-card-link ajax" %>
+            <% else %>
+              <%= link_to "Book a 30-min call", "https://calendly.com/ahmadkamran/new-meeting", target: "_blank", rel: "noopener noreferrer", class: "service-card-link" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey" id="faq">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">FAQ</h2>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="accordion home-services-industry-faq" id="homeServicesIndustryFaq">
+            <% home_services_faq.each_with_index do |item, idx| %>
+              <% collapse_id = "hsfaq#{idx + 1}" %>
+              <div class="accordion-item border rounded mb-2">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#<%= collapse_id %>" aria-expanded="false" aria-controls="<%= collapse_id %>"><%= item[:q] %></button>
+                </h3>
+                <div id="<%= collapse_id %>" class="accordion-collapse collapse" data-bs-parent="#homeServicesIndustryFaq">
+                  <div class="accordion-body"><%= item[:a] %></div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white">
+    <div class="container text-center">
+      <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+        Book a discovery call &rarr;
+      </a>
+    </div>
+  </section>
+
+</div>
