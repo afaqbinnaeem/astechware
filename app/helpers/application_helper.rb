@@ -286,7 +286,7 @@ module ApplicationHelper
       "description" => "Software and automation company for legal, healthcare, construction and logistics teams in the US, Canada and Australia.",
       "email" => "ahmad@astechware.com",
       # [[AHMAD: founding year]] — omit from JSON-LD until confirmed
-      "numberOfEmployees" => 12,
+      # [[AHMAD: team size]] omit numberOfEmployees until confirmed
       "founder" => {
         "@type" => "Person",
         "name" => "Ahmad Kamran",
