@@ -1,0 +1,183 @@
+<%# Locals: accordion_id — unique prefix for FAQ collapse ids %>
+<% hire_roles = [
+     "AI / LLM engineer",
+     "Automation engineer",
+     "Python / FastAPI",
+     "Node.js / NestJS",
+     "React / Next.js",
+     "React Native",
+     "Java / Spring Boot",
+     "Vue.js",
+     "Ruby on Rails",
+     "DevOps (AWS, GCP, Azure, Docker, CI/CD)"
+   ] %>
+
+<section class="py-5 bg-light-grey" id="roles">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Roles we staff</h2>
+      <p class="large-para mb-0">Dedicated engineers across AI, backend, frontend, mobile, and DevOps.</p>
+    </div>
+    <div class="row g-3 justify-content-center">
+      <% hire_roles.each do |role| %>
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="workflow-card p-3 text-center h-100 small fw-semibold"><%= role %></div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-white" id="how-it-works">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">How it works</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="workflow-card p-4 h-100 text-center">
+          <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-3" style="width: 40px; height: 40px; line-height: 40px; font-weight: 700;">1</span>
+          <h3 class="h6 mb-2">Short call</h3>
+          <p class="mb-0 small">30-minute call to understand stack, timezone, and the work you need done.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="workflow-card p-4 h-100 text-center">
+          <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-3" style="width: 40px; height: 40px; line-height: 40px; font-weight: 700;">2</span>
+          <h3 class="h6 mb-2">Match an engineer</h3>
+          <p class="mb-0 small">We propose someone who fits your tools and domain, with seniors reviewing fit before you meet them.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="workflow-card p-4 h-100 text-center">
+          <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-3" style="width: 40px; height: 40px; line-height: 40px; font-weight: 700;">3</span>
+          <h3 class="h6 mb-2">Trial week</h3>
+          <p class="mb-0 small">One-week paid trial in your repos and rituals. Replace at no extra cost if it is not a fit.</p>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="workflow-card p-4 h-100 text-center">
+          <span class="d-inline-block rounded-circle bg-primary bg-opacity-10 text-primary mb-3" style="width: 40px; height: 40px; line-height: 40px; font-weight: 700;">4</span>
+          <h3 class="h6 mb-2">Ongoing</h3>
+          <p class="mb-0 small">Month-to-month engagement with weekly updates, senior review on merges, and cover during leave.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-light-grey" id="included">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">What&rsquo;s included</h2>
+        <ul class="service-page-list mb-4" style="font-size: 1.05rem; line-height: 1.75;">
+          <li><strong>You own the code</strong> &mdash; work product lives in your repos; no vendor lock-in.</li>
+          <li><strong>NDA</strong> &mdash; standard confidentiality before we touch your systems or data.</li>
+          <li><strong>Your tools</strong> &mdash; Slack, Jira, GitHub, GitLab, Notion, or whatever your team already runs.</li>
+          <li><strong>Senior code review</strong> &mdash; our seniors review behind the dedicated engineer on architecture and pull requests.</li>
+          <li><strong>Cover during leave</strong> &mdash; backup from the bench so sprint commitments do not stall.</li>
+        </ul>
+        <div class="workflow-card p-4">
+          <h3 class="h6 mb-3">Trial and replacement</h3>
+          <p class="mb-0 small" style="line-height: 1.75;">
+            [[AHMAD: confirm these apply to direct clients, not only agencies]] One-week paid trial with free replacement if the match is not right. Month-to-month terms with no penalty to scale down when priorities shift.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-white" id="time-zones">
+  <div class="container">
+    <div class="col-12 col-lg-10 mx-auto text-center">
+      <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Time zones</h2>
+      <p class="large-para mb-3">
+        Overlap with your working day in the UK and US mornings; scheduled calls for Australia.
+      </p>
+      <p class="small text-muted mb-0">
+        [[AHMAD: confirm]] Core team hours are 3&nbsp;PM&ndash;1&nbsp;AM Pakistan time (PKT).
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-light-grey" id="compare">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Project team vs dedicated engineer</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-12 col-md-6">
+        <div class="workflow-card p-4 p-lg-5 h-100">
+          <h3 class="h5 mb-3">Project team (we deliver)</h3>
+          <ul class="mb-4 ps-3 small" style="line-height: 1.85;">
+            <li><strong>Who manages:</strong> We run the sprint, demos, and delivery plan.</li>
+            <li><strong>Best for:</strong> Greenfield products, defined scopes, platform builds.</li>
+            <li><strong>How you pay:</strong> Per milestone tied to shipped outcomes.</li>
+          </ul>
+          <%= link_to "See project services", services_path, class: "service-card-link ajax" %>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="workflow-card p-4 p-lg-5 h-100">
+          <h3 class="h5 mb-3">Dedicated engineer (you manage)</h3>
+          <ul class="mb-0 ps-3 small" style="line-height: 1.85;">
+            <li><strong>Who manages:</strong> You assign tickets; engineer joins your standups.</li>
+            <li><strong>Best for:</strong> Extending an existing team, long-running product work, AI features in flight.</li>
+            <li><strong>How you pay:</strong> Monthly for a full-time seat, backed by our review bench.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-white" id="agencies">
+  <div class="container">
+    <div class="col-12 col-lg-10 mx-auto">
+      <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">For agencies</h2>
+      <p class="large-para mb-0">
+        White-label under your brand with NDAs in place. We place engineers who work in your client&rsquo;s tools while your account team owns the relationship.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-light-grey" id="faq">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">FAQ</h2>
+    </div>
+    <div class="row">
+      <div class="col-12 col-lg-10 mx-auto">
+        <div class="accordion hire-page-faq" id="<%= accordion_id %>">
+          <% ApplicationHelper::HIRE_ENGINEER_FAQ.each_with_index do |item, idx| %>
+            <% collapse_id = "#{accordion_id}#{idx + 1}" %>
+            <div class="accordion-item border rounded mb-2">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#<%= collapse_id %>" aria-expanded="false" aria-controls="<%= collapse_id %>"><%= item[:q] %></button>
+              </h3>
+              <div id="<%= collapse_id %>" class="accordion-collapse collapse" data-bs-parent="#<%= accordion_id %>">
+                <div class="accordion-body"><%= item[:a] %></div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-white">
+  <div class="container text-center">
+    <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Book a 30-min call</h2>
+    <p class="large-para mb-4" style="max-width: 640px; margin: 0 auto;">
+      Tell us about your stack and backlog. We will match an engineer and walk through trial week and month-to-month terms.
+    </p>
+    <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+      Book a 30-min call &rarr;
+    </a>
+  </div>
+</section>

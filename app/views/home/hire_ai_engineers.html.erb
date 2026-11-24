@@ -1,0 +1,79 @@
+<% content_for :head do %>
+  <% set_meta_tags(
+    title: "Hire AI Engineers (Dedicated & Fractional)",
+    description: "Dedicated AI and automation engineers for US, Canadian and Australian teams: agents, document AI, voice AI and AI features, with senior review built in.",
+    keywords: "hire AI engineer, dedicated AI developer, LLM engineer, automation engineer, voice AI developer, document AI, staff augmentation AI, fractional AI engineer"
+  ) %>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "Service",
+    "name" => "Dedicated AI Engineers",
+    "url" => hire_ai_engineers_url,
+    "description" => "Dedicated AI and automation engineers for US, Canadian and Australian teams: agents, document AI, voice AI and AI features, with senior review built in.",
+    "provider" => { "@id" => "https://astechware.com/#organization" },
+    "areaServed" => ["United States", "Canada", "Australia"],
+    "serviceType" => "Dedicated AI engineers",
+    "category" => "Staff Augmentation"
+  }.to_json) %>
+  </script>
+  <script type="application/ld+json">
+  <%= raw(hire_faq_json_ld.to_json) %>
+  </script>
+<% end %>
+
+<div class="hero-section py-5 service-page-hero industry-landing-hero">
+  <div class="container">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-12 col-lg-9 mx-auto text-center">
+        <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;" data-page-h1>
+          Hire AI engineers, backed by a full team
+        </h1>
+        <p class="text-white fw-semibold mb-3" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.4; max-width: 720px; margin-left: auto; margin-right: auto;">
+          One engineer in your team, with our senior engineers behind them.
+        </p>
+        <p class="mb-3" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.6; max-width: 720px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.9);">
+          Dedicated AI and automation engineers for production work&mdash;not demos.
+        </p>
+        <p class="mb-4" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
+          Agents, document pipelines, voice AI, and product features with guardrails. One engineer embeds in your team; seniors review architecture and merges behind them.
+        </p>
+        <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+          Book a 30-min call &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="inner-sections hire-ai-engineers-page">
+
+  <section class="py-5 bg-white" id="ai-work">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">AI work we embed engineers on</h2>
+        <p class="large-para mb-4">
+          We staff engineers who have shipped production AI in regulated and operations-heavy environments: LLM agents with tool use, RAG and document extraction, voice and telephony flows, and feature work inside existing SaaS products.
+        </p>
+        <ul class="service-page-list mb-4" style="font-size: 1.05rem; line-height: 1.75;">
+          <li>AI agents and workflow automation (internal ops, support, sales enablement)</li>
+          <li>Document AI: classification, extraction, and human-in-the-loop review</li>
+          <li>Voice AI with PHI-safe patterns where healthcare applies</li>
+          <li>Embedding AI features into Rails, Node, or Python backends you already run</li>
+        </ul>
+        <p class="mb-2 fw-semibold">Where we have shipped</p>
+        <p class="mb-0">
+          <%= link_to "AI agent development", ai_agent_development_path, class: "service-card-link ajax" %>
+          <span class="text-muted mx-2">&middot;</span>
+          <%= link_to "Healthcare AI", industry_healthcare_path, class: "service-card-link ajax" %>
+          <span class="text-muted mx-2">&middot;</span>
+          <%= link_to "Medical voice AI case study", case_study_path("medical-voice-ai"), class: "service-card-link ajax" %>
+          <span class="text-muted mx-2">&middot;</span>
+          <%= link_to "AI deal analyzer", case_study_path("ai-deal-analyzer"), class: "service-card-link ajax" %>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <%= render "home/hire_shared_sections", accordion_id: "hireAiEngineersFaq" %>
+</div>

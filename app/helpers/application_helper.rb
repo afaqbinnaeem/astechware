@@ -328,4 +328,41 @@ module ApplicationHelper
       "about" => seo[:keywords].to_s.split(",").first(3).map(&:strip)
     }.compact
   end
+
+  HIRE_ENGINEER_FAQ = [
+    {
+      q: "How fast can someone start?",
+      a: "[[AHMAD: typical timeline from signed agreement to engineer active in your Slack and repos]]. We match on skills and time zone overlap first, then run a paid trial week before month-to-month engagement."
+    },
+    {
+      q: "What if the engineer is not a fit?",
+      a: "After the one-week paid trial, we replace the engineer at no extra cost if it is not working. Month-to-month terms mean you can scale down without penalty when priorities change."
+    },
+    {
+      q: "What tools and workflows do you use?",
+      a: "Your stack, your rituals. We work in your Slack, Jira, GitHub, or GitLab, join your standups, and follow your branching and review rules. Our seniors review behind the scenes; you manage day to day."
+    },
+    {
+      q: "Is this a freelancer marketplace?",
+      a: "No. You get a full-time dedicated engineer embedded in your team, not hourly gig workers. The same person shows up daily, with our senior team behind them for review and cover during leave."
+    },
+    {
+      q: "Do you offer white-label for agencies?",
+      a: "Yes. Agencies can place engineers under their brand with NDAs in place. The engineer works in the agency or end-client tools, and we stay invisible to the end client when that is what you need."
+    }
+  ].freeze
+
+  def hire_faq_json_ld
+    {
+      "@context" => "https://schema.org",
+      "@type" => "FAQPage",
+      "mainEntity" => HIRE_ENGINEER_FAQ.map { |item|
+        {
+          "@type" => "Question",
+          "name" => item[:q],
+          "acceptedAnswer" => { "@type" => "Answer", "text" => item[:a] }
+        }
+      }
+    }
+  end
 end

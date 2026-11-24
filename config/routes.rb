@@ -34,6 +34,8 @@ Rails.application.routes.draw do
   get '/how-we-derisk-projects', to: 'home#derisk_projects', as: 'derisk_projects'
   get '/methodology', to: 'home#methodology', as: 'methodology'
   get '/gcc', to: 'home#gcc', as: 'gcc'
+  get '/hire-ai-engineers', to: 'home#hire_ai_engineers', as: 'hire_ai_engineers'
+  get '/hire-dedicated-developers', to: 'home#hire_dedicated_developers', as: 'hire_dedicated_developers'
   get '/solutions/healthcare', to: 'home#industry_healthcare', as: 'industry_healthcare'
   get '/solutions/legal', to: 'home#industry_legal', as: 'industry_legal'
   get '/solutions/financial', to: 'home#industry_financial', as: 'industry_financial'

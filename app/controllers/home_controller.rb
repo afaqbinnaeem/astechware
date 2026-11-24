@@ -117,6 +117,12 @@ class HomeController < ApplicationController
   def gcc
   end
 
+  def hire_ai_engineers
+  end
+
+  def hire_dedicated_developers
+  end
+
   def industry_healthcare
   end
 
