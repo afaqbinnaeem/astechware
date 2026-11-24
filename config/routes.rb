@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   end
   resources :dashboard, only: [:index]
   get 'blogs', to: 'blogs#index', as: 'blogs'
+  get 'blogs/rails-7-and-turbo', to: redirect('/services/platform-modernization', status: 301)
+  get 'blogs/five-startup-mistakes', to: redirect('/blogs/production-ai-vs-prototype-ai-why-projects-fail', status: 301)
+  get 'blogs/four-reason-for-new-web', to: redirect('/services/custom-software', status: 301)
+  get 'blogs/impact-of-ai-ml-on-food-industry', to: redirect('/case-studies/restaurant-resource-rescue', status: 301)
   get 'blogs/:slug', to: 'blogs#show', as: 'blog_show'
   get 'sitemap.xml', to: 'sitemap#index', format: 'xml', as: 'sitemap'
   root 'home#index'
@@ -58,8 +62,8 @@ Rails.application.routes.draw do
   get 'whatsapp-voice-ai-agent-demo', to: redirect('/blogs/whatsapp-voice-ai-agent-demo')
   get 'modular-ai-agents-case-study', to: redirect('/blogs/modular-ai-agents-case-study')
   get 'a-laymans-guide-for-hiring-a-top-software-company-in-pakistan', to: redirect('/blogs/a-laymans-guide-for-hiring-a-top-software-company-in-pakistan')
-  get 'exploring-the-latest-web-development-trends-a-dive-into-rails-7-and-turbo', to: redirect('/blogs/rails-7-and-turbo')
-  get 'top-5-startup-mistakes-to-avoid-learn-from-the-lessons-of-others', to: redirect('/blogs/five-startup-mistakes')
-  get '4-reasons-why-you-should-invest-in-a-new-website', to: redirect('/blogs/four-reason-for-new-web')
-  get 'the-impact-of-ai-and-machine-learning-on-the-food-products-business', to: redirect('/blogs/impact-of-ai-ml-on-food-industry')
+  get 'exploring-the-latest-web-development-trends-a-dive-into-rails-7-and-turbo', to: redirect('/services/platform-modernization', status: 301)
+  get 'top-5-startup-mistakes-to-avoid-learn-from-the-lessons-of-others', to: redirect('/blogs/production-ai-vs-prototype-ai-why-projects-fail', status: 301)
+  get '4-reasons-why-you-should-invest-in-a-new-website', to: redirect('/services/custom-software', status: 301)
+  get 'the-impact-of-ai-and-machine-learning-on-the-food-products-business', to: redirect('/case-studies/restaurant-resource-rescue', status: 301)
 end
