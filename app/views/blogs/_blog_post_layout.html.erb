@@ -34,7 +34,7 @@
         <%# Key Takeaways (from body partial) %>
         <% if content_for?(:blog_key_takeaways) %>
           <div class="blog-key-takeaways mb-4">
-            <h2 class="h6 text-uppercase text-muted mb-2">Key Takeaways</h2>
+            <h2 class="h6 text-uppercase text-muted mb-2">Key takeaways</h2>
             <%= yield :blog_key_takeaways %>
           </div>
         <% end %>
@@ -74,14 +74,14 @@
             <div class="rounded-circle bg-secondary bg-opacity-25 d-flex align-items-center justify-content-center text-secondary fw-semibold flex-shrink-0" style="width: 56px; height: 56px;"><%= (article[:author_name].to_s[0] || "A") %></div>
             <div>
               <strong><%= article[:author_name] %></strong>
-              <p class="small text-muted mb-0 mt-1">A'sTechware designs and builds production grade AI automations and custom platforms so businesses can run faster without adding headcount. We focus on systems that survive production: governance, human in the loop, and complete audit trails.</p>
+              <p class="small text-muted mb-0 mt-1">A'sTechware designs and builds day-to-day AI automations and custom platforms so businesses can run faster without adding headcount. We focus on systems that survive production: governance, human in the loop, and complete audit trails.</p>
             </div>
           </div>
         </div>
 
         <%# Newsletter CTA %>
         <div class="blog-sidebar-card mt-5">
-          <h3 class="h6 text-uppercase text-muted mb-2">Get AI &amp; Engineering Insights</h3>
+          <h3 class="h6 text-uppercase text-muted mb-2">Get AI &amp; engineering insights</h3>
           <p class="small mb-3">Practical perspectives on production AI and platform engineering. No spam.</p>
           <form action="#" method="post" class="blog-newsletter-form">
             <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -101,7 +101,7 @@
         <% related = (article.present? && article[:path].present?) ? blog_related_articles(article[:path].call, limit: 4) : [] %>
         <% if related.any? %>
           <section class="blog-related mt-5" aria-label="Related articles">
-            <h2 class="h5 mb-4">Related Articles</h2>
+            <h2 class="h5 mb-4">Related articles</h2>
             <div class="row g-3">
               <% related.first(4).each do |rel| %>
                 <div class="col-12 col-sm-6">

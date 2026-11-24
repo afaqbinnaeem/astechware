@@ -3,8 +3,7 @@
   <div class="row g-0">
     <div class="col-12 col-lg-6">
       <div class="position-relative">
-        <%= link_to article[:path].call do %>
-          <%= image_tag article[:image], class: "img-fluid w-100", alt: article[:title], style: "height: 320px; object-fit: cover;", loading: "eager" %>
+        <%= link_to article[:path].call, class: "blog-clean-cover d-flex align-items-end", aria: { label: article[:title] } do %>
           <span class="blog-badge blog-badge-featured"><%= article[:category] %></span>
         <% end %>
       </div>
