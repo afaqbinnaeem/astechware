@@ -371,4 +371,43 @@ module ApplicationHelper
       }
     }
   end
+
+  def related_links_for_current_page
+    RelatedLinks.for_path(request.path)
+  end
+
+  def resolve_related_link_path(path)
+    case path
+    when Symbol
+      unless route_helper_defined?(path)
+        log_skipped_related_link(path)
+        return nil
+      end
+
+      public_send(path)
+    when String
+      path
+    when Proc
+      instance_exec(&path)
+    end
+  rescue ActionController::UrlGenerationError, NoMethodError => e
+    log_skipped_related_link(path, e.message)
+    nil
+  end
+
+  def resolved_related_links(links)
+    Array(links).filter_map do |entry|
+      href = resolve_related_link_path(entry[:path])
+      next if href.blank?
+
+      entry.merge(href: href)
+    end
+  end
+
+  def log_skipped_related_link(path, message = nil)
+    return unless Rails.env.development?
+
+    detail = path.is_a?(Symbol) ? "route helper #{path}" : path.inspect
+    Rails.logger.info("[RelatedLinks] Skipped link (#{detail}#{message ? ": #{message}" : ""})")
+  end
 end
