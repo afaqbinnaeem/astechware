@@ -3,10 +3,10 @@
     <div class="row align-items-center min-vh-50">
       <div class="col-12 col-lg-10 mx-auto text-center">
         <h1 class="display-5 fw-bold mb-3" style="font-size: clamp(26px, 4vw, 48px); line-height: 1.15;" data-page-h1>
-          How we built a HIPAA compliant voice booking and AI scribe platform without letting an LLM ever see a patient&rsquo;s name
+          How we built HIPAA-ready voice booking and an AI scribe for a private clinic group
         </h1>
         <p class="mb-0" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.7; max-width: 900px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
-          A US multi location dental group came to us with a simple ask: let patients book appointments by voice, and give providers an AI scribe so they stop writing SOAP notes at 10pm.
+          A US multi-location private clinic group came to us with a simple ask: let patients book appointments by voice, and give providers an AI scribe so they stop writing SOAP notes at 10pm.
         </p>
       </div>
     </div>
@@ -34,29 +34,26 @@
         <div class="col-12 col-lg-7">
           <h2 class="heading-border heading-center heading-left mb-4 pb-3 d-inline-block">Who this was for and why it was hard</h2>
           <p class="large-para mb-3">
-            The client operates several dental clinics in the US. Like most multi location practices, they were drowning in three problems at once: a front desk that could not handle call volume during business hours and went dark after hours, providers spending an hour or more every evening writing SOAP notes from memory, and scheduling data scattered between spreadsheets, the EHR, and the front desk&rsquo;s heads.
+            The client operates several private clinics in the US. Like most multi-location practices, they were drowning in three problems at once: a front desk that could not handle call volume during business hours and went dark after hours, providers spending an hour or more every evening writing SOAP notes from memory, and scheduling data scattered between spreadsheets, the EHR, and the front desk&rsquo;s heads.
           </p>
           <p class="large-para mb-3">
             They had tried point solutions. A booking widget that did not sync to their EHR. An answering service that took messages but could not book. A scribe tool that was not HIPAA eligible. Each one solved one slice and created two new sync problems.
           </p>
           <p class="large-para mb-3">
-            What they wanted was one system. Voice booking, web booking, provider dashboard, AI scribe, EHR sync, all in one place, all HIPAA compliant, all auditable. What they needed was a partner who would not get them sued.
+            What they wanted was one system. Voice booking, web booking, provider dashboard, AI scribe, EHR sync, all in one place, HIPAA-ready, all auditable. What they needed was a partner who would not get them sued.
           </p>
           <p class="large-para mb-0">
             We delivered the platform in two phases over eight weeks. This case study walks through the five decisions that mattered most.
           </p>
         </div>
         <div class="col-12 col-lg-5">
-          <div class="workflow-card p-4">
-            <h3 class="h6 text-uppercase text-muted mb-3">At a glance</h3>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
-              <li><strong>Client:</strong> US multi location dental group</li>
-              <li><strong>Timeline:</strong> Eight weeks, two phases</li>
-              <li><strong>EHR:</strong> athenahealth FHIR R4 (bi directional)</li>
-              <li><strong>Voice:</strong> Twilio + Deepgram + ElevenLabs + Claude (de identified)</li>
-              <li><strong>Stack:</strong> FastAPI, PostgreSQL, Next.js on BAA covered US infrastructure</li>
-            </ul>
-          </div>
+          <%= render "home/case_studies/at_a_glance",
+            industry: "Healthcare / private clinics",
+            client: "US multi-location private clinic group",
+            country: "United States",
+            what_we_built: "Voice booking, web booking, provider dashboard, AI medical scribe, bi-directional athenahealth FHIR sync",
+            integrations: "athenahealth FHIR R4, Twilio, Deepgram, ElevenLabs, Claude (de-identified)",
+            stack: "FastAPI, PostgreSQL, Next.js on BAA-covered US infrastructure" %>
         </div>
       </div>
     </div>
@@ -77,7 +74,7 @@
           The first was to use only HIPAA eligible vendors with signed Business Associate Agreements at every step. This is the standard playbook. It works for transcription (Deepgram offers a BAA) and telephony (Twilio offers a BAA). It does not work cleanly for general purpose LLMs in the way most teams assume. Even with an enterprise agreement, sending raw PHI to a model adds a regulated data flow that has to be documented, audited, and defended in a compliance review. We did not want to add that surface area.
         </p>
         <p class="large-para mb-3">
-          The second approach was to skip the LLM entirely and build the voice agent as a deterministic dialogue tree. Safer, but it gives up the natural conversation that was the entire point. Patients calling a dental clinic do not say &ldquo;book appointment, provider Patel, Tuesday, 2pm.&rdquo; They say &ldquo;I think I cracked a tooth and I really need to see someone before the weekend.&rdquo; A dialogue tree handles the first sentence and falls apart on the second.
+          The second approach was to skip the LLM entirely and build the voice agent as a deterministic dialogue tree. Safer, but it gives up the natural conversation that was the entire point. Patients calling a clinic do not say &ldquo;book appointment, provider Patel, Tuesday, 2pm.&rdquo; They say &ldquo;I&rsquo;m in a lot of pain and I really need to see someone before the weekend.&rdquo; A dialogue tree handles the first sentence and falls apart on the second.
         </p>
         <p class="large-para mb-3">
           The third approach, the one we shipped, was a PHI de identification layer that sits between transcription and the LLM. Every transcript is scanned for patient identifiers, names matched against the patient database, dates of birth, phone numbers, addresses, MRNs, before any text leaves our infrastructure. Each identifier is replaced with an opaque token. The LLM sees &ldquo;[PATIENT A] called about a cracked tooth and wants an appointment before Friday.&rdquo; The LLM returns structured intent. Our server re associates the tokens after the response comes back. The mapping is stored in an encrypted server side session and never leaves the building.
@@ -239,7 +236,7 @@
         <div class="workflow-card p-4 p-lg-5">
           <ul class="mb-0 ps-3" style="line-height: 2;">
             <li>The hardest part of a healthcare AI build is not the AI. It is the data flow. Spend the first week mapping every place patient data moves, and assume each one is a potential violation. The AI is the easy part once the data flow is clean.</li>
-            <li>Vendors will tell you they are HIPAA compliant. What you need is a signed BAA, in writing, naming the specific service you are using. &ldquo;HIPAA compliant&rdquo; with no BAA is not a thing. We have seen launches delayed by weeks because a vendor&rsquo;s sales team promised something their legal team would not sign.</li>
+            <li>Vendors will tell you they are ready for HIPAA. What you need is a signed BAA, in writing, naming the specific service you are using. A readiness claim with no BAA is not enough. We have seen launches delayed by weeks because a vendor&rsquo;s sales team promised something their legal team would not sign.</li>
             <li>Build the audit log on day one, not week six. Retrofitting auditability into a system that was not designed for it is more work than starting over.</li>
             <li>Providers do not want a perfect AI scribe. They want a fast first draft they can edit. The product win is not accuracy, it is reducing the blank page problem. Aim for &ldquo;good enough that the provider would rather edit than start from scratch,&rdquo; not &ldquo;good enough to use without review.&rdquo;</li>
             <li>Voice latency matters more than voice quality. A patient will tolerate a slightly robotic voice. They will hang up on a one second pause. Optimize the latency path before the voice path.</li>
@@ -249,24 +246,18 @@
     </div>
   </section>
 
-  <section class="py-5 bg-white" id="cta">
-    <div class="container">
-      <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">How to talk to us about a build like this</h2>
-        <p class="large-para mb-4">
-          If you are running a clinic, a digital health company, or a healthcare adjacent platform, and you are trying to figure out whether to build something like this or buy it: we offer a paid one week discovery sprint that produces an architecture document, a compliance risk map, and a build plan you own whether or not you continue with us. Most teams find this is the cheapest way to know what they actually need before committing to a build.
-        </p>
-        <div class="workflow-card p-4 p-lg-5 text-center">
-          <p class="mb-1 fw-semibold">Ahmad Kamran, founder, A&rsquo;sTechware</p>
-          <p class="mb-4">
-            <a href="mailto:ahmad@astechware.com" class="text-decoration-none">ahmad@astechware.com</a>
-          </p>
-          <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5 me-2 mb-2">
-            Start a discovery sprint &rarr;
-          </a>
-          <%= link_to "Healthcare solutions", industry_healthcare_path, class: "btn btn-outline-primary btn-lg rounded-pill px-5 mb-2 ajax" %>
-        </div>
-      </div>
+  <%= render "home/case_studies/gallery", slug: "medical-voice-ai" %>
+  <%= render "home/case_studies/client_quote", slug: "medical-voice-ai" %>
+
+  <%= render "home/case_studies/cta", blurb: "If you are running a clinic, a digital health company, or a healthcare adjacent platform, we offer a paid one week discovery sprint: architecture document, compliance risk map, and a build plan you own whether or not you continue with us." %>
+
+  <section class="py-4 bg-light-grey">
+    <div class="container text-center">
+      <%= link_to "Healthcare solutions →", industry_healthcare_path, class: "service-card-link ajax" %>
+      <% if route_helper_defined?(:industry_private_clinics_path) %>
+        <span class="text-muted mx-2">·</span>
+        <%= link_to "Private clinics →", industry_private_clinics_path, class: "service-card-link ajax" %>
+      <% end %>
     </div>
   </section>
 
