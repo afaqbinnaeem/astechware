@@ -1,7 +1,7 @@
 <% content_for :head do %>
   <% set_meta_tags(
     title: "HIPAA-Ready Healthcare AI Development",
-    description: "EHR and FHIR integration, patient data protection and AI scribes for healthcare companies in the US, Canada, Australia and the UK. Patient data never reaches an AI model.",
+    description: "EHR and FHIR integration, patient data protection and AI scribes for healthcare companies in the US, UK, Canada and Australia. Patient data never reaches AI.",
     keywords: "healthcare AI engineering partner, HIPAA-ready automation, hire healthcare software engineers, healthcare AI, AI medical scribe, voice AI healthcare, FHIR EHR integration, PHI de identification"
   ) %>
   <script type="application/ld+json">
@@ -12,7 +12,7 @@
     "url" => industry_healthcare_url,
     "description" => "Healthcare AI engineering partner for HIPAA-ready voice booking, AI medical scribes, FHIR EHR sync, and clinical workflow automation.",
     "provider" => { "@id" => "https://astechware.com/#organization" },
-    "areaServed" => ["United States", "Canada", "Australia", "United Kingdom"],
+    "areaServed" => ["United States", "United Kingdom", "Canada", "Australia"],
     "serviceType" => "Healthcare AI Engineering",
     "category" => "Healthcare Technology"
   }.to_json) %>
@@ -33,7 +33,7 @@
           We help digital health teams and clinical operators ship AI systems that survive a HIPAA review, a security questionnaire, and a year in production.
         </p>
         <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
-          Start with a discovery sprint &rarr;
+          Book a 30-min call
         </a>
       </div>
     </div>
@@ -120,7 +120,7 @@
         </div>
         <div class="col-12 col-md-6 col-lg-4">
           <div class="workflow-card p-4 h-100">
-            <h3 class="h6 mb-2">Vendor BAAs are required before any data flows</h3>
+            <h3 class="h6 mb-2">Vendor baas are required before any data flows</h3>
             <p class="mb-0 small" style="line-height: 1.7;">Calling a vendor &ldquo;HIPAA-ready&rdquo; with no signed BAA is not enough. We will not integrate a vendor into a healthcare build without a BAA in writing naming the specific service.</p>
           </div>
         </div>
@@ -230,7 +230,7 @@
         <div class="col-12 col-lg-10 mx-auto">
           <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">How we engage</h2>
           <p class="large-para mb-4">
-            We start every healthcare engagement with a paid one week discovery sprint. You get a written deliverable you own whether or not you continue with us:
+            We start every healthcare engagement with a paid one week scoping call. You get a written deliverable you own whether or not you continue with us:
           </p>
           <div class="workflow-card p-4 p-lg-5 mb-4">
             <ul class="mb-0 ps-3" style="line-height: 2;">
@@ -245,7 +245,7 @@
           </p>
           <div class="text-center">
             <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
-              Start a discovery sprint &rarr;
+              Book a 30-min call
             </a>
           </div>
         </div>
@@ -263,7 +263,7 @@
           <div class="accordion healthcare-industry-faq" id="healthcareIndustryFaq">
             <div class="accordion-item border rounded mb-2">
               <h3 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hcfaq1" aria-expanded="false" aria-controls="hcfaq1">How do you handle PHI when using LLMs like Claude or GPT?</button>
+                <Button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hcfaq1" aria-expanded="false" aria-controls="hcfaq1">how do you handle PHI when using llms like claude or GPT?</button>
               </h3>
               <div id="hcfaq1" class="accordion-collapse collapse" data-bs-parent="#healthcareIndustryFaq">
                 <div class="accordion-body">We de identify patient text before it leaves our infrastructure. Names, dates of birth, MRNs, phone numbers, addresses, and other identifiers are replaced with opaque tokens. The LLM receives only de identified text. Tokens are re associated server side after the model responds. Every LLM API call is logged and auditable. This is provable to a compliance reviewer from the logs alone.</div>
@@ -271,7 +271,7 @@
             </div>
             <div class="accordion-item border rounded mb-2">
               <h3 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hcfaq2" aria-expanded="false" aria-controls="hcfaq2">Which EHRs have you integrated with?</button>
+                <Button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#hcfaq2" aria-expanded="false" aria-controls="hcfaq2">which ehrs have you integrated with?</button>
               </h3>
               <div id="hcfaq2" class="accordion-collapse collapse" data-bs-parent="#healthcareIndustryFaq">
                 <div class="accordion-body">We have shipped production bi directional FHIR R4 sync with athenahealth. Our integration layer uses an adapter pattern, so adding Epic, Cerner, eClinicalWorks, or any other FHIR capable EHR is an adapter implementation, not a rebuild.</div>
