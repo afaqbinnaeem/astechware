@@ -3,7 +3,7 @@
     <div class="row align-items-center min-vh-50">
       <div class="col-12 col-lg-10 mx-auto text-center">
         <h1 class="display-5 fw-bold mb-3" style="font-size: clamp(26px, 4vw, 48px); line-height: 1.15;" data-page-h1>
-          How we built HIPAA-ready voice booking and an AI scribe for a private clinic group
+          How we built hipaa-ready voice booking and an AI scribe for a private clinic group
         </h1>
         <p class="mb-0" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.7; max-width: 900px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
           A US multi-location private clinic group came to us with a simple ask: let patients book appointments by voice, and give providers an AI scribe so they stop writing SOAP notes at 10pm.
@@ -92,7 +92,7 @@
   <section class="py-5 bg-light-grey" id="decision-2">
     <div class="container">
       <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Decision 2: Audio is never stored</h2>
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Decision 2: audio is never stored</h2>
         <p class="large-para mb-4">
           The AI scribe records the provider patient visit, transcribes it, and generates a draft SOAP note. The obvious implementation is: record audio, save it, transcribe later, generate note, keep the audio in case the provider wants to re listen.
         </p>
@@ -112,7 +112,7 @@
   <section class="py-5 bg-white" id="decision-3">
     <div class="container">
       <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Decision 3: The scribe cannot fabricate</h2>
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Decision 3: the scribe cannot fabricate</h2>
         <p class="large-para mb-4">
           This was the decision that took the longest to get right, and the one that matters most clinically.
         </p>
@@ -142,7 +142,7 @@
   <section class="py-5 bg-light-grey" id="decision-4">
     <div class="container">
       <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Decision 4: Scheduling is locked at the database, not the application</h2>
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Decision 4: scheduling is locked at the database, not the application</h2>
         <p class="large-para mb-4">
           Double booking is the single most embarrassing failure mode for a scheduling system. Two patients arrive at the same time, both with confirmation emails, and the front desk has to explain that the software lied.
         </p>
@@ -165,7 +165,7 @@
   <section class="py-5 bg-white" id="decision-5">
     <div class="container">
       <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Decision 5: The audit log cannot be edited</h2>
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Decision 5: the audit log cannot be edited</h2>
         <p class="large-para mb-4">
           HIPAA requires that you can produce, on demand, a record of who accessed which patient&rsquo;s data, when, and what they did. Most systems implement this as a logging table that the application writes to. This is almost good enough. The gap is that if the application can write to the table, the application can also be tricked or compromised into modifying or deleting from it. An audit log you can edit is not an audit log.
         </p>
@@ -249,7 +249,7 @@
   <%= render "home/case_studies/gallery", slug: "medical-voice-ai" %>
   <%= render "home/case_studies/client_quote", slug: "medical-voice-ai" %>
 
-  <%= render "home/case_studies/cta", blurb: "If you are running a clinic, a digital health company, or a healthcare adjacent platform, we offer a paid one week discovery sprint: architecture document, compliance risk map, and a build plan you own whether or not you continue with us." %>
+  <%= render "home/case_studies/cta", blurb: "If you are running a clinic, a digital health company, or a healthcare adjacent platform, we offer a paid one week scoping call: architecture document, compliance risk map, and a build plan you own whether or not you continue with us." %>
 
   <section class="py-4 bg-light-grey">
     <div class="container text-center">

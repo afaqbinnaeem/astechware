@@ -19,7 +19,7 @@
     <%# 2. Client Overview Box %>
     <% if cs[:client].present? && cs[:client].any? %>
       <div class="case-detail-client-box mb-4">
-        <h3 class="h6 text-uppercase text-muted mb-3">Client Overview</h3>
+        <h3 class="h6 text-uppercase text-muted mb-3">Client overview</h3>
         <div class="row g-3">
           <% if cs[:client][:industry].present? %>
             <div class="col-6 col-md-3">
@@ -52,7 +52,7 @@
     <%# 3. The Challenge %>
     <% if cs[:challenge].present? %>
       <section class="case-detail-section mb-4">
-        <h2 class="case-detail-heading">The Challenge</h2>
+        <h2 class="case-detail-heading">The challenge</h2>
         <% Array(cs[:challenge][:intro_paragraphs]).each do |p| %>
           <p class="case-detail-para"><%= p %></p>
         <% end %>
@@ -72,7 +72,7 @@
     <%# 4. Our Solution %>
     <% if cs[:solution].present? %>
       <section class="case-detail-section mb-4">
-        <h2 class="case-detail-heading">Our Solution</h2>
+        <h2 class="case-detail-heading">Our solution</h2>
         <% if cs[:solution][:what_we_built].present? %>
           <h4 class="h6 mb-2">What we built</h4>
           <ul class="bullet-list mb-3">
@@ -95,7 +95,7 @@
     <%# 5. Results & Impact %>
     <% if cs[:results].present? %>
       <section class="case-detail-section case-detail-results mb-4">
-        <h2 class="case-detail-heading">Results &amp; Impact</h2>
+        <h2 class="case-detail-heading">Results &amp; impact</h2>
         <% if cs[:results][:before_after].present? %>
           <div class="row g-3 mb-3">
             <% Array(cs[:results][:before_after]).each do |ba| %>

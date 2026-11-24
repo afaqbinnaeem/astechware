@@ -65,7 +65,7 @@
   <section class="py-5 bg-white" id="decision-1">
     <div class="container">
       <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Decision 1: Tenant isolation lives in the database, not the application</h2>
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Decision 1: tenant isolation lives in the database, not the application</h2>
         <p class="large-para mb-4">
           The platform is multi tenant: many process serving companies share the same infrastructure, each one seeing only their own cases, servers, financials, and clients.
         </p>
@@ -95,7 +95,7 @@
   <section class="py-5 bg-light-grey" id="decision-2">
     <div class="container">
       <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Decision 2: The AI never has the final word on a case</h2>
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Decision 2: the AI never has the final word on a case</h2>
         <p class="large-para mb-4">
           Court documents are not clean PDFs. They include scanned handwriting, multi page exhibits, inconsistent layouts across provinces, and jurisdiction specific formatting. Manually transcribing 30+ fields from each one was the original bottleneck.
         </p>
@@ -118,7 +118,7 @@
   <section class="py-5 bg-white" id="decision-3">
     <div class="container">
       <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Decision 3: Server notes pass through an approval queue before they become legal evidence</h2>
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Decision 3: server notes pass through an approval queue before they become legal evidence</h2>
         <p class="large-para mb-4">
           This was the decision that surprised the client most, and the one that turned out to be the highest value compliance feature in the platform.
         </p>
@@ -151,7 +151,7 @@
   <section class="py-5 bg-light-grey" id="decision-4">
     <div class="container">
       <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Decision 4: Evidence is captured at the source and timestamped by the database, not the device</h2>
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Decision 4: evidence is captured at the source and timestamped by the database, not the device</h2>
         <p class="large-para mb-4">
           Every attempt logged by a process server captures GPS coordinates, server side timestamp, and optional photo. These three pieces of data are what make an affidavit defensible: they prove the server was at the address, at the time claimed, with evidence of the conditions observed.
         </p>
@@ -178,7 +178,7 @@
   <section class="py-5 bg-white" id="decision-5">
     <div class="container">
       <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Decision 5: Jurisdiction logic is deterministic, not inferred</h2>
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Decision 5: jurisdiction logic is deterministic, not inferred</h2>
         <p class="large-para mb-4">
           Canadian process serving spans multiple tax jurisdictions: Ontario charges 13% HST, Quebec charges 5% GST plus provincial sales tax, other provinces have their own rules, and US based law firms are taxed at 0%. An invoice that applies the wrong tax rule is a billing dispute and, in some cases, a compliance issue with the Canada Revenue Agency.
         </p>
@@ -260,7 +260,7 @@
 
   <%= render "home/case_studies/gallery", slug: "flss-legal-process-serving" %>
   <%= render "home/case_studies/client_quote", slug: "flss-legal-process-serving" %>
-  <%= render "home/case_studies/cta", blurb: "If you are building a legal operations platform or modernizing a regulated workflow off Gmail and spreadsheets, we offer a paid one week discovery sprint: architecture document, compliance and audit map, and a build plan you own." %>
+  <%= render "home/case_studies/cta", blurb: "If you are building a legal operations platform or modernizing a regulated workflow off Gmail and spreadsheets, we offer a paid one week scoping call: architecture document, compliance and audit map, and a build plan you own." %>
 
   <section class="py-4 bg-light-grey">
     <div class="container text-center">

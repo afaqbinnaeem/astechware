@@ -30,43 +30,43 @@ class CaseStudyCatalog
     },
     "vestra-payments" => {
       title: "Marketplace Split Payments Platform",
-      description: "How we built automated split payouts for a PropTech marketplace: ledger-first accounting, Stripe Connect, and idempotent settlement.",
+      description: "How we built automated split payouts for a PropTech marketplace: ledger-first accounting, Stripe Connect, and idempotent settlement that scales.",
       keywords: "marketplace payments, split payouts, Stripe Connect, payment settlement, fintech engineering, case study",
       quote_name: "Nathan"
     },
     "zofi-cash-fintech" => {
       title: "Earned Wage Access App",
-      description: "How we built an earned wage access app with automated repayment: real-time accruals, safe-to-withdraw limits, and payroll settlement files.",
+      description: "How we built an earned wage access app with automated repayment: real-time accruals, safe-to-withdraw limits, and payroll settlement files that balance.",
       keywords: "earned wage access, payroll settlement automation, fintech software development, case study",
       quote_name: nil
     },
     "golfpay360-saas" => {
       title: "Golf Booking & Payments Platform",
-      description: "How we built tee-time booking and payments for golf courses: high-concurrency booking, Stripe Terminal, and Clover and Square POS.",
+      description: "How we built tee-time booking and payments for golf courses: high-concurrency booking, Stripe Terminal, plus Clover and Square POS integrations.",
       keywords: "golf booking software, tee time booking, Stripe Terminal, POS integration, multi-tenant SaaS, case study",
       quote_name: "Dale Merritt"
     },
     "red-dragon-hvac" => {
       title: "HVAC Marketing Automation",
-      description: "How we turned HVAC job photos into Google posts: field proof capture, manager approval, and local SEO publishing for a home services team.",
+      description: "How we turned HVAC job photos into Google posts: field proof capture, manager approval, and local SEO publishing for a home services company.",
       keywords: "HVAC marketing automation, field service software, local SEO automation, Google Business Profile, case study",
       quote_name: nil
     },
     "eventvesta-ai-marketing" => {
       title: "AI Marketing Workflow Platform",
-      description: "How we built AI drafts for posts and ads with approvals for an events marketing team: Meta and Google campaigns with guardrails.",
+      description: "How we built AI drafts for posts and ads with approvals for an events marketing team: Meta and Google campaigns with human guardrails built in.",
       keywords: "AI marketing automation, event marketing software, workflow automation, Meta ads automation, case study",
       quote_name: nil
     },
     "instashowing-real-estate" => {
       title: "Real Estate Showing & Offer Platform",
-      description: "How we built showing scheduling and offer management for real estate agents: availability, coordination, and offer document workflows.",
+      description: "How we built showing scheduling and offer management for real estate agents: availability, coordination, and offer document workflows end to end.",
       keywords: "real estate software, property showing automation, offer management, real estate operations, case study",
       quote_name: "Joseph Chiavatti"
     },
     "word-of-mouth-modernization" => {
       title: "Legacy Platform Modernization",
-      description: "How we modernized a legacy marketplace without downtime: Strangler Fig cutovers from PHP/jQuery to a headless React and Node stack.",
+      description: "How we modernized a legacy marketplace without downtime: Strangler Fig cutovers from PHP/jQuery to a headless React and Node.js production stack.",
       keywords: "platform modernization, legacy software modernization, marketplace transformation, zero downtime migration, case study",
       quote_name: nil
     },
@@ -78,7 +78,7 @@ class CaseStudyCatalog
     },
     "construction-management-platform" => {
       title: "Construction Platform With QuickBooks Sync",
-      description: "How we built one platform for a contractor running three companies: AI estimating, subcontracts, invoicing, and QuickBooks Online sync.",
+      description: "How we built one platform for a contractor running three companies: AI estimating, subcontracts, invoicing, and QuickBooks Online company sync.",
       keywords: "construction software, construction management platform, QuickBooks integration, subcontract automation, case study",
       quote_name: nil
     }
