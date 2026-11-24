@@ -2,7 +2,7 @@
   home_faq = [
     {
       q: "What industries do you work with?",
-      a: "Mainly legal, healthcare, construction and logistics. We also build for real estate, fintech, HVAC and home services, B2B SaaS and hospitality."
+      a: "Mainly legal, healthcare, construction and logistics, and we also build for real estate, fintech, HVAC and home services, B2B SaaS and hospitality. If your industry isn't listed, we still build custom software, web and mobile apps, automation and AI for it."
     },
     {
       q: "Do we have to switch software?",
@@ -27,13 +27,17 @@
     {
       q: "Do you only build AI?",
       a: "No. Most of what we build is regular software: integrations, workflows, portals and apps. We use AI where it actually helps, like reading documents and emails, and a person reviews anything that matters."
+    },
+    {
+      q: "How much does a project cost?",
+      a: "It depends on what you need, so we don't publish prices. After a free 30-minute call you get a written scope, split into milestones, with a fixed price for each milestone before any work starts."
     }
   ]
   home_screen_shots = Dir[Rails.root.join("app/assets/images/home/screens/*.webp")].sort
 %>
 <% set_meta_tags(
   title: "AI Development Company & Automation Agency",
-  description: "We build software and automation for legal, healthcare, construction and logistics teams in the US, Canada, Australia and the UK. Milestone delivery, full code ownership.",
+  description: "We build software, web and mobile apps, and automation for legal, healthcare, construction and logistics teams in the US, UK, Canada and Australia. You own the code.",
   keywords: "AI development company, automation agency, custom software, legal tech, healthcare software, construction software, logistics automation, milestone delivery"
 ) %>
 <% content_for :carousel_libraries, "slick" %>
@@ -45,7 +49,7 @@
     "@type" => "WebSite",
     "name" => "A'sTechware",
     "url" => home_base,
-    "description" => "We build software and automation for legal, healthcare, construction and logistics teams in the US, Canada, Australia and the UK. Milestone delivery, full code ownership.",
+    "description" => "We build software, web and mobile apps, and automation for legal, healthcare, construction and logistics teams in the US, UK, Canada and Australia. You own the code.",
     "publisher" => { "@id" => "https://astechware.com/#organization" }
   }.to_json) %>
   </script>
@@ -55,9 +59,9 @@
     "@type" => "ProfessionalService",
     "name" => "A'sTechware",
     "url" => home_base,
-    "description" => "We build software and automation for legal, healthcare, construction and logistics teams in the US, Canada, Australia and the UK. Milestone delivery, full code ownership.",
+    "description" => "We build software, web and mobile apps, and automation for legal, healthcare, construction and logistics teams in the US, UK, Canada and Australia. You own the code.",
     "provider" => { "@id" => "https://astechware.com/#organization" },
-    "areaServed" => ["United States", "Canada", "Australia", "United Kingdom"],
+    "areaServed" => ["United States", "United Kingdom", "Canada", "Australia"],
     "knowsAbout" => ["Custom Software", "Workflow Automation", "AI Agents", "API Integrations", "Legal Tech", "Healthcare AI", "Construction Software", "Logistics Automation"],
     "aggregateRating" => {
       "@type" => "AggregateRating",
@@ -102,13 +106,13 @@
             We build systems that handle intake, scheduling, estimates, dispatch, invoicing and paperwork, connected to the tools you already use, like QuickBooks, Outlook and your EHR. Your team reviews the work instead of doing it by hand.
           </p>
           <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center<%= home_screen_shots.any? ? " justify-content-lg-start" : "" %> align-items-center align-items-sm-stretch">
-            <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-4 hero-btn-primary" style="width: 351px;">
+            <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-4 hero-btn-primary" style="width: min(351px, 100%); max-width: 100%;">
               Book a 30-min call
             </a>
-            <%= link_to "See our work", case_studies_path, class: "btn btn-outline-primary btn-lg rounded-pill px-4 d-flex align-items-center justify-content-center hero-btn-outline ajax", style: "width: 351px; white-space: nowrap;" %>
+            <%= link_to "See our work", case_studies_path, class: "btn btn-outline-primary btn-lg rounded-pill px-4 d-flex align-items-center justify-content-center hero-btn-outline ajax", style: "width: min(351px, 100%); max-width: 100%; white-space: nowrap;" %>
           </div>
-          <p class="text-white mb-0 mt-4 fs-6" style="max-width: 720px;<%= home_screen_shots.any? ? "" : " margin-left: auto; margin-right: auto;" %>">
-            Built for process servers, private clinics, contractors, field service teams, real estate and fintech companies across the US, Canada, Australia and the UK.
+          <p class="mb-0 fs-6 fw-bold" style="color: #fff; margin-top: 5rem; max-width: 720px;<%= home_screen_shots.any? ? "" : " margin-left: auto; margin-right: auto;" %>">
+            Building something else? We also build <%= link_to "custom software, web and mobile apps, automation and AI", services_path, class: "ajax", style: "color: var(--site-color); font-weight: 700; text-decoration: underline;" %> for businesses in any industry.
           </p>
         </div>
       <% if home_screen_shots.any? %>
@@ -194,102 +198,56 @@
   </div>
 </div>
 
+<%= render "home/what_we_build", section_class: "py-5 bg-light-grey", section_id: "what-we-build" %>
+<%= render "home/who_we_work_with", section_class: "py-5 bg-white", section_id: "who-we-work-with" %>
+
 <!-- 3. Industries -->
 <div class="py-5 bg-light-grey" id="industries-we-serve">
   <div class="container">
     <div class="text-center mb-5">
-      <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Industries we build for</h2>
+      <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Industries we know deeply</h2>
       <p class="large-para mb-0" style="max-width: 750px; margin: 0 auto;">
-        We work where manual work, scattered tools and strict rules slow teams down.
+        We build for any industry. These are the ones where we&apos;ve done the most work.
       </p>
     </div>
-    <div class="row g-4 mb-3">
-      <div class="col-12 col-md-6 col-lg-3">
-        <%= link_to industry_legal_path, class: "text-decoration-none text-dark d-block h-100 ajax" do %>
-          <div class="build-system-card p-4 h-100">
-            <h3 class="h5 mb-2">Legal</h3>
-            <p class="mb-0 small">Intake from emails and PDFs, server dispatch with GPS proof, affidavit generation and invoicing.</p>
-          </div>
-        <% end %>
-      </div>
-      <div class="col-12 col-md-6 col-lg-3">
-        <div class="build-system-card p-4 h-100">
-          <%= link_to industry_private_clinics_path, class: "text-decoration-none text-dark d-block ajax" do %>
-            <h3 class="h5 mb-2">Healthcare &amp; private clinics</h3>
-            <p class="mb-0 small">AI receptionist and AI scribe for clinics, plus EHR sync and patient data protection, built for HIPAA.</p>
-          <% end %>
-          <p class="mb-0 mt-2">
-            <%= link_to "Healthcare AI & EHR integration →", industry_healthcare_path, class: "service-card-link small ajax" %>
-          </p>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-3">
-        <%= link_to industry_construction_path, class: "text-decoration-none text-dark d-block h-100 ajax" do %>
-          <div class="build-system-card p-4 h-100">
-            <h3 class="h5 mb-2">Construction</h3>
-            <p class="mb-0 small">Estimates drafted from plan PDFs, subcontracts, vendor bills from email and QuickBooks sync.</p>
-          </div>
-        <% end %>
-      </div>
-      <div class="col-12 col-md-6 col-lg-3">
-        <%= link_to industry_logistics_path, class: "text-decoration-none text-dark d-block h-100 ajax" do %>
-          <div class="build-system-card p-4 h-100">
-            <h3 class="h5 mb-2">Logistics &amp; field service</h3>
-            <p class="mb-0 small">Route planning, photo proof of service, automatic billing and customer texting.</p>
-          </div>
-        <% end %>
-      </div>
-    </div>
-    <div class="row g-3">
-      <div class="col-6 col-md-4 col-lg">
-        <%= link_to industry_real_estate_path, class: "text-decoration-none text-dark d-block h-100 ajax" do %>
-          <div class="workflow-card p-3 h-100 text-center">
-            <h3 class="h6 mb-1">Real estate</h3>
-            <p class="mb-0 small text-muted">Showings, offers, MLS data and deal analysis.</p>
-          </div>
-        <% end %>
-      </div>
-      <div class="col-6 col-md-4 col-lg">
-        <%= link_to industry_financial_path, class: "text-decoration-none text-dark d-block h-100 ajax" do %>
-          <div class="workflow-card p-3 h-100 text-center">
-            <h3 class="h6 mb-1">Fintech &amp; payments</h3>
-            <p class="mb-0 small text-muted">Split payouts, earned wage access, processor migrations.</p>
-          </div>
-        <% end %>
-      </div>
-      <div class="col-6 col-md-4 col-lg">
-        <%= link_to industry_home_services_path, class: "text-decoration-none text-dark d-block h-100 ajax" do %>
-          <div class="workflow-card p-3 h-100 text-center">
-            <h3 class="h6 mb-1">HVAC &amp; home services</h3>
-            <p class="mb-0 small text-muted">Job photos to Google and Facebook, business texting.</p>
-          </div>
-        <% end %>
-      </div>
-      <div class="col-6 col-md-4 col-lg">
-        <%= link_to industry_b2b_saas_path, class: "text-decoration-none text-dark d-block h-100 ajax" do %>
-          <div class="workflow-card p-3 h-100 text-center">
-            <h3 class="h6 mb-1">B2B SaaS</h3>
-            <p class="mb-0 small text-muted">Platform rebuilds and AI features on existing products.</p>
-          </div>
-        <% end %>
-      </div>
-      <% if route_helper_defined?(:industry_fitness_studios_path) %>
-        <div class="col-6 col-md-4 col-lg">
-          <%= link_to industry_fitness_studios_path, class: "text-decoration-none text-dark d-block h-100 ajax" do %>
-            <div class="workflow-card p-3 h-100 text-center">
-              <h3 class="h6 mb-1">Fitness studios</h3>
-              <p class="mb-0 small text-muted">ATP platform built and launching soon.</p>
+    <div class="row g-3 justify-content-center">
+      <% [
+        ["Legal", "Intake, dispatch, affidavits and invoicing.", industry_legal_path],
+        ["Healthcare & private clinics", "AI receptionist, AI scribe and EHR sync. Patient data stays out of the model.", industry_private_clinics_path],
+        ["Construction", "Estimates from plan PDFs, subcontracts and QuickBooks.", industry_construction_path],
+        ["Logistics & field service", "Routes, photo proof and billing when a stop is done.", industry_logistics_path],
+        ["Real estate", "Showings, offers and deal analysis.", industry_real_estate_path],
+        ["Fintech & payments", "Split payouts, earned wage access and processor moves.", industry_financial_path],
+        ["HVAC & home services", "Job photos and business texting.", industry_home_services_path],
+        ["B2B SaaS", "Rebuilds and AI features on products that already have customers.", industry_b2b_saas_path],
+        ["Fitness studios", "Branded booking app with an AI instructor.", industry_fitness_studios_path],
+        ["Restaurants & hospitality", "Inventory search, booking and payments.", case_study_path("restaurant-resource-rescue")]
+      ].each do |title, text, path| %>
+        <div class="col-6 col-md-4 col-lg-3 d-flex">
+          <%= link_to path, class: "text-decoration-none text-dark d-flex w-100 h-100 ajax" do %>
+            <div class="build-system-card p-4 h-100 w-100 d-flex flex-column">
+              <h3 class="h5 mb-2"><%= title %></h3>
+              <p class="mb-3 small flex-grow-1"><%= text %></p>
+              <span class="what-we-build-more mt-auto">See how &rarr;</span>
             </div>
           <% end %>
         </div>
       <% end %>
-      <div class="col-6 col-md-4 col-lg">
-        <%= link_to case_study_path("restaurant-resource-rescue"), class: "text-decoration-none text-dark d-block h-100 ajax" do %>
-          <div class="workflow-card p-3 h-100 text-center">
-            <h3 class="h6 mb-1">Restaurants &amp; hospitality</h3>
-            <p class="mb-0 small text-muted">Inventory search, online booking and payments.</p>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-12">
+        <div class="build-system-card p-4 p-md-5 text-center">
+          <h3 class="h4 mb-3">Don&apos;t see your industry?</h3>
+          <p class="mb-4" style="max-width: 720px; margin-left: auto; margin-right: auto;">
+            Most of what we build (customer portals, web and mobile apps, integrations, workflow automation and AI that reads documents and emails) works the same in any business. Tell us what&apos;s slowing your team down.
+          </p>
+          <div class="text-center">
+            <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-4 d-inline-block">
+              Book a 30-min call
+            </a>
           </div>
-        <% end %>
+        </div>
       </div>
     </div>
   </div>
@@ -301,19 +259,20 @@
     <div class="row text-center g-4">
       <div class="col-6 col-md-3">
         <div class="metric-number">20–25</div>
-        <div class="metric-label">engineers on the team</div>
+        <div class="metric-label">people on the team</div>
       </div>
       <div class="col-6 col-md-3">
-        <div class="metric-number">50+</div>
+        <div class="metric-number">35+</div>
         <div class="metric-label">projects delivered</div>
       </div>
       <div class="col-6 col-md-3">
-        <div class="metric-number">100%</div>
+        <div class="metric-number">99%</div>
         <div class="metric-label">client retention</div>
       </div>
       <div class="col-6 col-md-3">
-        <div class="metric-number">US · Canada · Australia · UK</div>
-        <div class="metric-label">where our clients are</div>
+        <div class="metric-number">4</div>
+        <div class="metric-label">markets</div>
+        <div class="small text-white-50">US, UK, Canada, Australia</div>
       </div>
     </div>
   </div>
@@ -329,8 +288,9 @@
       <div class="col-12 col-lg-4">
         <%= link_to case_study_path("construction-management-platform"), class: "text-decoration-none text-dark d-block h-100 ajax" do %>
           <div class="build-system-card p-4 h-100">
-            <span class="badge bg-light text-dark border mb-2">Construction</span>
-            <h3 class="h5 mb-2">One platform for a contractor running three companies</h3>
+            <span class="case-pill">Construction</span>
+            <h3 class="h5 mb-2">One platform for three companies</h3>
+            <p class="fw-bold mb-2 small">Each company syncs to its own QuickBooks.</p>
             <p class="mb-0 small">A Las Vegas general contractor running three companies on disconnected tools. We built one platform for estimating from plan PDFs, subcontracts, invoices and payments, with each company synced to its own QuickBooks.</p>
           </div>
         <% end %>
@@ -338,8 +298,9 @@
       <div class="col-12 col-lg-4">
         <%= link_to case_study_path("flss-legal-process-serving"), class: "text-decoration-none text-dark d-block h-100 ajax" do %>
           <div class="build-system-card p-4 h-100">
-            <span class="badge bg-light text-dark border mb-2">Legal</span>
-            <h3 class="h5 mb-2">Process serving platform that holds up in court</h3>
+            <span class="case-pill">Legal</span>
+            <h3 class="h5 mb-2">Process serving, off gmail and spreadsheets</h3>
+            <p class="fw-bold mb-2 small">GPS proof, affidavits and invoices in one system.</p>
             <p class="mb-0 small">A Canadian process serving company running on Gmail and spreadsheets. We built a platform that reads incoming jobs from email, dispatches servers with GPS and photo proof, and generates court-ready affidavits and invoices.</p>
           </div>
         <% end %>
@@ -347,8 +308,9 @@
       <div class="col-12 col-lg-4">
         <%= link_to case_study_path("shoreline-waste-logistics"), class: "text-decoration-none text-dark d-block h-100 ajax" do %>
           <div class="build-system-card p-4 h-100">
-            <span class="badge bg-light text-dark border mb-2">Logistics</span>
-            <h3 class="h5 mb-2">Route planning and proof-of-service for Shoreline Waste</h3>
+            <span class="case-pill">Logistics</span>
+            <h3 class="h5 mb-2">Routes and proof of service for Shoreline Waste</h3>
+            <p class="fw-bold mb-2 small">Billing starts when a stop is completed.</p>
             <p class="mb-0 small">Shoreline Waste, a route-based service company working from static route sheets. We built route planning, a driver app with photo proof at every stop, and billing that triggers when a stop is completed.</p>
           </div>
         <% end %>
@@ -360,10 +322,12 @@
   </div>
 </div>
 
-<%# 6. Founder video: add click-to-play YouTube here later with transcript + VideoObject schema %>
+<%= render "home/tools_platforms", section_class: "py-5 bg-light-grey", section_id: "tools-we-work-with" %>
+
+<%# 6b. Founder video: add click-to-play YouTube here later with transcript + VideoObject schema %>
 
 <!-- 7. Two ways -->
-<section class="py-5 bg-light-grey" id="two-ways">
+<section class="py-5 bg-white" id="two-ways">
   <div class="container">
     <div class="text-center mb-5">
       <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Two ways to work with us</h2>
@@ -384,49 +348,59 @@
         </div>
       </div>
     </div>
-    <p class="text-center mb-0">
-      <%= link_to "AI agents & automation", ai_agent_development_path, class: "service-card-link ajax" %>
-      <span class="text-muted mx-2">·</span>
-      <%= link_to "Custom software", custom_software_path, class: "service-card-link ajax" %>
-      <span class="text-muted mx-2">·</span>
-      <%= link_to "Platform modernization", platform_modernization_path, class: "service-card-link ajax" %>
-      <span class="text-muted mx-2">·</span>
-      <%= link_to "Integrations", api_integrations_path, class: "service-card-link ajax" %>
-    </p>
   </div>
 </section>
 
+<script>
+  document.addEventListener("click", function(event) {
+    if (!window.matchMedia("(max-width: 767.98px)").matches) return;
+    var card = event.target.closest("#how-we-derisk .workflow-card");
+    if (!card) return;
+    var open = card.classList.contains("is-open");
+    document.querySelectorAll("#how-we-derisk .workflow-card.is-open").forEach(function(item) {
+      item.classList.remove("is-open");
+    });
+    if (!open) card.classList.add("is-open");
+  });
+</script>
+
 <!-- 8. How we keep projects safe -->
-<div class="py-5 bg-white" id="how-we-derisk">
+<div class="py-5 bg-light-grey" id="how-we-derisk">
   <div class="container">
-    <div class="row">
-      <div class="col-12 col-lg-10 mx-auto">
         <div class="text-center mb-5">
           <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">How we keep projects safe</h2>
         </div>
         <div class="row g-4 mb-4">
-          <div class="col-12 col-md-6 col-lg-3">
+          <div class="col-12 col-md-4">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 mb-2">Milestones, not blank cheques</h3>
               <p class="mb-0 small">Work is split into milestones. You pay per milestone and review before moving on.</p>
             </div>
           </div>
-          <div class="col-12 col-md-6 col-lg-3">
+          <div class="col-12 col-md-4">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 mb-2">You own everything</h3>
               <p class="mb-0 small">All code, infrastructure and documentation are yours from day one.</p>
             </div>
           </div>
-          <div class="col-12 col-md-6 col-lg-3">
+          <div class="col-12 col-md-4">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 mb-2">Your team stays in control</h3>
               <p class="mb-0 small">Anything automated that matters, like an invoice, a note or an estimate, goes to a person to approve.</p>
             </div>
           </div>
-          <div class="col-12 col-md-6 col-lg-3">
+        </div>
+        <div class="row g-4 mb-4 justify-content-center">
+          <div class="col-12 col-md-4">
             <div class="workflow-card p-4 h-100">
               <h3 class="h6 mb-2">Stop anytime</h3>
               <p class="mb-0 small">Each milestone stands alone. Pause or change direction without losing finished work.</p>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 mb-2">Security built in</h3>
+              <p class="mb-0 small">Encryption, role-based access, audit logs, secure cloud setup, and a security review and hardening pass before launch.</p>
             </div>
           </div>
         </div>
@@ -434,8 +408,6 @@
         <p class="text-center mb-0">
           <%= link_to "How we de-risk projects →", derisk_projects_path, class: "service-card-link ajax" %>
         </p>
-      </div>
-    </div>
   </div>
 </div>
 
@@ -446,36 +418,67 @@
       <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">What clients say</h2>
       <p class="mb-0"><%= link_to "Read all client reviews", reviews_path, class: "service-card-link ajax" %></p>
     </div>
-    <div class="container mb-5">
-      <div class="row g-4">
-        <div class="col-12 col-md-4">
-          <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
-            <div class="card-body">
-              <p class="mb-3">Been working with Ahmad for almost two years, and he&apos;s been great to work with. One of the most reliable developers I&apos;ve had the pleasure to work with.</p>
-              <p class="mb-0 small text-muted"><strong>Dale Merritt</strong>, CEO, GolfPay360</p>
+    <div class="clients-testimonials-slider position-relative">
+      <div class="clients-slide">
+        <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <div class="d-flex align-items-center">
+                <%= image_tag 'ahmad/clients/golf.jpeg', class: 'rounded-circle me-3', alt: 'Dale Merritt, CEO at GolfPay360', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
+                <div>
+                  <h3 class="h5 mb-0">Dale merritt</h3>
+                  <small class="text-muted">CEO, GolfPay360</small>
+                </div>
+              </div>
+              <span class="badge bg-light text-dark border">United States</span>
             </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
-            <div class="card-body">
-              <p class="mb-3">They care about making sure the project is completed the correct way and are quick to communicate on the channels we use.</p>
-              <p class="mb-0 small text-muted"><strong>Joseph Chiavatti</strong>, Technology Founder &amp; REALTOR®</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
-            <div class="card-body">
-              <p class="mb-3">Responsive, detail-oriented, and focused on delivering quality results.</p>
-              <p class="mb-0 small text-muted"><strong>Zach Marion</strong>, Founder, Shoreline Waste Solutions</p>
-            </div>
+            <p class="mb-3">Been working with Ahmad for almost two years, and he&apos;s been great to work with. One of the most reliable developers I&apos;ve had the pleasure to work with.</p>
+            <p class="mb-0 mt-2 pt-2 border-top small text-muted">
+              <a href="https://www.linkedin.com/in/engr-ahmad-kamran" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on LinkedIn</a>
+            </p>
           </div>
         </div>
       </div>
-    </div>
-    <div class="clients-testimonials-slider position-relative">
-      <%# Carousel: existing client slides %>
+      <div class="clients-slide">
+        <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <div class="d-flex align-items-center">
+                <%= image_tag 'ahmad/clients/joseph.jpeg', class: 'rounded-circle me-3', alt: "Joseph Chiavatti, A'sTechware Client", style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
+                <div>
+                  <h3 class="h5 mb-0">Joseph chiavatti</h3>
+                  <small class="text-muted">Technology Founder &amp; REALTOR®</small>
+                </div>
+              </div>
+              <span class="badge bg-light text-dark border">United States</span>
+            </div>
+            <p class="mb-3">They care about making sure the project is completed the correct way and are quick to communicate on the channels we use.</p>
+            <p class="mb-0 mt-2 pt-2 border-top small text-muted">
+              <a href="https://www.linkedin.com/services/page/994512312108a6b17b" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on LinkedIn</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="clients-slide">
+        <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <div class="d-flex align-items-center">
+                <%= image_tag 'ahmad/clients/zach.jpg', class: 'rounded-circle me-3', alt: 'Zach Marion, Founder, Shoreline Waste Solutions', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
+                <div>
+                  <h3 class="h5 mb-0">Zach marion</h3>
+                  <small class="text-muted">Founder, Shoreline Waste Solutions</small>
+                </div>
+              </div>
+              <span class="badge bg-light text-dark border">United States</span>
+            </div>
+            <p class="mb-3">Responsive, detail-oriented, and focused on delivering quality results.</p>
+            <p class="mb-0 mt-2 pt-2 border-top small text-muted">
+              <a href="https://www.upwork.com/freelancers/~01eb09bb74c3e6d04b" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on Upwork</a>
+            </p>
+          </div>
+        </div>
+      </div>
       <div class="clients-slide">
         <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
           <div class="card-body">
@@ -503,7 +506,7 @@
               <div class="d-flex align-items-center">
                 <%= image_tag 'ahmad/clients/Screenshot_1.png', class: 'rounded-circle me-3', alt: "FKA Novara, A'sTechware Client", style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
                 <div>
-                  <h3 class="h5 mb-0">FKA Novara</h3>
+                  <h3 class="h5 mb-0">FKA novara</h3>
                   <small class="text-muted">Startup Founder</small>
                 </div>
               </div>
@@ -516,26 +519,7 @@
           </div>
         </div>
       </div>
-      <div class="clients-slide">
-        <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
-          <div class="card-body">
-            <div class="d-flex align-items-center justify-content-between mb-3">
-              <div class="d-flex align-items-center">
-                <%= image_tag 'ahmad/clients/joseph.jpeg', class: 'rounded-circle me-3', alt: "Joseph Chiavatti, A'sTechware Client", style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
-                <div>
-                  <h3 class="h5 mb-0">Joseph Chiavatti</h3>
-                  <small class="text-muted">Technology Founder &amp; REALTOR®</small>
-                </div>
-              </div>
-              <span class="badge bg-light text-dark border">United States</span>
-            </div>
-            <p class="mb-3">Ahmad have helped us with several projects in our company. They are fantastic communicators and do great work. They care about making sure the project is completed the correct way and are quick to communicate on the channels we use.</p>
-            <p class="mb-0 mt-2 pt-2 border-top small text-muted">
-              <a href="https://www.linkedin.com/services/page/994512312108a6b17b" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on LinkedIn</a>
-            </p>
-          </div>
-        </div>
-      </div>
+
       <div class="clients-slide">
         <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
           <div class="card-body">
@@ -543,7 +527,7 @@
               <div class="d-flex align-items-center">
                 <%= image_tag 'ahmad/clients/sven.jpeg', class: 'rounded-circle me-3', alt: "Sven-Volker Nowarra, A'sTechware Client", style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
                 <div>
-                  <h3 class="h5 mb-0">Sven‑Volker Nowarra</h3>
+                  <h3 class="h5 mb-0">Sven‑volker nowarra</h3>
                   <small class="text-muted">In‑A‑Gadda‑Da‑Vida</small>
                 </div>
               </div>
@@ -563,7 +547,7 @@
               <div class="d-flex align-items-center">
                 <%= image_tag 'ahmad/clients/william.jpeg', class: 'rounded-circle me-3', alt: "William Schoeffler, A'sTechware Client", style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
                 <div>
-                  <h3 class="h5 mb-0">William Schoeffler</h3>
+                  <h3 class="h5 mb-0">William schoeffler</h3>
                   <small class="text-muted">Co‑Founder and Product @ Hitch</small>
                 </div>
               </div>
@@ -583,7 +567,7 @@
               <div class="d-flex align-items-center">
                 <%= image_tag 'ahmad/clients/IMG_9811.png', class: 'rounded-circle me-3', alt: "Anthony Barry, A'sTechware Client", style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
                 <div>
-                  <h3 class="h5 mb-0">Anthony Barry</h3>
+                  <h3 class="h5 mb-0">Anthony barry</h3>
                   <small class="text-muted">MBA | Investor</small>
                 </div>
               </div>
@@ -603,7 +587,7 @@
               <div class="d-flex align-items-center">
                 <%= image_tag 'ahmad/clients/ben-selland.jpeg', class: 'rounded-circle me-3', alt: "Ben Selland, A'sTechware Client", style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
                 <div>
-                  <h3 class="h5 mb-0">Ben Selland</h3>
+                  <h3 class="h5 mb-0">Ben selland</h3>
                   <small class="text-muted">Principal at Selland Technologies</small>
                 </div>
               </div>
@@ -616,26 +600,7 @@
           </div>
         </div>
       </div>
-      <div class="clients-slide">
-        <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
-          <div class="card-body">
-            <div class="d-flex align-items-center justify-content-between mb-3">
-              <div class="d-flex align-items-center">
-                <%= image_tag 'ahmad/clients/golf.jpeg', class: 'rounded-circle me-3', alt: 'Dale Merritt, CEO at Golfpay', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
-                <div>
-                  <h3 class="h5 mb-0">Dale Merritt</h3>
-                  <small class="text-muted">Golfpay CEO | The &apos;1 Golf&apos; Company</small>
-                </div>
-              </div>
-              <span class="badge bg-light text-dark border">United States</span>
-            </div>
-            <p class="mb-3">Been working with Ahmad for almost two years, and he&apos;s been great to work with. One of the most reliable developers I&apos;ve had the pleasure to work with. He&apos;s always getting better too.</p>
-            <p class="mb-0 mt-2 pt-2 border-top small text-muted">
-              <a href="https://www.linkedin.com/in/engr-ahmad-kamran" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on LinkedIn</a>
-            </p>
-          </div>
-        </div>
-      </div>
+
       <div class="clients-slide">
         <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
           <div class="card-body">
@@ -643,7 +608,7 @@
               <div class="d-flex align-items-center">
                 <%= image_tag 'ahmad/clients/ania.png', class: 'rounded-circle me-3', alt: "Ania Dergachev, A'sTechware Client", style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
                 <div>
-                  <h3 class="h5 mb-0">Ania Dergachev</h3>
+                  <h3 class="h5 mb-0">Ania dergachev</h3>
                   <small class="text-muted">Head, Product Design Studio</small>
                 </div>
               </div>
@@ -656,26 +621,7 @@
           </div>
         </div>
       </div>
-      <div class="clients-slide">
-        <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
-          <div class="card-body">
-            <div class="d-flex align-items-center justify-content-between mb-3">
-              <div class="d-flex align-items-center">
-                <%= image_tag 'ahmad/clients/zach.jpg', class: 'rounded-circle me-3', alt: 'Zach Marion, Founder, Shoreline Waste Solutions', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
-                <div>
-                  <h3 class="h5 mb-0">Zach Marion</h3>
-                  <small class="text-muted">Founder, Shoreline Waste Solutions</small>
-                </div>
-              </div>
-              <span class="badge bg-light text-dark border">United States</span>
-            </div>
-            <p class="mb-3">A&apos;sTechware have been outstanding partners. They are responsive, detail-oriented, and focused on delivering quality results. I highly recommend them for any project. Looking forward to working with them again in the future.</p>
-            <p class="mb-0 mt-2 pt-2 border-top small text-muted">
-              <a href="https://www.upwork.com/freelancers/~01eb09bb74c3e6d04b" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on Upwork</a>
-            </p>
-          </div>
-        </div>
-      </div>
+
       <div class="clients-slide">
         <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
           <div class="card-body">
@@ -683,7 +629,7 @@
               <div class="d-flex align-items-center">
                 <%= image_tag 'ahmad/clients/Brianne.jpeg', class: 'rounded-circle me-3', alt: 'Brianne Harvey, Founder at Restaurant Resource', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
                 <div>
-                  <h3 class="h5 mb-0">Brianne Harvey</h3>
+                  <h3 class="h5 mb-0">Brianne harvey</h3>
                   <small class="text-muted">Founder at Restaurant Resource</small>
                 </div>
               </div>
@@ -696,46 +642,8 @@
           </div>
         </div>
       </div>
-      <div class="clients-slide">
-        <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
-          <div class="card-body">
-            <div class="d-flex align-items-center justify-content-between mb-3">
-              <div class="d-flex align-items-center">
-                <div class="rounded-circle me-3 d-flex align-items-center justify-content-center bg-secondary text-white flex-shrink-0" style="width:64px;height:64px;" aria-hidden="true"><i class="fa fa-user fa-2x"></i></div>
-                <div>
-                  <h3 class="h5 mb-0">Leilani</h3>
-                  <small class="text-muted">Source Medicine Tech</small>
-                </div>
-              </div>
-              <span class="badge bg-light text-dark border">Upwork</span>
-            </div>
-            <p class="mb-3">Very keen to do the job; regular meetings and clarification of tasks. This job was large and more complex than originally understood so it was technically challenging. Good at asking when unclear about things. Eager to sort out any difficulties along the way.</p>
-            <p class="mb-0 mt-2 pt-2 border-top small text-muted">
-              <a href="https://www.upwork.com/freelancers/~01eb09bb74c3e6d04b" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on Upwork</a>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="clients-slide">
-        <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
-          <div class="card-body">
-            <div class="d-flex align-items-center justify-content-between mb-3">
-              <div class="d-flex align-items-center">
-                <div class="rounded-circle me-3 d-flex align-items-center justify-content-center bg-secondary text-white flex-shrink-0" style="width:64px;height:64px;" aria-hidden="true"><i class="fa fa-user fa-2x"></i></div>
-                <div>
-                  <h3 class="h5 mb-0">Dale</h3>
-                  <small class="text-muted">Golfpay</small>
-                </div>
-              </div>
-              <span class="badge bg-light text-dark border">Upwork</span>
-            </div>
-            <p class="mb-3">Saba was able to handle a somewhat complex feature for us, and did a really good job, within the estimated time range. We look forward to working with her again!</p>
-            <p class="mb-0 mt-2 pt-2 border-top small text-muted">
-              <a href="https://www.upwork.com/freelancers/~01eb09bb74c3e6d04b" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on Upwork</a>
-            </p>
-          </div>
-        </div>
-      </div>
+
+
       <div class="clients-slide">
         <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
           <div class="card-body">
@@ -764,44 +672,107 @@
 <section class="py-5 bg-white" id="home-faq">
   <div class="container">
     <div class="text-center mb-5">
-      <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">FAQ</h2>
+      <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Common questions</h2>
     </div>
-    <div class="row">
-      <div class="col-12 col-lg-10 mx-auto">
-        <div class="accordion accordion-faq" id="homeFaqAccordion">
-          <% home_faq.each_with_index do |item, idx| %>
-            <% collapse_id = "homefaq#{idx + 1}" %>
-            <div class="accordion-item border-0 shadow-sm mb-3">
-              <h3 class="accordion-header" id="homeFaqHeading<%= idx + 1 %>">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#<%= collapse_id %>" aria-expanded="false" aria-controls="<%= collapse_id %>">
-                  <span class="faq-question"><%= item[:q] %></span>
+    <div class="home-faq-grid">
+      <% [home_faq[0, 4], home_faq[4, 4]].each_with_index do |column, col_idx| %>
+        <div class="home-faq-col" data-faq-column>
+          <% column.each_with_index do |item, idx| %>
+            <% n = col_idx * 4 + idx + 1 %>
+            <% answer_id = "homefaq#{n}" %>
+            <div class="home-faq-item">
+              <h3 class="home-faq-heading">
+                <button type="button" class="home-faq-question" id="homeFaqBtn<%= n %>" aria-expanded="false" aria-controls="<%= answer_id %>">
+                  <span><%= item[:q] %></span>
+                  <span class="home-faq-icon" aria-hidden="true"></span>
                 </button>
               </h3>
-              <div id="<%= collapse_id %>" class="accordion-collapse collapse" aria-labelledby="homeFaqHeading<%= idx + 1 %>" data-bs-parent="#homeFaqAccordion">
-                <div class="accordion-body">
-                  <p class="mb-0"><%= item[:a] %></p>
-                </div>
+              <div id="<%= answer_id %>" class="home-faq-answer" role="region" aria-labelledby="homeFaqBtn<%= n %>" aria-hidden="true">
+                <p class="mb-0"><%= item[:a] %></p>
               </div>
             </div>
           <% end %>
         </div>
-      </div>
+      <% end %>
     </div>
+    <p class="text-center home-faq-more mb-0">
+      <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer">Still have a question? Book a 30-min call &rarr;</a>
+    </p>
   </div>
 </section>
 
+<script>
+  (function() {
+    var root = document.getElementById("home-faq");
+    if (!root || root.dataset.faqBound === "1") return;
+    root.dataset.faqBound = "1";
+    root.addEventListener("click", function(event) {
+      var button = event.target.closest(".home-faq-question");
+      if (!button || !root.contains(button)) return;
+      var item = button.closest(".home-faq-item");
+      var column = button.closest("[data-faq-column]");
+      var answer = document.getElementById(button.getAttribute("aria-controls"));
+      var willOpen = button.getAttribute("aria-expanded") !== "true";
+      if (column) {
+        column.querySelectorAll(".home-faq-item.is-open").forEach(function(openItem) {
+          if (openItem === item) return;
+          var openButton = openItem.querySelector(".home-faq-question");
+          var openAnswer = openButton && document.getElementById(openButton.getAttribute("aria-controls"));
+          openItem.classList.remove("is-open");
+          if (openButton) openButton.setAttribute("aria-expanded", "false");
+          if (openAnswer) openAnswer.setAttribute("aria-hidden", "true");
+        });
+      }
+      item.classList.toggle("is-open", willOpen);
+      button.setAttribute("aria-expanded", willOpen ? "true" : "false");
+      if (answer) answer.setAttribute("aria-hidden", willOpen ? "false" : "true");
+    });
+  })();
+</script>
+
 <!-- 11. About -->
+<% about_photo = Rails.root.join("app/assets/images/about-office.jpg") %>
 <div class="py-5 bg-light-grey" id="about_us">
   <div class="container">
-    <div class="row g-5 align-items-center">
-      <div class="col-12 col-lg-8">
-        <h2 class="heading-border heading-center heading-left mb-3 pb-3 d-inline-block">About A&apos;sTechware</h2>
+    <div class="row g-4 align-items-center">
+      <div class="col-12 col-lg-7">
+        <h2 class="heading-border home-about-heading mb-3 pb-3">About A&apos;sTechware</h2>
         <p class="mb-3">
-          A&apos;sTechware (AsTechware LLC) is a software and automation company led by founder Ahmad Kamran, with a 20–25 person engineering team. We build the systems behind legal, healthcare, construction and logistics businesses: the intake, scheduling, estimating, dispatch and billing work that usually eats up a team&apos;s day.
+          <%# [[AHMAD: exact registered name, e.g. "Astechware LLC"]] %>
+          A&apos;sTechware (AsTechware LLC) is a software and automation company led by founder Ahmad Kamran, with a team of 20–25 people. We build the systems behind legal, healthcare, construction and logistics businesses: the intake, scheduling, estimating, dispatch and billing work that usually eats up a team&apos;s day.
         </p>
-        <p class="mb-0">
+        <p class="mb-3">
           We don&apos;t build demos. We build systems that run every day with real customers, connected to the tools our clients already use, and we stay with them after launch.
         </p>
+        <p class="mb-0">
+          <%= link_to "More about us →", about_path, class: "home-about-more ajax" %>
+        </p>
+      </div>
+      <div class="col-12 col-lg-5">
+        <div class="home-about-visual">
+          <% if about_photo.exist? %>
+            <%= image_tag "about-office.jpg", alt: "A'sTechware office", loading: "lazy" %>
+          <% else %>
+            <div class="home-about-stats">
+              <div>
+                <div class="metric-number">20–25</div>
+                <div class="metric-label">people</div>
+              </div>
+              <div>
+                <div class="metric-number">35+</div>
+                <div class="metric-label">projects</div>
+              </div>
+              <div>
+                <div class="metric-number">99%</div>
+                <div class="metric-label">retention</div>
+              </div>
+              <div>
+                <div class="metric-number metric-number-markets">US, UK, Canada, Australia</div>
+                <div class="metric-label">where our clients are</div>
+              </div>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
@@ -811,76 +782,20 @@
 <div id="cta"></div>
 <div class="contact-us-section py-5" id="contact_us">
   <div class="container">
-    <div class="text-center">
-      <h2 class="heading-border heading-center mb-5 pb-3 d-inline-block">Tell us what&apos;s slowing your team down</h2>
+    <div class="text-center mb-4">
+      <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Tell us what&apos;s slowing your team down</h2>
     </div>
-    <%= form_for :form, url: submit_form_path, method: :post, class: 'contact-form', data: { turbo: false, remote: true } do |f| %>
-      <div class="row g-4">
-        <div class="col-md-7">
-          <div class="row">
-            <div class="col-12 col-md-6 mb-4">
-              <%= f.text_field :name, class: "form-control", placeholder: "Name*", required: true %>
-            </div>
-            <div class="col-12 col-md-6 mb-4">
-              <%= f.email_field :email, class: "form-control", placeholder: "Email*", required: true %>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12 col-md-6 mb-4">
-              <%= f.text_field :phone, class: "form-control", placeholder: "Phone" %>
-            </div>
-            <div class="col-12 col-md-6 mb-4">
-              <%= f.text_field :company_name, class: "form-control", placeholder: "Company Name" %>
-            </div>
-          </div>
-          <div class="col-12 mb-4">
-            <%= f.text_area :cover_letter, class: "form-control", placeholder: "Message*", required: true, rows: 5 %>
-          </div>
-          <% if recaptcha_site_key.present? %>
-            <%= hidden_field_tag 'g-recaptcha-response', '', id: 'g-recaptcha-response-home' %>
-          <% end %>
-          <div class="row">
-            <div class="col-9">
-              <% if flash[:notice] %>
-                <div class="alert alert-warning" role="alert" id="form-contact-alert">
-                  We&apos;ve received your query successfully, we will get back to you shortly.
-                </div>
-              <% end %>
-              <% if flash[:alert] %>
-                <div class="alert alert-danger" role="alert" id="form-contact-alert">
-                  <%= flash[:alert] %>
-                </div>
-              <% end %>
-            </div>
-            <div class="col-3">
-              <div class="d-flex justify-content-end">
-                <%= f.submit "Send", class: "btn btn-primary rounded-3 built-btn" %>
-              </div>
-            </div>
-          </div>
+    <%= render "shared/contact_after_touch" %>
+    <%= form_for :form, url: submit_form_path, method: :post, class: 'contact-form home-contact-form', data: { turbo: false, remote: true } do |f| %>
+      <div class="row g-4 align-items-start">
+        <div class="col-12 col-lg-7">
+          <%= render "shared/contact_form_fields", f: f, recaptcha_field_id: "g-recaptcha-response-home", submit_class: "btn btn-primary rounded-3 built-btn" %>
         </div>
-        <div class="col-md-5">
-          <div class="card mb-4">
-            <div class="d-flex p-4 align-items-center">
-              <div class="icon">
-                <i class="fa fa-envelope fa-5x" aria-hidden="true"></i>
-              </div>
-              <div class="txt-holder ps-4">
-                <h3 class="h4 mb-2 heading-border text-start">Email us</h3>
-                <address class="m-0">
-                  <p class="mb-0"><a href="mailto:ahmad@astechware.com">ahmad@astechware.com</a></p>
-                </address>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="p-4">
-              <h3 class="h4 mb-2 heading-border text-start">Prefer a call?</h3>
-              <p class="mb-3">Book 30 minutes on Calendly and we&apos;ll talk through what&apos;s slowing your team down.</p>
-              <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary rounded-3 w-100">
-                Book 30 minutes
-              </a>
-            </div>
+        <div class="col-12 col-lg-5">
+          <%= render "shared/founder_book_box" %>
+          <div class="contact-side-card">
+            <h3 class="contact-side-title mb-2">Email us</h3>
+            <p class="mb-0"><a href="mailto:ahmad@astechware.com">ahmad@astechware.com</a></p>
           </div>
         </div>
       </div>
