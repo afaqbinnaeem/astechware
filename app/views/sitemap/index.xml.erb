@@ -3,8 +3,7 @@
   <% @urls.each do |u| %>
   <url>
     <loc><%= u[:loc] %></loc>
-    <changefreq><%= u[:changefreq] %></changefreq>
-    <priority><%= u[:priority] %></priority>
+    <lastmod><%= u[:lastmod] %></lastmod>
   </url>
   <% end %>
 </urlset>

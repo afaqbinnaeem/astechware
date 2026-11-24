@@ -4,6 +4,9 @@ class SitemapController < ApplicationController
   layout false
   skip_before_action :verify_authenticity_token
 
+  # ISO date used for static pages until per-page lastmod is available.
+  SITE_LASTMOD = "2026-11-23"
+
   def index
     @urls = sitemap_urls
     respond_to do |format|
@@ -14,75 +17,127 @@ class SitemapController < ApplicationController
   private
 
   def sitemap_urls
-    # Match canonical_url: production uses canonical host, no trailing slashes
     base = if Rails.env.production?
              "https://astechware.com"
            else
              root_url.chomp("/")
            end
+
     urls = []
-
-    # Homepage and main pages (use base for root so production has no trailing slash)
-    urls << { loc: base, priority: "1.0", changefreq: "weekly" }
-    urls << { loc: "#{base}#{about_path}", priority: "0.7", changefreq: "monthly" }
-    urls << { loc: "#{base}#{services_path}", priority: "0.9", changefreq: "monthly" }
-    urls << { loc: "#{base}#{contact_path}", priority: "0.8", changefreq: "monthly" }
-    urls << { loc: "#{base}#{case_studies_path}", priority: "0.9", changefreq: "weekly" }
-    urls << { loc: "#{base}#{clients_path}", priority: "0.7", changefreq: "monthly" }
-    urls << { loc: "#{base}#{projects_path}", priority: "0.8", changefreq: "monthly" }
-    urls << { loc: "#{base}#{reviews_path}", priority: "0.8", changefreq: "weekly" }
-    urls << { loc: "#{base}#{methodology_path}", priority: "0.7", changefreq: "monthly" }
-    urls << { loc: "#{base}#{gcc_path}", priority: "0.8", changefreq: "monthly" }
-    urls << { loc: "#{base}#{derisk_projects_path}", priority: "0.7", changefreq: "monthly" }
-    urls << { loc: "#{base}#{blogs_path}", priority: "0.8", changefreq: "weekly" }
-    urls << { loc: "#{base}#{privacy_policy_path}", priority: "0.5", changefreq: "monthly" }
-    urls << { loc: "#{base}#{terms_of_service_path}", priority: "0.5", changefreq: "monthly" }
-
-    # Service pages (0.9 for AI agents landing, 0.8 for individual services)
-    urls << { loc: "#{base}#{ai_agents_path}", priority: "0.9", changefreq: "monthly" }
-    urls << { loc: "#{base}#{ai_agent_development_path}", priority: "0.8", changefreq: "monthly" }
-    urls << { loc: "#{base}#{machine_learning_path}", priority: "0.8", changefreq: "monthly" }
-    urls << { loc: "#{base}#{platform_modernization_path}", priority: "0.8", changefreq: "monthly" }
-    urls << { loc: "#{base}#{custom_software_path}", priority: "0.8", changefreq: "monthly" }
-    urls << { loc: "#{base}#{api_integrations_path}", priority: "0.8", changefreq: "monthly" }
-    urls << { loc: "#{base}#{devops_engineering_path}", priority: "0.8", changefreq: "monthly" }
-
-    # Case study detail pages
-    %w[
-      medical-voice-ai
-      shoreline-waste-logistics
-      red-dragon-hvac
-      vestra-payments
-      zofi-cash-fintech
-      instashowing-real-estate
-      golfpay360-saas
-      word-of-mouth-modernization
-      restaurant-resource-rescue
-      eventvesta-ai-marketing
-      flss-legal-process-serving
-      ai-deal-analyzer
-      construction-management-platform
-    ].each do |slug|
-      urls << { loc: "#{base}#{case_study_path(slug)}", priority: "0.7", changefreq: "monthly" }
-    end
-
-    # Industry / solution pages
-    urls << { loc: "#{base}#{industry_healthcare_path}", priority: "0.7", changefreq: "monthly" }
-    urls << { loc: "#{base}#{industry_legal_path}", priority: "0.7", changefreq: "monthly" }
-    urls << { loc: "#{base}#{industry_financial_path}", priority: "0.7", changefreq: "monthly" }
-    urls << { loc: "#{base}#{industry_b2b_saas_path}", priority: "0.7", changefreq: "monthly" }
-    urls << { loc: "#{base}#{industry_professional_services_path}", priority: "0.7", changefreq: "monthly" }
-    urls << { loc: "#{base}#{industry_edtech_path}", priority: "0.7", changefreq: "monthly" }
-
-    # Blog posts
-    blog_articles_list.each do |article|
-      urls << { loc: "#{base}#{article[:path].call}", priority: "0.6", changefreq: "monthly" }
-    end
-
+    urls.concat(core_page_urls(base))
+    urls.concat(service_urls(base))
+    urls.concat(solution_urls(base))
+    urls.concat(hire_urls(base))
+    urls.concat(integration_urls(base))
+    urls.concat(case_study_urls(base))
+    urls.concat(blog_urls(base))
     urls
+  end
+
+  def core_page_urls(base)
+    paths = [
+      ["", true],
+      [about_path, route_defined?(:about_path)],
+      [services_path, route_defined?(:services_path)],
+      [contact_path, route_defined?(:contact_path)],
+      [case_studies_path, route_defined?(:case_studies_path)],
+      [reviews_path, route_defined?(:reviews_path)],
+      [methodology_path, route_defined?(:methodology_path)],
+      [gcc_path, route_defined?(:gcc_path)],
+      [derisk_projects_path, route_defined?(:derisk_projects_path)],
+      [blogs_path, route_defined?(:blogs_path)]
+    ]
+
+    paths.filter_map do |path, exists|
+      next unless exists
+
+      { loc: path.empty? ? base : "#{base}#{path}", lastmod: SITE_LASTMOD }
+    end
+  end
+
+  def service_urls(base)
+    named = %i[
+      ai_agent_development_path
+      machine_learning_path
+      platform_modernization_path
+      custom_software_path
+      api_integrations_path
+      devops_engineering_path
+    ]
+
+    named.filter_map do |helper|
+      next unless route_defined?(helper)
+
+      { loc: "#{base}#{public_send(helper)}", lastmod: SITE_LASTMOD }
+    end
+  end
+
+  def solution_urls(base)
+    named = %i[
+      industry_healthcare_path
+      industry_legal_path
+      industry_financial_path
+      industry_b2b_saas_path
+      industry_professional_services_path
+      industry_edtech_path
+      industry_construction_path
+      industry_logistics_path
+      industry_home_services_path
+      industry_real_estate_path
+      industry_private_clinics_path
+    ]
+
+    named.filter_map do |helper|
+      next unless route_defined?(helper)
+
+      { loc: "#{base}#{public_send(helper)}", lastmod: SITE_LASTMOD }
+    end
+  end
+
+  def hire_urls(base)
+    named = %i[hire_ai_engineers_path hire_dedicated_developers_path]
+    named.filter_map do |helper|
+      next unless route_defined?(helper)
+
+      { loc: "#{base}#{public_send(helper)}", lastmod: SITE_LASTMOD }
+    end
+  end
+
+  def integration_urls(base)
+    return [] unless route_defined?(:integrations_path)
+
+    urls = [{ loc: "#{base}#{integrations_path}", lastmod: SITE_LASTMOD }]
+    if defined?(IntegrationCatalog)
+      IntegrationCatalog.slugs.each do |slug|
+        next unless route_defined?(:integration_path)
+
+        urls << { loc: "#{base}#{integration_path(slug)}", lastmod: SITE_LASTMOD }
+      end
+    end
+    urls
+  end
+
+  def case_study_urls(base)
+    return [] unless route_defined?(:case_study_path)
+
+    CaseStudyCatalog.slugs.map do |slug|
+      { loc: "#{base}#{case_study_path(slug)}", lastmod: SITE_LASTMOD }
+    end
+  end
+
+  def blog_urls(base)
+    blog_articles_list.filter_map do |article|
+      path = article[:path].call
+      lastmod = article[:date_iso].presence || SITE_LASTMOD
+      { loc: "#{base}#{path}", lastmod: lastmod }
+    end
   end
 
   def blog_articles_list
     view_context.blog_articles_list
+  end
+
+  def route_defined?(helper_name)
+    Rails.application.routes.url_helpers.respond_to?(helper_name)
   end
 end
