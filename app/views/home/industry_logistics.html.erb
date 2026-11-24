@@ -1,0 +1,238 @@
+<% content_for :head do %>
+  <% set_meta_tags(
+    title: "Logistics & Dispatch Software Development",
+    description: "Route planning, driver apps with photo proof, automatic billing and customer texting for haulers, route-based service fleets and local delivery companies.",
+    keywords: "logistics software development, dispatch software, route optimization, proof of service, fleet management software, waste hauling software, delivery dispatch app"
+  ) %>
+  <% logistics_faq = [
+       { q: "Do drivers need to learn a complex app?", a: "On the Shoreline Waste build, drivers use a mobile workflow built for field execution: routes update in real time, photo capture triggers inside a geofence, and completion events can drive billing without a separate back-office step." },
+       { q: "How do you prove service actually happened?", a: "GPS-verified geofences gate photo capture so proof is tied to the customer location polygon, with server-side timestamps and audit trails rather than editable device clocks." },
+       { q: "Which maps and routing engines do you use?", a: "We have shipped with Google Maps Fleet Engine for constraint-aware routing and PostGIS for service territories and polygons." },
+       { q: "Can you connect our existing telematics?", a: "We can integrate with telematics platforms when their APIs expose the vehicle and diagnostic data you need. Samsara and Geotab are listed under can-integrate until a live production connection is confirmed on your fleet." }
+     ] %>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "Service",
+    "name" => "Logistics & Dispatch Software Development",
+    "url" => industry_logistics_url,
+    "description" => "Route planning, driver apps with photo proof, automatic billing and customer texting for haulers and route-based fleets.",
+    "provider" => { "@id" => "https://astechware.com/#organization" },
+    "areaServed" => ["United States", "Canada", "Australia"],
+    "serviceType" => "Logistics Software Development",
+    "category" => "Transportation & Logistics"
+  }.to_json) %>
+  </script>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "FAQPage",
+    "mainEntity" => logistics_faq.map { |item|
+      {
+        "@type" => "Question",
+        "name" => item[:q],
+        "acceptedAnswer" => { "@type" => "Answer", "text" => item[:a] }
+      }
+    }
+  }.to_json) %>
+  </script>
+<% end %>
+
+<div class="hero-section py-5 service-page-hero professional-services-hero industry-landing-hero">
+  <div class="container">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-12 col-lg-9 mx-auto text-center">
+        <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;" data-page-h1>
+          Logistics and dispatch software development
+        </h1>
+        <p class="text-white fw-semibold mb-3" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.4; max-width: 720px; margin-left: auto; margin-right: auto;">
+          Routes that react to exceptions, proof of service at the truck, billing when the job completes.
+        </p>
+        <p class="mb-4" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
+          We build dispatch, routing, and driver apps for waste haulers, route-based service fleets, and local delivery operators in the US, Canada, and Australia&nbsp;&mdash; teams that need modern routing without breaking daily proof-of-service requirements.
+        </p>
+        <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+          Start with a discovery sprint &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="inner-sections logistics-industry-page">
+
+  <section class="py-5 bg-white" id="problems">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto mb-5">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Problems we solve</h2>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Static routes that ignore real-world exceptions</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">Blocked bins, on-call adds, and traffic shifts make yesterday&rsquo;s sheet obsolete. Without live replanning, fuel and labor drift with every exception.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Disputes with no defensible proof</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">Missed pickup claims turn into refunds when there is no GPS-verified photo tied to the service location and time.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Billing disconnected from completion</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">Finance chases dispatch for what was actually serviced. Completion events should trigger invoices or lifts automatically, with idempotent processing.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Dispatch changes that never reach drivers</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">Mid-route edits need push notifications and offline-tolerant mobile workflows, not phone calls that drivers miss on the road.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Telematics data sitting outside operations</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">Engine diagnostics and fleet location are useful only when they inform dispatch decisions and audit trails, not a separate dashboard nobody checks.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey" id="what-we-build">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto mb-5">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">What we build</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.9;">
+            <li><strong>Route planning and live replanning</strong> with constraint-aware sequencing and service-window SLAs.</li>
+            <li><strong>Driver mobile apps</strong> with geofence-gated photo proof and low-friction stop completion.</li>
+            <li><strong>Dispatch consoles</strong> with fleet visibility, exception handling, and mid-route edits.</li>
+            <li><strong>PostGIS service territories</strong> for customer polygons, zones, and spatial queries at scale.</li>
+            <li><strong>Automated billing triggers</strong> on verified completion with queue-backed, idempotent processing.</li>
+            <li><strong>Customer texting</strong> for ETA, completion, and exception notifications.</li>
+            <li><strong>Push notifications</strong> so route changes reach drivers immediately.</li>
+            <li><strong>RBAC and audit trails</strong> across dispatch, finance, and customer support views.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white" id="case-study">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Featured case study</h2>
+          <div class="workflow-card p-4 p-lg-5">
+            <h3 class="h5 mb-3">Shoreline Waste: route planning and proof-of-service</h3>
+            <p class="mb-0" style="line-height: 1.7;">
+              A regional waste provider replaced static route sheets with Fleet Engine routing, a driver app that captures GPS-verified photos inside service geofences, and billing events that fire when a stop is provably complete&nbsp;&mdash; without disrupting daily operations.
+            </p>
+            <%= link_to "Read the full case study &rarr;".html_safe, case_study_path("shoreline-waste-logistics"), class: "d-inline-block mt-4 fw-semibold ajax" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey" id="tools">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-12 col-md-6">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Tools we build with</h2>
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <ul class="mb-0 ps-3" style="line-height: 2;">
+              <li>Google Maps / Fleet Engine</li>
+              <li>PostGIS</li>
+              <li>Twilio</li>
+              <li>Stripe Connect</li>
+              <li>Push notifications</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">We can integrate with</h2>
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <p class="mb-3 small" style="line-height: 1.7;">We can integrate with telematics and fleet platforms you already run when their APIs expose the vehicle data dispatch needs:</p>
+            <ul class="mb-0 ps-3" style="line-height: 2;">
+              <li>Samsara</li>
+              <li>Geotab</li>
+            </ul>
+            <p class="mb-0 mt-3 small text-muted">[[AHMAD: move to built with only if connected]]</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white" id="two-ways">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Two ways to work with us</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h5 mb-3">Build it with our team</h3>
+            <p class="mb-3">We scope it, design it, build it, and put it into production. You get weekly demos, milestone-based payments, and full code ownership.</p>
+            <%= link_to "See our services", services_path, class: "service-card-link ajax" %>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h5 mb-3">Add an engineer to your team</h3>
+            <p class="mb-3">A dedicated engineer who works in your tools, backed by our senior team for code review and cover.</p>
+            <% if route_helper_defined?(:hire_dedicated_developers_path) %>
+              <%= link_to "Hire an engineer", hire_dedicated_developers_path, class: "service-card-link ajax" %>
+            <% else %>
+              <%= link_to "Book a 30-min call", "https://calendly.com/ahmadkamran/new-meeting", target: "_blank", rel: "noopener noreferrer", class: "service-card-link" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey" id="faq">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">FAQ</h2>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="accordion logistics-industry-faq" id="logisticsIndustryFaq">
+            <% logistics_faq.each_with_index do |item, idx| %>
+              <% collapse_id = "logfaq#{idx + 1}" %>
+              <div class="accordion-item border rounded mb-2">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#<%= collapse_id %>" aria-expanded="false" aria-controls="<%= collapse_id %>"><%= item[:q] %></button>
+                </h3>
+                <div id="<%= collapse_id %>" class="accordion-collapse collapse" data-bs-parent="#logisticsIndustryFaq">
+                  <div class="accordion-body"><%= item[:a] %></div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white">
+    <div class="container text-center">
+      <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+        Book a discovery call &rarr;
+      </a>
+    </div>
+  </section>
+
+</div>
