@@ -3,7 +3,7 @@
     <div class="row align-items-center min-vh-50">
       <div class="col-12 col-lg-10 mx-auto text-center">
         <h1 class="display-5 fw-bold mb-3" style="font-size: clamp(26px, 4vw, 48px); line-height: 1.15;" data-page-h1>
-          How we built a construction management platform where every estimate, contract, and payment has to be traceable across three companies from one login
+          How we built one platform for a contractor running three companies
         </h1>
         <p class="mb-0" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.7; max-width: 900px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
           A Las Vegas general contractor asked us to replace his disconnected tools with a single platform for estimating, subcontracting, invoicing, and paying subcontractors across three separate construction companies.
@@ -50,16 +50,13 @@
           </p>
         </div>
         <div class="col-12 col-lg-5">
-          <div class="workflow-card p-4">
-            <h3 class="h6 text-uppercase text-muted mb-3">At a glance</h3>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
-              <li><strong>Client:</strong> Las Vegas general contractor, three companies</li>
-              <li><strong>Scope:</strong> Multi company construction management platform, company toggle</li>
-              <li><strong>AI:</strong> Claude and Gemini for plan extraction and estimate skeleton generation (human review required)</li>
-              <li><strong>Evidence:</strong> Per company atomic numbering, Decimal money, audit trail on every financial action</li>
-              <li><strong>Stack:</strong> Next.js, NestJS, PostgreSQL with Prisma, BullMQ workers, Puppeteer PDFs, Stripe Connect, S3</li>
-            </ul>
-          </div>
+          <%= render "home/case_studies/at_a_glance",
+            industry: "Construction",
+            client: "Las Vegas general contractor running three companies",
+            country: "United States",
+            what_we_built: "Multi-company construction management platform with company toggle, AI estimating, subcontracts, invoices, payments, photos",
+            integrations: "QuickBooks Online, Microsoft Outlook, Stripe Connect",
+            stack: "Next.js, NestJS, PostgreSQL with Prisma, BullMQ, Puppeteer PDFs, S3" %>
         </div>
       </div>
     </div>
@@ -274,27 +271,17 @@
     </div>
   </section>
 
-  <section class="py-5 bg-light-grey" id="cta">
-    <div class="container">
-      <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">How to talk to us about a build like this</h2>
-        <p class="large-para mb-4">
-          If you are a general contractor, subcontractor, or construction technology company replacing disconnected tools with a platform that ties estimating to subcontracting to invoicing to payment, or if you are evaluating where AI fits safely in a construction workflow, we offer a paid discovery engagement that produces an architecture document, an integration map for your QuickBooks and Outlook setup, and a build plan you own whether or not you continue with us.
-        </p>
-        <p class="large-para mb-4">
-          We have shipped multi tenant construction platforms, AI document extraction pipelines for plan sets ranging from 6 to 66 pages, and QuickBooks integrations that solve the cost code duplication problem structurally rather than with sync rules. The discovery engagement is the fastest way to know what your platform actually needs before committing to a build.
-        </p>
-        <div class="workflow-card p-4 p-lg-5 text-center">
-          <p class="mb-1 fw-semibold">Ahmad Kamran, founder, A&rsquo;sTechware</p>
-          <p class="mb-4">
-            <a href="mailto:ahmad@astechware.com" class="text-decoration-none">ahmad@astechware.com</a>
-          </p>
-          <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5 me-2 mb-2">
-            Start a discovery engagement &rarr;
-          </a>
-          <%= link_to "Custom software", custom_software_path, class: "btn btn-outline-primary btn-lg rounded-pill px-5 mb-2 ajax" %>
-        </div>
-      </div>
+  <%= render "home/case_studies/gallery", slug: "construction-management-platform" %>
+  <%= render "home/case_studies/client_quote", slug: "construction-management-platform" %>
+  <%= render "home/case_studies/cta", blurb: "If you are a general contractor or construction technology company replacing disconnected tools with a platform that ties estimating to subcontracting to invoicing to payment, we offer a paid discovery engagement with an architecture document, QuickBooks and Outlook integration map, and a build plan you own." %>
+
+  <section class="py-4 bg-light-grey">
+    <div class="container text-center">
+      <%= link_to "Operations-heavy software →", industry_professional_services_path, class: "service-card-link ajax" %>
+      <% if route_helper_defined?(:industry_construction_path) %>
+        <span class="text-muted mx-2">·</span>
+        <%= link_to "Construction →", industry_construction_path, class: "service-card-link ajax" %>
+      <% end %>
     </div>
   </section>
 

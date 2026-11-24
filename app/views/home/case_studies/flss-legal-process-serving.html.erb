@@ -3,7 +3,7 @@
     <div class="row align-items-center min-vh-50">
       <div class="col-12 col-lg-10 mx-auto text-center">
         <h1 class="display-5 fw-bold mb-3" style="font-size: clamp(26px, 4vw, 48px); line-height: 1.15;" data-page-h1>
-          How we built a process serving platform where every digital artifact has to survive being entered as evidence
+          How we built a process serving platform that holds up in court
         </h1>
         <p class="mb-0" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.7; max-width: 900px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
           A Canadian process serving company asked us to replace their Gmail and spreadsheets operation with a real platform.
@@ -50,16 +50,13 @@
           </p>
         </div>
         <div class="col-12 col-lg-5">
-          <div class="workflow-card p-4">
-            <h3 class="h6 text-uppercase text-muted mb-3">At a glance</h3>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
-              <li><strong>Client:</strong> Canadian process serving company</li>
-              <li><strong>Scope:</strong> Multi tenant SaaS, five user roles</li>
-              <li><strong>AI:</strong> Gemini Pro document parsing (human review required)</li>
-              <li><strong>Evidence:</strong> GPS, server side timestamps, encrypted photos</li>
-              <li><strong>Stack:</strong> PostgreSQL RLS, WeasyPrint affidavits, DocuSign, encrypted S3</li>
-            </ul>
-          </div>
+          <%= render "home/case_studies/at_a_glance",
+            industry: "Legal services / process serving",
+            client: "Canadian process serving company",
+            country: "Canada",
+            what_we_built: "Multi-tenant process serving SaaS: intake, dispatch, GPS evidence, affidavits, DocuSign, invoicing",
+            integrations: "DocuSign, Gemini Pro (human review required)",
+            stack: "PostgreSQL RLS, WeasyPrint affidavits, encrypted S3" %>
         </div>
       </div>
     </div>
@@ -261,27 +258,13 @@
     </div>
   </section>
 
-  <section class="py-5 bg-white" id="cta">
-    <div class="container">
-      <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">How to talk to us about a build like this</h2>
-        <p class="large-para mb-4">
-          If you are building a legaltech operations platform, modernizing a regulated workflow off Gmail and spreadsheets, or evaluating where AI fits safely in a legal data flow: we offer a paid one week discovery sprint that produces an architecture document, a compliance and audit map, and a build plan you own whether or not you continue with us.
-        </p>
-        <p class="large-para mb-4">
-          Most teams find this is the cheapest way to know what they actually need before committing to a build.
-        </p>
-        <div class="workflow-card p-4 p-lg-5 text-center">
-          <p class="mb-1 fw-semibold">Ahmad Kamran, founder, A&rsquo;sTechware</p>
-          <p class="mb-4">
-            <a href="mailto:ahmad@astechware.com" class="text-decoration-none">ahmad@astechware.com</a>
-          </p>
-          <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5 me-2 mb-2">
-            Start a discovery sprint &rarr;
-          </a>
-          <%= link_to "Legal solutions", industry_legal_path, class: "btn btn-outline-primary btn-lg rounded-pill px-5 mb-2 ajax" %>
-        </div>
-      </div>
+  <%= render "home/case_studies/gallery", slug: "flss-legal-process-serving" %>
+  <%= render "home/case_studies/client_quote", slug: "flss-legal-process-serving" %>
+  <%= render "home/case_studies/cta", blurb: "If you are building a legal operations platform or modernizing a regulated workflow off Gmail and spreadsheets, we offer a paid one week discovery sprint: architecture document, compliance and audit map, and a build plan you own." %>
+
+  <section class="py-4 bg-light-grey">
+    <div class="container text-center">
+      <%= link_to "Legal services software →", industry_legal_path, class: "service-card-link ajax" %>
     </div>
   </section>
 
