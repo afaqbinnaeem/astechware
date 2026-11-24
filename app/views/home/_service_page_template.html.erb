@@ -1,6 +1,6 @@
 <%# Reusable Service Page Template. Pass local: service (Hash with keys below) %>
 <%# service: name, tagline, cta_text, cta_url, overview_paragraphs[], problems_solved[], approach_different, benefits[], deliverables[], technical_specs[], timeline, tech_stack[], recent_results[], process_intro, process_phases[], cta_heading, cta_subheading, show_contact_form (optional) %>
-<% cta_text = service[:cta_text].presence || "Schedule Discovery Call" %>
+<% cta_text = service[:cta_text].presence || "Book a 30-min call" %>
 <% cta_url = service[:cta_url].presence || "https://calendly.com/ahmadkamran/new-meeting" %>
 
 <!-- Hero Section -->
@@ -35,7 +35,7 @@
             <p class="large-para mb-4"><%= para %></p>
           <% end %>
           <% if service[:problems_solved].present? %>
-            <h3 class="h5 mb-2 mt-4">What Problems This Solves</h3>
+            <h3 class="h5 mb-2 mt-4">What problems this solves</h3>
             <ul class="service-page-list mb-4">
               <% Array(service[:problems_solved]).each do |item| %>
                 <li><%= item %></li>
@@ -43,7 +43,7 @@
             </ul>
           <% end %>
           <% if service[:approach_different].present? %>
-            <h3 class="h5 mb-2 mt-3">How We Approach It Differently</h3>
+            <h3 class="h5 mb-2 mt-3">How we approach it differently</h3>
             <p class="large-para mb-0"><%= service[:approach_different] %></p>
           <% end %>
         </div>
@@ -57,7 +57,7 @@
   <div class="py-5 bg-light-grey" id="benefits">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Business Benefits</h2>
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Business benefits</h2>
         <p class="large-para mb-0" style="max-width: 700px; margin: 0 auto;">What you gain when you work with us on this service.</p>
       </div>
       <div class="row g-4">
@@ -88,9 +88,9 @@
     <div class="container">
       <div class="row">
         <div class="col-12 col-lg-10 mx-auto">
-          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">What We Deliver</h2>
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">What we deliver</h2>
           <% if service[:deliverables].present? %>
-            <h3 class="h5 mb-2">Key Deliverables</h3>
+            <h3 class="h5 mb-2">Key deliverables</h3>
             <ul class="service-page-list mb-4">
               <% Array(service[:deliverables]).each do |item| %>
                 <li><%= item %></li>
@@ -98,7 +98,7 @@
             </ul>
           <% end %>
           <% if service[:technical_specs].present? %>
-            <h3 class="h5 mb-2 mt-4">Technical Specifications</h3>
+            <h3 class="h5 mb-2 mt-4">Technical specifications</h3>
             <ul class="service-page-list mb-4">
               <% Array(service[:technical_specs]).each do |item| %>
                 <li><%= item %></li>
@@ -106,7 +106,7 @@
             </ul>
           <% end %>
           <% if service[:timeline].present? %>
-            <h3 class="h5 mb-2 mt-3">Timeline Expectations</h3>
+            <h3 class="h5 mb-2 mt-3">Timeline expectations</h3>
             <p class="large-para mb-0"><%= service[:timeline] %></p>
           <% end %>
         </div>
@@ -120,7 +120,7 @@
   <div class="py-5 bg-light-grey" id="technology">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Technology Stack</h2>
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Technology stack</h2>
         <p class="large-para mb-0" style="max-width: 650px; margin: 0 auto;">Frameworks, languages, and platforms we use for this service.</p>
       </div>
       <div class="row g-3 justify-content-center">
@@ -144,7 +144,7 @@
   <div class="py-5 bg-white" id="results">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Recent Results</h2>
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Recent results</h2>
         <p class="large-para mb-0" style="max-width: 700px; margin: 0 auto;">Client stories and outcomes from our AI agent work.</p>
       </div>
       <div class="row g-4">
@@ -187,12 +187,12 @@
     <div class="container">
       <div class="row">
         <div class="col-12 col-lg-10 mx-auto">
-          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">How This Service Follows Our Methodology</h2>
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">How this service follows our methodology</h2>
           <% if service[:process_intro].present? %>
             <p class="large-para mb-4"><%= service[:process_intro] %></p>
           <% end %>
           <% if service[:process_phases].present? %>
-            <h3 class="h5 mb-3">Typical Project Phases</h3>
+            <h3 class="h5 mb-3">Typical project phases</h3>
             <div class="row g-3">
               <% Array(service[:process_phases]).each_with_index do |phase, i| %>
                 <div class="col-12 col-md-6">
@@ -207,7 +207,7 @@
               <% end %>
             </div>
             <% if service[:process_expect].present? %>
-              <h3 class="h5 mb-2 mt-4">What Clients Can Expect</h3>
+              <h3 class="h5 mb-2 mt-4">What clients can expect</h3>
               <p class="large-para mb-0"><%= service[:process_expect] %></p>
             <% end %>
           <% end %>

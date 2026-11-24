@@ -1,18 +1,18 @@
 <% content_for :head do %>
   <% set_meta_tags(
-    title: "Custom Software Development Company",
-    description: "Custom web and mobile platforms, portals and internal tools built around how your business actually runs. Weekly demos, milestone payments, you own the code.",
+    title: "Custom Software, Web & Mobile App Development",
+    description: "Custom software, web apps and mobile apps (iOS and Android), designed, built and tested by one team. Weekly demos, milestone payments, and you own all the code.",
     keywords: "custom software engineering, hire backend engineer, hire frontend developer, Python FastAPI development, Node.js backend development, React Next.js development, full stack engineering partner, custom SaaS development, multi tenant SaaS architecture, enterprise software development"
   ) %>
   <script type="application/ld+json">
   <%= raw({
     "@context" => "https://schema.org",
     "@type" => "Service",
-    "name" => "Custom Software Engineering",
+    "name" => "Custom Software, Web & Mobile App Development",
     "url" => custom_software_url,
-    "description" => "Custom software engineering partner for SaaS platforms and operational infrastructure with Python, Node.js, React, and Next.js.",
+    "description" => "Custom software, web apps and mobile apps (iOS and Android), designed, built and tested by one team.",
     "provider" => { "@id" => "https://astechware.com/#organization" },
-    "areaServed" => ["United States", "Canada", "Australia", "United Kingdom"],
+    "areaServed" => ["United States", "United Kingdom", "Canada", "Australia"],
     "serviceType" => "Custom Software Development",
     "category" => "Software Development"
   }.to_json) %>
@@ -25,16 +25,16 @@
     <div class="row align-items-center min-vh-50">
       <div class="col-12 col-lg-9 mx-auto text-center">
         <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;" data-page-h1>
-          Custom software development
+          Custom software, web and mobile app development
         </h1>
         <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.4; max-width: 720px; margin-left: auto; margin-right: auto;">
           High Performance SaaS Platforms &amp; Operational Infrastructure
         </p>
         <p class="mb-4" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
-          We don't just write code; we build business engines. From multi tenant SaaS architectures to complex marketplace integrations, we deliver production ready software with the security, scalability, and documentation required for institutional growth.
+          We don't just write code; we build business engines. From multi tenant SaaS architectures to complex marketplace integrations, we deliver ready to use software with the security, scalability, and documentation required for institutional growth.
         </p>
         <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
-          Schedule Discovery Call
+          Book a 30-min call
         </a>
       </div>
     </div>
@@ -50,7 +50,7 @@
         <div class="col-12 col-lg-10 mx-auto">
           <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Overview</h2>
           <p class="large-para mb-4">
-            We deliver complete custom software, not half finished handoffs. From discovery and design through build, deploy, and support, you get a production ready system that you own. No vendor lock in, no black boxes: you receive source code, documentation, and the ability to maintain or extend the product with us or on your own.
+            We deliver complete custom software, not half finished handoffs. From discovery and design through build, deploy, and support, you get a ready to use system that you own. No vendor lock in, no black boxes: you receive source code, documentation, and the ability to maintain or extend the product with us or on your own.
           </p>
           <p class="large-para mb-4">
             Our engagements cover web and mobile applications, internal tools and admin systems, B2B SaaS products, and operations software. Every system is built for scale and maintainability from day one, with proper architecture, testing, and DevOps so you can ship with confidence.
@@ -68,52 +68,128 @@
     </div>
   </section>
 
+  <!-- Web apps -->
+  <section class="py-5 bg-light-grey" id="web-apps">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Web apps</h2>
+          <p class="large-para mb-3">
+            Customer portals, dashboards, internal tools and SaaS products built around how your team actually works.
+          </p>
+          <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.7;">
+            <li>Portals, dashboards, internal tools and multi-tenant SaaS</li>
+            <li>React and Next.js on the front end</li>
+            <li>Node.js and Python on the back end</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mobile apps -->
+  <section class="py-5 bg-white" id="mobile-apps">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Mobile apps</h2>
+          <p class="large-para mb-3">
+            iOS and Android apps with React Native or Flutter, designed, built and tested by the same team that owns the back end.
+          </p>
+          <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.7;">
+            <li>iOS and Android from one codebase with React Native or Flutter</li>
+            <li><%= link_to "Shoreline Waste logistics app", case_study_path("shoreline-waste-logistics"), class: "service-card-link ajax" %></li>
+            <li><%= link_to "Zofi Cash earned wage access", case_study_path("zofi-cash-fintech"), class: "service-card-link ajax" %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UI/UX design -->
+  <section class="py-5 bg-light-grey" id="ui-ux">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">UI/UX design</h2>
+          <p class="large-para mb-3">
+            Wireframes, clickable prototypes and final design before development starts, so you can see and approve the product first.
+          </p>
+          <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.7;">
+            <li>Wireframes that map the real workflow</li>
+            <li>Clickable prototypes for stakeholder review</li>
+            <li>Final UI before a line of production code is written</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QA and testing -->
+  <section class="py-5 bg-white" id="qa-testing">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">QA and testing</h2>
+          <p class="large-para mb-3">
+            Automated tests, manual testing on real devices, and a testing pass before every release.
+          </p>
+          <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.7;">
+            <li>Automated unit and integration tests in the pipeline</li>
+            <li>Manual testing on real devices for mobile and responsive web</li>
+            <li>A testing pass before every release</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Challenges We Solve (6) -->
   <section class="py-5 bg-light-grey" id="challenges">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Challenges We Solve</h2>
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Challenges we solve</h2>
         <p class="large-para mb-0" style="max-width: 640px; margin: 0 auto;">Why organizations choose custom software, and how we deliver without the usual gaps.</p>
       </div>
       <div class="row g-3">
         <div class="col-12 col-md-6 col-lg-4">
           <div class="workflow-card p-4 h-100">
-            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">1</span>
+            <span class="d-inline-block rounded-circle mb-2 service-step-num" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">1</span>
             <h4 class="h6 mb-2">Need for custom software but can't hire full engineering team</h4>
             <p class="mb-0 small">We act as your engineering partner: full stack delivery, clear communication, and handoff so you get a product without the overhead of hiring and managing a full team.</p>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
           <div class="workflow-card p-4 h-100">
-            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">2</span>
+            <span class="d-inline-block rounded-circle mb-2 service-step-num" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">2</span>
             <h4 class="h6 mb-2">Complex Workflow Mismatch</h4>
             <p class="mb-0 small">Off the shelf tools break when your business needs split payments, AI route optimization, multi party approvals, or real time operations logic. We engineer systems that match your actual workflow, data model, and integrations.</p>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
           <div class="workflow-card p-4 h-100">
-            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">3</span>
+            <span class="d-inline-block rounded-circle mb-2 service-step-num" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">3</span>
             <h4 class="h6 mb-2">Stitching together multiple contractors leads to gaps</h4>
             <p class="mb-0 small">One team owns the full stack: design, backend, frontend, DevOps, and documentation. No finger pointing or integration gaps between vendors.</p>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
           <div class="workflow-card p-4 h-100">
-            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">4</span>
+            <span class="d-inline-block rounded-circle mb-2 service-step-num" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">4</span>
             <h4 class="h6 mb-2">Scaling Without Headcount</h4>
             <p class="mb-0 small">We build software that helps your business scale while keeping the team lean: automation first workflows, admin tooling, self serve customer experiences, and reliable integrations.</p>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
           <div class="workflow-card p-4 h-100">
-            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">5</span>
+            <span class="d-inline-block rounded-circle mb-2 service-step-num" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">5</span>
             <h4 class="h6 mb-2">Need to ship MVP fast but also maintain quality</h4>
-            <p class="mb-0 small">We ship in iterations with weekly demos, MVPs that are production ready, not throwaway prototypes. Quality and speed together.</p>
+            <p class="mb-0 small">We ship in iterations with weekly demos, MVPs that are ready to use, not throwaway prototypes. Quality and speed together.</p>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
           <div class="workflow-card p-4 h-100">
-            <span class="d-inline-block rounded-circle bg-danger bg-opacity-10 text-danger mb-2" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">6</span>
+            <span class="d-inline-block rounded-circle mb-2 service-step-num" style="width: 36px; height: 36px; line-height: 36px; text-align: center; font-weight: 700;">6</span>
             <h4 class="h6 mb-2">Integration with existing systems and data sources</h4>
             <p class="mb-0 small">We integrate with your CRM, payments, analytics, and internal systems via APIs and secure data flows, no rip and replace required.</p>
           </div>
@@ -127,13 +203,13 @@
     <div class="container">
       <div class="row">
         <div class="col-12 col-lg-10 mx-auto">
-          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Our Approach</h2>
-          <p class="large-para mb-4">We deliver institutional grade software with production ready architecture from day one, engineered for security, scalability, and long term maintainability.</p>
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Our approach</h2>
+          <p class="large-para mb-4">We deliver institutional grade software with ready to use architecture from day one, engineered for security, scalability, and long term maintainability.</p>
           <ul class="service-page-list mb-0" style="font-size: 1.05rem;">
             <li><strong>Requirements discovery and validation:</strong> We align on scope, users, and success metrics before writing code so we build the right thing.</li>
             <li><strong>User centered design and UX:</strong> Wireframes and flows designed for your specific users and workflows, not generic templates.</li>
             <li><strong>Iterative development with weekly demos:</strong> You see working software every week; we adjust based on feedback so there are no surprises at launch.</li>
-            <li><strong>Production ready architecture from day one:</strong> Multi tenant patterns, secure boundaries, observability, and deployment from the first sprint, not bolted on at the end.</li>
+            <li><strong>Ready to use architecture from day one:</strong> Multi tenant patterns, secure boundaries, observability, and deployment from the first sprint, not bolted on at the end.</li>
             <li><strong>Comprehensive testing:</strong> Unit, integration, and E2E tests so we catch regressions early and deploy with confidence.</li>
             <li><strong>DevOps and deployment automation:</strong> CI/CD, monitoring, and backups so you can ship and operate without manual heroics.</li>
             <li><strong>Documentation and team training:</strong> You get docs, runbooks, and training so your team can own and extend the system.</li>
@@ -147,7 +223,7 @@
   <section class="py-5 bg-light-grey" id="benefits">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Business Benefits</h2>
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Business benefits</h2>
         <p class="large-para mb-0" style="max-width: 640px; margin: 0 auto;">Why custom software pays off, competitive advantage, efficiency, and full ownership.</p>
       </div>
       <div class="row g-4">
@@ -237,7 +313,7 @@
   <section class="py-5 bg-white" id="deliverables">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">What We Deliver</h2>
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">What we deliver</h2>
         <p class="large-para mb-0" style="max-width: 640px; margin: 0 auto;">Complete solutions, product, backend, integrations, DevOps, and documentation. You own everything.</p>
       </div>
       <div class="row g-4">
@@ -309,7 +385,7 @@
   <section class="py-5 bg-light-grey" id="technology">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Technology Stack</h2>
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Technology stack</h2>
         <p class="large-para mb-0" style="max-width: 640px; margin: 0 auto;">Modern, proven technologies, we match the stack to your requirements and team.</p>
       </div>
       <div class="row g-4">
@@ -425,7 +501,7 @@
   <section class="py-5 bg-light-grey" id="case-study">
     <div class="container">
       <div class="text-center mb-4">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Case Study Spotlight</h2>
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Case study spotlight</h2>
       </div>
       <div class="row g-4">
         <div class="col-12 col-md-6 col-lg-3">
@@ -468,7 +544,7 @@
   <section class="py-5 bg-white" id="faqs">
     <div class="container">
       <div class="text-center mb-5">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Frequently Asked Questions</h2>
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Frequently asked questions</h2>
       </div>
       <div class="row">
         <div class="col-12 col-lg-10 mx-auto">
@@ -486,7 +562,7 @@
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#csfaq2" aria-expanded="false" aria-controls="csfaq2">How long does it take to build an MVP?</button>
               </h3>
               <div id="csfaq2" class="accordion-collapse collapse" data-bs-parent="#customSoftwareFaqAccordion">
-                <div class="accordion-body">Typically 8 to 16 weeks for a production ready MVP, depending on features and integrations. We work in 2 week sprints with demos so you see progress and can adjust scope. We don’t deliver “prototypes” that can’t go live, our MVPs are deployable and maintainable.</div>
+                <div class="accordion-body">Typically 8 to 16 weeks for a ready to use MVP, depending on features and integrations. We work in 2 week sprints with demos so you see progress and can adjust scope. We don’t deliver “prototypes” that can’t go live, our MVPs are deployable and maintainable.</div>
               </div>
             </div>
             <div class="accordion-item border rounded mb-2">
@@ -547,7 +623,7 @@
   <section class="py-5 bg-light-grey" id="related">
     <div class="container">
       <div class="text-center mb-4">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Related Services</h2>
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Related services</h2>
       </div>
       <div class="row g-3 justify-content-center">
         <div class="col-6 col-md-3">
@@ -586,10 +662,10 @@
     <div class="container">
       <div class="row">
         <div class="col-12 col-lg-8 mx-auto text-center">
-          <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Ready to Build Your Product?</h2>
+          <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Ready to build your product?</h2>
           <p class="lead mb-4">Schedule a discovery call to discuss your idea, scope an MVP, and get a realistic timeline and estimate. We deliver complete solutions, not half finished handoffs.</p>
           <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
-            Schedule Discovery Call
+            Book a 30-min call
           </a>
         </div>
       </div>
