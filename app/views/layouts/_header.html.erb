@@ -42,6 +42,9 @@
             <li><%= link_to "Fintech", industry_financial_path, class: "dropdown-item ajax" %></li>
             <li><%= link_to "B2B SaaS", industry_b2b_saas_path, class: "dropdown-item ajax" %></li>
             <li><%= link_to "EdTech", industry_edtech_path, class: "dropdown-item ajax" %></li>
+            <% if route_helper_defined?(:industry_fitness_studios_path) %>
+              <li><%= link_to "Fitness Studios", industry_fitness_studios_path, class: "dropdown-item ajax" %></li>
+            <% end %>
             <li><%= link_to "GCC", gcc_path, class: "dropdown-item ajax" %></li>
           </ul>
         </li>
@@ -141,6 +144,9 @@
                 <li><%= link_to "Fintech", industry_financial_path, class: "ajax" %></li>
                 <li><%= link_to "B2B SaaS", industry_b2b_saas_path, class: "ajax" %></li>
                 <li><%= link_to "EdTech", industry_edtech_path, class: "ajax" %></li>
+                <% if route_helper_defined?(:industry_fitness_studios_path) %>
+                  <li><%= link_to "Fitness Studios", industry_fitness_studios_path, class: "ajax" %></li>
+                <% end %>
                 <li><%= link_to "GCC", gcc_path, class: "ajax" %></li>
               </ul>
             </li>

@@ -20,7 +20,7 @@ Calendly: https://calendly.com/ahmadkamran/new-meeting
 
 ## Experience
 
-Founded in 2022 (Wyoming, USA LLC) with an engineering team in Lahore, Pakistan. Team size 20–25. 50+ projects across industries. 100% client retention (all five-star reviews). Markets served: United States, Canada, Australia, and the United Kingdom; expanding into the GCC. Industries: healthcare, legal, financial, B2B SaaS, professional services, construction, logistics, home services, trucking, real estate, education technology.
+Founded in 2022 as AsTechware LLC (Wyoming, USA) with an engineering team in Lahore, Pakistan. Team size 20–25. 50+ projects across industries. 100% client retention (all five-star reviews). Markets served: United States, Canada, Australia, and the United Kingdom; expanding into the GCC. Industries: healthcare, legal, financial, B2B SaaS, professional services, construction, logistics, home services, trucking, real estate, education technology.
 
 ## Services (with URLs)
 
@@ -45,6 +45,7 @@ Founded in 2022 (Wyoming, USA LLC) with an engineering team in Lahore, Pakistan.
 - Home Services: https://astechware.com/solutions/home-services
 - Real Estate: https://astechware.com/solutions/real-estate
 - Education Technology: https://astechware.com/solutions/education-technology
+- Fitness Studios (ATP): https://astechware.com/solutions/fitness-studios
 
 ## Integrations hub (with URLs)
 

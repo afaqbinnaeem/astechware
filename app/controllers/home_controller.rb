@@ -156,6 +156,9 @@ class HomeController < ApplicationController
   def industry_private_clinics
   end
 
+  def industry_fitness_studios
+  end
+
   def privacy_policy
   end
 

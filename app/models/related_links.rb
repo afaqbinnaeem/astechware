@@ -123,6 +123,12 @@ class RelatedLinks
       { label: "FLSS multi-tenant SaaS case study", path: -> { case_study_path("flss-legal-process-serving") } },
       { label: "Machine learning engineering", path: :machine_learning_path }
     ],
+    "solutions/fitness-studios" => [
+      { label: "Custom software development", path: :custom_software_path },
+      { label: "B2B SaaS engineering", path: :industry_b2b_saas_path },
+      { label: "Stripe & payments", path: "/integrations/stripe" },
+      { label: "Hire dedicated developers", path: :hire_dedicated_developers_path }
+    ],
 
   # —— Case studies ——
     "case-studies/medical-voice-ai" => [

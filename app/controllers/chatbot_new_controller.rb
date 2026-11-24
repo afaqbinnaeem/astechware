@@ -73,7 +73,7 @@ class ChatbotNewController < ApplicationController
     - Results: 5,127 tickets auto-resolved in 90 days, no-shows dropped 35%→6%, recovered ~$28K/month revenue.
 
     ### Other Notable Clients
-    Vestra Software Solutions (US), Word of Mouth Online, Zoficash, The Grants Hub, DriftGolf, Selland Technologies, ZidZid, Instashowing, SWS, Warcoconstruction
+    Vestra Software Solutions (US), Word of Mouth Online (Australia), Zoficash, The Grants Hub, DriftGolf, Selland Technologies, ZidZid, Instashowing, SWS, Warcoconstruction
 
     ## YOUR BEHAVIOR
     ### How to Advise on AI/ML/Automation

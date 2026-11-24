@@ -85,6 +85,7 @@ class SitemapController < ApplicationController
       industry_home_services_path
       industry_real_estate_path
       industry_private_clinics_path
+      industry_fitness_studios_path
     ]
 
     named.filter_map do |helper|

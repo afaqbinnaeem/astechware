@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'blogs/five-startup-mistakes', to: redirect('/blogs/production-ai-vs-prototype-ai-why-projects-fail', status: 301)
   get 'blogs/four-reason-for-new-web', to: redirect('/services/custom-software', status: 301)
   get 'blogs/impact-of-ai-ml-on-food-industry', to: redirect('/case-studies/restaurant-resource-rescue', status: 301)
+  get 'blogs/vestra-app-case-study', to: redirect('/case-studies/vestra-payments', status: 301)
   get 'blogs/:slug', to: 'blogs#show', as: 'blog_show'
   get 'sitemap.xml', to: 'sitemap#index', format: 'xml', as: 'sitemap'
   root 'home#index'
@@ -53,12 +54,13 @@ Rails.application.routes.draw do
   get '/solutions/home-services', to: 'home#industry_home_services', as: 'industry_home_services'
   get '/solutions/real-estate', to: 'home#industry_real_estate', as: 'industry_real_estate'
   get '/solutions/private-clinics', to: 'home#industry_private_clinics', as: 'industry_private_clinics'
+  get '/solutions/fitness-studios', to: 'home#industry_fitness_studios', as: 'industry_fitness_studios'
   get '/privacy-policy', to: 'home#privacy_policy', as: 'privacy_policy'
   get '/terms-of-service', to: 'home#terms_of_service', as: 'terms_of_service'
   get '/unsubscribe', to: 'home#unsubscribe', as: 'unsubscribe'
   get '/unsubscribe_me', to: 'home#unsubscribe_me', as: 'unsubscribe_me'
   # Redirect old blog URLs to /blogs/:slug (prevents 500s, preserves SEO)
-  get 'vestra-app-case-study', to: redirect('/blogs/vestra-app-case-study')
+  get 'vestra-app-case-study', to: redirect('/case-studies/vestra-payments', status: 301)
   get 'whatsapp-voice-ai-agent-demo', to: redirect('/blogs/whatsapp-voice-ai-agent-demo')
   get 'modular-ai-agents-case-study', to: redirect('/blogs/modular-ai-agents-case-study')
   get 'a-laymans-guide-for-hiring-a-top-software-company-in-pakistan', to: redirect('/blogs/a-laymans-guide-for-hiring-a-top-software-company-in-pakistan')

@@ -1,0 +1,217 @@
+<% content_for :head do %>
+  <% set_meta_tags(
+    title: "Fitness Studio Software",
+    description: "Custom software for fitness studios and boutique gyms. We built ATP, a fitness studio platform that is built and launching soon. Membership, scheduling, and member experience systems.",
+    keywords: "fitness studio software, boutique gym software, fitness studio platform, studio membership software, ATP fitness app, class booking software"
+  ) %>
+  <% fitness_faq = [
+       { q: "What is ATP?", a: "ATP is a fitness studio platform we built for studio operators. The product is built and launching soon." },
+       { q: "Do you only build for one studio brand?", a: "No. ATP is our shipped fitness studio platform. We also build custom membership, scheduling, and member experience systems for other studio and boutique gym operators." },
+       { q: "Is ATP live yet?", a: "ATP is built and launching soon. Talk to us if you want an early conversation about studio software or a similar build." },
+       { q: "Who is this for?", a: "Fitness studio owners, boutique gym operators, and founders building studio software in the US, Canada, Australia, and the UK." }
+     ] %>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "Service",
+    "name" => "Fitness Studio Software",
+    "url" => industry_fitness_studios_url,
+    "description" => "Custom software for fitness studios and boutique gyms. We built ATP, a fitness studio platform that is built and launching soon.",
+    "provider" => { "@id" => "https://astechware.com/#organization" },
+    "areaServed" => ["United States", "Canada", "Australia", "United Kingdom"],
+    "serviceType" => "Fitness Studio Software Development",
+    "category" => "Fitness Technology"
+  }.to_json) %>
+  </script>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "FAQPage",
+    "mainEntity" => fitness_faq.map { |item|
+      {
+        "@type" => "Question",
+        "name" => item[:q],
+        "acceptedAnswer" => { "@type" => "Answer", "text" => item[:a] }
+      }
+    }
+  }.to_json) %>
+  </script>
+<% end %>
+
+<div class="hero-section py-5 service-page-hero professional-services-hero industry-landing-hero">
+  <div class="container">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-12 col-lg-9 mx-auto text-center">
+        <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;" data-page-h1>
+          Software for fitness studios and boutique gyms
+        </h1>
+        <p class="text-white fw-semibold mb-3" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.4; max-width: 720px; margin-left: auto; margin-right: auto;">
+          We built ATP&nbsp;&mdash; a fitness studio platform that is built and launching soon.
+        </p>
+        <p class="mb-4" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
+          Custom membership, scheduling, and member experience systems for studio operators in the US, Canada, Australia, and the UK&nbsp;&mdash; built to run day to day operations, not just look good in a demo.
+        </p>
+        <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+          Start with a discovery sprint &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="inner-sections fitness-studios-industry-page">
+
+  <section class="py-5 bg-white" id="problems">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto mb-5">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Problems we solve</h2>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Membership and billing friction</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">Plans, pauses, upgrades, and failed payments get handled in spreadsheets or disconnected tools. Staff chase members instead of coaching them.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Class booking that breaks at peak hours</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">Waitlists, no-shows, and capacity rules are hard to keep consistent when front desk tools and mobile booking disagree.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Member experience split across apps</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">Scheduling in one product, payments in another, messaging in a third. Members and staff lose context every time they switch tools.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Off-the-shelf tools that do not fit boutique ops</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">Generic gym software forces workarounds for boutique formats, multi-location rules, and studio-specific packaging.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">No path from ops data to decisions</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">Owners cannot see retention, class fill rates, or instructor load without exporting and rebuilding reports every week.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Launch risk on a new studio product</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">Founders need a production platform with real payments and scheduling, not a clickable prototype that fails on day one of open enrollment.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey" id="featured-build">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Featured build: ATP</h2>
+          <div class="workflow-card p-4 p-lg-5">
+            <h3 class="h5 mb-3">ATP fitness studio platform</h3>
+            <p class="mb-3" style="line-height: 1.7;">
+              We built ATP, a fitness studio platform for studio operators. The product is built and launching soon.
+            </p>
+            <p class="mb-0 small text-muted" style="line-height: 1.7;">
+              If you run a studio or are building studio software and want the same production approach, we can scope a build or walk through how ATP is structured.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white" id="what-we-build">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto mb-5">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">What we build for studios</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.9;">
+            <li><strong>Membership and billing</strong> for plans, renewals, and payment recovery without spreadsheet workarounds.</li>
+            <li><strong>Class scheduling and booking</strong> with capacity, waitlists, and staff-facing calendars that stay in sync with member apps.</li>
+            <li><strong>Member portals and mobile experiences</strong> so members can book, manage plans, and stay informed in one place.</li>
+            <li><strong>Staff and front-desk workflows</strong> for check-in, schedule changes, and day-of operations.</li>
+            <li><strong>Integrations</strong> with payment processors and the tools your studio already uses, scoped to what you actually need live.</li>
+            <li><strong>Reporting</strong> for fill rates, retention, and operational load that owners can trust without weekly export work.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey" id="two-ways">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Two ways to work with us</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h5 mb-3">Build it with our team</h3>
+            <p class="mb-3">We scope it, design it, build it, and put it into production. You get weekly demos, milestone-based payments, and full code ownership.</p>
+            <%= link_to "See our services", services_path, class: "service-card-link ajax" %>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h5 mb-3">Add an engineer to your team</h3>
+            <p class="mb-3">A dedicated engineer who works in your tools, backed by our senior team for code review and cover.</p>
+            <% if route_helper_defined?(:hire_ai_engineers_path) %>
+              <%= link_to "Hire an AI engineer", hire_ai_engineers_path, class: "service-card-link ajax" %>
+            <% elsif route_helper_defined?(:hire_dedicated_developers_path) %>
+              <%= link_to "Hire an engineer", hire_dedicated_developers_path, class: "service-card-link ajax" %>
+            <% else %>
+              <%= link_to "Book a 30-min call", "https://calendly.com/ahmadkamran/new-meeting", target: "_blank", rel: "noopener noreferrer", class: "service-card-link" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white" id="faq">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">FAQ</h2>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="accordion fitness-studios-industry-faq" id="fitnessStudiosIndustryFaq">
+            <% fitness_faq.each_with_index do |item, idx| %>
+              <% collapse_id = "fsfaq#{idx + 1}" %>
+              <div class="accordion-item border rounded mb-2">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#<%= collapse_id %>" aria-expanded="false" aria-controls="<%= collapse_id %>"><%= item[:q] %></button>
+                </h3>
+                <div id="<%= collapse_id %>" class="accordion-collapse collapse" data-bs-parent="#fitnessStudiosIndustryFaq">
+                  <div class="accordion-body"><%= item[:a] %></div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <%= render "shared/hire_cta" %>
+  <section class="py-5 bg-light-grey">
+    <div class="container text-center">
+      <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+        Book a discovery call &rarr;
+      </a>
+    </div>
+  </section>
+
+</div>

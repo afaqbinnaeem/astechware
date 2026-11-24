@@ -64,6 +64,9 @@
             <li><%= link_to "Fintech", industry_financial_path, class: "footer-link" %></li>
             <li><%= link_to "B2B SaaS", industry_b2b_saas_path, class: "footer-link" %></li>
             <li><%= link_to "EdTech", industry_edtech_path, class: "footer-link" %></li>
+            <% if route_helper_defined?(:industry_fitness_studios_path) %>
+              <li><%= link_to "Fitness Studios", industry_fitness_studios_path, class: "footer-link" %></li>
+            <% end %>
             <li><%= link_to "GCC", gcc_path, class: "footer-link" %></li>
           </ul>
         </div>
