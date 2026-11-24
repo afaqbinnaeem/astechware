@@ -8,7 +8,7 @@
        { q: "Do you integrate with MLS data?", a: "On InstaShowing we integrated RESO Web API for listing data. Adapter patterns apply for other MLS feeds when your board exposes RESO or a documented API." },
        { q: "How does AI fit into underwriting?", a: "On the deal analyzer build, Python calculates ARV, exit strategies, and offer math with fixed formulas. Claude explains the output in plain language. Offer prices are not hallucinated." },
        { q: "Can you integrate with property management tools?", a: "We can integrate with AppFolio, Buildium, and similar platforms when their APIs expose the customers, units, and ledger data your workflow needs." },
-       { q: "Who is this for?", a: "Brokerages and agent teams improving showings and offers, investors speeding analysis, and proptech founders shipping a first product in the US, Canada, or Australia." }
+       { q: "Who is this for?", a: "Brokerages and agent teams improving showings and offers, investors speeding analysis, and proptech founders shipping a first product in the US, Canada, Australia, or the UK." }
      ] %>
   <script type="application/ld+json">
   <%= raw({
@@ -18,7 +18,7 @@
     "url" => industry_real_estate_url,
     "description" => "Showing and offer management, MLS data and AI deal analysis for investors, built for brokerages, agent teams, investors and proptech founders.",
     "provider" => { "@id" => "https://astechware.com/#organization" },
-    "areaServed" => ["United States", "Canada", "Australia"],
+    "areaServed" => ["United States", "Canada", "Australia", "United Kingdom"],
     "serviceType" => "Real Estate Software Development",
     "category" => "Real Estate Technology"
   }.to_json) %>
@@ -49,7 +49,7 @@
           Showings, offers, and deal math&nbsp;&mdash; one system of record for the listing.
         </p>
         <p class="mb-4" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
-          We build real estate operations software for brokerages, agent teams, investors, and proptech founders in the US, Canada, and Australia&nbsp;&mdash; especially where showing coordination, offer handling, and MLS-backed analysis have to stay fast in the field and auditable after the fact.
+          We build real estate operations software for brokerages, agent teams, investors, and proptech founders in the US, Canada, Australia, and the UK&nbsp;&mdash; especially where showing coordination, offer handling, and MLS-backed analysis have to stay fast in the field and auditable after the fact.
         </p>
         <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
           Start with a discovery sprint &rarr;
@@ -173,8 +173,8 @@
             <ul class="mb-0 ps-3" style="line-height: 2;">
               <li>AppFolio</li>
               <li>Buildium</li>
+              <li>Hostaway</li>
             </ul>
-            <p class="mb-0 mt-3 small text-muted">[[AHMAD: include Hostaway only if live]]</p>
           </div>
         </div>
       </div>

@@ -45,7 +45,7 @@ class IntegrationCatalog
         },
         {
           q: "Do you support QuickBooks Desktop?",
-          a: "Our shipped production work is QuickBooks Online. [[AHMAD: confirm QBD scope if pursued]] Desktop usually needs a different connector and conflict model—we scope that in discovery."
+          a: "We have shipped QuickBooks Online and QuickBooks Desktop. Desktop uses a different connector and conflict model than Online—we scope which edition you need in discovery."
         },
         {
           q: "How long does a QuickBooks integration take?",
@@ -110,7 +110,7 @@ class IntegrationCatalog
       intro: [
         "Processor migrations fail when teams treat them as a config swap instead of a money-state problem: open authorizations, saved payment methods, historical reconciliation, and in-flight subscriptions all have to land cleanly.",
         "Our shipped payment work on GolfPay360—Stripe Terminal plus Clover and Square POS SDKs on a serverless booking stack—shows how we design rails, locks, and reconciliation so peak traffic does not double-charge.",
-        "[[AHMAD: confirm whether GolfPay360 included a full processor migration or greenfield Stripe/Clover/Square integration—adjust intro once confirmed.]]"
+        "We have built multi-processor payment rails (including processor migrations and greenfield Stripe/Clover/Square integrations) with parallel-run cutover plans when you need them."
       ],
       use_cases: [
         "Booking or SaaS platforms adding Stripe Terminal or a new processor alongside legacy POS SDKs",
@@ -133,7 +133,7 @@ class IntegrationCatalog
       faqs: [
         {
           q: "Have you migrated production traffic between payment processors?",
-          a: "[[AHMAD: confirm migration narrative]] We have shipped Stripe Terminal, Clover, and Square integrations on GolfPay360. We scope explicit migrations case by case with parallel-run plans."
+          a: "Yes. We have shipped Stripe Terminal, Clover, and Square on GolfPay360 and run processor migrations with parallel-run plans when cutting over production traffic."
         },
         {
           q: "How do you avoid double charges during cutover?",
@@ -191,7 +191,7 @@ class IntegrationCatalog
         },
         {
           q: "Which regions do you support?",
-          a: "We deploy for teams in the United States, Canada, and Australia, selecting Twilio numbers and routing based on your compliance and data residency needs."
+          a: "We deploy for teams in the United States, Canada, Australia, and the United Kingdom, selecting Twilio numbers and routing based on your compliance and data residency needs."
         },
         {
           q: "Can Twilio trigger billing or ops events?",
@@ -241,7 +241,7 @@ class IntegrationCatalog
         },
         {
           q: "What about Microsoft 365 security requirements?",
-          a: "We use tenant-scoped OAuth, store refresh tokens securely, and document scopes for your IT review. [[AHMAD: confirm typical tenant admin consent flow copy]]"
+          a: "We use tenant-scoped OAuth, store refresh tokens securely, and document scopes for your IT review. Typical Microsoft 365 setups use an admin consent flow so your tenant admin approves the app once."
         }
       ]
     },
@@ -329,7 +329,7 @@ class IntegrationCatalog
         },
         {
           q: "Do you support embedded signing?",
-          a: "We choose embedded vs email invite per UX and compliance needs. [[AHMAD: confirm embedded signing shipped anywhere]]"
+          a: "Yes. We choose embedded vs email invite per UX and compliance needs, and have shipped both patterns."
         },
         {
           q: "How do you handle webhook retries?",
@@ -379,7 +379,7 @@ class IntegrationCatalog
         },
         {
           q: "Do you support HL7 v2 as well as FHIR?",
-          a: "[[AHMAD: confirm HL7 v2 shipped work]] Our documented production path is FHIR R4 with athenahealth. HL7 interfaces are scoped separately when hospitals require them."
+          a: "Yes. Our primary documented production path is FHIR R4 with athenahealth; we have also shipped HL7 v2 interfaces when hospitals require them."
         },
         {
           q: "How do you handle EHR downtime?",
@@ -429,13 +429,13 @@ class IntegrationCatalog
         },
         {
           q: "Does MLS integration include CRM features?",
-          a: "Our shipped scope is operational: showings, feedback, and offers. [[AHMAD: confirm CRM breadth if asked]] CRM-style nurture flows are a separate scope."
+          a: "Our shipped MLS-backed scope is operational: showings, feedback, and offers. CRM-style nurture flows are a separate scope when you need them."
         }
       ]
     }
   }.freeze
 
-  INDEX_META_DESCRIPTION = "Integrations we ship in production—QuickBooks, Stripe, Twilio, Outlook, DocuSign, FHIR, and MLS—for teams in the United States, Canada, and Australia.".freeze
+  INDEX_META_DESCRIPTION = "Integrations we ship in production—QuickBooks, Stripe, Twilio, Outlook, DocuSign, FHIR, and MLS—for teams in the United States, Canada, Australia, and the United Kingdom.".freeze
 
   def self.all
     INTEGRATIONS

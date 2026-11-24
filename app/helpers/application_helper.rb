@@ -283,23 +283,38 @@ module ApplicationHelper
       "name" => "A'sTechware",
       "url" => base,
       "logo" => logo_url.present? ? { "@type" => "ImageObject", "url" => logo_url } : nil,
-      "description" => "Software and automation company for legal, healthcare, construction and logistics teams in the US, Canada and Australia.",
+      "description" => "Software and automation company (Wyoming, USA LLC) with an engineering team in Lahore, Pakistan, serving legal, healthcare, construction and logistics teams in the US, Canada, Australia and the UK.",
       "email" => "ahmad@astechware.com",
-      # [[AHMAD: founding year]] — omit from JSON-LD until confirmed
-      # [[AHMAD: team size]] omit numberOfEmployees until confirmed
+      "foundingDate" => "2022",
+      "numberOfEmployees" => {
+        "@type" => "QuantitativeValue",
+        "minValue" => 20,
+        "maxValue" => 25
+      },
       "founder" => {
         "@type" => "Person",
         "name" => "Ahmad Kamran",
         "jobTitle" => "Founder & CEO",
         "url" => "#{base}/about",
-        "sameAs" => ["https://www.linkedin.com/in/engr-ahmad-kamran"]
+        "sameAs" => [
+          "https://www.linkedin.com/in/engr-ahmad-kamran",
+          "https://www.upwork.com/freelancers/ahmadkamrans",
+          "https://www.youtube.com/@ahmadkamran518"
+        ]
       },
       "sameAs" => [
-        "https://www.linkedin.com/company/astechware"
-        # [[AHMAD: Instagram / X / Facebook URLs]]
+        "https://www.linkedin.com/company/astechware",
+        "https://www.youtube.com/@ahmadkamran518",
+        "https://clutch.co/profile/astechware",
+        "https://www.upwork.com/freelancers/ahmadkamrans",
+        "https://www.upwork.com/freelancers/~01eb09bb74c3e6d04b"
       ],
-      "areaServed" => ["United States", "Canada", "Australia"],
-      # [[AHMAD: official business address]] — omit until confirmed
+      "areaServed" => ["United States", "Canada", "Australia", "United Kingdom"],
+      "address" => {
+        "@type" => "PostalAddress",
+        "addressRegion" => "WY",
+        "addressCountry" => "US"
+      },
       "contactPoint" => {
         "@type" => "ContactPoint",
         "email" => "ahmad@astechware.com",
@@ -334,8 +349,7 @@ module ApplicationHelper
   HIRE_ENGINEER_FAQ = [
     {
       q: "How fast can someone start?",
-      # Visible FAQ can keep the [[AHMAD]] note; JSON-LD answer must stay placeholder-free.
-      a: "We match on skills and time zone overlap first, then run a paid trial week before month-to-month engagement. [[AHMAD: typical timeline from signed agreement to engineer active in your Slack and repos]]"
+      a: "We match on skills and time zone overlap first, then run a one-week paid trial before month-to-month engagement. Typical start after agreement is within one to two weeks."
     },
     {
       q: "What if the engineer is not a fit?",

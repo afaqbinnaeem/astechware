@@ -1,7 +1,7 @@
 <% content_for :head do %>
   <% set_meta_tags(
     title: "HIPAA-Ready Healthcare AI Development",
-    description: "EHR and FHIR integration, patient data protection and AI scribes for healthcare companies in the US, Canada and Australia. Patient data never reaches an AI model.",
+    description: "EHR and FHIR integration, patient data protection and AI scribes for healthcare companies in the US, Canada, Australia and the UK. Patient data never reaches an AI model.",
     keywords: "healthcare AI engineering partner, HIPAA-ready automation, hire healthcare software engineers, healthcare AI, AI medical scribe, voice AI healthcare, FHIR EHR integration, PHI de identification"
   ) %>
   <script type="application/ld+json">
@@ -12,7 +12,7 @@
     "url" => industry_healthcare_url,
     "description" => "Healthcare AI engineering partner for HIPAA-ready voice booking, AI medical scribes, FHIR EHR sync, and clinical workflow automation.",
     "provider" => { "@id" => "https://astechware.com/#organization" },
-    "areaServed" => ["United States", "Canada", "Australia"],
+    "areaServed" => ["United States", "Canada", "Australia", "United Kingdom"],
     "serviceType" => "Healthcare AI Engineering",
     "category" => "Healthcare Technology"
   }.to_json) %>
@@ -161,7 +161,7 @@
               <li><strong>HITECH breach notification:</strong> audit trail sufficient to identify scope of any PHI exposure within the 60 day notification window</li>
               <li><strong>FHIR R4</strong> with SMART on FHIR authorization, proven with athenahealth, adapter pattern for other FHIR capable EHRs</li>
               <li><strong>PHI de identification</strong> before any data reaches the LLM, re identification handled server side under the covered entity&rsquo;s control</li>
-              <li><strong>BAAs:</strong> [[AHMAD: confirm BAAs are still executed with telephony, transcription, voice synthesis, hosting, and EHR vendors; if not, we set up BAAs with every vendor that touches patient data]]</li>
+              <li><strong>BAAs:</strong> We set up Business Associate Agreements with every vendor that touches patient data (telephony, transcription, voice synthesis, hosting, and EHR).</li>
               <li><strong>Encryption:</strong> TLS 1.2+ in transit, AES 256 at rest via field level encryption on PHI columns</li>
               <li><strong>Access control:</strong> TOTP based MFA, short lived JWT access tokens, RBAC enforced in middleware, session inactivity timeout</li>
               <li><strong>Audit logging:</strong> append only at the database permission level, covering every PHI access event with actor, timestamp, resource, action, IP, and result</li>
@@ -183,7 +183,7 @@
           <div class="workflow-card p-4 p-lg-5">
             <ul class="mb-4 ps-3" style="line-height: 2;">
               <li>We sign Business Associate Agreements before any PHI flows. No exceptions.</li>
-              <li>[[AHMAD: confirm]] All sub processors in our healthcare stack (telephony, transcription, voice synthesis, hosting, EHR integration) operate under executed BAAs and we provide the BAA chain on request. If unconfirmed, change to: we set up BAAs with every vendor that touches patient data.</li>
+              <li>We set up BAAs with every vendor that touches patient data (telephony, transcription, voice synthesis, hosting, EHR integration) and can provide the BAA chain on request.</li>
               <li>Data residency is US region only for healthcare engagements. No cross border data flows.</li>
               <li>We maintain a written information security program covering access control, encryption, audit logging, incident response, vendor management, and employee security training.</li>
               <li>Security questionnaires (SIG, CAIQ, HECVAT) completed within 5&ndash;10 business days of receipt during active procurement.</li>

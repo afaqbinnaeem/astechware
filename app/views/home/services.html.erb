@@ -1,7 +1,7 @@
 <% content_for :head do %>
   <% set_meta_tags(
     title: "Software Development & Automation Services",
-    description: "Custom software, automation, AI agents, integrations and modernization for teams in the US, Canada and Australia. Milestone delivery, full code ownership.",
+    description: "Custom software, automation, AI agents, integrations and modernization for teams in the US, Canada, Australia and the UK. Milestone delivery, full code ownership.",
     keywords: "software development services, automation services, AI agent development, custom software, platform modernization, API integrations, machine learning, DevOps"
   ) %>
   <% services_base = Rails.env.production? ? "https://astechware.com" : root_url.chomp("/") %>
@@ -16,7 +16,7 @@
     "@type" => "CollectionPage",
     "name" => "Software Development & Automation Services",
     "url" => "#{services_base}/services",
-    "description" => "Custom software, automation, AI agents, integrations and modernization for teams in the US, Canada and Australia.",
+    "description" => "Custom software, automation, AI agents, integrations and modernization for teams in the US, Canada, Australia and the UK.",
     "mainEntity" => {
       "@type" => "ItemList",
       "itemListElement" => services_list_items

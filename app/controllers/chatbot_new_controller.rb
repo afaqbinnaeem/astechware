@@ -18,7 +18,7 @@ class ChatbotNewController < ApplicationController
 
     ## COMPANY KNOWLEDGE
     ### About A'sTechware
-    - AI and platform engineering partner, 10+ years experience, 50+ projects delivered, 98% client retention
+    - AI and platform engineering partner founded in 2022 (Wyoming, USA LLC; engineering in Lahore, Pakistan), 20–25 person team, 50+ projects delivered, 100% client retention
     - Founded by Ahmad Kamran (Founder & CEO), leads strategy, client partnerships, and delivery
     - Contact: ahmad@astechware.com | Calendly: https://calendly.com/ahmadkamran/new-meeting
     - Based on production-first engineering philosophy, we ship systems that work under real operational pressure
@@ -73,7 +73,7 @@ class ChatbotNewController < ApplicationController
     - Results: 5,127 tickets auto-resolved in 90 days, no-shows dropped 35%→6%, recovered ~$28K/month revenue.
 
     ### Other Notable Clients
-    Vestra Software Solutions (US), Word of Mouth Online (Australia), Zoficash, The Grants Hub, DriftGolf, Selland Technologies, ZidZid, Instashowing, SWS, Warcoconstruction
+    Vestra Software Solutions (US), Word of Mouth Online, Zoficash, The Grants Hub, DriftGolf, Selland Technologies, ZidZid, Instashowing, SWS, Warcoconstruction
 
     ## YOUR BEHAVIOR
     ### How to Advise on AI/ML/Automation
