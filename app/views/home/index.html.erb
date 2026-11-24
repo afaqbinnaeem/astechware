@@ -1,1403 +1,995 @@
+<%
+  home_faq = [
+    {
+      q: "What industries do you work with?",
+      a: "Mainly legal, healthcare, construction and logistics. We also build for real estate, fintech, HVAC and home services, B2B SaaS and hospitality."
+    },
+    {
+      q: "Do we have to switch software?",
+      a: "No. We build around the tools you already use, like QuickBooks, Outlook, your EHR or practice management system, and connect them."
+    },
+    {
+      q: "Do you need a large upfront payment?",
+      a: "No. Payments are per milestone, not for the whole project upfront."
+    },
+    {
+      q: "What if we're not happy after a milestone?",
+      a: "You're not obligated to continue. Each milestone stands on its own."
+    },
+    {
+      q: "Who owns the code?",
+      a: "You do, always. Everything is documented, so another team can take over later if needed."
+    },
+    {
+      q: "Can we hire a dedicated engineer instead of a full project?",
+      a: "Yes. We provide dedicated backend, frontend, full-stack and AI engineers who work inside your team, backed by our senior engineers."
+    },
+    {
+      q: "Do you only build AI?",
+      a: "No. Most of what we build is regular software: integrations, workflows, portals and apps. We use AI where it actually helps, like reading documents and emails, and a person reviews anything that matters."
+    }
+  ]
+  home_screen_shots = Dir[Rails.root.join("app/assets/images/home/screens/*.webp")].sort
+%>
 <% set_meta_tags(
-  title: "AI Engineering Partner for Legal, Healthcare & Operations",
-  description: "Production AI engineering partner for legal, healthcare, construction, logistics, and ops-heavy teams. AI agents, workflow automation, dedicated Python/Node.js engineers. Milestone delivery, full code ownership.",
-  keywords: "AI engineering partner, AI development company, hire software engineers, workflow automation, Python development, Node.js development, legal tech software, healthcare AI, construction software, logistics automation, trucking dispatch software, fractional engineering team, forward deployed engineering, custom automation systems, production AI, platform engineering, AI governance, privacy first AI"
+  title: "AI Development Company & Automation Agency",
+  description: "We build software and automation for legal, healthcare, construction and logistics teams in the US, Canada and Australia. Milestone delivery, full code ownership.",
+  keywords: "AI development company, automation agency, custom software, legal tech, healthcare software, construction software, logistics automation, milestone delivery"
 ) %>
 <% content_for :head do %>
-   <%# Homepage-only JSON-LD: WebSite, ProfessionalService (FAQPage replaced on homepage rebuild) %>
-   <% home_base = Rails.env.production? ? "https://astechware.com" : root_url.chomp("/") %>
-   <script type="application/ld+json">
-   <%= raw({
-     "@context" => "https://schema.org",
-     "@type" => "WebSite",
-     "name" => "A'sTechware",
-     "url" => home_base,
-     "description" => "Privacy first AI automations and platform engineering. AI agents, custom software, and modernization for B2B SaaS and regulated industries.",
-     "publisher" => { "@id" => "https://astechware.com/#organization" }
-   }.to_json) %>
-   </script>
-   <script type="application/ld+json">
-   <%= raw({
-     "@context" => "https://schema.org",
-     "@type" => "ProfessionalService",
-     "name" => "A'sTechware",
-     "url" => home_base,
-     "description" => "Privacy first AI agents, custom software, platform modernization, API integrations, and DevOps. Milestone based delivery, weekly demos, full code ownership.",
-     "provider" => { "@id" => "https://astechware.com/#organization" },
-     "areaServed" => ["United States", "Canada", "Australia"],
-    "knowsAbout" => ["AI Agents & Automation", "Custom Platform Development", "Platform Modernization & Scaling", "Integrations & API Engineering", "Construction Software", "Logistics Automation", "Trucking Dispatch", "Real Estate Operations", "Legal Tech Engineering", "Healthcare AI", "Python Development", "Node.js Development", "React Development"],
-    "hasOfferCatalog" => {
-      "@type" => "OfferCatalog",
-      "name" => "Services",
-      "itemListElement" => [
-        { "@type" => "Offer", "itemOffered" => { "@type" => "Service", "name" => "AI Agents & Automation", "url" => "#{home_base}/services/ai-agent-development" } },
-        { "@type" => "Offer", "itemOffered" => { "@type" => "Service", "name" => "Custom Platform Development", "url" => "#{home_base}/services/custom-software" } },
-        { "@type" => "Offer", "itemOffered" => { "@type" => "Service", "name" => "Platform Modernization & Scaling", "url" => "#{home_base}/services/platform-modernization" } },
-        { "@type" => "Offer", "itemOffered" => { "@type" => "Service", "name" => "Integrations & API Engineering", "url" => "#{home_base}/services/api-integrations" } },
-        { "@type" => "Offer", "itemOffered" => { "@type" => "Service", "name" => "Machine Learning Engineering", "url" => "#{home_base}/services/machine-learning" } },
-        { "@type" => "Offer", "itemOffered" => { "@type" => "Service", "name" => "DevOps & Cloud Engineering", "url" => "#{home_base}/services/devops-engineering" } }
-      ]
+  <% home_base = Rails.env.production? ? "https://astechware.com" : root_url.chomp("/") %>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "WebSite",
+    "name" => "A'sTechware",
+    "url" => home_base,
+    "description" => "We build software and automation for legal, healthcare, construction and logistics teams in the US, Canada and Australia. Milestone delivery, full code ownership.",
+    "publisher" => { "@id" => "https://astechware.com/#organization" }
+  }.to_json) %>
+  </script>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "ProfessionalService",
+    "name" => "A'sTechware",
+    "url" => home_base,
+    "description" => "We build software and automation for legal, healthcare, construction and logistics teams in the US, Canada and Australia. Milestone delivery, full code ownership.",
+    "provider" => { "@id" => "https://astechware.com/#organization" },
+    "areaServed" => ["United States", "Canada", "Australia"],
+    "knowsAbout" => ["Custom Software", "Workflow Automation", "AI Agents", "API Integrations", "Legal Tech", "Healthcare AI", "Construction Software", "Logistics Automation"],
+    "aggregateRating" => {
+      "@type" => "AggregateRating",
+      "ratingValue" => "5.0",
+      "bestRating" => "5",
+      "worstRating" => "1",
+      "reviewCount" => "14"
     }
-   }.to_json) %>
-   </script>
-   <%# FAQPage JSON-LD is replaced when the homepage is rebuilt (Homepage section). %>
- <% end %>
- 
-<!-- Hero Section -->
-<div class="hero-section py-5">
-   <div class="container">
-      <div class="row align-items-center min-vh-50">
-         <div class="col-12 col-lg-11 mx-auto text-center">
-            <h1 class="display-4 fw-bold mb-5" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;" data-page-h1>
-            AI Enabled Systems for Legal, Healthcare & Operational Workflows
-            </h1>
-            <p class="lead mb-3" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.6; max-width: 950px; margin-left: auto; margin-right: auto;">
-            We design, integrate, and deploy AI systems that reduce manual work, modernize fragile workflows, and fit the privacy requirements of healthcare, legal, and operational teams.
-            </p>
+  }.to_json) %>
+  </script>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "FAQPage",
+    "mainEntity" => home_faq.map { |item|
+      {
+        "@type" => "Question",
+        "name" => item[:q],
+        "acceptedAnswer" => { "@type" => "Answer", "text" => item[:a] }
+      }
+    }
+  }.to_json) %>
+  </script>
+<% end %>
 
-            <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center align-items-center">
-            <a href="https://calendly.com/ahmadkamran/new-meeting"
-            target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-4 hero-btn-primary" style="width: 351px;">
-            Book a 30 Min Strategy Call
+<!-- 1. Hero -->
+<div class="hero-section py-5">
+  <div class="container">
+    <div class="row align-items-center min-vh-50">
+      <% if home_screen_shots.any? %>
+        <div class="col-12 col-lg-6 text-center text-lg-start">
+      <% else %>
+        <div class="col-12 col-lg-11 mx-auto text-center">
+      <% end %>
+          <p class="text-uppercase small fw-semibold mb-3" style="letter-spacing: 0.08em; color: rgba(255,255,255,0.85);">
+            AI, automation &amp; custom software
+          </p>
+          <h1 class="display-4 fw-bold mb-4" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;" data-page-h1>
+            Software that takes the busywork off legal, healthcare, construction and logistics teams
+          </h1>
+          <p class="lead mb-4" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.6; max-width: 950px;<%= home_screen_shots.any? ? "" : " margin-left: auto; margin-right: auto;" %>">
+            We build systems that handle intake, scheduling, estimates, dispatch, invoicing and paperwork, connected to the tools you already use, like QuickBooks, Outlook and your EHR. Your team reviews the work instead of doing it by hand.
+          </p>
+          <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center<%= home_screen_shots.any? ? " justify-content-lg-start" : "" %> align-items-center align-items-sm-stretch">
+            <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-4 hero-btn-primary" style="width: 351px;">
+              Book a 30-min call
             </a>
-            <a href="/case-studies" class="btn btn-outline-primary btn-lg rounded-pill px-4 d-flex align-items-center justify-content-center hero-btn-outline" style="width: 351px; white-space: nowrap; line-height: 40px;">
-            See Case Studies
-            </a>
-          
-            </div>
-            <p class="text-white mb-0 mt-4 fs-5" style="max-width: 700px; margin-left: auto; margin-right: auto;">
-               Trusted for systems in Legal, Healthcare, Construction, Logistics, Field Ops, and B2B SaaS, across US, Canada, Australia, and the GCC.
-            </p>
-            
-         </div>
-      </div>
-   </div>
+            <%= link_to "See our work", case_studies_path, class: "btn btn-outline-primary btn-lg rounded-pill px-4 d-flex align-items-center justify-content-center hero-btn-outline ajax", style: "width: 351px; white-space: nowrap;" %>
+          </div>
+          <p class="text-white mb-0 mt-4 fs-6" style="max-width: 720px;<%= home_screen_shots.any? ? "" : " margin-left: auto; margin-right: auto;" %>">
+            Built for process servers, private clinics, contractors, field service teams, real estate and fintech companies across the US, Canada and Australia.
+          </p>
+        </div>
+      <% if home_screen_shots.any? %>
+        <div class="col-12 col-lg-6 mt-4 mt-lg-0">
+          <div class="row g-2">
+            <% home_screen_shots.first(3).each do |shot| %>
+              <div class="col-12 col-sm-6">
+                <%= image_tag "home/screens/#{File.basename(shot)}", class: "img-fluid rounded-3 shadow", alt: "Product screenshot", loading: "lazy" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
-<!-- Company Metrics -->
-<div class="py-4" id="company-metrics">
-   <div class="container">
-      <div class="row text-center g-4">
-         <div class="col-6 col-md-3">
-            <div class="metric-number">10+</div>
-            <div class="metric-label">Years of Experience</div>
-         </div>
-         <div class="col-6 col-md-3">
-            <div class="metric-number">50+</div>
-            <div class="metric-label">Projects Delivered</div>
-         </div>
-         <div class="col-6 col-md-3">
-            <div class="metric-number">98%</div>
-            <div class="metric-label">Client Retention</div>
-         </div>
-         <div class="col-6 col-md-3">
-            <div class="metric-number">10+</div>
-            <div class="metric-label">Industries Served</div>
-         </div>
-      </div>
-   </div>
-</div>
+
 <div class="inner-sections">
 
-
-
-   <!-- Industries We Serve -->
-   <div class="py-5 bg-white" id="industries-we-serve">
-      <div class="container">
-         <div class="row">
-            <div class="col-12 col-lg-10 mx-auto">
-               <div class="text-center mb-5">
-                  <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Where We Deliver the Most Value</h2>
-                  <p class="large-para mb-0" style="max-width: 750px; margin: 0 auto;">
-                     We focus on industries where manual work, fragmented systems, and compliance pressure make AI implementation harder, and more valuable.
-                  </p>
-               </div>
-               <div class="row g-4">
-                  <div class="col-12 col-md-6 col-lg-6">
-                     <%= link_to industry_b2b_saas_path, class: 'text-decoration-none text-dark d-block h-100' do %>
-                        <div class="build-system-card p-4 h-100">
-                           <div class="build-icon-wrapper mb-3">
-                              <div class="build-icon">
-                                 <i class="fa fa-cloud"></i>
-                              </div>
-                           </div>
-                           <h4 class="mb-2">B2B SaaS &amp; Digital Marketing</h4>
-                           <p class="mb-0">AI powered product features, automated lead qualification, and churn prediction. We build the engine that helps software and marketing agencies scale faster.</p>
-                        </div>
-                     <% end %>
-                  </div>
-                  <div class="col-12 col-md-6 col-lg-6">
-                     <%= link_to industry_healthcare_path, class: 'text-decoration-none text-dark d-block h-100' do %>
-                        <div class="build-system-card p-4 h-100">
-                           <div class="build-icon-wrapper mb-3">
-                              <div class="build-icon">
-                                 <i class="fa fa-heartbeat"></i>
-                              </div>
-                           </div>
-                           <h4 class="mb-2">Healthcare &amp; Wellness</h4>
-                           <p class="mb-0">AI scheduling, patient intake, HIPAA compliant messaging, and clinical workflow automation for clinics and multi location practices.</p>
-                        </div>
-                     <% end %>
-                  </div>
-                  <div class="col-12 col-md-6 col-lg-6">
-                     <%= link_to industry_professional_services_path, class: 'text-decoration-none text-dark d-block h-100' do %>
-                        <div class="build-system-card p-4 h-100">
-                           <div class="build-icon-wrapper mb-3">
-                              <div class="build-icon">
-                                 <i class="fa fa-building"></i>
-                              </div>
-                           </div>
-                           <h4 class="mb-2">Construction, Logistics, HVAC &amp; Real Estate</h4>
-                           <p class="mb-0">Construction estimating, subcontract automation, dispatching, route optimization, and tenant communication. We build AI workflows for general contractors, logistics, trucking, HVAC, and asset heavy field operations.</p>
-                        </div>
-                     <% end %>
-                  </div>
- 
-                  <div class="col-12 col-md-6 col-lg-6">
-                     <%= link_to industry_legal_path, class: 'text-decoration-none text-dark d-block h-100' do %>
-                        <div class="build-system-card p-4 h-100">
-                           <div class="build-icon-wrapper mb-3">
-                              <div class="build-icon">
-                                 <i class="fa fa-balance-scale"></i>
-                              </div>
-                           </div>
-                           <h4 class="mb-2">Legal Services</h4>
-                           <p class="mb-0">AI for law firms and legal departments: document analysis, contract review, research automation, and case management workflows with full auditability.</p>
-                        </div>
-                     <% end %>
-                  </div>
-               </div>
-            </div>
-         </div>
+<!-- 2. Logo strip -->
+<div class="py-5 bg-white" id="astechware_logos">
+  <style>
+    .logos-marquee {
+      overflow: hidden;
+      width: 100%;
+      position: relative;
+    }
+    .logos-track {
+      display: flex;
+      align-items: center;
+      width: max-content;
+      animation: scroll-logos 30s linear infinite;
+      gap: 48px;
+    }
+    .logos-marquee:hover .logos-track {
+      animation-play-state: paused;
+    }
+    @keyframes scroll-logos {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .logo-item {
+      flex-shrink: 0;
+    }
+    .logo-item img {
+      max-height: 60px;
+      width: auto;
+      max-width: none;
+      display: block;
+    }
+    @media (max-width: 600px) {
+      .logos-track { gap: 24px; }
+      .logo-item img { max-height: 40px; }
+    }
+  </style>
+  <div class="container">
+    <div class="text-center mb-4">
+      <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Some of the teams we&apos;ve built for</h2>
+    </div>
+    <% logos = [
+      { src: 'ahmad/logos/word_of_mouth_online_pty_ltd__logo.jpeg', alt: "Word of Mouth Online Pty Ltd, A'sTechware Client" },
+      { src: 'ahmad/logos/vestra_software_solutions_logo.jpeg', alt: "Vestra Software Solutions, A'sTechware Client" },
+      { src: 'ahmad/logos/zoficash_logo.jpeg', alt: "Zoficash, A'sTechware Client" },
+      { src: 'ahmad/logos/golfpay.png', alt: "Golfpay, A'sTechware Client" },
+      { src: 'ahmad/logos/rrf.jpeg', alt: "RRF, A'sTechware Client" },
+      { src: 'ahmad/logos/thegrantshub_logo.jpeg', alt: "The Grants Hub, A'sTechware Client" },
+      { src: 'ahmad/logos/driftgolf_logo.jpeg', alt: "DriftGolf, A'sTechware Client" },
+      { src: 'ahmad/logos/1630580396218.jpeg', alt: "Selland Technologies, A'sTechware Client" },
+      { src: 'ahmad/logos/zidzid.jpeg', alt: "ZidZid, A'sTechware Client" },
+      { src: 'ahmad/logos/warcoconstruction_logo.jpeg', alt: "Warcoconstruction, A'sTechware Client" },
+      { src: 'ahmad/logos/instashowing_logo.jpeg', alt: "Instashowing, A'sTechware Client" },
+      { src: 'ahmad/logos/sws.svg', alt: 'SWS' }
+    ] %>
+    <div class="logos-marquee">
+      <div class="logos-track">
+        <% (logos + logos).each do |logo| %>
+          <div class="logo-item">
+            <%= image_tag logo[:src], alt: logo[:alt], class: 'img-fluid', loading: "lazy" %>
+          </div>
+        <% end %>
       </div>
-   </div>
-<!-- Why Choose Us Section -->
-<div class="py-5 bg-white" id="why-choose-us">
-   <div class="container">
-      <div class="row">
-         <div class="col-12 col-lg-10 mx-auto">
-            <div class="text-center mb-5">
-               <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">An Accountable Partner From Strategy To Deployment</h2>
-               <p class="large-para mb-0" style="max-width: 700px; margin: 0 auto;">
-                  We build AI and workflow systems that survive real users, messy data, and operational complexity, without sacrificing speed or control.
-               </p>
-            </div>
-
-            <div class="row g-4 mb-5">
-               <div class="col-12 col-md-6">
-                  <div class="build-system-card p-4 h-100">
-                     <div class="build-icon-wrapper mb-3">
-                        <div class="build-icon">
-                           <i class="fa fa-shield"></i>
-                        </div>
-                     </div>
-                     <h4 class="mb-3">AI with governance built in from day one</h4>
-                     <p class="mb-0">Every AI system includes human in the loop protocols, audit trails, and observability, not bolted on later, but architected from the start.</p>
-                  </div>
-               </div>
-
-               <div class="col-12 col-md-6">
-                  <div class="build-system-card p-4 h-100">
-                     <div class="build-icon-wrapper mb-3">
-                        <div class="build-icon">
-                           <i class="fa fa-rocket"></i>
-                        </div>
-                     </div>
-                     <h4 class="mb-3">Production ready systems, not prototypes</h4>
-                     <p class="mb-0">We ship systems that handle real customers, messy data, and operational complexity, with proper error handling, monitoring, and failover from day one.</p>
-                  </div>
-               </div>
-
-               <div class="col-12 col-md-6">
-                  <div class="build-system-card p-4 h-100">
-                     <div class="build-icon-wrapper mb-3">
-                        <div class="build-icon">
-                           <i class="fa fa-code"></i>
-                        </div>
-                     </div>
-                     <h4 class="mb-3">End to end delivery without partial handoffs</h4>
-                     <p class="mb-0">Complete solutions from UI to backend to deployment, so you don't get stuck coordinating multiple contractors or filling in gaps.</p>
-                  </div>
-               </div>
-
-               <div class="col-12 col-md-6">
-                  <div class="build-system-card p-4 h-100">
-                     <div class="build-icon-wrapper mb-3">
-                        <div class="build-icon">
-                           <i class="fa fa-line-chart"></i>
-                        </div>
-                     </div>
-                     <h4 class="mb-3">We measure success in business outcomes</h4>
-                     <p class="mb-0">Not just features shipped, we track hours saved, revenue recovered, tickets deflected, and operational capacity increased.</p>
-                  </div>
-               </div>
-
-               <div class="col-12 col-md-6">
-                  <div class="build-system-card p-4 h-100">
-                     <div class="build-icon-wrapper mb-3">
-                        <div class="build-icon">
-                           <i class="fa fa-calendar"></i>
-                        </div>
-                     </div>
-                     <h4 class="mb-3">Clear milestones with natural exit points</h4>
-                     <p class="mb-0">Work broken into testable milestones with weekly demos. Pause or adjust anytime without losing completed work or paying penalties.</p>
-                  </div>
-               </div>
-
-               <div class="col-12 col-md-6">
-                  <div class="build-system-card p-4 h-100">
-                     <div class="build-icon-wrapper mb-3">
-                        <div class="build-icon">
-                           <i class="fa fa-check-circle"></i>
-                        </div>
-                     </div>
-                     <h4 class="mb-3">Proven across industries and use cases</h4>
-                     <p class="mb-0">From B2B SaaS to professional services to operations platforms, we've built systems that handle real complexity and deliver measurable results.</p>
-                  </div>
-               </div>
-            </div>
-
-            <div class="text-center mt-5">
-               <div class="row g-3 justify-content-center">
-                  <div class="col-12 col-sm-auto">
-                     <a href="/case-studies" class="btn btn-outline-primary btn-lg rounded-pill px-4 d-flex align-items-center justify-content-center" style="min-width: 280px;">
-                        See Case Studies →
-                     </a>
-                  </div>
-                  <div class="col-12 col-sm-auto">
-                     <a href="#cta" class="btn btn-primary btn-lg rounded-pill px-4 d-flex align-items-center justify-content-center" style="min-width: 280px;">
-                        Book a 30 Min Strategy Call
-                     </a>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
+    </div>
+  </div>
 </div>
 
-
-
-
-
-
-
-
-   <!-- We've worked with some great companies (logos marquee from ahmad kamran) -->
-   <div class="py-5 bg-white" id="astechware_logos">
-      <style>
-         .logos-marquee {
-            overflow: hidden;
-            width: 100%;
-            position: relative;
-         }
-         .logos-track {
-            display: flex;
-            align-items: center;
-            width: max-content;
-            animation: scroll-logos 30s linear infinite;
-            gap: 48px;
-         }
-         .logos-marquee:hover .logos-track {
-            animation-play-state: paused;
-         }
-         @keyframes scroll-logos {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-         }
-         .logo-item {
-            flex-shrink: 0;
-         }
-         .logo-item img {
-            max-height: 60px;
-            width: auto;
-            max-width: none;
-            display: block;
-         }
-         @media (max-width: 600px) {
-            .logos-track { gap: 24px; }
-            .logo-item img { max-height: 40px; }
-         }
-      </style>
-      <div class="container">
-         <div class="text-center mb-4">
-            <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">We&apos;ve worked with some great companies</h2>
-            <p class="text-muted mb-0">Trusted by 50+ companies across SaaS, healthcare, fintech, and real estate</p>
-         </div>
-         <% logos = [
-            { src: 'ahmad/logos/word_of_mouth_online_pty_ltd__logo.jpeg', alt: "Word of Mouth Online Pty Ltd, A'sTechware Client" },
-            { src: 'ahmad/logos/vestra_software_solutions_logo.jpeg', alt: "Vestra Software Solutions, A'sTechware Client" },
-            { src: 'ahmad/logos/zoficash_logo.jpeg', alt: "Zoficash, A'sTechware Client" },
-            { src: 'ahmad/logos/golfpay.png', alt: "Golfpay, A'sTechware Client" },
-            { src: 'ahmad/logos/rrf.jpeg', alt: "RRF, A'sTechware Client" },
-            # { src: 'ahmad/logos/astechware_logo.jpeg', alt: 'A'sTechware' },
-            { src: 'ahmad/logos/thegrantshub_logo.jpeg', alt: "The Grants Hub, A'sTechware Client" },
-            { src: 'ahmad/logos/driftgolf_logo.jpeg', alt: "DriftGolf, A'sTechware Client" },
-            { src: 'ahmad/logos/1630580396218.jpeg', alt: "Selland Technologies, A'sTechware Client" },
-            { src: 'ahmad/logos/zidzid.jpeg', alt: "ZidZid, A'sTechware Client" },
-            { src: 'ahmad/logos/warcoconstruction_logo.jpeg', alt: "Warcoconstruction, A'sTechware Client" },
-            { src: 'ahmad/logos/instashowing_logo.jpeg', alt: "Instashowing, A'sTechware Client" },
-            # { src: 'ahmad/logos/1725399994195.jpeg', alt: 'Eritheia Labs' },
-            { src: 'ahmad/logos/sws.svg', alt: 'SWS' }
-            ] %>
-         <div class="logos-marquee">
-            <div class="logos-track">
-               <% (logos + logos).each do |logo| %>
-               <div class="logo-item">
-                  <%= image_tag logo[:src], alt: logo[:alt], class: 'img-fluid', loading: "lazy" %>
-               </div>
-               <% end %>
-            </div>
-         </div>
+<!-- 3. Industries -->
+<div class="py-5 bg-light-grey" id="industries-we-serve">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Industries we build for</h2>
+      <p class="large-para mb-0" style="max-width: 750px; margin: 0 auto;">
+        We work where manual work, scattered tools and strict rules slow teams down.
+      </p>
+    </div>
+    <div class="row g-4 mb-3">
+      <div class="col-12 col-md-6 col-lg-3">
+        <%= link_to industry_legal_path, class: "text-decoration-none text-dark d-block h-100 ajax" do %>
+          <div class="build-system-card p-4 h-100">
+            <h3 class="h5 mb-2">Legal</h3>
+            <p class="mb-0 small">Intake from emails and PDFs, server dispatch with GPS proof, affidavit generation and invoicing.</p>
+          </div>
+        <% end %>
       </div>
-   </div>
-
-
-      <!-- Services Grid -->
-   <div class="expertise-section py-5" id="services">
-      <div class="container">
-         <div class="text-center mb-5">
-            <h2 class="heading-border text-center heading-center mb-3 pb-3 d-inline-block">Our Services</h2>
-            <p class="large-para mb-0">End to end AI, ML, automation, and engineering capabilities for production ready systems.</p>
-         </div>
-         <div class="row g-4">
-            <div class="col-12 col-sm-6 col-lg-6">
-               <div class="service-card h-100">
-                  <div class="service-card-icon">
-                     <i class="fa fa-cogs" aria-hidden="true"></i>
-                  </div>
-                  <h5 class="service-card-title">AI &amp; ML Agents &amp; Automation</h5>
-                  <p class="service-card-desc">We build autonomous agents that actually finish tasks. From HIPAA compliant medical intake to 24/7 HVAC dispatching, our systems include human in the loop protocols and audit trails so high stakes workflows stay accurate, reviewable, and safe.</p>
-                  <%= link_to "Learn More →", ai_agent_development_path, class: "service-card-link" %>
-               </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-6">
-               <div class="service-card h-100">
-                  <div class="service-card-icon">
-                     <i class="fa fa-code" aria-hidden="true"></i>
-                  </div>
-                  <h5 class="service-card-title">Custom Platform Development</h5>
-                  <p class="service-card-desc">End to end software built for specialized workflows. We develop Legal Discovery portals, Logistics management dashboards, and B2B SaaS infrastructure. We don't just write code; we build the backbone of your digital operation.</p>
-                  <%= link_to "Learn More →", custom_software_path, class: "service-card-link" %>
-               </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-6">
-               <div class="service-card h-100">
-                  <div class="service-card-icon">
-                     <i class="fa fa-refresh" aria-hidden="true"></i>
-                  </div>
-                  <h5 class="service-card-title">Platform Modernization &amp; Scaling</h5>
-                  <p class="service-card-desc">Legacy systems shouldn't stop innovation. We rescue and modernize aging platforms in Logistics and Real Estate, upgrading infrastructure and APIs so your business is ready to leverage modern AI capabilities without starting from scratch.</p>
-                  <%= link_to "Learn More →", platform_modernization_path, class: "service-card-link" %>
-               </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-6">
-               <div class="service-card h-100">
-                  <div class="service-card-icon">
-                     <i class="fa fa-plug" aria-hidden="true"></i>
-                  </div>
-                  <h5 class="service-card-title">Integrations &amp; API Engineering</h5>
-                  <p class="service-card-desc">We sync your AI with the tools you already use, CRMs, EHRs, PMS, Dispatch software, and Billing systems. We build the 'glue' that allows data to flow seamlessly between your AI agents and your core business operations.</p>
-                  <%= link_to "Learn More →", api_integrations_path, class: "service-card-link" %>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-
-      <!-- Product & Platform Engineering (UPDATED) -->
-   <div class="py-5 bg-light-grey" id="product-platform">
-      <div class="container">
-         <div class="row">
-            <div class="col-12 col-lg-12 mx-auto">
-               <div class="text-center mb-5">
-                  <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Product &amp; Platform Engineering</h2>
-                  <p class="large-para mb-0" style="max-width: 800px; margin: 0 auto;">
-                     We build complete platforms and product features from UI to backend to deployment, for B2B SaaS, professional services, and operations heavy businesses that need systems built right the first time.
-                  </p>
-               </div>
-
-               <div class="row g-4">
-                  <!-- Card 1: End to End Feature Delivery -->
-                  <div class="col-12 col-lg-4">
-                     <div class="build-system-card p-4 h-100" style="border-radius: 12px; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow=''">
-                        <div class="build-icon-wrapper mb-3">
-                           <div class="build-icon">
-                              <i class="fa fa-rocket"></i>
-                           </div>
-                        </div>
-                        <h3 class="h4 mb-3 fw-bold">End to End Feature Delivery</h3>
-                        <p class="mb-3" style="line-height: 1.7;">
-                           We own features from concept to production, so your internal team doesn't get stuck in partial handoffs or coordinating multiple contractors.
-                        </p>
-                        <ul class="mb-4" style="padding-left: 1.25rem; line-height: 1.8; font-size: 16px;">
-                           <li class="mb-2">Frontend UI and backend APIs built together, not in silos</li>
-                           <li class="mb-2">Third party integrations: billing, CRMs, data providers, messaging</li>
-                           <li class="mb-2">Testing, deployment, and documentation included</li>
-                        </ul>
-                        <div class="outcome-badge p-3" style="background: #f8f9fa; border-left: 4px solid var(--site-color); border-radius: 6px;">
-                           <p class="mb-0" style="font-size: 14px; font-weight: 600; color: var(--text-color);">
-                              <strong>Outcome:</strong> Features ship faster, with fewer reworks and cleaner handoffs.
-                           </p>
-                        </div>
-                     </div>
-                  </div>
-
-                  <!-- Card 2: Stability & Scale Upgrades -->
-                  <div class="col-12 col-lg-4">
-                     <div class="build-system-card p-4 h-100" style="border-radius: 12px; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow=''">
-                        <div class="build-icon-wrapper mb-3">
-                           <div class="build-icon">
-                              <i class="fa fa-tachometer"></i>
-                           </div>
-                        </div>
-                        <h3 class="h4 mb-3 fw-bold">Platform Rebuilds &amp; Modernization</h3>
-                        <p class="mb-3" style="line-height: 1.7;">
-                           We rescue failing platforms and modernize systems that can't scale, focusing on changes that directly improve reliability, not theoretical architecture.
-                        </p>
-                        <ul class="mb-4" style="padding-left: 1.25rem; line-height: 1.8; font-size: 16px;">
-                           <li class="mb-2">Performance improvements: slow queries, caching, background jobs</li>
-                           <li class="mb-2">Observability: meaningful logs, metrics, traces, actionable alerts</li>
-                           <li class="mb-2">Database repair, search rebuilds, infrastructure upgrades</li>
-                        </ul>
-                        <div class="outcome-badge p-3" style="background: #f8f9fa; border-left: 4px solid var(--site-color); border-radius: 6px;">
-                           <p class="mb-0" style="font-size: 14px; font-weight: 600; color: var(--text-color);">
-                              <strong>Outcome:</strong> Fewer incidents, faster recovery, confidence shipping changes.
-                           </p>
-                        </div>
-                     </div>
-                  </div>
-
-                  <!-- Card 3: Platform Team Capabilities -->
-                  <div class="col-12 col-lg-4">
-                     <div class="build-system-card p-4 h-100" style="border-radius: 12px; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.1)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow=''">
-                        <div class="build-icon-wrapper mb-3">
-                           <div class="build-icon">
-                              <i class="fa fa-users"></i>
-                           </div>
-                        </div>
-                        <h3 class="h4 mb-3 fw-bold">Complete Platform Development</h3>
-                        <p class="mb-3" style="line-height: 1.7;">
-                           Build new SaaS platforms or operations systems from scratch, with the infrastructure, security, and deployment discipline of a dedicated platform team.
-                        </p>
-                        <ul class="mb-4" style="padding-left: 1.25rem; line-height: 1.8; font-size: 16px;">
-                           <li class="mb-2">Web + mobile applications with shared backend</li>
-                           <li class="mb-2">Standardized deployment pipelines across environments</li>
-                           <li class="mb-2">Security reviews and compliance patterns (SOC 2, GDPR, HIPAA)</li>
-                        </ul>
-                        <div class="outcome-badge p-3" style="background: #f8f9fa; border-left: 4px solid var(--site-color); border-radius: 6px;">
-                           <p class="mb-0" style="font-size: 14px; font-weight: 600; color: var(--text-color);">
-                              <strong>Outcome:</strong> Production ready platform without hiring a full engineering team.
-                           </p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-
-
-
-
-
-<!-- AI Agents Section (Homepage) -->
-<div class="py-5 bg-light" id="ai-agents-overview">
-   <div class="container">
-      <div class="row g-5">
-         <div class="col-12 col-lg-7">
-            <h2 class="heading-border mb-3 pb-3 d-inline-block">AI Agents That Work in Production</h2>
-            <p class="mb-3">
-               Most teams can demo AI in a week. The hard part is shipping AI that survives production: messy user inputs, permissioning, audit trails, escalations, and ongoing monitoring.
-            </p>
-            <p class="mb-4">
-               We build AI agents and copilots with enterprise governance built in from day one, designed for real customers, real data, and real operational constraints.
-            </p>
-
-            <div class="row g-3 mb-4">
-               <div class="col-12">
-                  <h3 class="h5 mb-3">Production Ready with Governance Built In</h3>
-                  
-                  <div class="mb-3">
-                     <p class="mb-2">
-                        <strong>Human in the Loop:</strong> Critical decisions and edge cases automatically escalate to humans with full context and confidence scores.
-                     </p>
-                  </div>
-
-                  <div class="mb-3">
-                     <p class="mb-2">
-                        <strong>Complete Audit Trails:</strong> Every AI decision, data access, and action logged for compliance, debugging, and continuous improvement.
-                     </p>
-                  </div>
-
-                  <div class="mb-3">
-                     <p class="mb-2">
-                        <strong>Role Based Access:</strong> Agents only access data and tools appropriate to their scope, support can't touch financial data, sales can't modify pricing.
-                     </p>
-                  </div>
-
-                  <div class="mb-0">
-                     <p class="mb-0">
-                        <strong>Real Time Monitoring:</strong> Observability dashboards track performance, confidence, and failures with automated alerts when behavior drifts.
-                     </p>
-                  </div>
-               </div>
-            </div>
-
-            <div class="mb-4">
-               <p class="small text-muted mb-2">
-                  <strong>Recent results:</strong>
-               </p>
-               <p class="small text-muted mb-0">
-                  Workflow automation across active client engagements · Revenue capture improvements through better scheduling and billing workflows · Less manual ops through integrations and tooling
-               </p>
-            </div>
-          
-            <a href="<%= ai_agent_development_path %>" class="btn btn-primary btn-lg rounded-3">
-               See full AI Agents overview →
-            </a>
-         </div>
-
-         <div class="col-12 col-lg-5">
-            <div class="workflow-card p-4 h-100">
-            <%= image_tag 'logo-colored.png', width: '100', class: 'img-fluid p-2 p-sm-0 mb-3 rounded-3', alt: "A'sTechware Logo", loading: "lazy" %>
-               <h3 class="h5 mb-3">What We Build</h3>
-
-               <div class="mb-3">
-                  <h4 class="h6 mb-1 fw-bold">Product Embedded AI</h4>
-                  <p class="mb-0 small">
-                     AI copilots, smart onboarding, and workflow agents that live inside your product, helping users complete complex actions without leaving the app.
-                  </p>
-               </div>
-
-               <div class="mb-3">
-                  <h4 class="h6 mb-1 fw-bold">Customer Facing Agents</h4>
-                  <p class="mb-0 small">
-                     Support and sales automation that handles repetitive work, qualifies leads, books demos, with safe escalation to humans for edge cases.
-                  </p>
-               </div>
-
-               <div class="mb-3">
-                  <h4 class="h6 mb-1 fw-bold">Internal Operations Agents</h4>
-                  <p class="mb-0 small">
-                     Document processing, data enrichment, QA testing, and DevOps triage, removing busywork so teams focus on high value work.
-                  </p>
-               </div>
-
-               <div class="mb-3">
-                  <h4 class="h6 mb-1 fw-bold">Multi Agent Orchestration</h4>
-                  <p class="mb-0 small">
-                     Multiple specialized agents working together safely, with routing, human approvals, audit trails, and continuous improvement loops.
-                  </p>
-               </div>
-
-               <div class="mt-4 pt-3 border-top">
-                  <p class="small mb-2 fw-bold">Typical Timeline:</p>
-                  <p class="small text-muted mb-0">
-                     3 8 weeks from kickoff to production deployment
-                  </p>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-</div>
-<%# Tech stack moved to /services (home/_tech_stack). Production First copy merges into /services/ai-agent-development. %>
-   <!-- Designed to Reduce Risk Section -->
-<div class="py-5 bg-light-grey">
-   <div class="container">
-      <div class="row">
-         <div class="col-12 col-lg-10 mx-auto">
-            <div class="text-center mb-5">
-               <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">How We De Risk Projects</h2>
-               <p class="large-para mb-0">We design both the work and the engagement to earn trust gradually, not demand it upfront.</p>
-            </div>
-
-            <div class="row g-4 mb-4">
-               <div class="col-12 col-md-4">
-                  <div class="workflow-card p-4 h-100 text-center">
-                     <h4 class="h5 mb-2">Milestone Based Delivery</h4>
-                     <p class="mb-0 small">Work broken into milestones. Pay per milestone, portion upfront, remainder after review.</p>
-                  </div>
-               </div>
-
-               <div class="col-12 col-md-4">
-                  <div class="workflow-card p-4 h-100 text-center">
-                     <h4 class="h5 mb-2">You Own Everything</h4>
-                     <p class="mb-0 small">All code, infrastructure, and documentation belong to you from day one. No lock in.</p>
-                  </div>
-               </div>
-
-               <div class="col-12 col-md-4">
-                  <div class="workflow-card p-4 h-100 text-center">
-                     <h4 class="h5 mb-2">Natural Exit Points</h4>
-                     <p class="mb-0 small">Each milestone stands alone. Pause or adjust anytime without penalties or losing work.</p>
-                  </div>
-               </div>
-            </div>
-
-            <div class="text-center">
-               <p class="mb-3 text-muted small">
-                  Weekly demos • Full visibility • No forced retainers • Support when you need it
-               </p>
-               <p class="mb-3" style="font-style: italic; font-size: 1rem;">
-                  A recent rebuild we shared publicly → 
-                  <a href="https://www.linkedin.com/posts/astechware_restaurant-resource-online-search-tool-activity-7415014406423678977-2fYI?utm_source=share&utm_medium=member_desktop&rcm=ACoAACEv3E8BU6GjC8wN2TgFVUMzkndn2a55diA" class="linkedIn-tag" target="_blank" rel="noopener noreferrer" style="font-style: italic;">[Read the LinkedIn post]</a>
-               </p>
-
-               <a href="/how-we-derisk-projects" class="btn btn-primary btn-lg rounded-3 px-5">
-                  How we de risk projects →
-               </a>
-            </div>
-         </div>
-      </div>
-   </div>
-</div>
-
-
-
-
-
-
-
-   <!--
-   <div class="expertise-section py-5">
-      <div class="container">
-         <h2 class="heading-border text-center heading-center mb-3 pb-3">Where Our Systems Are Applied</h2>
-         <p class="large-para mb-5 text-center">Practical business problems addressed through AI automation and custom platforms.</p>
-         <div class="row">
-            <div class="col-12 col-md-6 col-lg-4 mb-4">
-               <div class="icon-box-s2 s1 text-center">
-                  <div class="icon-main">
-                     <span class="flaticon-browser"><i class="fa fa-cogs" aria-hidden="true"></i></span>
-                  </div>
-                  <div class="content-box">
-                     <h5> <a href="#" onclick="return false;">Operations &amp; Internal Systems</a></h5>
-                     <p>Custom platforms that replace spreadsheets, paperwork, and manual coordination   from routing and payroll to dashboards and approvals.</p>
-                  </div>
-               </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mb-4">
-               <div class="icon-box-s2 s2 text-center">
-                  <div class="icon-main">
-                     <span class="flaticon-browser"><i class="fa fa-shopping-cart" aria-hidden="true"></i></span>
-                  </div>
-                  <div class="content-box">
-                     <h5> <a href="#" onclick="return false;">Marketplaces &amp; Directories</a></h5>
-                     <p>Platforms that connect businesses and users through listings, search, comparisons, and paid access models.</p>
-                  </div>
-               </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mb-4">
-               <div class="icon-box-s2 s3 text-center">
-                  <div class="icon-main">
-                     <span class="flaticon-browser"><i class="fa fa-credit-card" aria-hidden="true"></i></span>
-                  </div>
-                  <div class="content-box">
-                     <h5> <a href="#" onclick="return false;">Fintech &amp; Payment Workflows</a></h5>
-                     <p>Secure systems for payments, invoicing, approvals, disbursements, and financial workflows designed for day to day operations.
-                     </p>
-                  </div>
-               </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mb-4">
-               <div class="icon-box-s2 s4 text-center">
-                  <div class="icon-main">
-                     <span class="flaticon-browser"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-                  </div>
-                  <div class="content-box">
-                     <h5> <a href="#" onclick="return false;">Booking, Events &amp; Scheduling</a></h5>
-                     <p>Platforms that manage registrations, bookings, approvals, reminders, and customer communication from start to finish.
-                    </p>
-                  </div>
-               </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mb-4">
-               <div class="icon-box-s2 s5 text-center">
-                  <div class="icon-main">
-                     <span class="flaticon-browser"><i class="fa fa-comments" aria-hidden="true"></i></span>
-                  </div>
-                  <div class="content-box">
-                     <h5>  <a href="#" onclick="return false;">AI Automation &amp; Assistants</a></h5>
-                     <p>AI systems that handle customer messages, lead responses, reviews, follow ups, and internal workflows.
-                     </p>
-                  </div>
-               </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4 mb-4">
-               <div class="icon-box-s2 s6 text-center">
-                  <div class="icon-main">
-                     <span class="flaticon-browser"><i class="fa fa-rocket" aria-hidden="true"></i></span>
-                  </div>
-                  <div class="content-box">
-                     <h5> <a href="#" onclick="return false;">Startup &amp; Custom Products</a></h5>
-                     <p>From MVPs to production ready platforms, we help teams turn complex ideas into working, scalable software systems.</p>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-   -->
-   <!-- Work Section (from ahmad kamran Works) -->
-   <!-- 
-   <div class="py-5 bg-light" id="ahmad_work">
-      <div class="container">
-         <div class="text-center mb-5">
-            <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Work</h2>
-            <p class="large-para mb-4">Selected AI and SaaS projects delivered by A'sTechware.</p>
-         </div>
-         <div class="row g-4">
-            <div class="col-12 col-lg-4">
-               <div class="card h-100 border-0 shadow-sm">
-                  <%= image_tag 'ahmad/3agent.jpeg', class: 'card-img-top', alt: 'Vestra.app: Automating Property Management with AI-Powered Simplicity', loading: "lazy" %>
-                  <div class="card-body">
-                     <span class="badge bg-primary mb-2">Case Study</span>
-                     <h3 class="h5">Case Study: Vestra.app: Automating Property Management with AI Powered Simplicity</h3>
-                     <p class="mb-3">
-                        Vestra.app is a modern SaaS platform built for property managers, automating core daily tasks with AI‑powered
-                        financial insights, flexible rent collection, real‑time chat, and secure document storage.
-                     </p>
-                     <a href="/vestra-app-case-study" class="btn btn-primary btn-sm rounded-pill">Read case study</a>
-                  </div>
-               </div>
-            </div>
-            <div class="col-12 col-lg-4">
-               <div class="card h-100 border-0 shadow-sm">
-                  <%= image_tag 'ahmad/whatsapp-agent.jpeg', class: 'card-img-top', alt: 'WhatsApp & Voice AI Agent Demo', loading: "lazy" %>
-                  <div class="card-body">
-                     <span class="badge bg-secondary mb-2">AI Demo</span>
-                     <h3 class="h5">WhatsApp &amp; Voice AI Agent Demo: Healthcare Triage &amp; Appointment Booking</h3>
-                     <p class="mb-3">
-                        Demo of WhatsApp and Voice AI agents for healthcare triage and appointment booking, with custom knowledge,
-                        voice interactions, and automated escalation to human agents.
-                     </p>
-                     <a href="/whatsapp-voice-ai-agent-demo" class="btn btn-primary btn-sm rounded-pill">View demo</a>
-                  </div>
-               </div>
-            </div>
-            <div class="col-12 col-lg-4">
-               <div class="card h-100 border-0 shadow-sm">
-                  <%= image_tag 'ahmad/repi-work.jpeg', class: 'card-img-top', alt: 'Modular AI Agents Case Study', loading: "lazy" %>
-                  <div class="card-body">
-                     <span class="badge bg-primary mb-2">Case Study</span>
-                     <h3 class="h5">Case Study: Modular AI Agents That Save Time, Scale Outreach, and Automate Support</h3>
-                     <p class="mb-3">
-                        Modular, production‑ready AI agents for support, outreach, and operations, including WhatsApp, Voice, and Sales
-                        Outreach agents designed for seamless integration and real impact.
-                     </p>
-                     <a href="/modular-ai-agents-case-study" class="btn btn-primary btn-sm rounded-pill">Read case study</a>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-   -->
-
-   <div class="py-5 bg-light" id="ahmad_clients">
-   <div class="container-fluid">
-      <div class="text-center mb-5">
-         <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Clients</h2>
-         <p class="large-para mb-4">Feedback from teams we’ve worked with</p>
-         <p class="mb-0"><%= link_to "Read all client reviews", reviews_path, class: "service-card-link ajax" %></p>
-      </div>
-      <div class="clients-testimonials-slider position-relative">
-         <%# 1. Nathan %>
-         <div class="clients-slide">
-            <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
-               <div class="card-body">
-                  <div class="d-flex align-items-center justify-content-between mb-3">
-                     <div class="d-flex align-items-center">
-                        <%= image_tag 'ahmad/clients/nathan.jpeg', class: 'rounded-circle me-3', alt: 'Nathan Wolf, CEO at Vestra', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
-                        <div>
-                           <h5 class="mb-0">Nathan</h5>
-                           <small class="text-muted">Founder at Vestra Software</small>
-                        </div>
-                     </div>
-                     <span class="badge bg-light text-dark border">United States</span>
-                  </div>
-                  <p class="mb-3">
-                     Working with Ahmad has been an incredible experience. They have demonstrated deep technical expertise, clear
-                     communication, and a commitment to delivering a high‑quality product to our team.
-                  </p>
-                  <p class="mb-0 mt-2 pt-2 border-top small text-muted">
-                     <a href="https://www.upwork.com/freelancers/ahmadkamrans" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on Upwork</a>
-                  </p>
-               </div>
-            </div>
-         </div>
-         <%# 2. FKA Novara %>
-         <div class="clients-slide">
-            <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
-               <div class="card-body">
-                  <div class="d-flex align-items-center justify-content-between mb-3">
-                     <div class="d-flex align-items-center">
-                        <%= image_tag 'ahmad/clients/Screenshot_1.png', class: 'rounded-circle me-3', alt: 'FKA Novara: A\'sTechware Client', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
-                        <div>
-                           <h5 class="mb-0">FKA Novara</h5>
-                           <small class="text-muted">Startup Founder</small>
-                        </div>
-                     </div>
-                     <span class="badge bg-light text-dark border">Germany</span>
-                  </div>
-                  <p class="mb-3">
-                     We came to meet Ahmad in 2020 as a startup looking for a developer who could finalize a mockup based on Ruby on Rails.
-                     With Ahmad and A'sTechware&apos;s help, we brought our application into production, achieving excellent stability and fully meeting
-                     customer requirements.
-                  </p>
-                  <p class="mb-0 mt-2 pt-2 border-top small text-muted">
-                     <a href="https://www.linkedin.com/in/engr-ahmad-kamran" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on LinkedIn</a>
-                  </p>
-               </div>
-            </div>
-         </div>
-         <%# 3. Joseph Chiavatti %>
-         <div class="clients-slide">
-            <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
-               <div class="card-body">
-                  <div class="d-flex align-items-center justify-content-between mb-3">
-                     <div class="d-flex align-items-center">
-                        <%= image_tag 'ahmad/clients/joseph.jpeg', class: 'rounded-circle me-3', alt: 'Joseph Chiavatti, A\'sTechware Client', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
-                        <div>
-                           <h5 class="mb-0">Joseph Chiavatti</h5>
-                           <small class="text-muted">Technology Founder &amp; REALTOR®</small>
-                        </div>
-                     </div>
-                     <span class="badge bg-light text-dark border">United States</span>
-                  </div>
-                  <p class="mb-3">
-                     Ahmad have helped us with several projects in our company. They are fantastic communicators and do great work.
-                     They care about making sure the project is completed the correct way and are quick to communicate on the channels we use.
-                  </p>
-                  <p class="mb-0 mt-2 pt-2 border-top small text-muted">
-            
-                     <a href="https://www.linkedin.com/services/page/994512312108a6b17b" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on LinkedIn</a>
-                  </p>
-               </div>
-            </div>
-         </div>
-         <%# 4. Sven-Volker Nowarra %>
-         <div class="clients-slide">
-            <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
-               <div class="card-body">
-                  <div class="d-flex align-items-center justify-content-between mb-3">
-                     <div class="d-flex align-items-center">
-                        <%= image_tag 'ahmad/clients/sven.jpeg', class: 'rounded-circle me-3', alt: 'Sven-Volker Nowarra, A\'sTechware Client', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
-                        <div>
-                           <h5 class="mb-0">Sven‑Volker Nowarra</h5>
-                           <small class="text-muted">In‑A‑Gadda‑Da‑Vida</small>
-                        </div>
-                     </div>
-                     <span class="badge bg-light text-dark border">Germany</span>
-                  </div>
-                  <p class="mb-3">
-                     Working with Ahmad for more than a year, we are highly confident with the work and consider the results delivered
-                     production ready. We are happy to continue our work with ahmad and A'sTechware and are highly confident with their work.
-                  </p>
-                  <p class="mb-0 mt-2 pt-2 border-top small text-muted">
-                     <a href="https://www.linkedin.com/services/page/994512312108a6b17b" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on LinkedIn</a>
-                  </p>
-               </div>
-            </div>
-         </div>
-        <%# 5. William Schoeffler %>
-        <div class="clients-slide">
-           <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
-              <div class="card-body">
-                 <div class="d-flex align-items-center justify-content-between mb-3">
-                    <div class="d-flex align-items-center">
-                       <%= image_tag 'ahmad/clients/william.jpeg', class: 'rounded-circle me-3', alt: 'William Schoeffler, A\'sTechware Client', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
-                       <div>
-                          <h5 class="mb-0">William Schoeffler</h5>
-                          <small class="text-muted">Co‑Founder and Product @ Hitch</small>
-                       </div>
-                    </div>
-                    <span class="badge bg-light text-dark border">United States</span>
-                 </div>
-                 <p class="mb-3">
-                    Ahmad is one of the hardest working engineers I&apos;ve met. They worked endlessly and around the clock to make incredibly
-                    quick progress and took responsibility before deployment by doing detailed testing.
-                 </p>
-                 <p class="mb-0 mt-2 pt-2 border-top small text-muted">
-                    <a href="https://www.linkedin.com/services/page/994512312108a6b17b" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on LinkedIn</a>
-                 </p>
-              </div>
-           </div>
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="build-system-card p-4 h-100">
+          <%= link_to industry_private_clinics_path, class: "text-decoration-none text-dark d-block ajax" do %>
+            <h3 class="h5 mb-2">Healthcare &amp; private clinics</h3>
+            <p class="mb-0 small">AI receptionist and AI scribe for clinics, plus EHR sync and patient data protection, built for HIPAA.</p>
+          <% end %>
+          <p class="mb-0 mt-2">
+            <%= link_to "Healthcare AI & EHR integration →", industry_healthcare_path, class: "service-card-link small ajax" %>
+          </p>
         </div>
-         <%# 6. Anthony Barry %>
-         <div class="clients-slide">
-            <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
-               <div class="card-body">
-                  <div class="d-flex align-items-center justify-content-between mb-3">
-                     <div class="d-flex align-items-center">
-                        <%= image_tag 'ahmad/clients/IMG_9811.png', class: 'rounded-circle me-3', alt: 'Anthony Barry, A\'sTechware Client', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
-                        <div>
-                           <h5 class="mb-0">Anthony Barry</h5>
-                           <small class="text-muted">
-                           MBA | Investor
-                           </small>
-                        </div>
-                     </div>
-                     <span class="badge bg-light text-dark border">Australia</span>
-                  </div>
-                  <p class="mb-3">
-                     Its been a pleasure to work with since they joined the team. They are cooperative, responsive, and will go the extra
-                     yard to meet time‑sensitive priorities.
-                  </p>
-                  <p class="mb-0 mt-2 pt-2 border-top small text-muted">
-                    
-                     <a href="https://www.linkedin.com/in/engr-ahmad-kamran" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on LinkedIn</a>
-                  </p>
-               </div>
-            </div>
-         </div>
-         <%# 7. Ben Selland %>
-         <div class="clients-slide">
-            <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
-               <div class="card-body">
-                  <div class="d-flex align-items-center justify-content-between mb-3">
-                     <div class="d-flex align-items-center">
-                        <%= image_tag 'ahmad/clients/ben-selland.jpeg', class: 'rounded-circle me-3', alt: 'Ben Selland, A\'sTechware Client', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
-                        <div>
-                           <h5 class="mb-0">Ben Selland</h5>
-                           <small class="text-muted">Principal at Selland Technologies</small>
-                        </div>
-                     </div>
-                     <span class="badge bg-light text-dark border">United States</span>
-                  </div>
-                  <p class="mb-3">
-                     Ahmad is an excellent engineer with a strong eye for details. I enjoy working with Ahmad day to day and our team members do as well.
-                  </p>
-                  <p class="mb-0 mt-2 pt-2 border-top small text-muted">
-                     <a href="https://www.linkedin.com/in/engr-ahmad-kamran" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on LinkedIn</a>
-                  </p>
-               </div>
-            </div>
-         </div>
-         <%# 8. Dale Merritt %>
-         <div class="clients-slide">
-            <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
-               <div class="card-body">
-                  <div class="d-flex align-items-center justify-content-between mb-3">
-                     <div class="d-flex align-items-center">
-                        <%= image_tag 'ahmad/clients/golf.jpeg', class: 'rounded-circle me-3', alt: 'Dale Merritt, CEO at Golfpay', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
-                        <div>
-                           <h5 class="mb-0">Dale Merritt</h5>
-                           <small class="text-muted">Golfpay CEO | The &apos;1 Golf&apos; Company</small>
-                        </div>
-                     </div>
-                     <span class="badge bg-light text-dark border">United States</span>
-                  </div>
-                  <p class="mb-3">
-                     Been working with Ahmad for almost two years, and he&apos;s been great to work with. One of the most reliable developers I&apos;ve had the pleasure to work with. He&apos;s always getting better too.
-                  </p>
-                  <p class="mb-0 mt-2 pt-2 border-top small text-muted">
-                     <a href="https://www.linkedin.com/in/engr-ahmad-kamran" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on LinkedIn</a>
-                  </p>
-               </div>
-            </div>
-         </div>
-         <%# 9. Ania Dergachev %>
-         <div class="clients-slide">
-            <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
-               <div class="card-body">
-                  <div class="d-flex align-items-center justify-content-between mb-3">
-                     <div class="d-flex align-items-center">
-                        <%= image_tag 'ahmad/clients/ania.png', class: 'rounded-circle me-3', alt: 'Ania Dergachev, A\'sTechware Client', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
-                        <div>
-                           <h5 class="mb-0">Ania Dergachev</h5>
-                           <small class="text-muted">Head, Product Design Studio</small>
-                        </div>
-                     </div>
-                     <span class="badge bg-light text-dark border">Canada</span>
-                  </div>
-                  <p class="mb-3">
-                     Ahmad consistently demonstrate reliability and are great team players. They tackle complex problems with a positive
-                     attitude and strong determination to find the best solution.
-                  </p>
-                  <p class="mb-0 mt-2 pt-2 border-top small text-muted">
-                     <a href="https://www.linkedin.com/in/engr-ahmad-kamran" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on LinkedIn</a>
-                  </p>
-               </div>
-            </div>
-         </div>
-         <%# 10. Zach %>
-         <div class="clients-slide">
-            <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
-               <div class="card-body">
-                  <div class="d-flex align-items-center justify-content-between mb-3">
-                     <div class="d-flex align-items-center">
-                        <%= image_tag 'ahmad/clients/zach.jpg', class: 'rounded-circle me-3', alt: 'Zach, A\'sTechware Client', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
-                        <div>
-                           <h5 class="mb-0">Zach Marion</h5>
-                           <small class="text-muted">Founder at Shorline Waste Solution</small>
-                        </div>
-                     </div>
-                     <span class="badge bg-light text-dark border">United States</span>
-                  </div>
-                  <p class="mb-3">
-                     A'sTechware have been outstanding partners. They are responsive, detail‑oriented, and focused on delivering quality results. I highly recommend them for any project. Looking forward to working with them again in the future.
-                  </p>
-                  <p class="mb-0 mt-2 pt-2 border-top small text-muted">
-                     <a href="https://www.upwork.com/freelancers/~01eb09bb74c3e6d04b" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on Upwork</a>
-                  </p>
-               </div>
-            </div>
-         </div>
-           <%# 11. Brianne Harvey %>
-         <div class="clients-slide">
-            <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
-               <div class="card-body">
-                  <div class="d-flex align-items-center justify-content-between mb-3">
-                     <div class="d-flex align-items-center">
-                        <%= image_tag 'ahmad/clients/Brianne.jpeg', class: 'rounded-circle me-3', alt: 'Brianne Harvey, Founder at Restaurant Resource', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
-                        <div>
-                           <h5 class="mb-0">Brianne Harvey</h5>
-                           <small class="text-muted">Founder at Restaurant Resource</small>
-                        </div>
-                     </div>
-                     <span class="badge bg-light text-dark border">United States</span>
-                  </div>
-                  <p class="mb-3">
-                     Ahmad has been an exceptional contractor, and we feel incredibly fortunate to have found him. He brings deep technical knowledge to the table, offers thoughtful feedback, and consistently recommends smarter, more efficient solutions.
-                  </p>
-                  <p class="mb-0 mt-2 pt-2 border-top small text-muted">
-                     <a href="https://www.upwork.com/freelancers/ahmadkamrans" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on Upwork</a>
-                  </p>
-               </div>
-            </div>
-         </div>
-         <%# 12. Leilani, Source Medicine Tech %>
-         <div class="clients-slide">
-            <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
-               <div class="card-body">
-                  <div class="d-flex align-items-center justify-content-between mb-3">
-                     <div class="d-flex align-items-center">
-                        <div class="rounded-circle me-3 d-flex align-items-center justify-content-center bg-secondary text-white flex-shrink-0" style="width:64px;height:64px;" aria-hidden="true"><i class="fa fa-user fa-2x"></i></div>
-                        <div>
-                           <h5 class="mb-0">Leilani</h5>
-                           <small class="text-muted">Source Medicine Tech</small>
-                        </div>
-                     </div>
-                     <span class="badge bg-light text-dark border">Upwork</span>
-                  </div>
-                  <p class="mb-3">
-                     Very keen to do the job; regular meetings and clarification of tasks. This job was large and more complex than originally understood so it was technically challenging. Good at asking when unclear about things. Eager to sort out any difficulties along the way.
-                  </p>
-                  <p class="mb-0 mt-2 pt-2 border-top small text-muted">
-                     <a href="https://www.upwork.com/freelancers/~01eb09bb74c3e6d04b" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on Upwork</a>
-                  </p>
-               </div>
-            </div>
-         </div>
-         <%# 13. Dale, Golfpay (second review) %>
-         <div class="clients-slide">
-            <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
-               <div class="card-body">
-                  <div class="d-flex align-items-center justify-content-between mb-3">
-                     <div class="d-flex align-items-center">
-                        <div class="rounded-circle me-3 d-flex align-items-center justify-content-center bg-secondary text-white flex-shrink-0" style="width:64px;height:64px;" aria-hidden="true"><i class="fa fa-user fa-2x"></i></div>
-                        <div>
-                           <h5 class="mb-0">Dale</h5>
-                           <small class="text-muted">Golfpay</small>
-                        </div>
-                     </div>
-                     <span class="badge bg-light text-dark border">Upwork</span>
-                  </div>
-                  <p class="mb-3">
-                     Saba was able to handle a somewhat complex feature for us, and did a really good job, within the estimated time range. We look forward to working with her again!
-                  </p>
-                  <p class="mb-0 mt-2 pt-2 border-top small text-muted">
-                     <a href="https://www.upwork.com/freelancers/~01eb09bb74c3e6d04b" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on Upwork</a>
-                  </p>
-               </div>
-            </div>
-         </div>
-         <%# 14. Jack %>
-         <div class="clients-slide">
-            <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
-               <div class="card-body">
-                  <div class="d-flex align-items-center justify-content-between mb-3">
-                     <div class="d-flex align-items-center">
-                        <div class="rounded-circle me-3 d-flex align-items-center justify-content-center bg-secondary text-white flex-shrink-0" style="width:64px;height:64px;" aria-hidden="true"><i class="fa fa-user fa-2x"></i></div>
-                        <div>
-                           <h5 class="mb-0">Jack</h5>
-                           <small class="text-muted">Upwork Client</small>
-                        </div>
-                     </div>
-                     <span class="badge bg-light text-dark border">Upwork</span>
-                  </div>
-                  <p class="mb-3">
-                     They created a great back end system and a mobile app for my drivers that will change how my business operations work. Their communication was always quick and responsive, making the process much easier. Highly recommend.
-                  </p>
-                  <p class="mb-0 mt-2 pt-2 border-top small text-muted">
-                     <a href="https://www.upwork.com/freelancers/~01eb09bb74c3e6d04b" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on Upwork</a>
-                  </p>
-               </div>
-            </div>
-         </div>
-       
       </div>
-   </div>
-</div>
-   <div class="py-5 bg-white" id="about_us">
-      <div class="container">
-         <div class="row g-5 align-items-center mb-5">
-
-           
-
-
-
-           <div class="col-12 col-lg-6">
-            <h2 class="heading-border heading-center heading-left mb-3 pb-3 d-inline-block">About A'sTechware</h2>
-            <p class="mb-3">
-               A&apos;sTechware designs and builds AI enabled systems for organizations where operational reliability, workflow precision, and structured processes are critical.
-            </p>
-            <p class="mb-3">
-               We work with legal, healthcare, operational, and high growth businesses to replace fragmented manual workflows with systems that improve consistency, reduce operational overhead, and support day to day execution at scale.
-            </p>
-            <p class="mb-3">
-               Our work spans legal document and case operations, patient intake and coordination, dispatch and field operations, and workflow infrastructure for B2B SaaS platforms.
-            </p>
-            <p class="mb-3">
-               Rather than building isolated features or short lived prototypes, we focus on systems that integrate into real operational environments, combining workflow automation, software infrastructure, integrations, and AI where it delivers measurable value.
-            </p>
-            <p class="mb-0">
-               We support organizations operating in environments where privacy, accuracy, operational control, and reliability are essential.
-            </p>
-         </div>
-            <div class="col-12 col-lg-6">
-               <div class="ratio ratio-4x3 rounded overflow-hidden about-image-card">
-                  <div class="about-image-inner">
-                     <%= image_tag 'about-header.webp', class: 'img-fluid w-100 h-100 object-fit-cover rounded-3', alt: "A'sTechware AI and Product Engineering Team", loading: "lazy" %>
-                  </div>
-               </div>
-            </div>
-         </div>
+      <div class="col-12 col-md-6 col-lg-3">
+        <%= link_to industry_construction_path, class: "text-decoration-none text-dark d-block h-100 ajax" do %>
+          <div class="build-system-card p-4 h-100">
+            <h3 class="h5 mb-2">Construction</h3>
+            <p class="mb-0 small">Estimates drafted from plan PDFs, subcontracts, vendor bills from email and QuickBooks sync.</p>
+          </div>
+        <% end %>
       </div>
-   </div>
-   <div id="cta"></div>
-   <div class="contact-us-section py-5" id="contact_us">
-      <div class="container">
-         <div class="text-center">
-            <h2 class="heading-border heading-center mb-5 pb-3 d-inline-block">Tell us about your project</h2>
-         </div>
-         <%= form_for :form,  url: submit_form_path, method: :post, class: 'contact-form', data: {turbo: false, remote: true} do |f| %>
-         <div class="row g-4">
-            <div class="col-md-7">
-               <div class="row">
-                  <div class="col-12 col-md-6 mb-4">
-                     <%= f.text_field :name, class: "form-control", placeholder: "Name*", required: true %>
-                  </div>
-                  <div class="col-12 col-md-6 mb-4">
-                     <%= f.email_field :email, class: "form-control", placeholder: "Email*", required: true %>
-                  </div>
-               </div>
-               <div class="row">
-                  <div class="col-12 col-md-6 mb-4">
-                     <%= f.text_field :phone, class: "form-control", placeholder: "Phone" %>
-                  </div>
-                  <div class="col-12 col-md-6 mb-4">
-                     <%= f.text_field :company_name, class: "form-control", placeholder: "Company Name" %>
-                  </div>
-               </div>
-               <div class="col-12 mb-4">
-                  <%= f.text_area :cover_letter, class: "form-control", placeholder: "Message*", required: true, rows: 5 %>
-               </div>
-               <% if recaptcha_site_key.present? %>
-               <%= hidden_field_tag 'g-recaptcha-response', '', id: 'g-recaptcha-response-home' %>
-               <% end %>
-               <div class="row">
-                  <div class="col-9">
-                     <% if flash[:notice] %>
-                     <div class="alert alert-warning" role="alert" id = "form-contact-alert">
-                        We've received your query successfully, we will get back to you shortly.
-                     </div>
-                     <% end %>
-                     <% if flash[:alert] %>
-                     <div class="alert alert-danger" role="alert" id = "form-contact-alert">
-                        <%= flash[:alert] %>
-                     </div>
-                     <% end %>
-                  </div>
-                  <div class="col-3">
-                     <div class="d-flex justify-content-end">
-                        <%= f.submit "Send", class: "btn btn-primary rounded-3 built-btn"%>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="col-md-5">
-               <div class="card mb-4">
-                  <div class="d-flex p-4 align-items-center">
-                     <div class="icon">
-                        <i class="fa fa-envelope fa-5x" aria-hidden="true"></i>
-                     </div>
-                     <div class="txt-holder ps-4">
-                        <h4 class="mb-2 heading-border text-start">Email Us</h4>
-                        <address class="m-0">
-                           <p class="mb-0"><a href="mailto:ahmad@astechware.com">ahmad@astechware.com</a></p>
-                        </address>
-                     </div>
-                  </div>
-               </div>
-               <div class="logos-holder d-flex justify-content-between align-items-start d-none">
-                  <a href="https://www.upwork.com" target="_blank" rel="noopener noreferrer">Upwork</a>
-                  <a href="https://www.linkedin.com/company/astechware" target="_blank" rel="noopener noreferrer"><i class="fa fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
-                  <a href="https://www.upwork.com" target="_blank" rel="noopener noreferrer">Upwork</a>
-               </div>
-            </div>
-         </div>
-         <% end %>
+      <div class="col-12 col-md-6 col-lg-3">
+        <%= link_to industry_logistics_path, class: "text-decoration-none text-dark d-block h-100 ajax" do %>
+          <div class="build-system-card p-4 h-100">
+            <h3 class="h5 mb-2">Logistics &amp; field service</h3>
+            <p class="mb-0 small">Route planning, photo proof of service, automatic billing and customer texting.</p>
+          </div>
+        <% end %>
       </div>
-   </div>
+    </div>
+    <div class="row g-3">
+      <div class="col-6 col-md-4 col-lg">
+        <%= link_to industry_real_estate_path, class: "text-decoration-none text-dark d-block h-100 ajax" do %>
+          <div class="workflow-card p-3 h-100 text-center">
+            <h3 class="h6 mb-1">Real estate</h3>
+            <p class="mb-0 small text-muted">Showings, offers, MLS data and deal analysis.</p>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-6 col-md-4 col-lg">
+        <%= link_to industry_financial_path, class: "text-decoration-none text-dark d-block h-100 ajax" do %>
+          <div class="workflow-card p-3 h-100 text-center">
+            <h3 class="h6 mb-1">Fintech &amp; payments</h3>
+            <p class="mb-0 small text-muted">Split payouts, earned wage access, processor migrations.</p>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-6 col-md-4 col-lg">
+        <%= link_to industry_home_services_path, class: "text-decoration-none text-dark d-block h-100 ajax" do %>
+          <div class="workflow-card p-3 h-100 text-center">
+            <h3 class="h6 mb-1">HVAC &amp; home services</h3>
+            <p class="mb-0 small text-muted">Job photos to Google and Facebook, business texting.</p>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-6 col-md-4 col-lg">
+        <%= link_to industry_b2b_saas_path, class: "text-decoration-none text-dark d-block h-100 ajax" do %>
+          <div class="workflow-card p-3 h-100 text-center">
+            <h3 class="h6 mb-1">B2B SaaS</h3>
+            <p class="mb-0 small text-muted">Platform rebuilds and AI features on existing products.</p>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-6 col-md-4 col-lg">
+        <%= link_to case_study_path("restaurant-resource-rescue"), class: "text-decoration-none text-dark d-block h-100 ajax" do %>
+          <div class="workflow-card p-3 h-100 text-center">
+            <h3 class="h6 mb-1">Restaurants &amp; hospitality</h3>
+            <p class="mb-0 small text-muted">Inventory search, online booking and payments.</p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 
-<%# Flash Alert Popup %>
+<!-- 4. Stats bar -->
+<div class="py-4" id="company-metrics">
+  <div class="container">
+    <div class="row text-center g-4">
+      <div class="col-6 col-md-3">
+        <div class="metric-number">[[AHMAD: team size]]</div>
+        <div class="metric-label">engineers on the team</div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="metric-number">[[AHMAD: projects delivered]]</div>
+        <div class="metric-label">projects delivered</div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="metric-number">[[AHMAD: client retention]]</div>
+        <div class="metric-label">client retention</div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="metric-number">US · Canada · Australia</div>
+        <div class="metric-label">where our clients are</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 5. Featured work -->
+<div class="py-5 bg-white" id="featured-work">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Systems we&apos;ve built and run in production</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-12 col-lg-4">
+        <%= link_to case_study_path("construction-management-platform"), class: "text-decoration-none text-dark d-block h-100 ajax" do %>
+          <div class="build-system-card p-4 h-100">
+            <span class="badge bg-light text-dark border mb-2">Construction</span>
+            <h3 class="h5 mb-2">One platform for a contractor running three companies</h3>
+            <p class="mb-0 small">A Las Vegas general contractor running three companies on disconnected tools. We built one platform for estimating from plan PDFs, subcontracts, invoices and payments, with each company synced to its own QuickBooks.</p>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-12 col-lg-4">
+        <%= link_to case_study_path("flss-legal-process-serving"), class: "text-decoration-none text-dark d-block h-100 ajax" do %>
+          <div class="build-system-card p-4 h-100">
+            <span class="badge bg-light text-dark border mb-2">Legal</span>
+            <h3 class="h5 mb-2">Process serving platform that holds up in court</h3>
+            <p class="mb-0 small">A Canadian process serving company running on Gmail and spreadsheets. We built a platform that reads incoming jobs from email, dispatches servers with GPS and photo proof, and generates court-ready affidavits and invoices.</p>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-12 col-lg-4">
+        <%= link_to case_study_path("shoreline-waste-logistics"), class: "text-decoration-none text-dark d-block h-100 ajax" do %>
+          <div class="build-system-card p-4 h-100">
+            <span class="badge bg-light text-dark border mb-2">Logistics</span>
+            <h3 class="h5 mb-2">Route planning and proof-of-service for Shoreline Waste</h3>
+            <p class="mb-0 small">Shoreline Waste, a route-based service company working from static route sheets. We built route planning, a driver app with photo proof at every stop, and billing that triggers when a stop is completed.</p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="text-center mt-5">
+      <%= link_to "See all case studies", case_studies_path, class: "btn btn-outline-primary btn-lg rounded-pill px-4 ajax" %>
+    </div>
+  </div>
+</div>
+
+<%# 6. Founder video: add click-to-play YouTube here later with transcript + VideoObject schema %>
+
+<!-- 7. Two ways -->
+<section class="py-5 bg-light-grey" id="two-ways">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Two ways to work with us</h2>
+    </div>
+    <div class="row g-4 mb-4">
+      <div class="col-12 col-md-6">
+        <div class="workflow-card p-4 h-100">
+          <h3 class="h5 mb-3">Build with our team</h3>
+          <p class="mb-3">We scope it, design it, build it and put it into production. You get weekly demos, milestone-based payments and full code ownership.</p>
+          <%= link_to "See our services", services_path, class: "service-card-link ajax" %>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="workflow-card p-4 h-100">
+          <h3 class="h5 mb-3">Add an engineer to your team</h3>
+          <p class="mb-3">A dedicated AI, Python, React or Node.js engineer who works in your tools, backed by our senior team for code review and cover.</p>
+          <%= link_to "Hire an engineer", hire_dedicated_developers_path, class: "service-card-link ajax" %>
+        </div>
+      </div>
+    </div>
+    <p class="text-center mb-0">
+      <%= link_to "AI agents & automation", ai_agent_development_path, class: "service-card-link ajax" %>
+      <span class="text-muted mx-2">·</span>
+      <%= link_to "Custom software", custom_software_path, class: "service-card-link ajax" %>
+      <span class="text-muted mx-2">·</span>
+      <%= link_to "Platform modernization", platform_modernization_path, class: "service-card-link ajax" %>
+      <span class="text-muted mx-2">·</span>
+      <%= link_to "Integrations", api_integrations_path, class: "service-card-link ajax" %>
+    </p>
+  </div>
+</section>
+
+<!-- 8. How we keep projects safe -->
+<div class="py-5 bg-white" id="how-we-derisk">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-10 mx-auto">
+        <div class="text-center mb-5">
+          <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">How we keep projects safe</h2>
+        </div>
+        <div class="row g-4 mb-4">
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 mb-2">Milestones, not blank cheques</h3>
+              <p class="mb-0 small">Work is split into milestones. You pay per milestone and review before moving on.</p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 mb-2">You own everything</h3>
+              <p class="mb-0 small">All code, infrastructure and documentation are yours from day one.</p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 mb-2">Your team stays in control</h3>
+              <p class="mb-0 small">Anything automated that matters, like an invoice, a note or an estimate, goes to a person to approve.</p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="workflow-card p-4 h-100">
+              <h3 class="h6 mb-2">Stop anytime</h3>
+              <p class="mb-0 small">Each milestone stands alone. Pause or change direction without losing finished work.</p>
+            </div>
+          </div>
+        </div>
+        <p class="text-center text-muted small mb-3">Weekly demos · Full visibility · No forced retainers</p>
+        <p class="text-center mb-0">
+          <%= link_to "How we de-risk projects →", derisk_projects_path, class: "service-card-link ajax" %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 9. Client reviews -->
+<div class="py-5 bg-light" id="ahmad_clients">
+  <div class="container-fluid">
+    <div class="text-center mb-5">
+      <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">What clients say</h2>
+      <p class="mb-0"><%= link_to "Read all client reviews", reviews_path, class: "service-card-link ajax" %></p>
+    </div>
+    <div class="container mb-5">
+      <div class="row g-4">
+        <div class="col-12 col-md-4">
+          <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
+            <div class="card-body">
+              <p class="mb-3">Been working with Ahmad for almost two years, and he&apos;s been great to work with. One of the most reliable developers I&apos;ve had the pleasure to work with.</p>
+              <p class="mb-0 small text-muted"><strong>Dale Merritt</strong>, CEO, GolfPay360</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
+            <div class="card-body">
+              <p class="mb-3">They care about making sure the project is completed the correct way and are quick to communicate on the channels we use.</p>
+              <p class="mb-0 small text-muted"><strong>Joseph Chiavatti</strong>, Technology Founder &amp; REALTOR®</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
+            <div class="card-body">
+              <p class="mb-3">Responsive, detail-oriented, and focused on delivering quality results.</p>
+              <p class="mb-0 small text-muted"><strong>Zach Marion</strong>, Founder, Shoreline Waste Solutions</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="clients-testimonials-slider position-relative">
+      <%# Carousel: existing client slides %>
+      <div class="clients-slide">
+        <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <div class="d-flex align-items-center">
+                <%= image_tag 'ahmad/clients/nathan.jpeg', class: 'rounded-circle me-3', alt: 'Nathan Wolf, CEO at Vestra', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
+                <div>
+                  <h3 class="h5 mb-0">Nathan</h3>
+                  <small class="text-muted">Founder at Vestra Software</small>
+                </div>
+              </div>
+              <span class="badge bg-light text-dark border">United States</span>
+            </div>
+            <p class="mb-3">Working with Ahmad has been an incredible experience. They have demonstrated deep technical expertise, clear communication, and a commitment to delivering a high-quality product to our team.</p>
+            <p class="mb-0 mt-2 pt-2 border-top small text-muted">
+              <a href="https://www.upwork.com/freelancers/ahmadkamrans" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on Upwork</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="clients-slide">
+        <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <div class="d-flex align-items-center">
+                <%= image_tag 'ahmad/clients/Screenshot_1.png', class: 'rounded-circle me-3', alt: "FKA Novara, A'sTechware Client", style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
+                <div>
+                  <h3 class="h5 mb-0">FKA Novara</h3>
+                  <small class="text-muted">Startup Founder</small>
+                </div>
+              </div>
+              <span class="badge bg-light text-dark border">Germany</span>
+            </div>
+            <p class="mb-3">We came to meet Ahmad in 2020 as a startup looking for a developer who could finalize a mockup based on Ruby on Rails. With Ahmad and A&apos;sTechware&apos;s help, we brought our application into production, achieving excellent stability and fully meeting customer requirements.</p>
+            <p class="mb-0 mt-2 pt-2 border-top small text-muted">
+              <a href="https://www.linkedin.com/in/engr-ahmad-kamran" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on LinkedIn</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="clients-slide">
+        <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <div class="d-flex align-items-center">
+                <%= image_tag 'ahmad/clients/joseph.jpeg', class: 'rounded-circle me-3', alt: "Joseph Chiavatti, A'sTechware Client", style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
+                <div>
+                  <h3 class="h5 mb-0">Joseph Chiavatti</h3>
+                  <small class="text-muted">Technology Founder &amp; REALTOR®</small>
+                </div>
+              </div>
+              <span class="badge bg-light text-dark border">United States</span>
+            </div>
+            <p class="mb-3">Ahmad have helped us with several projects in our company. They are fantastic communicators and do great work. They care about making sure the project is completed the correct way and are quick to communicate on the channels we use.</p>
+            <p class="mb-0 mt-2 pt-2 border-top small text-muted">
+              <a href="https://www.linkedin.com/services/page/994512312108a6b17b" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on LinkedIn</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="clients-slide">
+        <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <div class="d-flex align-items-center">
+                <%= image_tag 'ahmad/clients/sven.jpeg', class: 'rounded-circle me-3', alt: "Sven-Volker Nowarra, A'sTechware Client", style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
+                <div>
+                  <h3 class="h5 mb-0">Sven‑Volker Nowarra</h3>
+                  <small class="text-muted">In‑A‑Gadda‑Da‑Vida</small>
+                </div>
+              </div>
+              <span class="badge bg-light text-dark border">Germany</span>
+            </div>
+            <p class="mb-3">Working with Ahmad for more than a year, we are highly confident with the work and consider the results delivered production ready. We are happy to continue our work with Ahmad and A&apos;sTechware and are highly confident with their work.</p>
+            <p class="mb-0 mt-2 pt-2 border-top small text-muted">
+              <a href="https://www.linkedin.com/services/page/994512312108a6b17b" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on LinkedIn</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="clients-slide">
+        <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <div class="d-flex align-items-center">
+                <%= image_tag 'ahmad/clients/william.jpeg', class: 'rounded-circle me-3', alt: "William Schoeffler, A'sTechware Client", style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
+                <div>
+                  <h3 class="h5 mb-0">William Schoeffler</h3>
+                  <small class="text-muted">Co‑Founder and Product @ Hitch</small>
+                </div>
+              </div>
+              <span class="badge bg-light text-dark border">United States</span>
+            </div>
+            <p class="mb-3">Ahmad is one of the hardest working engineers I&apos;ve met. They worked endlessly and around the clock to make incredibly quick progress and took responsibility before deployment by doing detailed testing.</p>
+            <p class="mb-0 mt-2 pt-2 border-top small text-muted">
+              <a href="https://www.linkedin.com/services/page/994512312108a6b17b" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on LinkedIn</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="clients-slide">
+        <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <div class="d-flex align-items-center">
+                <%= image_tag 'ahmad/clients/IMG_9811.png', class: 'rounded-circle me-3', alt: "Anthony Barry, A'sTechware Client", style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
+                <div>
+                  <h3 class="h5 mb-0">Anthony Barry</h3>
+                  <small class="text-muted">MBA | Investor</small>
+                </div>
+              </div>
+              <span class="badge bg-light text-dark border">Australia</span>
+            </div>
+            <p class="mb-3">Its been a pleasure to work with since they joined the team. They are cooperative, responsive, and will go the extra yard to meet time-sensitive priorities.</p>
+            <p class="mb-0 mt-2 pt-2 border-top small text-muted">
+              <a href="https://www.linkedin.com/in/engr-ahmad-kamran" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on LinkedIn</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="clients-slide">
+        <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <div class="d-flex align-items-center">
+                <%= image_tag 'ahmad/clients/ben-selland.jpeg', class: 'rounded-circle me-3', alt: "Ben Selland, A'sTechware Client", style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
+                <div>
+                  <h3 class="h5 mb-0">Ben Selland</h3>
+                  <small class="text-muted">Principal at Selland Technologies</small>
+                </div>
+              </div>
+              <span class="badge bg-light text-dark border">United States</span>
+            </div>
+            <p class="mb-3">Ahmad is an excellent engineer with a strong eye for details. I enjoy working with Ahmad day to day and our team members do as well.</p>
+            <p class="mb-0 mt-2 pt-2 border-top small text-muted">
+              <a href="https://www.linkedin.com/in/engr-ahmad-kamran" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on LinkedIn</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="clients-slide">
+        <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <div class="d-flex align-items-center">
+                <%= image_tag 'ahmad/clients/golf.jpeg', class: 'rounded-circle me-3', alt: 'Dale Merritt, CEO at Golfpay', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
+                <div>
+                  <h3 class="h5 mb-0">Dale Merritt</h3>
+                  <small class="text-muted">Golfpay CEO | The &apos;1 Golf&apos; Company</small>
+                </div>
+              </div>
+              <span class="badge bg-light text-dark border">United States</span>
+            </div>
+            <p class="mb-3">Been working with Ahmad for almost two years, and he&apos;s been great to work with. One of the most reliable developers I&apos;ve had the pleasure to work with. He&apos;s always getting better too.</p>
+            <p class="mb-0 mt-2 pt-2 border-top small text-muted">
+              <a href="https://www.linkedin.com/in/engr-ahmad-kamran" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on LinkedIn</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="clients-slide">
+        <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <div class="d-flex align-items-center">
+                <%= image_tag 'ahmad/clients/ania.png', class: 'rounded-circle me-3', alt: "Ania Dergachev, A'sTechware Client", style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
+                <div>
+                  <h3 class="h5 mb-0">Ania Dergachev</h3>
+                  <small class="text-muted">Head, Product Design Studio</small>
+                </div>
+              </div>
+              <span class="badge bg-light text-dark border">Canada</span>
+            </div>
+            <p class="mb-3">Ahmad consistently demonstrate reliability and are great team players. They tackle complex problems with a positive attitude and strong determination to find the best solution.</p>
+            <p class="mb-0 mt-2 pt-2 border-top small text-muted">
+              <a href="https://www.linkedin.com/in/engr-ahmad-kamran" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on LinkedIn</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="clients-slide">
+        <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <div class="d-flex align-items-center">
+                <%= image_tag 'ahmad/clients/zach.jpg', class: 'rounded-circle me-3', alt: 'Zach Marion, Founder, Shoreline Waste Solutions', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
+                <div>
+                  <h3 class="h5 mb-0">Zach Marion</h3>
+                  <small class="text-muted">Founder, Shoreline Waste Solutions</small>
+                </div>
+              </div>
+              <span class="badge bg-light text-dark border">United States</span>
+            </div>
+            <p class="mb-3">A&apos;sTechware have been outstanding partners. They are responsive, detail-oriented, and focused on delivering quality results. I highly recommend them for any project. Looking forward to working with them again in the future.</p>
+            <p class="mb-0 mt-2 pt-2 border-top small text-muted">
+              <a href="https://www.upwork.com/freelancers/~01eb09bb74c3e6d04b" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on Upwork</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="clients-slide">
+        <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <div class="d-flex align-items-center">
+                <%= image_tag 'ahmad/clients/Brianne.jpeg', class: 'rounded-circle me-3', alt: 'Brianne Harvey, Founder at Restaurant Resource', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
+                <div>
+                  <h3 class="h5 mb-0">Brianne Harvey</h3>
+                  <small class="text-muted">Founder at Restaurant Resource</small>
+                </div>
+              </div>
+              <span class="badge bg-light text-dark border">United States</span>
+            </div>
+            <p class="mb-3">Ahmad has been an exceptional contractor, and we feel incredibly fortunate to have found him. He brings deep technical knowledge to the table, offers thoughtful feedback, and consistently recommends smarter, more efficient solutions.</p>
+            <p class="mb-0 mt-2 pt-2 border-top small text-muted">
+              <a href="https://www.upwork.com/freelancers/ahmadkamrans" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on Upwork</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="clients-slide">
+        <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <div class="d-flex align-items-center">
+                <div class="rounded-circle me-3 d-flex align-items-center justify-content-center bg-secondary text-white flex-shrink-0" style="width:64px;height:64px;" aria-hidden="true"><i class="fa fa-user fa-2x"></i></div>
+                <div>
+                  <h3 class="h5 mb-0">Leilani</h3>
+                  <small class="text-muted">Source Medicine Tech</small>
+                </div>
+              </div>
+              <span class="badge bg-light text-dark border">Upwork</span>
+            </div>
+            <p class="mb-3">Very keen to do the job; regular meetings and clarification of tasks. This job was large and more complex than originally understood so it was technically challenging. Good at asking when unclear about things. Eager to sort out any difficulties along the way.</p>
+            <p class="mb-0 mt-2 pt-2 border-top small text-muted">
+              <a href="https://www.upwork.com/freelancers/~01eb09bb74c3e6d04b" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on Upwork</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="clients-slide">
+        <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <div class="d-flex align-items-center">
+                <div class="rounded-circle me-3 d-flex align-items-center justify-content-center bg-secondary text-white flex-shrink-0" style="width:64px;height:64px;" aria-hidden="true"><i class="fa fa-user fa-2x"></i></div>
+                <div>
+                  <h3 class="h5 mb-0">Dale</h3>
+                  <small class="text-muted">Golfpay</small>
+                </div>
+              </div>
+              <span class="badge bg-light text-dark border">Upwork</span>
+            </div>
+            <p class="mb-3">Saba was able to handle a somewhat complex feature for us, and did a really good job, within the estimated time range. We look forward to working with her again!</p>
+            <p class="mb-0 mt-2 pt-2 border-top small text-muted">
+              <a href="https://www.upwork.com/freelancers/~01eb09bb74c3e6d04b" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on Upwork</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="clients-slide">
+        <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
+          <div class="card-body">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <div class="d-flex align-items-center">
+                <div class="rounded-circle me-3 d-flex align-items-center justify-content-center bg-secondary text-white flex-shrink-0" style="width:64px;height:64px;" aria-hidden="true"><i class="fa fa-user fa-2x"></i></div>
+                <div>
+                  <h3 class="h5 mb-0">Jack</h3>
+                  <small class="text-muted">Upwork Client</small>
+                </div>
+              </div>
+              <span class="badge bg-light text-dark border">Upwork</span>
+            </div>
+            <p class="mb-3">They created a great back end system and a mobile app for my drivers that will change how my business operations work. Their communication was always quick and responsive, making the process much easier. Highly recommend.</p>
+            <p class="mb-0 mt-2 pt-2 border-top small text-muted">
+              <a href="https://www.upwork.com/freelancers/~01eb09bb74c3e6d04b" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on Upwork</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 10. FAQ -->
+<section class="py-5 bg-white" id="home-faq">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">FAQ</h2>
+    </div>
+    <div class="row">
+      <div class="col-12 col-lg-10 mx-auto">
+        <div class="accordion accordion-faq" id="homeFaqAccordion">
+          <% home_faq.each_with_index do |item, idx| %>
+            <% collapse_id = "homefaq#{idx + 1}" %>
+            <div class="accordion-item border-0 shadow-sm mb-3">
+              <h3 class="accordion-header" id="homeFaqHeading<%= idx + 1 %>">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#<%= collapse_id %>" aria-expanded="false" aria-controls="<%= collapse_id %>">
+                  <span class="faq-question"><%= item[:q] %></span>
+                </button>
+              </h3>
+              <div id="<%= collapse_id %>" class="accordion-collapse collapse" aria-labelledby="homeFaqHeading<%= idx + 1 %>" data-bs-parent="#homeFaqAccordion">
+                <div class="accordion-body">
+                  <p class="mb-0"><%= item[:a] %></p>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11. About -->
+<div class="py-5 bg-light-grey" id="about_us">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-12 col-lg-6">
+        <h2 class="heading-border heading-center heading-left mb-3 pb-3 d-inline-block">About A&apos;sTechware</h2>
+        <p class="mb-3">
+          A&apos;sTechware is a software and automation company led by founder Ahmad Kamran, with a [[AHMAD: team size]] engineering team. We build the systems behind legal, healthcare, construction and logistics businesses: the intake, scheduling, estimating, dispatch and billing work that usually eats up a team&apos;s day.
+        </p>
+        <p class="mb-0">
+          We don&apos;t build demos. We build systems that run every day with real customers, connected to the tools our clients already use, and we stay with them after launch.
+        </p>
+      </div>
+      <div class="col-12 col-lg-6">
+        <%# [[AHMAD: real photo?]] — keep office image only if confirmed real team/office photo %>
+        <div class="ratio ratio-4x3 rounded overflow-hidden about-image-card">
+          <div class="about-image-inner">
+            <%= image_tag 'about-header.webp', class: 'img-fluid w-100 h-100 object-fit-cover rounded-3', alt: "A'sTechware engineering team", loading: "lazy" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 12. Contact -->
+<div id="cta"></div>
+<div class="contact-us-section py-5" id="contact_us">
+  <div class="container">
+    <div class="text-center">
+      <h2 class="heading-border heading-center mb-5 pb-3 d-inline-block">Tell us what&apos;s slowing your team down</h2>
+    </div>
+    <%= form_for :form, url: submit_form_path, method: :post, class: 'contact-form', data: { turbo: false, remote: true } do |f| %>
+      <div class="row g-4">
+        <div class="col-md-7">
+          <div class="row">
+            <div class="col-12 col-md-6 mb-4">
+              <%= f.text_field :name, class: "form-control", placeholder: "Name*", required: true %>
+            </div>
+            <div class="col-12 col-md-6 mb-4">
+              <%= f.email_field :email, class: "form-control", placeholder: "Email*", required: true %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-6 mb-4">
+              <%= f.text_field :phone, class: "form-control", placeholder: "Phone" %>
+            </div>
+            <div class="col-12 col-md-6 mb-4">
+              <%= f.text_field :company_name, class: "form-control", placeholder: "Company Name" %>
+            </div>
+          </div>
+          <div class="col-12 mb-4">
+            <%= f.text_area :cover_letter, class: "form-control", placeholder: "Message*", required: true, rows: 5 %>
+          </div>
+          <% if recaptcha_site_key.present? %>
+            <%= hidden_field_tag 'g-recaptcha-response', '', id: 'g-recaptcha-response-home' %>
+          <% end %>
+          <div class="row">
+            <div class="col-9">
+              <% if flash[:notice] %>
+                <div class="alert alert-warning" role="alert" id="form-contact-alert">
+                  We&apos;ve received your query successfully, we will get back to you shortly.
+                </div>
+              <% end %>
+              <% if flash[:alert] %>
+                <div class="alert alert-danger" role="alert" id="form-contact-alert">
+                  <%= flash[:alert] %>
+                </div>
+              <% end %>
+            </div>
+            <div class="col-3">
+              <div class="d-flex justify-content-end">
+                <%= f.submit "Send", class: "btn btn-primary rounded-3 built-btn" %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="card mb-4">
+            <div class="d-flex p-4 align-items-center">
+              <div class="icon">
+                <i class="fa fa-envelope fa-5x" aria-hidden="true"></i>
+              </div>
+              <div class="txt-holder ps-4">
+                <h3 class="h4 mb-2 heading-border text-start">Email us</h3>
+                <address class="m-0">
+                  <p class="mb-0"><a href="mailto:ahmad@astechware.com">ahmad@astechware.com</a></p>
+                </address>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="p-4">
+              <h3 class="h4 mb-2 heading-border text-start">Prefer a call?</h3>
+              <p class="mb-3">Book 30 minutes on Calendly and we&apos;ll talk through what&apos;s slowing your team down.</p>
+              <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary rounded-3 w-100">
+                Book 30 minutes
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+</div>
+
 <% if flash[:notice] || flash[:alert] %>
 <div id="flashAlertPopup" class="flash-alert-popup show">
-   <div class="flash-alert-content">
-      <button class="flash-alert-close" id="closeFlashAlert" aria-label="Close alert">
-         <i class="fa fa-times"></i>
-      </button>
-      <div class="flash-alert-body">
-         <p class="flash-alert-text mb-0">
-            <%= flash[:notice] || flash[:alert] %>
-         </p>
-      </div>
-   </div>
+  <div class="flash-alert-content">
+    <button class="flash-alert-close" id="closeFlashAlert" aria-label="Close alert">
+      <i class="fa fa-times"></i>
+    </button>
+    <div class="flash-alert-body">
+      <p class="flash-alert-text mb-0">
+        <%= flash[:notice] || flash[:alert] %>
+      </p>
+    </div>
+  </div>
 </div>
 
 <style>
-   /* Fixed bottom right, above chat + reCAPTCHA; slides in from the right. */
-   .flash-alert-popup {
-      position: fixed;
-      left: auto;
-      right: 20px;
-      bottom: 80px;
-      max-width: min(380px, calc(100vw - 40px));
-      z-index: 10050;
-      opacity: 0;
-      transform: translateX(100%);
-      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      pointer-events: none;
-   }
-
-   .flash-alert-popup.show {
-      opacity: 1;
-      transform: translateX(0);
-      pointer-events: all;
-   }
-
-   .flash-alert-content {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05);
-      padding: 20px;
-      position: relative;
-      border-left: 4px solid var(--site-color);
-   }
-
-   .flash-alert-close {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: transparent;
-      border: none;
-      font-size: 18px;
-      cursor: pointer;
-      padding: 5px 8px;
-      line-height: 1;
-      transition: all 0.2s;
-      border-radius: 4px;
-   }
-
-   .flash-alert-close:hover {
-      color: var(--text-color);
-      background: #f8f9fa;
-   }
-
-   .flash-alert-body {
-      padding-right: 25px;
-   }
-
-   .flash-alert-text {
-      font-size: 14px;
-      line-height: 1.5;
-      color: var(--text-color);
-      margin: 0;
-   }
-
-   @media (max-width: 768px) {
-      .flash-alert-popup {
-         left: auto;
-         right: 16px;
-         bottom: 120px;
-         max-width: min(380px, calc(100vw - 32px));
-      }
-   }
+  .flash-alert-popup {
+    position: fixed;
+    left: auto;
+    right: 20px;
+    bottom: 80px;
+    max-width: min(380px, calc(100vw - 40px));
+    z-index: 10050;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    pointer-events: none;
+  }
+  .flash-alert-popup.show {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: all;
+  }
+  .flash-alert-content {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    position: relative;
+    border-left: 4px solid var(--site-color);
+  }
+  .flash-alert-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 5px 8px;
+    line-height: 1;
+    transition: all 0.2s;
+    border-radius: 4px;
+  }
+  .flash-alert-close:hover {
+    color: var(--text-color);
+    background: #f8f9fa;
+  }
+  .flash-alert-body {
+    padding-right: 25px;
+  }
+  .flash-alert-text {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-color);
+    margin: 0;
+  }
+  @media (max-width: 768px) {
+    .flash-alert-popup {
+      right: 16px;
+      bottom: 120px;
+      max-width: min(380px, calc(100vw - 32px));
+    }
+  }
 </style>
 
 <script>
-   document.addEventListener('DOMContentLoaded', function() {
-      const flashPopup = document.getElementById('flashAlertPopup');
-      const closeFlashBtn = document.getElementById('closeFlashAlert');
-      
-      // Close popup on button click
-      if (closeFlashBtn) {
-         closeFlashBtn.addEventListener('click', function() {
-            if (flashPopup) {
-               flashPopup.classList.remove('show');
-               setTimeout(function() {
-                  if (flashPopup.parentNode) {
-                     flashPopup.parentNode.removeChild(flashPopup);
-                  }
-               }, 400);
+  document.addEventListener('DOMContentLoaded', function() {
+    const flashPopup = document.getElementById('flashAlertPopup');
+    const closeFlashBtn = document.getElementById('closeFlashAlert');
+    if (closeFlashBtn) {
+      closeFlashBtn.addEventListener('click', function() {
+        if (flashPopup) {
+          flashPopup.classList.remove('show');
+          setTimeout(function() {
+            if (flashPopup.parentNode) {
+              flashPopup.parentNode.removeChild(flashPopup);
             }
-         });
-      }
-      
-      // Auto hide after 5 seconds
-      if (flashPopup) {
-         setTimeout(function() {
-            if (flashPopup.classList.contains('show')) {
-               flashPopup.classList.remove('show');
-               setTimeout(function() {
-                  if (flashPopup.parentNode) {
-                     flashPopup.parentNode.removeChild(flashPopup);
-                  }
-               }, 400);
+          }, 400);
+        }
+      });
+    }
+    if (flashPopup) {
+      setTimeout(function() {
+        if (flashPopup.classList.contains('show')) {
+          flashPopup.classList.remove('show');
+          setTimeout(function() {
+            if (flashPopup.parentNode) {
+              flashPopup.parentNode.removeChild(flashPopup);
             }
-         }, 5000);
-      }
-   });
+          }, 400);
+        }
+      }, 5000);
+    }
+  });
 </script>
-
 <% end %>
-
-<%# Menu JS %>
-<script>
-   const bodyTag = document.querySelector("body");
-   const buttonTag = document.querySelector(".nav-button");
-   let count = 0;
-   let socialCount = 0;
-   
-   buttonTag.addEventListener("click", function(event) { count = 0 })
-   bodyTag.addEventListener("click", function(event) {  
-     if (bodyTag.classList.contains('open dropdown')  && count > 0) {
-       bodyTag.classList.remove("open dropdown");
-       buttonTag.classList.remove("cmenu");
-       count = 0
-     }else {
-       count++;
-     }
-   
-     if (bodyTag.classList.contains('social active') && socialCount > 0) {
-       bodyTag.classList.remove("social active");
-       socialCount = 0
-     }else {
-       socialCount++;
-     }
-   });
-</script>
