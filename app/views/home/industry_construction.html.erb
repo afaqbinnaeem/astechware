@@ -1,0 +1,247 @@
+<% content_for :head do %>
+  <% set_meta_tags(
+    title: "Construction Software & AI Estimating",
+    description: "Estimates drafted from plan PDFs, subcontracts, vendor bills from email and QuickBooks sync for general and specialty contractors in the US, Canada and Australia.",
+    keywords: "construction software development, AI construction estimating, contractor management software, QuickBooks construction integration, subcontract management, construction estimating software"
+  ) %>
+  <% construction_faq = [
+       { q: "Does your AI estimator set prices from plan PDFs?", a: "No. We use AI to turn site walk notes and plan PDFs into a structured estimate skeleton with scope narratives and quantities where they are clearly stated. The estimator sets every price. Guessed prices are not trustworthy in production job costing." },
+       { q: "Can one login run multiple construction companies?", a: "Yes on the platform we shipped: multiple legally separate companies share one login with a header toggle, database-level isolation, and independent QuickBooks sync and numbering per company." },
+       { q: "Which accounting systems do you integrate with?", a: "We have shipped QuickBooks Online sync with per-company job numbers, cost codes, invoices, and payments kept aligned with the system of record." },
+       { q: "Can you integrate with Procore or Buildertrend?", a: "We can integrate with tools you already use when their APIs support the data you need. We have not published a Procore or Buildertrend case study." }
+     ] %>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "Service",
+    "name" => "Construction Software & AI Estimating",
+    "url" => industry_construction_url,
+    "description" => "Estimates drafted from plan PDFs, subcontracts, vendor bills from email and QuickBooks sync for general and specialty contractors.",
+    "provider" => { "@id" => "https://astechware.com/#organization" },
+    "areaServed" => ["United States", "Canada", "Australia"],
+    "serviceType" => "Construction Software Development",
+    "category" => "Construction Technology"
+  }.to_json) %>
+  </script>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "FAQPage",
+    "mainEntity" => construction_faq.map { |item|
+      {
+        "@type" => "Question",
+        "name" => item[:q],
+        "acceptedAnswer" => { "@type" => "Answer", "text" => item[:a] }
+      }
+    }
+  }.to_json) %>
+  </script>
+<% end %>
+
+<div class="hero-section py-5 service-page-hero professional-services-hero industry-landing-hero">
+  <div class="container">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-12 col-lg-9 mx-auto text-center">
+        <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;" data-page-h1>
+          Construction software and AI estimating for contractors
+        </h1>
+        <p class="text-white fw-semibold mb-3" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.4; max-width: 720px; margin-left: auto; margin-right: auto;">
+          From plan PDFs and site walks to subcontracts, vendor bills, and QuickBooks&nbsp;&mdash; without duplicate job numbers.
+        </p>
+        <p class="mb-4" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
+          We build construction operations platforms for general contractors, specialty trades, and construction technology founders in the US, Canada, and Australia&nbsp;&mdash; especially teams where estimating, subcontracting, invoicing, and accounting have to stay in sync across one or more companies.
+        </p>
+        <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+          Start with a discovery sprint &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="inner-sections construction-industry-page">
+
+  <section class="py-5 bg-white" id="problems">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto mb-5">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Problems we solve</h2>
+          <p class="large-para mb-0">The failures we see most often on construction ops builds:</p>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Estimates trapped in PDFs and email</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">Site walk notes, plan sets, and sub bids live in different places. Turning them into a structured estimate is slow, and the winning estimate rarely connects cleanly to subcontracts downstream.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Duplicate job, invoice, and subcontract numbers</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">When multiple companies or modules each mint their own numbers, QuickBooks gets duplicates, job costing reports lie, and nobody trusts the ledger.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Cost code sprawl between system and QuickBooks</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">Hundreds of near-duplicate cost codes with no controlled master list means estimators pick the wrong code and variance reports become useless.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Manual subcontract and vendor paperwork</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">Every contract PDF, insurance certificate, and vendor bill chased through Outlook burns estimator and PM time that should go to jobsite judgment calls.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Payments without signed subs and current insurance</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">Paying a sub before the contract is executed or COI expires is a legal and insurance exposure. Spreadsheets do not enforce it; software should.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h6 mb-2">Multi-company data bleeding together</h3>
+            <p class="mb-0 small" style="line-height: 1.7;">One login across multiple legal entities only works if isolation is enforced at the database layer, not by developers remembering a filter on every query.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey" id="what-we-build">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto mb-5">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">What we build</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.9;">
+            <li><strong>AI estimate skeletons</strong> from plan PDFs, OCR on scanned sheets, and site walk notes&nbsp;&mdash; structured line items and scope language, no guessed prices.</li>
+            <li><strong>Multi-company platforms</strong> with per-company branding, terms, numbering, and QuickBooks accounts behind one login.</li>
+            <li><strong>Subcontracts generated</strong> from approved estimate lines with one-line-one-sub rules and cost-column enforcement.</li>
+            <li><strong>Vendor bills and invoices</strong> with atomic per-company number sequences and soft-delete auditability.</li>
+            <li><strong>QuickBooks Online sync</strong> so jobs, cost codes, invoices, and payments land in the right company ledger.</li>
+            <li><strong>Microsoft 365 / Outlook workflows</strong> for subcontract and vendor communication tied to job records.</li>
+            <li><strong>Stripe ACH subcontractor payments</strong> gated on executed contracts and current insurance certificates.</li>
+            <li><strong>Job photos and dashboards</strong> that surface estimates, signatures, insurance expiry, and overdue invoices in one place.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white" id="case-study">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Featured case study</h2>
+          <div class="workflow-card p-4 p-lg-5">
+            <h3 class="h5 mb-3">Multi-company construction management platform</h3>
+            <p class="mb-0" style="line-height: 1.7;">
+              A Las Vegas general contractor running three companies replaced disconnected PDFs, Outlook, and QuickBooks chaos with one platform: AI estimating from plans and walk notes, subcontracts and invoices with database-enforced numbering, and payments that refuse to fire until contracts are signed and insurance is current.
+            </p>
+            <%= link_to "Read the full case study &rarr;".html_safe, case_study_path("construction-management-platform"), class: "d-inline-block mt-4 fw-semibold ajax" %>
+            <% if route_helper_defined?(:industry_professional_services_path) %>
+              <p class="mt-3 mb-0">
+                <%= link_to "More field and operations-heavy software →", industry_professional_services_path, class: "service-card-link ajax" %>
+              </p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey" id="tools">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-12 col-md-6">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Tools we build with</h2>
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <ul class="mb-0 ps-3" style="line-height: 2;">
+              <li>QuickBooks Online</li>
+              <li>Microsoft 365 / Outlook</li>
+              <li>Stripe ACH</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">We can integrate with</h2>
+          <div class="workflow-card p-4 p-lg-5 h-100">
+            <p class="mb-3 small" style="line-height: 1.7;">We can integrate with platforms you already run when their APIs expose the job, cost code, and document data you need:</p>
+            <ul class="mb-0 ps-3" style="line-height: 2;">
+              <li>Procore</li>
+              <li>Buildertrend</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white" id="two-ways">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Two ways to work with us</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h5 mb-3">Build it with our team</h3>
+            <p class="mb-3">We scope it, design it, build it, and put it into production. You get weekly demos, milestone-based payments, and full code ownership.</p>
+            <%= link_to "See our services", services_path, class: "service-card-link ajax" %>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="workflow-card p-4 h-100">
+            <h3 class="h5 mb-3">Add an engineer to your team</h3>
+            <p class="mb-3">A dedicated engineer who works in your tools, backed by our senior team for code review and cover.</p>
+            <% if route_helper_defined?(:hire_dedicated_developers_path) %>
+              <%= link_to "Hire an engineer", hire_dedicated_developers_path, class: "service-card-link ajax" %>
+            <% else %>
+              <%= link_to "Book a 30-min call", "https://calendly.com/ahmadkamran/new-meeting", target: "_blank", rel: "noopener noreferrer", class: "service-card-link" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey" id="faq">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">FAQ</h2>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="accordion construction-industry-faq" id="constructionIndustryFaq">
+            <% construction_faq.each_with_index do |item, idx| %>
+              <% collapse_id = "confaq#{idx + 1}" %>
+              <div class="accordion-item border rounded mb-2">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#<%= collapse_id %>" aria-expanded="false" aria-controls="<%= collapse_id %>"><%= item[:q] %></button>
+                </h3>
+                <div id="<%= collapse_id %>" class="accordion-collapse collapse" data-bs-parent="#constructionIndustryFaq">
+                  <div class="accordion-body"><%= item[:a] %></div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white">
+    <div class="container text-center">
+      <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+        Book a discovery call &rarr;
+      </a>
+    </div>
+  </section>
+
+</div>
