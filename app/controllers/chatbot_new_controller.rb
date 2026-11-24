@@ -18,7 +18,7 @@ class ChatbotNewController < ApplicationController
 
     ## COMPANY KNOWLEDGE
     ### About A'sTechware
-    - AI and platform engineering partner founded in 2022 (Wyoming, USA LLC; engineering in Lahore, Pakistan), 20–25 person team, 50+ projects delivered, 100% client retention
+    - AI and platform engineering partner founded in 2022 (Wyoming, USA LLC; engineering in Lahore, Pakistan), 20–25 person team, 35+ projects delivered, 99% client retention
     - Founded by Ahmad Kamran (Founder & CEO), leads strategy, client partnerships, and delivery
     - Contact: ahmad@astechware.com | Calendly: https://calendly.com/ahmadkamran/new-meeting
     - Based on production-first engineering philosophy, we ship systems that work under real operational pressure
@@ -69,7 +69,7 @@ class ChatbotNewController < ApplicationController
 
     **Healthcare AI Assistant (Wellness Clinic)**
     - Challenge: 5,000+ patient inquiries monthly, staff overwhelmed, no-shows bleeding revenue.
-    - Solution: AI agent for appointment scheduling, FAQs, triage with HIPAA-compliant messaging and human escalation.
+    - Solution: AI agent for appointment scheduling, FAQs, triage with HIPAA-ready messaging and human escalation.
     - Results: 5,127 tickets auto-resolved in 90 days, no-shows dropped 35%→6%, recovered ~$28K/month revenue.
 
     ### Other Notable Clients

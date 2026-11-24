@@ -179,7 +179,7 @@ class IntegrationCatalog
       faqs: [
         {
           q: "Have you built HIPAA-ready Twilio voice flows?",
-          a: "Yes. On medical-voice-ai we use Twilio telephony on BAA-covered infrastructure with PHI de-identification before LLM calls and no long-term audio retention on the scribe path."
+          a: "Yes. On our private clinic project we use Twilio telephony on BAA-covered infrastructure with PHI de-identification before LLM calls and no long-term audio retention on the scribe path."
         },
         {
           q: "Can technicians use SMS only?",
@@ -191,7 +191,7 @@ class IntegrationCatalog
         },
         {
           q: "Which regions do you support?",
-          a: "We deploy for teams in the United States, Canada, Australia, and the United Kingdom, selecting Twilio numbers and routing based on your compliance and data residency needs."
+          a: "We deploy for teams in the United States, United Kingdom, Canada, and Australia, selecting Twilio numbers and routing based on your compliance and data residency needs."
         },
         {
           q: "Can Twilio trigger billing or ops events?",
@@ -321,7 +321,7 @@ class IntegrationCatalog
       faqs: [
         {
           q: "Have you wired DocuSign into court or compliance workflows?",
-          a: "Yes on FLSS: affidavits move through DocuSign with server-then-commissioner order; signed PDFs return to law firms with evidence tied to attempt logs."
+          a: "Yes, for a Canadian process serving company: affidavits move through DocuSign with server-then-commissioner order; signed PDFs return to law firms with evidence tied to attempt logs."
         },
         {
           q: "Can DocuSign gate payments or job status?",
@@ -367,7 +367,7 @@ class IntegrationCatalog
       faqs: [
         {
           q: "Which EHR have you integrated in production?",
-          a: "athenahealth FHIR R4 bi-directionally on medical-voice-ai. Additional FHIR-capable EHRs are adapter implementations on the same integration layer—not greenfield rebuilds."
+          a: "athenahealth FHIR R4 bi-directionally on our private clinic project. Additional FHIR-capable EHRs are adapter implementations on the same integration layer—not greenfield rebuilds."
         },
         {
           q: "Is the integration HIPAA compliant?",
@@ -435,7 +435,7 @@ class IntegrationCatalog
     }
   }.freeze
 
-  INDEX_META_DESCRIPTION = "Integrations we ship in production—QuickBooks, Stripe, Twilio, Outlook, DocuSign, FHIR, and MLS—for teams in the United States, Canada, Australia, and the United Kingdom.".freeze
+  INDEX_META_DESCRIPTION = "Integrations we ship in production: QuickBooks, Stripe, Twilio, Outlook, DocuSign, FHIR and MLS for teams in the US, UK, Canada and Australia.".freeze
 
   def self.all
     INTEGRATIONS
