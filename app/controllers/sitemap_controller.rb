@@ -61,6 +61,7 @@ class SitemapController < ApplicationController
       machine_learning_path
       platform_modernization_path
       custom_software_path
+      mvp_development_path
       api_integrations_path
       devops_engineering_path
     ]

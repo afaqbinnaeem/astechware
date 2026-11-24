@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get '/services/machine-learning', to: 'home#machine_learning', as: 'machine_learning'
   get '/services/platform-modernization', to: 'home#platform_modernization', as: 'platform_modernization'
   get '/services/custom-software', to: 'home#custom_software', as: 'custom_software'
+  get '/services/mvp-development', to: 'home#mvp_development', as: 'mvp_development'
   get '/services/api-integrations', to: 'home#api_integrations', as: 'api_integrations'
   get '/services/devops-engineering', to: 'home#devops_engineering', as: 'devops_engineering'
   get '/clients', to: redirect('/reviews', status: 301), as: 'clients'

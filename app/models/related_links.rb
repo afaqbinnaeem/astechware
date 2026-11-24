@@ -27,11 +27,18 @@ class RelatedLinks
       { label: "How we de-risk projects", path: :derisk_projects_path }
     ],
     "services/custom-software" => [
-      { label: "FLSS legal platform case study", path: -> { case_study_path("flss-legal-process-serving") } },
+      { label: "Canadian process serving case study", path: -> { case_study_path("flss-legal-process-serving") } },
       { label: "Construction management platform", path: -> { case_study_path("construction-management-platform") } },
-      { label: "Construction industry solutions", path: :industry_construction_path },
+      { label: "MVP development", path: :mvp_development_path },
       { label: "Hire dedicated developers", path: :hire_dedicated_developers_path },
       { label: "GCC delivery model", path: :gcc_path }
+    ],
+    "services/mvp-development" => [
+      { label: "Canadian process serving case study", path: -> { case_study_path("flss-legal-process-serving") } },
+      { label: "InstaShowing real estate", path: -> { case_study_path("instashowing-real-estate") } },
+      { label: "AI Deal Analyzer", path: -> { case_study_path("ai-deal-analyzer") } },
+      { label: "Custom software, web & mobile", path: :custom_software_path },
+      { label: "How we de-risk projects", path: :derisk_projects_path }
     ],
     "services/api-integrations" => [
       { label: "Integrations hub", path: :integrations_path },
@@ -70,7 +77,7 @@ class RelatedLinks
       { label: "Hire AI engineers", path: :hire_ai_engineers_path }
     ],
     "solutions/legal" => [
-      { label: "FLSS process serving case study", path: -> { case_study_path("flss-legal-process-serving") } },
+      { label: "Canadian process serving case study", path: -> { case_study_path("flss-legal-process-serving") } },
       { label: "DocuSign integration", path: "/integrations/docusign" },
       { label: "Custom software development", path: :custom_software_path },
       { label: "AI agent development", path: :ai_agent_development_path }
@@ -120,7 +127,7 @@ class RelatedLinks
     "solutions/education-technology" => [
       { label: "Custom software development", path: :custom_software_path },
       { label: "B2B SaaS engineering", path: :industry_b2b_saas_path },
-      { label: "FLSS multi-tenant SaaS case study", path: -> { case_study_path("flss-legal-process-serving") } },
+      { label: "Canadian process serving case study", path: -> { case_study_path("flss-legal-process-serving") } },
       { label: "Machine learning engineering", path: :machine_learning_path }
     ],
     "solutions/fitness-studios" => [
@@ -254,7 +261,7 @@ class RelatedLinks
     ],
     "integrations/docusign" => [
       { label: "Legal tech engineering", path: :industry_legal_path },
-      { label: "FLSS case study", path: -> { case_study_path("flss-legal-process-serving") } },
+      { label: "Canadian process serving case study", path: -> { case_study_path("flss-legal-process-serving") } },
       { label: "Real estate solutions", path: :industry_real_estate_path }
     ],
     "integrations/fhir-ehr" => [

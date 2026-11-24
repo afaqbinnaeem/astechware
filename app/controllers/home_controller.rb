@@ -34,6 +34,9 @@ class HomeController < ApplicationController
   def custom_software
   end
 
+  def mvp_development
+  end
+
   def api_integrations
   end
 
@@ -82,7 +85,7 @@ class HomeController < ApplicationController
   private
 
   def form_params
-    params.require(:form).permit(:reason, :name, :email, :company_name, :cover_letter)
+    params.require(:form).permit(:reason, :name, :email, :company_name, :cover_letter, :phone, :need_type, :project_type)
   end
 
   def recaptcha_enabled?

@@ -1,0 +1,209 @@
+<%
+  mvp_faq = [
+    {
+      q: "Do I need a technical co-founder?",
+      a: "No. We work with non-technical founders every week. You bring the idea and the industry knowledge; we handle design, build, testing and launch."
+    },
+    {
+      q: "Can you start from just an idea?",
+      a: "Yes. We start with a discovery call, turn the idea into wireframes and a written scope, then build in milestones with weekly demos."
+    },
+    {
+      q: "How much does it cost?",
+      a: "It depends on what you need, so we don't publish prices. After a free 30-minute call you get a written scope, split into milestones, with a fixed price for each milestone before any work starts."
+    },
+    {
+      q: "Who owns the code?",
+      a: "You do, always. Everything is documented, so another team can take over later if needed."
+    },
+    {
+      q: "What happens after launch?",
+      a: "We stay available for support after launch: bug fixes, small improvements and help operating what we built. Longer engagements are available if you want ongoing product work."
+    }
+  ]
+%>
+<% content_for :head do %>
+  <% set_meta_tags(
+    title: "MVP Development for Startups",
+    description: "MVP development for startups and non-technical founders: UI/UX design, web and mobile apps, testing and launch, delivered in milestones. You own all the code.",
+    keywords: "MVP development, startup MVP, MVP for non-technical founders, web and mobile MVP, product design and build"
+  ) %>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "Service",
+    "name" => "MVP Development for Startups",
+    "url" => mvp_development_url,
+    "description" => "MVP development for startups and non-technical founders: UI/UX design, web and mobile apps, testing and launch, delivered in milestones.",
+    "provider" => { "@id" => "https://astechware.com/#organization" },
+    "areaServed" => ["United States", "United Kingdom", "Canada", "Australia"],
+    "serviceType" => "MVP Development",
+    "category" => "Software Development"
+  }.to_json) %>
+  </script>
+  <script type="application/ld+json">
+  <%= raw({
+    "@context" => "https://schema.org",
+    "@type" => "FAQPage",
+    "mainEntity" => mvp_faq.map { |item|
+      {
+        "@type" => "Question",
+        "name" => item[:q],
+        "acceptedAnswer" => { "@type" => "Answer", "text" => item[:a] }
+      }
+    }
+  }.to_json) %>
+  </script>
+<% end %>
+
+<div class="hero-section py-5 service-page-hero custom-software-hero">
+  <div class="container">
+    <div class="row align-items-center min-vh-50">
+      <div class="col-12 col-lg-9 mx-auto text-center">
+        <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;" data-page-h1>
+          MVP development for startups and founders
+        </h1>
+        <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.4; max-width: 720px; margin-left: auto; margin-right: auto;">
+          From idea to a working product you own
+        </p>
+        <p class="mb-4" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
+          UI/UX design, web and mobile apps, testing and launch, delivered in milestones with weekly demos. You own all the code.
+        </p>
+        <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+          Book a 30-min call
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="inner-sections mvp-development-service-page">
+
+  <section class="py-5 bg-white" id="who-its-for">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Who it&apos;s for</h2>
+          <p class="large-para mb-3">
+            Founders with an idea, often non-technical, and owners building a product around an industry they know.
+          </p>
+          <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.7;">
+            <li>Non-technical founders who need a first version in production</li>
+            <li>Operators building software around a business they already run</li>
+            <li>Teams that want milestone delivery and full code ownership from day one</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey" id="how-it-works">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">How it works</h2>
+          <p class="large-para mb-3">
+            Discovery call, design, build in milestones with weekly demos, test, launch, and support after launch.
+          </p>
+          <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.7;">
+            <li>Discovery call to understand the idea and the users</li>
+            <li>UI/UX design and a written scope with fixed prices per milestone</li>
+            <li>Build in milestones with weekly demos</li>
+            <li>Test, launch and support after launch</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white" id="whats-included">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">What&apos;s included</h2>
+          <p class="large-para mb-3">
+            Everything you need to get a first version live and usable.
+          </p>
+          <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.7;">
+            <li>UI/UX design</li>
+            <li>Web and/or mobile app</li>
+            <li>Admin dashboard</li>
+            <li>Payments</li>
+            <li>Hosting setup</li>
+            <li>QA</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-grey" id="proof">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Products we&apos;ve shipped</h2>
+        <p class="large-para mb-0">Examples from our case studies. Facts only as written on those pages.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-4">
+          <%= link_to case_study_path("flss-legal-process-serving"), class: "text-decoration-none text-dark d-block h-100 ajax" do %>
+            <div class="build-system-card p-4 h-100">
+              <h3 class="h5 mb-2">Process serving platform</h3>
+              <p class="mb-0 small">Platform for a Canadian process serving company: email intake, server dispatch with GPS and photo proof, court-ready affidavits and invoices.</p>
+            </div>
+          <% end %>
+        </div>
+        <div class="col-12 col-md-4">
+          <%= link_to case_study_path("instashowing-real-estate"), class: "text-decoration-none text-dark d-block h-100 ajax" do %>
+            <div class="build-system-card p-4 h-100">
+              <h3 class="h5 mb-2">InstaShowing</h3>
+              <p class="mb-0 small">Centralized showing scheduling and a tamper-resistant offer ledger for real estate agents in the United States.</p>
+            </div>
+          <% end %>
+        </div>
+        <div class="col-12 col-md-4">
+          <%= link_to case_study_path("ai-deal-analyzer"), class: "text-decoration-none text-dark d-block h-100 ajax" do %>
+            <div class="build-system-card p-4 h-100">
+              <h3 class="h5 mb-2">AI deal analyzer</h3>
+              <p class="mb-0 small">From a property address to ARV, exit strategies, a recommended offer price and a plain-English explanation.</p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-white" id="faqs">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Frequently asked questions</h2>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-10 mx-auto">
+          <div class="accordion" id="mvpFaqAccordion">
+            <% mvp_faq.each_with_index do |item, idx| %>
+              <% collapse_id = "mvpfaq#{idx + 1}" %>
+              <div class="accordion-item border rounded mb-2">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#<%= collapse_id %>" aria-expanded="false" aria-controls="<%= collapse_id %>"><%= item[:q] %></button>
+                </h3>
+                <div id="<%= collapse_id %>" class="accordion-collapse collapse" data-bs-parent="#mvpFaqAccordion">
+                  <div class="accordion-body"><%= item[:a] %></div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <%= render "shared/related_links", page_key: "services/mvp-development" %>
+
+  <section class="py-5 bg-white">
+    <div class="container text-center">
+      <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+        Book a 30-min call
+      </a>
+    </div>
+  </section>
+</div>
