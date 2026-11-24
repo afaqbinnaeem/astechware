@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_action :noindex!
   before_action :set_article, only: %i[ show edit update destroy ]
 
   # GET /articles or /articles.json

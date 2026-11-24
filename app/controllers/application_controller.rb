@@ -2,6 +2,7 @@
 
 class ApplicationController < ActionController::Base
   before_action :set_seo_and_security_headers
+  before_action :noindex!, if: :devise_controller?
 
   def after_sign_in_path_for(*)
     root_path
@@ -14,12 +15,18 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  protected
+
+  def noindex!
+    response.set_header("X-Robots-Tag", "noindex, nofollow")
+  end
+
   private
 
   def set_seo_and_security_headers
-    response.set_header("X-Robots-Tag", "index, follow")
     response.set_header("X-Content-Type-Options", "nosniff")
     response.set_header("X-Frame-Options", "SAMEORIGIN")
     response.set_header("Referrer-Policy", "strict-origin-when-cross-origin")
   end
 end
+

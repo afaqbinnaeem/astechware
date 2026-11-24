@@ -1,20 +1,10 @@
 User-agent: *
 Allow: /
-Disallow: /mini-profiler-resources
-
-User-agent: GPTBot
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: Bytespider
-Allow: /
-
+Disallow: /chat/
+Disallow: /users/
+Disallow: /dashboard
+Disallow: /articles
+Disallow: /unsubscribe
+Disallow: /unsubscribe_me
+Disallow: /submit_form
 Sitemap: https://astechware.com/sitemap.xml

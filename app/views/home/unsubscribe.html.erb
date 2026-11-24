@@ -3,10 +3,12 @@
    <% og_image = safe_og_image_url('logo-colored.png') %>
    <% if og_image.present? %>
      <% set_meta_tags(
-       title: "Unsubscribe | A'sTechware",
+       title: "Unsubscribe",
        description: "Manage your email subscription preferences with A'sTechware.",
+       noindex: true,
+       nofollow: true,
        og: {
-         title: "Unsubscribe | A'sTechware",
+         title: "Unsubscribe",
          description: "Manage your email subscription preferences with A'sTechware.",
          image: og_image,
          'image:secure_url' => og_image,
@@ -17,17 +19,19 @@
        },
        twitter: {
          card: 'summary_large_image',
-         title: "Unsubscribe | A'sTechware",
+         title: "Unsubscribe",
          description: "Manage your email subscription preferences with A'sTechware.",
          image: og_image
        }
      ) %>
    <% else %>
      <% set_meta_tags(
-       title: "Unsubscribe | A'sTechware",
+       title: "Unsubscribe",
        description: "Manage your email subscription preferences with A'sTechware.",
+       noindex: true,
+       nofollow: true,
        og: {
-         title: "Unsubscribe | A'sTechware",
+         title: "Unsubscribe",
          description: "Manage your email subscription preferences with A'sTechware.",
          url: safe_request_url,
          type: 'website',
@@ -35,7 +39,7 @@
        },
        twitter: {
          card: 'summary',
-         title: "Unsubscribe | A'sTechware",
+         title: "Unsubscribe",
          description: "Manage your email subscription preferences with A'sTechware."
        }
      ) %>

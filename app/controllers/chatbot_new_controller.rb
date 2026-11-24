@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ChatbotNewController < ApplicationController
+  before_action :noindex!
   protect_from_forgery except: [:message, :lead]
 
   require "open3"
