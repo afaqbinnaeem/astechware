@@ -1,0 +1,17 @@
+<%# locals: slug: — looks up quote from CaseStudyCatalog; renders nothing if missing %>
+<% quote = CaseStudyCatalog.quote_for(local_assigns[:slug]) %>
+<% if quote.present? %>
+  <section class="py-5 bg-light-grey" id="client-quote">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <div class="workflow-card p-4 p-lg-5">
+          <blockquote class="mb-3" style="font-size: 1.1rem; line-height: 1.7;">
+            &ldquo;<%= quote[:text] %>&rdquo;
+          </blockquote>
+          <p class="mb-0 fw-semibold"><%= quote[:name] %></p>
+          <p class="mb-0 small text-muted"><%= quote[:role] %></p>
+        </div>
+      </div>
+    </div>
+  </section>
+<% end %>

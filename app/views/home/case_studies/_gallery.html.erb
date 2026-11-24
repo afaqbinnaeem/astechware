@@ -1,0 +1,32 @@
+<%# locals: slug: (case study slug). Renders only when images exist under app/assets/images/case_studies/<slug>/ %>
+<%
+  slug = local_assigns[:slug].to_s
+  pattern = Rails.root.join("app/assets/images/case_studies/#{slug}/*.{png,jpg,jpeg,webp,gif}")
+  files = Dir.glob(pattern.to_s).sort
+%>
+<% if files.any? %>
+  <section class="py-5 bg-white" id="screenshots">
+    <div class="container">
+      <div class="col-12 col-lg-10 mx-auto">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Screenshots</h2>
+        <div class="row g-4">
+          <% files.each_with_index do |path, index| %>
+            <%
+              filename = File.basename(path)
+              asset_path = "case_studies/#{slug}/#{filename}"
+              caption = filename.sub(/\.[^.]+$/, "").tr("-_", " ").strip
+            %>
+            <div class="col-12 col-md-6">
+              <figure class="mb-0">
+                <%= image_tag asset_path, class: "img-fluid rounded shadow-sm w-100", alt: "#{caption.presence || "Case study screenshot #{index + 1}"} for #{slug.tr("-", " ")}", loading: "lazy" %>
+                <% if caption.present? %>
+                  <figcaption class="small text-muted mt-2"><%= caption %></figcaption>
+                <% end %>
+              </figure>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+<% end %>

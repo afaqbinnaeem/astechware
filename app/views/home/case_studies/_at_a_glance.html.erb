@@ -1,0 +1,24 @@
+<%# locals: industry:, client:, country:, what_we_built:, integrations:, stack: %>
+<div class="workflow-card p-4">
+  <h3 class="h6 text-uppercase text-muted mb-3">At a glance</h3>
+  <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
+    <% if local_assigns[:industry].present? %>
+      <li><strong>Industry:</strong> <%= industry %></li>
+    <% end %>
+    <% if local_assigns[:client].present? %>
+      <li><strong>Client:</strong> <%= client %></li>
+    <% end %>
+    <% if local_assigns[:country].present? %>
+      <li><strong>Country:</strong> <%= country %></li>
+    <% end %>
+    <% if local_assigns[:what_we_built].present? %>
+      <li><strong>What we built:</strong> <%= what_we_built %></li>
+    <% end %>
+    <% if local_assigns[:integrations].present? %>
+      <li><strong>Integrations:</strong> <%= integrations %></li>
+    <% end %>
+    <% if local_assigns[:stack].present? %>
+      <li><strong>Stack:</strong> <%= stack %></li>
+    <% end %>
+  </ul>
+</div>
