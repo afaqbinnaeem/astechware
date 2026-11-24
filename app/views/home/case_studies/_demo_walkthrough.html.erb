@@ -1,17 +1,61 @@
-<%# locals: youtube_id, iframe_title (optional) %>
+<%# locals: youtube_id, iframe_title (optional), summary (optional). Click-to-play embed. %>
+<%
+  yt_id = local_assigns[:youtube_id].to_s
+  title = local_assigns[:iframe_title].presence || "Project demo walkthrough"
+  summary = local_assigns[:summary]
+  thumb = "https://i.ytimg.com/vi/#{yt_id}/hqdefault.jpg"
+%>
 <section class="py-5 bg-white" id="demo-walkthrough">
   <div class="container">
     <div class="col-12 col-lg-10 mx-auto">
       <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Demo walkthrough</h2>
-      <p class="large-para mb-4">Founder-led video covering the business context, technical approach, and outcomes.</p>
-      <div class="ratio ratio-16x9 rounded shadow-sm overflow-hidden">
-        <iframe
-          src="https://www.youtube.com/embed/<%= youtube_id %>"
-          title="<%= local_assigns[:iframe_title] || 'Project demo walkthrough' %>"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen></iframe>
+      <% if summary.present? %>
+        <p class="large-para mb-4"><%= summary %></p>
+      <% else %>
+        <p class="large-para mb-4">Founder-led video covering the business context, technical approach, and outcomes.</p>
+      <% end %>
+      <div class="ratio ratio-16x9 rounded shadow-sm overflow-hidden demo-click-to-play" data-youtube-id="<%= yt_id %>" data-iframe-title="<%= title %>">
+        <button type="button" class="demo-play-btn border-0 p-0 w-100 h-100 position-relative" aria-label="Play <%= title %>">
+          <img src="<%= thumb %>" alt="" class="w-100 h-100" style="object-fit: cover;" loading="lazy" width="1280" height="720">
+          <span class="demo-play-icon position-absolute top-50 start-50 translate-middle" aria-hidden="true">&#9658;</span>
+        </button>
       </div>
     </div>
   </div>
 </section>
+<style>
+  .demo-play-btn { cursor: pointer; background: #000; }
+  .demo-play-icon {
+    width: 68px; height: 48px; border-radius: 12px;
+    background: rgba(255,0,0,0.85); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; line-height: 1;
+  }
+</style>
+<script>
+  (function () {
+    function wireDemoPlayers(root) {
+      (root || document).querySelectorAll(".demo-click-to-play").forEach(function (wrap) {
+        if (wrap.dataset.wired === "1") return;
+        wrap.dataset.wired = "1";
+        var btn = wrap.querySelector(".demo-play-btn");
+        if (!btn) return;
+        btn.addEventListener("click", function () {
+          var id = wrap.getAttribute("data-youtube-id");
+          var title = wrap.getAttribute("data-iframe-title") || "Demo walkthrough";
+          if (!id) return;
+          var iframe = document.createElement("iframe");
+          iframe.src = "https://www.youtube.com/embed/" + id + "?autoplay=1&rel=0";
+          iframe.title = title;
+          iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share");
+          iframe.setAttribute("allowfullscreen", "");
+          iframe.style.cssText = "position:absolute;inset:0;width:100%;height:100%;border:0;";
+          wrap.innerHTML = "";
+          wrap.appendChild(iframe);
+        });
+      });
+    }
+    document.addEventListener("DOMContentLoaded", function () { wireDemoPlayers(); });
+    document.addEventListener("turbo:load", function () { wireDemoPlayers(); });
+  })();
+</script>
