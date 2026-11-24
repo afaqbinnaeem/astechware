@@ -72,7 +72,8 @@ RSpec.describe "SEO audit", type: :request do
         report("#{path}: expected exactly one h1[data-page-h1], found #{page_h1s.length}")
       end
 
-      extra_h1s = doc.css("h1").reject { |h| h["data-page-h1"].present? }
+      # Boolean HTML attrs may be present with an empty string value.
+      extra_h1s = doc.css("h1").reject { |h| h.attributes.key?("data-page-h1") || h["data-page-h1"].present? }
       # Blog/case-study body content may contain extra h1s; warn only outside those.
       unless path.start_with?("/blogs/") || path.start_with?("/case-studies/")
         extra_h1s.each do |h|
