@@ -75,8 +75,11 @@
             <li><%= link_to "About", about_path, class: "footer-link" %></li>
             <li><%= link_to "Client Reviews", reviews_path, class: "footer-link" %></li>
             <li><%= link_to "Case Studies", case_studies_path, class: "footer-link" %></li>
+            <% if route_helper_defined?(:hire_ai_engineers_path) %>
+              <li><%= link_to "Hire AI Engineers", hire_ai_engineers_path, class: "footer-link" %></li>
+            <% end %>
             <% if route_helper_defined?(:hire_dedicated_developers_path) %>
-              <li><%= link_to "Hire an Engineer", hire_dedicated_developers_path, class: "footer-link" %></li>
+              <li><%= link_to "Hire Dedicated Developers", hire_dedicated_developers_path, class: "footer-link" %></li>
             <% end %>
             <% if route_helper_defined?(:integrations_path) %>
               <li><%= link_to "Integrations", integrations_path, class: "footer-link" %></li>
