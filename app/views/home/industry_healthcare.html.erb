@@ -2,7 +2,7 @@
   <% set_meta_tags(
     title: "HIPAA-Ready Healthcare AI Development",
     description: "EHR and FHIR integration, patient data protection and AI scribes for healthcare companies in the US, Canada and Australia. Patient data never reaches an AI model.",
-    keywords: "healthcare AI engineering partner, HIPAA compliant automation, hire healthcare software engineers, healthcare AI, HIPAA compliant AI, AI medical scribe, voice AI healthcare, FHIR EHR integration, PHI de identification"
+    keywords: "healthcare AI engineering partner, HIPAA-ready automation, hire healthcare software engineers, healthcare AI, AI medical scribe, voice AI healthcare, FHIR EHR integration, PHI de identification"
   ) %>
   <script type="application/ld+json">
   <%= raw({
@@ -23,12 +23,13 @@
   <div class="container">
     <div class="row align-items-center min-vh-50">
       <div class="col-12 col-lg-9 mx-auto text-center">
-        <h1 class="display-4 fw-bold mb-<h1 class="display-4 fw-bold mb-3" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;" data-page-h1>
+        <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;" data-page-h1>
           HIPAA-ready healthcare AI development
         </h1>
         <p class="text-white fw-semibold mb-3" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.4; max-width: 720px; margin-left: auto; margin-right: auto;">
           Healthcare AI, built to a standard a compliance auditor would respect.
-        </p>font-size: clamp(16px, 2vw, 18px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
+        </p>
+        <p class="mb-4" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
           We help digital health teams and clinical operators ship AI systems that survive a HIPAA review, a security questionnaire, and a year in production.
         </p>
         <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
@@ -120,7 +121,7 @@
         <div class="col-12 col-md-6 col-lg-4">
           <div class="workflow-card p-4 h-100">
             <h3 class="h6 mb-2">Vendor BAAs are required before any data flows</h3>
-            <p class="mb-0 small" style="line-height: 1.7;">&ldquo;HIPAA compliant&rdquo; with no signed BAA is not a thing. We will not integrate a vendor into a healthcare build without a BAA in writing naming the specific service.</p>
+            <p class="mb-0 small" style="line-height: 1.7;">Calling a vendor &ldquo;HIPAA-ready&rdquo; with no signed BAA is not enough. We will not integrate a vendor into a healthcare build without a BAA in writing naming the specific service.</p>
           </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">
@@ -160,7 +161,7 @@
               <li><strong>HITECH breach notification:</strong> audit trail sufficient to identify scope of any PHI exposure within the 60 day notification window</li>
               <li><strong>FHIR R4</strong> with SMART on FHIR authorization, proven with athenahealth, adapter pattern for other FHIR capable EHRs</li>
               <li><strong>PHI de identification</strong> before any data reaches the LLM, re identification handled server side under the covered entity&rsquo;s control</li>
-              <li><strong>BAAs executed</strong> with telephony, transcription, voice synthesis, hosting, and EHR integration vendors</li>
+              <li><strong>BAAs:</strong> [[AHMAD: confirm BAAs are still executed with telephony, transcription, voice synthesis, hosting, and EHR vendors; if not, we set up BAAs with every vendor that touches patient data]]</li>
               <li><strong>Encryption:</strong> TLS 1.2+ in transit, AES 256 at rest via field level encryption on PHI columns</li>
               <li><strong>Access control:</strong> TOTP based MFA, short lived JWT access tokens, RBAC enforced in middleware, session inactivity timeout</li>
               <li><strong>Audit logging:</strong> append only at the database permission level, covering every PHI access event with actor, timestamp, resource, action, IP, and result</li>
@@ -182,7 +183,7 @@
           <div class="workflow-card p-4 p-lg-5">
             <ul class="mb-4 ps-3" style="line-height: 2;">
               <li>We sign Business Associate Agreements before any PHI flows. No exceptions.</li>
-              <li>All sub processors in our healthcare stack (telephony, transcription, voice synthesis, hosting, EHR integration) operate under executed BAAs. We provide the BAA chain on request.</li>
+              <li>[[AHMAD: confirm]] All sub processors in our healthcare stack (telephony, transcription, voice synthesis, hosting, EHR integration) operate under executed BAAs and we provide the BAA chain on request. If unconfirmed, change to: we set up BAAs with every vendor that touches patient data.</li>
               <li>Data residency is US region only for healthcare engagements. No cross border data flows.</li>
               <li>We maintain a written information security program covering access control, encryption, audit logging, incident response, vendor management, and employee security training.</li>
               <li>Security questionnaires (SIG, CAIQ, HECVAT) completed within 5&ndash;10 business days of receipt during active procurement.</li>
@@ -202,11 +203,21 @@
         <div class="col-12 col-lg-10 mx-auto">
           <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Case study</h2>
           <div class="workflow-card p-4 p-lg-5">
-            <h3 class="h5 mb-3">Voice booking and AI scribe platform for a US multi location dental group</h3>
+            <h3 class="h5 mb-3">Voice booking and AI scribe platform for a US multi-location private clinic group</h3>
             <p class="mb-0" style="line-height: 1.7;">
               One platform handling voice booking, web booking, provider dashboard, AI medical scribe, and bi directional athenahealth FHIR sync. Built so the LLM never sees a patient identifier, the audit log cannot be edited, and audio is never stored. Delivered in eight weeks across two phases.
             </p>
             <%= link_to "Read the full case study &rarr;".html_safe, case_study_path("medical-voice-ai"), class: "d-inline-block mt-4 fw-semibold ajax" %>
+            <% if route_helper_defined?(:industry_private_clinics_path) %>
+              <p class="mt-3 mb-0">
+                <%= link_to "Running a private clinic? See the AI receptionist and scribe we build for clinics →", industry_private_clinics_path, class: "service-card-link ajax" %>
+              </p>
+            <% end %>
+            <% if route_helper_defined?(:integration_path) %>
+              <p class="mt-2 mb-0">
+                <%= link_to "FHIR & EHR integration →", integration_path("fhir-ehr"), class: "service-card-link ajax" %>
+              </p>
+            <% end %>
           </div>
         </div>
       </div>
@@ -226,7 +237,7 @@
               <li>A data flow map of your proposed or existing system, with every PHI touchpoint identified</li>
               <li>A compliance risk register covering HIPAA Security Rule, HITECH, and relevant state requirements</li>
               <li>An architecture recommendation with vendor selection, BAA requirements, and integration approach</li>
-              <li>A phased build plan with milestones and pricing</li>
+              <li>A phased build plan with milestones</li>
             </ul>
           </div>
           <p class="large-para mb-4">
