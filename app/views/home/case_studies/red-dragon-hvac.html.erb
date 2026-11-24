@@ -3,11 +3,8 @@
     <div class="row align-items-center min-vh-50">
       <div class="col-12 col-lg-10 mx-auto text-center">
         <h1 class="display-5 fw-bold mb-3" style="font-size: clamp(28px, 4.5vw, 52px); line-height: 1.15;" data-page-h1>
-          Automated Field Proof Marketing &amp; Local SEO Engine
+          Job photos turned into Google posts for an HVAC company
         </h1>
-        <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.3vw, 22px); line-height: 1.5; max-width: 980px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.92)">
-          Red Dragon HVAC “MMS to Social” Pipeline
-        </p>
         <p class="mb-0" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.7; max-width: 980px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
           A headless marketing pipeline that converts MMS photos into optimized Google Business and Meta posts, using Vision AI to generate accurate, localized captions with management approvals.
         </p>
@@ -17,42 +14,41 @@
 </div>
 
 <div class="inner-sections">
-  <section class="py-5 bg-white">
+
+  <section class="py-5 bg-white" id="problem">
     <div class="container">
       <div class="row g-4 align-items-start">
         <div class="col-12 col-lg-7">
-          <h2 class="heading-border heading-center heading-left mb-4 pb-3 d-inline-block">The Challenge</h2>
+          <h2 class="heading-border heading-center heading-left mb-4 pb-3 d-inline-block">The problem</h2>
           <p class="large-para mb-3">
             Local service businesses (HVAC, plumbing, roofing) live or die by local search ranking. Technicians complete high quality work daily, but rarely have time or incentive to document
             it consistently, so social proof goes stale and map pack visibility suffers.
           </p>
           <p class="large-para mb-0">
-            The client needed a “zero UI” workflow for non technical field staff: no app installs, no caption writing, and no complex steps. The system also had to generate SEO relevant content
+            The client needed a &ldquo;zero UI&rdquo; workflow for non technical field staff: no app installs, no caption writing, and no complex steps. The system also had to generate SEO relevant content
             without feeling spammy, while giving management final control via an approval/kill switch workflow.
           </p>
         </div>
         <div class="col-12 col-lg-5">
-          <div class="workflow-card p-4">
-            <h3 class="h6 text-uppercase text-muted mb-3">Quick Stats</h3>
-            <ul class="mb-0 ps-3 small" style="line-height: 1.8;">
-              <li><strong>Workflow:</strong> MMS → Headless pipeline</li>
-              <li><strong>Channels:</strong> Google Business + Meta</li>
-              <li><strong>AI:</strong> Vision → SEO copywriting</li>
-              <li><strong>Impact:</strong> Local lead growth and consistent adoption through a “zero UI” workflow</li>
-            </ul>
-          </div>
+          <%= render "home/case_studies/at_a_glance",
+            industry: "HVAC / home services",
+            client: "Red Dragon HVAC",
+            country: "[[AHMAD: country]]",
+            what_we_built: "MMS-to-social headless pipeline with Vision AI captions and approval-gated publishing",
+            integrations: "Twilio (MMS), Google Business Profile API, Meta Graph API (Facebook/Instagram)",
+            stack: "FastAPI, LangChain, OpenAI Vision API (GPT-4o)" %>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="py-5 bg-light-grey">
+  <section class="py-5 bg-light-grey" id="what-we-built">
     <div class="container">
       <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">The Solution</h2>
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">What we built</h2>
         <p class="large-para mb-3">
-          We built a headless marketing pipeline that converts standard MMS (texted photos) into optimized Google Business and Facebook posts. Vision AI identifies what’s in the image so
-          technicians don’t write a single word of copy.
+          We built a headless marketing pipeline that converts standard MMS (texted photos) into optimized Google Business and Facebook posts. Vision AI identifies what&rsquo;s in the image so
+          technicians don&rsquo;t write a single word of copy.
         </p>
         <p class="large-para mb-0">
           The pipeline is event driven and approval gated: images are ingested, metadata is stripped, GPS context is applied for localization, and management approves before publishing.
@@ -62,56 +58,26 @@
     </div>
   </section>
 
-  <section class="py-5 bg-white">
+  <section class="py-5 bg-white" id="how-it-works">
     <div class="container">
       <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Technical Approach</h2>
-        <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">How it works</h2>
+        <ul class="service-page-list mb-4" style="font-size: 1.05rem; line-height: 1.8;">
           <li><strong>Asynchronous image processing:</strong> Event driven ingestion strips metadata and enriches with GPS coordinates for localized tagging.</li>
           <li><strong>Automated SEO copywriting:</strong> NLP generates human sounding captions that include location and money keywords naturally.</li>
+          <li><strong>Architecture:</strong> FastAPI &rarr; LangChain &rarr; OpenAI Vision API (GPT 4o).</li>
+          <li><strong>Integrations:</strong> Twilio (MMS), Google Business Profile API, Meta Graph API (Facebook/Instagram).</li>
+          <li><strong>Security:</strong> Secure S3 buckets with limited access IAM roles; human in the loop &ldquo;kill switch&rdquo; dashboard for review.</li>
+          <li><strong>AI features:</strong> Visual object recognition identifies equipment (e.g., &ldquo;Carrier Infinity Furnace&rdquo;) to keep captions technically accurate.</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section class="py-5 bg-light-grey">
+  <section class="py-5 bg-light-grey" id="results">
     <div class="container">
       <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Technical Details</h2>
-        <div class="row g-4">
-          <div class="col-12 col-md-6">
-            <div class="workflow-card p-4 h-100">
-              <h3 class="h6 text-uppercase text-muted mb-3">Architecture</h3>
-              <p class="mb-0 small">FastAPI → LangChain → OpenAI Vision API (GPT 4o)</p>
-            </div>
-          </div>
-          <div class="col-12 col-md-6">
-            <div class="workflow-card p-4 h-100">
-              <h3 class="h6 text-uppercase text-muted mb-3">Integrations</h3>
-              <p class="mb-0 small">Twilio (MMS), Google Business Profile API, Meta Graph API (Facebook/Instagram).</p>
-            </div>
-          </div>
-          <div class="col-12 col-md-6">
-            <div class="workflow-card p-4 h-100">
-              <h3 class="h6 text-uppercase text-muted mb-3">Security</h3>
-              <p class="mb-0 small">Secure S3 buckets with limited access IAM roles; human in the loop “kill switch” dashboard for review.</p>
-            </div>
-          </div>
-          <div class="col-12 col-md-6">
-            <div class="workflow-card p-4 h-100">
-              <h3 class="h6 text-uppercase text-muted mb-3">AI Features</h3>
-              <p class="mb-0 small">Visual object recognition identifies equipment (e.g., “Carrier Infinity Furnace”) to keep captions technically accurate.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-5 bg-white">
-    <div class="container">
-      <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Results &amp; Impact</h2>
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Results</h2>
         <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
           <li><strong>Local lead growth</strong> via improved map pack rankings and consistent, location relevant content.</li>
           <li><strong>High adoption</strong> because the workflow requires only a text message, no apps, no logins, no caption writing.</li>
@@ -121,17 +87,14 @@
     </div>
   </section>
 
-  <section class="py-5 bg-light-grey">
-    <div class="container">
-      <div class="col-12 col-lg-10 mx-auto text-center">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Ready to build something similar?</h2>
-        <p class="lead mb-4">We’ll design your pipeline with approvals, observability, and predictable publishing, without adding operational burden.</p>
-        <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5 me-2 mb-2">
-          Schedule a Technical Discovery Call
-        </a>
-        <%= link_to "View our Services", root_path(anchor: "services"), class: "btn btn-outline-primary btn-lg rounded-pill px-5 mb-2 ajax" %>
-      </div>
+  <%= render "home/case_studies/gallery", slug: "red-dragon-hvac" %>
+  <%= render "home/case_studies/client_quote", slug: "red-dragon-hvac" %>
+  <%= render "home/case_studies/cta", blurb: "We&rsquo;ll design your pipeline with approvals, observability, and predictable publishing, without adding operational burden." %>
+
+  <section class="py-4 bg-white">
+    <div class="container text-center">
+      <%= link_to "Operations-heavy software →", industry_professional_services_path, class: "service-card-link ajax" %>
     </div>
   </section>
-</div>
 
+</div>
