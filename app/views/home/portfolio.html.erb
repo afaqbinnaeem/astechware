@@ -1,24 +1,20 @@
 <% content_for :head do %>
   <% set_meta_tags(
-    title: "Case Studies | Construction, Logistics, Legal & Healthcare AI",
-    description: "Production AI and software engineering case studies across construction, logistics, trucking, legal, healthcare, real estate, fintech, and SaaS. Real systems for high-stakes environments.",
-    keywords: "case studies, construction software case study, logistics automation, trucking dispatch software, legal tech case study, healthcare AI case study, real estate software, fintech payments, SaaS engineering, production AI"
+    title: "AI & Software Development Case Studies",
+    description: "Systems we've built and run for legal, healthcare, construction, logistics, real estate and fintech teams. Real production case studies, not demos.",
+    keywords: "case studies, construction software case study, logistics automation, legal tech case study, healthcare AI case study, real estate software, fintech payments, B2B SaaS"
   ) %>
 <% end %>
-<!-- Hero Section -->
-<div class="hero-section hero-portfolio py-5">
+
+<div class="hero-section hero-portfolio py-4">
   <div class="container">
-    <div class="row align-items-center min-vh-50">
-      <div class="col-12 col-lg-9 mx-auto text-center">
+    <div class="row align-items-center">
+      <div class="col-12 col-lg-9 mx-auto text-center py-4">
         <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(32px, 5vw, 54px); line-height: 1.15;" data-page-h1>
-          Case Studies
+          Case studies
         </h1>
-        <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.3vw, 22px); line-height: 1.5; max-width: 860px; margin-left: auto; margin-right: auto;">
-          Proven Engineering for High Stakes Environments
-        </p>
         <p class="mb-0" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.7; max-width: 920px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
-          We don’t build demos. We build production ready systems that handle real money, real data, and real world complexity.
-          From autonomous logistics to private legal AI, explore how we’ve helped industry leaders scale, modernize, and automate.
+          Systems we&rsquo;ve built and run for legal, healthcare, construction, logistics, real estate and fintech teams.
         </p>
       </div>
     </div>
@@ -31,295 +27,158 @@
       <div class="row">
         <div class="col-12 col-lg-11 mx-auto">
           <div class="text-center mb-4">
-            <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Filter by Industry</h2>
+            <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Filter by industry</h2>
             <div class="d-flex flex-wrap gap-2 justify-content-center case-filter-controls" role="tablist" aria-label="Filter case studies by industry">
-              <button type="button" class="btn btn-sm btn-primary rounded-pill px-3 case-filter-btn is-active" data-filter="all">All Work</button>
-              <button type="button" class="btn btn-sm btn-outline-primary rounded-pill px-3 case-filter-btn" data-filter="logistics">Logistics &amp; Operations</button>
-              <button type="button" class="btn btn-sm btn-outline-primary rounded-pill px-3 case-filter-btn" data-filter="healthcare">Healthcare &amp; Medical</button>
-              <button type="button" class="btn btn-sm btn-outline-primary rounded-pill px-3 case-filter-btn" data-filter="legal">Legal Tech</button>
-              <button type="button" class="btn btn-sm btn-outline-primary rounded-pill px-3 case-filter-btn" data-filter="fintech_saas">FinTech &amp; SaaS</button>
+              <button type="button" class="btn btn-sm btn-primary rounded-pill px-3 case-filter-btn is-active" data-filter="all">All</button>
+              <button type="button" class="btn btn-sm btn-outline-primary rounded-pill px-3 case-filter-btn" data-filter="legal">Legal</button>
+              <button type="button" class="btn btn-sm btn-outline-primary rounded-pill px-3 case-filter-btn" data-filter="healthcare">Healthcare</button>
+              <button type="button" class="btn btn-sm btn-outline-primary rounded-pill px-3 case-filter-btn" data-filter="construction">Construction</button>
+              <button type="button" class="btn btn-sm btn-outline-primary rounded-pill px-3 case-filter-btn" data-filter="logistics">Logistics &amp; Field Service</button>
+              <button type="button" class="btn btn-sm btn-outline-primary rounded-pill px-3 case-filter-btn" data-filter="real_estate">Real Estate</button>
+              <button type="button" class="btn btn-sm btn-outline-primary rounded-pill px-3 case-filter-btn" data-filter="fintech">Fintech</button>
+              <button type="button" class="btn btn-sm btn-outline-primary rounded-pill px-3 case-filter-btn" data-filter="b2b_saas">B2B SaaS</button>
             </div>
           </div>
 
           <div class="row g-4" id="caseStudiesGrid">
-            <!-- Logistics & Operations -->
-            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="logistics">
-              <%= link_to case_study_path('construction-management-platform'), class: "text-decoration-none text-dark d-block h-100" do %>
-              <div class="case-study-tile-card p-4 h-100">
-                <div class="d-flex align-items-start justify-content-between gap-3 mb-2">
-                  <h3 class="h5 mb-0">Las Vegas General Contractor</h3>
-                  <span class="badge bg-primary-soft">Construction</span>
+            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="healthcare">
+              <%= link_to case_study_path('medical-voice-ai'), class: "text-decoration-none text-dark d-block h-100" do %>
+                <div class="case-study-tile-card p-4 h-100">
+                  <h3 class="h5 mb-2">How we built HIPAA-ready voice booking and an AI scribe for a private clinic group</h3>
+                  <p class="mb-0 small text-muted">Healthcare</p>
                 </div>
-                <p class="small text-muted mb-2">Multi company estimating, subcontracts, invoicing, and payments from one login.</p>
-                <p class="mb-3 small"><strong>The Win:</strong> Three legal entities on one platform with per company QuickBooks sync, atomic numbering, Decimal money, and AI estimate skeletons with human review.</p>
-                <div class="d-flex flex-wrap gap-2">
-                  <span class="badge rounded-pill text-bg-light">Logistics &amp; Operations</span>
-                  <span class="badge rounded-pill text-bg-light">QuickBooks</span>
-                  <span class="badge rounded-pill text-bg-light">Multi Company</span>
-                </div>
-              </div>
               <% end %>
             </div>
 
-            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="logistics fintech_saas">
+            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="construction">
+              <%= link_to case_study_path('construction-management-platform'), class: "text-decoration-none text-dark d-block h-100" do %>
+                <div class="case-study-tile-card p-4 h-100">
+                  <h3 class="h5 mb-2">How we built one platform for a contractor running three companies</h3>
+                  <p class="mb-0 small text-muted">Construction</p>
+                </div>
+              <% end %>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="legal">
+              <%= link_to case_study_path('flss-legal-process-serving'), class: "text-decoration-none text-dark d-block h-100" do %>
+                <div class="case-study-tile-card p-4 h-100">
+                  <h3 class="h5 mb-2">How we built a process serving platform that holds up in court</h3>
+                  <p class="mb-0 small text-muted">Legal</p>
+                </div>
+              <% end %>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="logistics">
               <%= link_to case_study_path('shoreline-waste-logistics'), class: "text-decoration-none text-dark d-block h-100" do %>
-              <div class="case-study-tile-card p-4 h-100">
-                <div class="d-flex align-items-start justify-content-between gap-3 mb-2">
-                  <h3 class="h5 mb-0">Shoreline Waste</h3>
-                  <span class="badge bg-primary-soft">Logistics</span>
+                <div class="case-study-tile-card p-4 h-100">
+                  <h3 class="h5 mb-2">Route planning and proof-of-service platform for Shoreline Waste</h3>
+                  <p class="mb-0 small text-muted">Logistics &amp; Field Service</p>
                 </div>
-                <p class="small text-muted mb-2">AI Route Optimization &amp; Driver Dispatch Platform.</p>
-                <p class="mb-3 small"><strong>The Win:</strong> Automated routing and dispatch with operational guardrails, GPS verification, and exception handling.</p>
-                <div class="d-flex flex-wrap gap-2">
-                  <span class="badge rounded-pill text-bg-light">Logistics &amp; Operations</span>
-                  <span class="badge rounded-pill text-bg-light">Dispatch</span>
-                  <span class="badge rounded-pill text-bg-light">Route Optimization</span>
-                </div>
-              </div>
               <% end %>
             </div>
 
             <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="logistics">
               <%= link_to case_study_path('red-dragon-hvac'), class: "text-decoration-none text-dark d-block h-100" do %>
-              <div class="case-study-tile-card p-4 h-100">
-                <div class="d-flex align-items-start justify-content-between gap-3 mb-2">
-                  <h3 class="h5 mb-0">Red Dragon HVAC</h3>
-                  <span class="badge bg-primary-soft">Operations</span>
+                <div class="case-study-tile-card p-4 h-100">
+                  <h3 class="h5 mb-2">Job photos turned into Google posts for an HVAC company</h3>
+                  <p class="mb-0 small text-muted">Logistics &amp; Field Service</p>
                 </div>
-                <p class="small text-muted mb-2">MMS to Social AI Marketing Pipeline.</p>
-                <p class="mb-3 small"><strong>The Win:</strong> Drives organic local lead growth via automated location specific content and field proof workflows.</p>
-                <div class="d-flex flex-wrap gap-2">
-                  <span class="badge rounded-pill text-bg-light">Logistics &amp; Operations</span>
-                  <span class="badge rounded-pill text-bg-light">Field Ops</span>
-                  <span class="badge rounded-pill text-bg-light">AI Automation</span>
-                </div>
-              </div>
               <% end %>
             </div>
 
-            <!-- Healthcare & Medical -->
-            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="healthcare">
-              <%= link_to case_study_path('medical-voice-ai'), class: "text-decoration-none text-dark d-block h-100" do %>
-              <div class="case-study-tile-card p-4 h-100">
-                <div class="d-flex align-items-start justify-content-between gap-3 mb-2">
-                  <h3 class="h5 mb-0">Healthcare AI Platform, Voice, Scribe &amp; EHR</h3>
-                  <span class="badge bg-primary-soft">Healthcare &amp; Medical</span>
-                </div>
-                <p class="small text-muted mb-2">Voice scheduling, AI scribe, and real time EHR sync in one platform.</p>
-                <p class="mb-3 small"><strong>The Win:</strong> Reduces no shows via AI scheduling and reminders, improves revenue capture through better booking/billing workflows, and cuts documentation time with ambient scribing.</p>
-                <div class="d-flex flex-wrap gap-2">
-                  <span class="badge rounded-pill text-bg-light">Healthcare &amp; Medical</span>
-                  <span class="badge rounded-pill text-bg-light">Voice AI</span>
-                  <span class="badge rounded-pill text-bg-light">Triage</span>
-                </div>
-              </div>
-              <% end %>
-            </div>
-
-            <!-- Legal Tech -->
-            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="legal">
-              <%= link_to case_study_path('flss-legal-process-serving'), class: "text-decoration-none text-dark d-block h-100" do %>
-              <div class="case-study-tile-card p-4 h-100">
-                <div class="d-flex align-items-start justify-content-between gap-3 mb-2">
-                  <h3 class="h5 mb-0">A Canadian Process Serving Company</h3>
-                  <span class="badge bg-primary-soft">Legal Tech</span>
-                </div>
-                <p class="small text-muted mb-2">AI intake, GPS tracked serving, auto generated affidavits, and invoicing. End to end.</p>
-                <p class="mb-3 small"><strong>The Win:</strong> Faster affidavit generation and intake through automation, GPS tracked proof, and white labeled multi tenant workflows.</p>
-                <div class="d-flex flex-wrap gap-2">
-                  <span class="badge rounded-pill text-bg-light">Legal Tech</span>
-                </div>
-              </div>
-              <% end %>
-            </div>
-
-            <!-- FinTech & PropTech -->
-            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="fintech_saas logistics">
-              <%= link_to case_study_path('vestra-payments'), class: "text-decoration-none text-dark d-block h-100" do %>
-              <div class="case-study-tile-card p-4 h-100">
-                <div class="d-flex align-items-start justify-content-between gap-3 mb-2">
-                  <h3 class="h5 mb-0">Vestra</h3>
-                  <span class="badge bg-primary-soft">Payments</span>
-                </div>
-                <p class="small text-muted mb-2">Multi Party Payment Orchestration &amp; Fee Splitting.</p>
-                <p class="mb-3 small"><strong>The Win:</strong> Automated fund distribution with ledger first reconciliation, idempotency, and operational visibility.</p>
-                <div class="d-flex flex-wrap gap-2">
-                  <span class="badge rounded-pill text-bg-light">FinTech &amp; SaaS</span>
-                  <span class="badge rounded-pill text-bg-light">Stripe Connect</span>
-                  <span class="badge rounded-pill text-bg-light">Ledger</span>
-                </div>
-              </div>
-              <% end %>
-            </div>
-
-            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="fintech_saas">
-              <%= link_to case_study_path('ai-deal-analyzer'), class: "text-decoration-none text-dark d-block h-100" do %>
-              <div class="case-study-tile-card p-4 h-100">
-                <div class="d-flex align-items-start justify-content-between gap-3 mb-2">
-                  <h3 class="h5 mb-0">AI Real Estate Deal Analyzer</h3>
-                  <span class="badge bg-primary-soft">B2B SaaS</span>
-                </div>
-                <p class="small text-muted mb-2">ARV, four exit strategies, and an offer recommendation in 90 seconds</p>
-                <p class="mb-3 small"><strong>The Win:</strong> Faster underwriting with deterministic calculations, clear reasoning chains, and guardrails that prevent hallucinated numbers.</p>
-                <div class="d-flex flex-wrap gap-2">
-                  <span class="badge rounded-pill text-bg-light">FinTech &amp; SaaS</span>
-                  <span class="badge rounded-pill text-bg-light">PropTech</span>
-                  <span class="badge rounded-pill text-bg-light">Underwriting</span>
-                </div>
-              </div>
-              <% end %>
-            </div>
-
-            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="fintech_saas">
-              <%= link_to case_study_path('zofi-cash-fintech'), class: "text-decoration-none text-dark d-block h-100" do %>
-              <div class="case-study-tile-card p-4 h-100">
-                <div class="d-flex align-items-start justify-content-between gap-3 mb-2">
-                  <h3 class="h5 mb-0">Zofi Cash</h3>
-                  <span class="badge bg-primary-soft">EWA</span>
-                </div>
-                <p class="small text-muted mb-2">Salary Advance (EWA) Platform &amp; Payroll Integration.</p>
-                <p class="mb-3 small"><strong>The Win:</strong> Real time liquidity with payroll integrations, eligibility checks, and risk aware controls.</p>
-                <div class="d-flex flex-wrap gap-2">
-                  <span class="badge rounded-pill text-bg-light">FinTech &amp; SaaS</span>
-                  <span class="badge rounded-pill text-bg-light">Payroll Sync</span>
-                  <span class="badge rounded-pill text-bg-light">Risk</span>
-                </div>
-              </div>
-              <% end %>
-            </div>
-
-            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="fintech_saas logistics">
+            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="real_estate">
               <%= link_to case_study_path('instashowing-real-estate'), class: "text-decoration-none text-dark d-block h-100" do %>
-              <div class="case-study-tile-card p-4 h-100">
-                <div class="d-flex align-items-start justify-content-between gap-3 mb-2">
-                  <h3 class="h5 mb-0">InstaShowing</h3>
-                  <span class="badge bg-primary-soft">PropTech</span>
+                <div class="case-study-tile-card p-4 h-100">
+                  <h3 class="h5 mb-2">Showing scheduling and offer management for real estate agents</h3>
+                  <p class="mb-0 small text-muted">Real Estate</p>
                 </div>
-                <p class="small text-muted mb-2">Real Estate Scheduling &amp; Offer Management Ledger.</p>
-                <p class="mb-3 small"><strong>The Win:</strong> Reduces scheduling friction via self serve booking, automated confirmations, and centralized offer workflows.</p>
-                <div class="d-flex flex-wrap gap-2">
-                  <span class="badge rounded-pill text-bg-light">FinTech &amp; SaaS</span>
-                  <span class="badge rounded-pill text-bg-light">Scheduling</span>
-                  <span class="badge rounded-pill text-bg-light">Operations</span>
-                </div>
-              </div>
               <% end %>
             </div>
 
-            <!-- B2B SaaS & Platform Modernization -->
-            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="fintech_saas">
-              <%= link_to case_study_path('eventvesta-ai-marketing'), class: "text-decoration-none text-dark d-block h-100" do %>
-              <div class="case-study-tile-card p-4 h-100">
-                <div class="d-flex align-items-start justify-content-between gap-3 mb-2">
-                  <h3 class="h5 mb-0">Vesta (EventVesta)</h3>
-                  <span class="badge bg-primary-soft">Marketing</span>
+            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="real_estate fintech">
+              <%= link_to case_study_path('ai-deal-analyzer'), class: "text-decoration-none text-dark d-block h-100" do %>
+                <div class="case-study-tile-card p-4 h-100">
+                  <h3 class="h5 mb-2">From property address to offer price in minutes</h3>
+                  <p class="mb-0 small text-muted">Real Estate</p>
                 </div>
-                <p class="small text-muted mb-2">AI post + ad generation with Meta/Google scheduling.</p>
-                <p class="mb-3 small"><strong>The Win:</strong> repeatable, calendar driven marketing flow across many events.</p>
-                <div class="d-flex flex-wrap gap-2">
-                  <span class="badge rounded-pill text-bg-light">B2B SaaS</span>
-                  <span class="badge rounded-pill text-bg-light">Marketing Automation</span>
-                  <span class="badge rounded-pill text-bg-light">AI Governance</span>
-                </div>
-              </div>
               <% end %>
             </div>
 
-            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="fintech_saas">
+            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="fintech">
+              <%= link_to case_study_path('vestra-payments'), class: "text-decoration-none text-dark d-block h-100" do %>
+                <div class="case-study-tile-card p-4 h-100">
+                  <h3 class="h5 mb-2">Automated split payouts for a marketplace</h3>
+                  <p class="mb-0 small text-muted">Fintech</p>
+                </div>
+              <% end %>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="fintech">
+              <%= link_to case_study_path('zofi-cash-fintech'), class: "text-decoration-none text-dark d-block h-100" do %>
+                <div class="case-study-tile-card p-4 h-100">
+                  <h3 class="h5 mb-2">Earned wage access app with automated repayment</h3>
+                  <p class="mb-0 small text-muted">Fintech</p>
+                </div>
+              <% end %>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="b2b_saas fintech">
               <%= link_to case_study_path('golfpay360-saas'), class: "text-decoration-none text-dark d-block h-100" do %>
-              <div class="case-study-tile-card p-4 h-100">
-                <div class="d-flex align-items-start justify-content-between gap-3 mb-2">
-                  <h3 class="h5 mb-0">GolfPay360</h3>
-                  <span class="badge bg-primary-soft">SaaS</span>
+                <div class="case-study-tile-card p-4 h-100">
+                  <h3 class="h5 mb-2">Tee-time booking and payments platform for golf courses</h3>
+                  <p class="mb-0 small text-muted">B2B SaaS</p>
                 </div>
-                <p class="small text-muted mb-2">High Concurrency Booking Engine &amp; POS Integration.</p>
-                <p class="mb-3 small"><strong>The Win:</strong> Improves online booking adoption and reduces admin workload through high concurrency scheduling and POS integrations.</p>
-                <div class="d-flex flex-wrap gap-2">
-                  <span class="badge rounded-pill text-bg-light">FinTech &amp; SaaS</span>
-                  <span class="badge rounded-pill text-bg-light">High Concurrency</span>
-                  <span class="badge rounded-pill text-bg-light">POS</span>
-                </div>
-              </div>
               <% end %>
             </div>
 
-            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="fintech_saas">
+            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="b2b_saas">
               <%= link_to case_study_path('word-of-mouth-modernization'), class: "text-decoration-none text-dark d-block h-100" do %>
-              <div class="case-study-tile-card p-4 h-100">
-                <div class="d-flex align-items-start justify-content-between gap-3 mb-2">
-                  <h3 class="h5 mb-0">Word of Mouth</h3>
-                  <span class="badge bg-primary-soft">Rescue</span>
+                <div class="case-study-tile-card p-4 h-100">
+                  <h3 class="h5 mb-2">Modernizing a legacy platform without downtime</h3>
+                  <p class="mb-0 small text-muted">B2B SaaS</p>
                 </div>
-                <p class="small text-muted mb-2">Legacy Marketplace Rescue &amp; Modernization.</p>
-                <p class="mb-3 small"><strong>The Win:</strong> Restores delivery cadence and improves performance through incremental modernization and safer deployments.</p>
-                <div class="d-flex flex-wrap gap-2">
-                  <span class="badge rounded-pill text-bg-light">FinTech &amp; SaaS</span>
-                  <span class="badge rounded-pill text-bg-light">Modernization</span>
-                  <span class="badge rounded-pill text-bg-light">Marketplace</span>
-                </div>
-              </div>
               <% end %>
             </div>
 
-            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="fintech_saas">
+            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="b2b_saas">
               <%= link_to case_study_path('restaurant-resource-rescue'), class: "text-decoration-none text-dark d-block h-100" do %>
-              <div class="case-study-tile-card p-4 h-100">
-                <div class="d-flex align-items-start justify-content-between gap-3 mb-2">
-                  <h3 class="h5 mb-0">Restaurant Resource</h3>
-                  <span class="badge bg-primary-soft">Search</span>
+                <div class="case-study-tile-card p-4 h-100">
+                  <h3 class="h5 mb-2">Rescuing a restaurant supply marketplace&rsquo;s search and stability</h3>
+                  <p class="mb-0 small text-muted">B2B SaaS</p>
                 </div>
-                <p class="small text-muted mb-2">Legacy Database Rescue &amp; Semantic Search.</p>
-                <p class="mb-3 small"><strong>The Win:</strong> Faster search and improved reliability through a database rescue, semantic search, and production hardening.</p>
-                <div class="d-flex flex-wrap gap-2">
-                  <span class="badge rounded-pill text-bg-light">FinTech &amp; SaaS</span>
-                  <span class="badge rounded-pill text-bg-light">Search</span>
-                  <span class="badge rounded-pill text-bg-light">Rescue</span>
+              <% end %>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 case-study-tile" data-categories="b2b_saas">
+              <%= link_to case_study_path('eventvesta-ai-marketing'), class: "text-decoration-none text-dark d-block h-100" do %>
+                <div class="case-study-tile-card p-4 h-100">
+                  <h3 class="h5 mb-2">AI drafts for posts and ads, with approvals, for an events marketing team</h3>
+                  <p class="mb-0 small text-muted">B2B SaaS</p>
                 </div>
-              </div>
               <% end %>
             </div>
           </div>
-
         </div>
       </div>
     </div>
   </section>
 
-  <section class="py-5 bg-white" id="why-us">
+  <section class="py-5 bg-white" id="case-studies-cta">
     <div class="container">
-      <div class="row">
-        <div class="col-12 col-lg-10 mx-auto">
-          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Why Partner With Us?</h2>
-          <p class="large-para mb-4">Beyond the Codebase</p>
-          <p class="large-para mb-4">Every project in our portfolio shares three core engineering principles:</p>
-          <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
-            <li><strong>Survive Production:</strong> We build for messy data, high concurrency, and real world edge cases.</li>
-            <li><strong>Governance by Design:</strong> Human in the loop protocols and full audit trails are standard, not optional.</li>
-            <li><strong>Zero Vendor Lock in:</strong> You own the code, the documentation, and the infrastructure. We are your partners, not your bottleneck.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-5 bg-light-grey" id="case-studies-cta">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-lg-10 mx-auto text-center">
-          <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Ready to build your own success story?</h2>
-          <p class="lead mb-4">Let’s map your systems, identify the highest impact engineering moves, and ship safely, without “big bang” rewrites.</p>
-          <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5 me-2 mb-2">Schedule a Technical Discovery Call</a>
-          <%= link_to "View our Services", root_path(anchor: "services"), class: "btn btn-outline-primary btn-lg rounded-pill px-5 mb-2 ajax" %>
-        </div>
+      <div class="col-12 col-lg-8 mx-auto text-center">
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Want something similar?</h2>
+        <p class="large-para mb-4">Tell us what you are building. We will be direct about whether we can help.</p>
+        <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
+          Start a discovery sprint &rarr;
+        </a>
       </div>
     </div>
   </section>
 </div>
 
 <style>
-  .bg-primary-soft {
-    background: rgba(33, 150, 243, 0.10);
-    color: #1976d2;
+  .hero-portfolio {
+    min-height: auto;
   }
 
   .case-study-tile-card {
@@ -375,7 +234,6 @@
       });
     });
 
-    // Default
     const defaultBtn = buttons.find((b) => b.getAttribute('data-filter') === 'all') || buttons[0];
     if (defaultBtn) {
       setActiveButton(defaultBtn);
