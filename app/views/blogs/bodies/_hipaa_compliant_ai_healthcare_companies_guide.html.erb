@@ -19,16 +19,16 @@
   </ul>
 <% end %>
 
-<p class="lead">Healthcare companies using AI on patient or member data need HIPAA compliant AI. Here's what you need: BAAs, minimum necessary access, audit trails, and how to build HIPAA AI software that fits the rules.</p>
+<p class="lead">Healthcare companies using AI on patient or member data need HIPAA-ready AI. Here's what you need: BAAs, minimum necessary access, audit trails, and how to build HIPAA AI software that fits the rules.</p>
 
 <h2 id="when-hipaa-applies">When HIPAA Applies to AI</h2>
-<p>If your system creates, receives, maintains, or transmits protected health information (PHI), HIPAA applies. That includes AI: chatbots that handle patient questions, RAG over clinical or administrative documents, agents that schedule or triage, and any model or pipeline that processes identifiable health information. So HIPAA AI software isn't optional for healthcare, it's the baseline. The good news is that HIPAA is about safeguards (administrative, physical, technical), not about banning AI. You can build and buy HIPAA compliant AI if you design for it.</p>
+<p>If your system creates, receives, maintains, or transmits protected health information (PHI), HIPAA applies. That includes AI: chatbots that handle patient questions, RAG over clinical or administrative documents, agents that schedule or triage, and any model or pipeline that processes identifiable health information. So HIPAA AI software isn't optional for healthcare, it's the baseline. The good news is that HIPAA is about safeguards (administrative, physical, technical), not about banning AI. You can build HIPAA-ready AI if you design for it.</p>
 
 <h2 id="baa-and-vendors">BAA and Vendors</h2>
 <p>When you use a vendor that touches PHI, cloud, LLM API, embedding API, database, you need a Business Associate Agreement (BAA). Not all vendors offer BAAs; many LLM and embedding providers do not. So your first filter for HIPAA AI software is: does every component that sees PHI have a BAA in place? If you send PHI to an LLM that won't sign a BAA, you're exposed. Options: use a BAA covered LLM (e.g. certain enterprise or on prem offerings), or architect so PHI never leaves your controlled environment (e.g. on prem models, or strict de identification before any external call).</p>
 
 <blockquote class="blockquote border-start border-4 border-primary ps-3 my-4 pull-quote">
-  <p class="mb-0">"HIPAA compliant AI starts with the vendor list: every party that touches PHI must have a BAA and appropriate safeguards."</p>
+  <p class="mb-0">"HIPAA-ready AI starts with the vendor list: every party that touches PHI must have a BAA and appropriate safeguards."</p>
 </blockquote>
 
 <h2 id="minimum-necessary-and-access">Minimum Necessary and Access Control</h2>
@@ -49,4 +49,4 @@
 </ul>
 
 <h2 id="what-to-do-next">What to Do Next</h2>
-<p>HIPAA compliant AI is achievable: BAAs, minimum necessary access, encryption, and audit trails are the pillars. If you're building or evaluating HIPAA AI software for triage, support, or internal tools, we can help map your use case to concrete controls and architecture. Our <a href="<%= industry_healthcare_path %>">healthcare solutions</a> and <a href="<%= ai_agent_development_path %>">AI Agent Development</a> practice include governance and compliance from the start. <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer">Schedule a call</a> to discuss your HIPAA and AI requirements.</p>
+<p>HIPAA-ready AI is achievable: BAAs, minimum necessary access, encryption, and audit trails are the pillars. If you're building or evaluating HIPAA AI software for support or internal tools, we can help map your use case to concrete controls and architecture. See our <a href="<%= industry_healthcare_path %>">healthcare solutions</a>, <a href="<%= industry_private_clinics_path %>">private clinic automation</a>, and <a href="<%= case_study_path("medical-voice-ai") %>">medical voice AI case study</a> for examples with governance built in from the start. <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer">Schedule a call</a> to discuss your HIPAA and AI requirements.</p>

@@ -1,6 +1,6 @@
 <% content_for :blog_key_takeaways do %>
   <ul>
-    <li>Real time AI for healthcare triage and appointment booking via WhatsApp and Voice.</li>
+    <li>Real time AI for appointment booking and patient intake via WhatsApp and Voice.</li>
     <li>Document upload trains the agent (RAG); urgency detection and escalation to humans.</li>
     <li>All interactions logged in a web dashboard; same architecture for real estate, support, appointments.</li>
     <li>Tech: RAG, OpenAI GPT, Twilio, LangChain; voice and chat share one orchestration layer.</li>
@@ -17,7 +17,7 @@
   </ul>
 <% end %>
 <h2 id="overview">Overview</h2>
-<p class="paragraph">This demo presents a real time AI solution integrating WhatsApp and Voice agents for healthcare triage and appointment booking. The system allows users to upload documents to train the AI agent with custom knowledge, interact via voice or WhatsApp, and receive intelligent responses for symptom triage and appointment scheduling. The workflow also supports escalation to a human agent and logs all interactions in a web dashboard. Built for production: we focus on handoff, auditability, and configurable logic so clinics and practices can deploy without losing control.</p>
+<p class="paragraph">This demo presents a real time AI solution integrating WhatsApp and Voice agents for healthcare appointment booking and patient intake. The system allows users to upload documents to train the AI agent with custom knowledge, interact via voice or WhatsApp, and receive intelligent responses for scheduling and common intake questions. The workflow also supports escalation to a human agent and logs all interactions in a web dashboard. Built for production: we focus on handoff, auditability, and configurable logic so clinics and practices can deploy without losing control.</p>
 
 <h3>Demo Video</h3>
 <div class="ratio ratio-16x9 my-4 rounded overflow-hidden">
@@ -48,4 +48,4 @@
 <h3 id="technical">Technical Implementation</h3>
 <p>Built by A'sTechware using RAG (Retrieval Augmented Generation), OpenAI GPT models, Twilio for WhatsApp and Voice integration, and LangChain for orchestration. Voice flows use speech to text (e.g. Deepgram or Twilio) into the same LLM pipeline as chat, so intent and context are shared. The system demonstrates production ready AI agent capabilities that can be customized for various healthcare and service industries, configurable knowledge bases, escalation rules, and audit logs are all part of the package so you can deploy without losing control.</p>
 <h2 id="what-to-do-next">What to Do Next</h2>
-<p>If you need 24/7 triage or appointment booking with human escalation, our <a href="<%= ai_agent_development_path %>">AI Agent Development</a> practice builds WhatsApp and Voice agents like this for healthcare, real estate, and support. <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer">Schedule a call</a> to see the demo or discuss your use case.</p>
+<p>If you need 24/7 appointment booking with human escalation, our <a href="<%= ai_agent_development_path %>">AI agent development</a> practice builds WhatsApp and Voice agents like this for <a href="<%= industry_private_clinics_path %>">private clinics</a>, using <a href="<%= integration_path("twilio") %>">Twilio voice and SMS</a> in production. <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer">Schedule a call</a> to see the demo or discuss your use case.</p>
