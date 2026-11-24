@@ -135,6 +135,21 @@ class HomeController < ApplicationController
   def industry_edtech
   end
 
+  def industry_construction
+  end
+
+  def industry_logistics
+  end
+
+  def industry_home_services
+  end
+
+  def industry_real_estate
+  end
+
+  def industry_private_clinics
+  end
+
   def privacy_policy
   end
 
