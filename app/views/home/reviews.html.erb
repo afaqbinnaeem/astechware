@@ -62,7 +62,7 @@ reviews = [
 <% content_for :head do %>
   <% set_meta_tags(
     title: "Client Reviews",
-    description: "Client reviews for A'sTechware on Upwork and LinkedIn, including feedback from GolfPay360, Shoreline Waste Solutions, InstaShowing, and Restaurant Resource founders and operators.",
+    description: "Client reviews for A'sTechware on Upwork and LinkedIn from GolfPay360, Shoreline Waste, InstaShowing, Restaurant Resource and other production clients.",
     keywords: "A'sTechware reviews, GolfPay360 review, Shoreline Waste review, InstaShowing review, Restaurant Resource review, Upwork reviews, LinkedIn recommendations",
     og: { title: "Client Reviews", description: "Verified feedback from GolfPay360, Shoreline Waste, InstaShowing, Restaurant Resource, and other production engagements.", url: safe_request_url, type: 'website', site_name: "A'sTechware" },
     twitter: { card: 'summary', title: "Client Reviews", description: "Verified feedback from GolfPay360, Shoreline Waste, InstaShowing, Restaurant Resource, and other production engagements." }
@@ -114,7 +114,7 @@ reviews = [
             <i class="fa fa-star" aria-hidden="true"></i>
             <i class="fa fa-star" aria-hidden="true"></i>
           </span>
-          <span class="text-muted fw-semibold">5.0 average &middot; <%= reviews.length %>+ verified reviews on Upwork &amp; LinkedIn</span>
+          <span class="text-muted fw-semibold">5.0 on Upwork &middot; recommendations on LinkedIn</span>
         </div>
       </div>
     </div>
@@ -125,7 +125,6 @@ reviews = [
 <div class="py-5 bg-light" id="client_reviews">
   <div class="container">
     <div class="text-center mb-5">
-      <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">What Clients Say</h2>
       <p class="large-para mb-0">Every review below is from a real engagement, verifiable on Upwork or LinkedIn.</p>
     </div>
     <div class="row g-4">
@@ -147,13 +146,15 @@ reviews = [
                 </div>
                 <span class="badge bg-light text-dark border"><%= review[:location] %></span>
               </div>
-              <div class="text-warning mb-2" role="img" aria-label="5 out of 5 stars">
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-              </div>
+              <% if review[:source] == "Upwork" %>
+                <div class="text-warning mb-2" role="img" aria-label="5 out of 5 stars">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                </div>
+              <% end %>
               <p class="mb-3 flex-grow-1"><%= review[:text] %></p>
               <p class="mb-0 mt-auto pt-2 border-top small text-muted">
                 <a href="<%= review[:source_url] %>" target="_blank" rel="noopener noreferrer" class="service-card-link">Verified on <%= review[:source] %></a>
@@ -171,7 +172,7 @@ reviews = [
   <div class="container">
     <div class="row">
       <div class="col-12 col-lg-8 mx-auto text-center">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Verified on Independent Platforms</h2>
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Verified on independent platforms</h2>
         <p class="large-para mb-4">
           Don&apos;t take our word for it. Our reviews live on independent platforms where feedback can&apos;t be edited or curated by us.
         </p>
@@ -199,7 +200,7 @@ reviews = [
   <div class="container">
     <div class="row">
       <div class="col-12 col-lg-10 mx-auto text-center">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">The Work Behind the Reviews</h2>
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">The work behind the reviews</h2>
         <p class="large-para mb-4">
           These reviews come from real production engagements. Explore the case studies to see exactly what we built and how it performed.
         </p>
@@ -218,12 +219,12 @@ reviews = [
   <div class="container">
     <div class="row">
       <div class="col-12 col-lg-8 mx-auto text-center">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Get Results Like These</h2>
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Get results like these</h2>
         <p class="large-para mb-4">
           Ready to become our next 5-star review? Start with a discovery call, we&apos;ll map your goals and outline how we can help.
         </p>
         <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5 me-2 mb-2">
-          Schedule Discovery Call
+          Book a 30-min call
         </a>
         <%= link_to "Contact Us", contact_path, class: "btn btn-outline-primary btn-lg rounded-pill px-5 mb-2" %>
       </div>
