@@ -1,0 +1,17 @@
+<%# locals: youtube_id, iframe_title (optional) %>
+<section class="py-5 bg-white" id="demo-walkthrough">
+  <div class="container">
+    <div class="col-12 col-lg-10 mx-auto">
+      <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Demo walkthrough</h2>
+      <p class="large-para mb-4">Founder-led video covering the business context, technical approach, and outcomes.</p>
+      <div class="ratio ratio-16x9 rounded shadow-sm overflow-hidden">
+        <iframe
+          src="https://www.youtube.com/embed/<%= youtube_id %>"
+          title="<%= local_assigns[:iframe_title] || 'Project demo walkthrough' %>"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
