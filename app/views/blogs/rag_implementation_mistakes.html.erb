@@ -1,7 +1,7 @@
 <% article = blog_article_for_path(request.path) %>
 <% content_for :head do %>
   <% set_meta_tags(
-    title: "RAG Mistakes That Kill Accuracy (And How to Fix Them) | A'sTechware",
+    title: "RAG Mistakes That Kill Accuracy (And How to Fix Them)",
     description: "You gave your AI all your docs but it still hallucinates. Bad chunking, wrong embeddings, no re ranking, and the RAG design that fixes it.",
     keywords: "RAG problems, retrieval augmented generation, AI hallucination, semantic chunking",
     og: { title: "RAG Implementation Mistakes That Kill Accuracy", description: "Why naive RAG fails and how to fix it.", url: safe_request_url, type: "article", site_name: "A'sTechware" },

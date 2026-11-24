@@ -1,7 +1,7 @@
 <% article = blog_article_for_path(request.path) %>
 <% content_for :head do %>
   <% set_meta_tags(
-    title: "Lost in the Middle: Why Large Context Windows Aren't Enough | A'sTechware",
+    title: "Lost in the Middle: Why Large Context Windows Aren't Enough",
     description: "You have a 128K context window but your AI still misses key info. The lost in the middle effect and when RAG beats long context.",
     keywords: "context window, LLM context, lost in the middle, RAG vs long context",
     og: { title: "Lost in the Middle: Why Large Context Windows Don't Solve Everything", description: "The lost in the middle problem and hybrid strategies.", url: safe_request_url, type: "article", site_name: "A'sTechware" },

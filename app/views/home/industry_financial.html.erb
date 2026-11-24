@@ -1,6 +1,6 @@
 <% content_for :head do %>
   <% set_meta_tags(
-    title: "Fintech Engineering Partner | A'sTechware",
+    title: "Fintech Engineering Partner",
     description: "Fintech software development partner for payments, lending, and automated settlements. Production-ready infrastructure for payment orchestration, multi-party settlements, and salary advance platforms.",
     keywords: "fintech software development partner, financial services automation, fintech software development, payment orchestration, split payments, automated settlements, earned wage access, SOC 2 compliant software"
   ) %>
@@ -11,8 +11,8 @@
     "name" => "Fintech Engineering Partner",
     "url" => industry_financial_url,
     "description" => "Fintech software development partner for payments, lending, and automated settlements with production-ready financial infrastructure.",
-    "provider" => { "@type" => "Organization", "name" => "A'sTechware" },
-    "areaServed" => "Worldwide",
+    "provider" => { "@id" => "https://astechware.com/#organization" },
+    "areaServed" => ["United States", "Canada", "Australia"],
     "serviceType" => "Fintech Engineering",
     "category" => "Financial Technology"
   }.to_json) %>
@@ -24,7 +24,7 @@
   <div class="container">
     <div class="row align-items-center min-vh-50">
       <div class="col-12 col-lg-8 mx-auto text-center">
-        <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;">
+        <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;" data-page-h1>
           FinTech &amp; Financial Technology Solutions
         </h1>
         <p class="lead fw-semibold mb-3" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.4; max-width: 720px; margin-left: auto; margin-right: auto;">

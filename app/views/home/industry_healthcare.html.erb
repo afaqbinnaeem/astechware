@@ -1,6 +1,6 @@
 <% content_for :head do %>
   <% set_meta_tags(
-    title: "Healthcare AI Engineering Partner | A'sTechware",
+    title: "Healthcare AI Engineering Partner",
     description: "Healthcare AI engineering partner for HIPAA-ready voice booking, AI medical scribes, FHIR EHR sync, and clinical workflow automation. Hire healthcare software engineers with compliance-aware design.",
     keywords: "healthcare AI engineering partner, HIPAA compliant automation, hire healthcare software engineers, healthcare AI, HIPAA compliant AI, AI medical scribe, voice AI healthcare, FHIR EHR integration, PHI de identification"
   ) %>
@@ -11,8 +11,8 @@
     "name" => "Healthcare AI Engineering Partner",
     "url" => industry_healthcare_url,
     "description" => "Healthcare AI engineering partner for HIPAA-ready voice booking, AI medical scribes, FHIR EHR sync, and clinical workflow automation.",
-    "provider" => { "@type" => "Organization", "name" => "A'sTechware" },
-    "areaServed" => "United States",
+    "provider" => { "@id" => "https://astechware.com/#organization" },
+    "areaServed" => ["United States", "Canada", "Australia"],
     "serviceType" => "Healthcare AI Engineering",
     "category" => "Healthcare Technology"
   }.to_json) %>
@@ -23,7 +23,7 @@
   <div class="container">
     <div class="row align-items-center min-vh-50">
       <div class="col-12 col-lg-9 mx-auto text-center">
-        <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;">
+        <h1 class="display-4 fw-bold mb-3" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;" data-page-h1>
           Healthcare AI, built to a standard a compliance auditor would respect.
         </h1>
         <p class="mb-4" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">

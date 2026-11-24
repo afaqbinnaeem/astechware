@@ -17,7 +17,7 @@
           <span class="blog-badge blog-badge-<%= article[:category_slug].to_s.parameterize %> position-absolute top-0 start-0 m-3"><%= article[:category] %></span>
         </div>
 
-        <h1 class="mb-2"><%= article[:title] %></h1>
+        <h1 class="mb-2" data-page-h1><%= article[:title] %></h1>
 
         <%# Author + estimated read time %>
         <div class="blog-author-block d-flex flex-wrap align-items-center gap-3 mb-4">
