@@ -1,0 +1,14 @@
+<%# Founder booking box. Photo only when the file exists. %>
+<% founder_photo = Rails.root.join("app/assets/images/ahmad/founder-contact.webp") %>
+<%# [[AHMAD: photo file]] — place at app/assets/images/ahmad/founder-contact.webp %>
+<div class="contact-side-card">
+  <div class="d-flex align-items-center gap-3 mb-3">
+    <% if founder_photo.exist? %>
+      <%= image_tag "ahmad/founder-contact.webp", class: "contact-founder-photo", alt: "Ahmad Kamran, Founder of A'sTechware", loading: "lazy" %>
+    <% end %>
+    <h3 class="contact-side-title mb-0">Book a 30-min call with ahmad kamran, founder</h3>
+  </div>
+  <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary rounded-3 w-100">
+    Book a 30-min call
+  </a>
+</div>

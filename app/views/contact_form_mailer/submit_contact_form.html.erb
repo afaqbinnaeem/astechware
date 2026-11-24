@@ -6,7 +6,16 @@
   <body>
     <h1>Hi, <%= @form.name %>! Has sent a Query.</h1>
     <h3>Email: <%= @form.email %></h3>
+    <% if @form.phone.present? %>
+      <h3>Phone: <%= @form.phone %></h3>
+    <% end %>
     <h3>Company Name: <%= @form.company_name %></h3>
+    <% if @form.need_type.present? %>
+      <h3>What do you need?: <%= @form.need_type %></h3>
+    <% end %>
+    <% if @form.project_type.present? %>
+      <h3>Project type: <%= @form.project_type %></h3>
+    <% end %>
     <h3>Message</h3>
     <p><%= @form.cover_letter %></p>
   </body>
