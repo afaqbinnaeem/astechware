@@ -3,7 +3,7 @@
     instead (view set_meta_tags always wins). Capture body so content_for(:head) is available. %>
 <% body_content = yield %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -34,8 +34,8 @@
     <% end %>
     <%= display_meta_tags(
       reverse: true,
-      site: content_for?(:meta_site) ? content_for(:meta_site).to_s : "A'sTechware",
-      title: "AI-Enabled Systems for Legal, Healthcare & Operational Workflows",
+      site: "A'sTechware",
+      title: "AI Development Company & Automation Agency",
       description: "AI engineering partner for legal, healthcare, construction, logistics, and operations-heavy teams. Production AI agents, workflow automation, custom software, and dedicated Python, Node.js, and full-stack engineers. Milestone-based delivery, full code ownership.",
       keywords: "AI engineering partner, AI development company, hire software engineers, workflow automation, Python development, Node.js development, legal tech software, healthcare AI, construction software, logistics automation, trucking dispatch software, fractional engineering team, forward deployed engineering, custom automation systems, production AI, platform engineering, AI governance, privacy-first AI",
       og: og_meta,
@@ -119,24 +119,9 @@
     <link rel="preload" as="image" href="<%= asset_path('astechware-transparent-logo.webp') %>" />
     <% end %>
 
-    <%# JSON-LD Organization (all pages) %>
-    <% org_logo_url = seo_og_image_url %>
-    <% org_base = Rails.env.production? ? "https://astechware.com" : base_url %>
+    <%# JSON-LD Organization (all pages, single source) %>
     <script type="application/ld+json">
-    <%= raw({
-      "@context" => "https://schema.org",
-      "@type" => "Organization",
-      "name" => "A'sTechware",
-      "url" => org_base,
-      "logo" => org_logo_url.present? ? { "@type" => "ImageObject", "url" => org_logo_url } : nil,
-      "description" => "Production-grade AI and platform engineering. We build AI agents and custom platforms that survive production with enterprise governance, human-in-the-loop, and complete audit trails.",
-      "email" => "ahmad@astechware.com",
-      "foundingDate" => "2015",
-      "numberOfEmployees" => { "@type" => "QuantitativeValue", "minValue" => 1, "maxValue" => 10 },
-      "founder" => { "@type" => "Person", "name" => "Ahmad Kamran", "url" => "#{org_base}/about", "jobTitle" => "Founder & CEO" },
-      "sameAs" => ["https://www.linkedin.com/company/astechware", "https://www.instagram.com/astechware"],
-      "contactPoint" => { "@type" => "ContactPoint", "email" => "ahmad@astechware.com", "contactType" => "sales", "url" => "#{org_base}/contact" }
-    }.compact.to_json) %>
+    <%= raw(organization_json_ld.to_json) %>
     </script>
     <%# BreadcrumbList for non-home pages (blog show has its own in content_for :head) %>
     <% if request.path.present? && request.path != "/" && !request.path.match?(/\A\/blogs\/[^\/]+\z/) %>
@@ -148,32 +133,7 @@
   </head>
 
   <body>
-    <div id="loader" class="h-100 w-100 position-fixed">
-      <div class="row justify-content-center h-100 w-100 mx-0">
-        <div class="col-6 align-selft-end">
-            <div class="main-flipper mb-5">
-              <div class="flip-container">
-                <div class="flipper">
-                  <div class="album-cover-container front">
-                      <%= image_tag 'astechware-transparent-logo.webp', alt: "A'sTechware Logo, AI & Platform Engineering" %>
-                  </div>
-                  <div class="back">
-                    <div class="album-cover-container front">
-                      <%= image_tag 'astechware-transparent-logo.webp', alt: "A'sTechware Logo, AI & Platform Engineering" %>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </div>
-        <div id="quoteText" class="px-3 col-12 text-center">
-          <blockquote></blockquote>
-          <cite></cite>
-        </div>
-      </div>
-
-    </div>
-    <div id="wrapper" class="d-none site-wrapper">
+    <div id="wrapper" class="site-wrapper">
       <%= render 'layouts/header' %>
       <main id="main-content">
         <%= body_content %>
@@ -313,76 +273,6 @@
       function imageHide(img_hide){
         document.getElementById(img_hide).style.opacity = "0";
       } %>
-    </script>
-
-    <%# Loader: scoped IIFE so Turbo re-running this script does not redeclare const at global scope %>
-    <script>
-      (function () {
-        const quoteArr = [
-          {
-            quote: "Dream big, start small, act now.",
-            by: "~ A'sTechware"
-          },
-          {
-            quote: "Solve problems, create value, change lives.",
-            by: "~ A'sTechware"
-          },
-          {
-            quote: "Innovate or die - disrupt or be disrupted.",
-            by: "~ A'sTechware"
-          },
-          {
-            quote: "Think big, act fast, learn constantly.",
-            by: "~ A'sTechware"
-          },
-          {
-            quote: "Don't wait for opportunities, create them.",
-            by: "~ A'sTechware"
-          },
-          {
-            quote: "Fail often, fail fast, fail forward.",
-            by: "~ A'sTechware"
-          },
-          {
-            quote: "Make something people want and need.",
-            by: "~ A'sTechware"
-          },
-          {
-            quote: "Stay focused, stay hungry, stay humble.",
-            by: "~ A'sTechware"
-          },
-          {
-            quote: "Start where you are, use what you have.",
-            by: "~ A'sTechware"
-          },
-          {
-            quote: "Be the change you want to see.",
-            by: "~ A'sTechware"
-          }
-        ]
-        document.onreadystatechange = function () {
-          if (document.readyState !== "complete") {
-            document.querySelector("#loader").style.visibility = "visible"
-            var randomNumber = Math.floor(Math.random() * quoteArr.length)
-            $("#quoteText").find("blockquote").html(quoteArr[randomNumber].quote)
-            $("#quoteText").find("cite").html(quoteArr[randomNumber].by)
-          } else {
-            document.querySelector("#loader").style.display = "none"
-            document.querySelector("#wrapper").classList.remove("d-none")
-          }
-        }
-      })()
-      // After Turbo Drive navigations there is no full page load, so readystatechange
-      // doesn't run again. One listener only, inline script may run again on each visit.
-      if (!window.__astwLoaderTurboLoadBound) {
-        window.__astwLoaderTurboLoadBound = true
-        document.addEventListener("turbo:load", function () {
-          var loader = document.querySelector("#loader")
-          var wrapper = document.querySelector("#wrapper")
-          if (loader) loader.style.display = "none"
-          if (wrapper) wrapper.classList.remove("d-none")
-        })
-      }
     </script>
 
     <%= yield :footer_script %>

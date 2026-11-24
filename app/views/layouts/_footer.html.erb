@@ -10,14 +10,14 @@
             <% end %>
           </div>
           <p class="footer-mission text-muted small mb-4">
-            We design and build production grade AI automations and custom web and mobile platforms, from internal ops to marketplaces and customer facing products, so businesses can run faster without adding headcount.
+            We build software and automation that take the busywork off legal, healthcare, construction and logistics teams, so they can grow without adding headcount.
           </p>
           <div class="footer-social mb-3">
             <ul class="list-unstyled d-flex flex-wrap gap-2 m-0">
-              <li><a href="https://www.linkedin.com/company/astechware" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a></li>
-              <li><a href="https://www.instagram.com/astechware/" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram"><i class="fa fa-instagram"></i></a></li>
-              <li><a href="https://twitter.com/astechware" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Twitter"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="https://www.facebook.com/astechware" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Facebook"><i class="fa fa-facebook-f"></i></a></li>
+              <li><a href="[[AHMAD: LinkedIn company URL]]" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a></li>
+              <li><a href="[[AHMAD: Instagram URL]]" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Instagram"><i class="fa fa-instagram"></i></a></li>
+              <li><a href="[[AHMAD: X/Twitter URL]]" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Twitter"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="[[AHMAD: Facebook URL]]" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="Facebook"><i class="fa fa-facebook-f"></i></a></li>
             </ul>
           </div>
           <div class="footer-contact small">
@@ -30,13 +30,13 @@
         <div class="col-6 col-md-4 col-lg-2 footer-col footer-services">
           <h3 class="footer-heading">Services</h3>
           <ul class="footer-links list-unstyled m-0">
-            <li><%= link_to "All Services", services_path, class: "footer-link" %></li>
             <li><%= link_to "AI Agents & Automation", ai_agent_development_path, class: "footer-link" %></li>
-            <li><%= link_to "Custom Platform Development", custom_software_path, class: "footer-link" %></li>
-            <li><%= link_to "Platform Modernization & Scaling", platform_modernization_path, class: "footer-link" %></li>
-            <li><%= link_to "Integrations & API Engineering", api_integrations_path, class: "footer-link" %></li>
-            <li><%= link_to "AI Agents Overview", ai_agents_path, class: "footer-link" %></li>
-            <li><%= link_to "How We De-risk Projects", derisk_projects_path, class: "footer-link" %></li>
+            <li><%= link_to "Custom Software", custom_software_path, class: "footer-link" %></li>
+            <li><%= link_to "Platform Modernization", platform_modernization_path, class: "footer-link" %></li>
+            <li><%= link_to "Integrations & APIs", api_integrations_path, class: "footer-link" %></li>
+            <li><%= link_to "Machine Learning", machine_learning_path, class: "footer-link" %></li>
+            <li><%= link_to "DevOps & Cloud", devops_engineering_path, class: "footer-link" %></li>
+            <li><%= link_to "All services", services_path, class: "footer-link" %></li>
           </ul>
         </div>
 
@@ -44,13 +44,27 @@
         <div class="col-6 col-md-4 col-lg-2 footer-col footer-industries">
           <h3 class="footer-heading">Industries</h3>
           <ul class="footer-links list-unstyled m-0">
+            <li><%= link_to "Legal", industry_legal_path, class: "footer-link" %></li>
+            <li><%= link_to "Healthcare", industry_healthcare_path, class: "footer-link" %></li>
+            <% if route_helper_defined?(:industry_private_clinics_path) %>
+              <li><%= link_to "Private Clinics", industry_private_clinics_path, class: "footer-link" %></li>
+            <% end %>
+            <% if route_helper_defined?(:industry_construction_path) %>
+              <li><%= link_to "Construction", industry_construction_path, class: "footer-link" %></li>
+            <% end %>
+            <% if route_helper_defined?(:industry_logistics_path) %>
+              <li><%= link_to "Logistics & Field Service", industry_logistics_path, class: "footer-link" %></li>
+            <% end %>
+            <% if route_helper_defined?(:industry_home_services_path) %>
+              <li><%= link_to "HVAC & Home Services", industry_home_services_path, class: "footer-link" %></li>
+            <% end %>
+            <% if route_helper_defined?(:industry_real_estate_path) %>
+              <li><%= link_to "Real Estate", industry_real_estate_path, class: "footer-link" %></li>
+            <% end %>
+            <li><%= link_to "Fintech", industry_financial_path, class: "footer-link" %></li>
             <li><%= link_to "B2B SaaS", industry_b2b_saas_path, class: "footer-link" %></li>
-            <li><%= link_to "Healthcare & Wellness", industry_healthcare_path, class: "footer-link" %></li>
-            <li><%= link_to "Fintech / Financial Services", industry_financial_path, class: "footer-link" %></li>
-            <li><%= link_to "Construction & Real Estate", case_study_path("construction-management-platform"), class: "footer-link" %></li>
-            <li><%= link_to "Logistics, HVAC & Field Ops", industry_professional_services_path, class: "footer-link" %></li>
-            <li><%= link_to "Legal Services", industry_legal_path, class: "footer-link" %></li>
-            <li><%= link_to "Education Technology", industry_edtech_path, class: "footer-link" %></li>
+            <li><%= link_to "EdTech", industry_edtech_path, class: "footer-link" %></li>
+            <li><%= link_to "GCC", gcc_path, class: "footer-link" %></li>
           </ul>
         </div>
 
@@ -58,18 +72,23 @@
         <div class="col-6 col-md-4 col-lg-2 footer-col footer-company-links">
           <h3 class="footer-heading">Company</h3>
           <ul class="footer-links list-unstyled m-0">
-            <li><%= link_to "About Us", about_path, class: "footer-link" %></li>
+            <li><%= link_to "About", about_path, class: "footer-link" %></li>
             <li><%= link_to "Client Reviews", reviews_path, class: "footer-link" %></li>
-            <li><%= link_to "Our Methodology", methodology_path, class: "footer-link" %></li>
             <li><%= link_to "Case Studies", case_studies_path, class: "footer-link" %></li>
-            <li><%= link_to "Blog & Resources", blogs_path, class: "footer-link" %></li>
-            <li><%= link_to "Contact Us", contact_path, class: "footer-link" %></li>
+            <% if route_helper_defined?(:hire_dedicated_developers_path) %>
+              <li><%= link_to "Hire an Engineer", hire_dedicated_developers_path, class: "footer-link" %></li>
+            <% end %>
+            <% if route_helper_defined?(:integrations_path) %>
+              <li><%= link_to "Integrations", integrations_path, class: "footer-link" %></li>
+            <% end %>
+            <li><%= link_to "Blog", blogs_path, class: "footer-link" %></li>
+            <li><%= link_to "Contact", contact_path, class: "footer-link" %></li>
           </ul>
         </div>
 
         <%# Column 5: Newsletter %>
         <div class="col-12 col-lg-4 col-xl-3 footer-col footer-newsletter">
-          <h3 class="footer-heading">Stay Informed</h3>
+          <h3 class="footer-heading">Stay informed</h3>
           <p class="footer-newsletter-tagline text-muted small mb-3">
             Gets insights on AI, platform engineering, and industry trends.
           </p>

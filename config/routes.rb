@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   post 'chat/message_new', to: 'chatbot_new#message'
   post 'chat/lead_new', to: 'chatbot_new#lead'
   get  'chat/history_new', to: 'chatbot_new#history'
-  get '/ai-agents', to: 'home#ai_agents', as: 'ai_agents'
+  get '/ai-agents', to: redirect('/services/ai-agent-development', status: 301)
   get '/services/ai-agent-development', to: 'home#ai_agent_development', as: 'ai_agent_development'
   get '/services/machine-learning', to: 'home#machine_learning', as: 'machine_learning'
   get '/services/platform-modernization', to: 'home#platform_modernization', as: 'platform_modernization'

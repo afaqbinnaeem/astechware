@@ -6,43 +6,75 @@
         <%= image_tag "logo.png", width: "120", class: "img-fluid", alt: "A'sTechware Logo", loading: "lazy" %>
       <% end %>
       <ul class="enterprise-nav-menu list-unstyled m-0 d-flex align-items-center flex-wrap">
-        <li class="enterprise-nav-item"><%= link_to "Services", services_path, class: "enterprise-nav-link ajax" %></li>
         <li class="enterprise-nav-item dropdown">
-          <a class="enterprise-nav-link dropdown-toggle" href="#" id="navSolutions" role="button" data-bs-toggle="dropdown" aria-expanded="false">Solutions</a>
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navSolutions">
-            <li><%= link_to "AI & ML Agents & Automation", ai_agent_development_path, class: "dropdown-item ajax" %></li>
-            <li><%= link_to "Custom Platform Development", custom_software_path, class: "dropdown-item ajax" %></li>
-            <li><%= link_to "Platform Modernization & Scaling", platform_modernization_path, class: "dropdown-item ajax" %></li>
-            <li><%= link_to "Integrations & API Engineering", api_integrations_path, class: "dropdown-item ajax" %></li>
+          <a class="enterprise-nav-link dropdown-toggle" href="#" id="navServices" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navServices">
+            <li><%= link_to "AI Agents & Automation", ai_agent_development_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "Custom Software", custom_software_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "Platform Modernization", platform_modernization_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "Integrations & APIs", api_integrations_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "Machine Learning", machine_learning_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "DevOps & Cloud", devops_engineering_path, class: "dropdown-item ajax" %></li>
             <li><hr class="dropdown-divider"></li>
-            <li><%= link_to "How We De-risk Projects", derisk_projects_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "All services", services_path, class: "dropdown-item ajax" %></li>
           </ul>
         </li>
         <li class="enterprise-nav-item dropdown">
           <a class="enterprise-nav-link dropdown-toggle" href="#" id="navIndustries" role="button" data-bs-toggle="dropdown" aria-expanded="false">Industries</a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navIndustries">
-            <li><%= link_to "B2B SaaS & Digital Marketing", industry_b2b_saas_path, class: "dropdown-item ajax" %></li>
-            <li><%= link_to "Healthcare & Wellness", industry_healthcare_path, class: "dropdown-item ajax" %></li>
-            <li><%= link_to "Fintech / Financial Services", industry_financial_path, class: "dropdown-item ajax" %></li>
-            <li><%= link_to "Construction & Real Estate", case_study_path("construction-management-platform"), class: "dropdown-item ajax" %></li>
-            <li><%= link_to "Logistics, HVAC & Field Ops", industry_professional_services_path, class: "dropdown-item ajax" %></li>
-            <li><%= link_to "Legal Services", industry_legal_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "Legal", industry_legal_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "Healthcare", industry_healthcare_path, class: "dropdown-item ajax" %></li>
+            <% if route_helper_defined?(:industry_private_clinics_path) %>
+              <li><%= link_to "Private Clinics", industry_private_clinics_path, class: "dropdown-item ajax" %></li>
+            <% end %>
+            <% if route_helper_defined?(:industry_construction_path) %>
+              <li><%= link_to "Construction", industry_construction_path, class: "dropdown-item ajax" %></li>
+            <% end %>
+            <% if route_helper_defined?(:industry_logistics_path) %>
+              <li><%= link_to "Logistics & Field Service", industry_logistics_path, class: "dropdown-item ajax" %></li>
+            <% end %>
+            <% if route_helper_defined?(:industry_home_services_path) %>
+              <li><%= link_to "HVAC & Home Services", industry_home_services_path, class: "dropdown-item ajax" %></li>
+            <% end %>
+            <% if route_helper_defined?(:industry_real_estate_path) %>
+              <li><%= link_to "Real Estate", industry_real_estate_path, class: "dropdown-item ajax" %></li>
+            <% end %>
+            <li><%= link_to "Fintech", industry_financial_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "B2B SaaS", industry_b2b_saas_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "EdTech", industry_edtech_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "GCC", gcc_path, class: "dropdown-item ajax" %></li>
           </ul>
         </li>
-        <li class="enterprise-nav-item"><%= link_to "Methodology", methodology_path, class: "enterprise-nav-link ajax" %></li>
+        <% if route_helper_defined?(:hire_ai_engineers_path) || route_helper_defined?(:hire_dedicated_developers_path) %>
+          <li class="enterprise-nav-item dropdown">
+            <a class="enterprise-nav-link dropdown-toggle" href="#" id="navHire" role="button" data-bs-toggle="dropdown" aria-expanded="false">Hire Engineers</a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navHire">
+              <% if route_helper_defined?(:hire_ai_engineers_path) %>
+                <li><%= link_to "Hire AI Engineers", hire_ai_engineers_path, class: "dropdown-item ajax" %></li>
+              <% end %>
+              <% if route_helper_defined?(:hire_dedicated_developers_path) %>
+                <li><%= link_to "Hire Dedicated Developers", hire_dedicated_developers_path, class: "dropdown-item ajax" %></li>
+              <% end %>
+            </ul>
+          </li>
+        <% end %>
         <li class="enterprise-nav-item"><%= link_to "Case Studies", case_studies_path, class: "enterprise-nav-link ajax" %></li>
+        <% if route_helper_defined?(:integrations_path) %>
+          <li class="enterprise-nav-item"><%= link_to "Integrations", integrations_path, class: "enterprise-nav-link ajax" %></li>
+        <% end %>
         <li class="enterprise-nav-item dropdown">
           <a class="enterprise-nav-link dropdown-toggle" href="#" id="navResources" role="button" data-bs-toggle="dropdown" aria-expanded="false">Resources</a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navResources">
             <li><%= link_to "Blog", blogs_path, class: "dropdown-item ajax" %></li>
-            <li><%= link_to "Case Studies", case_studies_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "Our Methodology", methodology_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "How We De-Risk Projects", derisk_projects_path, class: "dropdown-item ajax" %></li>
           </ul>
         </li>
         <li class="enterprise-nav-item dropdown">
           <a class="enterprise-nav-link dropdown-toggle" href="#" id="navCompany" role="button" data-bs-toggle="dropdown" aria-expanded="false">Company</a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navCompany">
-            <li><%= link_to "About Us", about_path, class: "dropdown-item ajax" %></li>
-            <li><%= link_to "Reviews", reviews_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "About", about_path, class: "dropdown-item ajax" %></li>
+            <li><%= link_to "Client Reviews", reviews_path, class: "dropdown-item ajax" %></li>
             <li><%= link_to "Contact", contact_path, class: "dropdown-item ajax" %></li>
           </ul>
         </li>
@@ -54,7 +86,7 @@
         </li>
         <li class="enterprise-nav-item enterprise-nav-cta">
           <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary rounded-pill px-4 enterprise-cta-btn">
-            Book a 30 Min Strategy Call
+            Book a 30-min call
           </a>
         </li>
         <% if ENV["SKIP_DB"] != "true" && current_user.present? %>
@@ -74,50 +106,81 @@
         <div class="sliding-menu-wrapper">
           <ul class="menu-panel-root list-unstyled m-0 p-0">
             <li class="menu-item"><%= link_to "Home", root_path, class: "ajax" %></li>
-            <li class="menu-item"><%= link_to "Services", services_path, class: "ajax" %></li>
             <li class="menu-item menu-item-has-children">
-              <span class="menu-item-label">Solutions</span>
+              <span class="menu-item-label">Services</span>
               <ul class="sub-menu list-unstyled m-0 ps-3">
-                <li><%= link_to "AI & ML Agents & Automation", ai_agent_development_path, class: "ajax" %></li>
-                <li><%= link_to "Custom Platform Development", custom_software_path, class: "ajax" %></li>
-                <li><%= link_to "Platform Modernization & Scaling", platform_modernization_path, class: "ajax" %></li>
-                <li><%= link_to "Integrations & API Engineering", api_integrations_path, class: "ajax" %></li>
-                <li><%= link_to "How We De-risk Projects", derisk_projects_path, class: "ajax" %></li>
+                <li><%= link_to "AI Agents & Automation", ai_agent_development_path, class: "ajax" %></li>
+                <li><%= link_to "Custom Software", custom_software_path, class: "ajax" %></li>
+                <li><%= link_to "Platform Modernization", platform_modernization_path, class: "ajax" %></li>
+                <li><%= link_to "Integrations & APIs", api_integrations_path, class: "ajax" %></li>
+                <li><%= link_to "Machine Learning", machine_learning_path, class: "ajax" %></li>
+                <li><%= link_to "DevOps & Cloud", devops_engineering_path, class: "ajax" %></li>
+                <li><%= link_to "All services", services_path, class: "ajax" %></li>
               </ul>
             </li>
             <li class="menu-item menu-item-has-children">
               <span class="menu-item-label">Industries</span>
               <ul class="sub-menu list-unstyled m-0 ps-3">
-                <li><%= link_to "B2B SaaS & Digital Marketing", industry_b2b_saas_path, class: "ajax" %></li>
-                <li><%= link_to "Healthcare & Wellness", industry_healthcare_path, class: "ajax" %></li>
-                <li><%= link_to "Fintech / Financial Services", industry_financial_path, class: "ajax" %></li>
-                <li><%= link_to "Construction & Real Estate", case_study_path("construction-management-platform"), class: "ajax" %></li>
-                <li><%= link_to "Logistics, HVAC & Field Ops", industry_professional_services_path, class: "ajax" %></li>
-                <li><%= link_to "Legal Services", industry_legal_path, class: "ajax" %></li>
+                <li><%= link_to "Legal", industry_legal_path, class: "ajax" %></li>
+                <li><%= link_to "Healthcare", industry_healthcare_path, class: "ajax" %></li>
+                <% if route_helper_defined?(:industry_private_clinics_path) %>
+                  <li><%= link_to "Private Clinics", industry_private_clinics_path, class: "ajax" %></li>
+                <% end %>
+                <% if route_helper_defined?(:industry_construction_path) %>
+                  <li><%= link_to "Construction", industry_construction_path, class: "ajax" %></li>
+                <% end %>
+                <% if route_helper_defined?(:industry_logistics_path) %>
+                  <li><%= link_to "Logistics & Field Service", industry_logistics_path, class: "ajax" %></li>
+                <% end %>
+                <% if route_helper_defined?(:industry_home_services_path) %>
+                  <li><%= link_to "HVAC & Home Services", industry_home_services_path, class: "ajax" %></li>
+                <% end %>
+                <% if route_helper_defined?(:industry_real_estate_path) %>
+                  <li><%= link_to "Real Estate", industry_real_estate_path, class: "ajax" %></li>
+                <% end %>
+                <li><%= link_to "Fintech", industry_financial_path, class: "ajax" %></li>
+                <li><%= link_to "B2B SaaS", industry_b2b_saas_path, class: "ajax" %></li>
+                <li><%= link_to "EdTech", industry_edtech_path, class: "ajax" %></li>
+                <li><%= link_to "GCC", gcc_path, class: "ajax" %></li>
               </ul>
             </li>
-            <li class="menu-item"><%= link_to "Methodology", methodology_path, class: "ajax" %></li>
+            <% if route_helper_defined?(:hire_ai_engineers_path) || route_helper_defined?(:hire_dedicated_developers_path) %>
+              <li class="menu-item menu-item-has-children">
+                <span class="menu-item-label">Hire Engineers</span>
+                <ul class="sub-menu list-unstyled m-0 ps-3">
+                  <% if route_helper_defined?(:hire_ai_engineers_path) %>
+                    <li><%= link_to "Hire AI Engineers", hire_ai_engineers_path, class: "ajax" %></li>
+                  <% end %>
+                  <% if route_helper_defined?(:hire_dedicated_developers_path) %>
+                    <li><%= link_to "Hire Dedicated Developers", hire_dedicated_developers_path, class: "ajax" %></li>
+                  <% end %>
+                </ul>
+              </li>
+            <% end %>
             <li class="menu-item"><%= link_to "Case Studies", case_studies_path, class: "ajax" %></li>
+            <% if route_helper_defined?(:integrations_path) %>
+              <li class="menu-item"><%= link_to "Integrations", integrations_path, class: "ajax" %></li>
+            <% end %>
             <li class="menu-item menu-item-has-children">
               <span class="menu-item-label">Resources</span>
               <ul class="sub-menu list-unstyled m-0 ps-3">
                 <li><%= link_to "Blog", blogs_path, class: "ajax" %></li>
-                <li><%= link_to "Case Studies", case_studies_path, class: "ajax" %></li>
+                <li><%= link_to "Our Methodology", methodology_path, class: "ajax" %></li>
+                <li><%= link_to "How We De-Risk Projects", derisk_projects_path, class: "ajax" %></li>
               </ul>
             </li>
             <li class="menu-item menu-item-has-children">
               <span class="menu-item-label">Company</span>
               <ul class="sub-menu list-unstyled m-0 ps-3">
-                <li><%= link_to "About Us", about_path, class: "ajax" %></li>
-                <li><%= link_to "Reviews", reviews_path, class: "ajax" %></li>
+                <li><%= link_to "About", about_path, class: "ajax" %></li>
+                <li><%= link_to "Client Reviews", reviews_path, class: "ajax" %></li>
                 <li><%= link_to "Contact", contact_path, class: "ajax" %></li>
               </ul>
             </li>
-            <li class="menu-item"><%= link_to "Contact", contact_path, class: "ajax" %></li>
             <li class="menu-item menu-item-cta">
               <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="nav booking-btn-menu">
                 <i class="fa fa-calendar me-2" aria-hidden="true"></i>
-                Book a 30 Min Strategy Call
+                Book a 30-min call
               </a>
             </li>
             <% if ENV["SKIP_DB"] != "true" && current_user.present? %>
@@ -136,7 +199,7 @@
 
 <header class="main-header d-lg-none">
   <a href="/" class="ajax logo-holder">
-    <h1 class="ns-text-logo m-0"><%= image_tag 'logo.png', width: '100', class: 'img-fluid p-2 p-sm-0', alt: "A'sTechware Logo, AI & Platform Engineering", loading: "lazy" %></h1>
+    <div class="ns-text-logo m-0"><%= image_tag 'logo.png', width: '100', class: 'img-fluid p-2 p-sm-0', alt: "A'sTechware Logo, AI & Platform Engineering", loading: "lazy" %></div>
   </a>
   <div class="nav-button but-hol">
     <span class="ncs"></span>
@@ -153,7 +216,7 @@
   <div class="page-subtitle">
     <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="booking-btn-header" style="opacity: 1; transform: translate3d(0px, 0px, 0px);">
       <i class="fa fa-calendar me-2" aria-hidden="true"></i>
-      Book a 30 Min Strategy Call
+      Book a 30-min call
     </a>
   </div>
 </div>
@@ -170,10 +233,10 @@
 <div class="right-header d-lg-none">
   <div class="right-header_social">
     <ul class="list-unstyled m-0">
-      <li><a target="_blank" href="https://www.facebook.com/astechware" rel="noopener noreferrer" aria-label="Facebook"><i class="fa fa-facebook-f"></i></a></li>
-      <li><a target="_blank" href="https://twitter.com/astechware" rel="noopener noreferrer" aria-label="Twitter"><i class="fa fa-twitter"></i></a></li>
-      <li><a target="_blank" href="https://linkedin.com/company/astechware" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a></li>
-      <li><a target="_blank" href="https://www.instagram.com/astechware/" rel="noopener noreferrer" aria-label="Instagram"><i class="fa fa-instagram"></i></a></li>
+      <li><a target="_blank" href="[[AHMAD: Facebook URL]]" rel="noopener noreferrer" aria-label="Facebook"><i class="fa fa-facebook-f"></i></a></li>
+      <li><a target="_blank" href="[[AHMAD: X/Twitter URL]]" rel="noopener noreferrer" aria-label="Twitter"><i class="fa fa-twitter"></i></a></li>
+      <li><a target="_blank" href="[[AHMAD: LinkedIn company URL]]" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a></li>
+      <li><a target="_blank" href="[[AHMAD: Instagram URL]]" rel="noopener noreferrer" aria-label="Instagram"><i class="fa fa-instagram"></i></a></li>
     </ul>
   </div>
 </div>
