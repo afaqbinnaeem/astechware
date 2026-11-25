@@ -257,6 +257,51 @@ module ApplicationHelper
         integration_path: "/integrations/quickbooks-online",
         author_name: "Ahmad Kamran", author_title: "Founder, A'sTechware"
       },
+      {
+        slug: "route-planning-software-service-businesses",
+        path: -> { blog_show_path("route-planning-software-service-businesses") },
+        title: "Route planning software for service businesses: when static routes stop working",
+        seo_title: "Route Planning Software for Service Routes",
+        meta_description: "Route planning software for service businesses: when static routes waste fuel, what dynamic planning needs, and how dispatchers stay in control of the day.",
+        keywords: "route planning software for service businesses, route optimization for field service, dispatch software, service route planning app, fleet route planner",
+        category: "Logistics & field service",
+        category_slug: "logistics",
+        excerpt_short: "Route planning software for service businesses: when static routes waste fuel, what dynamic planning needs, and how dispatchers stay in control of the day.",
+        excerpt_long: "Many route-based businesses still run on route sheets someone built years ago. Customers are added at the end, paused stops stay on the list, and drivers zigzag across town. Route planning software for service businesses rebuilds each day's routes from real data and lets the dispatcher make the final call.",
+        read_time: "6 min",
+        date: "26 Nov 2026", date_iso: "2026-11-26",
+        image: "blogs/astechware_new_web_blog_2.webp",
+        image_alt: "Dispatcher map showing optimized service routes for the day",
+        faq: [
+        { q: "Can it use the GPS trackers already in our trucks?", a: "Usually, yes. Telematics systems such as Samsara and Geotab have APIs, so live vehicle positions can feed the dispatcher map." },
+        { q: "Do drivers need a new phone?", a: "No. The driver app runs on ordinary Android and iPhone devices and stores the day's route for areas with no signal." }
+        ],
+        case_study_path: "/case-studies/shoreline-waste-logistics",
+        author_name: "Ahmad Kamran", author_title: "Founder, A'sTechware"
+      },
+      {
+        slug: "proof-of-service-app-photo-gps",
+        path: -> { blog_show_path("proof-of-service-app-photo-gps") },
+        title: "Proof of service app: how photo and GPS logs end \"you never came\" disputes",
+        seo_title: "Proof of Service App: End Pickup Disputes",
+        meta_description: "A proof of service app with geofenced photo logs ends 'you never came' disputes. What to capture at each stop, how billing ties in, and how to roll it out.",
+        keywords: "proof of service app, photo proof of delivery, GPS proof of service, field service photo app, missed pickup disputes",
+        category: "Logistics & field service",
+        category_slug: "logistics",
+        excerpt_short: "A proof of service app with geofenced photo logs ends 'you never came' disputes. What to capture at each stop, how billing ties in, and how to roll it out.",
+        excerpt_long: "\"You never came\" is one of the most expensive sentences in a service business. Without proof, you either argue, send someone back, or give a credit. A proof of service app records exactly when and where each stop was done, with a photo, so the answer is on screen in seconds.",
+        read_time: "5 min",
+        date: "26 Nov 2026", date_iso: "2026-11-26",
+        image: "blogs/astechware_new_web_blog_2.webp",
+        image_alt: "Driver app taking a geotagged photo at a service stop",
+        faq: [
+        { q: "What if there's no signal at the stop?", a: "The app saves the photo, time and location on the phone and uploads them when signal returns." },
+        { q: "Can drivers fake a photo?", a: "Photos can only be taken in the app and must be inside the geofence. That makes faking hard, and anything unusual shows up in the office view." }
+        ],
+        case_study_path: "/case-studies/shoreline-waste-logistics",
+        integration_path: "/integrations/stripe",
+        author_name: "Ahmad Kamran", author_title: "Founder, A'sTechware"
+      },
       # Expert AI series (production-first, what agencies miss)
       { slug: "ai-chatbot-death-spiral", path: -> { blog_show_path("ai-chatbot-death-spiral") }, title: "Why AI Chatbots Fail After Launch", category: "AI & Automation", category_slug: "ai-automation", excerpt_short: "Your AI chatbot launched at 95% accuracy. Two months later, customers are complaining. Why chatbots degrade and how to fix it with continuous improvement.", excerpt_long: "Agencies demo with curated data and have no plan for accuracy degradation. In production, user language evolves, edge cases accumulate, and model drift goes unnoticed until customers complain. We break down the chatbot death spiral—Week 1: 95% → Week 8: 60%—and the monitoring, feedback loops, and retraining strategies that actually keep production chatbots reliable.", read_time: "11 min", date: "Feb 16, 2026", date_iso: "2026-02-16", image: "ahmad/repi-work.jpeg", author_name: "Ahmad Kamran", author_title: "Founder" },
       { slug: "ai-cost-explosion", path: -> { blog_show_path("ai-cost-explosion") }, title: "How to Cut Runaway AI Costs", category: "Technical Deep Dives", category_slug: "technical-deep-dives", excerpt_short: "Your AI feature costs $50K/month. It should cost $8K. Smart model routing, caching, and token optimization without sacrificing quality.", excerpt_long: "Using GPT-4 for everything, no caching, and inefficient prompts burn budgets fast. We cover cost attribution, model tiering, semantic caching, prompt compression, and the math that gets legal tech from $40K to $16K—with real strategies you can apply this week.", read_time: "10 min", date: "Feb 16, 2026", date_iso: "2026-02-16", image: "blogs/astechware-food-and-ai-ml.webp", author_name: "Ahmad Kamran", author_title: "Founder" },

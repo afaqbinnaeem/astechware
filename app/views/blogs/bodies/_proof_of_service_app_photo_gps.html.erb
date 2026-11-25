@@ -1,0 +1,47 @@
+<% content_for :blog_key_takeaways do %>
+  <ul>
+    <li>A photo taken inside a small zone around the stop, with a timestamp, settles most disputes in seconds.</li>
+    <li>Keep capture to one tap for the driver, or they'll skip it.</li>
+    <li>Link each completed stop to billing and customer messages so proof and invoice match.</li>
+    <li>In our build, claims and disputes fell once every stop had photo and GPS proof.</li>
+  </ul>
+<% end %>
+<% content_for :blog_toc do %>
+  <ul class="list-unstyled mb-0">
+    <li><a href="#what-to-capture-at-each-stop">What to capture at each stop</a></li>
+    <li><a href="#make-it-one-tap">Make it one tap</a></li>
+    <li><a href="#connect-proof-to-billing-and-customers">Connect proof to billing and customers</a></li>
+    <li><a href="#handling-a-dispute">Handling a dispute</a></li>
+    <li><a href="#rolling-it-out">Rolling it out</a></li>
+  </ul>
+<% end %>
+
+<p class="lead">"You never came" is one of the most expensive sentences in a service business. Without proof, you either argue, send someone back, or give a credit. A proof of service app records exactly when and where each stop was done, with a photo, so the answer is on screen in seconds.</p>
+<h2 id="what-to-capture-at-each-stop">What to capture at each stop</h2>
+<ul>
+  <li>A photo: taken in the app, not uploaded from the camera roll.</li>
+  <li>Location: checked against a small zone around the stop (a geofence), so the photo can't be taken from down the road.</li>
+  <li>Time: recorded by the system, not typed in by the driver.</li>
+  <li>Status: done, skipped (with a reason) or blocked (with a photo of the problem).</li>
+</ul>
+<h2 id="make-it-one-tap">Make it one tap</h2>
+<p>Drivers have dozens of stops and no time. If proof takes more than a tap or two, it won't happen consistently. The app should open the camera at the right moment, check the location automatically, and save and upload in the background, even with no signal.</p>
+<h2 id="connect-proof-to-billing-and-customers">Connect proof to billing and customers</h2>
+<p>When a stop is marked done, three things can happen automatically:</p>
+<ol>
+  <li>The customer gets a "service completed" message, with the photo if you choose.</li>
+  <li>The stop counts toward their invoice or subscription, through a payment system such as <a href="/integrations/stripe">Stripe</a>.</li>
+  <li>Skipped or blocked stops create a follow-up for the office.</li>
+</ol>
+<p>Now the proof, the message and the invoice all agree.</p>
+<h2 id="handling-a-dispute">Handling a dispute</h2>
+<p>The office searches the customer, opens the stop and sees the photo, time and map pin. Most disputes end there. When the photo shows a real problem, like a blocked bin, it supports the fee or the reschedule.</p>
+<h2 id="rolling-it-out">Rolling it out</h2>
+<ol>
+  <li>Start with one route and one or two drivers.</li>
+  <li>Agree what a "good photo" shows for your service.</li>
+  <li>Set the geofence size for your area; rural stops may need a wider zone.</li>
+  <li>Turn on customer messages once photos are consistent.</li>
+</ol>
+<p>For <a href="/case-studies/shoreline-waste-logistics">Shoreline Waste</a>, geofence-checked photo logs and billing triggered by completed stops cut claims and disputes. Pair it with <a href="/blogs/route-planning-software-service-businesses">route planning</a> for the full picture, or see our <a href="/solutions/logistics">logistics page</a>.</p>
+<p>Giving credits because you can't prove a visit? <a href="/contact">Book a 30-min call</a> and we'll show you how proof at every stop would work for your routes.</p>

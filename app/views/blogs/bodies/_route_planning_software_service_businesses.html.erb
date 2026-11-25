@@ -1,0 +1,47 @@
+<% content_for :blog_key_takeaways do %>
+  <ul>
+    <li>Static route sheets waste fuel as soon as customers are added, paused or moved.</li>
+    <li>Good route planning uses real stop data, time windows, vehicle limits and live traffic.</li>
+    <li>The dispatcher should approve and adjust routes; the software suggests.</li>
+    <li>In our build, fuel waste fell after moving off static routes.</li>
+  </ul>
+<% end %>
+<% content_for :blog_toc do %>
+  <ul class="list-unstyled mb-0">
+    <li><a href="#signs-your-static-routes-are-costing-you">Signs your static routes are costing you</a></li>
+    <li><a href="#what-good-route-planning-needs">What good route planning needs</a></li>
+    <li><a href="#how-the-daily-flow-works">How the daily flow works</a></li>
+    <li><a href="#optimization-is-a-suggestion">Optimization is a suggestion</a></li>
+    <li><a href="#what-changes-in-practice">What changes in practice</a></li>
+  </ul>
+<% end %>
+
+<p class="lead">Many route-based businesses still run on route sheets someone built years ago. Customers are added at the end, paused stops stay on the list, and drivers zigzag across town. Route planning software for service businesses rebuilds each day's routes from real data and lets the dispatcher make the final call.</p>
+<h2 id="signs-your-static-routes-are-costing-you">Signs your static routes are costing you</h2>
+<ul>
+  <li>Drivers pass the same street twice in one day.</li>
+  <li>New customers go on whichever route has space, not the one that's nearby.</li>
+  <li>Fuel costs rise faster than your customer count.</li>
+  <li>Only one person knows how the routes "really" work.</li>
+</ul>
+<h2 id="what-good-route-planning-needs">What good route planning needs</h2>
+<ul>
+  <li>Clean stop data: an exact location for every stop, service day and frequency.</li>
+  <li>Constraints: time windows, vehicle capacity, driver shifts, depot and dump locations.</li>
+  <li>Live inputs: traffic, today's pauses and skips, extra one-off jobs.</li>
+  <li>Dispatcher control: move a stop, lock a route, or rebalance between drivers by hand.</li>
+  <li>A driver app: the day's stops in order, with navigation and notes.</li>
+</ul>
+<h2 id="how-the-daily-flow-works">How the daily flow works</h2>
+<ol>
+  <li>The night before, the system builds routes from tomorrow's active stops.</li>
+  <li>The dispatcher reviews, adjusts and publishes them.</li>
+  <li>Drivers get their route on the app, which keeps working offline in poor signal areas.</li>
+  <li>The office sees vehicles and completed stops live on a map.</li>
+  <li>Each completed stop feeds billing and customer notifications.</li>
+</ol>
+<h2 id="optimization-is-a-suggestion">Optimization is a suggestion</h2>
+<p>Route optimization is good at the arithmetic of distance and time. It doesn't know that one gate opens late or that a customer needs a call first. That's why the dispatcher always reviews the plan. Over time, those notes become rules the planner follows.</p>
+<h2 id="what-changes-in-practice">What changes in practice</h2>
+<p>We built route planning, a driver app and live fleet visibility for <a href="/case-studies/shoreline-waste-logistics">Shoreline Waste</a>, a route-based service company that worked from static route sheets. Fuel waste fell. Combined with <a href="/blogs/proof-of-service-app-photo-gps">photo proof</a> at every stop, customer disputes fell too. More on our <a href="/solutions/logistics">logistics page</a>.</p>
+<p>Still running on route sheets? <a href="/contact">Book a 30-min call</a> and we'll look at your stops and show you what a planned day would look like.</p>
