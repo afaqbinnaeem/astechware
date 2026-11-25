@@ -437,6 +437,50 @@ module ApplicationHelper
         integration_path: "/integrations/payment-gateway-migration",
         author_name: "Ahmad Kamran", author_title: "Founder, A'sTechware"
       },
+      {
+        slug: "prevent-double-booking-saas",
+        path: -> { blog_show_path("prevent-double-booking-saas") },
+        title: "How to prevent double bookings in a SaaS booking system",
+        seo_title: "How to Prevent Double Bookings in SaaS",
+        meta_description: "How to prevent double booking in a SaaS booking system under burst traffic: locking, idempotent retries and separating browsing from committing a slot.",
+        keywords: "prevent double booking, booking system race condition, distributed locking booking, idempotent booking API, booking platform development",
+        category: "B2B SaaS",
+        category_slug: "b2b-saas",
+        excerpt_short: "How to prevent double booking in a SaaS booking system under burst traffic: locking, idempotent retries and separating browsing from committing a slot.",
+        excerpt_long: "A double booking looks like a small bug until it happens on your busiest morning. Two customers turn up for the same tee time, class or appointment, and your client has to apologize to one of them. Here is why it happens and how to prevent double booking for good.",
+        read_time: "6 min",
+        date: "26 Nov 2026", date_iso: "2026-11-26",
+        image: "blogs/astechware_new_web_blog_2.webp",
+        image_alt: "Two users trying to book the same slot, with only one confirmed",
+        faq: [
+        { q: "Is a database rule enough on its own?", a: "It stops the bad booking, but the user only learns at the final step that the slot is gone. Holds and locks give a much better experience under load." },
+        { q: "What if we allow some overbooking on purpose?", a: "Model it as capacity: each slot has a limit, and a booking only succeeds while the count is under it. The same locking rules apply." }
+        ],
+        case_study_path: "/case-studies/golfpay360-saas",
+        author_name: "Ahmad Kamran", author_title: "Founder, A'sTechware"
+      },
+      {
+        slug: "legacy-saas-modernization-without-downtime",
+        path: -> { blog_show_path("legacy-saas-modernization-without-downtime") },
+        title: "Modernize a legacy SaaS app without downtime: the strangler fig approach",
+        seo_title: "Modernize a Legacy SaaS App Without Downtime",
+        meta_description: "Legacy application modernization without a risky rewrite: the strangler fig approach, an edge layer, moving one feature at a time and keeping users online.",
+        keywords: "legacy application modernization, strangler fig pattern, legacy SaaS rewrite, platform modernization, migrate PHP to React",
+        category: "B2B SaaS",
+        category_slug: "b2b-saas",
+        excerpt_short: "Legacy application modernization without a risky rewrite: the strangler fig approach, an edge layer, moving one feature at a time and keeping users online.",
+        excerpt_long: "When an old SaaS app starts failing under load, the instinct is to rewrite it from scratch. Big rewrites often run long, freeze new features and launch with new bugs. Legacy application modernization works better in slices: build the new system around the old one and move features across one by one while users keep working.",
+        read_time: "6 min",
+        date: "26 Nov 2026", date_iso: "2026-11-26",
+        image: "blogs/astechware_new_web_blog_2.webp",
+        image_alt: "New platform gradually replacing parts of a legacy app behind one edge layer",
+        faq: [
+        { q: "Can we keep shipping features during the migration?", a: "Yes. New features are built on the new platform, which is one of the main reasons to move in slices rather than freezing work for a full rewrite." },
+        { q: "Do we have to change programming language?", a: "No. Modernization is about structure, speed and maintainability. Sometimes the right move is a cleaner version of the same stack." }
+        ],
+        case_study_path: "/case-studies/word-of-mouth-modernization",
+        author_name: "Ahmad Kamran", author_title: "Founder, A'sTechware"
+      },
       # Expert AI series (production-first, what agencies miss)
       { slug: "ai-chatbot-death-spiral", path: -> { blog_show_path("ai-chatbot-death-spiral") }, title: "Why AI Chatbots Fail After Launch", category: "AI & Automation", category_slug: "ai-automation", excerpt_short: "Your AI chatbot launched at 95% accuracy. Two months later, customers are complaining. Why chatbots degrade and how to fix it with continuous improvement.", excerpt_long: "Agencies demo with curated data and have no plan for accuracy degradation. In production, user language evolves, edge cases accumulate, and model drift goes unnoticed until customers complain. We break down the chatbot death spiral—Week 1: 95% → Week 8: 60%—and the monitoring, feedback loops, and retraining strategies that actually keep production chatbots reliable.", read_time: "11 min", date: "Feb 16, 2026", date_iso: "2026-02-16", image: "ahmad/repi-work.jpeg", author_name: "Ahmad Kamran", author_title: "Founder" },
       { slug: "ai-cost-explosion", path: -> { blog_show_path("ai-cost-explosion") }, title: "How to Cut Runaway AI Costs", category: "Technical Deep Dives", category_slug: "technical-deep-dives", excerpt_short: "Your AI feature costs $50K/month. It should cost $8K. Smart model routing, caching, and token optimization without sacrificing quality.", excerpt_long: "Using GPT-4 for everything, no caching, and inefficient prompts burn budgets fast. We cover cost attribution, model tiering, semantic caching, prompt compression, and the math that gets legal tech from $40K to $16K—with real strategies you can apply this week.", read_time: "10 min", date: "Feb 16, 2026", date_iso: "2026-02-16", image: "blogs/astechware-food-and-ai-ml.webp", author_name: "Ahmad Kamran", author_title: "Founder" },

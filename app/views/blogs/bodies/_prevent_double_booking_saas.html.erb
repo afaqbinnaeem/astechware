@@ -1,0 +1,39 @@
+<% content_for :blog_key_takeaways do %>
+  <ul>
+    <li>Double bookings come from two requests seeing the same slot as free at the same moment.</li>
+    <li>They appear under burst traffic, like when slots are released, which is exactly when it matters most.</li>
+    <li>Combine a database rule, short holds, locking, and protection against repeated requests.</li>
+    <li>Load-test the release moment before customers find the problem for you.</li>
+  </ul>
+<% end %>
+<% content_for :blog_toc do %>
+  <ul class="list-unstyled mb-0">
+    <li><a href="#why-double-bookings-happen">Why double bookings happen</a></li>
+    <li><a href="#the-fixes-layer-by-layer">The fixes, layer by layer</a></li>
+    <li><a href="#test-the-busy-moment">Test the busy moment</a></li>
+    <li><a href="#what-changes-in-practice">What changes in practice</a></li>
+  </ul>
+<% end %>
+
+<p class="lead">A double booking looks like a small bug until it happens on your busiest morning. Two customers turn up for the same tee time, class or appointment, and your client has to apologize to one of them. Here is why it happens and how to prevent double booking for good.</p>
+<h2 id="why-double-bookings-happen">Why double bookings happen</h2>
+<p>Two requests arrive a few milliseconds apart. Both check the slot, both see it as free, and both save a booking. This is called a race condition. It rarely shows up in testing, because testers don't click at the same instant. It shows up when hundreds of users hit "book" the moment slots are released.</p>
+<h2 id="the-fixes-layer-by-layer">The fixes, layer by layer</h2>
+<ol>
+  <li>A database rule. Add a unique rule on the resource and the time, so the database refuses the second booking. This is the last line of defense, but on its own the user only finds out at the final step.</li>
+  <li>Short holds. When a user picks a slot, hold it for a few minutes while they check out.</li>
+</ol>
+<ul>
+  <li>Others see it as unavailable. The hold expires if they leave.</li>
+</ul>
+<ol>
+  <li>Locking across servers. With several servers, use a shared lock (for example in Redis) so only one request at a time can claim a given slot.</li>
+  <li>Idempotent requests. Give each booking attempt a unique key. If the app or the network retries, the server recognizes the repeat and returns the original result instead of booking twice.</li>
+  <li>Separate browsing from booking. Serve availability for browsing from a fast cache, and check the real data only on the booking path. Browsing stays fast; booking stays correct.</li>
+  <li>Order payment carefully. Hold the slot, take payment, then confirm. If payment fails, release the hold automatically.</li>
+</ol>
+<h2 id="test-the-busy-moment">Test the busy moment</h2>
+<p>Simulate hundreds of users booking the same few slots at the same second. Check that exactly one booking succeeds per slot and every other user gets a clear "just taken" message.</p>
+<h2 id="what-changes-in-practice">What changes in practice</h2>
+<p><a href="/case-studies/golfpay360-saas">GolfPay360</a> had double-booked tee times whenever traffic spiked. We rebuilt booking with distributed locking, idempotent retries, and browsing separated from booking. Double bookings stopped, most bookings moved online, and courses spent less time on admin. See our <a href="/solutions/b2b-saas">B2B SaaS page</a> for more.</p>
+<p>Getting double bookings when traffic spikes? <a href="/contact">Book a 30-min call</a> and we'll review where your booking flow can race.</p>

@@ -1,0 +1,34 @@
+<% content_for :blog_key_takeaways do %>
+  <ul>
+    <li>A full rewrite in one go often runs late and lands with new bugs.</li>
+    <li>The strangler fig approach replaces the old app one feature at a time, behind one entry point.</li>
+    <li>Stabilize the old system first, so it keeps working while you rebuild.</li>
+    <li>In our build, users saw no downtime during the migration.</li>
+  </ul>
+<% end %>
+<% content_for :blog_toc do %>
+  <ul class="list-unstyled mb-0">
+    <li><a href="#the-strangler-fig-approach">The strangler fig approach</a></li>
+    <li><a href="#step-by-step">Step by step</a></li>
+    <li><a href="#measure-as-you-go">Measure as you go</a></li>
+    <li><a href="#what-changes-in-practice">What changes in practice</a></li>
+  </ul>
+<% end %>
+
+<p class="lead">When an <a href="/solutions/b2b-saas">old SaaS app</a> starts failing under load, the instinct is to rewrite it from scratch. Big rewrites often run long, freeze new features and launch with new bugs. Legacy application modernization works better in slices: build the new system around the old one and move features across one by one while users keep working.</p>
+<h2 id="the-strangler-fig-approach">The strangler fig approach</h2>
+<p>The name comes from a vine that grows around a tree until it replaces it. In software, you put one entry point in front of the old app. Each request is sent to either the old or the new system, depending on the feature. Over time, more routes point to the new system, until the old one can be switched off.</p>
+<h2 id="step-by-step">Step by step</h2>
+<ol>
+  <li>Add an edge layer. Put a CDN, firewall and routing layer in front of the app. It protects you from traffic spikes straight away and decides where each request goes.</li>
+  <li>Stabilize first. Fix the worst problems in the old app, like slow queries, missing caching and crashing jobs, so it holds up during the move.</li>
+  <li>Choose the first slice. Pick something valuable that doesn't depend on much else, such as public pages, search or one dashboard.</li>
+  <li>Plan shared data. Let the new services read the existing database at first, or keep the two in sync, so both systems see the same truth.</li>
+  <li>Switch one route at a time. Move each feature behind a switch you can turn back instantly if something goes wrong.</li>
+  <li>Retire the old code. Once a feature runs on the new system with no issues, delete the old version so it can't drift.</li>
+</ol>
+<h2 id="measure-as-you-go">Measure as you go</h2>
+<p>Track speed, error rates and support tickets for each feature before and after it moves. That shows the business real progress every few weeks instead of waiting for a big launch.</p>
+<h2 id="what-changes-in-practice">What changes in practice</h2>
+<p><a href="/case-studies/word-of-mouth-modernization">Word of Mouth</a>, an Australian platform, was hitting outages on an old PHP and jQuery stack. We moved it to a modern React and Node platform feature by feature behind a hardened edge layer. Users saw no downtime during the migration, the site got faster, and the team shipped faster afterwards. Read more on our <a href="/services/platform-modernization">platform modernization</a> page.</p>
+<p>Old platform holding your product back? <a href="/contact">Book a 30-min call</a> and we'll map which slice to move first.</p>
