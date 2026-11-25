@@ -1,0 +1,45 @@
+<% content_for :blog_key_takeaways do %>
+  <ul>
+    <li>Automation is good at reading plans, specs and notes and drafting line items with quantities.</li>
+    <li>Drawing sheets are mostly tables and symbols. Plain text extraction loses them; reading the page as an image works far better.</li>
+    <li>Prices should come from your own price book, with the estimator having the final say.</li>
+    <li>Start with one trade or one job type, and test against estimates you've already won.</li>
+  </ul>
+<% end %>
+<% content_for :blog_toc do %>
+  <ul class="list-unstyled mb-0">
+    <li><a href="#where-estimating-time-goes">Where estimating time goes</a></li>
+    <li><a href="#what-automation-does-well">What automation does well</a></li>
+    <li><a href="#what-we-learned-building-one">What we learned building one</a></li>
+    <li><a href="#why-the-estimator-keeps-pricing">Why the estimator keeps pricing</a></li>
+    <li><a href="#how-to-start">How to start</a></li>
+  </ul>
+<% end %>
+
+<p class="lead">Estimating eats the evenings of most contractors. Someone reads a stack of plan PDFs, pulls quantities, writes line items and prices them by hand. Construction estimating automation drafts most of that from the documents and leaves the judgement to the estimator. Here is what works, what doesn't, and what we learned building one.</p>
+<h2 id="where-estimating-time-goes">Where estimating time goes</h2>
+<ul>
+  <li>Reading every sheet to find scope, notes and schedules.</li>
+  <li>Writing the same kinds of line items for every job.</li>
+  <li>Pulling quantities from tables and drawings.</li>
+  <li>Pricing each line and applying markup.</li>
+</ul>
+<p>The first three are mostly reading and typing, which is what automation handles well.</p>
+<h2 id="what-automation-does-well">What automation does well</h2>
+<p>Given plan PDFs and walk-through notes, a good system drafts an estimate skeleton: line descriptions, quantities and units, grouped by your cost codes. It reads specifications, general notes and door, window and finish schedules. It flags anything it isn't sure about instead of guessing quietly.</p>
+<h2 id="what-we-learned-building-one">What we learned building one</h2>
+<p>Our first version extracted the text from each PDF and sent it to the model. Notes came through fine, but quantities were often wrong. The reason was simple: drawing sheets are mostly tables, and the table structure disappears when you pull out plain text.</p>
+<p>Two changes fixed most of it. We sent drawing pages to the model as images so it could read the tables as they look on paper. And we split large plan sets into small batches of pages with a little overlap, instead of one huge request.</p>
+<h2 id="why-the-estimator-keeps-pricing">Why the estimator keeps pricing</h2>
+<p>Prices change, and many contractors have different contracted rates for different clients. So the system drafts quantities and descriptions, and the estimator prices them. The next step is matching each line to your own price book by cost code, so lines arrive pre-priced with a confidence flag and the estimator only confirms or edits.</p>
+<p>Contractors often also receive bids that are already priced. A second path imports a priced PDF, keeps its client prices locked and works out the cost side underneath.</p>
+<h2 id="how-to-start">How to start</h2>
+<ol>
+  <li>Choose one job type, such as residential remodels or tenant improvements.</li>
+  <li>Collect 10 to 20 past estimates with their plan sets.</li>
+  <li>Agree your cost code list; QuickBooks is a good source of truth.</li>
+  <li>Run the system on past jobs and compare its quantities with your won estimates.</li>
+  <li>Go live with an estimator reviewing every draft.</li>
+</ol>
+<p>We built this as part of a platform for <a href="/case-studies/construction-management-platform">a contractor running three companies</a>. See how it connects to subcontracts, invoices and QuickBooks in our <a href="/blogs/multi-company-construction-software-quickbooks">multi-company guide</a> and on our <a href="/solutions/construction">construction page</a>.</p>
+<p>Spending evenings on estimates? <a href="/contact">Book a 30-min call</a>, bring one past plan set, and we'll show you what a drafted estimate would look like.</p>

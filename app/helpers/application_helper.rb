@@ -212,6 +212,51 @@ module ApplicationHelper
         integration_path: "/integrations/docusign",
         author_name: "Ahmad Kamran", author_title: "Founder, A'sTechware"
       },
+      {
+        slug: "construction-estimating-automation",
+        path: -> { blog_show_path("construction-estimating-automation") },
+        title: "Construction estimating from plan PDFs: what automation can and can't do",
+        seo_title: "Construction Estimating from Plan PDFs",
+        meta_description: "How construction estimating automation drafts estimates from plan PDFs: reading quantities, applying your own prices and keeping an estimator in control.",
+        keywords: "construction estimating automation, AI construction estimating, estimate from plan PDF, construction takeoff automation, contractor estimating software",
+        category: "Construction",
+        category_slug: "construction",
+        excerpt_short: "How construction estimating automation drafts estimates from plan PDFs: reading quantities, applying your own prices and keeping an estimator in control.",
+        excerpt_long: "Estimating eats the evenings of most contractors. Someone reads a stack of plan PDFs, pulls quantities, writes line items and prices them by hand. Construction estimating automation drafts most of that from the documents and leaves the judgement to the estimator. Here is what works, what doesn't, and what we learned building one.",
+        read_time: "6 min",
+        date: "26 Nov 2026", date_iso: "2026-11-26",
+        image: "blogs/astechware_new_web_blog_2.webp",
+        image_alt: "Plan PDF on one side and a drafted line-item estimate on the other",
+        faq: [
+        { q: "Can AI do a full takeoff from drawings?", a: "It can draft quantities from schedules, notes and clearly labelled sheets." },
+        { q: "Will it use my prices or generic ones?", a: "Yours. Generic price databases don't match your subs or your clients' contracted rates. The system should learn from your own price book and past estimates." }
+        ],
+        case_study_path: "/case-studies/construction-management-platform",
+        author_name: "Ahmad Kamran", author_title: "Founder, A'sTechware"
+      },
+      {
+        slug: "multi-company-construction-software-quickbooks",
+        path: -> { blog_show_path("multi-company-construction-software-quickbooks") },
+        title: "Running several construction companies on one platform, each with its own QuickBooks",
+        seo_title: "Multi-Company Construction Software",
+        meta_description: "Running more than one construction company? How one platform can handle estimates, subcontracts and invoices while each company syncs to its own QuickBooks.",
+        keywords: "multi-company construction software, construction software QuickBooks integration, construction management software for multiple companies, subcontract management, QuickBooks Online construction",
+        category: "Construction",
+        category_slug: "construction",
+        excerpt_short: "Running more than one construction company? How one platform can handle estimates, subcontracts and invoices while each company syncs to its own QuickBooks.",
+        excerpt_long: "Many contractors run more than one company: a general contracting business, a specialty trade shop, a residential arm. Each one usually ends up with its own tools and its own way of working. Multi-company construction software puts them on one platform while keeping each company's books apart. Here is how it should be set up.",
+        read_time: "6 min",
+        date: "26 Nov 2026", date_iso: "2026-11-26",
+        image: "blogs/astechware_new_web_blog_2.webp",
+        image_alt: "One construction dashboard with three companies, each linked to its own QuickBooks",
+        faq: [
+        { q: "Can each company keep its own QuickBooks?", a: "Yes." },
+        { q: "Does it work with QuickBooks Desktop?", a: "We build on the QuickBooks Online API. Desktop works differently and usually needs a separate connector, so check which version you use first." }
+        ],
+        case_study_path: "/case-studies/construction-management-platform",
+        integration_path: "/integrations/quickbooks-online",
+        author_name: "Ahmad Kamran", author_title: "Founder, A'sTechware"
+      },
       # Expert AI series (production-first, what agencies miss)
       { slug: "ai-chatbot-death-spiral", path: -> { blog_show_path("ai-chatbot-death-spiral") }, title: "Why AI Chatbots Fail After Launch", category: "AI & Automation", category_slug: "ai-automation", excerpt_short: "Your AI chatbot launched at 95% accuracy. Two months later, customers are complaining. Why chatbots degrade and how to fix it with continuous improvement.", excerpt_long: "Agencies demo with curated data and have no plan for accuracy degradation. In production, user language evolves, edge cases accumulate, and model drift goes unnoticed until customers complain. We break down the chatbot death spiral—Week 1: 95% → Week 8: 60%—and the monitoring, feedback loops, and retraining strategies that actually keep production chatbots reliable.", read_time: "11 min", date: "Feb 16, 2026", date_iso: "2026-02-16", image: "ahmad/repi-work.jpeg", author_name: "Ahmad Kamran", author_title: "Founder" },
       { slug: "ai-cost-explosion", path: -> { blog_show_path("ai-cost-explosion") }, title: "How to Cut Runaway AI Costs", category: "Technical Deep Dives", category_slug: "technical-deep-dives", excerpt_short: "Your AI feature costs $50K/month. It should cost $8K. Smart model routing, caching, and token optimization without sacrificing quality.", excerpt_long: "Using GPT-4 for everything, no caching, and inefficient prompts burn budgets fast. We cover cost attribution, model tiering, semantic caching, prompt compression, and the math that gets legal tech from $40K to $16K—with real strategies you can apply this week.", read_time: "10 min", date: "Feb 16, 2026", date_iso: "2026-02-16", image: "blogs/astechware-food-and-ai-ml.webp", author_name: "Ahmad Kamran", author_title: "Founder" },
