@@ -1,0 +1,72 @@
+<% content_for :blog_key_takeaways do %>
+  <ul>
+    <li>Most booking problems come from rules nobody wrote down, not from the software.</li>
+    <li>Decide how credits, memberships, waitlists and cancellations work before building anything.</li>
+    <li>Waitlists should promote people automatically, with a clear deadline to confirm.</li>
+    <li>Full classes at release time need the same protections as any busy booking system.</li>
+  </ul>
+<% end %>
+<% content_for :blog_toc do %>
+  <ul class="list-unstyled mb-0">
+    <li><a href="#the-rules-to-decide">The rules to decide</a></li>
+    <li><a href="#how-waitlists-should-work">How waitlists should work</a></li>
+    <li><a href="#payments-and-credits">Payments and credits</a></li>
+    <li><a href="#busy-classes-need-protection">Busy classes need protection</a></li>
+    <li><a href="#write-the-rules-first">Write the rules first</a></li>
+  </ul>
+<% end %>
+
+<p class="lead">Studio owners know their rules by heart, but software needs every one of them written down. Unclear rules lead to angry clients and refunds. Before you build or configure class booking software, decide these rules. Here they are, with the questions to answer for each.</p>
+<h2 id="the-rules-to-decide">The rules to decide</h2>
+<div class="table-responsive"><table class="table table-sm">
+<thead><tr>
+<th>Rule</th>
+<th>Questions to answer</th>
+</tr></thead><tbody>
+<tr>
+<td>Class packs</td>
+<td>How many credits, which classes they cover, and when they expire.</td>
+</tr>
+<tr>
+<td>Memberships</td>
+<td>Unlimited or a set number per week? Can members book ahead further than others?</td>
+</tr>
+<tr>
+<td>Intro offers</td>
+<td>Who qualifies, and how do you stop the same person claiming twice?</td>
+</tr>
+<tr>
+<td>Booking window</td>
+<td>How far ahead can people book, and when does booking close?</td>
+</tr>
+<tr>
+<td>Late cancel</td>
+<td>What counts as late, and is a credit lost or a fee charged?</td>
+</tr>
+<tr>
+<td>No-show</td>
+<td>Same as late cancel, or stricter?</td>
+</tr>
+<tr>
+<td>Waitlist</td>
+<td>How many spots, and how long does someone have to confirm a freed spot?</td>
+</tr>
+<tr>
+<td>Substitutions</td>
+<td>What do booked clients see when the instructor changes?</td>
+</tr>
+</tbody></table></div>
+<h2 id="how-waitlists-should-work">How waitlists should work</h2>
+<ol>
+  <li>When a spot opens, the first person on the waitlist is offered it.</li>
+  <li>They get a notification and a set time to confirm.</li>
+  <li>If they don't confirm, the next person is offered it.</li>
+  <li>Close to class start, switch to automatic booking, so spots don't go empty.</li>
+</ol>
+<h2 id="payments-and-credits">Payments and credits</h2>
+<p>Credits and memberships are money, so treat them carefully. Record every credit added, used, refunded or expired, so balances can always be explained. Take payments through a provider such as <a href="/integrations/stripe">Stripe</a>, and link each payment to the credits or membership it bought.</p>
+<h2 id="busy-classes-need-protection">Busy classes need protection</h2>
+<p>Popular classes often fill seconds after release. Without protection, two people can book the last spot at once. The same techniques used in any busy booking system apply here: short holds, locking and protection against repeated requests. Our <a href="/blogs/prevent-double-booking-saas">guide to preventing double bookings</a> explains them.</p>
+<h2 id="write-the-rules-first">Write the rules first</h2>
+<p>Put your rules in a one-page policy before any build. It becomes the specification, the text clients see, and the checklist for testing. Read our <a href="/blogs/fitness-studio-booking-app">booking app guide</a> for the bigger decision, or see our <a href="/solutions/fitness-studios">fitness studios page</a>.</p>
+<p>Need booking rules that match how your studio really works? <a href="/contact">Book a 30-min call</a> and we'll turn your policy into a system that applies it fairly.</p>

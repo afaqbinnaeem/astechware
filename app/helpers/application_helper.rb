@@ -613,6 +613,49 @@ module ApplicationHelper
         ],
         author_name: "Ahmad Kamran", author_title: "Founder, A'sTechware"
       },
+      {
+        slug: "fitness-studio-booking-app",
+        path: -> { blog_show_path("fitness-studio-booking-app") },
+        title: "Fitness studio booking app: build your own or rent a platform?",
+        seo_title: "Fitness Studio Booking App: Build or Rent?",
+        meta_description: "Should a fitness studio build its own booking app? What a branded app adds over a marketplace platform, what it costs to run, and the features that matter.",
+        keywords: "fitness studio booking app, branded fitness app, pilates studio booking software, yoga studio app, custom gym booking app",
+        category: "Fitness studios",
+        category_slug: "fitness",
+        excerpt_short: "Should a fitness studio build its own booking app? What a branded app adds over a marketplace platform, what it costs to run, and the features that matter.",
+        excerpt_long: "Most studios start on a booking platform, and that's sensible. As the studio grows, owners notice the downsides: their brand sits inside someone else's app, clients see other studios nearby, and pricing has to fit the platform's options. Here is when a fitness studio booking app of your own makes sense.",
+        read_time: "5 min",
+        date: "26 Nov 2026", date_iso: "2026-11-26",
+        image: "blogs/astechware_new_web_blog_2.webp",
+        image_alt: "Branded studio app showing this week's classes and a book button",
+        faq: [
+        { q: "Can clients still book on the web, not just the app?", a: "Yes. The same booking system can power the app and a booking page on your website, so clients use whichever they prefer." },
+        { q: "Can we move our existing clients and their class credits?", a: "Yes. Export clients, memberships and remaining credits from your current platform and import them before launch, then check a sample by hand." }
+        ],
+        author_name: "Ahmad Kamran", author_title: "Founder, A'sTechware"
+      },
+      {
+        slug: "class-booking-memberships-waitlists",
+        path: -> { blog_show_path("class-booking-memberships-waitlists") },
+        title: "Class booking logic: class packs, memberships, waitlists and late cancels",
+        seo_title: "Class Booking: Packs, Memberships, Waitlists",
+        meta_description: "How class booking software handles class packs, memberships, waitlists and late cancels, and the rules studios should decide before building the system.",
+        keywords: "class booking software, class pack system, studio membership management, waitlist booking system, late cancel policy software",
+        category: "Fitness studios",
+        category_slug: "fitness",
+        excerpt_short: "How class booking software handles class packs, memberships, waitlists and late cancels, and the rules studios should decide before building the system.",
+        excerpt_long: "Studio owners know their rules by heart, but software needs every one of them written down. Unclear rules lead to angry clients and refunds. Before you build or configure class booking software, decide these rules. Here they are, with the questions to answer for each.",
+        read_time: "6 min",
+        date: "26 Nov 2026", date_iso: "2026-11-26",
+        image: "blogs/astechware_new_web_blog_2.webp",
+        image_alt: "Class schedule with a full class, a waitlist and remaining class credits",
+        faq: [
+        { q: "Can different classes use different rules?", a: "Yes. A reformer class can have a stricter late-cancel window than a mat class." },
+        { q: "What happens to credits if we pause a membership?", a: "Decide this in your policy. Common choices are pausing expiry dates for the same period, or letting credits run out as normal." }
+        ],
+        integration_path: "/integrations/stripe",
+        author_name: "Ahmad Kamran", author_title: "Founder, A'sTechware"
+      },
       # Expert AI series (production-first, what agencies miss)
       { slug: "ai-chatbot-death-spiral", path: -> { blog_show_path("ai-chatbot-death-spiral") }, title: "Why AI Chatbots Fail After Launch", category: "AI & Automation", category_slug: "ai-automation", excerpt_short: "Your AI chatbot launched at 95% accuracy. Two months later, customers are complaining. Why chatbots degrade and how to fix it with continuous improvement.", excerpt_long: "Agencies demo with curated data and have no plan for accuracy degradation. In production, user language evolves, edge cases accumulate, and model drift goes unnoticed until customers complain. We break down the chatbot death spiral—Week 1: 95% → Week 8: 60%—and the monitoring, feedback loops, and retraining strategies that actually keep production chatbots reliable.", read_time: "11 min", date: "Feb 16, 2026", date_iso: "2026-02-16", image: "ahmad/repi-work.jpeg", author_name: "Ahmad Kamran", author_title: "Founder" },
       { slug: "ai-cost-explosion", path: -> { blog_show_path("ai-cost-explosion") }, title: "How to Cut Runaway AI Costs", category: "Technical Deep Dives", category_slug: "technical-deep-dives", excerpt_short: "Your AI feature costs $50K/month. It should cost $8K. Smart model routing, caching, and token optimization without sacrificing quality.", excerpt_long: "Using GPT-4 for everything, no caching, and inefficient prompts burn budgets fast. We cover cost attribution, model tiering, semantic caching, prompt compression, and the math that gets legal tech from $40K to $16K—with real strategies you can apply this week.", read_time: "10 min", date: "Feb 16, 2026", date_iso: "2026-02-16", image: "blogs/astechware-food-and-ai-ml.webp", author_name: "Ahmad Kamran", author_title: "Founder" },
