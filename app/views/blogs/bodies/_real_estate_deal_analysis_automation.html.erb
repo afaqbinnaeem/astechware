@@ -1,0 +1,41 @@
+<% content_for :blog_key_takeaways do %>
+  <ul>
+    <li>Manual underwriting takes 30 to 45 minutes per property, which caps how many deals you can look at.</li>
+    <li>Automation pulls records and comps, scores the comps and runs every strategy at once.</li>
+    <li>Keep all the math in normal code. Use AI only to explain the result in plain language.</li>
+    <li>In our build, analysis became a fast, repeatable workflow, and investors reviewed more deals each week.</li>
+  </ul>
+<% end %>
+<% content_for :blog_toc do %>
+  <ul class="list-unstyled mb-0">
+    <li><a href="#what-manual-underwriting-involves">What manual underwriting involves</a></li>
+    <li><a href="#the-automated-flow">The automated flow</a></li>
+    <li><a href="#keep-the-math-out-of-the-ai">Keep the math out of the AI</a></li>
+    <li><a href="#what-changes-in-practice">What changes in practice</a></li>
+  </ul>
+<% end %>
+
+<p class="lead">Investors who analyze every lead by hand can only look at a handful a day. Real estate deal analysis software takes an address and returns comps, a repair estimate and offer prices for each strategy, so you spend your time on the deals worth pursuing.</p>
+<h2 id="what-manual-underwriting-involves">What manual underwriting involves</h2>
+<ul>
+  <li>Pulling property records and recent sales nearby.</li>
+  <li>Choosing which sales are true comparables, and adjusting for differences.</li>
+  <li>Estimating repairs and the after-repair value.</li>
+  <li>Running the numbers for each exit strategy.</li>
+  <li>Writing it up for a partner or a seller.</li>
+</ul>
+<p>Done well, that's 30 to 45 minutes per property.</p>
+<h2 id="the-automated-flow">The automated flow</h2>
+<ol>
+  <li>Enter an address.</li>
+  <li>Pull data: property records and recent sales from a data provider such as ATTOM, or MLS data through the <a href="/blogs/reso-web-api-mls-integration">RESO Web API</a> if you have access.</li>
+  <li>Score comps: each sale is scored on distance, age, size, condition and date, with the reason shown.</li>
+  <li>Estimate value and repairs: from the chosen comps and your repair assumptions.</li>
+  <li>Run every strategy at once: wholesale, fix and flip, subject-to and seller finance, each with its own offer price.</li>
+  <li>Export: a summary and a PDF to share.</li>
+</ol>
+<h2 id="keep-the-math-out-of-the-ai">Keep the math out of the AI</h2>
+<p>Language models are not reliable at arithmetic, and an offer price has to be exact and repeatable. In our build, every number comes from normal code that gives the same answer every time. The AI only reads the result and explains it in plain language: why these comps, what drives the price, what to check on site. That makes every number easy to audit.</p>
+<h2 id="what-changes-in-practice">What changes in practice</h2>
+<p>In the <a href="/case-studies/ai-deal-analyzer">AI Deal Analyzer we built</a>, analysis dropped from lengthy manual work to a fast, repeatable workflow, and investors reviewed more deals each week. See more on our <a href="/solutions/real-estate">real estate page</a>.</p>
+<p>Spending your evenings on comps? <a href="/contact">Book a 30-min call</a> and we'll run through how your current process would work automated.</p>

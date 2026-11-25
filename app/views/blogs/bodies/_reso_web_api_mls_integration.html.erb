@@ -1,0 +1,39 @@
+<% content_for :blog_key_takeaways do %>
+  <ul>
+    <li>The RESO Web API is the modern standard for pulling MLS data, using REST and OData queries.</li>
+    <li>Access comes through each MLS (or an approved aggregator) under a license that limits how you may use the data.</li>
+    <li>Copy the data once, then pull only what changed, using modification timestamps.</li>
+    <li>Even with the shared Data Dictionary, each MLS has local fields and quirks.</li>
+  </ul>
+<% end %>
+<% content_for :blog_toc do %>
+  <ul class="list-unstyled mb-0">
+    <li><a href="#what-the-reso-web-api-is">What the RESO Web API is</a></li>
+    <li><a href="#getting-access">Getting access</a></li>
+    <li><a href="#querying-the-data">Querying the data</a></li>
+    <li><a href="#replication-copy-once-then-sync-changes">Replication: copy once, then sync changes</a></li>
+    <li><a href="#working-with-more-than-one-mls">Working with more than one MLS</a></li>
+    <li><a href="#a-real-example">A real example</a></li>
+  </ul>
+<% end %>
+
+<p class="lead">If you're building a property app, MLS data is the foundation, and the <a href="/integrations/reso-mls">RESO Web API</a> is how most MLSs now share it. The API is the simple part. Access agreements, data replication and the differences between MLSs take most of the effort. Here is what to plan for.</p>
+<h2 id="what-the-reso-web-api-is">What the RESO Web API is</h2>
+<p>RESO (the Real Estate Standards Organization) publishes two things that matter here. The Web API is a REST interface that uses OData queries. The Data Dictionary gives fields shared names, such as ListPrice or StandardStatus, so data from different MLSs looks similar. The main resources are Property, Media, Member, Office and OpenHouse.</p>
+<h2 id="getting-access">Getting access</h2>
+<p>Each MLS controls its own data. You usually need an agreement with the MLS, often sponsored by a participating broker, that states your use: an IDX website, a back-office tool, or analytics. That license decides what you can display, store and for how long. Start this step early, because it can take longer than the build.</p>
+<h2 id="querying-the-data">Querying the data</h2>
+<p>OData lets you filter and shape results in the request: $filter for conditions such as status or city, $select to pick fields, $orderby and $top to page through results. Photos come from the Media resource, linked to each listing by its key.</p>
+<h2 id="replication-copy-once-then-sync-changes">Replication: copy once, then sync changes</h2>
+<ol>
+  <li>Run a full initial load of active listings and the fields you need.</li>
+  <li>After that, request only records whose ModificationTimestamp is newer than your last sync.</li>
+  <li>Handle listings that go off market or disappear, so your app never shows stale homes.</li>
+  <li>Download or link photos according to the MLS's rules.</li>
+  <li>Respect rate limits with backoff and retries, and alert when a sync falls behind.</li>
+</ol>
+<h2 id="working-with-more-than-one-mls">Working with more than one MLS</h2>
+<p>The Data Dictionary helps, but each MLS adds local fields and fills shared ones differently. Map every MLS to one internal model, and keep the original values so you can trace any odd listing back to its source.</p>
+<h2 id="a-real-example">A real example</h2>
+<p>InstaShowing used RESO Web API listing data as the base for <a href="/case-studies/instashowing-real-estate">showing requests</a>, calendar sync across providers, and an offer ledger with DocuSign. Offer-to-contract cycles got faster. Our RESO &amp; MLS integration page covers how we scope this, and our <a href="/solutions/real-estate">real estate page</a> shows the wider work.</p>
+<p>Building on MLS data? <a href="/contact">Book a 30-min call</a> and we'll help you plan access, replication and the data model before you build.</p>

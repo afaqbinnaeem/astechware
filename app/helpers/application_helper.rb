@@ -347,6 +347,51 @@ module ApplicationHelper
         integration_path: "/integrations/twilio",
         author_name: "Ahmad Kamran", author_title: "Founder, A'sTechware"
       },
+      {
+        slug: "reso-web-api-mls-integration",
+        path: -> { blog_show_path("reso-web-api-mls-integration") },
+        title: "RESO Web API: how to integrate MLS data into your app",
+        seo_title: "RESO Web API: How to Integrate MLS Data",
+        meta_description: "How RESO Web API integration works: getting MLS access, OData queries, media and replication, rate limits, and what to plan for before you build a property app.",
+        keywords: "RESO Web API integration, MLS API integration, MLS data feed developer, RESO Data Dictionary, IDX integration, real estate API developer",
+        category: "Real estate",
+        category_slug: "real-estate",
+        excerpt_short: "How RESO Web API integration works: getting MLS access, OData queries, media and replication, rate limits, and what to plan for before you build a property app.",
+        excerpt_long: "If you're building a property app, MLS data is the foundation, and the RESO Web API is how most MLSs now share it. The API is the simple part. Access agreements, data replication and the differences between MLSs take most of the effort. Here is what to plan for.",
+        read_time: "7 min",
+        date: "26 Nov 2026", date_iso: "2026-11-26",
+        image: "blogs/astechware_new_web_blog_2.webp",
+        image_alt: "Listings flowing from an MLS through the RESO Web API into a property app",
+        faq: [
+        { q: "Is RETS still used?", a: "Some systems still run RETS feeds, but the industry has largely moved to the RESO Web API. Build new products on the Web API." },
+        { q: "Do I need a broker to get MLS data?", a: "Usually, yes. Most MLSs give data access through a participating broker or a vendor agreement. Rules vary by MLS, so ask each one directly." }
+        ],
+        case_study_path: "/case-studies/instashowing-real-estate",
+        integration_path: "/integrations/reso-mls",
+        author_name: "Ahmad Kamran", author_title: "Founder, A'sTechware"
+      },
+      {
+        slug: "real-estate-deal-analysis-automation",
+        path: -> { blog_show_path("real-estate-deal-analysis-automation") },
+        title: "Real estate deal analysis automation: from an address to an offer in under 90 seconds",
+        seo_title: "Real Estate Deal Analysis: Address to Offer",
+        meta_description: "How real estate deal analysis software turns an address into comps, repair estimates and offer prices in under 90 seconds, with the math kept out of the AI.",
+        keywords: "real estate deal analysis software, real estate deal analyzer, automated comps analysis, wholesale deal calculator, investor underwriting software",
+        category: "Real estate",
+        category_slug: "real-estate",
+        excerpt_short: "How real estate deal analysis software turns an address into comps, repair estimates and offer prices in under 90 seconds, with the math kept out of the AI.",
+        excerpt_long: "Investors who analyze every lead by hand can only look at a handful a day. Real estate deal analysis software takes an address and returns comps, a repair estimate and offer prices for each strategy, so you spend your time on the deals worth pursuing.",
+        read_time: "6 min",
+        date: "26 Nov 2026", date_iso: "2026-11-26",
+        image: "blogs/astechware_new_web_blog_2.webp",
+        image_alt: "Deal analysis screen showing comps and offer prices for four strategies",
+        faq: [
+        { q: "Does the AI decide the offer price?", a: "No. The offer comes from fixed formulas and your own assumptions." },
+        { q: "Can I use my own formulas and repair costs?", a: "Yes. Each strategy's formula and your repair cost assumptions should be settings you control, not hidden in the system." }
+        ],
+        case_study_path: "/case-studies/ai-deal-analyzer",
+        author_name: "Ahmad Kamran", author_title: "Founder, A'sTechware"
+      },
       # Expert AI series (production-first, what agencies miss)
       { slug: "ai-chatbot-death-spiral", path: -> { blog_show_path("ai-chatbot-death-spiral") }, title: "Why AI Chatbots Fail After Launch", category: "AI & Automation", category_slug: "ai-automation", excerpt_short: "Your AI chatbot launched at 95% accuracy. Two months later, customers are complaining. Why chatbots degrade and how to fix it with continuous improvement.", excerpt_long: "Agencies demo with curated data and have no plan for accuracy degradation. In production, user language evolves, edge cases accumulate, and model drift goes unnoticed until customers complain. We break down the chatbot death spiral—Week 1: 95% → Week 8: 60%—and the monitoring, feedback loops, and retraining strategies that actually keep production chatbots reliable.", read_time: "11 min", date: "Feb 16, 2026", date_iso: "2026-02-16", image: "ahmad/repi-work.jpeg", author_name: "Ahmad Kamran", author_title: "Founder" },
       { slug: "ai-cost-explosion", path: -> { blog_show_path("ai-cost-explosion") }, title: "How to Cut Runaway AI Costs", category: "Technical Deep Dives", category_slug: "technical-deep-dives", excerpt_short: "Your AI feature costs $50K/month. It should cost $8K. Smart model routing, caching, and token optimization without sacrificing quality.", excerpt_long: "Using GPT-4 for everything, no caching, and inefficient prompts burn budgets fast. We cover cost attribution, model tiering, semantic caching, prompt compression, and the math that gets legal tech from $40K to $16K—with real strategies you can apply this week.", read_time: "10 min", date: "Feb 16, 2026", date_iso: "2026-02-16", image: "blogs/astechware-food-and-ai-ml.webp", author_name: "Ahmad Kamran", author_title: "Founder" },
