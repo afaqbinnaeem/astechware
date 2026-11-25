@@ -526,6 +526,51 @@ module ApplicationHelper
         case_study_path: "/case-studies/medical-voice-ai",
         author_name: "Ahmad Kamran", author_title: "Founder, A'sTechware"
       },
+      {
+        slug: "client-intake-automation-professional-services",
+        path: -> { blog_show_path("client-intake-automation-professional-services") },
+        title: "Client intake automation for professional services firms",
+        seo_title: "Client Intake Automation for Service Firms",
+        meta_description: "Client intake automation for professional services firms: reading emails and documents, filling your system, checking conflicts and keeping a person in charge.",
+        keywords: "client intake automation, law firm intake automation, accounting firm client onboarding, document intake automation, professional services workflow automation",
+        category: "Professional services",
+        category_slug: "professional-services",
+        excerpt_short: "Client intake automation for professional services firms: reading emails and documents, filling your system, checking conflicts and keeping a person in charge.",
+        excerpt_long: "New work arrives at most firms as an email with attachments, a web form, or a phone call. Someone reads it, types the details into the practice system, checks for conflicts, asks for what's missing and sends an engagement letter. Client intake automation does the reading and typing so your team can focus on the decisions.",
+        read_time: "6 min",
+        date: "26 Nov 2026", date_iso: "2026-11-26",
+        image: "blogs/astechware_new_web_blog_2.webp",
+        image_alt: "New client email and documents being read into a firm's intake form for review",
+        faq: [
+        { q: "Will it work with our practice management software?", a: "If your software has an API or accepts imports, yes." },
+        { q: "Is client information sent to an AI provider?", a: "Only the text needed for extraction, through providers that don't train on your data. Identifiers can be masked first if your rules require it." }
+        ],
+        case_study_path: "/case-studies/flss-legal-process-serving",
+        integration_path: "/integrations/microsoft-365-outlook",
+        author_name: "Ahmad Kamran", author_title: "Founder, A'sTechware"
+      },
+      {
+        slug: "quickbooks-automation-accounting-firms",
+        path: -> { blog_show_path("quickbooks-automation-accounting-firms") },
+        title: "QuickBooks automation for accounting firms: automate the routine work, keep the accountant in charge",
+        seo_title: "QuickBooks Automation for Accounting Firms",
+        meta_description: "QuickBooks automation for accounting firms: build the routine work on top of QuickBooks Online so accountants review entries instead of typing them by hand.",
+        keywords: "QuickBooks automation, QuickBooks Online API integration, bookkeeping automation, accounting firm automation, automate bank reconciliation QuickBooks",
+        category: "Professional services",
+        category_slug: "professional-services",
+        excerpt_short: "QuickBooks automation for accounting firms: build the routine work on top of QuickBooks Online so accountants review entries instead of typing them by hand.",
+        excerpt_long: "Accounting software already does the record-keeping. What still takes an accountant's time is the routine work around it: sorting transactions, matching receipts, chasing clients and preparing month-end. QuickBooks automation drafts that work on top of QuickBooks Online, and the accountant reviews instead of typing.",
+        read_time: "6 min",
+        date: "26 Nov 2026", date_iso: "2026-11-26",
+        image: "blogs/astechware_new_web_blog_2.webp",
+        image_alt: "Accountant approving drafted QuickBooks entries with notes on each one",
+        faq: [
+        { q: "Does this replace bookkeepers?", a: "No." },
+        { q: "Does it work with QuickBooks Desktop or Xero?", a: "This approach is built on the QuickBooks Online API. Xero also has a full API, so the same design works there. Desktop needs a different connector." }
+        ],
+        integration_path: "/integrations/quickbooks-online",
+        author_name: "Ahmad Kamran", author_title: "Founder, A'sTechware"
+      },
       # Expert AI series (production-first, what agencies miss)
       { slug: "ai-chatbot-death-spiral", path: -> { blog_show_path("ai-chatbot-death-spiral") }, title: "Why AI Chatbots Fail After Launch", category: "AI & Automation", category_slug: "ai-automation", excerpt_short: "Your AI chatbot launched at 95% accuracy. Two months later, customers are complaining. Why chatbots degrade and how to fix it with continuous improvement.", excerpt_long: "Agencies demo with curated data and have no plan for accuracy degradation. In production, user language evolves, edge cases accumulate, and model drift goes unnoticed until customers complain. We break down the chatbot death spiral—Week 1: 95% → Week 8: 60%—and the monitoring, feedback loops, and retraining strategies that actually keep production chatbots reliable.", read_time: "11 min", date: "Feb 16, 2026", date_iso: "2026-02-16", image: "ahmad/repi-work.jpeg", author_name: "Ahmad Kamran", author_title: "Founder" },
       { slug: "ai-cost-explosion", path: -> { blog_show_path("ai-cost-explosion") }, title: "How to Cut Runaway AI Costs", category: "Technical Deep Dives", category_slug: "technical-deep-dives", excerpt_short: "Your AI feature costs $50K/month. It should cost $8K. Smart model routing, caching, and token optimization without sacrificing quality.", excerpt_long: "Using GPT-4 for everything, no caching, and inefficient prompts burn budgets fast. We cover cost attribution, model tiering, semantic caching, prompt compression, and the math that gets legal tech from $40K to $16K—with real strategies you can apply this week.", read_time: "10 min", date: "Feb 16, 2026", date_iso: "2026-02-16", image: "blogs/astechware-food-and-ai-ml.webp", author_name: "Ahmad Kamran", author_title: "Founder" },
