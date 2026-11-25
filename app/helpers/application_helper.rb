@@ -571,6 +571,48 @@ module ApplicationHelper
         integration_path: "/integrations/quickbooks-online",
         author_name: "Ahmad Kamran", author_title: "Founder, A'sTechware"
       },
+      {
+        slug: "custom-lms-vs-off-the-shelf",
+        path: -> { blog_show_path("custom-lms-vs-off-the-shelf") },
+        title: "Custom LMS vs off-the-shelf: when it's time to build your own",
+        seo_title: "Custom LMS vs Off-the-Shelf: When to Build",
+        meta_description: "Custom LMS development or an off-the-shelf platform? The signs that you have outgrown your LMS, what a custom build involves, and how to move without losing data.",
+        keywords: "custom LMS development, build an LMS, custom learning platform, LMS migration, course platform development",
+        category: "Education technology",
+        category_slug: "edtech",
+        excerpt_short: "Custom LMS development or an off-the-shelf platform? The signs that you have outgrown your LMS, what a custom build involves, and how to move without losing data.",
+        excerpt_long: "Most course businesses and training teams start on an off-the-shelf learning platform, and that's the right call. At some point the workarounds pile up. Here is how to tell when custom LMS development makes sense, what it involves, and how to move without losing anything.",
+        read_time: "6 min",
+        date: "26 Nov 2026", date_iso: "2026-11-26",
+        image: "blogs/astechware_new_web_blog_2.webp",
+        image_alt: "Comparison of an off-the-shelf LMS and a custom learning platform",
+        faq: [
+        { q: "Do we need SCORM support?", a: "Only if you use courses packaged by authoring tools, or enterprise clients require it." },
+        { q: "How do we avoid being locked in again?", a: "Make sure you own the code, the hosting account and the data from day one, and that the data can be exported in a standard format." }
+        ],
+        author_name: "Ahmad Kamran", author_title: "Founder, A'sTechware"
+      },
+      {
+        slug: "ai-grading-feedback-what-to-automate",
+        path: -> { blog_show_path("ai-grading-feedback-what-to-automate") },
+        title: "AI grading and feedback: what's safe to automate and what isn't",
+        seo_title: "AI Grading and Feedback: What to Automate",
+        meta_description: "AI grading software can draft feedback, but teachers should own the grade. What is safe to automate, what is not, and how to design the review step properly.",
+        keywords: "AI grading software, AI feedback on student writing, automated essay feedback, AI for teachers, rubric-based AI grading",
+        category: "Education technology",
+        category_slug: "edtech",
+        excerpt_short: "AI grading software can draft feedback, but teachers should own the grade. What is safe to automate, what is not, and how to design the review step properly.",
+        excerpt_long: "Grading takes a huge share of a teacher's week. AI grading software promises to give it back, but grades affect students' futures, so the design matters more than the model. Here is what's safe to automate, what isn't, and how to build the review step properly.",
+        read_time: "6 min",
+        date: "26 Nov 2026", date_iso: "2026-11-26",
+        image: "blogs/astechware_new_web_blog_2.webp",
+        image_alt: "Teacher reviewing AI-drafted feedback against a grading rubric",
+        faq: [
+        { q: "Can AI tell if an essay was written by AI?", a: "Not reliably. Detection tools give false positives, especially for non-native writers." },
+        { q: "Will AI grading be fair to all students?", a: "Only if you test it. Compare its results with teacher grades across different groups, keep teacher approval, and review the results every term." }
+        ],
+        author_name: "Ahmad Kamran", author_title: "Founder, A'sTechware"
+      },
       # Expert AI series (production-first, what agencies miss)
       { slug: "ai-chatbot-death-spiral", path: -> { blog_show_path("ai-chatbot-death-spiral") }, title: "Why AI Chatbots Fail After Launch", category: "AI & Automation", category_slug: "ai-automation", excerpt_short: "Your AI chatbot launched at 95% accuracy. Two months later, customers are complaining. Why chatbots degrade and how to fix it with continuous improvement.", excerpt_long: "Agencies demo with curated data and have no plan for accuracy degradation. In production, user language evolves, edge cases accumulate, and model drift goes unnoticed until customers complain. We break down the chatbot death spiral—Week 1: 95% → Week 8: 60%—and the monitoring, feedback loops, and retraining strategies that actually keep production chatbots reliable.", read_time: "11 min", date: "Feb 16, 2026", date_iso: "2026-02-16", image: "ahmad/repi-work.jpeg", author_name: "Ahmad Kamran", author_title: "Founder" },
       { slug: "ai-cost-explosion", path: -> { blog_show_path("ai-cost-explosion") }, title: "How to Cut Runaway AI Costs", category: "Technical Deep Dives", category_slug: "technical-deep-dives", excerpt_short: "Your AI feature costs $50K/month. It should cost $8K. Smart model routing, caching, and token optimization without sacrificing quality.", excerpt_long: "Using GPT-4 for everything, no caching, and inefficient prompts burn budgets fast. We cover cost attribution, model tiering, semantic caching, prompt compression, and the math that gets legal tech from $40K to $16K—with real strategies you can apply this week.", read_time: "10 min", date: "Feb 16, 2026", date_iso: "2026-02-16", image: "blogs/astechware-food-and-ai-ml.webp", author_name: "Ahmad Kamran", author_title: "Founder" },

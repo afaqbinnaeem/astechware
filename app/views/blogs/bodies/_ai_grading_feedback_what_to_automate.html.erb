@@ -1,0 +1,45 @@
+<% content_for :blog_key_takeaways do %>
+  <ul>
+    <li>AI is good at drafting feedback against a clear rubric. It shouldn't set final grades alone.</li>
+    <li>Objective questions don't need AI at all; normal code grades them exactly.</li>
+    <li>AI-writing detectors are unreliable. Never use them alone to accuse a student.</li>
+    <li>Test against real teacher grades and keep teacher approval on every result.</li>
+  </ul>
+<% end %>
+<% content_for :blog_toc do %>
+  <ul class="list-unstyled mb-0">
+    <li><a href="#safe-to-automate">Safe to automate</a></li>
+    <li><a href="#not-safe-without-a-teacher">Not safe without a teacher</a></li>
+    <li><a href="#designing-the-review-step">Designing the review step</a></li>
+    <li><a href="#test-before-you-trust-it">Test before you trust it</a></li>
+    <li><a href="#student-data">Student data</a></li>
+  </ul>
+<% end %>
+
+<p class="lead">Grading takes a huge share of a teacher's week. AI grading software promises to give it back, but grades affect students' futures, so the design matters more than the model. Here is what's safe to automate, what isn't, and how to build the review step properly.</p>
+<h2 id="safe-to-automate">Safe to automate</h2>
+<ul>
+  <li>Draft feedback on writing, tied to each point of a rubric, for the teacher to edit.</li>
+  <li>Completeness checks: word count, required sections, references present.</li>
+  <li>Class-wide summaries: the most common mistakes across all submissions, so teaching can target them.</li>
+  <li>Practice questions generated from course material, reviewed before use.</li>
+</ul>
+<p>Multiple-choice and other objective questions don't need AI. Normal code grades them exactly and cheaply.</p>
+<h2 id="not-safe-without-a-teacher">Not safe without a teacher</h2>
+<ul>
+  <li>Final grades on subjective work. AI can suggest a score with reasons; the teacher decides.</li>
+  <li>Decisions that affect progression, such as passing, failing or placement.</li>
+  <li>Academic integrity cases. AI-writing detectors produce false positives, so they should never be the only evidence.</li>
+</ul>
+<h2 id="designing-the-review-step">Designing the review step</h2>
+<ol>
+  <li>Rubric first. The AI works from the same rubric teachers use, and every comment points to a rubric line.</li>
+  <li>Draft, then approve. Students see feedback only after a teacher has reviewed it.</li>
+  <li>Show the reasoning. Each suggested score comes with the evidence from the student's work.</li>
+  <li>Track changes. Record what the teacher changed, so you can see where the AI is weak.</li>
+</ol>
+<h2 id="test-before-you-trust-it">Test before you trust it</h2>
+<p>Run the system on past work that teachers have already graded. Compare scores and feedback, check whether it treats different groups of students fairly, and fix the rubric or prompts where it drifts. Repeat this check each term.</p>
+<h2 id="student-data">Student data</h2>
+<p>Student work is personal data, and often it belongs to minors. Use AI providers that don't train on your data, collect only what's needed, and follow student privacy rules such as FERPA in the US. See how we approach learning products on our <a href="/solutions/education-technology">education page</a>, and our <a href="/services/ai-agent-development">AI development</a> work more generally.</p>
+<p>Building tools for teachers? <a href="/contact">Book a 30-min call</a> and we'll help you design the feedback flow with teachers in control.</p>
