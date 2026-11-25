@@ -302,6 +302,51 @@ module ApplicationHelper
         integration_path: "/integrations/stripe",
         author_name: "Ahmad Kamran", author_title: "Founder, A'sTechware"
       },
+      {
+        slug: "google-business-profile-hvac-job-photos",
+        path: -> { blog_show_path("google-business-profile-hvac-job-photos") },
+        title: "Google Business Profile posts for HVAC: turn job photos into posts automatically",
+        seo_title: "Google Business Profile Posts for HVAC",
+        meta_description: "How HVAC companies can turn technician job photos into Google Business Profile posts automatically, with an approval step, so local search gets fresh work.",
+        keywords: "Google Business Profile for HVAC, HVAC local SEO, Google Business Profile posts automation, HVAC marketing automation, job photos to Google posts",
+        category: "Home services & HVAC",
+        category_slug: "home-services",
+        excerpt_short: "How HVAC companies can turn technician job photos into Google Business Profile posts automatically, with an approval step, so local search gets fresh work.",
+        excerpt_long: "For most HVAC companies, the Google Business Profile brings in more calls than the website. Profiles that show fresh, real work in the right towns tend to look more trustworthy to customers. The problem is time: nobody in the office has an hour a day to write posts. Here is how to turn the photos your technicians already take into Google Business Profile posts automatically.",
+        read_time: "5 min",
+        date: "26 Nov 2026", date_iso: "2026-11-26",
+        image: "blogs/astechware_new_web_blog_2.webp",
+        image_alt: "HVAC technician's job photo turned into a Google Business Profile post",
+        faq: [
+        { q: "Is automated posting allowed on Google Business Profile?", a: "Posting through Google's official API is allowed." },
+        { q: "Do technicians need to install anything?", a: "No. They text a photo to a company number, which they already know how to do." }
+        ],
+        case_study_path: "/case-studies/red-dragon-hvac",
+        integration_path: "/integrations/google-business-profile",
+        author_name: "Ahmad Kamran", author_title: "Founder, A'sTechware"
+      },
+      {
+        slug: "home-service-business-automation",
+        path: -> { blog_show_path("home-service-business-automation") },
+        title: "Home service business automation: what to automate first",
+        seo_title: "Home Service Automation: What to Automate",
+        meta_description: "Home service business automation that pays back first: missed-call follow-up, booking reminders, job photos, invoices and reviews, in the order to tackle them.",
+        keywords: "home service business automation, HVAC business automation, plumbing business automation, missed call text back, field service automation",
+        category: "Home services & HVAC",
+        category_slug: "home-services",
+        excerpt_short: "Home service business automation that pays back first: missed-call follow-up, booking reminders, job photos, invoices and reviews, in the order to tackle them.",
+        excerpt_long: "Home service businesses lose money in small, repeated ways: a missed call, a no-show, an invoice sent a week late. Home service business automation fixes these one at a time. Here is the order we'd tackle them in, starting with what pays back fastest.",
+        read_time: "6 min",
+        date: "26 Nov 2026", date_iso: "2026-11-26",
+        image: "blogs/astechware_new_web_blog_2.webp",
+        image_alt: "Checklist of home service tasks in the order to automate them",
+        faq: [
+        { q: "Do I need to replace my field service software?", a: "Usually not. Most automation sits on top of the tools you already use, through their APIs or simple connections." },
+        { q: "Will automated texts annoy customers?", a: "Not if they're useful and timed well: a confirmation, a reminder, an \"on my way\" and a receipt. Avoid marketing blasts on the same number." }
+        ],
+        integration_path: "/integrations/twilio",
+        author_name: "Ahmad Kamran", author_title: "Founder, A'sTechware"
+      },
       # Expert AI series (production-first, what agencies miss)
       { slug: "ai-chatbot-death-spiral", path: -> { blog_show_path("ai-chatbot-death-spiral") }, title: "Why AI Chatbots Fail After Launch", category: "AI & Automation", category_slug: "ai-automation", excerpt_short: "Your AI chatbot launched at 95% accuracy. Two months later, customers are complaining. Why chatbots degrade and how to fix it with continuous improvement.", excerpt_long: "Agencies demo with curated data and have no plan for accuracy degradation. In production, user language evolves, edge cases accumulate, and model drift goes unnoticed until customers complain. We break down the chatbot death spiral—Week 1: 95% → Week 8: 60%—and the monitoring, feedback loops, and retraining strategies that actually keep production chatbots reliable.", read_time: "11 min", date: "Feb 16, 2026", date_iso: "2026-02-16", image: "ahmad/repi-work.jpeg", author_name: "Ahmad Kamran", author_title: "Founder" },
       { slug: "ai-cost-explosion", path: -> { blog_show_path("ai-cost-explosion") }, title: "How to Cut Runaway AI Costs", category: "Technical Deep Dives", category_slug: "technical-deep-dives", excerpt_short: "Your AI feature costs $50K/month. It should cost $8K. Smart model routing, caching, and token optimization without sacrificing quality.", excerpt_long: "Using GPT-4 for everything, no caching, and inefficient prompts burn budgets fast. We cover cost attribution, model tiering, semantic caching, prompt compression, and the math that gets legal tech from $40K to $16K—with real strategies you can apply this week.", read_time: "10 min", date: "Feb 16, 2026", date_iso: "2026-02-16", image: "blogs/astechware-food-and-ai-ml.webp", author_name: "Ahmad Kamran", author_title: "Founder" },
