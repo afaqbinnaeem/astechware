@@ -130,7 +130,7 @@ class SitemapController < ApplicationController
   def blog_urls(base)
     blog_articles_list.filter_map do |article|
       path = article[:path].call
-      lastmod = article[:date_iso].presence || SITE_LASTMOD
+      lastmod = article[:updated_iso].presence || article[:date_iso].presence || SITE_LASTMOD
       { loc: "#{base}#{path}", lastmod: lastmod }
     end
   end

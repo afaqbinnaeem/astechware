@@ -1,0 +1,28 @@
+<%# locals: category_slug %>
+<% articles = blog_articles_for_category(category_slug).first(6) %>
+<% if articles.any? %>
+  <% category = blog_category(category_slug) || {} %>
+  <section class="py-5 bg-white" id="guides">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Guides for <%= category[:name] %></h2>
+      </div>
+      <div class="row g-4">
+        <% articles.each do |article| %>
+          <div class="col-12 col-md-6 col-lg-4">
+            <%= link_to article[:path].call, class: "text-decoration-none text-dark d-block h-100" do %>
+              <div class="build-system-card p-4 h-100">
+                <h3 class="h6 mb-2"><%= article[:title] %></h3>
+                <p class="small mb-2"><%= article[:excerpt_short] %></p>
+                <p class="small text-muted mb-0"><%= article[:read_time] %> read</p>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <p class="text-center mt-4 mb-0">
+        <%= link_to "See all guides", blogs_path(category: category_slug), class: "service-card-link" %>
+      </p>
+    </div>
+  </section>
+<% end %>

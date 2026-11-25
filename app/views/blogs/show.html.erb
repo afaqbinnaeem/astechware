@@ -1,32 +1,39 @@
 <% if @article.present? %>
   <% content_for :head do %>
     <% canonical_url = blog_show_url(@article[:slug]) rescue request.original_url %>
-    <% set_meta_tags(
-      title: @article[:title].to_s,
-      description: blog_seo_description(@article),
-      keywords: blog_seo_keywords(@article[:slug])
-    ) %>
-    <% logo_url = safe_og_image_url("logo-colored.png") %>
+    <% seo_title = @article[:seo_title].presence || @article[:title].to_s %>
     <% article_image = begin
-         image_url(@article[:image]) if @article[:image].present?
+         url = @article[:image].present? ? image_url(@article[:image]) : nil
+         if url.present? && !url.to_s.start_with?("http")
+           "#{root_url.chomp("/")}#{url}"
+         else
+           url
+         end
        rescue StandardError
-         logo_url
+         nil
        end %>
+    <% set_meta_tags(
+      title: seo_title,
+      description: blog_seo_description(@article),
+      keywords: @article[:keywords].presence || blog_seo_keywords(@article[:slug])
+    ) %>
+    <% published = @article[:date_iso].presence %>
+    <% modified = @article[:updated_iso].presence || published %>
     <script type="application/ld+json">
     <%= raw({
       "@context" => "https://schema.org",
       "@type" => "Article",
       "headline" => @article[:title],
-      "description" => @article[:excerpt_short].to_s.truncate(160),
-      "datePublished" => @article[:date_iso].presence || @article[:date],
-      "dateModified" => @article[:date_iso].presence || @article[:date],
+      "description" => blog_seo_description(@article),
+      "datePublished" => published,
+      "dateModified" => modified,
       "url" => canonical_url,
-      "mainEntityOfPage" => { "@type" => "WebPage", "@id" => canonical_url },
-      "image" => article_image.presence || logo_url,
+      "mainEntityOfPage" => canonical_url,
+      "image" => article_image,
       "author" => {
         "@type" => "Person",
         "name" => "Ahmad Kamran",
-        "url" => "https://astechware.com/about"
+        "url" => about_url
       },
       "publisher" => { "@id" => "https://astechware.com/#organization" }
     }.compact.to_json) %>
@@ -38,10 +45,26 @@
       "itemListElement" => [
         { "@type" => "ListItem", "position" => 1, "name" => "Home", "item" => root_url },
         { "@type" => "ListItem", "position" => 2, "name" => "Blog", "item" => blogs_url },
-        { "@type" => "ListItem", "position" => 3, "name" => @article[:title], "item" => canonical_url }
+        { "@type" => "ListItem", "position" => 3, "name" => @article[:category], "item" => "#{root_url.chomp('/')}/blogs?category=#{@article[:category_slug]}" },
+        { "@type" => "ListItem", "position" => 4, "name" => @article[:title], "item" => canonical_url }
       ]
     }.to_json) %>
     </script>
+    <% if @article[:faq].present? %>
+      <script type="application/ld+json">
+      <%= raw({
+        "@context" => "https://schema.org",
+        "@type" => "FAQPage",
+        "mainEntity" => @article[:faq].map { |item|
+          {
+            "@type" => "Question",
+            "name" => item[:q],
+            "acceptedAnswer" => { "@type" => "Answer", "text" => item[:a] }
+          }
+        }
+      }.to_json) %>
+      </script>
+    <% end %>
   <% end %>
   <%= render layout: "blogs/blog_post_layout", locals: { article: @article } do %>
     <%= render "blogs/bodies/#{@article[:slug].to_s.tr('-', '_')}" %>

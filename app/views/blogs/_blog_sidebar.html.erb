@@ -28,13 +28,10 @@
   <div class="blog-sidebar-card mb-4">
     <h3 class="h6 text-uppercase text-muted mb-3">Categories</h3>
     <ul class="list-unstyled mb-0">
-      <li class="mb-2"><a href="<%= blogs_path %>" class="blog-sidebar-link small text-decoration-none">All Articles</a></li>
-      <li class="mb-2"><a href="<%= blogs_path %>?category=ai-automation" class="blog-sidebar-link small text-decoration-none">AI &amp; Automation</a></li>
-      <li class="mb-2"><a href="<%= blogs_path %>?category=platform-engineering" class="blog-sidebar-link small text-decoration-none">Platform Engineering</a></li>
-      <li class="mb-2"><a href="<%= blogs_path %>?category=governance-compliance" class="blog-sidebar-link small text-decoration-none">Governance &amp; Compliance</a></li>
-      <li class="mb-2"><a href="<%= blogs_path %>?category=industry-solutions" class="blog-sidebar-link small text-decoration-none">Industry Solutions</a></li>
-      <li class="mb-2"><a href="<%= blogs_path %>?category=technical-deep-dives" class="blog-sidebar-link small text-decoration-none">Technical Deep Dives</a></li>
-      <li class="mb-2"><a href="<%= blogs_path %>?category=case-studies" class="blog-sidebar-link small text-decoration-none">Case Studies</a></li>
+      <li class="mb-2"><a href="<%= blogs_path %>" class="blog-sidebar-link small text-decoration-none">All articles</a></li>
+      <% blog_categories_with_posts.each do |slug, cat| %>
+        <li class="mb-2"><a href="<%= blogs_path(category: slug) %>" class="blog-sidebar-link small text-decoration-none"><%= cat[:name] %></a></li>
+      <% end %>
     </ul>
   </div>
 

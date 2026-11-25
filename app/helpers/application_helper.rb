@@ -1,6 +1,28 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
+  # Niche blog categories. key => display name and the page the category belongs to.
+  BLOG_CATEGORIES = {
+    "private-clinics" => { name: "Private clinics", path: "/solutions/private-clinics" },
+    "healthcare" => { name: "Healthcare & EHR", path: "/solutions/healthcare" },
+    "legal" => { name: "Legal & process serving", path: "/solutions/legal" },
+    "construction" => { name: "Construction", path: "/solutions/construction" },
+    "logistics" => { name: "Logistics & field service", path: "/solutions/logistics" },
+    "home-services" => { name: "Home services & HVAC", path: "/solutions/home-services" },
+    "real-estate" => { name: "Real estate", path: "/solutions/real-estate" },
+    "fintech" => { name: "Fintech & payments", path: "/solutions/financial" },
+    "b2b-saas" => { name: "B2B SaaS", path: "/solutions/b2b-saas" },
+    "professional-services" => { name: "Professional services", path: "/solutions/professional-services" },
+    "edtech" => { name: "Education technology", path: "/solutions/education-technology" },
+    "fitness" => { name: "Fitness studios", path: "/solutions/fitness-studios" },
+    "general" => { name: "General", path: "/services" }
+  }.freeze
+
+  HEALTHCARE_BLOG_SLUGS = %w[
+    hipaa-compliant-ai-healthcare-companies-guide
+    whatsapp-voice-ai-agent-demo
+  ].freeze
+
   # Render a link only when the named route helper exists (new pages ship gradually).
   def route_helper_defined?(helper_name)
     Rails.application.routes.url_helpers.respond_to?(helper_name)
@@ -114,7 +136,7 @@ module ApplicationHelper
       { slug: "how-to-evaluate-ai-agent-development-company-2026", path: -> { blog_show_path("how-to-evaluate-ai-agent-development-company-2026") }, title: "How to Choose an AI Development Company", category: "Industry Insights", category_slug: "industry-insights", excerpt_short: "Choosing the right AI agent development partner: production track record, governance, and what separates the best AI agent companies from demo shops.", excerpt_long: "Not all AI agent companies ship production systems. We break down how to evaluate vendors: proof of production deployments, governance and human-in-the-loop, cost and scaling behavior, and red flags that signal prototype-only teams. A practical checklist for finding the best AI agent company for your use case.", read_time: "9 min", date: "Feb 27, 2026", date_iso: "2026-02-27", image: "ahmad/repi-work.jpeg", author_name: "Ahmad Kamran", author_title: "Founder" },
       { slug: "what-to-look-for-hiring-fractional-engineering-team", path: -> { blog_show_path("what-to-look-for-hiring-fractional-engineering-team") }, title: "Hiring a Fractional Engineering Team", category: "Industry Insights", category_slug: "industry-insights", excerpt_short: "Fractional engineering teams extend your capacity without full-time hires. What to look for: ownership, communication, and production outcomes.", excerpt_long: "A great fractional engineering team acts as an extension of your team—same standards, clear ownership, and production-ready output. We cover what to look for when hiring: scope and milestones, communication cadence, tech stack fit, and how to tell if they ship or just advise. Plus red flags and how to structure the engagement for success.", read_time: "8 min", date: "Feb 27, 2026", date_iso: "2026-02-27", image: "blogs/astechware_new_web_blog_2.webp", author_name: "Ahmad Kamran", author_title: "Founder" },
       { slug: "building-production-ai-agents-langgraph-complete-guide", path: -> { blog_show_path("building-production-ai-agents-langgraph-complete-guide") }, title: "Building Production AI Agents With LangGraph", category: "Technical Deep Dives", category_slug: "technical-deep-dives", excerpt_short: "LangGraph development for real agents: state graphs, checkpoints, human-in-the-loop, and shipping beyond the tutorial.", excerpt_long: "LangGraph gives you stateful, multi-step agent workflows with cycles and branching—but tutorials stop at the happy path. We cover production LangGraph development: designing state graphs, checkpointing and persistence, error handling and retries, human-in-the-loop nodes, observability, and how we use it for support and triage agents that run in production.", read_time: "12 min", date: "Feb 27, 2026", date_iso: "2026-02-27", image: "blogs/turbo_astechware.webp", author_name: "Ahmad Kamran", author_title: "Founder" },
-      { slug: "hipaa-compliant-ai-healthcare-companies-guide", path: -> { blog_show_path("hipaa-compliant-ai-healthcare-companies-guide") }, title: "HIPAA and AI: A Guide for Healthcare Teams", category: "Governance & Compliance", category_slug: "governance-compliance", excerpt_short: "HIPAA AI software requirements: BAA, minimum necessary, audit trails, and how to build AI that fits healthcare compliance.", excerpt_long: "Using AI on PHI means HIPAA applies. We outline what healthcare companies need for HIPAA compliant AI: BAAs with vendors, minimum necessary access, encryption and access controls, audit logging, and how to design agents and RAG so they don't leak or misuse PHI. Practical steps and common gaps that trigger findings.", read_time: "11 min", date: "Feb 27, 2026", date_iso: "2026-02-27", image: "ahmad/whatsapp-agent.jpeg", author_name: "Ahmad Kamran", author_title: "Founder" },
+      { slug: "hipaa-compliant-ai-healthcare-companies-guide", path: -> { blog_show_path("hipaa-compliant-ai-healthcare-companies-guide") }, title: "HIPAA and AI: A Guide for Healthcare Teams", category: "Governance & Compliance", category_slug: "governance-compliance", excerpt_short: "HIPAA AI software requirements: BAA, minimum necessary, audit trails, and how to build AI that fits healthcare compliance.", excerpt_long: "Using AI on PHI means HIPAA applies. We outline what healthcare companies need for HIPAA-ready AI: BAAs with vendors, minimum necessary access, encryption and access controls, audit logging, and how to design agents and RAG so they don't leak or misuse PHI. Practical steps and common gaps that trigger findings.", read_time: "11 min", date: "Feb 27, 2026", date_iso: "2026-02-27", image: "ahmad/whatsapp-agent.jpeg", author_name: "Ahmad Kamran", author_title: "Founder" },
       { slug: "reduced-customer-support-tickets-90-percent-ai-agents", path: -> { blog_show_path("reduced-customer-support-tickets-90-percent-ai-agents") }, title: "How AI Agents Cut Support Tickets", category: "Case Studies", category_slug: "case-studies", excerpt_short: "AI customer support automation that actually reduces tickets: triage, deflection, and human handoff that scales.", excerpt_long: "We deployed AI agents for customer support that handle FAQs, triage, and escalation—reducing inbound tickets for one client. This case study covers the architecture: knowledge base, confidence thresholds, when to deflect vs escalate, and how we measured impact. What it takes to replicate AI customer support automation that doesn't frustrate users.", read_time: "9 min", date: "Feb 27, 2026", date_iso: "2026-02-27", image: "ahmad/3agent.jpeg", author_name: "Ahmad Kamran", author_title: "Founder" },
       { slug: "production-ai-vs-prototype-ai-why-projects-fail", path: -> { blog_show_path("production-ai-vs-prototype-ai-why-projects-fail") }, title: "Why Most AI Projects Never Reach Production", category: "AI & Automation", category_slug: "ai-automation", excerpt_short: "Production AI development is different from demos. Why most AI projects fail—and what it takes to ship systems that last.", excerpt_long: "Demos look great; production breaks. We explain the gap between prototype AI and production AI: reliability, cost at scale, governance, and maintenance. Why most AI projects fail after the pilot, and what production AI development actually requires—monitoring, human-in-the-loop, and treating AI as a product, not a one-off experiment.", read_time: "10 min", date: "Feb 27, 2026", date_iso: "2026-02-27", image: "blogs/astechware-food-and-ai-ml.webp", author_name: "Ahmad Kamran", author_title: "Founder" },
       # Case studies & existing posts
@@ -122,11 +144,78 @@ module ApplicationHelper
       # vestra-app-case-study redirects to /case-studies/vestra-payments (same project)
       { slug: "whatsapp-voice-ai-agent-demo", path: -> { blog_show_path("whatsapp-voice-ai-agent-demo") }, title: "WhatsApp & Voice AI for Appointment Booking", category: "AI & Automation", category_slug: "ai-automation", excerpt_short: "Real-time AI agents for WhatsApp and voice that triage, book appointments, and escalate to humans when needed.", excerpt_long: "Healthcare and service businesses need 24/7 responsiveness without burning out staff. We built demo-ready AI agents for WhatsApp and voice that handle triage, appointment booking, and intelligent escalation—with human-in-the-loop so nothing falls through the cracks.", read_time: "5 min", date: "Feb 16, 2026", date_iso: "2026-02-16", image: "ahmad/whatsapp-agent.jpeg", author_name: "Ahmad Kamran", author_title: "Founder" },
       { slug: "a-laymans-guide-for-hiring-a-top-software-company-in-pakistan", path: -> { blog_show_path("a-laymans-guide-for-hiring-a-top-software-company-in-pakistan") }, title: "How to Hire a Software Company in Pakistan", category: "Industry Insights", category_slug: "industry-insights", excerpt_short: "Practical advice for non-technical founders on evaluating and selecting a software partner that can deliver.", excerpt_long: "Hiring the right software company is critical for product success. This guide walks through how to evaluate technical partners, what to look for in proposals and teams, and how to avoid common pitfalls when outsourcing development.", read_time: "8 min", date: "Feb 16, 2026", date_iso: "2026-02-16", image: "blogs/top_software_company.webp", author_name: "Ahmad Kamran", author_title: "Founder" }
-    ]
+    ].map { |article| with_blog_category(article) }
+  end
+
+  def with_blog_category(article)
+    slug = article[:category_slug].to_s
+    return article if BLOG_CATEGORIES.key?(slug) && slug != "general" && !HEALTHCARE_BLOG_SLUGS.include?(article[:slug])
+
+    assigned = HEALTHCARE_BLOG_SLUGS.include?(article[:slug]) ? "healthcare" : (BLOG_CATEGORIES.key?(slug) ? slug : "general")
+    assigned = "healthcare" if HEALTHCARE_BLOG_SLUGS.include?(article[:slug])
+    assigned = "general" unless BLOG_CATEGORIES.key?(slug) || assigned == "healthcare"
+    cat = BLOG_CATEGORIES.fetch(assigned)
+    article.merge(category: cat[:name], category_slug: assigned)
+  end
+
+  def blog_category(slug)
+    BLOG_CATEGORIES[slug.to_s]
+  end
+
+  def blog_categories_with_posts
+    used = blog_articles_list.map { |article| article[:category_slug].to_s }.uniq
+    BLOG_CATEGORIES.select { |slug, _| used.include?(slug) }
+  end
+
+  def blog_articles_for_category(category_slug)
+    blog_articles_list.select { |article| article[:category_slug].to_s == category_slug.to_s }
+  end
+
+  def blog_related_guides(article, limit: 3)
+    return [] if article.blank?
+
+    same = blog_articles_for_category(article[:category_slug]).reject { |item| item[:slug] == article[:slug] }
+    pool = same.presence || blog_articles_for_category("general").reject { |item| item[:slug] == article[:slug] }
+    pool.first(limit)
+  end
+
+  def blog_published_label(article)
+    iso = article[:date_iso].presence
+    return article[:date].to_s if iso.blank?
+
+    date = Date.iso8601(iso) rescue nil
+    return article[:date].to_s if date.blank?
+
+    "Published #{date.strftime('%-d %b %Y')}"
+  end
+
+  def blog_updated_label(article)
+    updated = article[:updated_iso].presence
+    published = article[:date_iso].presence
+    return nil if updated.blank? || updated == published
+
+    date = Date.iso8601(updated) rescue nil
+    return nil if date.blank?
+
+    "Updated #{date.strftime('%-d %b %Y')}"
   end
 
   def blog_featured_article
-    blog_articles_list.first
+    blog_index_articles.first || blog_articles_list.first
+  end
+
+  def blog_index_articles
+    list = blog_articles_list
+    if params[:category].present?
+      list = list.select { |article| article[:category_slug].to_s == params[:category].to_s }
+    end
+    if params[:q].present?
+      query = params[:q].to_s.downcase
+      list = list.select do |article|
+        article[:title].to_s.downcase.include?(query) || article[:excerpt_short].to_s.downcase.include?(query)
+      end
+    end
+    list
   end
 
   # Eight offerings shown on homepage "What we build" and /services hub (same order).
@@ -334,19 +423,21 @@ module ApplicationHelper
       "what-to-look-for-hiring-fractional-engineering-team" => "fractional engineering team, hire software engineers, dedicated developers, engineering partner, extended engineering team",
       "a-laymans-guide-for-hiring-a-top-software-company-in-pakistan" => "hire software development partner, outsourcing engineering team, top software company, software engineering partner",
       "how-to-evaluate-ai-agent-development-company-2026" => "AI development company, AI engineering partner, production AI, best AI agent company, AI agent development partner",
-      "hipaa-compliant-ai-healthcare-companies-guide" => "healthcare AI engineering partner, HIPAA compliant AI, hire healthcare software engineers, healthcare AI automation",
+      "hipaa-compliant-ai-healthcare-companies-guide" => "healthcare AI engineering partner, HIPAA-ready AI, hire healthcare software engineers, healthcare AI automation",
       "building-production-ai-agents-langgraph-complete-guide" => "LangGraph development, production AI agents, AI automation systems, workflow automation, AI engineering partner",
       "reduced-customer-support-tickets-90-percent-ai-agents" => "AI customer support automation, workflow automation, AI agents, support ticket automation",
       "production-ai-vs-prototype-ai-why-projects-fail" => "production AI development, AI engineering partner, workflow automation, custom automation software",
       "modular-ai-agents-case-study" => "AI automation, modular AI agents, workflow automation, healthcare AI, real estate automation",
       "vestra-app-case-study" => "real estate software, property management automation, real estate operations software",
-      "whatsapp-voice-ai-agent-demo" => "healthcare AI, voice AI automation, AI agents, HIPAA compliant AI"
+      "whatsapp-voice-ai-agent-demo" => "healthcare AI, voice AI automation, AI agents, HIPAA-ready AI"
     }
     keywords_by_slug[slug.to_s] || "A'sTechware, production AI, platform engineering, AI engineering partner, workflow automation, custom software development"
   end
 
   # Per-slug SEO description override for blog posts (falls back to excerpt_short)
   def blog_seo_description(article)
+    return article[:meta_description] if article[:meta_description].present?
+
     slug = article[:slug].to_s
     descriptions = {
       "what-to-look-for-hiring-fractional-engineering-team" => "What to look for when hiring a fractional engineering team: ownership, communication, production outcomes, and how to structure the engagement.",

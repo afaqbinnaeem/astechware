@@ -1,9 +1,13 @@
 <%# Blog post template: breadcrumb, key takeaways, TOC, share (Twitter, LinkedIn, copy link), author bio, newsletter, related. %>
 <% article = local_assigns[:article] || {} %>
+<% category = blog_category(article[:category_slug]) %>
 <nav class="blog-breadcrumb-container container py-2" aria-label="Breadcrumb">
   <ol class="blog-breadcrumb breadcrumb mb-0 bg-transparent small">
     <li class="breadcrumb-item"><%= link_to "Home", root_path, class: "text-decoration-none" %></li>
     <li class="breadcrumb-item"><%= link_to "Blog", blogs_path, class: "text-decoration-none" %></li>
+    <% if category.present? %>
+      <li class="breadcrumb-item"><%= link_to article[:category], "#{blogs_path}?category=#{article[:category_slug]}", class: "text-decoration-none" %></li>
+    <% end %>
     <li class="breadcrumb-item active" aria-current="page"><%= truncate(article[:title], length: 50) %></li>
   </ol>
 </nav>
@@ -13,7 +17,7 @@
       <div class="col-12 col-lg-8">
         <%# Hero image %>
         <div class="position-relative mb-4 rounded overflow-hidden">
-          <%= image_tag article[:image], class: "blog-post-hero img-fluid", alt: article[:title], loading: "eager" if article[:image].present? %>
+          <%= image_tag article[:image], class: "blog-post-hero img-fluid", alt: (article[:image_alt].presence || article[:title]), loading: "eager" if article[:image].present? %>
           <span class="blog-badge blog-badge-<%= article[:category_slug].to_s.parameterize %> position-absolute top-0 start-0 m-3"><%= article[:category] %></span>
         </div>
 
@@ -28,7 +32,13 @@
               <% if article[:author_title].present? %><span class="text-muted small d-block"><%= article[:author_title] %></span><% end %>
             </div>
           </div>
-          <span class="text-muted small"><%= article[:date] %> · <span class="blog-read-time"><%= article[:read_time] %> read</span></span>
+          <span class="text-muted small">
+            <%= blog_published_label(article) %>
+            <% if blog_updated_label(article).present? %>
+              · <%= blog_updated_label(article) %>
+            <% end %>
+            · <span class="blog-read-time"><%= article[:read_time] %> read</span>
+          </span>
         </div>
 
         <%# Key Takeaways (from body partial) %>
@@ -51,6 +61,32 @@
         <div class="entry-content">
           <%= yield %>
         </div>
+
+        <% if category.present? || article[:case_study_path].present? || article[:integration_path].present? %>
+          <aside class="blog-niche-box mt-4 p-4 border rounded">
+            <h2 class="h5 mb-2">Built for <%= article[:category] %></h2>
+            <% if category.present? %>
+              <p class="mb-2">Guides and software for <%= article[:category].downcase %> teams.</p>
+              <%= link_to "See #{article[:category]}", category[:path], class: "service-card-link d-inline-block me-3" %>
+            <% end %>
+            <% if article[:case_study_path].present? %>
+              <%= link_to "Read the case study", article[:case_study_path], class: "service-card-link d-inline-block me-3" %>
+            <% end %>
+            <% if article[:integration_path].present? %>
+              <%= link_to "See the integration", article[:integration_path], class: "service-card-link d-inline-block" %>
+            <% end %>
+          </aside>
+        <% end %>
+
+        <% if article[:faq].present? %>
+          <section class="mt-5" id="article-faq">
+            <h2 class="h5 mb-3">Questions people ask</h2>
+            <% article[:faq].each do |item| %>
+              <h3 class="h6 mb-1"><%= item[:q] %></h3>
+              <p><%= item[:a] %></p>
+            <% end %>
+          </section>
+        <% end %>
 
         <%# Tags (optional) %>
         <% if content_for?(:blog_tags) %>
@@ -97,11 +133,11 @@
           <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary rounded-pill px-4">Book a 30 Min Strategy Call</a>
         </div>
 
-        <%# Related Articles (3 to 4) %>
-        <% related = (article.present? && article[:path].present?) ? blog_related_articles(article[:path].call, limit: 4) : [] %>
+        <%# Related guides in the same niche %>
+        <% related = blog_related_guides(article, limit: 3) %>
         <% if related.any? %>
-          <section class="blog-related mt-5" aria-label="Related articles">
-            <h2 class="h5 mb-4">Related articles</h2>
+          <section class="blog-related mt-5" aria-label="Related guides">
+            <h2 class="h5 mb-4">Related guides</h2>
             <div class="row g-3">
               <% related.first(4).each do |rel| %>
                 <div class="col-12 col-sm-6">

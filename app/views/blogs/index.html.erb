@@ -1,7 +1,7 @@
 <% content_for :head do %>
   <% set_meta_tags(
     title: "AI & Software Engineering Blog",
-    description: "Practical writing on production AI, workflow automation, and software engineering—from implementation lessons to architecture decisions that survive real operations.",
+    description: "Practical guides for teams in legal, healthcare, construction, logistics and more: what to automate, what to build, and what it takes to run it every day.",
     keywords: "AI blog, software engineering blog, workflow automation, production AI, platform engineering, technical insights"
   ) %>
 <% end %>
@@ -13,11 +13,8 @@
       <div class="row">
         <div class="col-12 col-lg-9 mx-auto text-center">
           <h1 class="display-5 fw-bold mb-3" data-page-h1>Blog</h1>
-          <p class="lead mb-2" style="max-width: 720px; margin-left: auto; margin-right: auto;">
-            Expert perspectives on production AI, platform engineering, and building systems that actually work under operational pressure.
-          </p>
-          <p class="text-muted mb-0" style="max-width: 640px; margin-left: auto; margin-right: auto;">
-            Educational content to help technical leaders make informed decisions about AI implementation, governance, and platform modernization.
+          <p class="lead mb-0" style="max-width: 720px; margin-left: auto; margin-right: auto;">
+            Practical guides for teams in legal, healthcare, construction, logistics and more: what to automate, what to build, and what it takes to run it.
           </p>
         </div>
       </div>
@@ -37,20 +34,17 @@
     <div class="container">
       <div class="blog-category-filter mb-4 pb-3 border-bottom">
         <div class="d-flex flex-wrap gap-2 justify-content-center">
-          <a href="<%= blogs_path %>" class="btn btn-outline-secondary btn-sm rounded-pill active">All Articles</a>
-          <a href="<%= blogs_path %>?category=ai-automation" class="btn btn-outline-secondary btn-sm rounded-pill">AI &amp; Automation</a>
-          <a href="<%= blogs_path %>?category=platform-engineering" class="btn btn-outline-secondary btn-sm rounded-pill">Platform Engineering</a>
-          <a href="<%= blogs_path %>?category=governance-compliance" class="btn btn-outline-secondary btn-sm rounded-pill">Governance &amp; Compliance</a>
-          <a href="<%= blogs_path %>?category=industry-solutions" class="btn btn-outline-secondary btn-sm rounded-pill">Industry Solutions</a>
-          <a href="<%= blogs_path %>?category=technical-deep-dives" class="btn btn-outline-secondary btn-sm rounded-pill">Technical Deep Dives</a>
-          <a href="<%= blogs_path %>?category=case-studies" class="btn btn-outline-secondary btn-sm rounded-pill">Case Studies</a>
+          <a href="<%= blogs_path %>" class="btn btn-outline-secondary btn-sm rounded-pill <%= 'active' if params[:category].blank? %>">All articles</a>
+          <% blog_categories_with_posts.each do |slug, cat| %>
+            <a href="<%= blogs_path(category: slug) %>" class="btn btn-outline-secondary btn-sm rounded-pill <%= 'active' if params[:category] == slug %>"><%= cat[:name] %></a>
+          <% end %>
         </div>
       </div>
 
       <div class="row">
         <div class="col-12 col-lg-9">
           <div class="row g-4 blog-grid">
-            <% blog_articles_list.each do |article| %>
+            <% blog_index_articles.each do |article| %>
               <div class="col-12 col-md-6 col-lg-4">
                 <%= render "blogs/blog_grid_card", article: article %>
               </div>
