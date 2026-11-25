@@ -1,0 +1,42 @@
+<% content_for :blog_key_takeaways do %>
+  <ul>
+    <li>Saved cards can usually move between processors without customers re-entering them.</li>
+    <li>Put a payment layer in your code so the rest of the app doesn't care which processor runs.</li>
+    <li>Run both processors side by side and move customers in stages.</li>
+    <li>Reconcile daily and keep a rollback plan until the old processor is fully empty.</li>
+  </ul>
+<% end %>
+<% content_for :blog_toc do %>
+  <ul class="list-unstyled mb-0">
+    <li><a href="#take-inventory">1. Take inventory</a></li>
+    <li><a href="#move-saved-cards-safely">2. Move saved cards safely</a></li>
+    <li><a href="#add-a-payment-layer-in-your-code">3. Add a payment layer in your code</a></li>
+    <li><a href="#run-both-in-parallel">4. Run both in parallel</a></li>
+    <li><a href="#reconcile-every-day">5. Reconcile every day</a></li>
+    <li><a href="#cut-over-with-a-way-back">6. Cut over, with a way back</a></li>
+    <li><a href="#tell-customers-what-changes">7. Tell customers what changes</a></li>
+  </ul>
+<% end %>
+
+<p class="lead">Switching payment processors is usually driven by fees, features or a processor that's holding you back. The risk is real: a failed renewal or a lost transaction costs money and trust. A <a href="/integrations/payment-gateway-migration">payment gateway migration</a> done in stages avoids both. Here is the plan we follow.</p>
+<h2 id="take-inventory">1. Take inventory</h2>
+<p>List everything the old processor does for you: saved cards, subscriptions and their billing dates, one-off payments, refunds, webhooks, reports and any terminals. Anything missed here becomes a surprise later.</p>
+<h2 id="move-saved-cards-safely">2. Move saved cards safely</h2>
+<p>Most major processors support a secure card data migration between them, so customers don't have to re-enter their cards. You request it, the processors transfer the data directly, and your servers never touch raw card numbers. Allow time for it, because the processors run this step on their own schedule.</p>
+<h2 id="add-a-payment-layer-in-your-code">3. Add a payment layer in your code</h2>
+<p>Put all payment actions behind one internal service: charge, refund, save card, subscribe. The rest of the app calls that service, not the processor. Switching then becomes a change in one place, and you can run two processors at once.</p>
+<h2 id="run-both-in-parallel">4. Run both in parallel</h2>
+<ul>
+  <li>New customers go to the new processor first.</li>
+  <li>Existing customers move in small batches after their cards are migrated.</li>
+  <li>Subscriptions are recreated with the same billing dates and amounts.</li>
+  <li>Webhooks from both processors are mapped to the same internal events.</li>
+</ul>
+<h2 id="reconcile-every-day">5. Reconcile every day</h2>
+<p>Compare expected charges with actual charges on both processors each day. Investigate every mismatch before moving the next batch.</p>
+<h2 id="cut-over-with-a-way-back">6. Cut over, with a way back</h2>
+<p>When the old processor has no active customers left, stop new charges there but keep it available for refunds on old payments. Keep the rollback plan until the first full billing cycle on the new processor is clean.</p>
+<h2 id="tell-customers-what-changes">7. Tell customers what changes</h2>
+<p>The name on card statements may change. A short email before cut-over prevents confused customers and avoidable disputes.</p>
+<p>We've worked with <a href="/integrations/stripe">Stripe</a>, Authorize.net, PayPal, Square, Clover, Dwolla and Plaid. Our payment gateway migration page explains how we plan these moves, and our <a href="/solutions/financial">fintech page</a> covers the wider work.</p>
+<p>Planning to switch processors? <a href="/contact">Book a 30-min call</a> and we'll check what your current setup needs before you move a single card.</p>

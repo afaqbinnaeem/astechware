@@ -392,6 +392,51 @@ module ApplicationHelper
         case_study_path: "/case-studies/ai-deal-analyzer",
         author_name: "Ahmad Kamran", author_title: "Founder, A'sTechware"
       },
+      {
+        slug: "stripe-connect-split-payouts-marketplace",
+        path: -> { blog_show_path("stripe-connect-split-payouts-marketplace") },
+        title: "Stripe Connect split payouts for marketplaces: a build guide",
+        seo_title: "Stripe Connect Split Payouts for Marketplaces",
+        meta_description: "How to build Stripe Connect split payments for a marketplace: account types, a ledger first, split rules, refunds and payout states that reconcile themselves.",
+        keywords: "Stripe Connect split payments, marketplace payouts, Stripe Connect developer, split payment marketplace, Stripe Connect Express vs Custom",
+        category: "Fintech & payments",
+        category_slug: "fintech",
+        excerpt_short: "How to build Stripe Connect split payments for a marketplace: account types, a ledger first, split rules, refunds and payout states that reconcile themselves.",
+        excerpt_long: "Splitting one payment between several parties sounds simple until refunds, disputes and failed payouts arrive. Stripe Connect handles the regulated money movement, but your platform still has to know who is owed what at every moment. Here is how we build Stripe Connect split payments so the books balance without manual reconciliation.",
+        read_time: "7 min",
+        date: "26 Nov 2026", date_iso: "2026-11-26",
+        image: "blogs/astechware_new_web_blog_2.webp",
+        image_alt: "One customer payment split between a seller, a service provider and the platform",
+        faq: [
+        { q: "Express or Custom accounts?", a: "Start with Express unless you need full control over onboarding and the seller experience." },
+        { q: "Do we need a money transmitter license?", a: "Stripe Connect is designed so Stripe handles the regulated money movement in many setups, but it depends on your model and countries. We're not lawyers; confirm with legal counsel before launch." }
+        ],
+        case_study_path: "/case-studies/vestra-payments",
+        integration_path: "/integrations/stripe",
+        author_name: "Ahmad Kamran", author_title: "Founder, A'sTechware"
+      },
+      {
+        slug: "payment-gateway-migration-guide",
+        path: -> { blog_show_path("payment-gateway-migration-guide") },
+        title: "Payment gateway migration without downtime or lost transactions",
+        seo_title: "Payment Gateway Migration Without Downtime",
+        meta_description: "A payment gateway migration plan that avoids lost transactions: token migration, running both processors in parallel, webhook mapping and reconciliation.",
+        keywords: "payment gateway migration, switch payment processor, migrate to Stripe, Authorize.net to Stripe migration, card token migration",
+        category: "Fintech & payments",
+        category_slug: "fintech",
+        excerpt_short: "A payment gateway migration plan that avoids lost transactions: token migration, running both processors in parallel, webhook mapping and reconciliation.",
+        excerpt_long: "Switching payment processors is usually driven by fees, features or a processor that's holding you back. The risk is real: a failed renewal or a lost transaction costs money and trust. A payment gateway migration done in stages avoids both. Here is the plan we follow.",
+        read_time: "6 min",
+        date: "26 Nov 2026", date_iso: "2026-11-26",
+        image: "blogs/astechware_new_web_blog_2.webp",
+        image_alt: "Payments moving from an old processor to a new one in stages",
+        faq: [
+        { q: "Will customers need to re-enter their cards?", a: "Usually not. If both processors support card data migration, saved cards move across securely." },
+        { q: "Can we migrate subscriptions without double-charging?", a: "Yes. Recreate each subscription on the new processor with the same next billing date, cancel it on the old one at the same moment, and check both in the daily reconciliation." }
+        ],
+        integration_path: "/integrations/payment-gateway-migration",
+        author_name: "Ahmad Kamran", author_title: "Founder, A'sTechware"
+      },
       # Expert AI series (production-first, what agencies miss)
       { slug: "ai-chatbot-death-spiral", path: -> { blog_show_path("ai-chatbot-death-spiral") }, title: "Why AI Chatbots Fail After Launch", category: "AI & Automation", category_slug: "ai-automation", excerpt_short: "Your AI chatbot launched at 95% accuracy. Two months later, customers are complaining. Why chatbots degrade and how to fix it with continuous improvement.", excerpt_long: "Agencies demo with curated data and have no plan for accuracy degradation. In production, user language evolves, edge cases accumulate, and model drift goes unnoticed until customers complain. We break down the chatbot death spiral—Week 1: 95% → Week 8: 60%—and the monitoring, feedback loops, and retraining strategies that actually keep production chatbots reliable.", read_time: "11 min", date: "Feb 16, 2026", date_iso: "2026-02-16", image: "ahmad/repi-work.jpeg", author_name: "Ahmad Kamran", author_title: "Founder" },
       { slug: "ai-cost-explosion", path: -> { blog_show_path("ai-cost-explosion") }, title: "How to Cut Runaway AI Costs", category: "Technical Deep Dives", category_slug: "technical-deep-dives", excerpt_short: "Your AI feature costs $50K/month. It should cost $8K. Smart model routing, caching, and token optimization without sacrificing quality.", excerpt_long: "Using GPT-4 for everything, no caching, and inefficient prompts burn budgets fast. We cover cost attribution, model tiering, semantic caching, prompt compression, and the math that gets legal tech from $40K to $16K—with real strategies you can apply this week.", read_time: "10 min", date: "Feb 16, 2026", date_iso: "2026-02-16", image: "blogs/astechware-food-and-ai-ml.webp", author_name: "Ahmad Kamran", author_title: "Founder" },

@@ -1,0 +1,44 @@
+<% content_for :blog_key_takeaways do %>
+  <ul>
+    <li>Choose the Connect account type by how much of onboarding and support you want to own.</li>
+    <li>Record every money movement in your own ledger before you call Stripe.</li>
+    <li>Split rules should be fixed, versioned code, never ad-hoc calculations.</li>
+    <li>Track each payout through clear states, driven by webhooks and protected against repeats.</li>
+  </ul>
+<% end %>
+<% content_for :blog_toc do %>
+  <ul class="list-unstyled mb-0">
+    <li><a href="#pick-the-account-type">Pick the account type</a></li>
+    <li><a href="#pick-how-money-moves">Pick how money moves</a></li>
+    <li><a href="#build-the-ledger-first">Build the ledger first</a></li>
+    <li><a href="#fixed-split-rules">Fixed split rules</a></li>
+    <li><a href="#payout-states">Payout states</a></li>
+    <li><a href="#refunds-and-disputes">Refunds and disputes</a></li>
+    <li><a href="#reconcile-every-day">Reconcile every day</a></li>
+    <li><a href="#what-changes-in-practice">What changes in practice</a></li>
+  </ul>
+<% end %>
+
+<p class="lead">Splitting one payment between several parties sounds simple until refunds, disputes and failed payouts arrive. <a href="/integrations/stripe">Stripe</a> Connect handles the regulated money movement, but your platform still has to know who is owed what at every moment. Here is how we build Stripe Connect split payments so the books balance without manual reconciliation.</p>
+<h2 id="pick-the-account-type">Pick the account type</h2>
+<ul>
+  <li>Standard: sellers use their own Stripe dashboard. Least work for you, least control.</li>
+  <li>Express: Stripe hosts onboarding and a light dashboard, and you control the payout flow. A good default for most marketplaces.</li>
+  <li>Custom: you own the whole experience, including onboarding screens and support.</li>
+  <li>Most control, most work.</li>
+</ul>
+<h2 id="pick-how-money-moves">Pick how money moves</h2>
+<p>For one seller per payment, a destination charge is simplest. For payments split between several parties, use separate charges and transfers: charge the customer once, then transfer each party's share. That keeps the split logic in your code, where you can test it.</p>
+<h2 id="build-the-ledger-first">Build the ledger first</h2>
+<p>Before calling Stripe, record the movement in a double-entry ledger: money in from the customer, amounts owed to each party, the platform fee and processing costs. Every entry balances. When Stripe confirms or fails, the ledger is updated to match. This ledger is what makes reconciliation automatic.</p>
+<h2 id="fixed-split-rules">Fixed split rules</h2>
+<p>Write split rules as code with versions: percentages, fixed fees, minimums and rounding. Every transaction stores which rule version it used. When rules change, old transactions still explain themselves.</p>
+<h2 id="payout-states">Payout states</h2>
+<p>Track each transfer and payout through clear states such as pending, available, paid, failed and reversed. Move between states only on Stripe webhooks. Use idempotency keys on every request, so a retry never pays someone twice.</p>
+<h2 id="refunds-and-disputes">Refunds and disputes</h2>
+<p>Decide in advance who covers each case: a full refund, a partial refund, a dispute, and the fees on each. Reverse transfers in proportion to the original split, and record each reversal in the ledger.</p>
+<h2 id="reconcile-every-day">Reconcile every day</h2>
+<p>A daily job compares your ledger with Stripe's balance transactions and flags any difference. Unusual patterns, such as sudden refund spikes, raise an alert.</p>
+<h2 id="what-changes-in-practice">What changes in practice</h2>
+<p>For <a href="/case-studies/vestra-payments">Vestra Payments</a>, we built a ledger-first platform on Stripe Connect with fixed split rules, payout states and anomaly alerts. Fee splits run automatically and nobody reconciles by hand. More on our <a href="/solutions/financial">fintech page</a>.</p>
+<p>Building a marketplace that splits payments? <a href="/contact">Book a 30-min call</a> and we'll sketch your money flow and ledger before you write code.</p>
