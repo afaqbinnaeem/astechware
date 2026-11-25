@@ -1,0 +1,52 @@
+<% content_for :blog_key_takeaways do %>
+  <ul>
+    <li>Software can be HIPAA-ready. Compliance also depends on your own policies, training and agreements.</li>
+    <li>Ask for a written map of where patient data goes, including every vendor involved.</li>
+    <li>Every vendor that touches patient data needs a BAA, including language-model and transcription providers.</li>
+    <li>Audit logs, role-based access and data separation between locations should be built in from the start.</li>
+  </ul>
+<% end %>
+<% content_for :blog_toc do %>
+  <ul class="list-unstyled mb-0">
+    <li><a href="#hipaa-ready-vs-hipaa-compliant">HIPAA-ready vs HIPAA compliant</a></li>
+    <li><a href="#agreements">Agreements</a></li>
+    <li><a href="#where-the-data-goes">Where the data goes</a></li>
+    <li><a href="#storage-and-access">Storage and access</a></li>
+    <li><a href="#logging-and-incidents">Logging and incidents</a></li>
+    <li><a href="#ownership">Ownership</a></li>
+  </ul>
+<% end %>
+
+<p class="lead">If your software will store or process patient data, the team that builds it shapes your risk for years. Many vendors say "HIPAA compliant". Few can explain where patient data actually goes. These are the questions we would want a client to ask us, grouped by topic.</p>
+<h2 id="hipaa-ready-vs-hipaa-compliant">HIPAA-ready vs HIPAA compliant</h2>
+<p>No piece of software is HIPAA compliant on its own. Compliance covers your whole organization: policies, training, risk assessments and agreements. Software can be HIPAA-ready, meaning it has the technical safeguards in place so your organization can be compliant. Be wary of any vendor that promises more than that.</p>
+<h2 id="agreements">Agreements</h2>
+<ol>
+  <li>Will you sign a Business Associate Agreement with us?</li>
+  <li>Which other vendors will touch patient data, such as cloud hosting, transcription, text messaging or a language model? Does each one sign a BAA?</li>
+</ol>
+<h2 id="where-the-data-goes">Where the data goes</h2>
+<ol>
+  <li>Can you draw the path patient data takes through the system, step by step?</li>
+  <li>Does any patient data reach a language model? If so, which data, and why?</li>
+  <li>Do you strip identifiers before sending text to outside services?</li>
+</ol>
+<p>In our clinic platform, names, dates of birth and record numbers are replaced with tokens before any text reaches the model, and call audio is not stored. You can read how in <a href="/case-studies/medical-voice-ai">the case study</a>.</p>
+<h2 id="storage-and-access">Storage and access</h2>
+<ol>
+  <li>Is data encrypted in transit and at rest? Are the most sensitive fields encrypted separately?</li>
+  <li>How are roles set up? Can front-desk staff see clinical notes?</li>
+  <li>If you run several locations, how is each location's data kept separate? We use row-level security in the database so a query can only ever see its own location's records.</li>
+  <li>Who on the vendor's team can see production data, and how is that access logged?</li>
+</ol>
+<h2 id="logging-and-incidents">Logging and incidents</h2>
+<ol>
+  <li>Is every read and change of patient data logged, with who made it and when?</li>
+  <li>What happens if there is a breach? Who tells whom, and how fast?</li>
+</ol>
+<h2 id="ownership">Ownership</h2>
+<ol>
+  <li>Will the code and the cloud account be ours from day one?</li>
+</ol>
+<p>A vendor that answers these clearly, in writing, has done this before. See how we approach it on our <a href="/solutions/healthcare">healthcare</a> and <a href="/solutions/private-clinics">private clinics pages</a>.</p>
+<p>Building something that touches patient data? <a href="/contact">Book a 30-min call</a> and we'll map your data flow with you before any code is written.</p>

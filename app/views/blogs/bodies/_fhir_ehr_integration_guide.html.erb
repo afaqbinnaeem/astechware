@@ -1,0 +1,55 @@
+<% content_for :blog_key_takeaways do %>
+  <ul>
+    <li>FHIR is a shared standard, but every EHR implements it differently. Plan for vendor-specific work.</li>
+    <li>Most EHRs allow far more reads than writes. Confirm write access to the resources you need before you build.</li>
+    <li>Decide which system is the source of truth for each record before writing any sync code.</li>
+    <li>Most production failures come from tokens, rate limits, time zones and practice-specific settings, not from the API calls themselves.</li>
+  </ul>
+<% end %>
+<% content_for :blog_toc do %>
+  <ul class="list-unstyled mb-0">
+    <li><a href="#what-fhir-gives-you">What FHIR gives you</a></li>
+    <li><a href="#getting-access">Getting access</a></li>
+    <li><a href="#read-access-vs-write-access">Read access vs write access</a></li>
+    <li><a href="#designing-the-sync">Designing the sync</a></li>
+    <li><a href="#what-breaks-in-production">What breaks in production</a></li>
+    <li><a href="#a-real-example">A real example</a></li>
+  </ul>
+<% end %>
+
+<p class="lead"><a href="/integrations/fhir-ehr">FHIR</a> EHR integration is now the standard way for new <a href="/solutions/healthcare">healthcare</a> apps to read and write patient records. The standard is the easy part. The hard parts are getting access, deciding who owns each record, and keeping two systems in sync when real patients and staff use both. This guide covers what we plan for on every integration.</p>
+<h2 id="what-fhir-gives-you">What FHIR gives you</h2>
+<p>FHIR (Fast Healthcare Interoperability Resources) is an HL7 standard that exposes health data as REST APIs returning JSON. Each type of record is a "resource". The ones most apps need are:</p>
+<ul>
+  <li>Patient and Practitioner for people</li>
+  <li>Schedule, Slot and Appointment for booking</li>
+  <li>Encounter for visits</li>
+  <li>DocumentReference for clinical notes and files</li>
+  <li>Observation, Condition and MedicationRequest for clinical data</li>
+</ul>
+<h2 id="getting-access">Getting access</h2>
+<p>Each EHR vendor runs its own developer program. You usually get a sandbox first, then go through an app review before production. After that, each practice that uses your app still has to enable it for their own account.</p>
+<p>Authorization normally uses SMART on FHIR, which is built on OAuth 2.0. Apps a clinician launches use the user login flow. Background jobs, such as a nightly sync, use the backend services flow with a signed key.</p>
+<h2 id="read-access-vs-write-access">Read access vs write access</h2>
+<p>This is where projects get surprised. Many EHRs let you read almost everything but write only a few resources. Before you design features, list every write you need and confirm the vendor allows it: booking an appointment, creating a note, updating a patient's phone number.</p>
+<h2 id="designing-the-sync">Designing the sync</h2>
+<ol>
+  <li>Pick a source of truth for each record type. The EHR usually owns patients and the chart. Your app may own reminders or intake forms.</li>
+  <li>Map identifiers. Store the EHR's resource IDs next to your own and never rely on names or dates of birth to match records.</li>
+  <li>Choose polling or events. Use subscriptions or webhooks where the EHR supports them, and polling with a change marker where it doesn't.</li>
+  <li>Make writes idempotent, so a retried request never books the same slot twice.</li>
+  <li>Log every read and write of patient data, with who or what made it.</li>
+</ol>
+<h2 id="what-breaks-in-production">What breaks in production</h2>
+<ul>
+  <li>Access tokens expire in the middle of a long sync.</li>
+  <li>Vendor extensions add fields the standard doesn't describe.</li>
+  <li>Paging stops early and quietly loses records.</li>
+  <li>Time zones shift appointments by an hour across daylight-saving changes.</li>
+  <li>Practices configure appointment types and providers differently.</li>
+  <li>Rate limits slow everything down at the start of the working day.</li>
+</ul>
+<p>We build retries, alerts and a reconciliation job for each of these from day one.</p>
+<h2 id="a-real-example">A real example</h2>
+<p>For a <a href="/case-studies/medical-voice-ai">US private clinic group</a>, we built two-way sync with athenahealth through FHIR R4. Appointments booked by voice or web land in the EHR schedule, and provider-approved notes are written back to the chart. Our FHIR &amp; EHR integration page explains how we scope this work, and the healthcare page covers the wider platform.</p>
+<p>Planning an EHR integration? <a href="/contact">Book a 30-min call</a> and we'll check your read and write needs against the EHR you're targeting.</p>

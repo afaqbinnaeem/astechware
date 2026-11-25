@@ -481,6 +481,51 @@ module ApplicationHelper
         case_study_path: "/case-studies/word-of-mouth-modernization",
         author_name: "Ahmad Kamran", author_title: "Founder, A'sTechware"
       },
+      {
+        slug: "fhir-ehr-integration-guide",
+        path: -> { blog_show_path("fhir-ehr-integration-guide") },
+        title: "FHIR EHR integration: a practical guide for healthtech teams",
+        seo_title: "FHIR EHR Integration: A Practical Guide",
+        meta_description: "A practical guide to FHIR EHR integration for healthtech teams: which resources you need, sandbox access, auth, sync rules and what breaks in production.",
+        keywords: "FHIR EHR integration, FHIR API integration, SMART on FHIR, EHR integration developer, athenahealth FHIR integration, HL7 FHIR R4",
+        category: "Healthcare & EHR",
+        category_slug: "healthcare",
+        excerpt_short: "A practical guide to FHIR EHR integration for healthtech teams: which resources you need, sandbox access, auth, sync rules and what breaks in production.",
+        excerpt_long: "FHIR EHR integration is now the standard way for new healthcare apps to read and write patient records. The standard is the easy part. The hard parts are getting access, deciding who owns each record, and keeping two systems in sync when real patients and staff use both. This guide covers what we plan for on every integration.",
+        read_time: "7 min",
+        date: "26 Nov 2026", date_iso: "2026-11-26",
+        image: "blogs/astechware_new_web_blog_2.webp",
+        image_alt: "Diagram of an app syncing appointments and notes with an EHR through FHIR",
+        faq: [
+        { q: "Is FHIR the same in every EHR?", a: "The core resources are the same, but supported resources, write permissions, extensions and the approval process differ by vendor." },
+        { q: "Do I need FHIR, or can I use the EHR's own API?", a: "Use FHIR where it covers what you need, because it carries over to other EHRs. Use the vendor's own API for gaps, such as some scheduling actions FHIR doesn't support." }
+        ],
+        case_study_path: "/case-studies/medical-voice-ai",
+        integration_path: "/integrations/fhir-ehr",
+        author_name: "Ahmad Kamran", author_title: "Founder, A'sTechware"
+      },
+      {
+        slug: "hipaa-ready-software-vendor-questions",
+        path: -> { blog_show_path("hipaa-ready-software-vendor-questions") },
+        title: "HIPAA-ready software: the questions to ask a development vendor",
+        seo_title: "HIPAA-Ready Software: Questions to Ask",
+        meta_description: "Building software that touches patient data? The questions to ask a development vendor about BAAs, PHI flow, audit logs and access before you sign anything.",
+        keywords: "HIPAA-ready software development, HIPAA software development company, PHI data handling, BAA software vendor, healthcare app security checklist",
+        category: "Healthcare & EHR",
+        category_slug: "healthcare",
+        excerpt_short: "Building software that touches patient data? The questions to ask a development vendor about BAAs, PHI flow, audit logs and access before you sign anything.",
+        excerpt_long: "If your software will store or process patient data, the team that builds it shapes your risk for years. Many vendors say \"HIPAA compliant\". Few can explain where patient data actually goes. These are the questions we would want a client to ask us, grouped by topic.",
+        read_time: "6 min",
+        date: "26 Nov 2026", date_iso: "2026-11-26",
+        image: "blogs/astechware_new_web_blog_2.webp",
+        image_alt: "Checklist of HIPAA-ready software questions next to a data flow diagram",
+        faq: [
+        { q: "Can we use ChatGPT or Claude with patient data?", a: "Only through a business plan or API where the provider signs a BAA, and only with the data you actually need." },
+        { q: "Do we need a HIPAA certification?", a: "There is no official HIPAA certification for software. Some vendors hold security audits such as SOC 2, which are separate. Ask what an audit covered rather than relying on a badge." }
+        ],
+        case_study_path: "/case-studies/medical-voice-ai",
+        author_name: "Ahmad Kamran", author_title: "Founder, A'sTechware"
+      },
       # Expert AI series (production-first, what agencies miss)
       { slug: "ai-chatbot-death-spiral", path: -> { blog_show_path("ai-chatbot-death-spiral") }, title: "Why AI Chatbots Fail After Launch", category: "AI & Automation", category_slug: "ai-automation", excerpt_short: "Your AI chatbot launched at 95% accuracy. Two months later, customers are complaining. Why chatbots degrade and how to fix it with continuous improvement.", excerpt_long: "Agencies demo with curated data and have no plan for accuracy degradation. In production, user language evolves, edge cases accumulate, and model drift goes unnoticed until customers complain. We break down the chatbot death spiral—Week 1: 95% → Week 8: 60%—and the monitoring, feedback loops, and retraining strategies that actually keep production chatbots reliable.", read_time: "11 min", date: "Feb 16, 2026", date_iso: "2026-02-16", image: "ahmad/repi-work.jpeg", author_name: "Ahmad Kamran", author_title: "Founder" },
       { slug: "ai-cost-explosion", path: -> { blog_show_path("ai-cost-explosion") }, title: "How to Cut Runaway AI Costs", category: "Technical Deep Dives", category_slug: "technical-deep-dives", excerpt_short: "Your AI feature costs $50K/month. It should cost $8K. Smart model routing, caching, and token optimization without sacrificing quality.", excerpt_long: "Using GPT-4 for everything, no caching, and inefficient prompts burn budgets fast. We cover cost attribution, model tiering, semantic caching, prompt compression, and the math that gets legal tech from $40K to $16K—with real strategies you can apply this week.", read_time: "10 min", date: "Feb 16, 2026", date_iso: "2026-02-16", image: "blogs/astechware-food-and-ai-ml.webp", author_name: "Ahmad Kamran", author_title: "Founder" },
