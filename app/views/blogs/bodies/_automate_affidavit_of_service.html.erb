@@ -1,0 +1,49 @@
+<% content_for :blog_key_takeaways do %>
+  <ul>
+    <li>Everything an affidavit needs is already captured during the job. Automation fills the form; it doesn't invent anything.</li>
+    <li>Keep one template per court or jurisdiction, and let the job decide which one is used.</li>
+    <li>The server still reviews and signs. Notarization stays where your jurisdiction requires it.</li>
+    <li>In our build, affidavit prep was generated from the job record instead of typed from scratch.</li>
+  </ul>
+<% end %>
+<% content_for :blog_toc do %>
+  <ul class="list-unstyled mb-0">
+    <li><a href="#why-affidavits-take-so-long-by-hand">Why affidavits take so long by hand</a></li>
+    <li><a href="#what-can-be-automated">What can be automated</a></li>
+    <li><a href="#what-stays-with-a-person">What stays with a person</a></li>
+    <li><a href="#what-changes-in-practice">What changes in practice</a></li>
+    <li><a href="#how-to-set-it-up">How to set it up</a></li>
+  </ul>
+<% end %>
+
+<p class="lead">An affidavit of service is often the slowest part of a serve. Someone copies job details, attempt dates and notes into a court form, formats it and chases a signature. All of that information already exists in your system. Affidavit of service automation puts it in the right template so the server only has to review and sign.</p>
+<h2 id="why-affidavits-take-so-long-by-hand">Why affidavits take so long by hand</h2>
+<ul>
+  <li>Details are retyped from the request, the job notes and the server's messages.</li>
+  <li>Each court or jurisdiction wants a slightly different format.</li>
+  <li>Attempt history has to be written out in date order.</li>
+  <li>Signatures and notarization need chasing.</li>
+</ul>
+<h2 id="what-can-be-automated">What can be automated</h2>
+<ol>
+  <li>Collect the data: case details from the intake, and every attempt from the server's app with time, address, GPS and description.</li>
+  <li>Pick the template: the court and jurisdiction on the job select the right affidavit format.</li>
+  <li>Generate the document: the system fills the template and produces a PDF.</li>
+  <li>Attach exhibits: photos or a GPS log are added where your clients or courts want them.</li>
+  <li>Send for signature: the server signs electronically, for example through <a href="/integrations/docusign">DocuSign</a>.</li>
+  <li>Deliver and invoice: the signed affidavit goes to the client, and the invoice is created at the same moment.</li>
+</ol>
+<h2 id="what-stays-with-a-person">What stays with a person</h2>
+<p>The server reviews the affidavit and swears to it. Office staff can spot-check before it goes out. Notarization or commissioning stays in place wherever your jurisdiction requires it. Automation removes the typing, not the responsibility.</p>
+<h2 id="what-changes-in-practice">What changes in practice</h2>
+<p>For the <a href="/case-studies/flss-legal-process-serving">process serving company we worked with</a>, affidavit prep was generated from the job record instead of typed from scratch. Intake and invoicing were automated in the same platform, so a job now moves from request to signed affidavit to invoice without anyone retyping it.</p>
+<h2 id="how-to-set-it-up">How to set it up</h2>
+<ol>
+  <li>Collect every affidavit format you currently use and mark which courts use which.</li>
+  <li>List the fields each format needs, and check your job data captures all of them.</li>
+  <li>Make the server app record attempts in a fixed structure: date, time, address, result, notes.</li>
+  <li>Build one template per format and test each against past, real affidavits.</li>
+  <li>Run old and new side by side for a few weeks before switching over.</li>
+</ol>
+<p>For the bigger picture of what the rest of the platform should do, read our <a href="/blogs/process-server-software-guide">process server software guide</a> or see our <a href="/solutions/legal">legal page</a>.</p>
+<p>Spending more time on affidavits than on serves? <a href="/contact">Book a 30-min call</a> and bring your affidavit formats; we'll show you how they'd be generated.</p>

@@ -167,6 +167,51 @@ module ApplicationHelper
         integration_path: "/integrations/fhir-ehr",
         author_name: "Ahmad Kamran", author_title: "Founder, A'sTechware"
       },
+      {
+        slug: "process-server-software-guide",
+        path: -> { blog_show_path("process-server-software-guide") },
+        title: "Process server software: what to look for, and when to build your own",
+        seo_title: "Process Server Software: What to Look For",
+        meta_description: "What process server software needs to do: intake from email and PDFs, dispatch with GPS proof, affidavits and invoicing, and when building your own pays off.",
+        keywords: "process server software, process serving management software, process server app, service of process software, legal process serving platform",
+        category: "Legal & process serving",
+        category_slug: "legal",
+        excerpt_short: "What process server software needs to do: intake from email and PDFs, dispatch with GPS proof, affidavits and invoicing, and when building your own pays off.",
+        excerpt_long: "Most process serving companies start on email, spreadsheets and a phone. It works until the volume grows. Then jobs get missed, servers chase the office for details, and affidavits take longer than the serve itself. Here is what good process server software needs to do, and how to decide between buying a product and building your own.",
+        read_time: "6 min",
+        date: "26 Nov 2026", date_iso: "2026-11-26",
+        image: "blogs/astechware_new_web_blog_2.webp",
+        image_alt: "Process server app showing a job with GPS-stamped service attempts",
+        faq: [
+        { q: "Can the software read service requests straight from email?", a: "Yes. It reads the email and the attached PDFs and fills the job record for someone to check." },
+        { q: "Does GPS proof hold up in court?", a: "GPS location, timestamps and photos make your record of each attempt much stronger. What a court accepts depends on your jurisdiction's rules, so check local requirements." }
+        ],
+        case_study_path: "/case-studies/flss-legal-process-serving",
+        author_name: "Ahmad Kamran", author_title: "Founder, A'sTechware"
+      },
+      {
+        slug: "automate-affidavit-of-service",
+        path: -> { blog_show_path("automate-affidavit-of-service") },
+        title: "How to automate affidavits of service (without losing control)",
+        seo_title: "How to Automate Affidavits of Service",
+        meta_description: "How affidavit of service automation works: job data, attempts, GPS and photos fill a court-ready template, and a person still checks every line.",
+        keywords: "affidavit of service automation, proof of service template, affidavit of service software, e-sign affidavit of service, process server affidavit generator",
+        category: "Legal & process serving",
+        category_slug: "legal",
+        excerpt_short: "How affidavit of service automation works: job data, attempts, GPS and photos fill a court-ready template, and a person still checks every line.",
+        excerpt_long: "An affidavit of service is often the slowest part of a serve. Someone copies job details, attempt dates and notes into a court form, formats it and chases a signature. All of that information already exists in your system. Affidavit of service automation puts it in the right template so the server only has to review and sign.",
+        read_time: "5 min",
+        date: "26 Nov 2026", date_iso: "2026-11-26",
+        image: "blogs/astechware_new_web_blog_2.webp",
+        image_alt: "Affidavit of service generated from job data and ready for e-signature",
+        faq: [
+        { q: "Can an affidavit of service be signed electronically?", a: "Many jurisdictions accept e-signatures, but some still need a notary or commissioner." },
+        { q: "What if each court wants a different format?", a: "Keep one template per format. The court on the job selects the template automatically, so staff never pick the wrong one." }
+        ],
+        case_study_path: "/case-studies/flss-legal-process-serving",
+        integration_path: "/integrations/docusign",
+        author_name: "Ahmad Kamran", author_title: "Founder, A'sTechware"
+      },
       # Expert AI series (production-first, what agencies miss)
       { slug: "ai-chatbot-death-spiral", path: -> { blog_show_path("ai-chatbot-death-spiral") }, title: "Why AI Chatbots Fail After Launch", category: "AI & Automation", category_slug: "ai-automation", excerpt_short: "Your AI chatbot launched at 95% accuracy. Two months later, customers are complaining. Why chatbots degrade and how to fix it with continuous improvement.", excerpt_long: "Agencies demo with curated data and have no plan for accuracy degradation. In production, user language evolves, edge cases accumulate, and model drift goes unnoticed until customers complain. We break down the chatbot death spiral—Week 1: 95% → Week 8: 60%—and the monitoring, feedback loops, and retraining strategies that actually keep production chatbots reliable.", read_time: "11 min", date: "Feb 16, 2026", date_iso: "2026-02-16", image: "ahmad/repi-work.jpeg", author_name: "Ahmad Kamran", author_title: "Founder" },
       { slug: "ai-cost-explosion", path: -> { blog_show_path("ai-cost-explosion") }, title: "How to Cut Runaway AI Costs", category: "Technical Deep Dives", category_slug: "technical-deep-dives", excerpt_short: "Your AI feature costs $50K/month. It should cost $8K. Smart model routing, caching, and token optimization without sacrificing quality.", excerpt_long: "Using GPT-4 for everything, no caching, and inefficient prompts burn budgets fast. We cover cost attribution, model tiering, semantic caching, prompt compression, and the math that gets legal tech from $40K to $16K—with real strategies you can apply this week.", read_time: "10 min", date: "Feb 16, 2026", date_iso: "2026-02-16", image: "blogs/astechware-food-and-ai-ml.webp", author_name: "Ahmad Kamran", author_title: "Founder" },
