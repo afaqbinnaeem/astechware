@@ -121,6 +121,52 @@ module ApplicationHelper
   # Blog articles for Insights & Resources landing (path, metadata). Replace with DB later.
   def blog_articles_list
     [
+      {
+        slug: "ai-receptionist-for-clinics",
+        path: -> { blog_show_path("ai-receptionist-for-clinics") },
+        title: "AI receptionist for clinics: what it does, what it costs to run, and what to check",
+        seo_title: "AI Receptionist for Clinics: A Buyer's Guide",
+        meta_description: "What an AI receptionist for clinics does: answering calls, booking patients and handing off to staff, plus the costs to run it and the checks before you buy.",
+        keywords: "AI receptionist for clinics, AI phone answering for medical practice, after-hours clinic calls, voice AI appointment booking, virtual receptionist clinic",
+        category: "Private clinics",
+        category_slug: "private-clinics",
+        excerpt_short: "What an AI receptionist for clinics does: answering calls, booking patients and handing off to staff, plus the costs to run it and the checks before you buy.",
+        excerpt_long: "A clinic's phone rings most when the front desk is busiest. Calls after 5pm go to voicemail, and many of those patients book somewhere else. An AI receptionist for clinics answers every call, books into your real schedule and hands anything clinical to a person. Here is what it does, what it costs to run and what to check before you buy or build one.",
+        read_time: "6 min",
+        date: "26 Nov 2026", date_iso: "2026-11-26",
+        image: "blogs/astechware_new_web_blog_2.webp",
+        image_alt: "Clinic front desk phone with an AI receptionist booking an appointment",
+        faq: [
+        { q: "Is an AI receptionist HIPAA compliant?", a: "No software is compliant on its own. A system can be HIPAA-ready, with BAAs, encryption, audit logs and access controls. Your clinic's own policies and staff training complete the picture." },
+        { q: "Will patients know they're talking to AI?", a: "They should. Say so at the start of the call and always offer a person. Most patients care more about getting booked quickly than about who books them." }
+        ],
+        case_study_path: "/case-studies/medical-voice-ai",
+        integration_path: "/integrations/twilio",
+        author_name: "Ahmad Kamran", author_title: "Founder, A'sTechware"
+      },
+      {
+        slug: "ai-scribe-for-clinics-soap-notes",
+        path: -> { blog_show_path("ai-scribe-for-clinics-soap-notes") },
+        title: "AI scribe for clinics: how SOAP note automation works from visit to EHR",
+        seo_title: "AI Scribe for Clinics: How SOAP Notes Work",
+        meta_description: "How an AI scribe for clinics turns a visit into a draft SOAP note: recording, transcription, de-identification, provider approval and the push into your EHR.",
+        keywords: "AI scribe for clinics, SOAP note automation, AI medical scribe, ambient clinical documentation, AI clinical notes EHR",
+        category: "Private clinics",
+        category_slug: "private-clinics",
+        excerpt_short: "How an AI scribe for clinics turns a visit into a draft SOAP note: recording, transcription, de-identification, provider approval and the push into your EHR.",
+        excerpt_long: "Providers spend hours each evening writing notes from memory. An AI scribe for clinics listens to the visit, drafts a SOAP note in your template, and waits for the provider to approve it before anything enters the chart. Here is how the flow works and what to check before you pick one.",
+        read_time: "6 min",
+        date: "26 Nov 2026", date_iso: "2026-11-26",
+        image: "blogs/astechware_new_web_blog_2.webp",
+        image_alt: "Provider reviewing an AI-drafted SOAP note before it goes into the EHR",
+        faq: [
+        { q: "Does an AI scribe keep the visit recording?", a: "It shouldn't need to. In our design, audio is streamed for transcription and then discarded." },
+        { q: "Which EHRs can it write notes into?", a: "Any EHR that gives write access through an API. In our build that was athenahealth through FHIR R4. Check which write permissions your EHR vendor allows before you start." }
+        ],
+        case_study_path: "/case-studies/medical-voice-ai",
+        integration_path: "/integrations/fhir-ehr",
+        author_name: "Ahmad Kamran", author_title: "Founder, A'sTechware"
+      },
       # Expert AI series (production-first, what agencies miss)
       { slug: "ai-chatbot-death-spiral", path: -> { blog_show_path("ai-chatbot-death-spiral") }, title: "Why AI Chatbots Fail After Launch", category: "AI & Automation", category_slug: "ai-automation", excerpt_short: "Your AI chatbot launched at 95% accuracy. Two months later, customers are complaining. Why chatbots degrade and how to fix it with continuous improvement.", excerpt_long: "Agencies demo with curated data and have no plan for accuracy degradation. In production, user language evolves, edge cases accumulate, and model drift goes unnoticed until customers complain. We break down the chatbot death spiral—Week 1: 95% → Week 8: 60%—and the monitoring, feedback loops, and retraining strategies that actually keep production chatbots reliable.", read_time: "11 min", date: "Feb 16, 2026", date_iso: "2026-02-16", image: "ahmad/repi-work.jpeg", author_name: "Ahmad Kamran", author_title: "Founder" },
       { slug: "ai-cost-explosion", path: -> { blog_show_path("ai-cost-explosion") }, title: "How to Cut Runaway AI Costs", category: "Technical Deep Dives", category_slug: "technical-deep-dives", excerpt_short: "Your AI feature costs $50K/month. It should cost $8K. Smart model routing, caching, and token optimization without sacrificing quality.", excerpt_long: "Using GPT-4 for everything, no caching, and inefficient prompts burn budgets fast. We cover cost attribution, model tiering, semantic caching, prompt compression, and the math that gets legal tech from $40K to $16K—with real strategies you can apply this week.", read_time: "10 min", date: "Feb 16, 2026", date_iso: "2026-02-16", image: "blogs/astechware-food-and-ai-ml.webp", author_name: "Ahmad Kamran", author_title: "Founder" },

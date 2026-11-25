@@ -1,0 +1,45 @@
+<% content_for :blog_key_takeaways do %>
+  <ul>
+    <li>An AI scribe drafts the note. The provider reviews and approves it every time.</li>
+    <li>Clinic-grade scribes strip patient identifiers before text reaches a language model and do not keep audio.</li>
+    <li>Writing the note straight into the EHR saves far more time than copy-paste.</li>
+    <li>Check template fit, specialty vocabulary and EHR write access before you choose one.</li>
+  </ul>
+<% end %>
+<% content_for :blog_toc do %>
+  <ul class="list-unstyled mb-0">
+    <li><a href="#what-an-ai-scribe-does-and-what-it-doesnt">What an AI scribe does, and what it doesn't</a></li>
+    <li><a href="#the-flow-from-visit-to-signed-note">The flow: from visit to signed note</a></li>
+    <li><a href="#why-provider-approval-is-non-negotiable">Why provider approval is non-negotiable</a></li>
+    <li><a href="#what-results-to-expect">What results to expect</a></li>
+    <li><a href="#what-to-check-before-choosing-one">What to check before choosing one</a></li>
+  </ul>
+<% end %>
+
+<p class="lead">Providers spend hours each evening writing notes from memory. An AI scribe for clinics listens to the visit, drafts a SOAP note in your template, and waits for the provider to approve it before anything enters the chart. Here is how the flow works and what to check before you pick one.</p>
+<h2 id="what-an-ai-scribe-does-and-what-it-doesnt">What an AI scribe does, and what it doesn't</h2>
+<p>It turns a conversation into a structured draft: Subjective, Objective, Assessment and Plan. It does not diagnose, prescribe or sign anything. The provider stays the author of the note.</p>
+<h2 id="the-flow-from-visit-to-signed-note">The flow: from visit to signed note</h2>
+<ol>
+  <li>The provider starts a session in the app, after the patient agrees to recording.</li>
+  <li>Audio streams to a transcription service that labels who is speaking.</li>
+  <li>Patient identifiers are replaced with tokens before the text goes anywhere else.</li>
+  <li>A language model drafts the SOAP note in the clinic's own template.</li>
+  <li>The provider reviews, edits and approves it in a dashboard.</li>
+  <li>The approved note is written to the EHR, for example through <a href="/integrations/fhir-ehr">FHIR</a>.</li>
+  <li>The audio is discarded. Only the encrypted transcript and the signed note are kept.</li>
+</ol>
+<h2 id="why-provider-approval-is-non-negotiable">Why provider approval is non-negotiable</h2>
+<p>Models mishear drug names, mix up left and right, and sometimes add things nobody said. A required approval step catches these errors before they reach the chart. It also keeps responsibility where it belongs. Every edit is logged, so you can see what the model drafted and what the provider changed.</p>
+<h2 id="what-results-to-expect">What results to expect</h2>
+<p>In our build for a <a href="/case-studies/medical-voice-ai">US private clinic group</a>, providers stopped writing SOAP notes from memory after hours. Most of that saving came from two things: notes drafted during the visit instead of after hours, and approved notes going straight into the EHR through athenahealth's FHIR API.</p>
+<h2 id="what-to-check-before-choosing-one">What to check before choosing one</h2>
+<ul>
+  <li>Template fit: can it write in your exact note format and section order?</li>
+  <li>Specialty vocabulary: test it with real visit recordings from your own specialty.</li>
+  <li>EHR write-back: does it write the note into the chart, or do staff copy and paste?</li>
+  <li>Data handling: where does audio go, is it stored, and does every vendor sign a BAA?</li>
+  <li>Edit history: can you see what the provider changed from the draft?</li>
+</ul>
+<p>An AI scribe works best on the same platform as booking, so the visit, the note and the follow-up appointment connect. Our <a href="/blogs/ai-receptionist-for-clinics">AI receptionist guide</a> covers the booking side, and our <a href="/solutions/private-clinics">private clinics page</a> shows how the parts fit.</p>
+<p>Want your providers to stop writing notes at night? <a href="/contact">Book a 30-min call</a> and we'll walk through how a scribe would fit your template and EHR.</p>

@@ -1,0 +1,58 @@
+<% content_for :blog_key_takeaways do %>
+  <ul>
+    <li>An AI receptionist for clinics answers every call, books into your real schedule and hands anything clinical to a person.</li>
+    <li>The biggest risk is patient data reaching a language model. Ask exactly where identifiers go.</li>
+    <li>Running costs scale with call minutes: telephony, transcription, the language model and voice.</li>
+    <li>Buy off the shelf for one simple location. Build when you run several locations, custom rules or your own EHR sync.</li>
+  </ul>
+<% end %>
+<% content_for :blog_toc do %>
+  <ul class="list-unstyled mb-0">
+    <li><a href="#what-an-ai-receptionist-for-clinics-does">What an AI receptionist for clinics does</a></li>
+    <li><a href="#why-clinics-add-one">Why clinics add one</a></li>
+    <li><a href="#how-it-works-under-the-hood">How it works under the hood</a></li>
+    <li><a href="#what-it-costs-to-run">What it costs to run</a></li>
+    <li><a href="#questions-to-ask-before-you-buy-or-build">Questions to ask before you buy or build</a></li>
+    <li><a href="#buy-or-build">Buy or build?</a></li>
+  </ul>
+<% end %>
+
+<p class="lead">A clinic's phone rings most when the front desk is busiest. Calls after 5pm go to voicemail, and many of those patients book somewhere else. An AI receptionist for clinics answers every call, books into your real schedule and hands anything clinical to a person. Here is what it does, what it costs to run and what to check before you buy or build one.</p>
+<h2 id="what-an-ai-receptionist-for-clinics-does">What an AI receptionist for clinics does</h2>
+<p>A good one handles the calls your staff repeat all day:</p>
+<ul>
+  <li>Books, reschedules and cancels appointments against your real availability.</li>
+  <li>Answers routine questions: hours, location, parking, insurance accepted, visit preparation.</li>
+  <li>Sends a text confirmation and reminders after booking.</li>
+  <li>Takes a message and flags urgent calls to the on-call person.</li>
+</ul>
+<p>It should not give medical advice. When a caller describes symptoms, it should send them to emergency services or arrange a call back from clinical staff.</p>
+<h2 id="why-clinics-add-one">Why clinics add one</h2>
+<p>The main reasons are missed calls and no-shows. A patient who can't get through books elsewhere. A patient who can't easily reschedule simply doesn't turn up.</p>
+<p>We built voice booking, web booking and reminders on one platform for a <a href="/case-studies/medical-voice-ai">US multi-location private clinic group</a>. Booking, reminders and rescheduling all ran through the same system.</p>
+<h2 id="how-it-works-under-the-hood">How it works under the hood</h2>
+<p>A call comes in through a phone provider such as <a href="/integrations/twilio">Twilio</a>. Speech is turned into text, a language model works out what the caller wants, and the system checks the schedule and books the slot. The reply is spoken back in a natural voice.</p>
+<p>The important design choice is what the language model sees. In our build, names, dates of birth and record numbers are replaced with tokens before any text reaches the model. Our server puts the real values back afterwards, and call audio is not stored.</p>
+<h2 id="what-it-costs-to-run">What it costs to run</h2>
+<p>The cost comes from five parts:</p>
+<ul>
+  <li>telephony per minute</li>
+  <li>speech-to-text per minute</li>
+  <li>the language model per call</li>
+  <li>voice generation per minute</li>
+  <li>hosting and monitoring</li>
+</ul>
+<p>All of them grow with call minutes, so ask any vendor for a per-call estimate at your real call volume rather than a flat monthly figure.</p>
+<h2 id="questions-to-ask-before-you-buy-or-build">Questions to ask before you buy or build</h2>
+<ol>
+  <li>Does it book into your real practice schedule, or into a separate calendar someone has to copy across?</li>
+  <li>Who signs a Business Associate Agreement (BAA)? Check every vendor in the chain, not just the one you pay.</li>
+  <li>Does patient data ever reach the language model?</li>
+  <li>What happens when it doesn't understand the caller? Is there a warm transfer to a person?</li>
+  <li>Can you review transcripts for quality, and how long are they kept?</li>
+  <li>What happens when two patients ask for the same slot at the same time?</li>
+  <li>Who fixes it if it breaks at 2am?</li>
+</ol>
+<h2 id="buy-or-build">Buy or build?</h2>
+<p>An off-the-shelf product is fine for a single location with a common EHR and simple booking rules. A custom build makes sense when you run several locations, have provider-specific rules, need two-way EHR sync, or want web booking and an AI scribe on the same platform. See how we approach this on our <a href="/solutions/private-clinics">private clinics page</a>.</p>
+<p>Losing calls after hours? <a href="/contact">Book a 30-min call</a> and we'll show you how voice booking would work with your schedule and your EHR.</p>
