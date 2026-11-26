@@ -158,14 +158,15 @@
   </section>
 
   <!-- Business Benefits (6 cards) -->
-  <section class="py-5 bg-light-grey" id="benefits">
-    <div class="container">
+  <section class="py-5 bg-light-grey branch-lines-section" id="benefits">
+    <%= render "shared/branch_lines_background", tone: "gradient" %>
+    <div class="container branch-lines-content">
       <div class="text-center mb-5">
-        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Business benefits</h2>
+        <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block branch-lines-heading">Business benefits<span class="branch-lines-underline-ref" aria-hidden="true"></span></h2>
         <p class="large-para mb-0" style="max-width: 900px; margin: 0 auto;">Less manual work, accurate data, and full visibility, integrations that run reliably so you can focus on the business.</p>
       </div>
-      <div class="row g-4">
-        <div class="col-12 col-md-6 col-lg-4">
+      <div class="row g-4 branch-lines-grid">
+        <div class="col-12 col-md-6 col-lg-4 branch-lines-card">
           <div class="build-system-card p-4 h-100 service-benefit-card">
             <div class="build-icon-wrapper mb-3">
               <div class="build-icon"><i class="fa fa-magic" aria-hidden="true"></i></div>
@@ -179,7 +180,7 @@
             </ul>
           </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-md-6 col-lg-4 branch-lines-card">
           <div class="build-system-card p-4 h-100 service-benefit-card">
             <div class="build-icon-wrapper mb-3">
               <div class="build-icon"><i class="fa fa-check-circle" aria-hidden="true"></i></div>
@@ -193,7 +194,7 @@
             </ul>
           </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-md-6 col-lg-4 branch-lines-card">
           <div class="build-system-card p-4 h-100 service-benefit-card">
             <div class="build-icon-wrapper mb-3">
               <div class="build-icon"><i class="fa fa-bolt" aria-hidden="true"></i></div>
@@ -207,7 +208,7 @@
             </ul>
           </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-md-6 col-lg-4 branch-lines-card">
           <div class="build-system-card p-4 h-100 service-benefit-card">
             <div class="build-icon-wrapper mb-3">
               <div class="build-icon"><i class="fa fa-users" aria-hidden="true"></i></div>
@@ -221,7 +222,7 @@
             </ul>
           </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-md-6 col-lg-4 branch-lines-card">
           <div class="build-system-card p-4 h-100 service-benefit-card">
             <div class="build-icon-wrapper mb-3">
               <div class="build-icon"><i class="fa fa-line-chart" aria-hidden="true"></i></div>
@@ -235,7 +236,7 @@
             </ul>
           </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-md-6 col-lg-4 branch-lines-card">
           <div class="build-system-card p-4 h-100 service-benefit-card">
             <div class="build-icon-wrapper mb-3">
               <div class="build-icon"><i class="fa fa-bar-chart" aria-hidden="true"></i></div>
@@ -443,12 +444,13 @@
   </section>
 
   <!-- Case Study Spotlight -->
-  <section class="py-5 bg-light-grey" id="case-study">
-    <div class="container">
+  <section class="py-5 bg-light-grey track-lines-section" id="case-study">
+    <%= render "shared/track_lines_background", tone: "gradient" %>
+    <div class="container track-lines-content">
       <div class="text-center mb-4">
         <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Case study spotlight: the connectivity showcase</h2>
       </div>
-      <div class="row g-4">
+      <div class="row g-4 track-lines-grid">
         <div class="col-12 col-md-6 col-lg-4">
           <div class="workflow-card p-4 h-100">
             <h4 class="h6 text-primary mb-2">Booking + POS sync (GolfPay360)</h4>

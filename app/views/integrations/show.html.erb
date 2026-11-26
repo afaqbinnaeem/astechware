@@ -62,10 +62,11 @@
     </div>
   </section>
 
-  <section class="py-5 bg-light-grey" id="use-cases">
-    <div class="container">
+  <section class="py-5 bg-light-grey flow-lines-section"  id="use-cases">
+  <%= render "shared/flow_lines_background", tone: "gradient" %>
+    <div class="container flow-lines-content">
       <div class="col-12 col-lg-10 mx-auto">
-        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Common use cases</h2>
+        <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block flow-lines-heading">Common use cases<span class="flow-lines-underline-ref" aria-hidden="true"></span></h2>
         <ul class="mb-0 ps-3 large-para" style="line-height: 2;">
           <% Array(entry[:use_cases]).each do |item| %>
             <li><%= item %></li>
@@ -89,11 +90,12 @@
   </section>
 
   <% if entry[:case_study_slugs].present? %>
-    <section class="py-5 bg-light-grey" id="case-studies">
-      <div class="container">
+    <section class="py-5 bg-light-grey track-lines-section"  id="case-studies">
+  <%= render "shared/track_lines_background", tone: "gradient" %>
+      <div class="container track-lines-content">
         <div class="col-12 col-lg-10 mx-auto">
           <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Related case studies</h2>
-          <div class="row g-4">
+          <div class="row g-4 track-lines-grid">
             <% entry[:case_study_slugs].each do |cs_slug| %>
               <% cs = CaseStudyCatalog.find(cs_slug) %>
               <% next if cs.blank? %>

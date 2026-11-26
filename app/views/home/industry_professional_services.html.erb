@@ -42,26 +42,27 @@
 
 <div class="inner-sections professional-services-industry-page">
 
-  <section class="py-5 bg-white" id="industries">
-    <div class="container">
+  <section class="py-5 bg-white branch-lines-section" id="industries">
+    <%= render "shared/branch_lines_background", tone: "white" %>
+    <div class="container branch-lines-content">
       <div class="row">
         <div class="col-12 col-lg-10 mx-auto mb-5">
-          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Industries we serve</h2>
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block branch-lines-heading">Industries we serve<span class="branch-lines-underline-ref" aria-hidden="true"></span></h2>
           <p class="large-para mb-0">
             Software for businesses whose work happens in the field and on job sites. Each card opens the dedicated industry page when it ships.
           </p>
         </div>
       </div>
-      <div class="row g-4">
+      <div class="row g-4 branch-lines-grid">
         <% if route_helper_defined?(:industry_construction_path) %>
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6 branch-lines-card">
             <%= link_to industry_construction_path, class: "workflow-card p-4 p-lg-5 h-100 d-block text-decoration-none text-dark ajax" do %>
               <h3 class="h5 mb-3">Construction</h3>
               <p class="mb-0 small" style="line-height: 1.7;">Estimating, subcontracting, invoicing, and multi-company job site operations.</p>
             <% end %>
           </div>
         <% else %>
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6 branch-lines-card">
             <div class="workflow-card p-4 p-lg-5 h-100">
               <h3 class="h5 mb-3">Construction</h3>
               <p class="mb-0 small" style="line-height: 1.7;">Estimating, subcontracting, invoicing, and multi-company job site operations.</p>
@@ -70,14 +71,14 @@
         <% end %>
 
         <% if route_helper_defined?(:industry_logistics_path) %>
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6 branch-lines-card">
             <%= link_to industry_logistics_path, class: "workflow-card p-4 p-lg-5 h-100 d-block text-decoration-none text-dark ajax" do %>
               <h3 class="h5 mb-3">Logistics</h3>
               <p class="mb-0 small" style="line-height: 1.7;">Route optimization, dispatch, and fleet orchestration for hauling and delivery ops.</p>
             <% end %>
           </div>
         <% else %>
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6 branch-lines-card">
             <div class="workflow-card p-4 p-lg-5 h-100">
               <h3 class="h5 mb-3">Logistics</h3>
               <p class="mb-0 small" style="line-height: 1.7;">Route optimization, dispatch, and fleet orchestration for hauling and delivery ops.</p>
@@ -86,14 +87,14 @@
         <% end %>
 
         <% if route_helper_defined?(:industry_home_services_path) %>
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6 branch-lines-card">
             <%= link_to industry_home_services_path, class: "workflow-card p-4 p-lg-5 h-100 d-block text-decoration-none text-dark ajax" do %>
               <h3 class="h5 mb-3">Home services</h3>
               <p class="mb-0 small" style="line-height: 1.7;">HVAC and field service automation, photo to post workflows, and job site proof.</p>
             <% end %>
           </div>
         <% else %>
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6 branch-lines-card">
             <div class="workflow-card p-4 p-lg-5 h-100">
               <h3 class="h5 mb-3">Home services</h3>
               <p class="mb-0 small" style="line-height: 1.7;">HVAC and field service automation, photo to post workflows, and job site proof.</p>
@@ -102,14 +103,14 @@
         <% end %>
 
         <% if route_helper_defined?(:industry_real_estate_path) %>
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6 branch-lines-card">
             <%= link_to industry_real_estate_path, class: "workflow-card p-4 p-lg-5 h-100 d-block text-decoration-none text-dark ajax" do %>
               <h3 class="h5 mb-3">Real estate</h3>
               <p class="mb-0 small" style="line-height: 1.7;">Showing schedules, transaction coordination, and property operations software.</p>
             <% end %>
           </div>
         <% else %>
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6 branch-lines-card">
             <div class="workflow-card p-4 p-lg-5 h-100">
               <h3 class="h5 mb-3">Real estate</h3>
               <p class="mb-0 small" style="line-height: 1.7;">Showing schedules, transaction coordination, and property operations software.</p>

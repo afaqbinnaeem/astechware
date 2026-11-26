@@ -137,13 +137,14 @@
     </div>
   </section>
 
-  <section class="py-5 bg-light-grey" id="proof">
-    <div class="container">
+  <section class="py-5 bg-light-grey track-lines-section" id="proof">
+    <%= render "shared/track_lines_background", tone: "gradient" %>
+    <div class="container track-lines-content">
       <div class="text-center mb-5">
         <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Products we&apos;ve shipped</h2>
         <p class="large-para mb-0">Examples from our case studies. Facts only as written on those pages.</p>
       </div>
-      <div class="row g-4">
+      <div class="row g-4 track-lines-grid">
         <div class="col-12 col-md-4">
           <%= link_to case_study_path("flss-legal-process-serving"), class: "text-decoration-none text-dark d-block h-100 ajax" do %>
             <div class="build-system-card p-4 h-100">

@@ -50,9 +50,10 @@
   </div>
 </div>
 
-<section class="py-5 bg-white" id="services">
-  <div class="container">
-    <div class="row g-4 justify-content-center">
+<section class="py-5 bg-white track-lines-section"  id="services">
+  <%= render "shared/track_lines_background", tone: "white" %>
+  <div class="container track-lines-content">
+    <div class="row g-4 justify-content-center track-lines-grid">
       <% [
         ["AI agents and automation", ["Agents that read documents, calls and email", "A person approves anything that matters", "Built inside the tools you already use"], ai_agent_development_path],
         ["Custom software, web and mobile", ["Portals, dashboards and internal tools", "iOS and Android apps", "You own the code"], custom_software_path],

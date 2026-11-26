@@ -42,12 +42,13 @@
 
 <div class="inner-sections financial-industry-page">
 
-  <section class="py-5 bg-white" id="what-we-do">
-    <div class="container">
+  <section class="py-5 bg-white flow-lines-section" id="what-we-do">
+    <%= render "shared/flow_lines_background", tone: "white" %>
+    <div class="container flow-lines-content">
       <div class="row">
         <div class="col-12 col-lg-10 mx-auto">
-          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">What we actually do</h2>
-          <p class="large-para mb-4">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block flow-lines-heading">What we actually do<span class="flow-lines-underline-ref" aria-hidden="true"></span></h2>
+          <p class="large-para mb-4 flow-lines-subtitle">
             Most payment products fall apart at one of three places: a split that drifts when a webhook retries, a ledger that cannot explain where money went, or a processor migration that leaves half the tenants on the old stack. We build systems where none of those failures are possible by design, not by policy.
           </p>
           <p class="large-para mb-5">
@@ -55,7 +56,7 @@
           </p>
         </div>
       </div>
-      <div class="row g-4">
+      <div class="row g-4 flow-lines-cards">
         <div class="col-12 col-md-6">
           <div class="workflow-card p-4 p-lg-5 h-100">
             <h3 class="h5 mb-3">Marketplace payouts and split payments</h3>
@@ -146,13 +147,14 @@
     </div>
   </section>
 
-  <section class="py-5 bg-white" id="spotlights">
-    <div class="container">
+  <section class="py-5 bg-white track-lines-section" id="spotlights">
+    <%= render "shared/track_lines_background", tone: "white" %>
+    <div class="container track-lines-content">
       <div class="text-center mb-5">
         <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Case studies</h2>
         <p class="text-muted mb-0">Real payment and settlement work we have shipped.</p>
       </div>
-      <div class="row g-4">
+      <div class="row g-4 track-lines-grid">
         <div class="col-12 col-lg-6">
           <div class="workflow-card p-4 p-lg-5 h-100">
             <h3 class="h5 mb-3">Zofi cash: earned wage access platform</h3>

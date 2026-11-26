@@ -22,9 +22,10 @@
 </div>
 
 <div class="inner-sections">
-  <section class="py-5 bg-light-grey" id="integration-cards">
-    <div class="container">
-      <div class="row g-4">
+  <section class="py-5 bg-light-grey track-lines-section"  id="integration-cards">
+  <%= render "shared/track_lines_background", tone: "gradient" %>
+    <div class="container track-lines-content">
+      <div class="row g-4 track-lines-grid">
         <% @integrations.each do |slug, entry| %>
           <div class="col-12 col-md-6 col-lg-4">
             <%= link_to integration_path(slug), class: "text-decoration-none text-dark d-block h-100 ajax" do %>

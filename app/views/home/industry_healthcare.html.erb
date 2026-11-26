@@ -42,12 +42,13 @@
 
 <div class="inner-sections healthcare-industry-page">
 
-  <section class="py-5 bg-white" id="what-we-do">
-    <div class="container">
+  <section class="py-5 bg-white flow-lines-section" id="what-we-do">
+    <%= render "shared/flow_lines_background", tone: "white" %>
+    <div class="container flow-lines-content">
       <div class="row">
         <div class="col-12 col-lg-10 mx-auto">
-          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">What we actually do</h2>
-          <p class="large-para mb-4">
+          <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block flow-lines-heading">What we actually do<span class="flow-lines-underline-ref" aria-hidden="true"></span></h2>
+          <p class="large-para mb-4 flow-lines-subtitle">
             Most healthcare AI work falls apart at one of three places: a data flow that quietly sends PHI to a model that shouldn&rsquo;t see it, an audit log the application can edit, or an integration with the EHR that double books patients or drops sync. We build systems where none of those failures are possible by design, not by policy.
           </p>
           <p class="large-para mb-5">
@@ -55,7 +56,7 @@
           </p>
         </div>
       </div>
-      <div class="row g-4">
+      <div class="row g-4 flow-lines-cards">
         <div class="col-12 col-md-6">
           <div class="workflow-card p-4 p-lg-5 h-100">
             <h3 class="h5 mb-3">Voice AI for patient interaction</h3>
@@ -197,9 +198,10 @@
     </div>
   </section>
 
-  <section class="py-5 bg-white" id="case-study">
-    <div class="container">
-      <div class="row">
+  <section class="py-5 bg-white track-lines-section" id="case-study">
+    <%= render "shared/track_lines_background", tone: "white" %>
+    <div class="container track-lines-content">
+      <div class="row track-lines-grid">
         <div class="col-12 col-lg-10 mx-auto">
           <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Case study</h2>
           <div class="workflow-card p-4 p-lg-5">

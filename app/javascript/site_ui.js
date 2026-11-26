@@ -647,7 +647,7 @@ function initTrackLines() {
   const svg = section.querySelector(".track-lines-svg")
   const grid = section.querySelector(".track-lines-grid")
   const button = section.querySelector(".track-lines-button")
-  if (!svg || !grid || !button) return
+  if (!svg || !grid) return
   const mq = window.matchMedia("(max-width: 767.98px)")
   const tone = svg.getAttribute("data-line-tone") || "white"
   const toneCls = lineToneClass(tone)
@@ -670,37 +670,39 @@ function initTrackLines() {
     if (w < 8 || h < 8) return
     setSvgSize(svg, w, h)
     const gridR = relRect(section, grid)
-    const btn = relRect(section, button)
     const midY = gridR.top + gridR.height / 2
     const trackYs = [midY - 8, midY, midY + 8]
     const bottomY = trackYs[2]
     const tracks = trackYs.map(function (y) { return "M0 " + y + " L" + w + " " + y })
-    const leftBranchX = Math.max(18, Math.min(gridR.left * 0.55, gridR.left - 16))
-    const rightBranchX = Math.min(w - 18, Math.max(gridR.right + 16, gridR.right + (w - gridR.right) * 0.45))
-    const leftConnector =
-      "M" + leftBranchX + " " + bottomY +
-      " C" + leftBranchX + " " + (bottomY + (btn.cy - bottomY) * 0.55) +
-      " " + leftBranchX + " " + btn.cy +
-      " " + (leftBranchX + (btn.left - leftBranchX) * 0.35) + " " + btn.cy +
-      " L" + btn.left + " " + btn.cy
-    const rightConnector =
-      "M" + rightBranchX + " " + bottomY +
-      " C" + rightBranchX + " " + (bottomY + (btn.cy - bottomY) * 0.55) +
-      " " + rightBranchX + " " + btn.cy +
-      " " + (rightBranchX - (rightBranchX - btn.right) * 0.35) + " " + btn.cy +
-      " L" + btn.right + " " + btn.cy
-
     tracks.forEach(function (d) { appendSvgPath(svg, d, "decor-line-path" + toneCls) })
-    appendSvgPath(svg, leftConnector, "decor-line-path" + toneCls)
-    appendSvgPath(svg, rightConnector, "decor-line-path" + toneCls)
 
     const pulses = [
       { d: tracks[0], delay: "0s" },
       { d: tracks[1], delay: "-1.3s" },
-      { d: tracks[2], delay: "-2.6s" },
-      { d: leftConnector, delay: "-0.7s" },
-      { d: rightConnector, delay: "-2.0s" }
+      { d: tracks[2], delay: "-2.6s" }
     ]
+
+    if (button) {
+      const btn = relRect(section, button)
+      const leftBranchX = Math.max(18, Math.min(gridR.left * 0.55, gridR.left - 16))
+      const rightBranchX = Math.min(w - 18, Math.max(gridR.right + 16, gridR.right + (w - gridR.right) * 0.45))
+      const leftConnector =
+        "M" + leftBranchX + " " + bottomY +
+        " C" + leftBranchX + " " + (bottomY + (btn.cy - bottomY) * 0.55) +
+        " " + leftBranchX + " " + btn.cy +
+        " " + (leftBranchX + (btn.left - leftBranchX) * 0.35) + " " + btn.cy +
+        " L" + btn.left + " " + btn.cy
+      const rightConnector =
+        "M" + rightBranchX + " " + bottomY +
+        " C" + rightBranchX + " " + (bottomY + (btn.cy - bottomY) * 0.55) +
+        " " + rightBranchX + " " + btn.cy +
+        " " + (rightBranchX - (rightBranchX - btn.right) * 0.35) + " " + btn.cy +
+        " L" + btn.right + " " + btn.cy
+      appendSvgPath(svg, leftConnector, "decor-line-path" + toneCls)
+      appendSvgPath(svg, rightConnector, "decor-line-path" + toneCls)
+      pulses.push({ d: leftConnector, delay: "-0.7s" }, { d: rightConnector, delay: "-2.0s" })
+    }
+
     pulses.forEach(function (spec) {
       const p = appendSvgPath(svg, spec.d, "track-lines-pulse")
       applyPulse(p, spec.delay)
@@ -714,7 +716,7 @@ function initTrackLines() {
   const ro = new ResizeObserver(schedule)
   ro.observe(section)
   ro.observe(grid)
-  ro.observe(button)
+  if (button) ro.observe(button)
   schedule()
   trackLinesCleanup = function () {
     cancelAnimationFrame(frame)
