@@ -1,0 +1,25 @@
+<%# Decorative colored backdrop behind a cutout image.
+    locals:
+      variant: "ice" | "blue" | "yellow" | "navy" (default "ice")
+      src:, alt:, loading:, decoding: — passed to image_tag
+      image_class: optional extra class on the <img>
+%>
+<% variants = %w[ice blue yellow navy] %>
+<% variant = local_assigns.fetch(:variant, "ice").to_s %>
+<% variant = "ice" unless variants.include?(variant) %>
+<% img_class = ["image-backdrop__img", local_assigns[:image_class]].compact.join(" ") %>
+<div class="image-backdrop image-backdrop--<%= variant %>">
+  <div class="image-backdrop__stripes" aria-hidden="true"></div>
+  <div class="image-backdrop__panel" aria-hidden="true"></div>
+  <div class="image-backdrop__floor" aria-hidden="true">
+    <span class="image-backdrop__floor-line"></span>
+    <span class="image-backdrop__floor-line"></span>
+  </div>
+  <div class="image-backdrop__media">
+    <%= image_tag local_assigns.fetch(:src),
+          alt: local_assigns.fetch(:alt, ""),
+          class: img_class,
+          loading: local_assigns.fetch(:loading, "lazy"),
+          decoding: local_assigns.fetch(:decoding, "async") %>
+  </div>
+</div>

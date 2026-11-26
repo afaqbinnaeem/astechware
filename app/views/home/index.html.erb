@@ -99,7 +99,7 @@
   <div class="container">
     <div class="row align-items-center min-vh-50 hero-row">
       <div class="col-12 col-lg-6 text-start">
-        <p class="text-uppercase small fw-semibold mb-3 hero-eyebrow" style="color: rgba(255,255,255,0.85);">
+        <p class="text-uppercase small fw-semibold mb-3 hero-eyebrow">
           AI, AUTOMATION &amp; CUSTOM SOFTWARE
         </p>
         <h1 class="display-4 fw-bold mb-3" data-page-h1>
@@ -112,15 +112,21 @@
           <%= link_to "Book a 30-min call", contact_path, class: "btn btn-primary btn-lg rounded-pill px-4 hero-btn-primary ajax", style: "width: min(351px, 100%); max-width: 100%;" %>
           <%= link_to "See our work", case_studies_path, class: "btn btn-outline-primary btn-lg rounded-pill px-4 d-flex align-items-center justify-content-center hero-btn-outline ajax", style: "width: min(351px, 100%); max-width: 100%; white-space: nowrap;" %>
         </div>
-        <p class="mb-0 fs-6 fw-bold hero-aside" style="color: #fff; margin-top: 3rem; max-width: 36rem;">
-          Building something else? We build <%= link_to "custom software, apps and AI for any industry →", services_path, class: "ajax", style: "color: var(--site-color); font-weight: 700; text-decoration: underline;" %>
+        <p class="mb-0 fs-6 fw-bold hero-aside" style="margin-top: 3rem; max-width: 36rem;">
+          Building something else? We build <%= link_to "custom software, apps and AI for any industry →", services_path, class: "ajax hero-aside-link" %>
         </p>
       </div>
       <div class="col-12 col-lg-6 mt-4 mt-lg-0">
         <div class="hero-industry-stage" aria-hidden="true">
+          <% backdrop_variants = %w[ice blue yellow navy] %>
           <% hero_industries.each_with_index do |item, idx| %>
             <div class="hero-industry-slide<%= idx.zero? ? ' is-active' : '' %>" data-industry="<%= item[:key] %>">
-              <%= image_tag item[:src], alt: item[:label], loading: idx.zero? ? "eager" : "lazy", decoding: "async" %>
+              <%= render "shared/image_backdrop",
+                    variant: backdrop_variants[idx % backdrop_variants.length],
+                    src: item[:src],
+                    alt: item[:label],
+                    loading: idx.zero? ? "eager" : "lazy",
+                    decoding: "async" %>
               <span class="hero-industry-label"><%= item[:label] %></span>
             </div>
           <% end %>
@@ -133,7 +139,7 @@
 <div class="inner-sections">
 
 <!-- 2. Logo strip (Netsol-style frosted card + marquee) -->
-<div class="clients-logos-section" id="astechware_logos">
+<div class="clients-logos-section section-tone-white" id="astechware_logos">
   <div class="container">
     <div class="clients-logos-card">
       <h2 class="clients-logos-heading">Some of the teams we&apos;ve built for</h2>
@@ -164,19 +170,20 @@
   </div>
 </div>
 
-<%= render "home/what_we_build", section_class: "py-5 bg-light-grey", section_id: "what-we-build" %>
-<%= render "home/who_we_work_with", section_class: "py-5 bg-white", section_id: "who-we-work-with" %>
+<%= render "home/what_we_build", section_class: "py-5 section-tone-gradient", section_id: "what-we-build", line_tone: "gradient" %>
+<%= render "home/who_we_work_with", section_class: "py-5 section-tone-white", section_id: "who-we-work-with" %>
 
 <!-- 3. Industries -->
-<div class="py-5 bg-light-grey" id="industries-we-serve">
-  <div class="container">
+<section class="py-5 section-tone-gradient branch-lines-section" id="industries-we-serve">
+  <%= render "shared/branch_lines_background", tone: "gradient" %>
+  <div class="container branch-lines-content">
     <div class="text-center mb-5">
-      <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Industries we know deeply</h2>
+      <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block branch-lines-heading">Industries we know deeply<span class="branch-lines-underline-ref" aria-hidden="true"></span></h2>
       <p class="large-para mb-0" style="max-width: 750px; margin: 0 auto;">
         We build for any industry. These are the ones where we&apos;ve done the most work.
       </p>
     </div>
-    <div class="row g-3 justify-content-center">
+    <div class="row g-3 justify-content-center branch-lines-grid">
       <% [
         ["Legal", "Intake, dispatch, affidavits and invoicing.", industry_legal_path],
         ["Healthcare & private clinics", "AI receptionist, AI scribe and EHR sync. Patient data stays out of the model.", industry_private_clinics_path],
@@ -189,7 +196,7 @@
         ["Fitness studios", "Branded booking app with an AI instructor.", industry_fitness_studios_path],
         ["Restaurants & hospitality", "Inventory search, booking and payments.", case_study_path("restaurant-resource-rescue")]
       ].each do |title, text, path| %>
-        <div class="col-6 col-md-4 col-lg-3 d-flex">
+        <div class="col-6 col-md-4 col-lg-3 d-flex branch-lines-card">
           <%= link_to path, class: "text-decoration-none text-dark d-flex w-100 h-100 ajax" do %>
             <div class="build-system-card p-4 h-100 w-100 d-flex flex-column">
               <h3 class="h5 mb-2"><%= title %></h3>
@@ -217,7 +224,7 @@
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- 4. Stats bar -->
 <div class="py-4" id="company-metrics">
@@ -245,12 +252,13 @@
 </div>
 
 <!-- 5. Featured work -->
-<div class="py-5 bg-white" id="featured-work">
-  <div class="container">
+<section class="py-5 section-tone-white track-lines-section" id="featured-work">
+  <%= render "shared/track_lines_background", tone: "white" %>
+  <div class="container track-lines-content">
     <div class="text-center mb-5">
       <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Systems we&apos;ve built and run in production</h2>
     </div>
-    <div class="row g-4">
+    <div class="row g-4 track-lines-grid">
       <div class="col-12 col-lg-4">
         <%= link_to case_study_path("construction-management-platform"), class: "text-decoration-none text-dark d-block h-100 ajax" do %>
           <div class="build-system-card p-4 h-100">
@@ -283,17 +291,17 @@
       </div>
     </div>
     <div class="text-center mt-5">
-      <%= link_to "See all case studies", case_studies_path, class: "btn btn-outline-primary btn-lg rounded-pill px-4 ajax" %>
+      <%= link_to "See all case studies", case_studies_path, class: "btn btn-outline-primary btn-lg rounded-pill px-4 ajax track-lines-button" %>
     </div>
   </div>
-</div>
+</section>
 
-<%= render "home/tools_platforms", section_class: "py-5 bg-light-grey", section_id: "tools-we-work-with" %>
+<%= render "home/tools_platforms", section_class: "py-5 section-tone-gradient", section_id: "tools-we-work-with" %>
 
 <%# 6b. Founder video: add click-to-play YouTube here later with transcript + VideoObject schema %>
 
 <!-- 7. Two ways -->
-<section class="py-5 bg-white" id="two-ways">
+<section class="py-5 section-tone-white" id="two-ways">
   <div class="container">
     <div class="text-center mb-5">
       <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Two ways to work with us</h2>
@@ -331,7 +339,7 @@
 </script>
 
 <!-- 8. How we keep projects safe -->
-<div class="py-5 bg-light-grey" id="how-we-derisk">
+<section class="py-5 section-tone-gradient" id="how-we-derisk">
   <div class="container">
         <div class="text-center mb-5">
           <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">How we keep projects safe</h2>
@@ -375,7 +383,7 @@
           <%= link_to "How we de-risk projects →", derisk_projects_path, class: "service-card-link ajax" %>
         </p>
   </div>
-</div>
+</section>
 
 <!-- 9. Client reviews (Netsol-style featured quote + portrait) -->
 <% home_reviews = [
@@ -392,8 +400,10 @@
   { name: "Brianne Harvey", role: "Founder at Restaurant Resource", quote: "Ahmad has been an exceptional contractor, and we feel incredibly fortunate to have found him. He brings deep technical knowledge to the table, offers thoughtful feedback, and consistently recommends smarter, more efficient solutions.", image: "ahmad/clients/Brianne.jpeg", link: "https://www.upwork.com/freelancers/ahmadkamrans", link_label: "Read on Upwork" },
   { name: "Jack", role: "Upwork Client", quote: "They created a great back end system and a mobile app for my drivers that will change how my business operations work. Their communication was always quick and responsive, making the process much easier. Highly recommend.", image: nil, link: "https://www.upwork.com/freelancers/~01eb09bb74c3e6d04b", link_label: "Read on Upwork" }
 ] %>
-<section class="home-reviews-section" id="ahmad_clients">
-  <div class="container">
+<section class="home-reviews-section quote-line-section section-tone-white" id="ahmad_clients">
+  <div class="quote-line quote-line--left" aria-hidden="true"></div>
+  <div class="quote-line quote-line--right" aria-hidden="true"></div>
+  <div class="container quote-line-content">
     <div class="text-center mb-4 mb-lg-5">
       <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">What clients say</h2>
       <p class="mb-0"><%= link_to "Read all client reviews", reviews_path, class: "service-card-link ajax" %></p>
@@ -425,7 +435,7 @@
 </section>
 
 <!-- 10. FAQ -->
-<section class="py-5 bg-white" id="home-faq">
+<section class="py-5 section-tone-gradient" id="home-faq">
   <div class="container">
     <div class="text-center mb-5">
       <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Common questions</h2>
@@ -488,7 +498,7 @@
 
 <!-- 11. About -->
 <% about_photo = Rails.root.join("app/assets/images/about-office.jpg") %>
-<div class="py-5 bg-light-grey" id="about_us">
+<section class="py-5 section-tone-white" id="about_us">
   <div class="container">
     <div class="row g-4 align-items-center">
       <div class="col-12 col-lg-7">
@@ -532,12 +542,13 @@
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- 12. Contact -->
 <div id="cta"></div>
-<div class="contact-us-section py-5" id="contact_us">
-  <div class="container">
+<section class="contact-us-section py-5 section-tone-gradient untangle-line-section" id="contact_us">
+  <%= render "shared/untangle_line_background", tone: "gradient" %>
+  <div class="container untangle-line-content">
     <div class="text-center mb-4">
       <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Tell us what&apos;s slowing your team down</h2>
     </div>
@@ -557,7 +568,7 @@
       </div>
     <% end %>
   </div>
-</div>
+</section>
 
 </div>
 

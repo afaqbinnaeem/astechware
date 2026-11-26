@@ -137,7 +137,7 @@ reviews = [
                   <% if review[:image].present? %>
                     <%= image_tag review[:image], class: 'rounded-circle me-3', alt: review[:image_alt], style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
                   <% else %>
-                    <div class="rounded-circle me-3 d-flex align-items-center justify-content-center bg-secondary text-white flex-shrink-0" style="width:64px;height:64px;" aria-hidden="true"><i class="fa fa-user fa-2x"></i></div>
+                    <div class="rounded-circle me-3 d-flex align-items-center justify-content-center bg-secondary flex-shrink-0" style="width:64px;height:64px;" aria-hidden="true"><i class="fa fa-user fa-2x"></i></div>
                   <% end %>
                   <div>
                     <h3 class="h5 mb-0"><%= review[:name] %></h3>

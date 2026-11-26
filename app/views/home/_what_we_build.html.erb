@@ -1,13 +1,14 @@
 <%# Shared "What we build" grid — homepage and /services hub %>
-<section class="<%= local_assigns.fetch(:section_class, "py-5 bg-light-grey") %>" id="<%= local_assigns.fetch(:section_id, "what-we-build") %>">
-  <div class="container">
+<section class="<%= local_assigns.fetch(:section_class, "py-5 section-tone-gradient") %> flow-lines-section" id="<%= local_assigns.fetch(:section_id, "what-we-build") %>">
+  <%= render "shared/flow_lines_background", tone: local_assigns.fetch(:line_tone, "gradient") %>
+  <div class="container flow-lines-content">
     <div class="text-center mb-5">
-      <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">What we build</h2>
-      <p class="large-para mb-0" style="max-width: 750px; margin: 0 auto;">
+      <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block flow-lines-heading">What we build<span class="flow-lines-underline-ref" aria-hidden="true"></span></h2>
+      <p class="large-para mb-0 flow-lines-subtitle" style="max-width: 750px; margin: 0 auto;">
         For startups, growing businesses and established companies in any industry.
       </p>
     </div>
-    <div class="row g-4">
+    <div class="row g-4 flow-lines-cards">
       <% what_we_build_list.each do |item| %>
         <div class="col-6 col-md-6 col-lg-3">
           <%= link_to public_send(item[:path]), class: "text-decoration-none text-dark d-block h-100 ajax what-we-build-card" do %>
