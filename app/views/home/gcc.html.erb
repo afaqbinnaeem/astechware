@@ -28,13 +28,13 @@
   <div class="container">
     <div class="row align-items-center min-vh-50">
       <div class="col-12 col-lg-9 mx-auto text-center">
-        <h1 class="display-4 fw-bold mb-4" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;" data-page-h1>
+        <h1 class="display-4 fw-bold mb-4" data-page-h1>
           AI and software development for growing gulf companies
         </h1>
-        <p class="text-white fw-semibold mb-3" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.4; max-width: 720px; margin-left: auto; margin-right: auto;">
+        <p class="text-white fw-semibold mb-3" style="max-width: 720px; margin-left: auto; margin-right: auto">
           Software and automation for growing Gulf companies
         </p>
-        <p class="mb-4" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.6; max-width: 900px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
+        <p class="mb-4" style="max-width: 900px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95)">
           We work with companies in the US, UK, Canada and Australia, and we&rsquo;re taking on projects in the UAE, Saudi Arabia, Qatar and Oman. Custom software and automation for construction, healthcare and logistics, from an engineering team in Pakistan.
         </p>
         <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-5">
@@ -222,24 +222,28 @@
   }
 
   .gcc-arabic-line {
-    font-size: clamp(1.05rem, 2.2vw, 1.35rem);
-    font-weight: 600;
-    line-height: 1.7;
+    font-family: var(--font-family);
+    font-size: var(--fs-card);
+    font-weight: var(--fw-semibold);
+    line-height: var(--lh-prose);
     color: #1a1a2e;
   }
 
   .gcc-arabic-translation {
-    font-size: 0.85rem;
+    font-family: var(--font-family);
+    font-size: var(--fs-ui);
     letter-spacing: 0.01em;
   }
 
   #gcc-metrics .metric-number {
-    font-size: clamp(1.75rem, 3vw, 2.25rem);
-    font-weight: 700;
+    font-family: var(--font-family);
+    font-size: var(--fs-hero);
+    font-weight: 800;
   }
 
   #gcc-metrics .metric-label {
-    font-size: 0.9rem;
+    font-family: var(--font-family);
+    font-size: var(--fs-ui);
     color: #6c757d;
   }
 </style>

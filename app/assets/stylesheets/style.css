@@ -2,10 +2,27 @@
   --site-color: #f9c42e;
   --site-color-hover: #f9c42e;
   --text-color: #242a3b;
-  --font-family: "Inter", sans-serif;
+  --font-family: "Poppins", sans-serif;
   --bg-page: #faf9f7;
   --bg-section: #ffffff;
   --bg-alt: #f5f4f0;
+
+  /* Netsol-style type roles — keep the whole site on this ladder */
+  --fs-hero: clamp(32px, 4vw, 44px);     /* page H1 */
+  --fs-section: clamp(24px, 3vw, 29px);  /* section H2 */
+  --fs-card: 17px;                      /* card / box / tile titles */
+  --fs-body: 16px;                      /* body, leads, card copy */
+  --fs-ui: 13px;                        /* nav, meta, links, pills */
+  --fs-eyebrow: 10px;                   /* tiny labels */
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  --lh-body: 1.5;
+  --lh-prose: 1.75;
+  --lh-tight: 1.25;
 }
 
 html,
@@ -14,16 +31,19 @@ body {
 }
 
 html {
-  font-size: 15px;
+  font-size: 16px;
 }
 
 body {
   margin: 0;
   font-family: var(--font-family);
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: var(--fs-body);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
   color: #212529 !important;
   background-color: var(--bg-page);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .bg-white .text-muted,
@@ -52,6 +72,7 @@ a:hover {
   color: rgba(255, 255, 255, 0.51);
 }
 
+/* ----- Heading ladder (same on every page) ----- */
 h1,
 h2,
 h3,
@@ -59,18 +80,57 @@ h4,
 h5,
 h6 {
   font-family: var(--font-family);
-  font-weight: 700;
   color: var(--text-color);
 }
 
-h2 {
-  font-size: clamp(24px, 3vw, 30px);
-  line-height: 35px;
+h1 {
+  font-size: var(--fs-hero);
+  font-weight: var(--fw-bold);
+  line-height: 1.23;
+  letter-spacing: -1px;
 }
 
-h3 {
-  font-size: clamp(20px, 3vw, 25px);
-  line-height: 30px;
+h2 {
+  font-size: var(--fs-section);
+  font-weight: var(--fw-semibold);
+  line-height: 1.3;
+  letter-spacing: -0.3px;
+}
+
+/* Card/box titles and smaller headings share one size */
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--fs-card);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.45px;
+}
+
+/* Bootstrap heading utilities → same ladder */
+.h1 {
+  font-size: var(--fs-hero) !important;
+  font-weight: var(--fw-bold) !important;
+  letter-spacing: -1px;
+  line-height: 1.23 !important;
+}
+
+.h2 {
+  font-size: var(--fs-section) !important;
+  font-weight: var(--fw-semibold) !important;
+  letter-spacing: -0.3px;
+  line-height: 1.3 !important;
+}
+
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-size: var(--fs-card) !important;
+  font-weight: var(--fw-bold) !important;
+  letter-spacing: -0.45px;
+  line-height: var(--lh-tight) !important;
 }
 
 .text-primary,
@@ -78,12 +138,25 @@ h3 {
   color: var(--site-color) !important;
 }
 
+.btn,
+.btn-primary,
+.btn-outline-primary,
+.btn-outline-light,
+.btn-lg,
+.btn-sm,
+a.btn,
+button.btn {
+  font-family: var(--font-family) !important;
+  font-size: var(--fs-body) !important;
+  font-weight: var(--fw-medium) !important;
+  line-height: 24px !important;
+  letter-spacing: normal !important;
+}
+
 .btn-primary {
   background: var(--site-color);
   border-color: var(--site-color);
   min-width: 150px;
-  line-height: 30px;
-  font-size: 18px;
   color: var(--text-color) !important;
 }
 
@@ -134,8 +207,207 @@ h3 {
   text-align: center;
 }
 
-.large-para {
-  font-size: 22px;
+.large-para,
+p,
+.lead,
+.small,
+small,
+.fs-6,
+.fs-5 {
+  font-family: var(--font-family);
+  font-size: var(--fs-body) !important;
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-prose);
+  letter-spacing: -0.02em;
+}
+
+.lead {
+  letter-spacing: -0.44px;
+}
+
+/* Override Bootstrap display utilities */
+.display-1,
+.display-2,
+.display-3,
+.display-4,
+.display-5,
+.display-6 {
+  font-family: var(--font-family) !important;
+  font-weight: var(--fw-bold) !important;
+  letter-spacing: -1px;
+}
+
+.display-4,
+.display-5,
+h1.display-4,
+h1.display-5 {
+  font-size: var(--fs-hero) !important;
+  line-height: 1.23 !important;
+}
+
+.service-page-list,
+.service-page-list li {
+  font-size: var(--fs-body);
+  line-height: var(--lh-prose);
+  font-family: var(--font-family);
+  font-weight: var(--fw-regular);
+}
+
+/* Blog + entry content inherit the same scale */
+.blog-post-page,
+.blog-post-page .entry-content,
+.entry-content,
+.inner-sections {
+  font-family: var(--font-family);
+}
+
+.blog-post-page .entry-content p,
+.entry-content p {
+  font-size: var(--fs-body);
+  line-height: var(--lh-prose);
+  letter-spacing: -0.02em;
+}
+
+.blog-post-page h1 {
+  font-size: var(--fs-hero);
+  font-weight: var(--fw-bold);
+}
+
+.entry-content h2,
+.blog-post-page .entry-content h2 {
+  font-size: var(--fs-section);
+  font-weight: var(--fw-semibold);
+}
+
+.entry-content h3,
+.blog-post-page .entry-content h3 {
+  font-size: var(--fs-card);
+  font-weight: var(--fw-bold);
+}
+
+/* Mobile nav menu */
+.sliding-menu,
+.sliding-menu a,
+.nav-holder,
+.menu-item a {
+  font-family: var(--font-family);
+}
+
+/*
+ * Card / box / tile symmetry — every interactive content block uses the
+ * same title + body sizes so the page reads as one system (like Netsol).
+ */
+.workflow-card h3,
+.workflow-card h4,
+.workflow-card .h3,
+.workflow-card .h4,
+.workflow-card .h5,
+.workflow-card .h6,
+.build-system-card h3,
+.build-system-card h4,
+.build-system-card .h3,
+.build-system-card .h4,
+.build-system-card .h5,
+.build-system-card .h6,
+.service-card h3,
+.service-card h4,
+.service-card .h5,
+.tools-platform-card-title,
+.contact-side-title,
+.what-we-do .card h4,
+.what-we-do .card h3,
+.blog-card .caption h3,
+.case-studies-grid .blog-card .caption h3,
+.case-study-tile-card h3,
+.case-study-tile-card .h5,
+.at-a-glance-card h3,
+.inner-sections .card h3,
+.inner-sections .card h4,
+.inner-sections .card .h5,
+.inner-sections .card .h6 {
+  font-family: var(--font-family) !important;
+  font-size: var(--fs-card) !important;
+  font-weight: var(--fw-bold) !important;
+  line-height: var(--lh-tight) !important;
+  letter-spacing: -0.45px;
+}
+
+.workflow-card p,
+.workflow-card li,
+.workflow-card .small,
+.build-system-card p,
+.build-system-card .small,
+.service-card p,
+.service-card .small,
+.what-we-do .card p,
+.blog-card .caption p,
+.case-studies-grid .blog-card .caption p,
+.case-study-tile-card p,
+.at-a-glance-card li,
+.at-a-glance-card p,
+.inner-sections .card p,
+.inner-sections .card li,
+.inner-sections .card .small {
+  font-family: var(--font-family) !important;
+  font-size: var(--fs-body) !important;
+  font-weight: var(--fw-regular) !important;
+  line-height: var(--lh-prose) !important;
+  letter-spacing: -0.02em;
+}
+
+/* UI chrome: nav, pills, labels, footer meta */
+.enterprise-nav-link,
+.enterprise-nav .dropdown-item,
+.enterprise-cta-btn,
+.metric-label,
+.case-pill,
+.badge,
+.footer-link,
+.footer-legal-link,
+.footer-heading,
+.service-card-link,
+.what-we-build-more,
+.home-about-more {
+  font-family: var(--font-family);
+  font-size: var(--fs-ui) !important;
+  letter-spacing: 0.01em;
+}
+
+.footer-heading {
+  font-weight: var(--fw-semibold) !important;
+  font-size: var(--fs-ui) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.metric-label {
+  font-weight: var(--fw-medium) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Stats can stay large — display numbers, not body copy */
+.metric-number,
+.metric-number-markets {
+  font-family: var(--font-family);
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.text-uppercase.small,
+.hero-section .text-uppercase.small {
+  font-size: var(--fs-eyebrow) !important;
+  font-weight: var(--fw-semibold) !important;
+  letter-spacing: 1.5px !important;
+  line-height: 1.5 !important;
+}
+
+.footer-copyright,
+.footer-copyright.small,
+.site-footer .small {
+  font-size: var(--fs-ui) !important;
+  line-height: 1.5 !important;
+  letter-spacing: normal;
 }
 
 #wrapper {
@@ -187,17 +459,17 @@ h3 {
 .enterprise-nav-link {
   display: block;
   padding: 20px 14px;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 400;
   color: white;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
   text-decoration: none;
   transition: color 0.2s ease;
   background: transparent;
   border: 0;
   cursor: pointer;
   font-family: inherit;
-  line-height: inherit;
+  line-height: 20px;
 }
 
 .enterprise-nav-link:hover,
@@ -227,7 +499,8 @@ h3 {
 
 .enterprise-nav .dropdown-item {
   padding: 10px 20px;
-  font-size: 14px;
+  font-size: 13px;
+  font-weight: 400;
   color: var(--text-color);
 }
 
@@ -1091,9 +1364,23 @@ nav.nav-inner {
   z-index: 1;
 }
 
-.hero-section h1 {
+.hero-section h1,
+.service-page-hero h1 {
   color: #fff;
+  font-family: var(--font-family);
+  font-size: clamp(32px, 4vw, 44px) !important;
+  font-weight: 700;
+  line-height: 1.23 !important;
+  letter-spacing: -1px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-section .lead,
+.hero-section p,
+.service-page-hero p {
+  font-family: var(--font-family);
+  font-weight: 400;
+  letter-spacing: -0.44px;
 }
 
 .hero-section .lead {
@@ -13492,8 +13779,8 @@ section#problems .row.g-4 {
 }
 
 .case-study-page .at-a-glance-card ul {
-  font-size: 0.95rem;
-  line-height: 1.65;
+  font-size: var(--fs-body);
+  line-height: var(--lh-prose);
 }
 
 .service-page-list {
@@ -13538,4 +13825,132 @@ section#problems .row.g-4 {
   #faqs .accordion-item {
     break-inside: avoid;
   }
+}
+
+/* ===== TYPE SYSTEM ENFORCEMENT (all pages) ===== */
+/*
+ * Final cascade layer so mid-file one-offs (blog cards, methodology,
+ * testimonials, hire pages, etc.) cannot break the shared ladder.
+ */
+#main-content,
+#main-content p,
+#main-content li,
+#main-content .lead,
+#main-content .large-para,
+#main-content .small,
+#main-content small,
+#main-content .fs-6,
+#main-content .fs-5,
+#main-content .card p,
+#main-content .card li,
+#main-content .accordion-body,
+.site-footer p,
+.site-footer li {
+  font-family: var(--font-family) !important;
+  font-size: var(--fs-body) !important;
+  line-height: var(--lh-prose) !important;
+}
+
+#main-content h1,
+#main-content .display-4,
+#main-content .display-5,
+#main-content .h1 {
+  font-family: var(--font-family) !important;
+  font-size: var(--fs-hero) !important;
+  font-weight: var(--fw-bold) !important;
+  line-height: 1.23 !important;
+  letter-spacing: -1px !important;
+}
+
+#main-content h2,
+#main-content .h2,
+#main-content .heading-border,
+.blog-post-page .entry-content h2 {
+  font-family: var(--font-family) !important;
+  font-size: var(--fs-section) !important;
+  font-weight: var(--fw-semibold) !important;
+  line-height: 1.3 !important;
+  letter-spacing: -0.3px !important;
+}
+
+#main-content h3,
+#main-content h4,
+#main-content h5,
+#main-content h6,
+#main-content .h3,
+#main-content .h4,
+#main-content .h5,
+#main-content .h6,
+#main-content .card h3,
+#main-content .card h4,
+#main-content .card .h5,
+#main-content .workflow-card h3,
+#main-content .build-system-card h3,
+#main-content .build-system-card h4,
+#main-content .service-card h3,
+#main-content .tools-platform-card-title,
+#main-content .contact-side-title,
+#main-content .blog-card .caption h3,
+#main-content .case-studies-grid .blog-card .caption h3,
+#main-content .case-study-tile-card h3,
+#main-content .at-a-glance-card h3,
+.blog-post-page .entry-content h3,
+.happy-customer .testimonial-text,
+.methodology-testimonial-text {
+  font-family: var(--font-family) !important;
+  font-size: var(--fs-card) !important;
+  font-weight: var(--fw-bold) !important;
+  line-height: var(--lh-tight) !important;
+  letter-spacing: -0.45px !important;
+}
+
+#main-content .btn,
+#main-content a.btn,
+#main-content button.btn {
+  font-family: var(--font-family) !important;
+  font-size: var(--fs-body) !important;
+  font-weight: var(--fw-medium) !important;
+  line-height: 24px !important;
+}
+
+#main-content .badge,
+#main-content .case-pill,
+#main-content .metric-label,
+#main-content .service-card-link,
+#main-content .what-we-build-more,
+#main-content .home-about-more,
+#main-content .blog-post-badge,
+#main-content .blog-toc,
+.site-footer .footer-link,
+.site-footer .footer-heading,
+.site-footer .footer-legal-link,
+.site-footer .footer-copyright,
+.site-footer .small {
+  font-family: var(--font-family) !important;
+  font-size: var(--fs-ui) !important;
+  line-height: 1.5 !important;
+}
+
+#main-content .text-uppercase.small {
+  font-size: var(--fs-eyebrow) !important;
+  font-weight: var(--fw-semibold) !important;
+  letter-spacing: 1.5px !important;
+}
+
+/* Display stats stay large on purpose */
+#main-content .metric-number,
+#main-content .metric-number-markets {
+  font-size: var(--fs-hero) !important;
+  font-weight: 800 !important;
+  letter-spacing: -1px !important;
+  line-height: 1.1 !important;
+}
+
+/* Code blocks can stay slightly condensed */
+#main-content pre,
+#main-content code,
+.blog-post-page .entry-content pre,
+.blog-post-page .entry-content code {
+  font-size: 0.9em !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
 }
