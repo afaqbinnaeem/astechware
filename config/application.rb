@@ -44,6 +44,11 @@ module Railsondocker
     # Rails 7 Host Authorization blocks requests with unexpected Host headers.
     # Allow your real domain(s) in production/static mode.
     config.hosts << "db956e321597.ngrok.app"
+    config.hosts << /.*\.trycloudflare\.com/
+    config.hosts << /.*\.lhr\.life/
+    config.hosts << /.*\.localhost\.run/
+    config.hosts << "bore.pub"
+    config.hosts << /bore\.pub:.*/
     ["astechware.com", "www.astechware.com"].each { |h| config.hosts << h }
     (ENV["ALLOWED_HOSTS"]&.split(",") || []).map(&:strip).reject(&:empty?).each do |h|
       config.hosts << h
