@@ -11,10 +11,10 @@
   <div class="container">
     <div class="row align-items-center min-vh-50">
       <div class="col-12 col-lg-8 mx-auto text-center">
-        <h1 class="display-4 fw-bold mb-4" style="font-size: clamp(32px, 5vw, 56px); line-height: 1.2;" data-page-h1>
+        <h1 class="display-4 fw-bold mb-4" data-page-h1>
           Featured client projects
         </h1>
-        <p class="lead mb-5" style="font-size: clamp(18px, 2.5vw, 22px); line-height: 1.6; max-width: 800px; margin-left: auto; margin-right: auto;">
+        <p class="lead mb-5" style="max-width: 800px; margin-left: auto; margin-right: auto">
         These are some of the founder led projects delivered by <span class="text-white fw-bold">Ahmad</span>. The demo walkthrough videos covers the technical approach and real client outcomes.
         </p>
       </div>
@@ -222,13 +222,11 @@
                 <div class="card-body p-2 p-md-3">
                   <div class="mb-4">
                     <div class="ratio ratio-16x9 rounded shadow-sm overflow-hidden">
-                      <iframe
-                        src="https://www.youtube.com/embed/zMX4jDXJ8uI"
+                      <iframe src="https://www.youtube.com/embed/zMX4jDXJ8uI"
                         title="Custom Software Solutions with Client Reviews - Full Stack Engineer"
                         loading="lazy"
                         allow="accelerometer; autoplay; clipboard write; encrypted media; gyroscope; picture in picture; web share"
-                        allowfullscreen
-                        ></iframe>
+                        allowfullscreen></iframe>
                     </div>
                   </div>
                   <h3 class="h4 mb-3">Introduction to our projects</h3>
@@ -976,7 +974,7 @@
 
     // Close sidebar when clicking outside (mobile)
     bodyTag.addEventListener('click', function(event) {
-      if (bodyTag.classList.contains('open projects sidebar') && sidebarCount > 0) {
+      if (bodyTag.classList.contains('open projects sidebar') && sidebarCount> 0) {
         const sidebarWrapper = document.querySelector('.projects sidebar wrapper');
         const isClickInsideSidebar = sidebarWrapper && sidebarWrapper.contains(event.target);
         const isClickOnToggle = projectsNavButton && projectsNavButton.contains(event.target);

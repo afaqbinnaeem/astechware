@@ -7,7 +7,7 @@
           <%= image_tag 'bannernew2.webp', class: 'img-fluid w-100 h-100', alt: "A'sTechware Banner Image 1" %>
         </figure>
         <div class="content text-center" style="height: 80% !important;">
-          <p class="title mb-3" style="font-size: 250px;">500</p>
+          <p class="title mb-3">500</p>
           <span class="h3">We are sorry, but the Page you were looking for, could not be found.</span>
           <span class="py-4">
           	<%= link_to "Back to Home Page", root_path, class: "btn btn-primary" %>
@@ -38,7 +38,7 @@
 
   buttonTag.addEventListener("click", function(event) { count = 0 })
   bodyTag.addEventListener("click", function(event) {  
-    if (bodyTag.classList.contains('open-dropdown')  && count > 0) {
+    if (bodyTag.classList.contains('open-dropdown')  && count> 0) {
       bodyTag.classList.remove("open-dropdown");
       buttonTag.classList.remove("cmenu");
       count = 0
@@ -46,7 +46,7 @@
       count++;
     }
 
-    if (bodyTag.classList.contains('social-active') && socialCount > 0) {
+    if (bodyTag.classList.contains('social-active') && socialCount> 0) {
       bodyTag.classList.remove("social-active");
       socialCount = 0
     }else {

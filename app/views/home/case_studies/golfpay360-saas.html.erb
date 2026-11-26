@@ -2,10 +2,10 @@
   <div class="container">
     <div class="row align-items-center min-vh-50">
       <div class="col-12 col-lg-10 mx-auto text-center">
-        <h1 class="display-5 fw-bold mb-3" style="font-size: clamp(28px, 4.5vw, 52px); line-height: 1.15;" data-page-h1>
+        <h1 class="display-5 fw-bold mb-3" data-page-h1>
           Tee-time booking and payments platform for golf courses
         </h1>
-        <p class="mb-0" style="font-size: clamp(16px, 2vw, 18px); line-height: 1.7; max-width: 980px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95);">
+        <p class="mb-0" style="max-width: 980px; margin-left: auto; margin-right: auto; color: rgba(255,255,255,0.95)">
           A serverless first booking platform built for &ldquo;tee time drops&rdquo; with strict tenant isolation, distributed locking, and POS/payment integrations that survive peak traffic.
         </p>
       </div>
@@ -62,7 +62,7 @@
     <div class="container">
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">How it works</h2>
-        <ul class="service-page-list mb-4" style="font-size: 1.05rem; line-height: 1.8;">
+        <ul class="service-page-list mb-4">
           <li><strong>Distributed locking:</strong> Redis based Redlock ensures atomic booking operations across multiple server instances.</li>
           <li><strong>Edge optimized availability:</strong> CloudFront Functions serve tee sheet availability from the nearest edge location, reducing latency globally.</li>
           <li><strong>Architecture:</strong> Next.js (Frontend) &rarr; AWS Lambda &rarr; DynamoDB (NoSQL for sub millisecond lookups).</li>
@@ -80,7 +80,7 @@
     <div class="container">
       <div class="col-12 col-lg-10 mx-auto">
         <h2 class="heading-border heading-center mb-4 pb-3 d-inline-block">Results</h2>
-        <ul class="service-page-list mb-0" style="font-size: 1.05rem; line-height: 1.8;">
+        <ul class="service-page-list mb-0">
           <li><strong>Higher digital adoption:</strong> shifted the majority of bookings from phone to web/app.</li>
           <li><strong>Prevents double bookings:</strong> distributed locking + idempotent retries protect commit paths under load.</li>
           <li><strong>Reduced administrative overhead:</strong> automated check ins and self service rescheduling cut manual work.</li>
