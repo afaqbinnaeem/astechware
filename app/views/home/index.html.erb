@@ -33,7 +33,6 @@
       a: "It depends on what you need, so we don't publish prices. After a free 30-minute call you get a written scope, split into milestones, with a fixed price for each milestone before any work starts."
     }
   ]
-  home_screen_shots = Dir[Rails.root.join("app/assets/images/home/screens/*.webp")].sort
 %>
 <% set_meta_tags(
   title: "AI Development Company & Automation Agency",
@@ -88,42 +87,45 @@
 <% end %>
 
 <!-- 1. Hero — left-aligned content rail (Netsol-style) -->
+<% hero_industries = [
+  { key: "legal", label: "Legal", src: "home/hero-industries/legal.webp" },
+  { key: "healthcare", label: "Healthcare", src: "home/hero-industries/healthcare.webp" },
+  { key: "construction", label: "Construction", src: "home/hero-industries/construction.webp" },
+  { key: "logistics", label: "Logistics", src: "home/hero-industries/logistics.webp" },
+  { key: "real-estate", label: "Real estate", src: "home/hero-industries/real-estate.webp" },
+  { key: "field-service", label: "Field service", src: "home/hero-industries/field-service.webp" }
+] %>
 <div class="hero-section py-5">
   <div class="container">
-    <div class="row align-items-center min-vh-50">
-      <% if home_screen_shots.any? %>
-        <div class="col-12 col-lg-6 text-start">
-      <% else %>
-        <div class="col-12 col-lg-10 text-start">
-      <% end %>
-          <p class="text-uppercase small fw-semibold mb-3 hero-eyebrow" style="color: rgba(255,255,255,0.85);">
-            AI, AUTOMATION &amp; CUSTOM SOFTWARE
-          </p>
-          <h1 class="display-4 fw-bold mb-3" data-page-h1>
-            Software that takes the busywork off <span class="hero-word-slot" data-longest="construction"><span class="hero-word" aria-live="off">legal</span></span> teams
-          </h1>
-          <p class="lead mb-4 hero-lead" style="max-width: 42rem;">
-            We automate the work that eats your team's day: intake, scheduling, estimates, dispatch, invoicing, follow-ups and paperwork. It runs on the tools you already use, and your team just reviews it.
-          </p>
-          <div class="d-flex flex-column flex-sm-row gap-3 justify-content-start align-items-stretch hero-cta-row">
-            <%= link_to "Book a 30-min call", contact_path, class: "btn btn-primary btn-lg rounded-pill px-4 hero-btn-primary ajax", style: "width: min(351px, 100%); max-width: 100%;" %>
-            <%= link_to "See our work", case_studies_path, class: "btn btn-outline-primary btn-lg rounded-pill px-4 d-flex align-items-center justify-content-center hero-btn-outline ajax", style: "width: min(351px, 100%); max-width: 100%; white-space: nowrap;" %>
-          </div>
-          <p class="mb-0 fs-6 fw-bold hero-aside" style="color: #fff; margin-top: 3rem; max-width: 36rem;">
-            Building something else? We build <%= link_to "custom software, apps and AI for any industry →", services_path, class: "ajax", style: "color: var(--site-color); font-weight: 700; text-decoration: underline;" %>
-          </p>
+    <div class="row align-items-center min-vh-50 hero-row">
+      <div class="col-12 col-lg-6 text-start">
+        <p class="text-uppercase small fw-semibold mb-3 hero-eyebrow" style="color: rgba(255,255,255,0.85);">
+          AI, AUTOMATION &amp; CUSTOM SOFTWARE
+        </p>
+        <h1 class="display-4 fw-bold mb-3" data-page-h1>
+          Software that takes the busywork off <span class="hero-word-slot" data-longest="construction"><span class="hero-word" aria-live="off">legal</span></span> teams
+        </h1>
+        <p class="lead mb-4 hero-lead" style="max-width: 42rem;">
+          We automate the work that eats your team's day: intake, scheduling, estimates, dispatch, invoicing, follow-ups and paperwork. It runs on the tools you already use, and your team just reviews it.
+        </p>
+        <div class="d-flex flex-column flex-sm-row gap-3 justify-content-start align-items-stretch hero-cta-row">
+          <%= link_to "Book a 30-min call", contact_path, class: "btn btn-primary btn-lg rounded-pill px-4 hero-btn-primary ajax", style: "width: min(351px, 100%); max-width: 100%;" %>
+          <%= link_to "See our work", case_studies_path, class: "btn btn-outline-primary btn-lg rounded-pill px-4 d-flex align-items-center justify-content-center hero-btn-outline ajax", style: "width: min(351px, 100%); max-width: 100%; white-space: nowrap;" %>
         </div>
-      <% if home_screen_shots.any? %>
-        <div class="col-12 col-lg-6 mt-4 mt-lg-0">
-          <div class="row g-2">
-            <% home_screen_shots.first(3).each do |shot| %>
-              <div class="col-12 col-sm-6">
-                <%= image_tag "home/screens/#{File.basename(shot)}", class: "img-fluid rounded-3 shadow", alt: "Product screenshot", loading: "lazy" %>
-              </div>
-            <% end %>
-          </div>
+        <p class="mb-0 fs-6 fw-bold hero-aside" style="color: #fff; margin-top: 3rem; max-width: 36rem;">
+          Building something else? We build <%= link_to "custom software, apps and AI for any industry →", services_path, class: "ajax", style: "color: var(--site-color); font-weight: 700; text-decoration: underline;" %>
+        </p>
+      </div>
+      <div class="col-12 col-lg-6 mt-4 mt-lg-0">
+        <div class="hero-industry-stage" aria-hidden="true">
+          <% hero_industries.each_with_index do |item, idx| %>
+            <div class="hero-industry-slide<%= idx.zero? ? ' is-active' : '' %>" data-industry="<%= item[:key] %>">
+              <%= image_tag item[:src], alt: item[:label], loading: idx.zero? ? "eager" : "lazy", decoding: "async" %>
+              <span class="hero-industry-label"><%= item[:label] %></span>
+            </div>
+          <% end %>
         </div>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>

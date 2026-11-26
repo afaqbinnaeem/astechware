@@ -130,7 +130,7 @@ const HERO_WORDS = [
 ]
 const HERO_TYPE_MS = 70
 const HERO_DELETE_MS = 45
-const HERO_HOLD_MS = 1600
+const HERO_HOLD_MS = 2200
 const HERO_GAP_MS = 320
 
 let heroWordTimer = null
@@ -138,6 +138,7 @@ let heroWordEl = null
 let heroWordIndex = 0
 let heroWordPaused = false
 let heroWordRunning = false
+let heroIndustryLeaveTimer = null
 
 function prefersReducedMotion() {
   return (
@@ -153,8 +154,44 @@ function clearHeroWordTimer() {
   }
 }
 
+function showHeroIndustry(index) {
+  const slides = document.querySelectorAll(".hero-industry-slide")
+  if (!slides.length) return
+
+  const nextIndex = ((index % slides.length) + slides.length) % slides.length
+  const current = document.querySelector(".hero-industry-slide.is-active")
+  const next = slides[nextIndex]
+  if (!next || next === current) return
+
+  if (heroIndustryLeaveTimer) {
+    clearTimeout(heroIndustryLeaveTimer)
+    heroIndustryLeaveTimer = null
+  }
+
+  slides.forEach(function (slide) {
+    if (slide !== current) {
+      slide.classList.remove("is-active", "is-leaving")
+    }
+  })
+
+  if (current) {
+    current.classList.remove("is-active")
+    current.classList.add("is-leaving")
+    heroIndustryLeaveTimer = setTimeout(function () {
+      current.classList.remove("is-leaving")
+      heroIndustryLeaveTimer = null
+    }, 560)
+  }
+
+  next.classList.add("is-active")
+}
+
 function destroyHeroWordTypewriter() {
   clearHeroWordTimer()
+  if (heroIndustryLeaveTimer) {
+    clearTimeout(heroIndustryLeaveTimer)
+    heroIndustryLeaveTimer = null
+  }
   heroWordRunning = false
   heroWordPaused = false
   if (heroWordEl) {
@@ -165,6 +202,7 @@ function destroyHeroWordTypewriter() {
     heroWordEl.textContent = "legal"
     heroWordEl = null
   }
+  showHeroIndustry(0)
 }
 
 function pauseHeroWord() {
@@ -213,6 +251,7 @@ function deleteHeroWord(word) {
     return
   }
   heroWordIndex = (heroWordIndex + 1) % HERO_WORDS.length
+  showHeroIndustry(heroWordIndex)
   scheduleHeroWord(HERO_GAP_MS, function () {
     typeHeroWord(HERO_WORDS[heroWordIndex], 0)
   })
@@ -227,6 +266,7 @@ function initHeroWordTypewriter() {
   heroWordEl = el
   heroWordEl.textContent = "legal"
   heroWordIndex = 0
+  showHeroIndustry(0)
 
   if (prefersReducedMotion()) return
 
