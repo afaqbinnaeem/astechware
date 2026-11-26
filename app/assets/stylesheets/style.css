@@ -23,6 +23,17 @@
   --lh-body: 1.5;
   --lh-prose: 1.75;
   --lh-tight: 1.25;
+
+  /* Netsol-like layout rhythm */
+  --rail-max: 1400px;           /* matches enterprise nav */
+  --rail-pad: 32px;             /* side padding inside rail */
+  --section-pad-y: 5.5rem;      /* vertical breathing room between bands */
+  --hero-pad-y: 5.5rem;
+  --card-radius: 16px;
+  --card-pad: 1.5rem;
+  --card-gap: 1.25rem;
+  --stack-gap-sm: 16px;
+  --stack-gap-md: 24px;
 }
 
 html,
@@ -431,9 +442,9 @@ h1.display-5 {
 }
 
 .enterprise-nav-inner {
-  max-width: 1400px;
+  max-width: var(--rail-max);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 var(--rail-pad);
   height: 100%;
 }
 
@@ -1279,8 +1290,8 @@ nav.nav-inner {
   background-repeat: no-repeat;
   position: relative;
   overflow: hidden;
-  padding-top: 4.5rem;
-  padding-bottom: 3rem;
+  padding-top: var(--hero-pad-y);
+  padding-bottom: var(--hero-pad-y);
 }
 
 .hero-about {
@@ -1554,7 +1565,7 @@ nav.nav-inner {
 
 .workflow-card {
   background: #fff;
-  border-radius: 8px;
+  border-radius: var(--card-radius);
   box-shadow: -8px 0 0 0 var(--site-color), 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
@@ -9429,13 +9440,13 @@ section#problems .row.g-4 {
 
 /* ===== Insights & Resources (Blog Landing) ===== */
 .blog-landing .blog-landing-header h1 { color: var(--text-color, #242a3b); }
-.blog-featured-card { border-radius: 12px; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.blog-featured-card { border-radius: var(--card-radius); transition: transform 0.25s ease, box-shadow 0.25s ease; }
 .blog-featured-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12) !important; }
 .blog-featured-card .card-body a:hover { color: inherit; }
 .blog-featured-card .btn-primary { background-color: var(--site-color); border-color: var(--site-color); color: #242a3b; }
 .blog-featured-card .btn-primary:hover { background-color: var(--site-color-hover, #e6b328); border-color: var(--site-color-hover); color: #242a3b; }
 
-.blog-grid-card { border-radius: 12px; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.blog-grid-card { border-radius: var(--card-radius); transition: transform 0.25s ease, box-shadow 0.25s ease; }
 .blog-grid-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12) !important; }
 .blog-grid-card .blog-grid-card-img { background: #f5f5f5; }
 .blog-grid-card .card-img-top { transition: transform 0.35s ease; }
@@ -12329,7 +12340,7 @@ section#problems .row.g-4 {
 /* Enhanced Build System Cards */
 .build-system-card {
   background: #ffffff;
-  border-radius: 12px;
+  border-radius: var(--card-radius);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   border: 1px solid #e9ecef;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -12472,9 +12483,9 @@ section#problems .row.g-4 {
 /* ===== Service Cards Grid ===== */
 .service-card {
   background: #ffffff;
-  border-radius: 12px;
+  border-radius: var(--card-radius);
   border: 1px solid #e9ecef;
-  padding: 28px 24px;
+  padding: var(--card-pad);
   display: flex;
   flex-direction: column;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
@@ -13722,27 +13733,41 @@ section#problems .row.g-4 {
   text-decoration: none;
 }
 
-/* ========== Page content width (avoid nested narrow cols) ========== */
+/* ========== Page content width + Netsol-like layout rhythm ========== */
 
-/*
- * Cap marketing containers at the XL width so hero + body share one centered
- * rail on large screens (avoid 1320px line lengths that are hard to read).
- */
-@media (min-width: 1200px) {
+/* One content rail aligned with the enterprise nav (from lg up) */
+@media (min-width: 992px) {
+  .hero-section > .container,
+  .service-page-hero > .container,
+  .inner-sections > section > .container,
+  .inner-sections > .container,
+  .inner-sections > div > .container,
+  .blog-post-page > .container,
+  .blog-breadcrumb-container.container,
+  #main-content > .container {
+    max-width: var(--rail-max);
+    padding-left: var(--rail-pad);
+    padding-right: var(--rail-pad);
+    width: 100%;
+  }
+}
+
+@media (max-width: 991.98px) {
   .hero-section > .container,
   .service-page-hero > .container,
   .inner-sections > section > .container,
   .inner-sections > .container,
   .blog-post-page > .container,
-  .blog-breadcrumb-container.container {
-    max-width: 1140px;
+  #main-content > .container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 }
 
 /*
  * Many templates nest col-lg-8/9/10.mx-auto inside .container, which shrinks
  * prose ~17–33% vs the hero. Expand those wrappers to the full container so
- * hero + body share the same centered content rail.
+ * hero + body share the same content rail.
  */
 .hero-section > .container > [class*="col-"].mx-auto,
 .hero-section > .container > .row > [class*="col-"].mx-auto,
@@ -13755,10 +13780,101 @@ section#problems .row.g-4 {
   flex: 0 0 100%;
 }
 
-/* Hero subtitles: readable measure, still centered */
-.hero-section > .container p[style*="max-width"],
-.service-page-hero > .container p[style*="max-width"] {
-  max-width: 48rem !important; /* ~768px */
+/* Heroes: left-aligned copy stack on desktop (Netsol pattern) */
+@media (min-width: 992px) {
+  .hero-section .container .row > [class*="col-"].text-center,
+  .service-page-hero .container .row > [class*="col-"].text-center,
+  .hero-section .container .row > [class*="col-"].mx-auto.text-center {
+    text-align: left !important;
+  }
+
+  .hero-section .justify-content-center,
+  .service-page-hero .justify-content-center {
+    justify-content: flex-start !important;
+  }
+
+  .hero-section .container p[style*="margin-left: auto"],
+  .service-page-hero .container p[style*="margin-left: auto"],
+  .hero-section .container p[style*="margin-left:auto"],
+  .service-page-hero .container p[style*="margin-left:auto"] {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .hero-section .hero-lead,
+  .hero-section .hero-aside,
+  .hero-section .container .lead,
+  .service-page-hero .container p,
+  .service-page-hero .container .lead {
+    max-width: 36rem !important;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .hero-section .text-start {
+    text-align: center !important;
+  }
+
+  .hero-section .hero-cta-row {
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .hero-section .hero-lead,
+  .hero-section .hero-aside {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.hero-eyebrow {
+  margin-bottom: var(--stack-gap-md) !important;
+}
+
+.hero-section h1 {
+  margin-bottom: var(--stack-gap-sm) !important;
+}
+
+/* Section vertical rhythm */
+.inner-sections > section.py-5,
+.inner-sections > .py-5,
+#main-content > .py-5 {
+  padding-top: var(--section-pad-y) !important;
+  padding-bottom: var(--section-pad-y) !important;
+}
+
+/* Proof / logo bands stay centered */
+.inner-sections > section.text-center,
+#astechware_logos,
+#company-metrics {
+  text-align: center;
+}
+
+/* Unified card surfaces */
+.workflow-card,
+.build-system-card,
+.service-card,
+.tools-platform-card,
+.case-study-tile-card,
+.what-we-build-card .build-system-card,
+.inner-sections .card,
+.service-page-list li,
+.blog-featured-card,
+.blog-grid-card {
+  border-radius: var(--card-radius) !important;
+}
+
+.workflow-card,
+.build-system-card,
+.service-card,
+.tools-platform-card,
+.case-study-tile-card {
+  padding: var(--card-pad);
+}
+
+.inner-sections .row.g-4 {
+  --bs-gutter-x: var(--card-gap);
+  --bs-gutter-y: var(--card-gap);
 }
 
 /* Prose fills its column; no extra reading-width clamp on marketing pages */

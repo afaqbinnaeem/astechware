@@ -87,31 +87,31 @@
   </script>
 <% end %>
 
-<!-- 1. Hero -->
+<!-- 1. Hero — left-aligned content rail (Netsol-style) -->
 <div class="hero-section py-5">
   <div class="container">
     <div class="row align-items-center min-vh-50">
       <% if home_screen_shots.any? %>
-        <div class="col-12 col-lg-6 text-center text-lg-start">
+        <div class="col-12 col-lg-6 text-start">
       <% else %>
-        <div class="col-12 col-lg-11 mx-auto text-center">
+        <div class="col-12 col-lg-10 text-start">
       <% end %>
-          <p class="text-uppercase small fw-semibold mb-3" style="letter-spacing: 0.08em; color: rgba(255,255,255,0.85);">
+          <p class="text-uppercase small fw-semibold mb-3 hero-eyebrow" style="color: rgba(255,255,255,0.85);">
             AI, automation &amp; custom software
           </p>
-          <h1 class="display-4 fw-bold mb-4" data-page-h1>
+          <h1 class="display-4 fw-bold mb-3" data-page-h1>
             Software that takes the busywork off legal, healthcare, construction and logistics teams
           </h1>
-          <p class="lead mb-4" style="max-width: 950px;<%= home_screen_shots.any? ? "" : " margin-left: auto; margin-right: auto;" %>">
+          <p class="lead mb-4 hero-lead" style="max-width: 36rem;">
             We build systems that handle intake, scheduling, estimates, dispatch, invoicing and paperwork, connected to the tools you already use, like QuickBooks, Outlook and your EHR. Your team reviews the work instead of doing it by hand.
           </p>
-          <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center<%= home_screen_shots.any? ? " justify-content-lg-start" : "" %> align-items-center align-items-sm-stretch">
+          <div class="d-flex flex-column flex-sm-row gap-3 justify-content-start align-items-stretch hero-cta-row">
             <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-4 hero-btn-primary" style="width: min(351px, 100%); max-width: 100%;">
               Book a 30-min call
             </a>
             <%= link_to "See our work", case_studies_path, class: "btn btn-outline-primary btn-lg rounded-pill px-4 d-flex align-items-center justify-content-center hero-btn-outline ajax", style: "width: min(351px, 100%); max-width: 100%; white-space: nowrap;" %>
           </div>
-          <p class="mb-0 fs-6 fw-bold" style="color: #fff; margin-top: 5rem; max-width: 720px;<%= home_screen_shots.any? ? "" : " margin-left: auto; margin-right: auto;" %>">
+          <p class="mb-0 fs-6 fw-bold hero-aside" style="color: #fff; margin-top: 3rem; max-width: 36rem;">
             Building something else? We also build <%= link_to "custom software, web and mobile apps, automation and AI", services_path, class: "ajax", style: "color: var(--site-color); font-weight: 700; text-decoration: underline;" %> for businesses in any industry.
           </p>
         </div>
