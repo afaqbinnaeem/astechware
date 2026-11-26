@@ -61,42 +61,17 @@ function initClientsTestimonialsSlick() {
   }
 
   $slider.slick({
-    slidesToShow: 3,
+    slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: true,
+    arrows: false,
     dots: true,
     autoplay: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 5500,
     pauseOnHover: true,
-    speed: 500,
+    speed: 450,
     cssEase: "ease-in-out",
-    prevArrow:
-      '<button type="button" class="slick-prev clients-slider-arrow" aria-label="Previous testimonial"><i class="fa fa-chevron-left"></i></button>',
-    nextArrow:
-      '<button type="button" class="slick-next clients-slider-arrow" aria-label="Next testimonial"><i class="fa fa-chevron-right"></i></button>',
-    responsive: [
-      { breakpoint: 1200, settings: { slidesToShow: 2 } },
-      { breakpoint: 768, settings: { slidesToShow: 1, arrows: true } }
-    ]
+    adaptiveHeight: true
   })
-
-  setTimeout(function () {
-    window
-      .jQuery(".clients-testimonials-slider .slick-prev, .clients-testimonials-slider .slick-next")
-      .off("touchstart.clientsSlider")
-      .on("touchstart.clientsSlider", function (e) {
-        e.preventDefault()
-        e.stopPropagation()
-        const $button = window.jQuery(this)
-        const $active = window.jQuery(".clients-testimonials-slider")
-        if ($button.hasClass("slick-prev")) {
-          $active.slick("slickPrev")
-        } else if ($button.hasClass("slick-next")) {
-          $active.slick("slickNext")
-        }
-        return false
-      })
-  }, 100)
 }
 
 function destroyMainSwiper() {
@@ -145,17 +120,142 @@ function initMainSwiper() {
   })
 }
 
+const HERO_WORDS = [
+  "legal",
+  "healthcare",
+  "construction",
+  "logistics",
+  "real estate",
+  "field service"
+]
+const HERO_TYPE_MS = 70
+const HERO_DELETE_MS = 45
+const HERO_HOLD_MS = 1600
+const HERO_GAP_MS = 320
+
+let heroWordTimer = null
+let heroWordEl = null
+let heroWordIndex = 0
+let heroWordPaused = false
+let heroWordRunning = false
+
+function prefersReducedMotion() {
+  return (
+    typeof window.matchMedia === "function" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  )
+}
+
+function clearHeroWordTimer() {
+  if (heroWordTimer) {
+    clearTimeout(heroWordTimer)
+    heroWordTimer = null
+  }
+}
+
+function destroyHeroWordTypewriter() {
+  clearHeroWordTimer()
+  heroWordRunning = false
+  heroWordPaused = false
+  if (heroWordEl) {
+    heroWordEl.removeEventListener("mouseenter", pauseHeroWord)
+    heroWordEl.removeEventListener("mouseleave", resumeHeroWord)
+    heroWordEl.removeEventListener("focus", pauseHeroWord)
+    heroWordEl.removeEventListener("blur", resumeHeroWord)
+    heroWordEl.textContent = "legal"
+    heroWordEl = null
+  }
+}
+
+function pauseHeroWord() {
+  heroWordPaused = true
+}
+
+function resumeHeroWord() {
+  heroWordPaused = false
+}
+
+function scheduleHeroWord(delay, fn) {
+  clearHeroWordTimer()
+  heroWordTimer = setTimeout(function tick() {
+    heroWordTimer = null
+    if (!heroWordRunning || !heroWordEl) return
+    if (heroWordPaused) {
+      heroWordTimer = setTimeout(tick, 120)
+      return
+    }
+    fn()
+  }, delay)
+}
+
+function typeHeroWord(word, charIndex) {
+  if (!heroWordEl) return
+  heroWordEl.textContent = word.slice(0, charIndex)
+  if (charIndex < word.length) {
+    scheduleHeroWord(HERO_TYPE_MS, function () {
+      typeHeroWord(word, charIndex + 1)
+    })
+    return
+  }
+  scheduleHeroWord(HERO_HOLD_MS, function () {
+    deleteHeroWord(word)
+  })
+}
+
+function deleteHeroWord(word) {
+  if (!heroWordEl) return
+  const current = heroWordEl.textContent || ""
+  if (current.length > 0) {
+    heroWordEl.textContent = current.slice(0, -1)
+    scheduleHeroWord(HERO_DELETE_MS, function () {
+      deleteHeroWord(word)
+    })
+    return
+  }
+  heroWordIndex = (heroWordIndex + 1) % HERO_WORDS.length
+  scheduleHeroWord(HERO_GAP_MS, function () {
+    typeHeroWord(HERO_WORDS[heroWordIndex], 0)
+  })
+}
+
+function initHeroWordTypewriter() {
+  destroyHeroWordTypewriter()
+
+  const el = document.querySelector(".hero-section .hero-word")
+  if (!el) return
+
+  heroWordEl = el
+  heroWordEl.textContent = "legal"
+  heroWordIndex = 0
+
+  if (prefersReducedMotion()) return
+
+  heroWordEl.setAttribute("tabindex", "0")
+  heroWordEl.addEventListener("mouseenter", pauseHeroWord)
+  heroWordEl.addEventListener("mouseleave", resumeHeroWord)
+  heroWordEl.addEventListener("focus", pauseHeroWord)
+  heroWordEl.addEventListener("blur", resumeHeroWord)
+
+  heroWordRunning = true
+  // Hold the SSR "legal" before cycling so first paint is stable
+  scheduleHeroWord(HERO_HOLD_MS, function () {
+    deleteHeroWord("legal")
+  })
+}
+
 function onPageReady() {
   closeMobileNav()
   initEnterpriseNavHoverDropdowns()
   initClientsTestimonialsSlick()
   initMainSwiper()
+  initHeroWordTypewriter()
 }
 
 function onBeforeCache() {
   closeMobileNav()
   destroyClientsTestimonialsSlick()
   destroyMainSwiper()
+  destroyHeroWordTypewriter()
 }
 
 document.addEventListener("DOMContentLoaded", onPageReady)

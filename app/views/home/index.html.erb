@@ -97,22 +97,20 @@
         <div class="col-12 col-lg-10 text-start">
       <% end %>
           <p class="text-uppercase small fw-semibold mb-3 hero-eyebrow" style="color: rgba(255,255,255,0.85);">
-            AI, automation &amp; custom software
+            AI, AUTOMATION &amp; CUSTOM SOFTWARE
           </p>
           <h1 class="display-4 fw-bold mb-3" data-page-h1>
-            Software that takes the busywork off legal, healthcare, construction and logistics teams
+            Software that takes the busywork off <span class="hero-word-slot" data-longest="construction"><span class="hero-word" aria-live="off">legal</span></span> teams
           </h1>
-          <p class="lead mb-4 hero-lead" style="max-width: 36rem;">
-            We build systems that handle intake, scheduling, estimates, dispatch, invoicing and paperwork, connected to the tools you already use, like QuickBooks, Outlook and your EHR. Your team reviews the work instead of doing it by hand.
+          <p class="lead mb-4 hero-lead" style="max-width: 42rem;">
+            We automate the work that eats your team's day: intake, scheduling, estimates, dispatch, invoicing, follow-ups and paperwork. It runs on the tools you already use, and your team just reviews it.
           </p>
           <div class="d-flex flex-column flex-sm-row gap-3 justify-content-start align-items-stretch hero-cta-row">
-            <a href="https://calendly.com/ahmadkamran/new-meeting" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg rounded-pill px-4 hero-btn-primary" style="width: min(351px, 100%); max-width: 100%;">
-              Book a 30-min call
-            </a>
+            <%= link_to "Book a 30-min call", contact_path, class: "btn btn-primary btn-lg rounded-pill px-4 hero-btn-primary ajax", style: "width: min(351px, 100%); max-width: 100%;" %>
             <%= link_to "See our work", case_studies_path, class: "btn btn-outline-primary btn-lg rounded-pill px-4 d-flex align-items-center justify-content-center hero-btn-outline ajax", style: "width: min(351px, 100%); max-width: 100%; white-space: nowrap;" %>
           </div>
           <p class="mb-0 fs-6 fw-bold hero-aside" style="color: #fff; margin-top: 3rem; max-width: 36rem;">
-            Building something else? We also build <%= link_to "custom software, web and mobile apps, automation and AI", services_path, class: "ajax", style: "color: var(--site-color); font-weight: 700; text-decoration: underline;" %> for businesses in any industry.
+            Building something else? We build <%= link_to "custom software, apps and AI for any industry →", services_path, class: "ajax", style: "color: var(--site-color); font-weight: 700; text-decoration: underline;" %>
           </p>
         </div>
       <% if home_screen_shots.any? %>
@@ -132,67 +130,33 @@
 
 <div class="inner-sections">
 
-<!-- 2. Logo strip -->
-<div class="py-5 bg-white" id="astechware_logos">
-  <style>
-    .logos-marquee {
-      overflow: hidden;
-      width: 100%;
-      position: relative;
-    }
-    .logos-track {
-      display: flex;
-      align-items: center;
-      width: max-content;
-      animation: scroll-logos 30s linear infinite;
-      gap: 48px;
-    }
-    .logos-marquee:hover .logos-track {
-      animation-play-state: paused;
-    }
-    @keyframes scroll-logos {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .logo-item {
-      flex-shrink: 0;
-    }
-    .logo-item img {
-      max-height: 60px;
-      width: auto;
-      max-width: none;
-      display: block;
-    }
-    @media (max-width: 600px) {
-      .logos-track { gap: 24px; }
-      .logo-item img { max-height: 40px; }
-    }
-  </style>
+<!-- 2. Logo strip (Netsol-style frosted card + marquee) -->
+<div class="clients-logos-section" id="astechware_logos">
   <div class="container">
-    <div class="text-center mb-4">
-      <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">Some of the teams we&apos;ve built for</h2>
-    </div>
-    <% logos = [
-      { src: 'ahmad/logos/word_of_mouth_online_pty_ltd__logo.jpeg', alt: "Word of Mouth Online Pty Ltd, A'sTechware Client" },
-      { src: 'ahmad/logos/vestra_software_solutions_logo.jpeg', alt: "Vestra Software Solutions, A'sTechware Client" },
-      { src: 'ahmad/logos/zoficash_logo.jpeg', alt: "Zoficash, A'sTechware Client" },
-      { src: 'ahmad/logos/golfpay.png', alt: "Golfpay, A'sTechware Client" },
-      { src: 'ahmad/logos/rrf.jpeg', alt: "RRF, A'sTechware Client" },
-      { src: 'ahmad/logos/thegrantshub_logo.jpeg', alt: "The Grants Hub, A'sTechware Client" },
-      { src: 'ahmad/logos/driftgolf_logo.jpeg', alt: "DriftGolf, A'sTechware Client" },
-      { src: 'ahmad/logos/1630580396218.jpeg', alt: "Selland Technologies, A'sTechware Client" },
-      { src: 'ahmad/logos/zidzid.jpeg', alt: "ZidZid, A'sTechware Client" },
-      { src: 'ahmad/logos/warcoconstruction_logo.jpeg', alt: "Warcoconstruction, A'sTechware Client" },
-      { src: 'ahmad/logos/instashowing_logo.jpeg', alt: "Instashowing, A'sTechware Client" },
-      { src: 'ahmad/logos/sws.svg', alt: 'SWS' }
-    ] %>
-    <div class="logos-marquee">
-      <div class="logos-track">
-        <% (logos + logos).each do |logo| %>
-          <div class="logo-item">
-            <%= image_tag logo[:src], alt: logo[:alt], class: 'img-fluid', loading: "lazy" %>
-          </div>
-        <% end %>
+    <div class="clients-logos-card">
+      <h2 class="clients-logos-heading">Some of the teams we&apos;ve built for</h2>
+      <% logos = [
+        { src: 'ahmad/logos/word_of_mouth_online_pty_ltd__logo.jpeg', alt: "Word of Mouth Online Pty Ltd, A'sTechware Client" },
+        { src: 'ahmad/logos/vestra_software_solutions_logo.jpeg', alt: "Vestra Software Solutions, A'sTechware Client" },
+        { src: 'ahmad/logos/zoficash_logo.jpeg', alt: "Zoficash, A'sTechware Client" },
+        { src: 'ahmad/logos/golfpay.png', alt: "Golfpay, A'sTechware Client" },
+        { src: 'ahmad/logos/rrf.jpeg', alt: "RRF, A'sTechware Client" },
+        { src: 'ahmad/logos/thegrantshub_logo.jpeg', alt: "The Grants Hub, A'sTechware Client" },
+        { src: 'ahmad/logos/driftgolf_logo.jpeg', alt: "DriftGolf, A'sTechware Client" },
+        { src: 'ahmad/logos/1630580396218.jpeg', alt: "Selland Technologies, A'sTechware Client" },
+        { src: 'ahmad/logos/zidzid.jpeg', alt: "ZidZid, A'sTechware Client" },
+        { src: 'ahmad/logos/warcoconstruction_logo.jpeg', alt: "Warcoconstruction, A'sTechware Client" },
+        { src: 'ahmad/logos/instashowing_logo.jpeg', alt: "Instashowing, A'sTechware Client" },
+        { src: 'ahmad/logos/sws.svg', alt: 'SWS' }
+      ] %>
+      <div class="logos-marquee" aria-label="Client logos">
+        <div class="logos-track">
+          <% (logos + logos).each do |logo| %>
+            <div class="logo-item">
+              <%= image_tag logo[:src], alt: logo[:alt], loading: "lazy" %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
@@ -411,262 +375,52 @@
   </div>
 </div>
 
-<!-- 9. Client reviews -->
-<div class="py-5 bg-light" id="ahmad_clients">
-  <div class="container-fluid">
-    <div class="text-center mb-5">
+<!-- 9. Client reviews (Netsol-style featured quote + portrait) -->
+<% home_reviews = [
+  { name: "Dale Merritt", role: "CEO, GolfPay360", quote: "Been working with Ahmad for almost two years, and he's been great to work with. One of the most reliable developers I've had the pleasure to work with.", image: "ahmad/clients/golf.jpeg", link: "https://www.linkedin.com/in/engr-ahmad-kamran", link_label: "Read on LinkedIn" },
+  { name: "Joseph Chiavatti", role: "Technology Founder & REALTOR®", quote: "They care about making sure the project is completed the correct way and are quick to communicate on the channels we use.", image: "ahmad/clients/joseph.jpeg", link: "https://www.linkedin.com/services/page/994512312108a6b17b", link_label: "Read on LinkedIn" },
+  { name: "Zach Marion", role: "Founder, Shoreline Waste Solutions", quote: "Responsive, detail-oriented, and focused on delivering quality results.", image: "ahmad/clients/zach.jpg", link: "https://www.upwork.com/freelancers/~01eb09bb74c3e6d04b", link_label: "Read on Upwork" },
+  { name: "Nathan", role: "Founder at Vestra Software", quote: "Working with Ahmad has been an incredible experience. They have demonstrated deep technical expertise, clear communication, and a commitment to delivering a high-quality product to our team.", image: "ahmad/clients/nathan.jpeg", link: "https://www.upwork.com/freelancers/ahmadkamrans", link_label: "Read on Upwork" },
+  { name: "FKA Novara", role: "Startup Founder", quote: "We came to meet Ahmad in 2020 as a startup looking for a developer who could finalize a mockup based on Ruby on Rails. With Ahmad and A'sTechware's help, we brought our application into production, achieving excellent stability and fully meeting customer requirements.", image: "ahmad/clients/Screenshot_1.png", link: "https://www.linkedin.com/in/engr-ahmad-kamran", link_label: "Read on LinkedIn" },
+  { name: "Sven-Volker Nowarra", role: "In-A-Gadda-Da-Vida", quote: "Working with Ahmad for more than a year, we are highly confident with the work and consider the results delivered production ready. We are happy to continue our work with Ahmad and A'sTechware and are highly confident with their work.", image: "ahmad/clients/sven.jpeg", link: "https://www.linkedin.com/services/page/994512312108a6b17b", link_label: "Read on LinkedIn" },
+  { name: "William Schoeffler", role: "Co-Founder and Product @ Hitch", quote: "Ahmad is one of the hardest working engineers I've met. They worked endlessly and around the clock to make incredibly quick progress and took responsibility before deployment by doing detailed testing.", image: "ahmad/clients/william.jpeg", link: "https://www.linkedin.com/services/page/994512312108a6b17b", link_label: "Read on LinkedIn" },
+  { name: "Anthony Barry", role: "MBA | Investor", quote: "Its been a pleasure to work with since they joined the team. They are cooperative, responsive, and will go the extra yard to meet time-sensitive priorities.", image: "ahmad/clients/IMG_9811.png", link: "https://www.linkedin.com/in/engr-ahmad-kamran", link_label: "Read on LinkedIn" },
+  { name: "Ben Selland", role: "Principal at Selland Technologies", quote: "Ahmad is an excellent engineer with a strong eye for details. I enjoy working with Ahmad day to day and our team members do as well.", image: "ahmad/clients/ben-selland.jpeg", link: "https://www.linkedin.com/in/engr-ahmad-kamran", link_label: "Read on LinkedIn" },
+  { name: "Ania Dergachev", role: "Head, Product Design Studio", quote: "Ahmad consistently demonstrate reliability and are great team players. They tackle complex problems with a positive attitude and strong determination to find the best solution.", image: "ahmad/clients/ania.png", link: "https://www.linkedin.com/in/engr-ahmad-kamran", link_label: "Read on LinkedIn" },
+  { name: "Brianne Harvey", role: "Founder at Restaurant Resource", quote: "Ahmad has been an exceptional contractor, and we feel incredibly fortunate to have found him. He brings deep technical knowledge to the table, offers thoughtful feedback, and consistently recommends smarter, more efficient solutions.", image: "ahmad/clients/Brianne.jpeg", link: "https://www.upwork.com/freelancers/ahmadkamrans", link_label: "Read on Upwork" },
+  { name: "Jack", role: "Upwork Client", quote: "They created a great back end system and a mobile app for my drivers that will change how my business operations work. Their communication was always quick and responsive, making the process much easier. Highly recommend.", image: nil, link: "https://www.upwork.com/freelancers/~01eb09bb74c3e6d04b", link_label: "Read on Upwork" }
+] %>
+<section class="home-reviews-section" id="ahmad_clients">
+  <div class="container">
+    <div class="text-center mb-4 mb-lg-5">
       <h2 class="heading-border heading-center mb-3 pb-3 d-inline-block">What clients say</h2>
       <p class="mb-0"><%= link_to "Read all client reviews", reviews_path, class: "service-card-link ajax" %></p>
     </div>
     <div class="clients-testimonials-slider position-relative">
-      <div class="clients-slide">
-        <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
-          <div class="card-body">
-            <div class="d-flex align-items-center justify-content-between mb-3">
-              <div class="d-flex align-items-center">
-                <%= image_tag 'ahmad/clients/golf.jpeg', class: 'rounded-circle me-3', alt: 'Dale Merritt, CEO at GolfPay360', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
-                <div>
-                  <h3 class="h5 mb-0">Dale merritt</h3>
-                  <small class="text-muted">CEO, GolfPay360</small>
-                </div>
+      <% home_reviews.each do |review| %>
+        <div class="clients-slide">
+          <article class="review-feature-card">
+            <div class="review-feature-copy">
+              <p class="review-feature-quote"><%= review[:quote] %></p>
+              <div class="review-feature-person">
+                <p class="review-feature-name"><%= review[:name] %></p>
+                <p class="review-feature-role"><%= review[:role] %></p>
+                <a href="<%= review[:link] %>" target="_blank" rel="noopener noreferrer" class="review-feature-link"><%= review[:link_label] %></a>
               </div>
-              <span class="badge bg-light text-dark border">United States</span>
             </div>
-            <p class="mb-3">Been working with Ahmad for almost two years, and he&apos;s been great to work with. One of the most reliable developers I&apos;ve had the pleasure to work with.</p>
-            <p class="mb-0 mt-2 pt-2 border-top small text-muted">
-              <a href="https://www.linkedin.com/in/engr-ahmad-kamran" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on LinkedIn</a>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="clients-slide">
-        <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
-          <div class="card-body">
-            <div class="d-flex align-items-center justify-content-between mb-3">
-              <div class="d-flex align-items-center">
-                <%= image_tag 'ahmad/clients/joseph.jpeg', class: 'rounded-circle me-3', alt: "Joseph Chiavatti, A'sTechware Client", style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
-                <div>
-                  <h3 class="h5 mb-0">Joseph chiavatti</h3>
-                  <small class="text-muted">Technology Founder &amp; REALTOR®</small>
-                </div>
-              </div>
-              <span class="badge bg-light text-dark border">United States</span>
+            <div class="review-feature-media">
+              <% if review[:image].present? %>
+                <%= image_tag review[:image], alt: "#{review[:name]}, #{review[:role]}", loading: "lazy" %>
+              <% else %>
+                <div class="review-feature-placeholder" aria-hidden="true"><%= review[:name].to_s.first %></div>
+              <% end %>
             </div>
-            <p class="mb-3">They care about making sure the project is completed the correct way and are quick to communicate on the channels we use.</p>
-            <p class="mb-0 mt-2 pt-2 border-top small text-muted">
-              <a href="https://www.linkedin.com/services/page/994512312108a6b17b" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on LinkedIn</a>
-            </p>
-          </div>
+          </article>
         </div>
-      </div>
-      <div class="clients-slide">
-        <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
-          <div class="card-body">
-            <div class="d-flex align-items-center justify-content-between mb-3">
-              <div class="d-flex align-items-center">
-                <%= image_tag 'ahmad/clients/zach.jpg', class: 'rounded-circle me-3', alt: 'Zach Marion, Founder, Shoreline Waste Solutions', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
-                <div>
-                  <h3 class="h5 mb-0">Zach marion</h3>
-                  <small class="text-muted">Founder, Shoreline Waste Solutions</small>
-                </div>
-              </div>
-              <span class="badge bg-light text-dark border">United States</span>
-            </div>
-            <p class="mb-3">Responsive, detail-oriented, and focused on delivering quality results.</p>
-            <p class="mb-0 mt-2 pt-2 border-top small text-muted">
-              <a href="https://www.upwork.com/freelancers/~01eb09bb74c3e6d04b" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on Upwork</a>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="clients-slide">
-        <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
-          <div class="card-body">
-            <div class="d-flex align-items-center justify-content-between mb-3">
-              <div class="d-flex align-items-center">
-                <%= image_tag 'ahmad/clients/nathan.jpeg', class: 'rounded-circle me-3', alt: 'Nathan Wolf, CEO at Vestra', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
-                <div>
-                  <h3 class="h5 mb-0">Nathan</h3>
-                  <small class="text-muted">Founder at Vestra Software</small>
-                </div>
-              </div>
-              <span class="badge bg-light text-dark border">United States</span>
-            </div>
-            <p class="mb-3">Working with Ahmad has been an incredible experience. They have demonstrated deep technical expertise, clear communication, and a commitment to delivering a high-quality product to our team.</p>
-            <p class="mb-0 mt-2 pt-2 border-top small text-muted">
-              <a href="https://www.upwork.com/freelancers/ahmadkamrans" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on Upwork</a>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="clients-slide">
-        <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
-          <div class="card-body">
-            <div class="d-flex align-items-center justify-content-between mb-3">
-              <div class="d-flex align-items-center">
-                <%= image_tag 'ahmad/clients/Screenshot_1.png', class: 'rounded-circle me-3', alt: "FKA Novara, A'sTechware Client", style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
-                <div>
-                  <h3 class="h5 mb-0">FKA novara</h3>
-                  <small class="text-muted">Startup Founder</small>
-                </div>
-              </div>
-              <span class="badge bg-light text-dark border">Germany</span>
-            </div>
-            <p class="mb-3">We came to meet Ahmad in 2020 as a startup looking for a developer who could finalize a mockup based on Ruby on Rails. With Ahmad and A&apos;sTechware&apos;s help, we brought our application into production, achieving excellent stability and fully meeting customer requirements.</p>
-            <p class="mb-0 mt-2 pt-2 border-top small text-muted">
-              <a href="https://www.linkedin.com/in/engr-ahmad-kamran" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on LinkedIn</a>
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="clients-slide">
-        <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
-          <div class="card-body">
-            <div class="d-flex align-items-center justify-content-between mb-3">
-              <div class="d-flex align-items-center">
-                <%= image_tag 'ahmad/clients/sven.jpeg', class: 'rounded-circle me-3', alt: "Sven-Volker Nowarra, A'sTechware Client", style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
-                <div>
-                  <h3 class="h5 mb-0">Sven‑volker nowarra</h3>
-                  <small class="text-muted">In‑A‑Gadda‑Da‑Vida</small>
-                </div>
-              </div>
-              <span class="badge bg-light text-dark border">Germany</span>
-            </div>
-            <p class="mb-3">Working with Ahmad for more than a year, we are highly confident with the work and consider the results delivered production ready. We are happy to continue our work with Ahmad and A&apos;sTechware and are highly confident with their work.</p>
-            <p class="mb-0 mt-2 pt-2 border-top small text-muted">
-              <a href="https://www.linkedin.com/services/page/994512312108a6b17b" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on LinkedIn</a>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="clients-slide">
-        <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
-          <div class="card-body">
-            <div class="d-flex align-items-center justify-content-between mb-3">
-              <div class="d-flex align-items-center">
-                <%= image_tag 'ahmad/clients/william.jpeg', class: 'rounded-circle me-3', alt: "William Schoeffler, A'sTechware Client", style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
-                <div>
-                  <h3 class="h5 mb-0">William schoeffler</h3>
-                  <small class="text-muted">Co‑Founder and Product @ Hitch</small>
-                </div>
-              </div>
-              <span class="badge bg-light text-dark border">United States</span>
-            </div>
-            <p class="mb-3">Ahmad is one of the hardest working engineers I&apos;ve met. They worked endlessly and around the clock to make incredibly quick progress and took responsibility before deployment by doing detailed testing.</p>
-            <p class="mb-0 mt-2 pt-2 border-top small text-muted">
-              <a href="https://www.linkedin.com/services/page/994512312108a6b17b" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on LinkedIn</a>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="clients-slide">
-        <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
-          <div class="card-body">
-            <div class="d-flex align-items-center justify-content-between mb-3">
-              <div class="d-flex align-items-center">
-                <%= image_tag 'ahmad/clients/IMG_9811.png', class: 'rounded-circle me-3', alt: "Anthony Barry, A'sTechware Client", style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
-                <div>
-                  <h3 class="h5 mb-0">Anthony barry</h3>
-                  <small class="text-muted">MBA | Investor</small>
-                </div>
-              </div>
-              <span class="badge bg-light text-dark border">Australia</span>
-            </div>
-            <p class="mb-3">Its been a pleasure to work with since they joined the team. They are cooperative, responsive, and will go the extra yard to meet time-sensitive priorities.</p>
-            <p class="mb-0 mt-2 pt-2 border-top small text-muted">
-              <a href="https://www.linkedin.com/in/engr-ahmad-kamran" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on LinkedIn</a>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="clients-slide">
-        <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
-          <div class="card-body">
-            <div class="d-flex align-items-center justify-content-between mb-3">
-              <div class="d-flex align-items-center">
-                <%= image_tag 'ahmad/clients/ben-selland.jpeg', class: 'rounded-circle me-3', alt: "Ben Selland, A'sTechware Client", style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
-                <div>
-                  <h3 class="h5 mb-0">Ben selland</h3>
-                  <small class="text-muted">Principal at Selland Technologies</small>
-                </div>
-              </div>
-              <span class="badge bg-light text-dark border">United States</span>
-            </div>
-            <p class="mb-3">Ahmad is an excellent engineer with a strong eye for details. I enjoy working with Ahmad day to day and our team members do as well.</p>
-            <p class="mb-0 mt-2 pt-2 border-top small text-muted">
-              <a href="https://www.linkedin.com/in/engr-ahmad-kamran" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on LinkedIn</a>
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="clients-slide">
-        <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
-          <div class="card-body">
-            <div class="d-flex align-items-center justify-content-between mb-3">
-              <div class="d-flex align-items-center">
-                <%= image_tag 'ahmad/clients/ania.png', class: 'rounded-circle me-3', alt: "Ania Dergachev, A'sTechware Client", style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
-                <div>
-                  <h3 class="h5 mb-0">Ania dergachev</h3>
-                  <small class="text-muted">Head, Product Design Studio</small>
-                </div>
-              </div>
-              <span class="badge bg-light text-dark border">Canada</span>
-            </div>
-            <p class="mb-3">Ahmad consistently demonstrate reliability and are great team players. They tackle complex problems with a positive attitude and strong determination to find the best solution.</p>
-            <p class="mb-0 mt-2 pt-2 border-top small text-muted">
-              <a href="https://www.linkedin.com/in/engr-ahmad-kamran" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on LinkedIn</a>
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="clients-slide">
-        <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
-          <div class="card-body">
-            <div class="d-flex align-items-center justify-content-between mb-3">
-              <div class="d-flex align-items-center">
-                <%= image_tag 'ahmad/clients/Brianne.jpeg', class: 'rounded-circle me-3', alt: 'Brianne Harvey, Founder at Restaurant Resource', style: 'width:64px;height:64px;object-fit:cover;', loading: "lazy" %>
-                <div>
-                  <h3 class="h5 mb-0">Brianne harvey</h3>
-                  <small class="text-muted">Founder at Restaurant Resource</small>
-                </div>
-              </div>
-              <span class="badge bg-light text-dark border">United States</span>
-            </div>
-            <p class="mb-3">Ahmad has been an exceptional contractor, and we feel incredibly fortunate to have found him. He brings deep technical knowledge to the table, offers thoughtful feedback, and consistently recommends smarter, more efficient solutions.</p>
-            <p class="mb-0 mt-2 pt-2 border-top small text-muted">
-              <a href="https://www.upwork.com/freelancers/ahmadkamrans" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on Upwork</a>
-            </p>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="clients-slide">
-        <div class="card h-100 border-0 shadow-sm clients-testimonial-card">
-          <div class="card-body">
-            <div class="d-flex align-items-center justify-content-between mb-3">
-              <div class="d-flex align-items-center">
-                <div class="rounded-circle me-3 d-flex align-items-center justify-content-center bg-secondary text-white flex-shrink-0" style="width:64px;height:64px;" aria-hidden="true"><i class="fa fa-user fa-2x"></i></div>
-                <div>
-                  <h3 class="h5 mb-0">Jack</h3>
-                  <small class="text-muted">Upwork Client</small>
-                </div>
-              </div>
-              <span class="badge bg-light text-dark border">Upwork</span>
-            </div>
-            <p class="mb-3">They created a great back end system and a mobile app for my drivers that will change how my business operations work. Their communication was always quick and responsive, making the process much easier. Highly recommend.</p>
-            <p class="mb-0 mt-2 pt-2 border-top small text-muted">
-              <a href="https://www.upwork.com/freelancers/~01eb09bb74c3e6d04b" target="_blank" rel="noopener noreferrer" class="service-card-link">Read on Upwork</a>
-            </p>
-          </div>
-        </div>
-      </div>
+      <% end %>
     </div>
   </div>
-</div>
+</section>
 
 <!-- 10. FAQ -->
 <section class="py-5 bg-white" id="home-faq">
