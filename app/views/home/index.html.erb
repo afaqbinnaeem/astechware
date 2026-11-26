@@ -881,22 +881,24 @@
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const flashPopup = document.getElementById('flashAlertPopup');
-    const closeFlashBtn = document.getElementById('closeFlashAlert');
-    if (closeFlashBtn) {
-      closeFlashBtn.addEventListener('click', function() {
-        if (flashPopup) {
+  (function() {
+    if (window.__astechFlashAlertInit) return;
+    window.__astechFlashAlertInit = true;
+    function initFlashAlertPopup() {
+      const flashPopup = document.getElementById('flashAlertPopup');
+      const closeFlashBtn = document.getElementById('closeFlashAlert');
+      if (!flashPopup || flashPopup.dataset.flashBound === '1') return;
+      flashPopup.dataset.flashBound = '1';
+      if (closeFlashBtn) {
+        closeFlashBtn.addEventListener('click', function() {
           flashPopup.classList.remove('show');
           setTimeout(function() {
             if (flashPopup.parentNode) {
               flashPopup.parentNode.removeChild(flashPopup);
             }
           }, 400);
-        }
-      });
-    }
-    if (flashPopup) {
+        });
+      }
       setTimeout(function() {
         if (flashPopup.classList.contains('show')) {
           flashPopup.classList.remove('show');
@@ -908,6 +910,8 @@
         }
       }, 5000);
     }
-  });
+    document.addEventListener('DOMContentLoaded', initFlashAlertPopup);
+    document.addEventListener('turbo:load', initFlashAlertPopup);
+  })();
 </script>
 <% end %>

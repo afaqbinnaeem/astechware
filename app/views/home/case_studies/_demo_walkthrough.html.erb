@@ -55,7 +55,10 @@
         });
       });
     }
-    document.addEventListener("DOMContentLoaded", function () { wireDemoPlayers(); });
-    document.addEventListener("turbo:load", function () { wireDemoPlayers(); });
+    if (!window.__astechDemoPlayersInit) {
+      window.__astechDemoPlayersInit = true;
+      document.addEventListener("DOMContentLoaded", function () { wireDemoPlayers(); });
+      document.addEventListener("turbo:load", function () { wireDemoPlayers(); });
+    }
   })();
 </script>

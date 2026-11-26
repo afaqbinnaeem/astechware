@@ -201,46 +201,52 @@
 </style>
 
 <script>
-  function initCaseStudiesFiltering() {
-    const grid = document.getElementById('caseStudiesGrid');
-    if (!grid) return;
+  (function() {
+    if (window.__astechCaseStudiesFilteringInit) return;
+    window.__astechCaseStudiesFilteringInit = true;
 
-    const buttons = Array.from(document.querySelectorAll('.case-filter-btn'));
-    const tiles = Array.from(grid.querySelectorAll('.case-study-tile'));
+    function initCaseStudiesFiltering() {
+      const grid = document.getElementById('caseStudiesGrid');
+      if (!grid || grid.dataset.filteringBound === '1') return;
+      grid.dataset.filteringBound = '1';
 
-    function setActiveButton(activeBtn) {
+      const buttons = Array.from(document.querySelectorAll('.case-filter-btn'));
+      const tiles = Array.from(grid.querySelectorAll('.case-study-tile'));
+
+      function setActiveButton(activeBtn) {
+        buttons.forEach((btn) => {
+          const isActive = btn === activeBtn;
+          btn.classList.toggle('is-active', isActive);
+          btn.classList.toggle('btn-primary', isActive);
+          btn.classList.toggle('btn-outline-primary', !isActive);
+          btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+      }
+
+      function applyFilter(filter) {
+        tiles.forEach((tile) => {
+          const categories = (tile.getAttribute('data-categories') || '').split(/\s+/).filter(Boolean);
+          const shouldShow = filter === 'all' ? true : categories.includes(filter);
+          tile.classList.toggle('is-hidden', !shouldShow);
+        });
+      }
+
       buttons.forEach((btn) => {
-        const isActive = btn === activeBtn;
-        btn.classList.toggle('is-active', isActive);
-        btn.classList.toggle('btn-primary', isActive);
-        btn.classList.toggle('btn-outline-primary', !isActive);
-        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        btn.addEventListener('click', () => {
+          const filter = btn.getAttribute('data-filter') || 'all';
+          setActiveButton(btn);
+          applyFilter(filter);
+        });
       });
+
+      const defaultBtn = buttons.find((b) => b.getAttribute('data-filter') === 'all') || buttons[0];
+      if (defaultBtn) {
+        setActiveButton(defaultBtn);
+        applyFilter('all');
+      }
     }
 
-    function applyFilter(filter) {
-      tiles.forEach((tile) => {
-        const categories = (tile.getAttribute('data-categories') || '').split(/\s+/).filter(Boolean);
-        const shouldShow = filter === 'all' ? true : categories.includes(filter);
-        tile.classList.toggle('is-hidden', !shouldShow);
-      });
-    }
-
-    buttons.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const filter = btn.getAttribute('data-filter') || 'all';
-        setActiveButton(btn);
-        applyFilter(filter);
-      });
-    });
-
-    const defaultBtn = buttons.find((b) => b.getAttribute('data-filter') === 'all') || buttons[0];
-    if (defaultBtn) {
-      setActiveButton(defaultBtn);
-      applyFilter('all');
-    }
-  }
-
-  document.addEventListener('DOMContentLoaded', initCaseStudiesFiltering);
-  document.addEventListener('turbo:load', initCaseStudiesFiltering);
+    document.addEventListener('DOMContentLoaded', initCaseStudiesFiltering);
+    document.addEventListener('turbo:load', initCaseStudiesFiltering);
+  })();
 </script>
