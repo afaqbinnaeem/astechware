@@ -55,6 +55,7 @@
   --section-pad-y: 5.5rem;      /* vertical breathing room between bands */
   --hero-pad-y: 5.5rem;
   --card-radius: 16px;
+  --card-corner: 56px;
   --card-pad: 1.5rem;
   --card-gap: 1.25rem;
   --stack-gap-sm: 16px;
@@ -1278,32 +1279,6 @@ nav.nav-inner {
   z-index: -1;
 }
 
-.what-we-do .card {
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.what-we-do .card:hover {
-  background: var(--text-color);
-  color: #242a3b;
-  box-shadow: -2px 2px 35px 0px rgb(0 0 0 / 25%);
-}
-
-.what-we-do .card:hover svg path,
-.what-we-do .card:hover h4,
-.what-we-do .card:hover p {
-  color: white;
-  fill: white;
-}
-
-.what-we-do .card:hover div {
-  color: white !important;
-}
-
-.what-we-do .card:hover i {
-  color: var(--site-color) !important;
-}
-
 .what-we-do .card svg {
   width: 64px;
 }
@@ -1602,19 +1577,11 @@ nav.nav-inner {
 
 .workflow-card {
   background: #fff;
-  border-radius: var(--card-radius);
-  box-shadow: -8px 0 0 0 var(--site-color), 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
 }
 
 .workflow-card h3,
 .workflow-card p {
   color: var(--text-color);
-}
-
-.workflow-card:hover {
-  box-shadow: -8px 0 0 0 var(--site-color), 0 4px 12px rgba(0, 0, 0, 0.15);
-  transform: translateY(-2px);
 }
 
 /* Industry "Problems we solve": centre a short last row (3 + 2) */
@@ -9663,8 +9630,6 @@ section#problems .row.g-4 {
   gap: 2rem 2.5rem;
   align-items: center;
   background: #fff;
-  border-radius: 24px;
-  box-shadow: 0 12px 40px rgba(36, 42, 59, 0.08);
   padding: 2.5rem 2.75rem;
   min-height: 320px;
 }
@@ -9909,7 +9874,6 @@ section#problems .row.g-4 {
 
 @media (max-width: 575.98px) {
   .review-feature-card {
-    border-radius: 18px;
     padding: 1.35rem 1.15rem 1.25rem;
   }
 
@@ -10029,10 +9993,7 @@ section#problems .row.g-4 {
 
 .contact-side-card {
   background: #fff;
-  border: 1px solid #e6e8ec;
-  border-radius: 12px;
   padding: 20px;
-  box-shadow: none;
 }
 
 .contact-side-card + .contact-side-card {
@@ -12491,37 +12452,8 @@ section#problems .row.g-4 {
 /* Enhanced Build System Cards */
 .build-system-card {
   background: #ffffff;
-  border-radius: var(--card-radius);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e9ecef;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
-}
-
-.build-system-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background: var(--site-color);
-  transform: scaleY(0);
-  transform-origin: bottom;
-  transition: transform 0.3s ease;
-}
-
-.build-system-card:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  transform: translateY(-4px);
-  border-color: var(--site-color);
-}
-
-.build-system-card:hover::before {
-  transform: scaleY(1);
 }
 
 .build-system-card h4 {
@@ -12559,20 +12491,9 @@ section#problems .row.g-4 {
   box-shadow: 0 4px 12px rgba(249, 196, 46, 0.3);
 }
 
-.build-system-card:hover .build-icon {
-  transform: scale(1.1) rotate(5deg);
-  box-shadow: 0 6px 20px rgba(249, 196, 46, 0.4);
-}
-
 .build-system-card-featured {
   background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
   border: 2px solid var(--site-color);
-  box-shadow: 0 4px 16px rgba(249, 196, 46, 0.15);
-}
-
-.build-system-card-featured:hover {
-  box-shadow: 0 8px 28px rgba(249, 196, 46, 0.2);
-  transform: translateY(-4px);
 }
 
 .build-icon-featured {
@@ -12634,38 +12555,9 @@ section#problems .row.g-4 {
 /* ===== Service Cards Grid ===== */
 .service-card {
   background: #ffffff;
-  border-radius: var(--card-radius);
-  border: 1px solid #e9ecef;
   padding: var(--card-pad);
   display: flex;
   flex-direction: column;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.service-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: var(--site-color);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
-}
-
-.service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-  border-color: var(--site-color);
-}
-
-.service-card:hover::before {
-  transform: scaleX(1);
 }
 
 .service-card-icon {
@@ -12683,11 +12575,6 @@ section#problems .row.g-4 {
 .service-card-icon i {
   font-size: 24px;
   color: var(--site-color);
-}
-
-.service-card:hover .service-card-icon {
-  transform: scale(1.1) rotate(5deg);
-  box-shadow: 0 4px 14px rgba(249, 196, 46, 0.3);
 }
 
 .service-card-title {
@@ -13037,17 +12924,8 @@ section#problems .row.g-4 {
 
 .service-tech-item {
   background: #fff;
-  border: 1px solid #e9ecef;
-  border-radius: 10px;
   padding: 16px;
   text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-}
-
-.service-tech-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  border-color: var(--site-color);
 }
 
 .service-tech-icon {
@@ -13151,9 +13029,6 @@ section#problems .row.g-4 {
 
 .about-value-card {
   background: #fff;
-  border: 1px solid #e9ecef;
-  border-radius: 10px;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .about-value-card:hover {
@@ -13841,15 +13716,6 @@ section#problems .row.g-4 {
   }
 }
 
-.what-we-build-card .build-system-card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.what-we-build-card:hover .build-system-card {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
-}
-
 .what-we-build-more {
   color: #1a1f2e;
   font-weight: 600;
@@ -14425,26 +14291,18 @@ section#problems .row.g-4 {
   }
 }
 
-/* Unified card surfaces */
-.workflow-card,
-.build-system-card,
-.service-card,
-.tools-platform-card,
-.case-study-tile-card,
-.what-we-build-card .build-system-card,
-.inner-sections .card,
-.service-page-list li,
-.blog-featured-card,
-.blog-grid-card {
-  border-radius: var(--card-radius) !important;
-}
-
+/* Unified card padding (shape comes from .site-card) */
 .workflow-card,
 .build-system-card,
 .service-card,
 .tools-platform-card,
 .case-study-tile-card {
   padding: var(--card-pad);
+}
+
+.blog-featured-card,
+.blog-grid-card {
+  border-radius: var(--card-radius);
 }
 
 .inner-sections .row.g-4 {
@@ -14490,19 +14348,18 @@ section#problems .row.g-4 {
 
 .service-page-list li {
   background: #fff;
-  border: 1px solid #e6e8ec;
-  border-radius: 12px;
   padding: 16px 16px 16px 42px;
-  position: relative;
 }
 
-.service-page-list li::before {
+.service-page-list li::after {
   content: "\f0c8";
   font-family: FontAwesome;
   color: var(--site-color);
   position: absolute;
   left: 16px;
   top: 16px;
+  z-index: 1;
+  pointer-events: none;
 }
 
 @media (min-width: 992px) {
@@ -14771,25 +14628,330 @@ section#problems .row.g-4 {
 }
 
 /* Cards on gradient / white tones */
+.section-tone-gradient .site-card,
 .section-tone-gradient .build-system-card,
 .section-tone-gradient .workflow-card,
 .section-tone-gradient .tools-platform-card,
 .section-tone-gradient .contact-side-card,
 .section-tone-gradient .review-feature-card,
+.section-tone-gradient .service-page-list li,
+.section-tone-gradient .service-tech-item,
+.section-tone-gradient .about-value-card,
+.section-tone-gradient .what-we-do .card,
+.bg-light-grey .site-card,
 .bg-light-grey .build-system-card,
 .bg-light-grey .workflow-card,
+.bg-light-grey .tools-platform-card,
+.bg-light-grey .service-page-list li,
+.bg-light-grey .service-tech-item,
 .home-reviews-section .review-feature-card,
-.contact-us-section .contact-side-card {
+.contact-us-section .contact-side-card,
+.tools-platforms-section .tools-platform-card {
   background: #ffffff;
   border: var(--card-border-on-gradient);
-  box-shadow: var(--card-shadow-soft);
+  box-shadow: none;
 }
 
+.section-tone-white .site-card,
 .section-tone-white .build-system-card,
 .section-tone-white .workflow-card,
+.section-tone-white .tools-platform-card,
+.section-tone-white .case-study-tile-card,
+.section-tone-white .service-page-list li,
+.section-tone-white .service-tech-item,
+.section-tone-white .about-value-card,
+.bg-white .site-card,
 .bg-white .build-system-card,
-.bg-white .workflow-card {
+.bg-white .workflow-card,
+.bg-white .tools-platform-card,
+.bg-white .case-study-tile-card,
+.bg-white .service-page-list li,
+.inner-sections .case-study-tile-card {
   border: var(--card-border-on-white);
+  box-shadow: none;
+}
+
+/* ===== Shared site card (asymmetric corner + yellow arc) ===== */
+.site-card,
+.workflow-card,
+.build-system-card,
+.service-card,
+.tools-platform-card,
+.case-study-tile-card,
+.contact-side-card,
+.review-feature-card,
+.service-page-list li,
+.service-tech-item,
+.about-value-card,
+.what-we-do .card {
+  --card-corner: 56px;
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+  border-radius: 16px var(--card-corner) 16px 16px;
+  border: var(--card-border-on-white);
+  box-shadow: none;
+}
+
+.site-card::before,
+.workflow-card::before,
+.build-system-card::before,
+.service-card::before,
+.tools-platform-card::before,
+.case-study-tile-card::before,
+.contact-side-card::before,
+.review-feature-card::before,
+.service-page-list li::before,
+.service-tech-item::before,
+.about-value-card::before,
+.what-we-do .card::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  width: var(--card-corner);
+  height: var(--card-corner);
+  border-top: 3px solid var(--site-color);
+  border-right: 3px solid var(--site-color);
+  border-left: 0;
+  border-bottom: 0;
+  border-radius: 0 var(--card-corner) 0 0;
+  box-sizing: border-box;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.7;
+  -webkit-mask-image: linear-gradient(225deg, #000 30%, transparent 70%);
+  mask-image: linear-gradient(225deg, #000 30%, transparent 70%);
+  transition: opacity 200ms ease;
+}
+
+.site-card > *,
+.workflow-card > *,
+.build-system-card > *,
+.service-card > *,
+.tools-platform-card > *,
+.case-study-tile-card > *,
+.contact-side-card > *,
+.review-feature-card > *,
+.service-page-list li > *,
+.service-tech-item > *,
+.about-value-card > *,
+.what-we-do .card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.site-card h1,
+.site-card h2,
+.site-card h3,
+.site-card h4,
+.site-card h5,
+.site-card h6,
+.site-card .h3,
+.site-card .h4,
+.site-card .h5,
+.site-card .h6,
+.site-card .contact-side-title,
+.site-card .tools-platform-card-title,
+.site-card .service-card-title,
+.workflow-card h1,
+.workflow-card h2,
+.workflow-card h3,
+.workflow-card h4,
+.workflow-card h5,
+.workflow-card h6,
+.workflow-card .h3,
+.workflow-card .h4,
+.workflow-card .h5,
+.workflow-card .h6,
+.build-system-card h1,
+.build-system-card h2,
+.build-system-card h3,
+.build-system-card h4,
+.build-system-card h5,
+.build-system-card h6,
+.build-system-card .h3,
+.build-system-card .h4,
+.build-system-card .h5,
+.build-system-card .h6,
+.service-card h3,
+.service-card h4,
+.service-card .h5,
+.service-card-title,
+.tools-platform-card-title,
+.case-study-tile-card h3,
+.case-study-tile-card .h5,
+.contact-side-title,
+.about-value-card h3,
+.about-value-card h4,
+.about-value-card > strong,
+.what-we-do .card h3,
+.what-we-do .card h4 {
+  padding-right: calc(var(--card-corner) * 0.45);
+}
+
+/* Small cards (~under 120px): tighter corner */
+.contact-side-card:not(:has(.btn)),
+.service-tech-item,
+#roles .workflow-card {
+  --card-corner: 40px;
+}
+
+/* Dark backgrounds */
+.bg-dark .site-card,
+.bg-dark .workflow-card,
+.bg-dark .build-system-card,
+.bg-dark .service-card,
+.bg-dark .tools-platform-card,
+.bg-dark .case-study-tile-card,
+.bg-dark .contact-side-card,
+.section-tone-dark .site-card,
+.section-tone-dark .workflow-card,
+.section-tone-dark .build-system-card,
+[class*="bg-dark"] .site-card,
+[class*="bg-dark"] .workflow-card,
+[class*="bg-dark"] .build-system-card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Interactive hover: clickable cards / "See how" cards only */
+@media (hover: hover) and (min-width: 768px) {
+  a .site-card,
+  a .workflow-card,
+  a .build-system-card,
+  a .service-card,
+  a .case-study-tile-card,
+  a .tools-platform-card,
+  a .about-value-card,
+  a .what-we-do .card,
+  a.what-we-do .card,
+  .what-we-do a.card,
+  .site-card:has(.what-we-build-more),
+  .site-card:has(.service-card-link),
+  .build-system-card:has(.what-we-build-more),
+  .build-system-card:has(.service-card-link),
+  .workflow-card:has(.service-card-link),
+  .service-card:has(.service-card-link),
+  .case-study-tile-card:has(.service-card-link),
+  .review-feature-card:has(.review-feature-link),
+  .review-feature-card:has(.service-card-link) {
+    transition: transform 200ms ease, box-shadow 200ms ease;
+  }
+
+  a:hover .site-card,
+  a:hover .workflow-card,
+  a:hover .build-system-card,
+  a:hover .service-card,
+  a:hover .case-study-tile-card,
+  a:hover .tools-platform-card,
+  a:hover .about-value-card,
+  a:hover .what-we-do .card,
+  a.what-we-do:hover .card,
+  .what-we-do a.card:hover,
+  .site-card:has(.what-we-build-more):hover,
+  .site-card:has(.service-card-link):hover,
+  .build-system-card:has(.what-we-build-more):hover,
+  .build-system-card:has(.service-card-link):hover,
+  .workflow-card:has(.service-card-link):hover,
+  .service-card:has(.service-card-link):hover,
+  .case-study-tile-card:has(.service-card-link):hover,
+  .review-feature-card:has(.review-feature-link):hover,
+  .review-feature-card:has(.service-card-link):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(16, 24, 40, 0.08);
+  }
+
+  a:hover .site-card::before,
+  a:hover .workflow-card::before,
+  a:hover .build-system-card::before,
+  a:hover .service-card::before,
+  a:hover .case-study-tile-card::before,
+  a:hover .tools-platform-card::before,
+  a:hover .about-value-card::before,
+  a:hover .what-we-do .card::before,
+  a.what-we-do:hover .card::before,
+  .what-we-do a.card:hover::before,
+  .site-card:has(.what-we-build-more):hover::before,
+  .site-card:has(.service-card-link):hover::before,
+  .build-system-card:has(.what-we-build-more):hover::before,
+  .build-system-card:has(.service-card-link):hover::before,
+  .workflow-card:has(.service-card-link):hover::before,
+  .service-card:has(.service-card-link):hover::before,
+  .case-study-tile-card:has(.service-card-link):hover::before,
+  .review-feature-card:has(.review-feature-link):hover::before,
+  .review-feature-card:has(.service-card-link):hover::before {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .site-card,
+  .workflow-card,
+  .build-system-card,
+  .service-card,
+  .tools-platform-card,
+  .case-study-tile-card,
+  .contact-side-card,
+  .review-feature-card,
+  .service-page-list li,
+  .service-tech-item,
+  .about-value-card,
+  .what-we-do .card {
+    --card-corner: 40px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a .site-card,
+  a .workflow-card,
+  a .build-system-card,
+  a .service-card,
+  a .case-study-tile-card,
+  a .tools-platform-card,
+  a .about-value-card,
+  .site-card:has(.what-we-build-more),
+  .site-card:has(.service-card-link),
+  .build-system-card:has(.what-we-build-more),
+  .build-system-card:has(.service-card-link),
+  .workflow-card:has(.service-card-link),
+  .service-card:has(.service-card-link),
+  .case-study-tile-card:has(.service-card-link),
+  .review-feature-card:has(.review-feature-link),
+  .review-feature-card:has(.service-card-link),
+  .site-card::before,
+  .workflow-card::before,
+  .build-system-card::before,
+  .service-card::before,
+  .tools-platform-card::before,
+  .case-study-tile-card::before,
+  .contact-side-card::before,
+  .review-feature-card::before,
+  .service-page-list li::before,
+  .service-tech-item::before,
+  .about-value-card::before,
+  .what-we-do .card::before {
+    transition: none;
+  }
+
+  a:hover .site-card,
+  a:hover .workflow-card,
+  a:hover .build-system-card,
+  a:hover .service-card,
+  a:hover .case-study-tile-card,
+  a:hover .tools-platform-card,
+  a:hover .about-value-card,
+  .site-card:has(.what-we-build-more):hover,
+  .site-card:has(.service-card-link):hover,
+  .build-system-card:has(.what-we-build-more):hover,
+  .build-system-card:has(.service-card-link):hover,
+  .workflow-card:has(.service-card-link):hover,
+  .service-card:has(.service-card-link):hover,
+  .case-study-tile-card:has(.service-card-link):hover,
+  .review-feature-card:has(.review-feature-link):hover,
+  .review-feature-card:has(.service-card-link):hover {
+    transform: none;
+    box-shadow: none;
+  }
 }
 
 @media (max-width: 767.98px) {
