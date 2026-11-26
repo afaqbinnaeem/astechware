@@ -13435,9 +13435,65 @@ section#problems .row.g-4 {
   text-decoration: none;
 }
 
+/* ========== Page content width (avoid nested narrow cols) ========== */
+
+/*
+ * Cap marketing containers at the XL width so hero + body share one centered
+ * rail on large screens (avoid 1320px line lengths that are hard to read).
+ */
+@media (min-width: 1200px) {
+  .hero-section > .container,
+  .service-page-hero > .container,
+  .inner-sections > section > .container,
+  .inner-sections > .container,
+  .blog-post-page > .container,
+  .blog-breadcrumb-container.container {
+    max-width: 1140px;
+  }
+}
+
+/*
+ * Many templates nest col-lg-8/9/10.mx-auto inside .container, which shrinks
+ * prose ~17–33% vs the hero. Expand those wrappers to the full container so
+ * hero + body share the same centered content rail.
+ */
+.hero-section > .container > [class*="col-"].mx-auto,
+.hero-section > .container > .row > [class*="col-"].mx-auto,
+.service-page-hero > .container > [class*="col-"].mx-auto,
+.service-page-hero > .container > .row > [class*="col-"].mx-auto,
+.inner-sections .container > [class*="col-"].mx-auto,
+.inner-sections .container > .row > [class*="col-"].mx-auto {
+  width: 100% !important;
+  max-width: 100%;
+  flex: 0 0 100%;
+}
+
+/* Hero subtitles: readable measure, still centered */
+.hero-section > .container p[style*="max-width"],
+.service-page-hero > .container p[style*="max-width"] {
+  max-width: 48rem !important; /* ~768px */
+}
+
+/* Prose fills its column; no extra reading-width clamp on marketing pages */
+.inner-sections p,
+.inner-sections .large-para,
 .case-study-page .inner-sections p,
 .case-study-page .inner-sections .large-para {
-  max-width: 680px;
+  max-width: none;
+  line-height: 1.7;
+}
+
+/* Keep case-study headings on the same left edge as the prose */
+.case-study-page .inner-sections > section > .container > .col-12 > h2.heading-center,
+.case-study-page .inner-sections > section > .container > [class*="col-"] > h2.heading-center {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  text-align: left;
+}
+
+.case-study-page .at-a-glance-card ul {
+  font-size: 0.95rem;
+  line-height: 1.65;
 }
 
 .service-page-list {

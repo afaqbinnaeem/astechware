@@ -14,7 +14,7 @@
 <div class="blog-post-page inner-sections">
   <article class="container py-4">
     <div class="row justify-content-center">
-      <div class="col-12 col-lg-8">
+      <div class="col-12 col-lg-10">
         <%# Hero image %>
         <div class="position-relative mb-4 rounded overflow-hidden">
           <%= image_tag article[:image], class: "blog-post-hero img-fluid", alt: (article[:image_alt].presence || article[:title]), loading: "eager" if article[:image].present? %>
