@@ -9626,7 +9626,7 @@ section#problems .row.g-4 {
 
 .review-feature-card {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(220px, 0.85fr);
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 2rem 2.5rem;
   align-items: center;
   background: #fff;
@@ -9679,15 +9679,19 @@ section#problems .row.g-4 {
   border-radius: 20px;
   overflow: hidden;
   background: #f3f4f6;
-  aspect-ratio: 4 / 5;
-  max-height: 340px;
-  justify-self: stretch;
+  width: 260px;
+  height: 260px;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  justify-self: end;
+  align-self: center;
 }
 
 .review-feature-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center center;
   display: block;
 }
 
