@@ -136,7 +136,7 @@
 
   </head>
 
-  <body class="<%= "case-study-page" if request.path.start_with?("/case-studies/") %>">
+  <body class="<%= [("case-study-page" if request.path.start_with?("/case-studies/")), ("home-page" if request.path == "/")].compact.join(" ") %>">
     <div id="wrapper" class="site-wrapper">
       <%= render 'layouts/header' %>
       <main id="main-content">

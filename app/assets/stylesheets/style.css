@@ -14790,6 +14790,42 @@ section#problems .row.g-4 {
   padding-right: calc(var(--card-corner) * 0.45);
 }
 
+/* No yellow corner arc on the wide homepage / contact / review cards */
+.contact-side-card,
+.review-feature-card,
+.tools-platform-card,
+#who-we-work-with .workflow-card,
+#two-ways .workflow-card,
+#how-we-derisk .workflow-card,
+#featured-work .build-system-card,
+#industries-we-serve .row.mt-4 .build-system-card {
+  --card-corner: 16px;
+  border-radius: 16px;
+}
+
+.contact-side-card::before,
+.review-feature-card::before,
+.tools-platform-card::before,
+#who-we-work-with .workflow-card::before,
+#two-ways .workflow-card::before,
+#how-we-derisk .workflow-card::before,
+#featured-work .build-system-card::before,
+#industries-we-serve .row.mt-4 .build-system-card::before {
+  content: none;
+  display: none;
+}
+
+.contact-side-card .contact-side-title,
+.tools-platform-card-title,
+.review-feature-card :is(h1, h2, h3, h4, h5, h6, .h3, .h4, .h5, .h6),
+#who-we-work-with .workflow-card :is(h1, h2, h3, h4, h5, h6, .h3, .h4, .h5, .h6),
+#two-ways .workflow-card :is(h1, h2, h3, h4, h5, h6, .h3, .h4, .h5, .h6),
+#how-we-derisk .workflow-card :is(h1, h2, h3, h4, h5, h6, .h3, .h4, .h5, .h6),
+#featured-work .build-system-card :is(h1, h2, h3, h4, h5, h6, .h3, .h4, .h5, .h6),
+#industries-we-serve .row.mt-4 .build-system-card :is(h1, h2, h3, h4, h5, h6, .h3, .h4, .h5, .h6) {
+  padding-right: 0;
+}
+
 /* Small cards (~under 120px): tighter corner */
 .contact-side-card:not(:has(.btn)),
 .service-tech-item,
@@ -14969,5 +15005,57 @@ section#problems .row.g-4 {
     animation: none;
     opacity: 0;
   }
+}
+
+/* Yellow corner arc stays on the homepage only */
+body:not(.home-page) :is(
+  .site-card,
+  .workflow-card,
+  .build-system-card,
+  .service-card,
+  .tools-platform-card,
+  .case-study-tile-card,
+  .contact-side-card,
+  .review-feature-card,
+  .service-page-list li,
+  .service-tech-item,
+  .about-value-card,
+  .what-we-do .card
+) {
+  --card-corner: 16px;
+  border-radius: 16px;
+}
+
+body:not(.home-page) :is(
+  .site-card,
+  .workflow-card,
+  .build-system-card,
+  .service-card,
+  .tools-platform-card,
+  .case-study-tile-card,
+  .contact-side-card,
+  .review-feature-card,
+  .service-page-list li,
+  .service-tech-item,
+  .about-value-card,
+  .what-we-do .card
+)::before {
+  content: none;
+  display: none;
+}
+
+body:not(.home-page) :is(
+  .site-card,
+  .workflow-card,
+  .build-system-card,
+  .service-card,
+  .tools-platform-card,
+  .case-study-tile-card,
+  .contact-side-card,
+  .review-feature-card,
+  .about-value-card,
+  .what-we-do .card
+) :is(h1, h2, h3, h4, h5, h6, .h3, .h4, .h5, .h6, .contact-side-title, .tools-platform-card-title, .service-card-title, strong) {
+  padding-right: 0;
 }
 
